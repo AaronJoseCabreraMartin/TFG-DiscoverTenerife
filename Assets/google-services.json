@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "993595598765",
+    "project_id": "discovertenerife-fd031",
+    "storage_bucket": "discovertenerife-fd031.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993595598765:android:f8f883abeb85e90455e324",
+        "android_client_info": {
+          "package_name": "com.ULLalu0101101019.DiscoverTenerife"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "993595598765-gov25ig79svl8v52ne2rlrmi7jcl8gf8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApw21GmwYFVi-tV_qel8kQyZljowWm2KE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "993595598765-gov25ig79svl8v52ne2rlrmi7jcl8gf8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
