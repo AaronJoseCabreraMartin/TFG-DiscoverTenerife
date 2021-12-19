@@ -61,3 +61,5 @@ crashlytics-build.properties
 Assets/Data/
 Assets/Firebase/
 Assets/GoogleSignIn/
+*.meta
+*.keystore

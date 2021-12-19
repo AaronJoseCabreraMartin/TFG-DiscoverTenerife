@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "993595598765-hmeaht32nobt99b2j74siralg4gecojk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ULLalu0101101019.DiscoverTenerife",
+            "certificate_hash": "9095be3bbd53a0b785b8d69049af7401936cc15c"
+          }
+        },
+        {
           "client_id": "993595598765-gov25ig79svl8v52ne2rlrmi7jcl8gf8.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -11,6 +11,8 @@ public class Place
     private double longitude_;
     private Sprite image_;
 
+    private int timesItHasBeenVisited_;
+
     public Place(string lineToSplit, Sprite image)
     {
         string[] lineSplited = lineToSplit.Split(';');

@@ -5,17 +5,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Firebase;
 using Firebase.Auth;
-//using Firebase.Database;
+using Firebase.Database;
 using Google;
-
 public class firebaseHandler : MonoBehaviour
 {
     FirebaseApp firebaseApp = null;
     internal Firebase.Auth.FirebaseAuth auth = null;
     internal Firebase.Auth.FirebaseUser user = null;
-    //internal DatabaseReference database = null;
+    internal DatabaseReference database = null;
     
     private GoogleSignInConfiguration configuration;
+
+    public UserData actualUser = null;
 
     private bool firebaseDependenciesResolved = false;
 
@@ -61,13 +62,15 @@ public class firebaseHandler : MonoBehaviour
         // con esto recogemos si tiene algun usuario registrado
         user = auth.CurrentUser;
         // con esto recogemos la referencia a la base de datos, para poder hacer operaciones de escritura o lectura.
-        //database = FirebaseDatabase.GetInstance(firebaseApp).RootReference;
+        database = FirebaseDatabase.GetInstance(firebaseApp).RootReference;
+        //database = FirebaseDatabase.DefaultInstance;
     }
 
     public bool FirebaseDependenciesAreResolved(){
         return firebaseDependenciesResolved;
     }
 
+    ///// USER ACCOUNTS METHODS /////
     public void CreateNewUser(string email, string password){
         auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
             if (task.IsCanceled) {
@@ -124,6 +127,8 @@ public class firebaseHandler : MonoBehaviour
             Firebase.Auth.FirebaseUser newUser = task.Result;
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 newUser.DisplayName, newUser.UserId);
+            //actualUser = new UserData(newUser.UserId,newUser.DisplayName);
+            // No se por que ahora no se quta el mensaje de error no se puede conectar con firebase
             },TaskScheduler.FromCurrentSynchronizationContext());
         }else{
             Debug.Log("El usuario anonimo ya existia");
@@ -131,6 +136,7 @@ public class firebaseHandler : MonoBehaviour
         GameObject.Find("anonymousButtonHandler").GetComponent<anonymousButtonHandler>().anonymousUserLoginSucessfully();
     }
 
+    //button function
     public void SignInWithGoogle()
     {
         GoogleSignIn.Configuration = configuration;
@@ -139,6 +145,7 @@ public class firebaseHandler : MonoBehaviour
 
         GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnAuthenticationFinished);
     }
+    
     // internal es que solo tienen acceso este fichero!? algo asi lei
     internal void OnAuthenticationFinished(Task<GoogleSignInUser> task)
     {
@@ -167,21 +174,25 @@ public class firebaseHandler : MonoBehaviour
             Debug.Log("Welcome: " + task.Result.DisplayName + "!");
             Debug.Log("Email = " + task.Result.Email);
             Debug.Log("Google ID Token = " + task.Result.IdToken);
-            Debug.Log("Email = " + task.Result.Email);
-            SignInWithGoogleOnFirebase(task.Result.IdToken);
+            SignInWithGoogleOnFirebase(task.Result.IdToken,task.Result);
         }
 
         if(errors.Length != 0){
+            GameObject.Find("googleLoginController").GetComponent<googleLoginController>().errorLoginUser(errors);
             Debug.Log("llamada a funcion algo salio mal(errors)");
         }
     }
 
-    private void SignInWithGoogleOnFirebase(string idToken)
+    private void SignInWithGoogleOnFirebase(string idToken, GoogleSignInUser user)
     {
         Credential credential = GoogleAuthProvider.GetCredential(idToken, null);
+        Debug.Log("Para buscar: hasta aqui todo bien");
 
         auth.SignInWithCredentialAsync(credential).ContinueWith(task =>
         {
+            //peta en este punto
+            // warn system ignoring header x-firebase-locale because its value was null. 
+            Debug.Log("Pabuscar: he llegado aqui 2");
             string errors = "";
             AggregateException ex = task.Exception;
             if (ex != null)
@@ -192,19 +203,38 @@ public class firebaseHandler : MonoBehaviour
             }
             else
             {
+                GameObject.Find("Login button Google").GetComponent<googleLoginController>().userLogedSuccessfully(user.DisplayName);
                 Debug.Log("se inicio sesion correctamente! llamada a TODO OK.");
+            }
+            if(errors.Length != 0){
+                GameObject.Find("Login button Google").GetComponent<googleLoginController>().errorLoginUser(errors);
+                Debug.Log("llamada a funcion algo salio mal(errors)");
             }
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
 
-    /*
-    Falta leer mas el codigo de ejemplo
-    Hacer funcional el boton de Google, habra que poner dos 
-    botones uno de registrarse y otro de iniciar sesion
-    */
-
     public void LogOut()
     {
         Firebase.Auth.FirebaseAuth.DefaultInstance.SignOut();
+    }
+
+    ///// DATABASE METHODS /////
+
+    /*
+        1- Necesito una clase usuario que almacene el email, los sitios que ha visitado ese usuario con par IdSitio-Nºveces visitado
+        2- Puede que haga falta que el usuario pase entre escenas quizas en el boton logout puedo destruirlo
+        3- Estaria bien saber cuantas veces se ha visitado cada sitio
+    
+    */
+}
+
+
+public class UserData{
+    public string ID;
+    public string name;
+    public List<Tuple<string,string>> visitedPlaces;//name of the place, veces visitado
+    public UserData(string newID, string newName){
+        ID = newID;
+        name = newName;
     }
 }
