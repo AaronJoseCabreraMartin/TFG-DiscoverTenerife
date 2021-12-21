@@ -2,6 +2,7 @@
   "project_info": {
     "project_number": "993595598765",
     "project_id": "discovertenerife-fd031",
+    "firebase_url": "https://discovertenerife-fd031-default-rtdb.europe-west1.firebasedatabase.app/",
     "storage_bucket": "discovertenerife-fd031.appspot.com"
   },
   "client": [

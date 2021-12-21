@@ -7,18 +7,23 @@ using Firebase;
 using Firebase.Auth;
 using Firebase.Database;
 using Google;
+using Newtonsoft.Json;
+
 public class firebaseHandler : MonoBehaviour
 {
     FirebaseApp firebaseApp = null;
     internal Firebase.Auth.FirebaseAuth auth = null;
-    internal Firebase.Auth.FirebaseUser user = null;
     internal DatabaseReference database = null;
+    //EL USUARIO ACTUAL ESTA EN auth.CurrentUser
     
     private GoogleSignInConfiguration configuration;
 
-    public UserData actualUser = null;
+    public UserData actualUser_ = null;
 
     private bool firebaseDependenciesResolved = false;
+    private bool placesReady_ = false;
+    //              type of place          id                 DATA
+    private Dictionary<string,Dictionary<string,Dictionary<string,string>>> allPlaces_ = new Dictionary<string,Dictionary<string,Dictionary<string,string>>>();
 
     private void Awake() {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("firebaseHandler");
@@ -34,6 +39,7 @@ public class firebaseHandler : MonoBehaviour
         // cuando termine           A                           ejecuta         B                   con este contexto (para acceder a las cosas privadas)
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(CheckDependenciesFirebase,TaskScheduler.FromCurrentSynchronizationContext());
         DontDestroyOnLoad(this.gameObject);
+        downloadAllPlaces();
     }
     
     private void CheckDependenciesFirebase(Task<DependencyStatus> task) {
@@ -41,9 +47,9 @@ public class firebaseHandler : MonoBehaviour
         if (dependencyStatus == Firebase.DependencyStatus.Available) {
             // Set a flag here indiciating that Firebase is ready to use by your
             // application.
-            Debug.Log("Firebase Connected!!!");
             CreateFirebaseObject();
             firebaseDependenciesResolved = true;
+            Debug.Log("Firebase Connected!!!");
         }
         else
         {
@@ -58,12 +64,11 @@ public class firebaseHandler : MonoBehaviour
         // Esto es para crear el objeto FirebaseApp, necesario para manejar los distintos metodos de firebase.
         firebaseApp = FirebaseApp.DefaultInstance;
         // para obtener el objeto Firebase.Auth.FirebaseAuth
-        auth = Firebase.Auth.FirebaseAuth.GetAuth(firebaseApp);   
-        // con esto recogemos si tiene algun usuario registrado
-        user = auth.CurrentUser;
+        auth = Firebase.Auth.FirebaseAuth.GetAuth(firebaseApp);
         // con esto recogemos la referencia a la base de datos, para poder hacer operaciones de escritura o lectura.
-        database = FirebaseDatabase.GetInstance(firebaseApp).RootReference;
-        //database = FirebaseDatabase.DefaultInstance;
+        //database = FirebaseDatabase.GetInstance(firebaseApp).RootReference;
+        //database = FirebaseDatabase.DefaultInstance.SetEditorDatabaseUrl("https://discovertenerife-fd031-default-rtdb.europe-west1.firebasedatabase.app/");
+        database = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
     public bool FirebaseDependenciesAreResolved(){
@@ -86,11 +91,7 @@ public class firebaseHandler : MonoBehaviour
 
             // Firebase user has been created.
             Firebase.Auth.FirebaseUser newUser = task.Result;
-            Debug.LogFormat("Firebase user created successfully: {0} ({1})",
-                newUser.DisplayName, newUser.UserId);
-            // despues de este log format parece que no se esta ejecutando lo demas
-
-            Debug.Log(GameObject.Find("registerController").GetComponent<registerScreenController>());
+            Debug.Log($"Firebase user created successfully: {newUser.DisplayName} ({ newUser.UserId})");
             GameObject.Find("registerController").GetComponent<registerScreenController>().userCreatedSuccessfully(newUser.DisplayName);
             return;
         },TaskScheduler.FromCurrentSynchronizationContext());
@@ -110,8 +111,8 @@ public class firebaseHandler : MonoBehaviour
     }
 
     public void AnonymousUser(){
-        //Si el current user es nulo, es que nunca se habia logeado
-        if(auth.CurrentUser == null){
+        //Si el current user es nulo, es que nunca se habia logeado o si con el que se ha loggeado tiene anonymous a false
+        if(auth.CurrentUser == null || !auth.CurrentUser.IsAnonymous){
             auth.SignInAnonymouslyAsync().ContinueWith(task => {
             if (task.IsCanceled) {
                 Debug.LogError("SignInAnonymouslyAsync was canceled.");
@@ -127,11 +128,13 @@ public class firebaseHandler : MonoBehaviour
             Firebase.Auth.FirebaseUser newUser = task.Result;
             Debug.LogFormat("User signed in successfully: {0} ({1})",
                 newUser.DisplayName, newUser.UserId);
-            //actualUser = new UserData(newUser.UserId,newUser.DisplayName);
-            // No se por que ahora no se quta el mensaje de error no se puede conectar con firebase
+            actualUser_ = new UserData(auth.CurrentUser);
+            writeUserData();
             },TaskScheduler.FromCurrentSynchronizationContext());
         }else{
             Debug.Log("El usuario anonimo ya existia");
+            actualUser_ = new UserData(auth.CurrentUser);
+            writeUserData();
         }
         GameObject.Find("anonymousButtonHandler").GetComponent<anonymousButtonHandler>().anonymousUserLoginSucessfully();
     }
@@ -219,22 +222,117 @@ public class firebaseHandler : MonoBehaviour
     }
 
     ///// DATABASE METHODS /////
+    //only for debugging purpose
+    public void writeNewPlaceOnDataBase(Place place, string type, int placeID){
+        database.Child("places").Child(type).Child(placeID.ToString()).SetRawJsonValueAsync(JsonUtility.ToJson(place));
+    }
+
+    public void writeUserData(){
+        database.Child("users").Child(actualUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(actualUser_.ToJson());
+    }
+
+    public void userVisitedPlace(string type, int id){
+        bool firstTime = true;
+        Debug.Log(actualUser_.visitedPlaces_);
+        for(int i = 0; i < actualUser_.visitedPlaces_.Count; i++ ){
+            if(actualUser_.visitedPlaces_[i].type_ == type && actualUser_.visitedPlaces_[i].id_ == id){
+                firstTime = false;
+                actualUser_.visitedPlaces_[i].timesVisited_++;
+                break;
+            }
+        }
+        if(firstTime){
+            actualUser_.visitedPlaces_.Add(new VisitedPlace(type,id,0));
+        }
+        writeUserData();
+    }
 
     /*
-        1- Necesito una clase usuario que almacene el email, los sitios que ha visitado ese usuario con par IdSitio-Nºveces visitado
-        2- Puede que haga falta que el usuario pase entre escenas quizas en el boton logout puedo destruirlo
-        3- Estaria bien saber cuantas veces se ha visitado cada sitio
-    
+        esto debe extraerse del menu de opciones
+        en modes podemos recibir:
+            - distance     -> ordenar por distancia -> si este esta activado debemos mirar la posicion del usuario si no no
+            - most visited -> ordenar por mas visitados
+
+            - seen         ->mostrar los ya vistos
+            - viewpoints   ->mostrar miradores
+            - beach        ->mostrar playas
+            - hiking route ->mostrar senderos
+            - natural pool ->mostrar charcos/piscinas naturales
+            - natural park ->mostrar parques naturales
     */
-}
-
-
-public class UserData{
-    public string ID;
-    public string name;
-    public List<Tuple<string,string>> visitedPlaces;//name of the place, veces visitado
-    public UserData(string newID, string newName){
-        ID = newID;
-        name = newName;
+    public IEnumerator<Place> askForAPlace(/*Dictionary<string,bool> modes, double latitude = 0, double longitude = 0*/){
+        Debug.Log("Entrando en askForAPlace");
+        /*habria que hacer deletes mirando las opciones que nos dijeron, habria que hacer otro metodo que solo se ejecute
+        una vez el usuario se logea o cuando el usuario cambia las opciones para tener descargados todos los sitios, selecciona los
+        que quiere el usuario, los ordena como pide el usuario y luego solo asignas cuando te preguntan
+        */
+        foreach(var typeOfSite in allPlaces_.Keys){
+            foreach(var siteId in allPlaces_[typeOfSite].Keys){
+                string convertion = "";
+                foreach(var property in allPlaces_[typeOfSite][siteId].Keys){
+                    convertion += allPlaces_[typeOfSite][siteId][property] + ";";
+                }
+                Debug.Log(convertion);
+                yield return new Place(convertion);
+            }
+        }
     }
+
+    private void downloadAllPlaces(){
+        List<string> typesOfSites = new List<string>();
+        typesOfSites.Add("beachs");
+        typesOfSites.Add("hikingRoutes");
+        typesOfSites.Add("naturalParks");
+        typesOfSites.Add("naturalPools");
+        typesOfSites.Add("viewpoints");
+        foreach(string typeSite in typesOfSites){
+            //StartCoroutine es como olvidate de esto hasta que termine, 
+            //cuando termina ejecuta la siguiente linea como si no hubiera pasado nada
+            //es para que no se pause la app mientras se descargan los sitios
+            StartCoroutine(downloadOneTypeOfSite(typeSite, typesOfSites));
+        }
+    }
+
+
+    /*
+        Hay que intentar eliminar la clase serverhandler de una vez
+    */
+
+
+    private IEnumerator downloadOneTypeOfSite(string typeSite, List<string> typesOfSites){
+        FirebaseDatabase.DefaultInstance.GetReference($"places/{typeSite}/").GetValueAsync().ContinueWith(task => {
+            if (task.IsFaulted) {
+                // Handle the error...
+                Debug.Log("Error: "+task.Exception);
+            } else if (task.IsCompleted) {
+                DataSnapshot snapshot = task.Result;
+                Debug.Log(snapshot.GetRawJsonValue());
+                //           id                 data
+                List<Dictionary<string,string>> listVersion = JsonConvert.DeserializeObject<List<Dictionary<string,string>>>(snapshot.GetRawJsonValue());
+                Dictionary<string,Dictionary<string,string>> dictionaryVersion = new Dictionary<string,Dictionary<string,string>>();
+                for(int i = 0; i <listVersion.Count; i++ ){
+                    dictionaryVersion[i.ToString()] = listVersion[i];
+                }
+                /*foreach(var key in dictionaryVersion.Keys){
+                    Debug.Log($"\"{key}\"");
+                    foreach(var key2 in dictionaryVersion[key].Keys){
+                        Debug.Log($"\t\"{key2}\" : \"{dictionaryVersion[key][key2]}\"");
+                    }
+                }*/
+                allPlaces_[typeSite] = dictionaryVersion;
+                if(allPlaces_.Count == typesOfSites.Count){
+                    placesReady_ = true;
+                    Debug.Log("ready!");
+                    //applySelections()//aplica los filtros que haya elegido el usuario
+                }
+            }
+        },TaskScheduler.FromCurrentSynchronizationContext());
+        yield return new WaitForSeconds(0);
+    }
+
+    public bool placesAreReady(){
+        return placesReady_;
+    }
+
 }
+

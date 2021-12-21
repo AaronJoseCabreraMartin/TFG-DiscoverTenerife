@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class PlaceHandler : MonoBehaviour
 {
-    private static ServerHandler serverHandler_;
+    private static firebaseHandler serverHandler_;
+    //private static ServerHandler serverHandler_;
+    [SerializeField] private DownloadHandler downloadHandler_;
 
     private Place place_ = null;
 
@@ -16,8 +18,10 @@ public class PlaceHandler : MonoBehaviour
     void Awake()
     {
         if(!PlaceHandler.serverHandler_){
-            GameObject gameObject = new GameObject("ServerHandler");
-            PlaceHandler.serverHandler_ = gameObject.AddComponent<ServerHandler>();
+            //GameObject gameObject = new GameObject("ServerHandler");
+            //PlaceHandler.serverHandler_ = gameObject.AddComponent<ServerHandler>();
+            PlaceHandler.serverHandler_ = GameObject.Find("firebaseHandler").GetComponent<firebaseHandler>();
+            Place.downloadHandler_ = downloadHandler_;
         }
         
     }
@@ -25,23 +29,24 @@ public class PlaceHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(!PlaceHandler.serverHandler_.isReady()){
-            //imagen de cargando
-        }else{
-            loadPlace();
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(placeLoaded_ == false && PlaceHandler.serverHandler_.isReady()){
+        //if(place_ == null && PlaceHandler.serverHandler_.isReady()){
+        if(place_ == null && PlaceHandler.serverHandler_.placesAreReady()){
+            assignPlace();
+        }else if(place_ != null &&placeLoaded_ == false && place_.isReady()){
             loadPlace();
         }
     }
 
+    private void assignPlace(){
+        place_ = PlaceHandler.serverHandler_.askForAPlace().Current;
+    }
     private void loadPlace(){
-        place_ = PlaceHandler.serverHandler_.askForAPlace();
         gameObject.GetComponentInChildren<Text>().text = place_.getName();
         gameObject.GetComponent<Image>().sprite = place_.getImage();
         placeLoaded_ = true;
