@@ -6,46 +6,40 @@ using UnityEngine.UI;
 public class PlaceHandler : MonoBehaviour
 {
     private static firebaseHandler serverHandler_;
-    //private static ServerHandler serverHandler_;
-    [SerializeField] private DownloadHandler downloadHandler_;
+    private Place place_;
+    private bool placeLoaded_;
 
-    private Place place_ = null;
-
-    private bool placeLoaded_ = false;
-
+    //almacena que sitio a escogido el usuario cuando clicka en uno
+    // para cambiar de escena y consevar la informacion
     public static Place choosenPlace_ = null;
 
     void Awake()
     {
         if(!PlaceHandler.serverHandler_){
-            //GameObject gameObject = new GameObject("ServerHandler");
-            //PlaceHandler.serverHandler_ = gameObject.AddComponent<ServerHandler>();
             PlaceHandler.serverHandler_ = GameObject.Find("firebaseHandler").GetComponent<firebaseHandler>();
-            Place.downloadHandler_ = downloadHandler_;
         }
-        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        place_ = null;
+        placeLoaded_ = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if(place_ == null && PlaceHandler.serverHandler_.isReady()){
-        if(place_ == null && PlaceHandler.serverHandler_.placesAreReady()){
-            assignPlace();
-        }else if(place_ != null &&placeLoaded_ == false && place_.isReady()){
-            loadPlace();
+        if(placeLoaded_ == false){
+            if(place_ == null && PlaceHandler.serverHandler_.placesAreReady()){
+                //assing place
+                place_ = PlaceHandler.serverHandler_.askForAPlace();
+            }else if (place_ != null && place_.isReady()){
+                loadPlace();
+            }
         }
     }
 
-    private void assignPlace(){
-        place_ = PlaceHandler.serverHandler_.askForAPlace().Current;
-    }
     private void loadPlace(){
         gameObject.GetComponentInChildren<Text>().text = place_.getName();
         gameObject.GetComponent<Image>().sprite = place_.getImage();

@@ -6,6 +6,7 @@ using UnityEngine;
 using Firebase;
 using Firebase.Auth;
 using Firebase.Database;
+using Firebase.Extensions;
 using Google;
 using Newtonsoft.Json;
 
@@ -25,6 +26,8 @@ public class firebaseHandler : MonoBehaviour
     //              type of place          id                 DATA
     private Dictionary<string,Dictionary<string,Dictionary<string,string>>> allPlaces_ = new Dictionary<string,Dictionary<string,Dictionary<string,string>>>();
 
+    private requestHandler requestHandler_;
+
     private void Awake() {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("firebaseHandler");
         if (objs.Length > 1) //si ya existe una firebaseHandler no crees otra
@@ -39,7 +42,6 @@ public class firebaseHandler : MonoBehaviour
         // cuando termine           A                           ejecuta         B                   con este contexto (para acceder a las cosas privadas)
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(CheckDependenciesFirebase,TaskScheduler.FromCurrentSynchronizationContext());
         DontDestroyOnLoad(this.gameObject);
-        downloadAllPlaces();
     }
     
     private void CheckDependenciesFirebase(Task<DependencyStatus> task) {
@@ -50,6 +52,7 @@ public class firebaseHandler : MonoBehaviour
             CreateFirebaseObject();
             firebaseDependenciesResolved = true;
             Debug.Log("Firebase Connected!!!");
+            downloadAllPlaces();
         }
         else
         {
@@ -247,35 +250,11 @@ public class firebaseHandler : MonoBehaviour
         writeUserData();
     }
 
-    /*
-        esto debe extraerse del menu de opciones
-        en modes podemos recibir:
-            - distance     -> ordenar por distancia -> si este esta activado debemos mirar la posicion del usuario si no no
-            - most visited -> ordenar por mas visitados
-
-            - seen         ->mostrar los ya vistos
-            - viewpoints   ->mostrar miradores
-            - beach        ->mostrar playas
-            - hiking route ->mostrar senderos
-            - natural pool ->mostrar charcos/piscinas naturales
-            - natural park ->mostrar parques naturales
-    */
-    public IEnumerator<Place> askForAPlace(/*Dictionary<string,bool> modes, double latitude = 0, double longitude = 0*/){
-        Debug.Log("Entrando en askForAPlace");
-        /*habria que hacer deletes mirando las opciones que nos dijeron, habria que hacer otro metodo que solo se ejecute
-        una vez el usuario se logea o cuando el usuario cambia las opciones para tener descargados todos los sitios, selecciona los
-        que quiere el usuario, los ordena como pide el usuario y luego solo asignas cuando te preguntan
-        */
-        foreach(var typeOfSite in allPlaces_.Keys){
-            foreach(var siteId in allPlaces_[typeOfSite].Keys){
-                string convertion = "";
-                foreach(var property in allPlaces_[typeOfSite][siteId].Keys){
-                    convertion += allPlaces_[typeOfSite][siteId][property] + ";";
-                }
-                Debug.Log(convertion);
-                yield return new Place(convertion);
-            }
+    public Place askForAPlace(){
+        if(requestHandler_ == null){
+            requestHandler_ = new requestHandler(allPlaces_);
         }
+        return requestHandler_.askForAPlace();
     }
 
     private void downloadAllPlaces(){
@@ -291,12 +270,8 @@ public class firebaseHandler : MonoBehaviour
             //es para que no se pause la app mientras se descargan los sitios
             StartCoroutine(downloadOneTypeOfSite(typeSite, typesOfSites));
         }
+        
     }
-
-
-    /*
-        Hay que intentar eliminar la clase serverhandler de una vez
-    */
 
 
     private IEnumerator downloadOneTypeOfSite(string typeSite, List<string> typesOfSites){
@@ -323,7 +298,6 @@ public class firebaseHandler : MonoBehaviour
                 if(allPlaces_.Count == typesOfSites.Count){
                     placesReady_ = true;
                     Debug.Log("ready!");
-                    //applySelections()//aplica los filtros que haya elegido el usuario
                 }
             }
         },TaskScheduler.FromCurrentSynchronizationContext());
@@ -332,6 +306,11 @@ public class firebaseHandler : MonoBehaviour
 
     public bool placesAreReady(){
         return placesReady_;
+    }
+
+    void OnApplicationQuit()
+    {
+        FirebaseApp.DefaultInstance.Dispose();
     }
 
 }

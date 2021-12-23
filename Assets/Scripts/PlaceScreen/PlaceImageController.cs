@@ -22,11 +22,6 @@ public class PlaceImageController : MonoBehaviour
     }
 
     void FillFields(){
-      /* TODO
-      - mostrar si se ha visitado o no un lugar
-      - mostrar distancia al usuario
-      - mostrar descripcion
-      */
       gameObject.transform.Find("Name").gameObject.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getName();
       gameObject.transform.Find("Address").gameObject.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getAddress();
       gameObject.GetComponent<Image>().sprite = PlaceHandler.choosenPlace_.getImage();

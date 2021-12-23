@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Net;
+
 public class Place
 {
     //SerializeField significa que se puede ver en el inspector (para poder convertirlo en JSON)
@@ -9,27 +11,20 @@ public class Place
     [SerializeField] private string address_;
     [SerializeField] private double latitude_;
     [SerializeField] private double longitude_;
-    //[SerializeField] private byte[] rawImage_;
     [SerializeField] private string imageLink_;
     [SerializeField] private int timesItHasBeenVisited_;
-    public static DownloadHandler downloadHandler_;
 
     private Sprite image_;
     private bool ready_ = false;
 
-    //public Place(string lineToSplit, Sprite image, byte[] rawImage)
-    public Place(string lineToSplit)
-    {
-        string[] lineSplited = lineToSplit.Split(';');
-        name_ = lineSplited[0];
-        address_ = lineSplited[1];
-        latitude_ = Convert.ToDouble(lineSplited[2]);
-        longitude_ = Convert.ToDouble(lineSplited[3]);
-        imageLink_ = lineSplited[4];
-
-        //demasiada carga en el servidor, mejor guardar solo la url de la imagen y despues descargarla con corrutinas
-
-        Place.downloadHandler_.DownloadImage(imageLink_,this);
+    public Place(Dictionary<string,string> data){
+        address_ = data["address_"];
+        imageLink_ = data["imageLink_"];
+        latitude_ = Convert.ToDouble(data["latitude_"]);
+        longitude_ = Convert.ToDouble(data["longitude_"]);
+        name_ = data["name_"];
+        timesItHasBeenVisited_ = Int32.Parse(data["timesItHasBeenVisited_"]);
+        image_ = null;
     }
 
     public string getName()
@@ -57,14 +52,21 @@ public class Place
         return image_;
     }
 
-    public void setImage(Sprite image){
-        image_ = image;
-        ready_ = true;
-    }
     public bool isReady()
     {
         return ready_;
     }
 
+    public void startDownload()
+    {
+        if(image_ == null){
+            WebClient webClient = new WebClient();
+            byte[] data = webClient.DownloadData(imageLink_);
+            Texture2D texture = new Texture2D(128, 128);
+            texture.LoadImage(data);
+            image_ = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height),new Vector2(0f, 0f));
+            ready_ = true;
+        }
+    }
     
 }
