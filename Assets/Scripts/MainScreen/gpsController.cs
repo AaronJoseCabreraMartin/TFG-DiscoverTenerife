@@ -5,81 +5,93 @@ using UnityEngine;
 using UnityEngine.Android;
 //#endif
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class gpsController : MonoBehaviour
 {
-    bool isItPermissionTime = false;
-    string nextPermission;
-    Stack<string> permissions = new Stack<string>();
+    private bool isItPermissionTime;
+    private string nextPermission;
+    private Stack<string> permissions;
 
-    void Start()
-    {
-        OpenAllPermissions();
+    private double longitude_;
+    private double latitude_;
+    private double altitude_;
+
+    void Awake(){
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("gpsController");
+        if (objs.Length > 1 || //si ya existe una gpsController o
+            (SceneManager.GetActiveScene().name != "PantallaPrincipal" && //si la escena no es la principal ni
+            SceneManager.GetActiveScene().name != "PantallaLugar")) { //la pantalla de un lugar
+            Destroy(this.gameObject); //no crees otro
+            return;
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    void Start(){
+        isItPermissionTime = false;
+        permissions = new Stack<string>();
+        longitude_ = 0;//-16.65696;
+        latitude_ = 0;//28.07133;
+        altitude_ = 0;//255;
+        CreatePermissionList();
         Input.location.Start();
     }
 
-    public void OpenAllPermissions()
-    {
+    private void CreatePermissionList(){
         isItPermissionTime = true;
-        CreatePermissionList();
-
-    }
-    void CreatePermissionList()
-    {
-        permissions = new Stack<string>();
         permissions.Push(Permission.CoarseLocation);
         permissions.Push(Permission.FineLocation);
         AskForPermissions();
     }
-    void AskForPermissions ()
-    {
-        if (permissions == null || permissions.Count <= 0)
-        {
-            isItPermissionTime = false;
-            return;
+    
+    private void AskForPermissions (){
+        while(!(permissions == null || permissions.Count <= 0)){
+            nextPermission = permissions.Pop();
+            if (Permission.HasUserAuthorizedPermission(nextPermission) == false) {
+                Permission.RequestUserPermission(nextPermission);
+            }
         }
-        nextPermission = permissions.Pop();
-
-        if (nextPermission == null)
-        {
-            isItPermissionTime = false;
-            return;
-        }
-        if (Permission.HasUserAuthorizedPermission(nextPermission) == false)
-        {
-            Permission.RequestUserPermission(nextPermission);
-        }
-        else
-        {
-            if (isItPermissionTime == true)
-                AskForPermissions();
-        }
-        Debug.Log("Unity>> permission " + nextPermission + "  status ;" + Permission.HasUserAuthorizedPermission(nextPermission));
+        isItPermissionTime = false;
     }
 
-    private void OnApplicationFocus(bool focus)
-    {
-        Debug.Log("Unity>> focus ....  " + focus + "   isPermissionTime : " + isItPermissionTime);
-        if (focus == true && isItPermissionTime == true)
-        {
+    private void OnApplicationFocus(bool focus){
+        //Debug.Log("Unity>> focus ....  " + focus + "   isPermissionTime : " + isItPermissionTime);
+        if (focus == true && isItPermissionTime == true) {
             AskForPermissions();
         }
     }
 
-    void Update()
-    {
+    void Update(){
       if(Permission.HasUserAuthorizedPermission(Permission.CoarseLocation) == true && Input.location.status == LocationServiceStatus.Running){
 
-        var latitud = Input.location.lastData.latitude.ToString();
-        var longitud = Input.location.lastData.longitude.ToString();
-        var altitud = Input.location.lastData.altitude.ToString();
-        //gameObject.transform.Find("errorImage").gameObject.SetActive(false);//oculta la imagen de error
-        gameObject.transform.Find("errorImage").gameObject.transform.Find("errorMessage").gameObject.GetComponent<Text>().text = "Posicion: latitud:" + latitud + " longitud:" + longitud + " altitud:" + altitud;
+        latitude_ = Input.location.lastData.latitude;
+        var latitud = latitude_.ToString();
+        
+        longitude_ = Input.location.lastData.longitude;
+        var longitud = longitude_.ToString();
+        
+        altitude_ = Input.location.lastData.altitude;
+        var altitud = altitude_.ToString();
+
+        GameObject.Find("/Canvas/errorImage").gameObject.SetActive(false);//oculta la imagen de error
+        //GameObject.Find("/Canvas/errorImage").gameObject.transform.Find("errorMessage").gameObject.GetComponent<Text>().text = "Posicion: latitud:" + latitud + " longitud:" + longitud + " altitud:" + altitud;
         Debug.Log("Posicion: latitud:" + latitud + " longitud:" + longitud + " altitud:" + altitud);
       }else{
-        //gameObject.transform.Find("errorImage").gameObject.SetActive(true);//muestra la imagen de error
-        gameObject.transform.Find("errorImage").gameObject.transform.Find("errorMessage").gameObject.GetComponent<Text>().text = "Cant access to GPS data";
+        GameObject.Find("/Canvas/errorImage").gameObject.SetActive(true);//muestra la imagen de error
+        //GameObject.Find("/Canvas/errorImage").gameObject.transform.Find("errorMessage").gameObject.GetComponent<Text>().text = "Cant access to GPS data";
       }
+    }
+
+    public double getLatitude(){
+        return latitude_;
+    }
+
+    public double getLongitude(){
+        return longitude_;
+    }
+
+    public double getAltitude(){
+        return altitude_;
     }
 }
