@@ -25,7 +25,8 @@ public class PlaceImageController : MonoBehaviour
     void FillFields(){
       gameObject.transform.Find("Name").gameObject.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getName();
       gameObject.transform.Find("Address").gameObject.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getAddress();
-      gameObject.transform.Find("Distance").gameObject.GetComponent<Text>().text = Math.Round(CalculateDistance()).ToString() + " kms";
+      optionsController options = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
+      gameObject.transform.Find("Distance").gameObject.GetComponent<Text>().text = Math.Round(CalculateDistance()).ToString() + (options.distanceInKM() ? " kms" : " milles");
       gameObject.GetComponent<Image>().sprite = PlaceHandler.choosenPlace_.getImage();
       loaded_ = true;
     }
@@ -43,11 +44,13 @@ public class PlaceImageController : MonoBehaviour
       double earthRadious = 6377.830272;
 
       /*
-      if option in milles
-        return same*0,621371;
+        comprobar que la opcion de millas funciona bien
       */
-      return earthRadious*Math.Acos((Math.Sin(placeLatitude) * Math.Sin(userLatitude)) + 
-                                     Math.Cos(placeLatitude) * Math.Cos(userLatitude) * Math.Cos(userLongitude - placeLongitude));
+      double distanceCalculatedOnKm = earthRadious*Math.Acos((Math.Sin(placeLatitude) * Math.Sin(userLatitude)) + Math.Cos(placeLatitude) * Math.Cos(userLatitude) * Math.Cos(userLongitude - placeLongitude));
+      optionsController options = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
+      Debug.Log($"{distanceCalculatedOnKm}kms {distanceCalculatedOnKm * 0.621371}milles");
+      return options.distanceInKM() ? distanceCalculatedOnKm : distanceCalculatedOnKm * 0.621371;
+      
     }
 
     private double sexagecimalToRadian(double sexagecimal) {

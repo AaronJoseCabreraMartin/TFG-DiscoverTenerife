@@ -6,6 +6,7 @@ TagManager:
   tags:
   - firebaseHandler
   - gpsController
+  - optionsController
   layers:
   - Default
   - TransparentFX

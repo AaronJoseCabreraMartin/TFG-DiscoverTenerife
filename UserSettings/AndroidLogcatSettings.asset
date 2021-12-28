@@ -3,51 +3,45 @@
     "m_SelectedPackage": {
         "deviceId": "5200c640ea72c407",
         "name": "com.ULLalu0101101019.DiscoverTenerife",
-        "processId": 25771,
+        "processId": 11852,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "5200c640ea72c407",
+            "name": "com.ULLalu0101101019.DiscoverTenerife",
+            "processId": 2924,
+            "exited": true
+        },
+        {
+            "deviceId": "5200c640ea72c407",
+            "name": "com.ULLalu0101101019.DiscoverTenerife",
+            "processId": 6205,
+            "exited": true
+        },
+        {
+            "deviceId": "5200c640ea72c407",
             "name": "com.sec.android.app.launcher",
-            "processId": 6384,
-            "exited": false
-        },
-        {
-            "deviceId": "5200c640ea72c407",
-            "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 15077,
+            "processId": 30958,
             "exited": true
         },
         {
             "deviceId": "5200c640ea72c407",
             "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 11418,
+            "processId": 8789,
             "exited": true
         },
         {
             "deviceId": "5200c640ea72c407",
             "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 20001,
+            "processId": 10348,
             "exited": true
         },
         {
             "deviceId": "5200c640ea72c407",
             "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 21901,
-            "exited": true
-        },
-        {
-            "deviceId": "5200c640ea72c407",
-            "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 31022,
-            "exited": true
-        },
-        {
-            "deviceId": "5200c640ea72c407",
-            "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 25771,
+            "processId": 11852,
             "exited": false
         }
     ],

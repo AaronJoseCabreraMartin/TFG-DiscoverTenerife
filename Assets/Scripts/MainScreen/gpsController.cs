@@ -12,28 +12,32 @@ public class gpsController : MonoBehaviour
     private bool isItPermissionTime;
     private string nextPermission;
     private Stack<string> permissions;
+    private string lastScene_;
 
     private double longitude_;
     private double latitude_;
     private double altitude_;
 
+    static private GameObject errorImage_;
+
     void Awake(){
         GameObject[] objs = GameObject.FindGameObjectsWithTag("gpsController");
-        if (objs.Length > 1 || //si ya existe una gpsController o
-            (SceneManager.GetActiveScene().name != "PantallaPrincipal" && //si la escena no es la principal ni
-            SceneManager.GetActiveScene().name != "PantallaLugar")) { //la pantalla de un lugar
+        if (objs.Length > 1){//si ya existe una gpsController
             Destroy(this.gameObject); //no crees otro
             return;
         }
         DontDestroyOnLoad(this.gameObject);
+        errorImage_ = GameObject.Find("/Canvas/errorImage").gameObject;
     }
 
     void Start(){
         isItPermissionTime = false;
         permissions = new Stack<string>();
-        longitude_ = 0;//-16.65696;
-        latitude_ = 0;//28.07133;
-        altitude_ = 0;//255;
+        lastScene_ = SceneManager.GetActiveScene().name;
+        Debug.Log("estas coordenadas deben empezar en 0, 0, 0 por defecto");
+        longitude_ = -16.65696;
+        latitude_ = 28.07133;
+        altitude_ = 255;
         CreatePermissionList();
         Input.location.Start();
     }
@@ -63,24 +67,35 @@ public class gpsController : MonoBehaviour
     }
 
     void Update(){
-      if(Permission.HasUserAuthorizedPermission(Permission.CoarseLocation) == true && Input.location.status == LocationServiceStatus.Running){
-
-        latitude_ = Input.location.lastData.latitude;
-        var latitud = latitude_.ToString();
+        if(lastScene_ != SceneManager.GetActiveScene().name){
+            lastScene_ = SceneManager.GetActiveScene().name;
+            if(SceneManager.GetActiveScene().name != "PantallaPrincipal" && SceneManager.GetActiveScene().name != "PantallaLugar"){
+                Destroy(this.gameObject);
+                return;
+            }
+            errorImage_ = GameObject.Find("/Canvas/errorImage").gameObject;
+        }
         
-        longitude_ = Input.location.lastData.longitude;
-        var longitud = longitude_.ToString();
+        if(errorImage_ == null){
+            errorImage_ = GameObject.Find("/Canvas/errorImage").gameObject;
+        }
         
-        altitude_ = Input.location.lastData.altitude;
-        var altitud = altitude_.ToString();
+        if(Permission.HasUserAuthorizedPermission(Permission.CoarseLocation) == true && Input.location.status == LocationServiceStatus.Running){
+            latitude_ = Input.location.lastData.latitude;
+            longitude_ = Input.location.lastData.longitude;
+            altitude_ = Input.location.lastData.altitude;
 
-        GameObject.Find("/Canvas/errorImage").gameObject.SetActive(false);//oculta la imagen de error
-        //GameObject.Find("/Canvas/errorImage").gameObject.transform.Find("errorMessage").gameObject.GetComponent<Text>().text = "Posicion: latitud:" + latitud + " longitud:" + longitud + " altitud:" + altitud;
-        Debug.Log("Posicion: latitud:" + latitud + " longitud:" + longitud + " altitud:" + altitud);
-      }else{
-        GameObject.Find("/Canvas/errorImage").gameObject.SetActive(true);//muestra la imagen de error
-        //GameObject.Find("/Canvas/errorImage").gameObject.transform.Find("errorMessage").gameObject.GetComponent<Text>().text = "Cant access to GPS data";
-      }
+            //Debug.Log($"Posicion: latitud:{latitude_} longitud:{longitude_} altitud:{altitude_}");
+            //GameObject.Find("/Canvas/errorImage").gameObject.transform.Find("errorMessage").gameObject.GetComponent<Text>().text = $"Posicion: latitud:{latitude_} longitud:{longitude_} altitud:{altitude_}";
+
+            errorImage_.SetActive(false);
+            //GameObject.Find("/Canvas/errorImage").gameObject.SetActive(false);//oculta la imagen de error
+        }else{
+            errorImage_.SetActive(true);
+            //GameObject.Find("/Canvas/errorImage").gameObject.SetActive(true);//muestra la imagen de error
+            //GameObject.Find("/Canvas/errorImage").gameObject.transform.Find("errorMessage").gameObject.GetComponent<Text>().text = "Cant access to GPS data";
+        }
+        
     }
 
     public double getLatitude(){
@@ -94,4 +109,5 @@ public class gpsController : MonoBehaviour
     public double getAltitude(){
         return altitude_;
     }
+
 }
