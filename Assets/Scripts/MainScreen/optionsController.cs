@@ -89,12 +89,26 @@ public class optionsController : MonoBehaviour
     }
 
     public Dictionary<string, bool> whatToSeeOptions(){
+        bool areAllFalse = true;
+        foreach(var key in whatToSee_.Keys){
+            if(key.ToString() != "Already Visited" && whatToSee_[key]){
+                areAllFalse = false;
+            }
+        }
         Dictionary<string, bool> whatToSeeOptions = new Dictionary<string, bool>();
-        whatToSeeOptions["viewpoints"] = whatToSee_["Viewpoints"];
-        whatToSeeOptions["hikingRoutes"] = whatToSee_["Hiking Routes"];
-        whatToSeeOptions["beachs"] = whatToSee_["Beachs"];
-        whatToSeeOptions["naturalPools"] = whatToSee_["Natural Pools"];
-        whatToSeeOptions["naturalParks"] = whatToSee_["Natural Parks"];
+        if(areAllFalse){
+            whatToSeeOptions["viewpoints"] = true;
+            whatToSeeOptions["hikingRoutes"] = true;
+            whatToSeeOptions["beachs"] = true;
+            whatToSeeOptions["naturalPools"] = true;
+            whatToSeeOptions["naturalParks"] = true;
+        }else{
+            whatToSeeOptions["viewpoints"] = whatToSee_["Viewpoints"];
+            whatToSeeOptions["hikingRoutes"] = whatToSee_["Hiking Routes"];
+            whatToSeeOptions["beachs"] = whatToSee_["Beachs"];
+            whatToSeeOptions["naturalPools"] = whatToSee_["Natural Pools"];
+            whatToSeeOptions["naturalParks"] = whatToSee_["Natural Parks"];
+        }
         whatToSeeOptions["Already Visited"] = whatToSee_["Already Visited"];
         return whatToSeeOptions;
     }

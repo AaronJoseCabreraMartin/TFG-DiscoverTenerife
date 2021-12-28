@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,8 +36,12 @@ public class gpsController : MonoBehaviour
         permissions = new Stack<string>();
         lastScene_ = SceneManager.GetActiveScene().name;
         Debug.Log("estas coordenadas deben empezar en 0, 0, 0 por defecto");
+        // casa
         longitude_ = -16.65696;
         latitude_ = 28.07133;
+        // la laguna
+        /*longitude_ = -16.3433747;
+        latitude_ = 28.4697925;*/
         altitude_ = 255;
         CreatePermissionList();
         Input.location.Start();
@@ -110,4 +115,26 @@ public class gpsController : MonoBehaviour
         return altitude_;
     }
 
+    public double CalculateDistance(double latitudeA, double longitudeA, double latitudeB, double longitudeB){
+        latitudeA = sexagecimalToRadian(latitudeA);
+        longitudeA = sexagecimalToRadian(longitudeA);
+        latitudeB = sexagecimalToRadian(latitudeB);
+        longitudeB = sexagecimalToRadian(longitudeB);
+        //Debug.Log($"latitudeA = {latitudeA} longitudeA = {longitudeA}");
+        //Debug.Log($"latitudeB = {latitudeB} longitudeB = {longitudeB}");
+        
+        double earthRadious = 6377.830272;
+        double distanceCalculatedOnKm = earthRadious*Math.Acos((Math.Sin(latitudeA) * Math.Sin(latitudeB)) + Math.Cos(latitudeA) * Math.Cos(latitudeB) * Math.Cos(longitudeB - longitudeA));
+        optionsController options = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
+        //Debug.Log($"{distanceCalculatedOnKm}kms {distanceCalculatedOnKm * 0.621371}milles");
+        return options.distanceInKM() ? distanceCalculatedOnKm : distanceCalculatedOnKm * 0.621371;
+    }
+
+    public double CalculateDistanceToUser(double latitudeA, double longitudeA){
+        return CalculateDistance(latitudeA, longitudeA, latitude_, longitude_);
+    }
+    
+    private double sexagecimalToRadian(double sexagecimal) {
+      return sexagecimal * (Math.PI/180);
+    }
 }

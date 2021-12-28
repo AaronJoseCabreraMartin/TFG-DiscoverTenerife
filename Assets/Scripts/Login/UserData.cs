@@ -30,4 +30,8 @@ public class UserData{
         conversion += "] }";
         return conversion;
     }
+
+    public bool hasVisitPlace(string type, int id){
+        return visitedPlaces_.Exists(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id);
+    }
 }

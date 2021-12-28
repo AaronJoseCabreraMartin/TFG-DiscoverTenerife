@@ -308,6 +308,10 @@ public class firebaseHandler : MonoBehaviour
         return placesReady_;
     }
 
+    public void sortPlaces(){
+        requestHandler_.sortPlaces();
+    }
+
     void OnApplicationQuit()
     {
         FirebaseApp.DefaultInstance.Dispose();

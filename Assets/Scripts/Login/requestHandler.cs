@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,21 +11,32 @@ public class requestHandler
     
     private int actualIndexPlace_;
     private List<List<Place>> listOfPlaces_;
+    // al macena una lista de int por cada tipo
+    // cada posicion de esa lista de int indica un indice
+    // del lugar que debemos buscar en listOfPlaces
+    private List<List<int>> sortedPlaceIndex_;
+
+    private bool sortedByDistance_;
 
     public requestHandler(Dictionary<string,Dictionary<string,Dictionary<string,string>>> allPlaces){
         typesOfSites_ = new List<string>();
         actualIndexType_ = 0;
         listOfPlaces_ = new List<List<Place>>();
+        sortedPlaceIndex_ = new List<List<int>>();
         foreach(var typeOfSite in allPlaces.Keys){
             typesOfSites_.Add((string) typeOfSite);
             listOfPlaces_.Add(new List<Place>());
+            sortedPlaceIndex_.Add(new List<int>());
             foreach(var siteId in allPlaces[typeOfSite].Keys){
                 listOfPlaces_[actualIndexType_].Add(new Place(allPlaces[typeOfSite][siteId]));
+                sortedPlaceIndex_[actualIndexType_].Add(Int32.Parse(siteId));
             }
             actualIndexType_++;
         }
         actualIndexType_ = 0;
         actualIndexPlace_ = 0;
+        sortPlaces();
+        sortedByDistance_ = true;
     }
 
     /*
@@ -42,8 +54,13 @@ public class requestHandler
     */
     public Place askForAPlace(){
         optionsController options = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
-        bool sortByLessDistance = options.sortByLessDistance();
+        firebaseHandler firebaseHandlerObject = GameObject.FindGameObjectsWithTag("firebaseHandler")[0].GetComponent<firebaseHandler>();
+        if(sortedByDistance_ != options.sortByLessDistance()){
+            sortedByDistance_ = options.sortByLessDistance();
+            sortPlaces();
+        }
         Dictionary<string, bool> whatToSeeOptions = options.whatToSeeOptions();
+        
         /*
         
         quizas cuando options controller detecte el cambio de orden deberia avisar
@@ -53,26 +70,26 @@ public class requestHandler
 
         */
         bool placeDecided = false;
-        //while(!placeDecided){
+        while(!placeDecided){
             //cambia de tipo hasta que encuentres uno que si esta
             while(!whatToSeeOptions[typesOfSites_[actualIndexType_]]){
                 updateTypeIndex();            
             }
-            /*if(!whatToSeeOptions["Already Visited"]){
+            if(!whatToSeeOptions["Already Visited"]){
                 int previousIndexType = actualIndexType_;
-                while(site visitado){
+                while(firebaseHandlerObject.actualUser_.hasVisitPlace(typesOfSites_[actualIndexType_],sortedPlaceIndex_[actualIndexType_][actualIndexPlace_])){
                     updatePlaceIndex();
                 }
+                //si cambia de tipo debemos asegurarnos de que el tipo actual lo quiere ver
                 if(previousIndexType == actualIndexType_){
                     placeDecided = true;
                 }
             }else{
                 placeDecided = true;
-            }*/
-        //}
+            }
+        }
 
-
-        Place toReturn = listOfPlaces_[actualIndexType_][actualIndexPlace_];
+        Place toReturn = listOfPlaces_[actualIndexType_][sortedPlaceIndex_[actualIndexType_][actualIndexPlace_]];
         updatePlaceIndex();
         toReturn.startDownload();
         return toReturn;
@@ -80,6 +97,9 @@ public class requestHandler
 
     private void updateTypeIndex(){
         actualIndexType_ = (actualIndexType_+1)%listOfPlaces_.Count;
+        if(actualIndexPlace_ != 0){
+            actualIndexPlace_ = 0;
+        }
     }
 
     private void updatePlaceIndex(){
@@ -90,5 +110,31 @@ public class requestHandler
         }else{
             actualIndexPlace_++;
         }
+    }
+
+    public void sortPlaces(){
+        Debug.Log("sorting!");
+        optionsController options = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
+        gpsController gps = GameObject.FindGameObjectsWithTag("gpsController")[0].GetComponent<gpsController>(); 
+        if(options.sortByLessDistance()){
+            for(int typeIndex = 0; typeIndex < sortedPlaceIndex_.Count; typeIndex++){
+                sortedPlaceIndex_[typeIndex].Sort(delegate(int placeIndexA, int placeIndexB){
+                    if((placeIndexA == null && placeIndexB == null) || placeIndexA == placeIndexB){
+                        return 0;
+                    }else if(placeIndexA == null){//A < B
+                        return -1;
+                    }else if(placeIndexB == null){//A > B
+                        return 1;
+                    }else{
+                        Place placeA = listOfPlaces_[typeIndex][placeIndexA];
+                        double distanceA = gps.CalculateDistanceToUser(placeA.getLatitude(),placeA.getLongitude());
+                        Place placeB = listOfPlaces_[typeIndex][placeIndexB];
+                        double distanceB = gps.CalculateDistanceToUser(placeB.getLatitude(),placeB.getLongitude());
+                        return (distanceA < distanceB) ? -1 : 1;
+                    }
+                });
+            }
+        }
+        Debug.Log("sorted!");
     }
 }
