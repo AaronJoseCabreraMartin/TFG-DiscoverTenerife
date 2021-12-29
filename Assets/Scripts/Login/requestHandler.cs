@@ -137,4 +137,12 @@ public class requestHandler
         }
         Debug.Log("sorted!");
     }
+
+    public void oneMoreVisitToPlaceByTypeAndId(string type, string id){
+        listOfPlaces_[typesOfSites_.IndexOf(type)][Int32.Parse(id)].oneMoreVisit();
+    }
+    public Place getPlaceByTypeAndId(string type, string id){
+        Debug.Log($"getPlaceByTypeAndId {type} {id} {typesOfSites_.IndexOf(type)} ");
+        return listOfPlaces_[typesOfSites_.IndexOf(type)][Int32.Parse(id)];
+    }
 }

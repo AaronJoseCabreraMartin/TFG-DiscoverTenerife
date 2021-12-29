@@ -37,11 +37,14 @@ public class gpsController : MonoBehaviour
         lastScene_ = SceneManager.GetActiveScene().name;
         Debug.Log("estas coordenadas deben empezar en 0, 0, 0 por defecto");
         // casa
-        longitude_ = -16.65696;
-        latitude_ = 28.07133;
+        //longitude_ = -16.65696;
+        //latitude_ = 28.07133;
         // la laguna
-        /*longitude_ = -16.3433747;
-        latitude_ = 28.4697925;*/
+        //longitude_ = -16.3433747;
+        //latitude_ = 28.4697925;
+        // a 20 metros de la playa de los cristianos
+        longitude_ = -16.7177;
+        latitude_ = 28.05015;
         altitude_ = 255;
         CreatePermissionList();
         Input.location.Start();

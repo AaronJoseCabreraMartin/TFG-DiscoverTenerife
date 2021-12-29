@@ -20,7 +20,7 @@ public class firebaseHandler : MonoBehaviour
     private GoogleSignInConfiguration configuration;
 
     public UserData actualUser_ = null;
-
+    private int minutesOfCooldown_ = 60;//1 hora de cooldown
     private bool firebaseDependenciesResolved = false;
     private bool placesReady_ = false;
     //              type of place          id                 DATA
@@ -227,27 +227,60 @@ public class firebaseHandler : MonoBehaviour
     ///// DATABASE METHODS /////
     //only for debugging purpose
     public void writeNewPlaceOnDataBase(Place place, string type, int placeID){
-        database.Child("places").Child(type).Child(placeID.ToString()).SetRawJsonValueAsync(JsonUtility.ToJson(place));
+        database.Child("places").Child(type).Child(placeID.ToString()).SetRawJsonValueAsync(place.ToJson());
     }
 
     public void writeUserData(){
         database.Child("users").Child(actualUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(actualUser_.ToJson());
     }
 
+    public void writePlaceData(string type, string id){
+        requestHandler_.oneMoreVisitToPlaceByTypeAndId(type,id);
+        Place place = requestHandler_.getPlaceByTypeAndId(type,id);
+        
+        database.Child("places").Child(type).Child(id).SetRawJsonValueAsync(place.ToJson());
+    }
+
+    public bool cooldownVisitingPlaceFinished(string type, int id){
+        if(actualUser_.visitedPlaces_.Exists(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id)){
+            VisitedPlace place = actualUser_.visitedPlaces_.Find(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id);
+            //si ya lo habia visitado devolvemos true si ha cumplido el cooldown
+            // hay 10.000.000 de ticks en un segundo, * 60 son minutos
+            return (place.lastVisitTimestamp_ + minutesOfCooldown_ * 10000000 * 60 < DateTime.Now.Ticks);
+        }
+        //si no lo habia visitado, el cooldown siempre se ha cumplido
+        return true;
+    }
+    
+    public bool cooldownVisitingPlaceByNameFinished(string name){
+        Dictionary<string,string> typeAndId = findPlaceByName(name);
+        return cooldownVisitingPlaceFinished(typeAndId["type"],Int32.Parse(typeAndId["id"]));
+    }
+
+
     public void userVisitedPlace(string type, int id){
         bool firstTime = true;
-        Debug.Log(actualUser_.visitedPlaces_);
         for(int i = 0; i < actualUser_.visitedPlaces_.Count; i++ ){
+            //busco en los ya visitados y si es uno de esos, contabilizo la visita
             if(actualUser_.visitedPlaces_[i].type_ == type && actualUser_.visitedPlaces_[i].id_ == id){
                 firstTime = false;
                 actualUser_.visitedPlaces_[i].timesVisited_++;
                 break;
             }
         }
+        //si no lo habia visitado antes, registro la visita
         if(firstTime){
-            actualUser_.visitedPlaces_.Add(new VisitedPlace(type,id,0));
+            actualUser_.visitedPlaces_.Add(new VisitedPlace(type,id,1));
         }
         writeUserData();
+        allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"] = (Int32.Parse(allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"])+1).ToString();
+        writePlaceData(type,id.ToString());
+    }
+
+
+    public void userVisitedPlaceByName(string name){
+        Dictionary<string,string> typeAndId = findPlaceByName(name);
+        userVisitedPlace(typeAndId["type"],Int32.Parse(typeAndId["id"]));
     }
 
     public Place askForAPlace(){
@@ -310,6 +343,23 @@ public class firebaseHandler : MonoBehaviour
 
     public void sortPlaces(){
         requestHandler_.sortPlaces();
+    }
+
+    public Dictionary<string,string> findPlaceByName(string name){
+        Dictionary<string,string> toReturn = new Dictionary<string,string>();
+        foreach(var type in allPlaces_.Keys){
+            foreach(var id in allPlaces_[type].Keys){
+                if(allPlaces_[type][id]["name_"] == name){
+                    toReturn["id"] = id.ToString();
+                    toReturn["type"] = type.ToString();
+                    return toReturn;
+                }
+            }
+        }
+        Debug.Log($"Error en findPlaceByName, {name} not found");
+        toReturn["id"] = "-1";
+        toReturn["type"] = "noType";
+        return toReturn;
     }
 
     void OnApplicationQuit()

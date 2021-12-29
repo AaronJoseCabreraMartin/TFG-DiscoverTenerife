@@ -69,4 +69,21 @@ public class Place
         }
     }
     
+    public void oneMoreVisit(){
+        timesItHasBeenVisited_++;
+    }
+
+    public string ToJson(){
+        string toReturn = "{";
+        toReturn += $"\"address_\" : \"{address_}\",";
+        toReturn += $"\"imageLink_\" : \"{imageLink_}\",";
+        string correctLatitude = latitude_.ToString().Replace(".",",");
+        toReturn += $"\"latitude_\" : \"{correctLatitude}\",";
+        string correctLongitude = longitude_.ToString().Replace(".",",");
+        toReturn += $"\"longitude_\" : \"{correctLongitude}\",";
+        toReturn += $"\"name_\" : \"{name_}\",";
+        toReturn += $"\"timesItHasBeenVisited_\" : \"{timesItHasBeenVisited_}\"}}";
+        Debug.Log(toReturn);
+        return toReturn;
+    }
 }
