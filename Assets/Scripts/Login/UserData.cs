@@ -7,14 +7,24 @@ public class UserData{
     [SerializeField] private string displayName_;
     [SerializeField] public List<VisitedPlace> visitedPlaces_;//type of the place, id, veces visitado
     
-    public UserData(Firebase.Auth.FirebaseUser newFireBaseUserData){
+    public UserData(Firebase.Auth.FirebaseUser newFireBaseUserData, List<Dictionary<string,string>> oldVisitedPlaces = null){
+        Debug.Log("On UserData constructor");
         firebaseUserData_ = newFireBaseUserData;
         visitedPlaces_ = new List<VisitedPlace>();
+        if(oldVisitedPlaces != null){
+            for(int index = 0; index < oldVisitedPlaces.Count; index++){
+                visitedPlaces_.Add(new VisitedPlace(oldVisitedPlaces[index]["type_"],
+                                                    Int32.Parse(oldVisitedPlaces[index]["id_"]),
+                                                    Int32.Parse(oldVisitedPlaces[index]["timesVisited_"])
+                                                    ));
+            }   
+        }
         if(firebaseUserData_.IsAnonymous){
             displayName_ = "Anonymous";
         }else{
             displayName_ = firebaseUserData_.DisplayName;
         }
+        Debug.Log($"On UserData constructor {ToJson()}");
     }
 
     public string ToJson(){
@@ -33,5 +43,10 @@ public class UserData{
 
     public bool hasVisitPlace(string type, int id){
         return visitedPlaces_.Exists(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id);
+    }
+
+    public int coutOfVisitedPlaces()
+    {
+        return visitedPlaces_.Count;
     }
 }

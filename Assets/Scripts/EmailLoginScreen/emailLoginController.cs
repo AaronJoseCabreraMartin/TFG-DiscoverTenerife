@@ -7,14 +7,10 @@ using System.Text.RegularExpressions;
 
 public class emailLoginController : MonoBehaviour
 {
-    public GameObject user;
-    public GameObject password;
-    public GameObject errorImage;
+    [SerializeField] private GameObject user;
+    [SerializeField] private GameObject password;
+    [SerializeField] private GameObject toastMessageObject_;
     private bool inProgress = false; //para asegurar que solo se hace una llamada
-
-    void Awake(){
-        errorImage.SetActive(false);
-    }
 
     private bool isEmail(string email){
         try{
@@ -30,6 +26,7 @@ public class emailLoginController : MonoBehaviour
 
     public void tryToLoginUser(){
         if(!inProgress){
+            toastMessage toastMessageInstance = toastMessageObject_.GetComponent<toastMessage>();
             inProgress = true;
             string userText = user.transform.Find("Text").GetComponent<Text>().text;
             string passwordText = password.GetComponent<InputField>().text;
@@ -37,7 +34,7 @@ public class emailLoginController : MonoBehaviour
             //Debug.Log($"user = {userText}\tpassword = {passwordText}");
             if (userText.Length == 0 || passwordText.Length == 0) {
                 //Debug.Log("Tienes que completar todos los campos");
-                StartCoroutine(ShowError("You must complete all the fields",2));
+                toastMessageInstance.makeAnimation("You must complete all the fields",new Color32(255,0,0,255),2);
                 if(userText.Length == 0){
                     StartCoroutine(ChangeImageColor(GameObject.Find("/Canvas/user").GetComponent<Image>(), 2));
                 }
@@ -49,13 +46,12 @@ public class emailLoginController : MonoBehaviour
             }
 
             if(!isEmail(userText)){
-                StartCoroutine(ShowError("Invalid format on the email",2));
+                toastMessageInstance.makeAnimation("Invalid format on the email",new Color32(255,0,0,255),2);
                 StartCoroutine(ChangeImageColor(GameObject.Find("/Canvas/user").GetComponent<Image>(), 2));
                 inProgress = false;
                 return;
             }
-
-
+            
             //esto debe ser asi porque firebaseHandler no existe en esta escena
             GameObject.Find("firebaseHandler").GetComponent<firebaseHandler>().LoginUser(userText,passwordText);
         }
@@ -67,22 +63,16 @@ public class emailLoginController : MonoBehaviour
         toMark.color = Color.white;
     }
     
-    private IEnumerator ShowError(string error,int time){
-        errorImage.transform.Find("errorMessage").GetComponent<Text>().text = error;
-        errorImage.SetActive(true);
-        yield return new WaitForSeconds(time);
-        errorImage.SetActive(false);
-    }
-    
     public void userLogedSuccessfully(string name){
         inProgress = false;
-        Debug.Log("userCreatedSuccessfully: " + name);
-        SceneManager.LoadScene("PantallaPrincipal");
+        Debug.Log("userLogedSuccessfully: " + name);
+        //ChangeScene.changeScene("PantallaPrincipal");
+        GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation("PantallaPrincipal",0.5f,"");
     }
 
     public void errorLoginUser(string error){
         inProgress = false;
-        //Debug.Log("errorLoginUser: " + error);
-        StartCoroutine(ShowError("Error: The user or the password are wrong",2));
+        toastMessage toastMessageInstance = toastMessageObject_.GetComponent<toastMessage>();
+        toastMessageInstance.makeAnimation("Error: The user or the password are wrong",new Color32(255,0,0,255),2);
     }
 }

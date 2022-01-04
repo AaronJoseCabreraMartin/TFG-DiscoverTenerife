@@ -12,17 +12,26 @@ public class uniqueselectionDesplegableMenu : MonoBehaviour
 
     public bool showToggles_;
     public int defaultToggleActive_ = 0;
-    
+    private optionsController optionController_;
+
+    private bool ready_ = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        string toShow = $"Start of {gameObject.name} ";
         anyChange_ = true;
         toggles_ = gameObject.transform.Find("toggles").GetComponentsInChildren<uniqueselectionToggle>();
         textField_ = gameObject.transform.Find("Text").GetComponentsInChildren<Text>()[0];
         textField_.text = defaultText_;
-        desactiveAll();
-        toggles_[defaultToggleActive_].isOn = true;
+        optionController_ = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
+        selectToggle(defaultToggleActive_);
+        /*optionController_.copyOptions();
+        foreach(var toggle in toggles_){
+            toShow += $"{toggle.isOn} "; 
+        }
+        Debug.Log(toShow);*/
+        ready_ = true;
     }
 
     // Update is called once per frame
@@ -30,7 +39,6 @@ public class uniqueselectionDesplegableMenu : MonoBehaviour
     {
         if(anyChange_){
             showAllToggles(showToggles_);
-            anyChange_ = false;
         }
     }
 
@@ -45,6 +53,9 @@ public class uniqueselectionDesplegableMenu : MonoBehaviour
         textField_.text = (textField_.text == defaultText_) ? "Click here to save options" : defaultText_;
         showToggles_ = !showToggles_;
         anyChange_ = true;
+        if(textField_.text == defaultText_){
+            optionController_.saveOptions();
+        }
     }
 
     public void showAllToggles(bool show){
@@ -63,16 +74,28 @@ public class uniqueselectionDesplegableMenu : MonoBehaviour
 
     private void desactiveAll(){
         foreach(var toggle in toggles_){
-            toggle.isOn = false;
+            //toggle.isOn = false;
+            toggle.changeState(false);
         }
     }
 
     public void selectToggle(int index){
         desactiveAll();
-        toggles_[index].isOn = true;
+        //toggles_[index].isOn = true;
+        toggles_[index].changeState(true);
+        /*string toShow = $"selectToggle with {index}: ";
+        foreach(var toggle in toggles_){
+            toShow += $"{toggle.isOn} ";
+        }
+        Debug.Log(toShow);*/
+        anyChange_ = true;
     }
 
     public bool anyChange(){
         return anyChange_;
+    }
+
+    public bool ready(){
+        return ready_;
     }
 }

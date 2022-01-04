@@ -14,6 +14,7 @@ public class optionsController : MonoBehaviour
     private uniqueselectionDesplegableMenu sortByLessDistanceMenu_;
     private multiselectionDesplegableMenu whatToSeeMenu_;
     private uniqueselectionDesplegableMenu distanceUnitMenu_;
+    private bool optionsCopied_;
 
     static public GameObject lastOptionClicked_;
 
@@ -32,24 +33,26 @@ public class optionsController : MonoBehaviour
         whatToSee_ = new Dictionary<string, bool>();
         whatToSee_["Viewpoints"] = true;
         whatToSee_["Hiking Routes"] = true;
-        whatToSee_["Beachs"] = true;
+        whatToSee_["Beaches"] = true;
         whatToSee_["Natural Pools"] = true;
         whatToSee_["Natural Parks"] = true;
         whatToSee_["Already Visited"] = true;
         sortByLessDistance_ = true;
+        optionsCopied_ = false;
     }
 
     void Update(){
         if(lastScene_ != SceneManager.GetActiveScene().name){
             lastScene_ = SceneManager.GetActiveScene().name;
             if(SceneManager.GetActiveScene().name == "PantallaOpciones"){
-                copyOptions();//si existian opciones previas, deben mostrarse
+                if(sortByLessDistanceMenu_ != null && distanceUnitMenu_ != null && sortByLessDistanceMenu_.ready() && distanceUnitMenu_.ready()){
+                    copyOptions();//si existian opciones previas, deben mostrarse
+                }
                 sortByLessDistanceMenu_ = GameObject.Find("/Canvas/Short results by").gameObject.GetComponent<uniqueselectionDesplegableMenu>();
                 whatToSeeMenu_ = GameObject.Find("/Canvas/Choose what to see").gameObject.GetComponent<multiselectionDesplegableMenu>();
                 distanceUnitMenu_ = GameObject.Find("/Canvas/Choose Distance Unit").gameObject.GetComponent<uniqueselectionDesplegableMenu>();
-                
-            }else if(SceneManager.GetActiveScene().name == "PantallaPrincipal" || 
-                        SceneManager.GetActiveScene().name == "PantallaLugar"){
+                optionsCopied_ = false;
+            }else if(SceneManager.GetActiveScene().name == "PantallaPrincipal" || SceneManager.GetActiveScene().name == "PantallaLugar"){
                 sortByLessDistanceMenu_ = null;
                 whatToSeeMenu_ = null;
                 distanceUnitMenu_ = null;
@@ -58,25 +61,8 @@ public class optionsController : MonoBehaviour
                 return;
             }
         }
-        if(sortByLessDistanceMenu_ && whatToSeeMenu_ && distanceUnitMenu_){
-            if(sortByLessDistanceMenu_.anyChange()){
-                sortByLessDistance_ = sortByLessDistanceMenu_.checkToggle(0);
-                //Debug.Log($"sortByLessDistance_ = {sortByLessDistance_}");
-            }
-            if(whatToSeeMenu_.anyChange()){
-                Dictionary<string,bool> changes = new Dictionary<string,bool>();//no puedes editar un diccionario mientras lo recorres
-                foreach(KeyValuePair<string, bool> option in whatToSee_){
-                    changes[option.Key] = whatToSeeMenu_.checkToggleByText(option.Key);
-                }
-                foreach(KeyValuePair<string, bool> option in changes){
-                    whatToSee_[option.Key] = changes[option.Key];
-                    //Debug.Log($"whatToSee_[{option.Key}] = {whatToSee_[option.Key]}");
-                }
-            }
-            if(distanceUnitMenu_.anyChange()){
-                distanceInKM_ = distanceUnitMenu_.checkToggle(0);
-                //Debug.Log($"distanceInKM_ = {distanceInKM_}");
-            }
+        if(!optionsCopied_ && sortByLessDistanceMenu_ != null && distanceUnitMenu_ != null && sortByLessDistanceMenu_.ready() && distanceUnitMenu_.ready()){
+            copyOptions();//si existian opciones previas, deben mostrarse
         }
     }
 
@@ -99,13 +85,13 @@ public class optionsController : MonoBehaviour
         if(areAllFalse){
             whatToSeeOptions["viewpoints"] = true;
             whatToSeeOptions["hikingRoutes"] = true;
-            whatToSeeOptions["beachs"] = true;
+            whatToSeeOptions["beaches"] = true;
             whatToSeeOptions["naturalPools"] = true;
             whatToSeeOptions["naturalParks"] = true;
         }else{
             whatToSeeOptions["viewpoints"] = whatToSee_["Viewpoints"];
             whatToSeeOptions["hikingRoutes"] = whatToSee_["Hiking Routes"];
-            whatToSeeOptions["beachs"] = whatToSee_["Beachs"];
+            whatToSeeOptions["beaches"] = whatToSee_["Beaches"];
             whatToSeeOptions["naturalPools"] = whatToSee_["Natural Pools"];
             whatToSeeOptions["naturalParks"] = whatToSee_["Natural Parks"];
         }
@@ -113,19 +99,64 @@ public class optionsController : MonoBehaviour
         return whatToSeeOptions;
     }
 
-    private void copyOptions(){
+    public void copyOptions(){
         uniqueselectionDesplegableMenu newSortByLessDistanceMenu_ = GameObject.Find("/Canvas/Short results by").gameObject.GetComponent<uniqueselectionDesplegableMenu>();
         multiselectionDesplegableMenu newWhatToSeeMenu_ = GameObject.Find("/Canvas/Choose what to see").gameObject.GetComponent<multiselectionDesplegableMenu>();
         uniqueselectionDesplegableMenu newDistanceUnitMenu_ = GameObject.Find("/Canvas/Choose Distance Unit").gameObject.GetComponent<uniqueselectionDesplegableMenu>();
         
-        newSortByLessDistanceMenu_.selectToggle(distanceInKM_ ? 0 : 1);
-        newDistanceUnitMenu_.selectToggle(sortByLessDistance_ ? 0 : 1);
 
         newWhatToSeeMenu_.setToggleStateByText("Viewpoints", whatToSee_["Viewpoints"]);
         newWhatToSeeMenu_.setToggleStateByText("Hiking Routes", whatToSee_["Hiking Routes"]);
-        newWhatToSeeMenu_.setToggleStateByText("Beachs", whatToSee_["Beachs"]);
+        newWhatToSeeMenu_.setToggleStateByText("Beaches", whatToSee_["Beaches"]);
         newWhatToSeeMenu_.setToggleStateByText("Natural Pools", whatToSee_["Natural Pools"]);
         newWhatToSeeMenu_.setToggleStateByText("Natural Parks", whatToSee_["Natural Parks"]);
         newWhatToSeeMenu_.setToggleStateByText("Already Visited", whatToSee_["Already Visited"]);
+        newSortByLessDistanceMenu_.selectToggle((distanceInKM_ ? 0 : 1));
+        newDistanceUnitMenu_.selectToggle((sortByLessDistance_ ? 0 : 1));
+        
+        /*string toShow = "On Copy Options ";
+        toShow += $"Viewpoints -> {whatToSee_["Viewpoints"]} ";
+        toShow += $"Hiking Routes -> {whatToSee_["Hiking Routes"]} ";
+        toShow += $"Beaches -> {whatToSee_["Beaches"]} ";
+        toShow += $"Natural Pools -> {whatToSee_["Natural Pools"]} ";
+        toShow += $"Natural Parks -> {whatToSee_["Natural Parks"]} ";
+        toShow += $"Already Visited -> {whatToSee_["Already Visited"]} ";
+        toShow += $"distanceInKM_ = {distanceInKM_} ";
+        toShow += $"sortByLessDistance_ = {sortByLessDistance_}";
+        Debug.Log(toShow);*/
+
+        optionsCopied_ = true;
     }
+
+    public void saveOptions(){
+        if(sortByLessDistanceMenu_ && whatToSeeMenu_ && distanceUnitMenu_){
+            //string toShow = "On save Options ";
+            if(whatToSeeMenu_.anyChange()){
+                Dictionary<string,bool> changes = new Dictionary<string,bool>();//no puedes editar un diccionario mientras lo recorres
+                foreach(KeyValuePair<string, bool> option in whatToSee_){
+                    changes[option.Key] = whatToSeeMenu_.checkToggleByText(option.Key);
+                    //toShow += $" {option.Key} -> {whatToSeeMenu_.checkToggleByText(option.Key)} \n";
+                }
+                foreach(KeyValuePair<string, bool> option in changes){
+                    whatToSee_[option.Key] = changes[option.Key];
+                }
+            }
+            distanceInKM_ = distanceUnitMenu_.checkToggle(0);
+            sortByLessDistance_ = sortByLessDistanceMenu_.checkToggle(0);
+            /*toShow += $"distanceInKM_ = {distanceInKM_} ";
+            toShow += $"sortByLessDistance_ = {sortByLessDistance_}";
+            Debug.Log(toShow);*/
+        }
+    }
+
+    /*
+    
+    no entiendo que pasa es como que se copian los cambios pero antes de que aplique los valores por defecto
+    entonces queda siempre con los que tiene por defecto, pero si comento las lineas de valores por defecto
+    sigue sin ir, posible solucion: 
+    
+        en el awake del unique selection busque al options controller y haga
+        askOptionsFor(this.gameObject.name) y se haga un fill con eso
+    
+    */
 }

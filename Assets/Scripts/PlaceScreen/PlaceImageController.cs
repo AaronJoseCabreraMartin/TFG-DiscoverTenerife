@@ -6,10 +6,15 @@ using UnityEngine.UI;
 
 public class PlaceImageController : MonoBehaviour
 {
-    private bool loaded_ = false;
+    [SerializeField] private GameObject name_;
+    [SerializeField] private GameObject address_;
+    [SerializeField] private GameObject distance_;
+    
+    private bool loaded_;
     // Start is called before the first frame update
     void Start()
     {
+        loaded_ = false;
         if(PlaceHandler.choosenPlace_ != null){
           FillFields();
         }
@@ -23,10 +28,10 @@ public class PlaceImageController : MonoBehaviour
     }
 
     void FillFields(){
-      gameObject.transform.Find("Name").gameObject.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getName();
-      gameObject.transform.Find("Address").gameObject.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getAddress();
+      name_.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getName();
+      address_.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getAddress();
       optionsController options = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
-      gameObject.transform.Find("Distance").gameObject.GetComponent<Text>().text = Math.Round(CalculateDistance()).ToString() + (options.distanceInKM() ? " kms" : " milles");
+      distance_.GetComponent<Text>().text = Math.Round(CalculateDistance()).ToString() + (options.distanceInKM() ? " kms" : " milles");
       gameObject.GetComponent<Image>().sprite = PlaceHandler.choosenPlace_.getImage();
       loaded_ = true;
     }

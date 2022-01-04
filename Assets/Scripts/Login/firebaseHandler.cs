@@ -23,6 +23,7 @@ public class firebaseHandler : MonoBehaviour
     private int minutesOfCooldown_ = 60;//1 hora de cooldown
     private bool firebaseDependenciesResolved = false;
     private bool placesReady_ = false;
+    private bool userDataReady_ = false;
     //              type of place          id                 DATA
     private Dictionary<string,Dictionary<string,Dictionary<string,string>>> allPlaces_ = new Dictionary<string,Dictionary<string,Dictionary<string,string>>>();
 
@@ -52,7 +53,7 @@ public class firebaseHandler : MonoBehaviour
             CreateFirebaseObject();
             firebaseDependenciesResolved = true;
             Debug.Log("Firebase Connected!!!");
-            downloadAllPlaces();
+            //downloadAllPlaces();
         }
         else
         {
@@ -94,9 +95,30 @@ public class firebaseHandler : MonoBehaviour
 
             // Firebase user has been created.
             Firebase.Auth.FirebaseUser newUser = task.Result;
-            Debug.Log($"Firebase user created successfully: {newUser.DisplayName} ({ newUser.UserId})");
-            GameObject.Find("registerController").GetComponent<registerScreenController>().userCreatedSuccessfully(newUser.DisplayName);
-            return;
+
+            Firebase.Auth.UserProfile profile = new Firebase.Auth.UserProfile {
+                DisplayName = email
+            };
+            auth.CurrentUser.UpdateUserProfileAsync(profile).ContinueWith(task => {
+                if (task.IsCanceled) {
+                    Debug.LogError("UpdateUserProfileAsync was canceled.");
+                    return;
+                }
+                if (task.IsFaulted) {
+                    Debug.LogError("UpdateUserProfileAsync encountered an error: " + task.Exception);
+                    return;
+                }
+                Debug.Log("User profile updated successfully.");
+                
+                Debug.Log($"Firebase user created successfully: {newUser.DisplayName} ({ newUser.UserId})");
+                actualUser_ = new UserData(auth.CurrentUser);
+                writeUserData();
+                GameObject.Find("registerController").GetComponent<registerScreenController>().userCreatedSuccessfully(newUser.DisplayName);
+                downloadAllPlaces();
+                //no hay que hacer read por lo tanto, ya esta ready
+                userDataReady_ = true;
+                return;
+            },TaskScheduler.FromCurrentSynchronizationContext());
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
 
@@ -107,9 +129,13 @@ public class firebaseHandler : MonoBehaviour
                 GameObject.Find("emailLoginController").GetComponent<emailLoginController>().errorLoginUser($"{task.Exception}");
 
             }else{
-                Debug.Log("Se ha iniciado sesión correctamente");
+                Debug.Log($"Se ha iniciado sesión correctamente: {task.Result.DisplayName} ({ task.Result.UserId})");
+                //actualUser_ = new UserData(auth.CurrentUser);
+                readUserData();
                 GameObject.Find("emailLoginController").GetComponent<emailLoginController>().userLogedSuccessfully(task.Result.DisplayName);
+                downloadAllPlaces();
             }
+            return;
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
 
@@ -117,27 +143,30 @@ public class firebaseHandler : MonoBehaviour
         //Si el current user es nulo, es que nunca se habia logeado o si con el que se ha loggeado tiene anonymous a false
         if(auth.CurrentUser == null || !auth.CurrentUser.IsAnonymous){
             auth.SignInAnonymouslyAsync().ContinueWith(task => {
-            if (task.IsCanceled) {
-                Debug.LogError("SignInAnonymouslyAsync was canceled.");
-                GameObject.Find("anonymousButtonHandler").GetComponent<anonymousButtonHandler>().errorLoginAnonymousUser("SignInAnonymouslyAsync was canceled.");
-                return;
-            }
-            if (task.IsFaulted) {
-                Debug.LogError("SignInAnonymouslyAsync encountered an error: " + task.Exception);
-                GameObject.Find("anonymousButtonHandler").GetComponent<anonymousButtonHandler>().errorLoginAnonymousUser("SignInAnonymouslyAsync encountered an error: " + task.Exception);
-                return;
-            }
+                if (task.IsCanceled) {
+                    Debug.LogError("SignInAnonymouslyAsync was canceled.");
+                    GameObject.Find("anonymousButtonHandler").GetComponent<anonymousButtonHandler>().errorLoginAnonymousUser("SignInAnonymouslyAsync was canceled.");
+                    return;
+                }
+                if (task.IsFaulted) {
+                    Debug.LogError("SignInAnonymouslyAsync encountered an error: " + task.Exception);
+                    GameObject.Find("anonymousButtonHandler").GetComponent<anonymousButtonHandler>().errorLoginAnonymousUser("SignInAnonymouslyAsync encountered an error: " + task.Exception);
+                    return;
+                }
 
-            Firebase.Auth.FirebaseUser newUser = task.Result;
-            Debug.LogFormat("User signed in successfully: {0} ({1})",
-                newUser.DisplayName, newUser.UserId);
-            actualUser_ = new UserData(auth.CurrentUser);
-            writeUserData();
+                Firebase.Auth.FirebaseUser newUser = task.Result;
+                Debug.Log($"User signed in successfully: {newUser.DisplayName} ({newUser.UserId})");
+                actualUser_ = new UserData(auth.CurrentUser);
+                writeUserData();
+                //no hay que hacer read por lo tanto, ya esta ready
+                userDataReady_ = true;
+                downloadAllPlaces();
             },TaskScheduler.FromCurrentSynchronizationContext());
         }else{
-            Debug.Log("El usuario anonimo ya existia");
-            actualUser_ = new UserData(auth.CurrentUser);
-            writeUserData();
+            Debug.Log($"El usuario anonimo ya existia {auth.CurrentUser.DisplayName} {auth.CurrentUser.UserId}");
+            readUserData();
+            //actualUser_ = new UserData(auth.CurrentUser);
+            downloadAllPlaces();
         }
         GameObject.Find("anonymousButtonHandler").GetComponent<anonymousButtonHandler>().anonymousUserLoginSucessfully();
     }
@@ -211,6 +240,7 @@ public class firebaseHandler : MonoBehaviour
             {
                 GameObject.Find("Login button Google").GetComponent<googleLoginController>().userLogedSuccessfully(user.DisplayName);
                 Debug.Log("se inicio sesion correctamente! llamada a TODO OK.");
+                downloadAllPlaces();
             }
             if(errors.Length != 0){
                 GameObject.Find("Login button Google").GetComponent<googleLoginController>().errorLoginUser(errors);
@@ -222,6 +252,7 @@ public class firebaseHandler : MonoBehaviour
     public void LogOut()
     {
         Firebase.Auth.FirebaseAuth.DefaultInstance.SignOut();
+        userDataReady_ = false;
     }
 
     ///// DATABASE METHODS /////
@@ -234,6 +265,22 @@ public class firebaseHandler : MonoBehaviour
         database.Child("users").Child(actualUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(actualUser_.ToJson());
     }
 
+    public void readUserData(){
+        FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/visitedPlaces_").GetValueAsync().ContinueWith(task => {
+            if (task.IsFaulted) {
+                // Handle the error...
+                Debug.Log("Error: "+task.Exception);
+            } else if (task.IsCompleted) {
+                DataSnapshot snapshot = task.Result;
+                //  pos             data
+                List<Dictionary<string,string>> listVersion = JsonConvert.DeserializeObject<List<Dictionary<string,string>>>(snapshot.GetRawJsonValue());
+                actualUser_ = new UserData(auth.CurrentUser,listVersion);
+                userDataReady_ = true;
+                Debug.Log(actualUser_.ToJson());
+            }
+        },TaskScheduler.FromCurrentSynchronizationContext());
+    }
+
     public void writePlaceData(string type, string id){
         requestHandler_.oneMoreVisitToPlaceByTypeAndId(type,id);
         Place place = requestHandler_.getPlaceByTypeAndId(type,id);
@@ -242,6 +289,8 @@ public class firebaseHandler : MonoBehaviour
     }
 
     public bool cooldownVisitingPlaceFinished(string type, int id){
+        Debug.Log(actualUser_);
+        Debug.Log(actualUser_.ToJson());
         if(actualUser_.visitedPlaces_.Exists(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id)){
             VisitedPlace place = actualUser_.visitedPlaces_.Find(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id);
             //si ya lo habia visitado devolvemos true si ha cumplido el cooldown
@@ -256,7 +305,6 @@ public class firebaseHandler : MonoBehaviour
         Dictionary<string,string> typeAndId = findPlaceByName(name);
         return cooldownVisitingPlaceFinished(typeAndId["type"],Int32.Parse(typeAndId["id"]));
     }
-
 
     public void userVisitedPlace(string type, int id){
         bool firstTime = true;
@@ -277,10 +325,15 @@ public class firebaseHandler : MonoBehaviour
         writePlaceData(type,id.ToString());
     }
 
-
     public void userVisitedPlaceByName(string name){
         Dictionary<string,string> typeAndId = findPlaceByName(name);
         userVisitedPlace(typeAndId["type"],Int32.Parse(typeAndId["id"]));
+    }
+
+    public bool hasUserVisitPlaceByName(string name){
+        Dictionary<string,string> typeAndId = findPlaceByName(name);
+        Debug.Log(actualUser_);
+        return actualUser_.hasVisitPlace(typeAndId["type"],Int32.Parse(typeAndId["id"]));
     }
 
     public Place askForAPlace(){
@@ -292,7 +345,7 @@ public class firebaseHandler : MonoBehaviour
 
     private void downloadAllPlaces(){
         List<string> typesOfSites = new List<string>();
-        typesOfSites.Add("beachs");
+        typesOfSites.Add("beaches");
         typesOfSites.Add("hikingRoutes");
         typesOfSites.Add("naturalParks");
         typesOfSites.Add("naturalPools");
@@ -305,7 +358,6 @@ public class firebaseHandler : MonoBehaviour
         }
         
     }
-
 
     private IEnumerator downloadOneTypeOfSite(string typeSite, List<string> typesOfSites){
         FirebaseDatabase.DefaultInstance.GetReference($"places/{typeSite}/").GetValueAsync().ContinueWith(task => {
@@ -341,6 +393,10 @@ public class firebaseHandler : MonoBehaviour
         return placesReady_;
     }
 
+    public bool userDataIsReady(){
+        return userDataReady_;
+    }
+
     public void sortPlaces(){
         requestHandler_.sortPlaces();
     }
@@ -362,8 +418,15 @@ public class firebaseHandler : MonoBehaviour
         return toReturn;
     }
 
-    void OnApplicationQuit()
-    {
+    public int totalOfPlaces(){
+        int count = 0;
+        foreach(var type in allPlaces_.Keys){
+            count += allPlaces_[type].Count;
+        }
+        return count;
+    }
+
+    void OnApplicationQuit(){
         FirebaseApp.DefaultInstance.Dispose();
     }
 

@@ -11,7 +11,7 @@ public class requestHandler
     
     private int actualIndexPlace_;
     private List<List<Place>> listOfPlaces_;
-    // al macena una lista de int por cada tipo
+    // almacena una lista de int por cada tipo
     // cada posicion de esa lista de int indica un indice
     // del lugar que debemos buscar en listOfPlaces
     private List<List<int>> sortedPlaceIndex_;
@@ -113,18 +113,17 @@ public class requestHandler
     }
 
     public void sortPlaces(){
-        Debug.Log("sorting!");
         optionsController options = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
         gpsController gps = GameObject.FindGameObjectsWithTag("gpsController")[0].GetComponent<gpsController>(); 
         if(options.sortByLessDistance()){
             for(int typeIndex = 0; typeIndex < sortedPlaceIndex_.Count; typeIndex++){
                 sortedPlaceIndex_[typeIndex].Sort(delegate(int placeIndexA, int placeIndexB){
-                    if((placeIndexA == null && placeIndexB == null) || placeIndexA == placeIndexB){
+                    if(/*(placeIndexA == null && placeIndexB == null) ||*/ placeIndexA == placeIndexB){
                         return 0;
-                    }else if(placeIndexA == null){//A < B
+                    /*}else if(placeIndexA == null){//A < B
                         return -1;
                     }else if(placeIndexB == null){//A > B
-                        return 1;
+                        return 1;*/
                     }else{
                         Place placeA = listOfPlaces_[typeIndex][placeIndexA];
                         double distanceA = gps.CalculateDistanceToUser(placeA.getLatitude(),placeA.getLongitude());
@@ -134,15 +133,41 @@ public class requestHandler
                     }
                 });
             }
+        }else{
+            /*
+            Comprobar que funciona bien la playa 126 le cambie el numero de visitas y creo que a las dos ultimas tambien
+            Si hay empate podriamos ordenar por distancia
+            */
+            for(int typeIndex = 0; typeIndex < sortedPlaceIndex_.Count; typeIndex++){
+                sortedPlaceIndex_[typeIndex].Sort(delegate(int placeIndexA, int placeIndexB){
+                    if(/*(placeIndexA == null && placeIndexB == null) ||*/ placeIndexA == placeIndexB){
+                        return 0;
+                    /*}else if(placeIndexA == null){//A < B
+                        return -1;
+                    }else if(placeIndexB == null){//A > B
+                        return 1;*/
+                    }else{
+                        Place placeA = listOfPlaces_[typeIndex][placeIndexA];
+                        Place placeB = listOfPlaces_[typeIndex][placeIndexB];
+                        //Si tienen las mismas visitas ordenamos de menos distancia a mayor
+                        if(placeA.getTimesItHasBeenVisited() == placeB.getTimesItHasBeenVisited()){
+                            double distanceA = gps.CalculateDistanceToUser(placeA.getLatitude(),placeA.getLongitude());
+                            double distanceB = gps.CalculateDistanceToUser(placeB.getLatitude(),placeB.getLongitude());
+                            return (distanceA < distanceB) ? -1 : 1;
+                        }else{
+                            //esto ordena de menor a mayor pero nosotros queremos que sea el mas visitado el primero
+                            return (placeA.getTimesItHasBeenVisited() > placeB.getTimesItHasBeenVisited() ? -1 : 1);
+                        }
+                    }
+                });
+            }
         }
-        Debug.Log("sorted!");
     }
 
     public void oneMoreVisitToPlaceByTypeAndId(string type, string id){
         listOfPlaces_[typesOfSites_.IndexOf(type)][Int32.Parse(id)].oneMoreVisit();
     }
     public Place getPlaceByTypeAndId(string type, string id){
-        Debug.Log($"getPlaceByTypeAndId {type} {id} {typesOfSites_.IndexOf(type)} ");
         return listOfPlaces_[typesOfSites_.IndexOf(type)][Int32.Parse(id)];
     }
 }

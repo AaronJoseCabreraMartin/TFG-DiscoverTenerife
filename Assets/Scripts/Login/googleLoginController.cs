@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 
 public class googleLoginController : MonoBehaviour
@@ -19,7 +18,7 @@ public class googleLoginController : MonoBehaviour
     public void userLogedSuccessfully(string name){
         inProgress = false;
         Debug.Log("userCreatedSuccessfully: " + name);
-        SceneManager.LoadScene("PantallaPrincipal");
+        ChangeScene.changeScene("PantallaPrincipal");
     }
 
     public void errorLoginUser(string error){

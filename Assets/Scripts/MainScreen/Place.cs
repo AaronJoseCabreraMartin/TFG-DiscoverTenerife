@@ -83,7 +83,10 @@ public class Place
         toReturn += $"\"longitude_\" : \"{correctLongitude}\",";
         toReturn += $"\"name_\" : \"{name_}\",";
         toReturn += $"\"timesItHasBeenVisited_\" : \"{timesItHasBeenVisited_}\"}}";
-        Debug.Log(toReturn);
         return toReturn;
+    }
+
+    public int getTimesItHasBeenVisited(){
+        return timesItHasBeenVisited_;
     }
 }

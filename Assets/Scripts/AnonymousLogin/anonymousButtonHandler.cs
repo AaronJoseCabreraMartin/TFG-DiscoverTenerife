@@ -15,7 +15,8 @@ public class anonymousButtonHandler : MonoBehaviour{
 
     public void anonymousUserLoginSucessfully(){
         inProgress = false;
-        ChangeScene.changeScene("PantallaPrincipal");
+        //ChangeScene.changeScene("PantallaPrincipal");
+        GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation("PantallaPrincipal",0.5f,"");
     }
 
     public void errorLoginAnonymousUser(string error){

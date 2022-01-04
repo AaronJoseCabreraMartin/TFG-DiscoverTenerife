@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf1363f297367b4fa666f32267afe96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkMark_: {fileID: 7210227953494368625}
   isOn: 0
 --- !u!114 &7210227952636487163
 MonoBehaviour:
@@ -254,7 +255,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7210227952636487160}
         m_TargetAssemblyTypeName: uniqueselectionToggle, Assembly-CSharp
-        m_MethodName: changeState
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -649,6 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b6940006388f3a4d9f36fd1dc8858a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultText_: 
   showToggles_: 0
   defaultToggleActive_: 0
 --- !u!1 &7210227953238927419
@@ -889,6 +891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf1363f297367b4fa666f32267afe96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkMark_: {fileID: 7210227952952832420}
   isOn: 0
 --- !u!114 &7210227953538327026
 MonoBehaviour:
@@ -936,7 +939,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7210227953538327027}
         m_TargetAssemblyTypeName: uniqueselectionToggle, Assembly-CSharp
-        m_MethodName: changeState
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

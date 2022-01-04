@@ -21,7 +21,7 @@ public class multiselectionDesplegableMenu : MonoBehaviour
     private Text textField_;
 
     public bool defaultToggleValue_ = true;
-    
+    private optionsController optionController_;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +33,7 @@ public class multiselectionDesplegableMenu : MonoBehaviour
         }
         textField_ = gameObject.transform.Find("Text").GetComponentsInChildren<Text>()[0];
         textField_.text = defaultText_;
+        optionController_ = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
     }
 
     // Update is called once per frame
@@ -54,6 +55,7 @@ public class multiselectionDesplegableMenu : MonoBehaviour
         textField_.text = (textField_.text == defaultText_) ? "Click here to save options" : defaultText_;
         showToggles_ = !showToggles_;
         anyChange_ = true;
+        optionController_.saveOptions();
     }
 
     public void showAllToggles(bool show){
