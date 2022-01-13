@@ -155,11 +155,11 @@ public class firebaseHandler : MonoBehaviour
                 }
 
                 Firebase.Auth.FirebaseUser newUser = task.Result;
-                Debug.Log($"User signed in successfully: {newUser.DisplayName} ({newUser.UserId})");
+                Debug.Log($"Nuevo usuario anonimo registrado correctamente: {newUser.DisplayName} ({newUser.UserId})");
                 actualUser_ = new UserData(auth.CurrentUser);
+                userDataReady_ = true;
                 writeUserData();
                 //no hay que hacer read por lo tanto, ya esta ready
-                userDataReady_ = true;
                 downloadAllPlaces();
             },TaskScheduler.FromCurrentSynchronizationContext());
         }else{
@@ -265,18 +265,25 @@ public class firebaseHandler : MonoBehaviour
         database.Child("users").Child(actualUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(actualUser_.ToJson());
     }
 
-    public void readUserData(){
+    public void readUserData(){        
         FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/visitedPlaces_").GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted) {
                 // Handle the error...
                 Debug.Log("Error: "+task.Exception);
             } else if (task.IsCompleted) {
                 DataSnapshot snapshot = task.Result;
-                //  pos             data
-                List<Dictionary<string,string>> listVersion = JsonConvert.DeserializeObject<List<Dictionary<string,string>>>(snapshot.GetRawJsonValue());
-                actualUser_ = new UserData(auth.CurrentUser,listVersion);
+                // por que si el usuario solo se registra y no visita ningun sitio en ese momento, 
+                // el array de visitados sera null (que es lo que estoy pidiendo), entonces tengo que inicializar 
+                // los datos como si fuera un nuevo usuario
+                if(snapshot.GetRawJsonValue() == null){
+                    actualUser_ = new UserData(auth.CurrentUser);
+                }else{
+                    //  pos             data
+                    List<Dictionary<string,string>> listVersion = JsonConvert.DeserializeObject<List<Dictionary<string,string>>>(snapshot.GetRawJsonValue());
+                    actualUser_ = new UserData(auth.CurrentUser,listVersion);
+                }
+                //por cualquiera de los dos caminos tiene que estar la user data lista
                 userDataReady_ = true;
-                Debug.Log(actualUser_.ToJson());
             }
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
@@ -284,17 +291,15 @@ public class firebaseHandler : MonoBehaviour
     public void writePlaceData(string type, string id){
         requestHandler_.oneMoreVisitToPlaceByTypeAndId(type,id);
         Place place = requestHandler_.getPlaceByTypeAndId(type,id);
-        
         database.Child("places").Child(type).Child(id).SetRawJsonValueAsync(place.ToJson());
     }
 
     public bool cooldownVisitingPlaceFinished(string type, int id){
-        Debug.Log(actualUser_);
-        Debug.Log(actualUser_.ToJson());
         if(actualUser_.visitedPlaces_.Exists(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id)){
             VisitedPlace place = actualUser_.visitedPlaces_.Find(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id);
             //si ya lo habia visitado devolvemos true si ha cumplido el cooldown
             // hay 10.000.000 de ticks en un segundo, * 60 son minutos
+            //Debug.Log($"{place.lastVisitTimestamp_} + {minutesOfCooldown_ * 10000000 * 60}\n {place.lastVisitTimestamp_ + minutesOfCooldown_ * 10000000 * 60} < {DateTime.Now.Ticks} ? ");
             return (place.lastVisitTimestamp_ + minutesOfCooldown_ * 10000000 * 60 < DateTime.Now.Ticks);
         }
         //si no lo habia visitado, el cooldown siempre se ha cumplido
@@ -316,13 +321,16 @@ public class firebaseHandler : MonoBehaviour
                 break;
             }
         }
+        long actualTime = DateTime.Now.Ticks;
         //si no lo habia visitado antes, registro la visita
         if(firstTime){
-            actualUser_.visitedPlaces_.Add(new VisitedPlace(type,id,1));
+            actualUser_.visitedPlaces_.Add(new VisitedPlace(type,id,1,actualTime));
+        }else{
+            actualUser_.newVisitAt(type,id,actualTime);
         }
-        writeUserData();
         allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"] = (Int32.Parse(allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"])+1).ToString();
         writePlaceData(type,id.ToString());
+        writeUserData();
     }
 
     public void userVisitedPlaceByName(string name){
@@ -332,7 +340,6 @@ public class firebaseHandler : MonoBehaviour
 
     public bool hasUserVisitPlaceByName(string name){
         Dictionary<string,string> typeAndId = findPlaceByName(name);
-        Debug.Log(actualUser_);
         return actualUser_.hasVisitPlace(typeAndId["type"],Int32.Parse(typeAndId["id"]));
     }
 
@@ -344,22 +351,16 @@ public class firebaseHandler : MonoBehaviour
     }
 
     private void downloadAllPlaces(){
-        List<string> typesOfSites = new List<string>();
-        typesOfSites.Add("beaches");
-        typesOfSites.Add("hikingRoutes");
-        typesOfSites.Add("naturalParks");
-        typesOfSites.Add("naturalPools");
-        typesOfSites.Add("viewpoints");
-        foreach(string typeSite in typesOfSites){
+        foreach(string typeSite in mapRulesHandler.getTypesOfSites()){
             //StartCoroutine es como olvidate de esto hasta que termine, 
             //cuando termina ejecuta la siguiente linea como si no hubiera pasado nada
             //es para que no se pause la app mientras se descargan los sitios
-            StartCoroutine(downloadOneTypeOfSite(typeSite, typesOfSites));
+            StartCoroutine(downloadOneTypeOfSite(typeSite));
         }
         
     }
 
-    private IEnumerator downloadOneTypeOfSite(string typeSite, List<string> typesOfSites){
+    private IEnumerator downloadOneTypeOfSite(string typeSite){
         FirebaseDatabase.DefaultInstance.GetReference($"places/{typeSite}/").GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted) {
                 // Handle the error...
@@ -380,7 +381,7 @@ public class firebaseHandler : MonoBehaviour
                     }
                 }*/
                 allPlaces_[typeSite] = dictionaryVersion;
-                if(allPlaces_.Count == typesOfSites.Count){
+                if(allPlaces_.Count == mapRulesHandler.getTypesOfSites().Count){
                     placesReady_ = true;
                     Debug.Log("ready!");
                 }
@@ -424,6 +425,25 @@ public class firebaseHandler : MonoBehaviour
             count += allPlaces_[type].Count;
         }
         return count;
+    }
+
+    public int totalOfPlacesOfZone(string zone){
+        int count = 0;
+        foreach(var type in allPlaces_.Keys){
+            foreach(var id in allPlaces_[type].Keys){
+                if(allPlaces_[type][id]["zone_"] == zone){
+                    count++;
+                }
+            }
+        }
+        if(count == 0){
+            Debug.Log($"No se ha encontrado ningun lugar con el tipo {zone} en totalOfPlacesOfZone");
+        }
+        return count;
+    }
+
+    public Dictionary<string,string> getPlaceData(string type, string id){
+        return allPlaces_[type][id];
     }
 
     void OnApplicationQuit(){

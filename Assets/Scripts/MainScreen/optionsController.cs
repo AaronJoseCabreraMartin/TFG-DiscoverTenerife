@@ -52,7 +52,9 @@ public class optionsController : MonoBehaviour
                 whatToSeeMenu_ = GameObject.Find("/Canvas/Choose what to see").gameObject.GetComponent<multiselectionDesplegableMenu>();
                 distanceUnitMenu_ = GameObject.Find("/Canvas/Choose Distance Unit").gameObject.GetComponent<uniqueselectionDesplegableMenu>();
                 optionsCopied_ = false;
-            }else if(SceneManager.GetActiveScene().name == "PantallaPrincipal" || SceneManager.GetActiveScene().name == "PantallaLugar"){
+            }else if(SceneManager.GetActiveScene().name == "PantallaPrincipal" 
+                    || SceneManager.GetActiveScene().name == "PantallaLugar" 
+                    || SceneManager.GetActiveScene().name == "PantallaEstadisticas"){
                 sortByLessDistanceMenu_ = null;
                 whatToSeeMenu_ = null;
                 distanceUnitMenu_ = null;

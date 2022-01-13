@@ -91,7 +91,7 @@ public class requestHandler
 
         Place toReturn = listOfPlaces_[actualIndexType_][sortedPlaceIndex_[actualIndexType_][actualIndexPlace_]];
         updatePlaceIndex();
-        toReturn.startDownload();
+        //toReturn.startDownload();
         return toReturn;
     }
 

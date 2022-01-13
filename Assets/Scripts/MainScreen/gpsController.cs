@@ -14,10 +14,35 @@ public class gpsController : MonoBehaviour
     private string nextPermission;
     private Stack<string> permissions;
     private string lastScene_;
+    private bool gpsIsRunning_;
 
     private double longitude_;
     private double latitude_;
     private double altitude_;
+
+    /*
+    Para testear estoy estableciendo las coordenadas en ciertos lugares, la idea es que en la version final, si gpsIsRunning está a false
+    NO se haga el askForAPlace, porque puede pasar que en lugar de las coordenadas reales se usen las coordenadas por defecto y se muestren
+    cosas que están más lejos de lo que deberían.
+    Al igual que la característica de poder mover las coordenadas con las flechas del teclado.
+    */
+    // casa
+    //private double defaultLatitude_ = 28.07133;
+    //private double defaultLongitude_ = -16.65696;
+
+    // la laguna
+    //private double defaultLatitude_ = 28.4697925;
+    //private double defaultLongitude_ = -16.3433747;
+    
+    // a 20 metros de la playa de los cristianos
+    ///private double defaultLatitude_ = 28.05015;
+    //private double defaultLongitude_ = -16.7177;
+    
+    // a metros de la playa de las teresitas
+    private double defaultLatitude_ = 28.5097;
+    private double defaultLongitude_ = -16.18439;
+    
+    private double defaultAltitude_ = 255;
 
     static private GameObject errorImage_;
 
@@ -29,26 +54,17 @@ public class gpsController : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
         errorImage_ = GameObject.Find("/Canvas/errorImage").gameObject;
-    }
-
-    void Start(){
         isItPermissionTime = false;
+        gpsIsRunning_ = false;
         permissions = new Stack<string>();
         lastScene_ = SceneManager.GetActiveScene().name;
-        Debug.Log("estas coordenadas deben empezar en 0, 0, 0 por defecto");
-        // casa
-        //longitude_ = -16.65696;
-        //latitude_ = 28.07133;
-        // la laguna
-        //longitude_ = -16.3433747;
-        //latitude_ = 28.4697925;
-        // a 20 metros de la playa de los cristianos
-        longitude_ = -16.7177;
-        latitude_ = 28.05015;
-        altitude_ = 255;
+        Debug.Log("Las coordenadas por defecto deben empezar en 0, 0, 0 por defecto");
+       
         CreatePermissionList();
         Input.location.Start();
     }
+
+    
 
     private void CreatePermissionList(){
         isItPermissionTime = true;
@@ -68,7 +84,6 @@ public class gpsController : MonoBehaviour
     }
 
     private void OnApplicationFocus(bool focus){
-        //Debug.Log("Unity>> focus ....  " + focus + "   isPermissionTime : " + isItPermissionTime);
         if (focus == true && isItPermissionTime == true) {
             AskForPermissions();
         }
@@ -97,13 +112,39 @@ public class gpsController : MonoBehaviour
             //GameObject.Find("/Canvas/errorImage").gameObject.transform.Find("errorMessage").gameObject.GetComponent<Text>().text = $"Posicion: latitud:{latitude_} longitud:{longitude_} altitud:{altitude_}";
 
             errorImage_.SetActive(false);
+            gpsIsRunning_ = true;
+
             //GameObject.Find("/Canvas/errorImage").gameObject.SetActive(false);//oculta la imagen de error
         }else{
             errorImage_.SetActive(true);
+            latitude_ = defaultLatitude_;
+            longitude_ = defaultLongitude_;
+            altitude_ = defaultAltitude_;
+            gpsIsRunning_ = false;
             //GameObject.Find("/Canvas/errorImage").gameObject.SetActive(true);//muestra la imagen de error
             //GameObject.Find("/Canvas/errorImage").gameObject.transform.Find("errorMessage").gameObject.GetComponent<Text>().text = "Cant access to GPS data";
         }
         
+
+        
+        //For debugging propources
+        float velocity = 0.001f;
+        if (Input.GetKey("up")){
+            latitude_ += velocity;
+            Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
+        }
+        if (Input.GetKey("down")){
+            latitude_ -= velocity;
+            Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
+        }
+        if (Input.GetKey("right")){
+            longitude_ += velocity;
+            Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
+        }
+        if (Input.GetKey("left")){
+            longitude_ -= velocity;
+            Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
+        }
     }
 
     public double getLatitude(){
@@ -140,4 +181,39 @@ public class gpsController : MonoBehaviour
     private double sexagecimalToRadian(double sexagecimal) {
       return sexagecimal * (Math.PI/180);
     }
+
+    public string getZoneOf(double latitude, double longitude){
+        if(latitude <= 28.60634 && latitude >= 28.40631 &&
+            longitude <= -16.11673 && longitude >= -16.93788){
+            return "North";
+        }
+            
+        if(latitude < 28.40631 && latitude >= 28.147504 &&
+            longitude <= -16.67719 && longitude > -16.93788 ){
+            return "West";
+        }
+
+        if(latitude < 28.40631 && latitude > 28.147504 &&
+            longitude <= -16.53193 && longitude > -16.67719 ){
+            return "Center";
+        }
+
+        if(latitude < 28.40631 && latitude > 28.147504 &&
+            longitude < -16.11673 && longitude > -16.53193 ){
+            return "East";
+        }
+
+        if(latitude < 28.147504 && latitude >= 27.99321 &&
+            longitude < -16.11673 && longitude > -16.93788 ){
+            return "South";
+        }
+
+        Debug.Log($"{latitude}, {longitude} no esta en ninguno");
+        return $"Can't Find Zone of: {latitude}, {longitude}";
+    }
+
+    public string getActualZoneOfUser(){
+        return getZoneOf(latitude_, longitude_);
+    }
+        
 }

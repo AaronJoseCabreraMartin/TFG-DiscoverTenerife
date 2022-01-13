@@ -31,7 +31,7 @@ public class PlaceImageController : MonoBehaviour
       name_.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getName();
       address_.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getAddress();
       optionsController options = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
-      distance_.GetComponent<Text>().text = Math.Round(CalculateDistance()).ToString() + (options.distanceInKM() ? " kms" : " milles");
+      distance_.GetComponent<Text>().text = Math.Round(CalculateDistance(),2).ToString() + (options.distanceInKM() ? " kms" : " milles");
       gameObject.GetComponent<Image>().sprite = PlaceHandler.choosenPlace_.getImage();
       loaded_ = true;
     }
