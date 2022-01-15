@@ -53,8 +53,8 @@ public class requestHandler
             - Already Visited -> mostrar los ya vistos
     */
     public Place askForAPlace(){
-        optionsController options = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
-        firebaseHandler firebaseHandlerObject = GameObject.FindGameObjectsWithTag("firebaseHandler")[0].GetComponent<firebaseHandler>();
+        optionsController options = optionsController.optionsControllerInstance_;
+        firebaseHandler firebaseHandlerObject = firebaseHandler.firebaseHandlerInstance_;
         if(sortedByDistance_ != options.sortByLessDistance()){
             sortedByDistance_ = options.sortByLessDistance();
             sortPlaces();
@@ -113,8 +113,8 @@ public class requestHandler
     }
 
     public void sortPlaces(){
-        optionsController options = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
-        gpsController gps = GameObject.FindGameObjectsWithTag("gpsController")[0].GetComponent<gpsController>(); 
+        optionsController options = optionsController.optionsControllerInstance_;
+        gpsController gps = gpsController.gpsControllerInstance_; 
         if(options.sortByLessDistance()){
             for(int typeIndex = 0; typeIndex < sortedPlaceIndex_.Count; typeIndex++){
                 sortedPlaceIndex_[typeIndex].Sort(delegate(int placeIndexA, int placeIndexB){
@@ -134,10 +134,6 @@ public class requestHandler
                 });
             }
         }else{
-            /*
-            Comprobar que funciona bien la playa 126 le cambie el numero de visitas y creo que a las dos ultimas tambien
-            Si hay empate podriamos ordenar por distancia
-            */
             for(int typeIndex = 0; typeIndex < sortedPlaceIndex_.Count; typeIndex++){
                 sortedPlaceIndex_[typeIndex].Sort(delegate(int placeIndexA, int placeIndexB){
                     if(/*(placeIndexA == null && placeIndexB == null) ||*/ placeIndexA == placeIndexB){

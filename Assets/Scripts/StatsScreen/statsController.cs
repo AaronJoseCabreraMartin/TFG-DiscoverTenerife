@@ -10,7 +10,7 @@ public class statsController : MonoBehaviour
     private bool dataLoaded_;
 
     void Awake(){
-        firebaseHandlerObject_ = GameObject.FindGameObjectsWithTag("firebaseHandler")[0].GetComponent<firebaseHandler>();
+        firebaseHandlerObject_ = firebaseHandler.firebaseHandlerInstance_;
         if(firebaseHandlerObject_.placesAreReady() && firebaseHandlerObject_.userDataIsReady()){
             loadData();
         }else{

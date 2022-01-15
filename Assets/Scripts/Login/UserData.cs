@@ -9,8 +9,13 @@ public class UserData{
     
     private string displayName_;
 
+    // coordenadas de la "casa" del usuario
+    private double baseLatitude_;
+    private double baseLongitude_;
+    //si el usario se registra sin tener la ubicacion activada puede que la base no sea establecida
+    private bool baseEstablished_;
 
-    public UserData(Firebase.Auth.FirebaseUser newFireBaseUserData, List<Dictionary<string,string>> oldVisitedPlaces = null){
+    public UserData(Firebase.Auth.FirebaseUser newFireBaseUserData, List<Dictionary<string,string>> oldVisitedPlaces = null, Dictionary<string,string> baseData = null){
         firebaseUserData_ = newFireBaseUserData;
         visitedPlaces_ = new List<VisitedPlace>();
         if(oldVisitedPlaces != null){
@@ -22,6 +27,12 @@ public class UserData{
                                                     ));
             }   
         }
+        if(baseData != null){
+            baseLatitude_ = Convert.ToDouble(baseData["baseLatitude_"]);
+            baseLongitude_ = Convert.ToDouble(baseData["baseLongitude_"]);
+        }
+        //si null, false
+        baseEstablished_ = baseData != null;
         if(firebaseUserData_.IsAnonymous){
             displayName_ = "Anonymous";
         }else{
@@ -32,6 +43,10 @@ public class UserData{
     public string ToJson(){
         string conversion = "{";
         conversion += $"\"displayName_\" : \"{displayName_}\",";
+        if(baseEstablished_){
+            conversion += $"\"baseLatitude_\" : \"{baseLatitude_}\",";
+            conversion += $"\"baseLongitude_\" : \"{baseLongitude_}\",";
+        }
         conversion += "\"visitedPlaces_\" : [";
         for(int i = 0; i < visitedPlaces_.Count; i++){
             conversion += visitedPlaces_[i].ToJson();
@@ -53,7 +68,7 @@ public class UserData{
 
     //devuelve la cantidad de sitios de una zona dada que ha visitado el usuario
     public int countOfVisitedPlacesOfZone(string zone){
-        firebaseHandler firebaseHandlerObject = GameObject.FindGameObjectsWithTag("firebaseHandler")[0].GetComponent<firebaseHandler>();
+        firebaseHandler firebaseHandlerObject = firebaseHandler.firebaseHandlerInstance_;
         int count = 0;
         foreach(var visitedPlace in visitedPlaces_){
             if(firebaseHandlerObject.getPlaceData(visitedPlace.type_, visitedPlace.id_.ToString())["zone_"] == zone){
@@ -74,7 +89,7 @@ public class UserData{
     public string mostVisitedPlace(){
         int maxVisits = 0;
         string maxName = "No visits already";
-        firebaseHandler firebaseHandlerObject = GameObject.FindGameObjectsWithTag("firebaseHandler")[0].GetComponent<firebaseHandler>();
+        firebaseHandler firebaseHandlerObject = firebaseHandler.firebaseHandlerInstance_;
         foreach(var visitedPlace in visitedPlaces_){
             if(maxVisits < visitedPlace.timesVisited_){
                 maxVisits = visitedPlace.timesVisited_;
@@ -91,7 +106,7 @@ public class UserData{
         foreach(string zoneName in mapRulesHandler.getZoneNames()){
             countOfEachZone[zoneName] = 0;
         }
-        firebaseHandler firebaseHandlerObject = GameObject.FindGameObjectsWithTag("firebaseHandler")[0].GetComponent<firebaseHandler>();
+        firebaseHandler firebaseHandlerObject = firebaseHandler.firebaseHandlerInstance_;
         foreach(var visitedPlace in visitedPlaces_){
             countOfEachZone[firebaseHandlerObject.getPlaceData(visitedPlace.type_, visitedPlace.id_.ToString())["zone_"]]++;
         }
@@ -129,7 +144,7 @@ public class UserData{
 
     public int countVisitedPlacesOfZone(string zone){
         int count = 0;
-        firebaseHandler firebaseHandlerObject = GameObject.FindGameObjectsWithTag("firebaseHandler")[0].GetComponent<firebaseHandler>();
+        firebaseHandler firebaseHandlerObject = firebaseHandler.firebaseHandlerInstance_;
         foreach(var visitedPlace in visitedPlaces_){
             if(firebaseHandlerObject.getPlaceData(visitedPlace.type_, visitedPlace.id_.ToString())["zone_"] == zone){
                 count++;
@@ -145,5 +160,23 @@ public class UserData{
         }else{
             place.newVisitAt(visitTime);
         }
+    }
+
+    public void setBase(double latitude,double longitude){
+        baseLongitude_ = longitude;
+        baseLatitude_ = latitude;
+        baseEstablished_ = true;
+    }
+
+    public double getBaseLongitude(){
+        return baseLongitude_;
+    }
+
+    public double getBaseLatitude(){
+        return baseLatitude_;
+    }
+
+    public bool baseEstablished(){
+        return baseEstablished_;
     }
 }

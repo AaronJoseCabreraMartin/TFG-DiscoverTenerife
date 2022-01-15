@@ -6,6 +6,7 @@ public class LogOutButtonHandler : MonoBehaviour
 {
     public void LogOut()
     {
-        GameObject.Find("firebaseHandler").GetComponent<firebaseHandler>().LogOut();
+        firebaseHandler.firebaseHandlerInstance_.LogOut();
+        ChangeScene.changeScene("PantallaLogin");
     }
 }

@@ -18,7 +18,7 @@ public class VisitedPanelController : MonoBehaviour
     firebaseHandler firebaseHandlerObject_;
 
     void Awake(){
-        firebaseHandlerObject_ = GameObject.FindGameObjectsWithTag("firebaseHandler")[0].GetComponent<firebaseHandler>();
+        firebaseHandlerObject_ = firebaseHandler.firebaseHandlerInstance_;
         notVisitedColor_ = new Color32(255,98,38,255);
         visitedColor_ = new Color32(90,255,83,255);
         if(firebaseHandlerObject_.placesAreReady() && firebaseHandlerObject_.userDataIsReady()){

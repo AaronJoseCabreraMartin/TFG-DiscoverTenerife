@@ -51,6 +51,11 @@ public class Place
         return longitude_;
     }
 
+    public string getZone()
+    {
+        return zone_;
+    }
+
     public Sprite getImage()
     {
         return image_;

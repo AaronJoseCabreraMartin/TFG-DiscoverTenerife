@@ -53,7 +53,7 @@ public class emailLoginController : MonoBehaviour
             }
             
             //esto debe ser asi porque firebaseHandler no existe en esta escena
-            GameObject.Find("firebaseHandler").GetComponent<firebaseHandler>().LoginUser(userText,passwordText);
+            firebaseHandler.firebaseHandlerInstance_.LoginUser(userText,passwordText);
         }
     }
     

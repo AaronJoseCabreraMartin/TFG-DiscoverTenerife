@@ -12,7 +12,7 @@ public class ScoreOfTheWholeIslandController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        firebaseHandlerObject_ = GameObject.FindGameObjectsWithTag("firebaseHandler")[0].GetComponent<firebaseHandler>();
+        firebaseHandlerObject_ = firebaseHandler.firebaseHandlerInstance_;
         if(firebaseHandlerObject_.placesAreReady() && firebaseHandlerObject_.userDataIsReady()){
             fillScore();
         }

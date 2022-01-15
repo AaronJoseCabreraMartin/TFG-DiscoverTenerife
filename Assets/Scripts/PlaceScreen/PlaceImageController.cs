@@ -30,7 +30,7 @@ public class PlaceImageController : MonoBehaviour
     void FillFields(){
       name_.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getName();
       address_.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getAddress();
-      optionsController options = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
+      optionsController options = optionsController.optionsControllerInstance_;
       distance_.GetComponent<Text>().text = Math.Round(CalculateDistance(),2).ToString() + (options.distanceInKM() ? " kms" : " milles");
       gameObject.GetComponent<Image>().sprite = PlaceHandler.choosenPlace_.getImage();
       loaded_ = true;
@@ -39,7 +39,7 @@ public class PlaceImageController : MonoBehaviour
     private double CalculateDistance(){
       double placeLatitude = PlaceHandler.choosenPlace_.getLatitude();
       double placeLongitude = PlaceHandler.choosenPlace_.getLongitude();
-      gpsController gps = GameObject.FindGameObjectsWithTag("gpsController")[0].GetComponent<gpsController>(); 
+      gpsController gps = gpsController.gpsControllerInstance_; 
       return gps.CalculateDistanceToUser(placeLatitude,placeLongitude);
     }
 

@@ -12,6 +12,9 @@ using Newtonsoft.Json;
 
 public class firebaseHandler : MonoBehaviour
 {
+
+    public static firebaseHandler firebaseHandlerInstance_ = null;
+
     FirebaseApp firebaseApp = null;
     internal Firebase.Auth.FirebaseAuth auth = null;
     internal DatabaseReference database = null;
@@ -30,19 +33,19 @@ public class firebaseHandler : MonoBehaviour
     private requestHandler requestHandler_;
 
     private void Awake() {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("firebaseHandler");
-        if (objs.Length > 1) //si ya existe una firebaseHandler no crees otra
-        {
+        //GameObject[] objs = GameObject.FindGameObjectsWithTag("firebaseHandler");
+        //if (objs.Length > 1) //si ya existe una firebaseHandler no crees otra
+        if(firebaseHandler.firebaseHandlerInstance_ != null){
             Destroy(this.gameObject);
             return;
         }
-
+        DontDestroyOnLoad(this.gameObject);
+        firebaseHandlerInstance_ = this;
         configuration = new GoogleSignInConfiguration { WebClientId = "993595598765-gov25ig79svl8v52ne2rlrmi7jcl8gf8.apps.googleusercontent.com", 
                                                         RequestEmail = true,
                                                         RequestIdToken = true };
         // cuando termine           A                           ejecuta         B                   con este contexto (para acceder a las cosas privadas)
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(CheckDependenciesFirebase,TaskScheduler.FromCurrentSynchronizationContext());
-        DontDestroyOnLoad(this.gameObject);
     }
     
     private void CheckDependenciesFirebase(Task<DependencyStatus> task) {
@@ -53,7 +56,13 @@ public class firebaseHandler : MonoBehaviour
             CreateFirebaseObject();
             firebaseDependenciesResolved = true;
             Debug.Log("Firebase Connected!!!");
-            //downloadAllPlaces();
+            //ya habia una sesion iniciada antes!
+            if(auth != null){
+                Debug.Log("YA HABIA UNA SESION INICIADA!! "+ (auth.CurrentUser.IsAnonymous ? "Anonymous" : auth.CurrentUser.DisplayName));
+                ChangeScene.changeScene("PantallaPrincipal");
+                downloadAllPlaces();
+                readUserData();
+            }
         }
         else
         {
@@ -251,6 +260,7 @@ public class firebaseHandler : MonoBehaviour
 
     public void LogOut()
     {
+        auth.SignOut();
         Firebase.Auth.FirebaseAuth.DefaultInstance.SignOut();
         userDataReady_ = false;
     }
@@ -262,34 +272,50 @@ public class firebaseHandler : MonoBehaviour
     }
 
     public void writeUserData(){
+        Debug.Log("writeUserData..."+actualUser_.ToJson());
         database.Child("users").Child(actualUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(actualUser_.ToJson());
     }
 
-    public void readUserData(){        
-        FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/visitedPlaces_").GetValueAsync().ContinueWith(task => {
-            if (task.IsFaulted) {
+    public void readUserData(){ 
+        FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/visitedPlaces_").GetValueAsync().ContinueWith(taskPlaces => {
+            if (taskPlaces.IsFaulted) {
                 // Handle the error...
-                Debug.Log("Error: "+task.Exception);
-            } else if (task.IsCompleted) {
-                DataSnapshot snapshot = task.Result;
-                // por que si el usuario solo se registra y no visita ningun sitio en ese momento, 
-                // el array de visitados sera null (que es lo que estoy pidiendo), entonces tengo que inicializar 
-                // los datos como si fuera un nuevo usuario
-                if(snapshot.GetRawJsonValue() == null){
-                    actualUser_ = new UserData(auth.CurrentUser);
-                }else{
-                    //  pos             data
-                    List<Dictionary<string,string>> listVersion = JsonConvert.DeserializeObject<List<Dictionary<string,string>>>(snapshot.GetRawJsonValue());
-                    actualUser_ = new UserData(auth.CurrentUser,listVersion);
-                }
-                //por cualquiera de los dos caminos tiene que estar la user data lista
-                userDataReady_ = true;
+                Debug.Log("Error: "+taskPlaces.Exception);
+            } else if (taskPlaces.IsCompleted) {
+                Dictionary<string,string> baseData;
+                FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/baseCords_").GetValueAsync().ContinueWith(taskBaseCords => {
+                    if (taskBaseCords.IsFaulted) {
+                        // Handle the error...
+                        Debug.Log("Error: "+taskBaseCords.Exception);
+                    } else if (taskBaseCords.IsCompleted) {
+                        DataSnapshot snapshotBaseCords = taskBaseCords.Result;
+                        // si la base data es null quiere decir que el usuario nunca llego a activar su servicio GPS
+                        if(snapshotBaseCords.GetRawJsonValue() == null){
+                            baseData = null;
+                        }else{
+                            //                                                    name, number
+                            baseData = JsonConvert.DeserializeObject<Dictionary<string,string>>(snapshotBaseCords.GetRawJsonValue());
+                        }
+                        DataSnapshot snapshotVisitedPlaces = taskPlaces.Result;
+                        // por que si el usuario solo se registra y no visita ningun sitio en ese momento, 
+                        // el array de visitados sera null (que es lo que estoy pidiendo), entonces tengo que inicializar 
+                        // los datos como si fuera un nuevo usuario
+                        if(snapshotVisitedPlaces.GetRawJsonValue() == null){
+                            actualUser_ = new UserData(auth.CurrentUser, null, baseData);
+                        }else{
+                            //  pos             data
+                            List<Dictionary<string,string>> visitedPlacesListVersion = JsonConvert.DeserializeObject<List<Dictionary<string,string>>>(snapshotVisitedPlaces.GetRawJsonValue());
+                            actualUser_ = new UserData(auth.CurrentUser, visitedPlacesListVersion, baseData);
+                        }
+                        //por cualquiera de los dos caminos tiene que estar la user data lista
+                        userDataReady_ = true;
+                    }
+                },TaskScheduler.FromCurrentSynchronizationContext());
             }
-        },TaskScheduler.FromCurrentSynchronizationContext());
+        },TaskScheduler.FromCurrentSynchronizationContext());       
     }
 
     public void writePlaceData(string type, string id){
-        requestHandler_.oneMoreVisitToPlaceByTypeAndId(type,id);
         Place place = requestHandler_.getPlaceByTypeAndId(type,id);
         database.Child("places").Child(type).Child(id).SetRawJsonValueAsync(place.ToJson());
     }
@@ -329,6 +355,7 @@ public class firebaseHandler : MonoBehaviour
             actualUser_.newVisitAt(type,id,actualTime);
         }
         allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"] = (Int32.Parse(allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"])+1).ToString();
+        requestHandler_.oneMoreVisitToPlaceByTypeAndId(type,id.ToString());
         writePlaceData(type,id.ToString());
         writeUserData();
     }

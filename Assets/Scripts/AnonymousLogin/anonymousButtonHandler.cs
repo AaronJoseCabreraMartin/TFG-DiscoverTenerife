@@ -9,7 +9,7 @@ public class anonymousButtonHandler : MonoBehaviour{
         // para evitar que clickee varias veces, quizas se podria cambiar el color del boton o deshabilitarlo
         if(!inProgress){
             inProgress = true;
-            GameObject.Find("firebaseHandler").GetComponent<firebaseHandler>().AnonymousUser();
+            firebaseHandler.firebaseHandlerInstance_.AnonymousUser();
         }
     }
 

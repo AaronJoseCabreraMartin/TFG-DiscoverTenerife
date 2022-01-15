@@ -7,13 +7,7 @@ public class firebaseErrorImage : MonoBehaviour
 {
     firebaseHandler firebaseHandlerObject;
     void Awake(){
-        firebaseHandlerObject = GameObject.FindGameObjectsWithTag("firebaseHandler")[0].GetComponent<firebaseHandler>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
+        firebaseHandlerObject = firebaseHandler.firebaseHandlerInstance_;
     }
 
     // Update is called once per frame

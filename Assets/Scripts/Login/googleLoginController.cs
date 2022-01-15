@@ -11,7 +11,7 @@ public class googleLoginController : MonoBehaviour
     public void tryToLoginUser(){
         if(!inProgress){
             inProgress = true;
-            GameObject.Find("firebaseHandler").GetComponent<firebaseHandler>().SignInWithGoogle();
+            firebaseHandler.firebaseHandlerInstance_.SignInWithGoogle();
         }
     }
 

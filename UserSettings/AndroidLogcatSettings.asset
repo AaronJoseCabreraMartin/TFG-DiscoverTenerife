@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "5200c640ea72c407",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "5200c640ea72c407",
+        "name": "com.ULLalu0101101019.DiscoverTenerife",
+        "processId": 12015,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -17,32 +17,38 @@
         {
             "deviceId": "5200c640ea72c407",
             "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 11247,
+            "processId": 31831,
             "exited": true
         },
         {
             "deviceId": "5200c640ea72c407",
             "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 15025,
+            "processId": 1375,
             "exited": true
         },
         {
             "deviceId": "5200c640ea72c407",
             "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 32644,
+            "processId": 3383,
             "exited": true
         },
         {
             "deviceId": "5200c640ea72c407",
             "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 2880,
+            "processId": 6110,
             "exited": true
         },
         {
             "deviceId": "5200c640ea72c407",
             "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 9369,
+            "processId": 8787,
             "exited": true
+        },
+        {
+            "deviceId": "5200c640ea72c407",
+            "name": "com.ULLalu0101101019.DiscoverTenerife",
+            "processId": 12015,
+            "exited": false
         }
     ],
     "m_Tags": {

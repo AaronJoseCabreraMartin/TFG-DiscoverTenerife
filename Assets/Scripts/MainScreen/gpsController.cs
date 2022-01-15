@@ -10,10 +10,12 @@ using UnityEngine.SceneManagement;
 
 public class gpsController : MonoBehaviour
 {
+    public static gpsController gpsControllerInstance_;
+    private firebaseHandler firebaseHandlerObject_;
+
     private bool isItPermissionTime;
     private string nextPermission;
     private Stack<string> permissions;
-    private string lastScene_;
     private bool gpsIsRunning_;
 
     private double longitude_;
@@ -35,33 +37,31 @@ public class gpsController : MonoBehaviour
     //private double defaultLongitude_ = -16.3433747;
     
     // a 20 metros de la playa de los cristianos
-    ///private double defaultLatitude_ = 28.05015;
-    //private double defaultLongitude_ = -16.7177;
+    private double defaultLatitude_ = 28.05015;
+    private double defaultLongitude_ = -16.7177;
     
     // a metros de la playa de las teresitas
-    private double defaultLatitude_ = 28.5097;
-    private double defaultLongitude_ = -16.18439;
+    //private double defaultLatitude_ = 28.5097;
+    //private double defaultLongitude_ = -16.18439;
     
     private double defaultAltitude_ = 255;
 
-    static private GameObject errorImage_;
-
     void Awake(){
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("gpsController");
-        if (objs.Length > 1){//si ya existe una gpsController
+        if(gpsController.gpsControllerInstance_ != null){
             Destroy(this.gameObject); //no crees otro
             return;
         }
+        gpsController.gpsControllerInstance_ = this;
         DontDestroyOnLoad(this.gameObject);
-        errorImage_ = GameObject.Find("/Canvas/errorImage").gameObject;
         isItPermissionTime = false;
-        gpsIsRunning_ = false;
         permissions = new Stack<string>();
-        lastScene_ = SceneManager.GetActiveScene().name;
+    
         Debug.Log("Las coordenadas por defecto deben empezar en 0, 0, 0 por defecto");
        
+        firebaseHandlerObject_ = firebaseHandler.firebaseHandlerInstance_;
         CreatePermissionList();
         Input.location.Start();
+        gpsIsRunning_ = false;
     }
 
     
@@ -84,65 +84,58 @@ public class gpsController : MonoBehaviour
     }
 
     private void OnApplicationFocus(bool focus){
-        if (focus == true && isItPermissionTime == true) {
+        if (focus && isItPermissionTime) {
             AskForPermissions();
+        }
+        if(focus){
+            Input.location.Start();
+        }else{
+            Input.location.Stop();
         }
     }
 
     void Update(){
-        if(lastScene_ != SceneManager.GetActiveScene().name){
-            lastScene_ = SceneManager.GetActiveScene().name;
-            if(SceneManager.GetActiveScene().name != "PantallaPrincipal" && SceneManager.GetActiveScene().name != "PantallaLugar"){
-                Destroy(this.gameObject);
-                return;
+        
+        if(Permission.HasUserAuthorizedPermission(Permission.CoarseLocation) && 
+            Permission.HasUserAuthorizedPermission(Permission.FineLocation) && 
+            Input.location.isEnabledByUser &&
+            Input.location.status == LocationServiceStatus.Running){
+                gpsIsRunning_ = true;
+
+                latitude_ = Input.location.lastData.latitude;
+                longitude_ = Input.location.lastData.longitude;
+                altitude_ = Input.location.lastData.altitude;
+                Debug.Log($"latitude_={latitude_},longitude_={longitude_}");
+                //si la base no ha sido establecida desde que tengas permisos, establecela
+            if(!firebaseHandlerObject_.actualUser_.baseEstablished()){
+                firebaseHandlerObject_.actualUser_.setBase(latitude_,longitude_);
+                firebaseHandlerObject_.writeUserData();
             }
-            errorImage_ = GameObject.Find("/Canvas/errorImage").gameObject;
-        }
-        
-        if(errorImage_ == null){
-            errorImage_ = GameObject.Find("/Canvas/errorImage").gameObject;
-        }
-        
-        if(Permission.HasUserAuthorizedPermission(Permission.CoarseLocation) == true && Input.location.status == LocationServiceStatus.Running){
-            latitude_ = Input.location.lastData.latitude;
-            longitude_ = Input.location.lastData.longitude;
-            altitude_ = Input.location.lastData.altitude;
-
-            //Debug.Log($"Posicion: latitud:{latitude_} longitud:{longitude_} altitud:{altitude_}");
-            //GameObject.Find("/Canvas/errorImage").gameObject.transform.Find("errorMessage").gameObject.GetComponent<Text>().text = $"Posicion: latitud:{latitude_} longitud:{longitude_} altitud:{altitude_}";
-
-            errorImage_.SetActive(false);
-            gpsIsRunning_ = true;
-
-            //GameObject.Find("/Canvas/errorImage").gameObject.SetActive(false);//oculta la imagen de error
         }else{
-            errorImage_.SetActive(true);
+            gpsIsRunning_ = false;
+            Debug.Log("GPS NO ACTIVADO!!!");
             latitude_ = defaultLatitude_;
             longitude_ = defaultLongitude_;
             altitude_ = defaultAltitude_;
-            gpsIsRunning_ = false;
-            //GameObject.Find("/Canvas/errorImage").gameObject.SetActive(true);//muestra la imagen de error
-            //GameObject.Find("/Canvas/errorImage").gameObject.transform.Find("errorMessage").gameObject.GetComponent<Text>().text = "Cant access to GPS data";
         }
         
-
         
         //For debugging propources
         float velocity = 0.001f;
         if (Input.GetKey("up")){
-            latitude_ += velocity;
+            defaultLatitude_ += velocity;
             Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
         }
         if (Input.GetKey("down")){
-            latitude_ -= velocity;
+            defaultLatitude_ -= velocity;
             Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
         }
         if (Input.GetKey("right")){
-            longitude_ += velocity;
+            defaultLongitude_ += velocity;
             Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
         }
         if (Input.GetKey("left")){
-            longitude_ -= velocity;
+            defaultLongitude_ -= velocity;
             Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
         }
     }
@@ -169,7 +162,7 @@ public class gpsController : MonoBehaviour
         
         double earthRadious = 6377.830272;
         double distanceCalculatedOnKm = earthRadious*Math.Acos((Math.Sin(latitudeA) * Math.Sin(latitudeB)) + Math.Cos(latitudeA) * Math.Cos(latitudeB) * Math.Cos(longitudeB - longitudeA));
-        optionsController options = GameObject.FindGameObjectsWithTag("optionsController")[0].GetComponent<optionsController>();
+        optionsController options = optionsController.optionsControllerInstance_;
         //Debug.Log($"{distanceCalculatedOnKm}kms {distanceCalculatedOnKm * 0.621371}milles");
         return options.distanceInKM() ? distanceCalculatedOnKm : distanceCalculatedOnKm * 0.621371;
     }
@@ -215,5 +208,8 @@ public class gpsController : MonoBehaviour
     public string getActualZoneOfUser(){
         return getZoneOf(latitude_, longitude_);
     }
-        
+
+    public bool gpsIsRunning(){
+        return gpsIsRunning_;
+    }
 }

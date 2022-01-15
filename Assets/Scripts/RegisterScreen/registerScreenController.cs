@@ -68,7 +68,7 @@ public class registerScreenController : MonoBehaviour
                 StartCoroutine(ChangeImageColor(confirmPassword.GetComponent<Image>(), 2));
                 return;
             }  
-            GameObject.Find("firebaseHandler").GetComponent<firebaseHandler>().CreateNewUser(userText,passwordText);
+            firebaseHandler.firebaseHandlerInstance_.CreateNewUser(userText,passwordText);
         }
     }
 

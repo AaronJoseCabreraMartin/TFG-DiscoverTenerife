@@ -11,7 +11,7 @@ public class actualZoneController : MonoBehaviour
     private string lastZone_ = "";
     
     void Awake(){
-        gpsController_ = GameObject.FindGameObjectsWithTag("gpsController")[0].GetComponent<gpsController>(); 
+        gpsController_ = gpsController.gpsControllerInstance_; 
     }
 
     // Update is called once per frame

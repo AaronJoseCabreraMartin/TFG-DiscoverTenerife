@@ -12,9 +12,9 @@ public class actualZoneScoreController : MonoBehaviour
     private string lastZone_;
     void Awake(){
         lastZone_ = "";
-        gpsController_ = GameObject.FindGameObjectsWithTag("gpsController")[0].GetComponent<gpsController>();
-        firebaseHandlerObject_ = GameObject.FindGameObjectsWithTag("firebaseHandler")[0].GetComponent<firebaseHandler>();
-        if(firebaseHandlerObject_.placesAreReady() && firebaseHandlerObject_.userDataIsReady()){
+        gpsController_ = gpsController.gpsControllerInstance_;
+        firebaseHandlerObject_ = firebaseHandler.firebaseHandlerInstance_;
+        if(firebaseHandlerObject_.FirebaseDependenciesAreResolved() && firebaseHandlerObject_.placesAreReady() && firebaseHandlerObject_.userDataIsReady()){
             updateZoneData();
         }
     }
@@ -22,8 +22,9 @@ public class actualZoneScoreController : MonoBehaviour
     // Update is called once per frame
     void Update(){
         string userZone = gpsController_.getActualZoneOfUser();
-        if(lastZone_ != userZone && firebaseHandlerObject_.placesAreReady() && firebaseHandlerObject_.userDataIsReady()){
-            updateZoneData();
+        if(lastZone_ != userZone &&  firebaseHandlerObject_.FirebaseDependenciesAreResolved() && 
+            firebaseHandlerObject_.placesAreReady() && firebaseHandlerObject_.userDataIsReady()){
+                updateZoneData();
         }
     }
 

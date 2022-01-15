@@ -22,7 +22,7 @@ public class PlaceHandler : MonoBehaviour
     {
         PlaceHandler.turn_ = 0;
         if(!PlaceHandler.serverHandler_){//es el primero
-            PlaceHandler.serverHandler_ = GameObject.Find("firebaseHandler").GetComponent<firebaseHandler>();
+            PlaceHandler.serverHandler_ = firebaseHandler.firebaseHandlerInstance_;
         }
     }
 

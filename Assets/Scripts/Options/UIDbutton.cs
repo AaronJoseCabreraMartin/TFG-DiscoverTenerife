@@ -10,7 +10,7 @@ public class UIDbutton : MonoBehaviour
     
     void Awake()
     {
-        UserId_ = GameObject.FindGameObjectsWithTag("firebaseHandler")[0].GetComponent<firebaseHandler>().auth.CurrentUser.UserId;
+        UserId_ = firebaseHandler.firebaseHandlerInstance_.auth.CurrentUser.UserId;
         TextBox.GetComponent<Text>().text += UserId_;
     }
 

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class optionsController : MonoBehaviour
 {
+    public static optionsController optionsControllerInstance_ = null;
+
     private bool distanceInKM_;
     private Dictionary<string, bool> whatToSee_;
     private bool sortByLessDistance_;
@@ -19,11 +21,13 @@ public class optionsController : MonoBehaviour
     static public GameObject lastOptionClicked_;
 
     void Awake(){
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("optionsController");
-        if (objs.Length > 1){ //si ya existe una optionsController 
+        //GameObject[] objs = GameObject.FindGameObjectsWithTag("optionsController");
+        //if (objs.Length > 1){ //si ya existe una optionsController
+        if(optionsController.optionsControllerInstance_ != null){
             Destroy(this.gameObject); //no crees otro
             return;
         }
+        optionsController.optionsControllerInstance_ = this;
         DontDestroyOnLoad(this.gameObject);
         lastScene_ = SceneManager.GetActiveScene().name;
     }
@@ -54,13 +58,11 @@ public class optionsController : MonoBehaviour
                 optionsCopied_ = false;
             }else if(SceneManager.GetActiveScene().name == "PantallaPrincipal" 
                     || SceneManager.GetActiveScene().name == "PantallaLugar" 
+                    || SceneManager.GetActiveScene().name == "PantallaMenu"
                     || SceneManager.GetActiveScene().name == "PantallaEstadisticas"){
                 sortByLessDistanceMenu_ = null;
                 whatToSeeMenu_ = null;
                 distanceUnitMenu_ = null;
-            }else{// si no es ninguna de esas opciones destruye este gameobject
-                Destroy(this.gameObject);
-                return;
             }
         }
         if(!optionsCopied_ && sortByLessDistanceMenu_ != null && distanceUnitMenu_ != null && sortByLessDistanceMenu_.ready() && distanceUnitMenu_.ready()){

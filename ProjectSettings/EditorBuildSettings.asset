@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PantallaEstadisticas.unity
     guid: 0a5696df4d60c584ea0bbd46493900ca
+  - enabled: 1
+    path: Assets/Scenes/PantallaMenu.unity
+    guid: 1536b87e657ec30408bfd25aed1bc291
   m_configObjects: {}
