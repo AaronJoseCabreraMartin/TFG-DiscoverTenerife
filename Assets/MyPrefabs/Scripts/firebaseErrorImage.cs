@@ -5,16 +5,23 @@ using UnityEngine;
 
 public class firebaseErrorImage : MonoBehaviour
 {
-    firebaseHandler firebaseHandlerObject;
+
     void Awake(){
-        firebaseHandlerObject = firebaseHandler.firebaseHandlerInstance_;
+        checkNewState();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // muestra la imagen de error si el firebaseHandlerObject no se encuentra o si no se resolvieron las dependencias
-        GetComponent<Image>().enabled = !((firebaseHandlerObject == null || firebaseHandlerObject.FirebaseDependenciesAreResolved()));
-        transform.GetChild(0).gameObject.SetActive(!((firebaseHandlerObject == null || firebaseHandlerObject.FirebaseDependenciesAreResolved())));
+        checkNewState();
+    }
+
+    void checkNewState(){
+        // muestra la imagen de error si el firebaseHandler.firebaseHandlerInstance_ no se encuentra si no hay internet o si no se resolvieron las dependencias
+        bool show = firebaseHandler.firebaseHandlerInstance_ == null || 
+                                            !firebaseHandler.firebaseHandlerInstance_.internetConnection() || 
+                                            !firebaseHandler.firebaseHandlerInstance_.FirebaseDependenciesAreResolved();
+        GetComponent<Image>().enabled = show;
+        transform.GetChild(0).gameObject.SetActive(show);
     }
 }

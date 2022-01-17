@@ -179,4 +179,14 @@ public class UserData{
     public bool baseEstablished(){
         return baseEstablished_;
     }
+
+    public long getTimestampByName(string name){
+        Dictionary<string,string> placeKeys = firebaseHandler.firebaseHandlerInstance_.findPlaceByName(name);
+        VisitedPlace place = visitedPlaces_.Find(visitedPlace => visitedPlace.type_ == placeKeys["type"] && visitedPlace.id_.ToString() == placeKeys["id"]);
+        if(place == null){
+            return (long)0;
+        }else{
+            return place.lastVisitTimestamp_;
+        }
+    }
 }

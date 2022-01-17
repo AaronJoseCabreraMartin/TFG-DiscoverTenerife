@@ -23,7 +23,6 @@ public class firebaseHandler : MonoBehaviour
     private GoogleSignInConfiguration configuration;
 
     public UserData actualUser_ = null;
-    private int minutesOfCooldown_ = 60;//1 hora de cooldown
     private bool firebaseDependenciesResolved = false;
     private bool placesReady_ = false;
     private bool userDataReady_ = false;
@@ -47,7 +46,27 @@ public class firebaseHandler : MonoBehaviour
         // cuando termine           A                           ejecuta         B                   con este contexto (para acceder a las cosas privadas)
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(CheckDependenciesFirebase,TaskScheduler.FromCurrentSynchronizationContext());
     }
+
+    void Update(){
+        if(!firebaseDependenciesResolved && internetConnection()){
+            // cuando termine           A                           ejecuta         B                   con este contexto (para acceder a las cosas privadas)
+            Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(CheckDependenciesFirebase,TaskScheduler.FromCurrentSynchronizationContext());
+        }
+        //Si hay conexion y no se han enviado las visitas offline, envialas.
+        if(internetConnection() && StoredPlace.changesToUpdate_ && userDataReady_){
+            StoredPlace.UpdateChanges();
+        }
+    }
     
+    public bool internetConnection(){
+        string toShow = $"InternetConnection: ";
+        toShow+=$"CarrierDataNetwork = {Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork} ";
+        toShow+=$"LocalAreaNetwork = {Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork}";
+        //Debug.Log(toShow);
+        return Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork || 
+                Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork;
+    }
+
     private void CheckDependenciesFirebase(Task<DependencyStatus> task) {
         var dependencyStatus = task.Result;
         if (dependencyStatus == Firebase.DependencyStatus.Available) {
@@ -63,9 +82,7 @@ public class firebaseHandler : MonoBehaviour
                 downloadAllPlaces();
                 readUserData();
             }
-        }
-        else
-        {
+        }else{
             UnityEngine.Debug.LogError(System.String.Format(
             "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
             // Firebase Unity SDK is not safe to use here.
@@ -263,6 +280,7 @@ public class firebaseHandler : MonoBehaviour
         auth.SignOut();
         Firebase.Auth.FirebaseAuth.DefaultInstance.SignOut();
         userDataReady_ = false;
+        StoredPlace.eraseStoredData();
     }
 
     ///// DATABASE METHODS /////
@@ -325,19 +343,20 @@ public class firebaseHandler : MonoBehaviour
             VisitedPlace place = actualUser_.visitedPlaces_.Find(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id);
             //si ya lo habia visitado devolvemos true si ha cumplido el cooldown
             // hay 10.000.000 de ticks en un segundo, * 60 son minutos
-            //Debug.Log($"{place.lastVisitTimestamp_} + {minutesOfCooldown_ * 10000000 * 60}\n {place.lastVisitTimestamp_ + minutesOfCooldown_ * 10000000 * 60} < {DateTime.Now.Ticks} ? ");
-            return (place.lastVisitTimestamp_ + minutesOfCooldown_ * 10000000 * 60 < DateTime.Now.Ticks);
+            //Debug.Log($"{place.lastVisitTimestamp_} + {gameRules.getMinutesOfCooldown() * 10000000 * 60}\n {place.lastVisitTimestamp_ + gameRules.getMinutesOfCooldown() * 10000000 * 60} < {DateTime.Now.Ticks} ? ");
+            return (place.lastVisitTimestamp_ + gameRules.getMinutesOfCooldown() * 10000000 * 60 < DateTime.Now.Ticks);
         }
         //si no lo habia visitado, el cooldown siempre se ha cumplido
         return true;
     }
+    
     
     public bool cooldownVisitingPlaceByNameFinished(string name){
         Dictionary<string,string> typeAndId = findPlaceByName(name);
         return cooldownVisitingPlaceFinished(typeAndId["type"],Int32.Parse(typeAndId["id"]));
     }
 
-    public void userVisitedPlace(string type, int id){
+    public void userVisitedPlace(string type, int id, long timeOfTheVisit = -1){
         bool firstTime = true;
         for(int i = 0; i < actualUser_.visitedPlaces_.Count; i++ ){
             //busco en los ya visitados y si es uno de esos, contabilizo la visita
@@ -347,7 +366,8 @@ public class firebaseHandler : MonoBehaviour
                 break;
             }
         }
-        long actualTime = DateTime.Now.Ticks;
+        long actualTime = timeOfTheVisit <= 0 ? DateTime.Now.Ticks : timeOfTheVisit;
+        Debug.Log($"en userVisitedPlace actualTime = {actualTime}");
         //si no lo habia visitado antes, registro la visita
         if(firstTime){
             actualUser_.visitedPlaces_.Add(new VisitedPlace(type,id,1,actualTime));
@@ -360,9 +380,9 @@ public class firebaseHandler : MonoBehaviour
         writeUserData();
     }
 
-    public void userVisitedPlaceByName(string name){
+    public void userVisitedPlaceByName(string name, long timeOfTheVisit = -1){
         Dictionary<string,string> typeAndId = findPlaceByName(name);
-        userVisitedPlace(typeAndId["type"],Int32.Parse(typeAndId["id"]));
+        userVisitedPlace(typeAndId["type"],Int32.Parse(typeAndId["id"]),timeOfTheVisit);
     }
 
     public bool hasUserVisitPlaceByName(string name){
@@ -388,6 +408,9 @@ public class firebaseHandler : MonoBehaviour
     }
 
     private IEnumerator downloadOneTypeOfSite(string typeSite){
+        while(!internetConnection()){//debemos esperar a tener conexion
+            yield return new WaitForSeconds(0.5f);
+        }
         FirebaseDatabase.DefaultInstance.GetReference($"places/{typeSite}/").GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted) {
                 // Handle the error...
@@ -473,8 +496,22 @@ public class firebaseHandler : MonoBehaviour
         return allPlaces_[type][id];
     }
 
+    public bool cooldownVisitingStoredPlaceFinished(StoredPlace storedPlace){
+        if(storedPlace.visited()){
+            
+            //si ya lo habia visitado devolvemos true si ha cumplido el cooldown
+            // hay 10.000.000 de ticks en un segundo, * 60 son minutos
+            Debug.Log($"{storedPlace.lastVisitTimestamp()} + {gameRules.getMinutesOfCooldown() * 10000000 * 60}\n {storedPlace.lastVisitTimestamp() + gameRules.getMinutesOfCooldown() * 10000000 * 60} < {DateTime.Now.Ticks} ? ");
+            return (storedPlace.lastVisitTimestamp() + gameRules.getMinutesOfCooldown() * 10000000 * 60 < DateTime.Now.Ticks);
+        }
+        //si no lo habia visitado, el cooldown siempre se ha cumplido
+        return true;
+    }
+
+
     void OnApplicationQuit(){
         FirebaseApp.DefaultInstance.Dispose();
+        StoredPlace.saveAll();
     }
 
 }

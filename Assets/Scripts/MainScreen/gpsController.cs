@@ -105,7 +105,7 @@ public class gpsController : MonoBehaviour
                 latitude_ = Input.location.lastData.latitude;
                 longitude_ = Input.location.lastData.longitude;
                 altitude_ = Input.location.lastData.altitude;
-                Debug.Log($"latitude_={latitude_},longitude_={longitude_}");
+                //Debug.Log($"latitude_={latitude_},longitude_={longitude_}");
                 //si la base no ha sido establecida desde que tengas permisos, establecela
             if(!firebaseHandlerObject_.actualUser_.baseEstablished()){
                 firebaseHandlerObject_.actualUser_.setBase(latitude_,longitude_);
@@ -113,7 +113,7 @@ public class gpsController : MonoBehaviour
             }
         }else{
             gpsIsRunning_ = false;
-            Debug.Log("GPS NO ACTIVADO!!!");
+            //Debug.Log("GPS NO ACTIVADO!!!");
             latitude_ = defaultLatitude_;
             longitude_ = defaultLongitude_;
             altitude_ = defaultAltitude_;

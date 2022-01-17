@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PantallaMenu.unity
     guid: 1536b87e657ec30408bfd25aed1bc291
+  - enabled: 1
+    path: Assets/Scenes/PantallaSitiosGuardados.unity
+    guid: af112a4d5f32b12468ce442136c6044e
+  - enabled: 1
+    path: Assets/Scenes/PantallaSitioGuardado.unity
+    guid: 29544d0aca53cf34fbccd2f82b059b6a
   m_configObjects: {}
