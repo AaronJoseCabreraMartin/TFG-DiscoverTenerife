@@ -25,7 +25,7 @@ public class trashButton : MonoBehaviour
         //si no tiene visitas por subir o ya fue avisado, no lo avises más
         if(numberOfNotUpdatedVisits_.GetComponent<Text>().text != "0" && shouldAdviseUser_){
             shouldAdviseUser_ = false;
-            toastMessageObject_.GetComponent<toastMessage>().makeAnimation("If you delete the stored place without updating your visits, those visits will not count", new Color32(255,145,15,255), 5);
+            toastMessageObject_.GetComponent<toastMessage>().makeAnimation("If you delete the stored place without updating your visits, those visits will not count.\nClick again on delete button to confirm.", new Color32(255,145,15,255), 5);
         }else{
             StoredPlacesController.StoredPlacesControllerObject_.deleteStoredPlace(transform.parent.GetComponent<storedPlaceHandler>().getIndex());
             numberOfNotUpdatedVisits_.GetComponent<Text>().text = "0";

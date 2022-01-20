@@ -17,11 +17,11 @@ public class uniqueselectionToggle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //checkMark_.SetActive(isOn);
-        if(isOn != lastState_){
-            showCheckMark(isOn);
-            lastState_ = isOn;
-        }
+        checkMark_.SetActive(isOn);
+        //if(isOn != lastState_){
+        //    showCheckMark(isOn);
+        //    lastState_ = isOn;
+        //}
     }
 
     public void changeState(bool newState){

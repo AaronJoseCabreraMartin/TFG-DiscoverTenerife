@@ -8,14 +8,23 @@ public class UserData{
     [SerializeField] public List<VisitedPlace> visitedPlaces_;//type of the place, id, veces visitado
     
     private string displayName_;
-
     // coordenadas de la "casa" del usuario
     private double baseLatitude_;
     private double baseLongitude_;
     //si el usario se registra sin tener la ubicacion activada puede que la base no sea establecida
     private bool baseEstablished_;
 
-    public UserData(Firebase.Auth.FirebaseUser newFireBaseUserData, List<Dictionary<string,string>> oldVisitedPlaces = null, Dictionary<string,string> baseData = null){
+    //almacena el UID de los usuarios amigos
+    private List<string> friendList_;
+
+    //almacena el UID de los usuarios que te han enviado una peticion de amistad
+    private List<string> friendInvitationsList_;
+
+    //almacena el UID de los usuarios que han aceptado tu solicitud de amistad
+    //private List<string> acceptedFriendInvitationsList_;//darle a los usuarios permiso para añadirse en la lista de amigos de los otros???
+
+    public UserData(Firebase.Auth.FirebaseUser newFireBaseUserData, List<Dictionary<string,string>> oldVisitedPlaces = null, Dictionary<string,string> baseCordsData = null, 
+                                                                    List<string> friendList = null, List<string> friendInvitationsList = null){
         firebaseUserData_ = newFireBaseUserData;
         visitedPlaces_ = new List<VisitedPlace>();
         if(oldVisitedPlaces != null){
@@ -27,16 +36,23 @@ public class UserData{
                                                     ));
             }   
         }
-        if(baseData != null){
-            baseLatitude_ = Convert.ToDouble(baseData["baseLatitude_"]);
-            baseLongitude_ = Convert.ToDouble(baseData["baseLongitude_"]);
-        }
         //si null, false
-        baseEstablished_ = baseData != null;
+        baseEstablished_ = baseCordsData != null;
+        if(baseCordsData != null){
+            baseLatitude_ = Convert.ToDouble(baseCordsData["baseLatitude_"]);
+            baseLongitude_ = Convert.ToDouble(baseCordsData["baseLongitude_"]);
+        }
         if(firebaseUserData_.IsAnonymous){
             displayName_ = "Anonymous";
         }else{
             displayName_ = firebaseUserData_.DisplayName;
+        }
+        friendList_ = friendList == null ? new List<string>() : friendList;
+        friendInvitationsList_ = friendInvitationsList == null ? new List<string>() : friendInvitationsList;
+        
+
+        for(int index = 0; index < 30; index++){
+            friendList_.Add(index.ToString());
         }
     }
 
@@ -44,8 +60,30 @@ public class UserData{
         string conversion = "{";
         conversion += $"\"displayName_\" : \"{displayName_}\",";
         if(baseEstablished_){
+            conversion += "\"baseCords_\" :{";
             conversion += $"\"baseLatitude_\" : \"{baseLatitude_}\",";
             conversion += $"\"baseLongitude_\" : \"{baseLongitude_}\",";
+            conversion += "},";
+        }
+        if(friendList_.Count != 0){
+            conversion += "\"friends_\" :[";
+            for(int i = 0; i < friendList_.Count; i++){
+                conversion += friendList_[i];
+                if(i+1 != friendList_.Count){
+                   conversion += ",";
+                }
+            }
+            conversion += "],";
+        }
+        if(friendInvitationsList_.Count != 0){
+            conversion += "\"friendsInvitations_\" :[";
+            for(int i = 0; i < friendInvitationsList_.Count; i++){
+                conversion += friendInvitationsList_[i];
+                if(i+1 != friendInvitationsList_.Count){
+                   conversion += ",";
+                }
+            }
+            conversion += "],";
         }
         conversion += "\"visitedPlaces_\" : [";
         for(int i = 0; i < visitedPlaces_.Count; i++){
@@ -108,7 +146,9 @@ public class UserData{
         }
         firebaseHandler firebaseHandlerObject = firebaseHandler.firebaseHandlerInstance_;
         foreach(var visitedPlace in visitedPlaces_){
-            countOfEachZone[firebaseHandlerObject.getPlaceData(visitedPlace.type_, visitedPlace.id_.ToString())["zone_"]]++;
+            Dictionary<string, string> placeData = firebaseHandlerObject.getPlaceData(visitedPlace.type_, visitedPlace.id_.ToString());
+            //Debe contar todas las visitas de todos los sitios          
+            countOfEachZone[placeData["zone_"]]+=visitedPlace.timesVisited_;
         }
         string maxZone = "No visits already";
         foreach(var zone in countOfEachZone.Keys){
@@ -189,4 +229,27 @@ public class UserData{
             return place.lastVisitTimestamp_;
         }
     }
+
+    public int countOfFriendInvitations(){
+        return friendInvitationsList_.Count;
+    }
+
+    public string getFriendInvitation(int index){
+        return friendInvitationsList_[index];
+    }
+
+    public void deleteInvitationByName(string name){
+        friendInvitationsList_.RemoveAt(friendInvitationsList_.FindIndex(element => element == name));
+    }
+/*
+los usuarios tienen permiso para 
+    escribir en una propiedad de los demas usuarios, la propiedad es friendsInvitations
+    leer los nombres de los usuarios, los displayName
+    escribir en una propiedad acceptedFriendInvitations
+
+    entonces tu te escribes a ti mismo en la lista friends invitations de tu amigo, el recibe la peticion
+    si acepta se escriben mutuamente en la lista de amigos, si se rechaza se borra de la lista friendsInvitations
+    para que A sepa que B acepto su peticion de amistad deberia haber un campo que tambien lo puedan editar todos los usuarios
+    que sea acceptedFriendInvitations
+*/
 }

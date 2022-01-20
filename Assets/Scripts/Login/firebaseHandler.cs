@@ -44,7 +44,7 @@ public class firebaseHandler : MonoBehaviour
                                                         RequestEmail = true,
                                                         RequestIdToken = true };
         // cuando termine           A                           ejecuta         B                   con este contexto (para acceder a las cosas privadas)
-        Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(CheckDependenciesFirebase,TaskScheduler.FromCurrentSynchronizationContext());
+        //Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(CheckDependenciesFirebase,TaskScheduler.FromCurrentSynchronizationContext());
     }
 
     void Update(){
@@ -300,7 +300,19 @@ public class firebaseHandler : MonoBehaviour
                 // Handle the error...
                 Debug.Log("Error: "+taskPlaces.Exception);
             } else if (taskPlaces.IsCompleted) {
-                Dictionary<string,string> baseData;
+                DataSnapshot snapshotVisitedPlaces = taskPlaces.Result;
+                // por que si el usuario solo se registra y no visita ningun sitio en ese momento, 
+                // el array de visitados sera null (que es lo que estoy pidiendo), entonces tengo que inicializar 
+                // los datos como si fuera un nuevo usuario
+                //              pos    data
+                List<Dictionary<string,string>> visitedPlacesListVersion;
+                if(snapshotVisitedPlaces.GetRawJsonValue() == null){
+                    visitedPlacesListVersion = null;
+                }else{
+                    visitedPlacesListVersion = JsonConvert.DeserializeObject<List<Dictionary<string,string>>>(snapshotVisitedPlaces.GetRawJsonValue());
+                }
+
+                Dictionary<string,string> baseCordsData;
                 FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/baseCords_").GetValueAsync().ContinueWith(taskBaseCords => {
                     if (taskBaseCords.IsFaulted) {
                         // Handle the error...
@@ -309,24 +321,44 @@ public class firebaseHandler : MonoBehaviour
                         DataSnapshot snapshotBaseCords = taskBaseCords.Result;
                         // si la base data es null quiere decir que el usuario nunca llego a activar su servicio GPS
                         if(snapshotBaseCords.GetRawJsonValue() == null){
-                            baseData = null;
+                            baseCordsData = null;
                         }else{
                             //                                                    name, number
-                            baseData = JsonConvert.DeserializeObject<Dictionary<string,string>>(snapshotBaseCords.GetRawJsonValue());
+                            baseCordsData = JsonConvert.DeserializeObject<Dictionary<string,string>>(snapshotBaseCords.GetRawJsonValue());
                         }
-                        DataSnapshot snapshotVisitedPlaces = taskPlaces.Result;
-                        // por que si el usuario solo se registra y no visita ningun sitio en ese momento, 
-                        // el array de visitados sera null (que es lo que estoy pidiendo), entonces tengo que inicializar 
-                        // los datos como si fuera un nuevo usuario
-                        if(snapshotVisitedPlaces.GetRawJsonValue() == null){
-                            actualUser_ = new UserData(auth.CurrentUser, null, baseData);
-                        }else{
-                            //  pos             data
-                            List<Dictionary<string,string>> visitedPlacesListVersion = JsonConvert.DeserializeObject<List<Dictionary<string,string>>>(snapshotVisitedPlaces.GetRawJsonValue());
-                            actualUser_ = new UserData(auth.CurrentUser, visitedPlacesListVersion, baseData);
-                        }
-                        //por cualquiera de los dos caminos tiene que estar la user data lista
-                        userDataReady_ = true;
+                        FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/friends_").GetValueAsync().ContinueWith(taskFriends => {
+                            if (taskFriends.IsFaulted) {
+                                // Handle the error...
+                                Debug.Log("Error: "+taskFriends.Exception);
+                            } else if (taskFriends.IsCompleted) {
+                                DataSnapshot snapshotFriends = taskFriends.Result;
+                                List<string> friendsList;
+                                if(snapshotFriends.GetRawJsonValue() == null){
+                                    friendsList = null;
+                                }else{
+                                    //                                                UIDs
+                                    friendsList = JsonConvert.DeserializeObject<List<string>>(snapshotFriends.GetRawJsonValue());
+                                }
+                                FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/friendsInvitations_").GetValueAsync().ContinueWith(taskFriendsInvitations => {
+                                     if (taskFriendsInvitations.IsFaulted) {
+                                        // Handle the error...
+                                        Debug.Log("Error: "+taskFriendsInvitations.Exception);
+                                    } else if (taskFriendsInvitations.IsCompleted) {
+                                        DataSnapshot snapshotFriendsInvitations = taskFriendsInvitations.Result;
+                                        List<string> friendsInvitationsList;
+                                        if(snapshotFriendsInvitations.GetRawJsonValue() == null){
+                                            friendsInvitationsList = null;
+                                        }else{
+                                            //                                                          UIDs
+                                            friendsInvitationsList = JsonConvert.DeserializeObject<List<string>>(snapshotFriendsInvitations.GetRawJsonValue());
+                                        }
+                                        actualUser_ = new UserData(auth.CurrentUser, visitedPlacesListVersion, baseCordsData, friendsList, friendsInvitationsList);
+                                        //por cualquiera de los caminos tiene que estar la user data lista
+                                        userDataReady_ = true;
+                                    }
+                                },TaskScheduler.FromCurrentSynchronizationContext());
+                            }
+                        },TaskScheduler.FromCurrentSynchronizationContext());
                     }
                 },TaskScheduler.FromCurrentSynchronizationContext());
             }
@@ -367,7 +399,6 @@ public class firebaseHandler : MonoBehaviour
             }
         }
         long actualTime = timeOfTheVisit <= 0 ? DateTime.Now.Ticks : timeOfTheVisit;
-        Debug.Log($"en userVisitedPlace actualTime = {actualTime}");
         //si no lo habia visitado antes, registro la visita
         if(firstTime){
             actualUser_.visitedPlaces_.Add(new VisitedPlace(type,id,1,actualTime));
@@ -417,7 +448,7 @@ public class firebaseHandler : MonoBehaviour
                 Debug.Log("Error: "+task.Exception);
             } else if (task.IsCompleted) {
                 DataSnapshot snapshot = task.Result;
-                Debug.Log(snapshot.GetRawJsonValue());
+                //Debug.Log(snapshot.GetRawJsonValue());
                 //           id                 data
                 List<Dictionary<string,string>> listVersion = JsonConvert.DeserializeObject<List<Dictionary<string,string>>>(snapshot.GetRawJsonValue());
                 Dictionary<string,Dictionary<string,string>> dictionaryVersion = new Dictionary<string,Dictionary<string,string>>();
@@ -501,7 +532,7 @@ public class firebaseHandler : MonoBehaviour
             
             //si ya lo habia visitado devolvemos true si ha cumplido el cooldown
             // hay 10.000.000 de ticks en un segundo, * 60 son minutos
-            Debug.Log($"{storedPlace.lastVisitTimestamp()} + {gameRules.getMinutesOfCooldown() * 10000000 * 60}\n {storedPlace.lastVisitTimestamp() + gameRules.getMinutesOfCooldown() * 10000000 * 60} < {DateTime.Now.Ticks} ? ");
+            //Debug.Log($"{storedPlace.lastVisitTimestamp()} + {gameRules.getMinutesOfCooldown() * 10000000 * 60}\n {storedPlace.lastVisitTimestamp() + gameRules.getMinutesOfCooldown() * 10000000 * 60} < {DateTime.Now.Ticks} ? ");
             return (storedPlace.lastVisitTimestamp() + gameRules.getMinutesOfCooldown() * 10000000 * 60 < DateTime.Now.Ticks);
         }
         //si no lo habia visitado, el cooldown siempre se ha cumplido

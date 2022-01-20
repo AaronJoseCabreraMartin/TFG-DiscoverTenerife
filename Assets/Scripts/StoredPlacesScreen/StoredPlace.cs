@@ -124,11 +124,11 @@ public class StoredPlace
         dictionaryVersion["lastVisitTimestamp_"] = PlayerPrefs.GetString(index+"lastVisitTimestamp_");
         dictionaryVersion["newVisitsForThisPlace_"] =  PlayerPrefs.GetInt(index+"newVisitsForThisPlace_").ToString();
         dictionaryVersion["visited_"] = PlayerPrefs.GetInt(index+"visited_").ToString();
-        string toShow = "";
+        /*string toShow = "";
         foreach(var key in dictionaryVersion.Keys){
             toShow += $"{key} -> {dictionaryVersion[key]} ";
         }
-        Debug.Log(toShow);
+        Debug.Log(toShow);*/
         return new StoredPlace(dictionaryVersion);
     }
 
@@ -214,14 +214,14 @@ public class StoredPlace
         StoredPlace.changesToUpdate_ = false;
         for(int index = 0; index < gameRules.getMaxPlacesStored(); index++){
             if(PlayerPrefs.HasKey(index+"place") && PlayerPrefs.GetInt(index+"newVisitsForThisPlace_") != 0){
-                string toShow = "";
+                //string toShow = "";
                 for(int i = 0; i < PlayerPrefs.GetInt(index+"newVisitsForThisPlace_"); i++ ){
-                    toShow += "nueva visita para " + PlayerPrefs.GetString(index+"name_") + " ";
+                //    toShow += "nueva visita para " + PlayerPrefs.GetString(index+"name_") + " ";
                     firebaseHandler.firebaseHandlerInstance_.userVisitedPlaceByName(
                                                             PlayerPrefs.GetString(index+"name_"),
                                                             Int64.Parse(PlayerPrefs.GetString(index+"lastVisitTimestamp_")));
                 }
-                Debug.Log(toShow);
+                //Debug.Log(toShow);
                 PlayerPrefs.SetInt(index+"newVisitsForThisPlace_",0);
             }
         }

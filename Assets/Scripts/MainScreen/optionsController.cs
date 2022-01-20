@@ -17,12 +17,9 @@ public class optionsController : MonoBehaviour
     private multiselectionDesplegableMenu whatToSeeMenu_;
     private uniqueselectionDesplegableMenu distanceUnitMenu_;
     private bool optionsCopied_;
-
     static public GameObject lastOptionClicked_;
 
     void Awake(){
-        //GameObject[] objs = GameObject.FindGameObjectsWithTag("optionsController");
-        //if (objs.Length > 1){ //si ya existe una optionsController
         if(optionsController.optionsControllerInstance_ != null){
             Destroy(this.gameObject); //no crees otro
             return;
@@ -33,40 +30,56 @@ public class optionsController : MonoBehaviour
     }
 
     void Start(){
-        distanceInKM_ = true;
         whatToSee_ = new Dictionary<string, bool>();
-        whatToSee_["Viewpoints"] = true;
-        whatToSee_["Hiking Routes"] = true;
-        whatToSee_["Beaches"] = true;
-        whatToSee_["Natural Pools"] = true;
-        whatToSee_["Natural Parks"] = true;
-        whatToSee_["Already Visited"] = true;
-        sortByLessDistance_ = true;
+        List<string> options = new List<string> { "Viewpoints", "Hiking Routes", "Beaches", "Natural Pools","Natural Parks", "Already Visited"};
+        foreach(string option in options){
+            if(PlayerPrefs.HasKey(option)){
+                whatToSee_[option] = PlayerPrefs.GetInt(option) == 1;//1 activado
+            }else{
+                whatToSee_[option] = true;
+                PlayerPrefs.SetInt(option,1);
+            }
+        }
+
+        if(PlayerPrefs.HasKey("distanceInKM_")){
+            distanceInKM_ = PlayerPrefs.GetInt("distanceInKM_") == 1;//1 activado;
+        }else{
+            distanceInKM_ = true;
+            PlayerPrefs.SetInt("distanceInKM_",1);
+
+        }
+
+        if(PlayerPrefs.HasKey("sortByLessDistance_")){
+            sortByLessDistance_ = PlayerPrefs.GetInt("sortByLessDistance_") == 1;//1 activado;
+        }else{
+            sortByLessDistance_ = true;
+            PlayerPrefs.SetInt("sortByLessDistance_",1);
+        }
         optionsCopied_ = false;
     }
 
     void Update(){
+        if(!optionsCopied_ && sortByLessDistanceMenu_ != null && distanceUnitMenu_ != null){
+            copyOptions();//si existian opciones previas, deben mostrarse
+        }
         if(lastScene_ != SceneManager.GetActiveScene().name){
+            if(lastScene_ == "PantallaOpciones"){//si salimos de opciones, guarda los ajustes
+                storeOptions();
+            }
             lastScene_ = SceneManager.GetActiveScene().name;
             if(SceneManager.GetActiveScene().name == "PantallaOpciones"){
-                if(sortByLessDistanceMenu_ != null && distanceUnitMenu_ != null && sortByLessDistanceMenu_.ready() && distanceUnitMenu_.ready()){
-                    copyOptions();//si existian opciones previas, deben mostrarse
-                }
                 sortByLessDistanceMenu_ = GameObject.Find("/Canvas/Short results by").gameObject.GetComponent<uniqueselectionDesplegableMenu>();
                 whatToSeeMenu_ = GameObject.Find("/Canvas/Choose what to see").gameObject.GetComponent<multiselectionDesplegableMenu>();
                 distanceUnitMenu_ = GameObject.Find("/Canvas/Choose Distance Unit").gameObject.GetComponent<uniqueselectionDesplegableMenu>();
+                /*if(sortByLessDistanceMenu_ != null && distanceUnitMenu_ != null){
+                    copyOptions();//si existian opciones previas, deben mostrarse
+                }*/
                 optionsCopied_ = false;
-            }else if(SceneManager.GetActiveScene().name == "PantallaPrincipal" 
-                    || SceneManager.GetActiveScene().name == "PantallaLugar" 
-                    || SceneManager.GetActiveScene().name == "PantallaMenu"
-                    || SceneManager.GetActiveScene().name == "PantallaEstadisticas"){
+            }else{
                 sortByLessDistanceMenu_ = null;
                 whatToSeeMenu_ = null;
                 distanceUnitMenu_ = null;
             }
-        }
-        if(!optionsCopied_ && sortByLessDistanceMenu_ != null && distanceUnitMenu_ != null && sortByLessDistanceMenu_.ready() && distanceUnitMenu_.ready()){
-            copyOptions();//si existian opciones previas, deben mostrarse
         }
     }
 
@@ -115,26 +128,28 @@ public class optionsController : MonoBehaviour
         newWhatToSeeMenu_.setToggleStateByText("Natural Pools", whatToSee_["Natural Pools"]);
         newWhatToSeeMenu_.setToggleStateByText("Natural Parks", whatToSee_["Natural Parks"]);
         newWhatToSeeMenu_.setToggleStateByText("Already Visited", whatToSee_["Already Visited"]);
-        newSortByLessDistanceMenu_.selectToggle((distanceInKM_ ? 0 : 1));
-        newDistanceUnitMenu_.selectToggle((sortByLessDistance_ ? 0 : 1));
         
-        /*string toShow = "On Copy Options ";
-        toShow += $"Viewpoints -> {whatToSee_["Viewpoints"]} ";
+        newSortByLessDistanceMenu_.selectToggle(( sortByLessDistance_ ? 0 : 1));
+        
+        newDistanceUnitMenu_.selectToggle((distanceInKM_ ? 0 : 1));
+        
+        string toShow = "On Copy Options ";
+        /*toShow += $"Viewpoints -> {whatToSee_["Viewpoints"]} ";
         toShow += $"Hiking Routes -> {whatToSee_["Hiking Routes"]} ";
         toShow += $"Beaches -> {whatToSee_["Beaches"]} ";
         toShow += $"Natural Pools -> {whatToSee_["Natural Pools"]} ";
         toShow += $"Natural Parks -> {whatToSee_["Natural Parks"]} ";
-        toShow += $"Already Visited -> {whatToSee_["Already Visited"]} ";
-        toShow += $"distanceInKM_ = {distanceInKM_} ";
-        toShow += $"sortByLessDistance_ = {sortByLessDistance_}";
-        Debug.Log(toShow);*/
+        toShow += $"Already Visited -> {whatToSee_["Already Visited"]} ";*/
+        toShow += $"distanceInKM_ = {distanceInKM_}, {(distanceInKM_ ? 0 : 1)} ";
+        toShow += $"sortByLessDistance_ = {sortByLessDistance_}, {(sortByLessDistance_ ? 0 : 1)}";
+        Debug.Log(toShow);
 
         optionsCopied_ = true;
     }
 
     public void saveOptions(){
         if(sortByLessDistanceMenu_ && whatToSeeMenu_ && distanceUnitMenu_){
-            //string toShow = "On save Options ";
+            string toShow = "On save Options ";
             if(whatToSeeMenu_.anyChange()){
                 Dictionary<string,bool> changes = new Dictionary<string,bool>();//no puedes editar un diccionario mientras lo recorres
                 foreach(KeyValuePair<string, bool> option in whatToSee_){
@@ -147,9 +162,10 @@ public class optionsController : MonoBehaviour
             }
             distanceInKM_ = distanceUnitMenu_.checkToggle(0);
             sortByLessDistance_ = sortByLessDistanceMenu_.checkToggle(0);
-            /*toShow += $"distanceInKM_ = {distanceInKM_} ";
+            toShow += $"distanceInKM_ = {distanceInKM_} ";
             toShow += $"sortByLessDistance_ = {sortByLessDistance_}";
-            Debug.Log(toShow);*/
+            Debug.Log(toShow);
+            storeOptions();
         }
     }
 
@@ -163,4 +179,19 @@ public class optionsController : MonoBehaviour
         askOptionsFor(this.gameObject.name) y se haga un fill con eso
     
     */
+
+    private void storeOptions(){
+        string toShow ="On storeOptions ";
+        List<string> options = new List<string> { "Viewpoints", "Hiking Routes", "Beaches", "Natural Pools","Natural Parks", "Already Visited"};
+        foreach(string option in options){
+            PlayerPrefs.SetInt(option, whatToSee_[option] ? 1 : 0 );
+            //toShow += $"{option} = {(whatToSee_[option] ? 1 : 0)}";
+        }
+        PlayerPrefs.SetInt("distanceInKM_", distanceInKM_ ? 1 : 0);
+        PlayerPrefs.SetInt("sortByLessDistance_", sortByLessDistance_ ? 1 : 0);
+        PlayerPrefs.Save();
+        toShow += $"{distanceInKM_} = {(distanceInKM_ ? 1 : 0)}";
+        toShow += $"{sortByLessDistance_} = {(sortByLessDistance_ ? 1 : 0)}";
+        Debug.Log(toShow);
+    }
 }
