@@ -33,16 +33,16 @@ public class gpsController : MonoBehaviour
     //private double defaultLongitude_ = -16.65696;
 
     // a 40 metros de Mirador El Tabonal Negro (centro)
-    private double defaultLatitude_ = 28.258;
-    private double defaultLongitude_ = -16.611;
+    //private double defaultLatitude_ = 28.258;
+    //private double defaultLongitude_ = -16.611;
     
     // a 20 metros de la playa de los cristianos (sur)
     //private double defaultLatitude_ = 28.05015;
     //private double defaultLongitude_ = -16.7177;
     
     // a metros de la playa de las teresitas (norte)
-    //private double defaultLatitude_ = 28.5097;
-    //private double defaultLongitude_ = -16.18439;
+    private double defaultLatitude_ = 28.5097;
+    private double defaultLongitude_ = -16.18439;
     
     private double defaultAltitude_ = 255;
 

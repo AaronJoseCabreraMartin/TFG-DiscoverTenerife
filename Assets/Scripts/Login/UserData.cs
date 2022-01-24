@@ -50,10 +50,14 @@ public class UserData{
         friendList_ = friendList == null ? new List<string>() : friendList;
         friendInvitationsList_ = friendInvitationsList == null ? new List<string>() : friendInvitationsList;
         
-
+        /*
+        for(int index = 0; index < 30; index++){
+            friendInvitationsList_.Add(index.ToString());
+        }
         for(int index = 0; index < 30; index++){
             friendList_.Add(index.ToString());
         }
+        */
     }
 
     public string ToJson(){
@@ -62,13 +66,13 @@ public class UserData{
         if(baseEstablished_){
             conversion += "\"baseCords_\" :{";
             conversion += $"\"baseLatitude_\" : \"{baseLatitude_}\",";
-            conversion += $"\"baseLongitude_\" : \"{baseLongitude_}\",";
+            conversion += $"\"baseLongitude_\" : \"{baseLongitude_}\"";
             conversion += "},";
         }
         if(friendList_.Count != 0){
             conversion += "\"friends_\" :[";
             for(int i = 0; i < friendList_.Count; i++){
-                conversion += friendList_[i];
+                conversion +=  "\"" + friendList_[i] + "\"";
                 if(i+1 != friendList_.Count){
                    conversion += ",";
                 }
@@ -78,7 +82,7 @@ public class UserData{
         if(friendInvitationsList_.Count != 0){
             conversion += "\"friendsInvitations_\" :[";
             for(int i = 0; i < friendInvitationsList_.Count; i++){
-                conversion += friendInvitationsList_[i];
+                conversion += "\"" + friendInvitationsList_[i] + "\"";
                 if(i+1 != friendInvitationsList_.Count){
                    conversion += ",";
                 }

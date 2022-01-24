@@ -142,7 +142,7 @@ public class optionsController : MonoBehaviour
         toShow += $"Already Visited -> {whatToSee_["Already Visited"]} ";*/
         toShow += $"distanceInKM_ = {distanceInKM_}, {(distanceInKM_ ? 0 : 1)} ";
         toShow += $"sortByLessDistance_ = {sortByLessDistance_}, {(sortByLessDistance_ ? 0 : 1)}";
-        Debug.Log(toShow);
+        //Debug.Log(toShow);
 
         optionsCopied_ = true;
     }
@@ -164,7 +164,7 @@ public class optionsController : MonoBehaviour
             sortByLessDistance_ = sortByLessDistanceMenu_.checkToggle(0);
             toShow += $"distanceInKM_ = {distanceInKM_} ";
             toShow += $"sortByLessDistance_ = {sortByLessDistance_}";
-            Debug.Log(toShow);
+            //Debug.Log(toShow);
             storeOptions();
         }
     }
@@ -192,6 +192,6 @@ public class optionsController : MonoBehaviour
         PlayerPrefs.Save();
         toShow += $"{distanceInKM_} = {(distanceInKM_ ? 1 : 0)}";
         toShow += $"{sortByLessDistance_} = {(sortByLessDistance_ ? 1 : 0)}";
-        Debug.Log(toShow);
+        //Debug.Log(toShow);
     }
 }
