@@ -27,26 +27,34 @@ public class newFriendInvitation : MonoBehaviour
     }
 
     public void acceptFriend(){
-        //aceptar amigo:
-        // avisar a user data para que actualice sus listas
-        firebaseHandler.firebaseHandlerInstance_.actualUser_.acceptFriend(newFriendData_.getUid());
-        // avisar a firebase para que suba los cambios
-        firebaseHandler.firebaseHandlerInstance_.addFriendDataToDownload(newFriendData_.getUid());
-        firebaseHandler.firebaseHandlerInstance_.writeUserData();
-        //toast de amigo aceptado!
-        toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You have accepted "+newFriendData_.getDisplayName()+" as your friend successfully", new Color32(76,175,80,255), 5);
-        destroyAndAdvice();
+        if(firebaseHandler.firebaseHandlerInstance_.internetConnection()){
+            //aceptar amigo:
+            // avisar a user data para que actualice sus listas
+            firebaseHandler.firebaseHandlerInstance_.actualUser_.acceptFriend(newFriendData_.getUid());
+            // avisar a firebase para que suba los cambios
+            firebaseHandler.firebaseHandlerInstance_.addFriendDataToDownload(newFriendData_.getUid());
+            firebaseHandler.firebaseHandlerInstance_.writeUserData();
+            //toast de amigo aceptado!
+            toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You have accepted "+newFriendData_.getDisplayName()+" as your friend successfully", new Color32(76,175,80,255), 5);
+            destroyAndAdvice();
+        }else{
+            toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You dont have internet connection, try it again later.", new Color32(255,0,0,255), 5);
+        }
     }
 
     public void refuseFriend(){
-        //rechazar amigo:
-        // avisar a user data para que actualice sus listas
-        firebaseHandler.firebaseHandlerInstance_.actualUser_.deleteInvitationByName(newFriendData_.getUid());
-        // avisar a firebase para que suba los cambios 
-        firebaseHandler.firebaseHandlerInstance_.writeUserData();
-        //toast de amigo rechazado!
-        toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You have rejected the "+newFriendData_.getDisplayName()+"'s invitation to be your friend", new Color32(255,145,15,255), 5);
-        destroyAndAdvice();
+        if(firebaseHandler.firebaseHandlerInstance_.internetConnection()){
+            //rechazar amigo:
+            // avisar a user data para que actualice sus listas
+            firebaseHandler.firebaseHandlerInstance_.actualUser_.deleteInvitationByName(newFriendData_.getUid());
+            // avisar a firebase para que suba los cambios 
+            firebaseHandler.firebaseHandlerInstance_.writeUserData();
+            //toast de amigo rechazado!
+            toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You have rejected the "+newFriendData_.getDisplayName()+"'s invitation to be your friend", new Color32(255,145,15,255), 5);
+            destroyAndAdvice();
+        }else{
+            toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You dont have internet connection, try it again later.", new Color32(255,0,0,255), 5);
+        }
     }
 
     private void destroyAndAdvice(){

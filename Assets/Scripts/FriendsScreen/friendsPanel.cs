@@ -56,8 +56,7 @@ public class friendsPanel : MonoBehaviour
     }
 
     public void friendDeleted(GameObject friendDeleted){
-        Debug.Log("falta añadir que se suba a la lista de deletedFriends_ este uid! para que se les borre a ambos la mistad");
         friends_.Remove(friendDeleted);
-        firebaseHandler.firebaseHandlerInstance_.actualUser_.deleteFriendByName(friendDeleted.GetComponent<Friend>().getName());
+        //firebaseHandler.firebaseHandlerInstance_.actualUser_.deleteFriendByName(friendDeleted.GetComponent<Friend>().getName());
     }
 }

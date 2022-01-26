@@ -37,7 +37,7 @@ public class FriendData
     public string getStringConversionOfDeletedFriends(){
         string conversion = "[";
         for(int index = 0; index < deletedFriends_.Count; index++){
-            conversion += deletedFriends_[index];
+            conversion += "\""+ deletedFriends_[index] +"\"";
             if(index + 1 != deletedFriends_.Count){
                 conversion += ",";
             }

@@ -26,7 +26,8 @@ public class UserData{
     //private List<string> acceptedFriendInvitationsList_;//darle a los usuarios permiso para añadirse en la lista de amigos de los otros???
 
     public UserData(Firebase.Auth.FirebaseUser newFireBaseUserData, List<Dictionary<string,string>> oldVisitedPlaces = null, Dictionary<string,string> baseCordsData = null, 
-                                                                    List<string> friendList = null, List<string> friendInvitationsList = null, List<string> friendInvitationsAcceptedList = null){
+                                                                    List<string> friendList = null, List<string> friendInvitationsList = null, List<string> friendInvitationsAcceptedList = null,
+                                                                    List<string> deletedFriendsList = null){
         firebaseUserData_ = newFireBaseUserData;
         visitedPlaces_ = new List<VisitedPlace>();
         if(oldVisitedPlaces != null){
@@ -61,10 +62,12 @@ public class UserData{
             foreach(string uid in friendInvitationsAcceptedList){
                 friendList_.Add(uid);
             }
+        }
 
-        Debug.Log("On UserData");
-        Debug.Log(ToJson());
-        
+        if(deletedFriendsList !=null){
+            foreach(string uid in deletedFriendsList){
+                friendList_.Remove(uid);
+            }
         }
         /*
         for(int index = 0; index < 30; index++){
@@ -317,8 +320,10 @@ public class UserData{
         newFriendDataList_.Remove(newFriendDataList_.Find(newFriendData => newFriendData.getUid() == uid));
     }
 
-    public void deleteFriendByName(string name){
-
+    public void deleteFriend(string uid){
+        friendList_.Remove(uid);
+        friendDataList_.Remove(friendDataList_.Find(friendData => friendData.getUid() == uid));
+        Debug.Log("deleteFriend: "+ToJson());
     }
 /*
 los usuarios tienen permiso para 

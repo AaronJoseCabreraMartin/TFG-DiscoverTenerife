@@ -379,7 +379,7 @@ public class firebaseHandler : MonoBehaviour
                 // los datos como si fuera un nuevo usuario
                 //              pos    data
                 List<Dictionary<string,string>> visitedPlacesListVersion;
-                Debug.Log($"snapshotVisitedPlaces = {snapshotVisitedPlaces.GetRawJsonValue()}");
+                //Debug.Log($"snapshotVisitedPlaces = {snapshotVisitedPlaces.GetRawJsonValue()}");
                 if(snapshotVisitedPlaces.GetRawJsonValue() == null){
                     visitedPlacesListVersion = null;
                 }else{
@@ -393,7 +393,7 @@ public class firebaseHandler : MonoBehaviour
                         Debug.Log("Error: "+taskBaseCords.Exception);
                     } else if (taskBaseCords.IsCompleted) {
                         DataSnapshot snapshotBaseCords = taskBaseCords.Result;
-                        Debug.Log($"snapshotBaseCords = {snapshotBaseCords.GetRawJsonValue()}");
+                        //Debug.Log($"snapshotBaseCords = {snapshotBaseCords.GetRawJsonValue()}");
                         // si la base data es null quiere decir que el usuario nunca llego a activar su servicio GPS
                         if(snapshotBaseCords.GetRawJsonValue() == null){
                             baseCordsData = null;
@@ -408,7 +408,7 @@ public class firebaseHandler : MonoBehaviour
                             } else if (taskFriends.IsCompleted) {
                                 DataSnapshot snapshotFriends = taskFriends.Result;
                                 List<string> friendsList;
-                                Debug.Log($"snapshotFriends = {snapshotFriends.GetRawJsonValue()}"); 
+                                //Debug.Log($"snapshotFriends = {snapshotFriends.GetRawJsonValue()}"); 
                                 if(snapshotFriends.GetRawJsonValue() == null){
                                     friendsList = null;
                                 }else{
@@ -425,7 +425,7 @@ public class firebaseHandler : MonoBehaviour
                                     } else if (taskFriendsInvitations.IsCompleted) {
                                         DataSnapshot snapshotFriendsInvitations = taskFriendsInvitations.Result;
                                         List<string> friendsInvitationsList;
-                                        Debug.Log($"snapshotFriendsInvitations = {snapshotFriendsInvitations.GetRawJsonValue()}"); 
+                                        //Debug.Log($"snapshotFriendsInvitations = {snapshotFriendsInvitations.GetRawJsonValue()}"); 
                                         if(snapshotFriendsInvitations.GetRawJsonValue() == null){
                                             friendsInvitationsList = null;
                                         }else{
@@ -436,13 +436,13 @@ public class firebaseHandler : MonoBehaviour
                                             }
                                         }
                                         FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/acceptedFriendsInvitations_").GetValueAsync().ContinueWith(taskacceptedFriendsInvitations => {
-                                             if (taskacceptedFriendsInvitations.IsFaulted) {
+                                            if (taskacceptedFriendsInvitations.IsFaulted) {
                                                 // Handle the error...
                                                 Debug.Log("Error: "+taskacceptedFriendsInvitations.Exception);
                                             } else if (taskacceptedFriendsInvitations.IsCompleted) {
                                                 DataSnapshot snapshotacceptedFriendsInvitations = taskacceptedFriendsInvitations.Result;
                                                 List<string> acceptedFriendsInvitationsList;
-                                                Debug.Log($"snapshotacceptedFriendsInvitations = {snapshotacceptedFriendsInvitations.GetRawJsonValue()}");
+                                                //Debug.Log($"snapshotacceptedFriendsInvitations = {snapshotacceptedFriendsInvitations.GetRawJsonValue()}");
                                                 bool haveToUploadData = false;
                                                 if(snapshotacceptedFriendsInvitations.GetRawJsonValue() == null){
                                                     acceptedFriendsInvitationsList = null;
@@ -454,12 +454,29 @@ public class firebaseHandler : MonoBehaviour
                                                     }
                                                     haveToUploadData = true;
                                                 }
-                                                actualUser_ = new UserData(auth.CurrentUser, visitedPlacesListVersion, baseCordsData, friendsList, friendsInvitationsList, acceptedFriendsInvitationsList );
-                                                //por cualquiera de los caminos tiene que estar la user data lista
-                                                userDataReady_ = true;
-                                                if(haveToUploadData){
-                                                    writeUserData();
-                                                }
+                                                FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/deletedFriends_").GetValueAsync().ContinueWith(taskDeletedFriends => {
+                                                    if (taskDeletedFriends.IsFaulted) {
+                                                        // Handle the error...
+                                                        Debug.Log("Error: "+taskDeletedFriends.Exception);
+                                                    } else if (taskDeletedFriends.IsCompleted) {
+                                                        DataSnapshot snapshotDeletedFriends = taskDeletedFriends.Result;
+                                                        List<string> deletedFriendsList;
+                                                        //Debug.Log($"snapshotDeletedFriends = {snapshotDeletedFriends.GetRawJsonValue()}");
+                                                        if(snapshotDeletedFriends.GetRawJsonValue() == null){
+                                                            deletedFriendsList = null;
+                                                        }else{
+                                                            deletedFriendsList = JsonConvert.DeserializeObject<List<string>>(snapshotDeletedFriends.GetRawJsonValue());
+                                                            haveToUploadData = true; 
+                                                        }
+
+                                                        actualUser_ = new UserData(auth.CurrentUser, visitedPlacesListVersion, baseCordsData, friendsList, friendsInvitationsList, acceptedFriendsInvitationsList, deletedFriendsList );
+                                                        //por cualquiera de los caminos tiene que estar la user data lista
+                                                        userDataReady_ = true;
+                                                        if(haveToUploadData){
+                                                            writeUserData();
+                                                        }
+                                                    }
+                                                },TaskScheduler.FromCurrentSynchronizationContext());
                                             }
                                         },TaskScheduler.FromCurrentSynchronizationContext());
                                     }
@@ -783,6 +800,12 @@ SI NO COMPRUEBO SI ESTA READY PETA POR QUE DICE QUE HAY NULL REFERENCE EN USERDA
                 },TaskScheduler.FromCurrentSynchronizationContext());
             }
         },TaskScheduler.FromCurrentSynchronizationContext());
+    }
+
+    //uso los metodos de friend data y luego llamo aqui solo con la info que hay para subir
+    //TIENE que haber internet, sino no dejo hacer nada en friends
+    public void updateUserDeleteAFriend(string noFriendUid,string deletedFriendsList){
+        database.Child("users").Child(noFriendUid).Child("deletedFriends_").SetRawJsonValueAsync(deletedFriendsList);
     }
 }
 
