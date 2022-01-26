@@ -8,4 +8,7 @@ public class goBackButton : MonoBehaviour
     public void OnClick(){
         ChangeScene.changeScene(NombrePantalla_);
     }
+    public void changeSceneWithAnimation(){
+        GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation(NombrePantalla_);
+    }
 }

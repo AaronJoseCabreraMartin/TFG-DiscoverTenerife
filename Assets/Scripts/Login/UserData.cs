@@ -16,15 +16,17 @@ public class UserData{
 
     //almacena el UID de los usuarios amigos
     private List<string> friendList_;
+    private List<FriendData> friendDataList_;
 
     //almacena el UID de los usuarios que te han enviado una peticion de amistad
     private List<string> friendInvitationsList_;
+    private List<newFriendData> newFriendDataList_;
 
     //almacena el UID de los usuarios que han aceptado tu solicitud de amistad
     //private List<string> acceptedFriendInvitationsList_;//darle a los usuarios permiso para añadirse en la lista de amigos de los otros???
 
     public UserData(Firebase.Auth.FirebaseUser newFireBaseUserData, List<Dictionary<string,string>> oldVisitedPlaces = null, Dictionary<string,string> baseCordsData = null, 
-                                                                    List<string> friendList = null, List<string> friendInvitationsList = null){
+                                                                    List<string> friendList = null, List<string> friendInvitationsList = null, List<string> friendInvitationsAcceptedList = null){
         firebaseUserData_ = newFireBaseUserData;
         visitedPlaces_ = new List<VisitedPlace>();
         if(oldVisitedPlaces != null){
@@ -47,17 +49,32 @@ public class UserData{
         }else{
             displayName_ = firebaseUserData_.DisplayName;
         }
+
         friendList_ = friendList == null ? new List<string>() : friendList;
+        friendDataList_ = new List<FriendData>();
+
         friendInvitationsList_ = friendInvitationsList == null ? new List<string>() : friendInvitationsList;
+        newFriendDataList_ = new List<newFriendData>();
+
+        if(friendInvitationsAcceptedList != null){
+            //si se ha aceptado alguna petición de amistad, aniadelo a la lista de amigos
+            foreach(string uid in friendInvitationsAcceptedList){
+                friendList_.Add(uid);
+            }
+
+        Debug.Log("On UserData");
+        Debug.Log(ToJson());
         
+        }
         /*
         for(int index = 0; index < 30; index++){
             friendInvitationsList_.Add(index.ToString());
         }
-        for(int index = 0; index < 30; index++){
-            friendList_.Add(index.ToString());
-        }
         */
+        /*for(int index = 0; index < 30; index++){
+            friendList_.Add(index.ToString());
+        }*/
+        
     }
 
     public string ToJson(){
@@ -243,7 +260,65 @@ public class UserData{
     }
 
     public void deleteInvitationByName(string name){
-        friendInvitationsList_.RemoveAt(friendInvitationsList_.FindIndex(element => element == name));
+        friendInvitationsList_.Remove(name);
+    }
+
+    public int countOfFriends(){
+        return friendList_.Count;
+    }
+
+    public string getFriend(int index){
+        return friendList_[index];
+    }
+
+    public int countOfFriendData(){
+        return friendDataList_.Count;
+    }
+
+    public FriendData getFriendData(int index){
+        return friendDataList_[index];
+    }
+
+    public void addFriendData(FriendData friendData){
+        friendDataList_.Add(friendData);
+    }
+
+    public bool friendDataIsComplete(){
+        return friendDataList_.Count == friendList_.Count;
+    }
+
+    public int countOfNewFriends(){
+        return friendInvitationsList_.Count;
+    }
+
+    public string getNewFriend(int index){
+        return friendInvitationsList_[index];
+    }
+
+    public int countOfNewFriendData(){
+        return newFriendDataList_.Count;
+    }
+
+    public newFriendData getNewFriendData(int index){
+        return newFriendDataList_[index];
+    }
+
+    public void addNewFriendData(newFriendData friendData){
+        newFriendDataList_.Add(friendData);
+    }
+
+    public bool newFriendDataIsComplete(){
+        return friendInvitationsList_.Count == newFriendDataList_.Count;
+    }
+
+    public void acceptFriend(string uid){
+        friendList_.Add(uid);
+        friendInvitationsList_.Remove(uid);
+        newFriendDataList_.Remove(newFriendDataList_.Find(newFriendData => newFriendData.getUid() == uid));
+    }
+
+    public void deleteFriendByName(string name){
+
     }
 /*
 los usuarios tienen permiso para 

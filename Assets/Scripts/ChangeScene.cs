@@ -29,16 +29,6 @@ public class ChangeScene : MonoBehaviour
     }
 
     private IEnumerator makeFadeInFadeOutAnimation(string sceneName, float transitionTime, string text = "Loading..."){
-        /*
-        No parece estar descargando las cosas a la vez que hace la transicion, o al menos en el movil te da tiempo de entrar
-        ver que aun no han cargado y luego aparecen
-        Posible solucion:
-            - Gifs de cargando mientras se descargan y si ocurre alguna excepcion poner la imagen que esta ahora
-
-            falta mediante codigo activar las variables para las animaciones
-
-        o   - Poner que de alguna manera se avise cuando hacer el fadeout! pero entonces se quedaria la pantalla en negro con loading en medio mucho tiempo
-        */
         transition_.ResetTrigger("Reset");
         text_.SetActive(true);
         text_.GetComponent<Text>().text = text;

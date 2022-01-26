@@ -10,27 +10,9 @@
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "5200c640ea72c407",
-            "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 30755,
-            "exited": true
-        },
-        {
-            "deviceId": "5200c640ea72c407",
-            "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 26329,
-            "exited": true
-        },
-        {
-            "deviceId": "5200c640ea72c407",
             "name": "com.sec.android.app.launcher",
             "processId": 24168,
             "exited": false
-        },
-        {
-            "deviceId": "5200c640ea72c407",
-            "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 13292,
-            "exited": true
         },
         {
             "deviceId": "5200c640ea72c407",
@@ -42,6 +24,24 @@
             "deviceId": "5200c640ea72c407",
             "name": "com.ULLalu0101101019.DiscoverTenerife",
             "processId": 21627,
+            "exited": true
+        },
+        {
+            "deviceId": "5200c640ea72c407",
+            "name": "com.ULLalu0101101019.DiscoverTenerife",
+            "processId": 7708,
+            "exited": true
+        },
+        {
+            "deviceId": "5200c640ea72c407",
+            "name": "com.ULLalu0101101019.DiscoverTenerife",
+            "processId": 10360,
+            "exited": true
+        },
+        {
+            "deviceId": "5200c640ea72c407",
+            "name": "com.ULLalu0101101019.DiscoverTenerife",
+            "processId": 4349,
             "exited": true
         }
     ],

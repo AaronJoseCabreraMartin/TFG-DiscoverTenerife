@@ -31,6 +31,12 @@ public class firebaseHandler : MonoBehaviour
 
     private requestHandler requestHandler_;
 
+    private List<Dictionary<string, string>> placesToUpdateQueue_;
+    private string userDataUploaded_;
+    private List<string> friendDataDownloadQueue_;
+    private List<string> newFriendDataDownloadQueue_;
+    
+
     private void Awake() {
         //GameObject[] objs = GameObject.FindGameObjectsWithTag("firebaseHandler");
         //if (objs.Length > 1) //si ya existe una firebaseHandler no crees otra
@@ -45,6 +51,8 @@ public class firebaseHandler : MonoBehaviour
                                                         RequestIdToken = true };
         // cuando termine           A                           ejecuta         B                   con este contexto (para acceder a las cosas privadas)
         //Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(CheckDependenciesFirebase,TaskScheduler.FromCurrentSynchronizationContext());
+        friendDataDownloadQueue_ = new List<string>();
+        newFriendDataDownloadQueue_ = new List<string>();
     }
 
     void Update(){
@@ -52,9 +60,30 @@ public class firebaseHandler : MonoBehaviour
             // cuando termine           A                           ejecuta         B                   con este contexto (para acceder a las cosas privadas)
             Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(CheckDependenciesFirebase,TaskScheduler.FromCurrentSynchronizationContext());
         }
+        bool readyForUpdateChanges = internetConnection() && userDataReady_ && placesReady_ && firebaseDependenciesResolved;
         //Si hay conexion y no se han enviado las visitas offline, envialas.
-        if(internetConnection() && StoredPlace.changesToUpdate_ && userDataReady_ && placesReady_ && firebaseDependenciesResolved){
+        if(readyForUpdateChanges && StoredPlace.changesToUpdate_ ){
             StoredPlace.UpdateChanges();
+        }
+
+        if(readyForUpdateChanges && placesToUpdateQueue_ != null){
+            if(placesToUpdateQueue_.Count == 0){
+                placesToUpdateQueue_ = null;
+            }else{
+                uploadPlacesQueue();
+            }
+        }
+
+        if(readyForUpdateChanges && userDataUploaded_ == "false"){
+            writeUserData();
+        }
+
+        if(readyForUpdateChanges && friendDataDownloadQueue_.Count != 0){
+            downloadAllFriendData();
+        }
+
+        if(readyForUpdateChanges && newFriendDataDownloadQueue_.Count != 0){
+            downloadAllNewFriendInvitationsData();
         }
     }
     
@@ -291,7 +320,51 @@ public class firebaseHandler : MonoBehaviour
 
     public void writeUserData(){
         Debug.Log("writeUserData..."+actualUser_.ToJson());
-        database.Child("users").Child(actualUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(actualUser_.ToJson());
+        //database.Child("users").Child(actualUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(actualUser_.ToJson());
+        userDataUploaded_ = "inProgress";
+        database.Child("users").Child(actualUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(actualUser_.ToJson()).ContinueWith(taskUploadUserData =>{
+            Debug.Log("data wrote! " + (taskUploadUserData.IsCompleted ? "true" : "false") );
+            userDataUploaded_ = taskUploadUserData.IsCompleted ? "true" : "false";
+        },TaskScheduler.FromCurrentSynchronizationContext());
+
+        /*
+        FirebaseDatabase.DefaultInstance.GetReference($"users/GzHvoKfRGLdmO0ouAtJmDTiy6zV2/baseCords_").GetValueAsync().ContinueWith(testTask => {
+            if (testTask.IsFaulted) {
+                // Handle the error...
+                Debug.Log("Error: "+testTask.Exception);
+            } else if (testTask.IsCompleted) {
+                DataSnapshot snapshotTestTask = testTask.Result;
+                Dictionary<string,string> baseCords;
+                if(snapshotTestTask.GetRawJsonValue() == null){
+                    baseCords = null;
+                }else{
+                    baseCords = JsonConvert.DeserializeObject<Dictionary<string,string>>(snapshotTestTask.GetRawJsonValue());
+                    Debug.Log(baseCords);
+                    foreach(var key in baseCords.Keys){
+                        Debug.Log($"{key} -> {baseCords[key]}");
+                    }
+                }
+            }
+        },TaskScheduler.FromCurrentSynchronizationContext());
+        FirebaseDatabase.DefaultInstance.GetReference($"users/GzHvoKfRGLdmO0ouAtJmDTiy6zV2/friendsInvitations_").GetValueAsync().ContinueWith(testTask => {
+            if (testTask.IsFaulted) {
+                // Handle the error...
+                Debug.Log("Error: "+testTask.Exception);
+            } else if (testTask.IsCompleted) {
+                DataSnapshot snapshotTestTask = testTask.Result;
+                List<string> friendsInvitations;
+                if(snapshotTestTask.GetRawJsonValue() == null){
+                    friendsInvitations = null;
+                }else{
+                    friendsInvitations = JsonConvert.DeserializeObject<List<string>>(snapshotTestTask.GetRawJsonValue());
+                    Debug.Log(friendsInvitations);
+                    foreach(string friend in friendsInvitations){
+                        Debug.Log(friend);
+                    }
+                }
+            }
+        },TaskScheduler.FromCurrentSynchronizationContext());
+        */
     }
 
     public void readUserData(){ 
@@ -306,6 +379,7 @@ public class firebaseHandler : MonoBehaviour
                 // los datos como si fuera un nuevo usuario
                 //              pos    data
                 List<Dictionary<string,string>> visitedPlacesListVersion;
+                Debug.Log($"snapshotVisitedPlaces = {snapshotVisitedPlaces.GetRawJsonValue()}");
                 if(snapshotVisitedPlaces.GetRawJsonValue() == null){
                     visitedPlacesListVersion = null;
                 }else{
@@ -319,6 +393,7 @@ public class firebaseHandler : MonoBehaviour
                         Debug.Log("Error: "+taskBaseCords.Exception);
                     } else if (taskBaseCords.IsCompleted) {
                         DataSnapshot snapshotBaseCords = taskBaseCords.Result;
+                        Debug.Log($"snapshotBaseCords = {snapshotBaseCords.GetRawJsonValue()}");
                         // si la base data es null quiere decir que el usuario nunca llego a activar su servicio GPS
                         if(snapshotBaseCords.GetRawJsonValue() == null){
                             baseCordsData = null;
@@ -333,11 +408,15 @@ public class firebaseHandler : MonoBehaviour
                             } else if (taskFriends.IsCompleted) {
                                 DataSnapshot snapshotFriends = taskFriends.Result;
                                 List<string> friendsList;
+                                Debug.Log($"snapshotFriends = {snapshotFriends.GetRawJsonValue()}"); 
                                 if(snapshotFriends.GetRawJsonValue() == null){
                                     friendsList = null;
                                 }else{
                                     //                                                UIDs
                                     friendsList = JsonConvert.DeserializeObject<List<string>>(snapshotFriends.GetRawJsonValue());
+                                    foreach(string uid in friendsList){
+                                        friendDataDownloadQueue_.Add(uid);
+                                    }
                                 }
                                 FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/friendsInvitations_").GetValueAsync().ContinueWith(taskFriendsInvitations => {
                                      if (taskFriendsInvitations.IsFaulted) {
@@ -346,15 +425,43 @@ public class firebaseHandler : MonoBehaviour
                                     } else if (taskFriendsInvitations.IsCompleted) {
                                         DataSnapshot snapshotFriendsInvitations = taskFriendsInvitations.Result;
                                         List<string> friendsInvitationsList;
+                                        Debug.Log($"snapshotFriendsInvitations = {snapshotFriendsInvitations.GetRawJsonValue()}"); 
                                         if(snapshotFriendsInvitations.GetRawJsonValue() == null){
                                             friendsInvitationsList = null;
                                         }else{
                                             //                                                          UIDs
                                             friendsInvitationsList = JsonConvert.DeserializeObject<List<string>>(snapshotFriendsInvitations.GetRawJsonValue());
+                                            foreach(string uid in friendsInvitationsList){
+                                                newFriendDataDownloadQueue_.Add(uid);
+                                            }
                                         }
-                                        actualUser_ = new UserData(auth.CurrentUser, visitedPlacesListVersion, baseCordsData, friendsList, friendsInvitationsList);
-                                        //por cualquiera de los caminos tiene que estar la user data lista
-                                        userDataReady_ = true;
+                                        FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/acceptedFriendsInvitations_").GetValueAsync().ContinueWith(taskacceptedFriendsInvitations => {
+                                             if (taskacceptedFriendsInvitations.IsFaulted) {
+                                                // Handle the error...
+                                                Debug.Log("Error: "+taskacceptedFriendsInvitations.Exception);
+                                            } else if (taskacceptedFriendsInvitations.IsCompleted) {
+                                                DataSnapshot snapshotacceptedFriendsInvitations = taskacceptedFriendsInvitations.Result;
+                                                List<string> acceptedFriendsInvitationsList;
+                                                Debug.Log($"snapshotacceptedFriendsInvitations = {snapshotacceptedFriendsInvitations.GetRawJsonValue()}");
+                                                bool haveToUploadData = false;
+                                                if(snapshotacceptedFriendsInvitations.GetRawJsonValue() == null){
+                                                    acceptedFriendsInvitationsList = null;
+                                                }else{
+                                                    //                                                                  UIDs
+                                                    acceptedFriendsInvitationsList = JsonConvert.DeserializeObject<List<string>>(snapshotacceptedFriendsInvitations.GetRawJsonValue());
+                                                    foreach(string uid in acceptedFriendsInvitationsList){
+                                                        friendDataDownloadQueue_.Add(uid);
+                                                    }
+                                                    haveToUploadData = true;
+                                                }
+                                                actualUser_ = new UserData(auth.CurrentUser, visitedPlacesListVersion, baseCordsData, friendsList, friendsInvitationsList, acceptedFriendsInvitationsList );
+                                                //por cualquiera de los caminos tiene que estar la user data lista
+                                                userDataReady_ = true;
+                                                if(haveToUploadData){
+                                                    writeUserData();
+                                                }
+                                            }
+                                        },TaskScheduler.FromCurrentSynchronizationContext());
                                     }
                                 },TaskScheduler.FromCurrentSynchronizationContext());
                             }
@@ -367,7 +474,15 @@ public class firebaseHandler : MonoBehaviour
 
     public void writePlaceData(string type, string id){
         Place place = requestHandler_.getPlaceByTypeAndId(type,id);
-        database.Child("places").Child(type).Child(id).SetRawJsonValueAsync(place.ToJson());
+        //database.Child("places").Child(type).Child(id).SetRawJsonValueAsync(place.ToJson());
+        database.Child("places").Child(type).Child(id).SetRawJsonValueAsync(place.ToJson()).ContinueWith(uploadPlaceDataTask => {
+            if(uploadPlaceDataTask.IsFaulted){
+                if(placesToUpdateQueue_ == null){
+                    placesToUpdateQueue_ = new List<Dictionary<string, string>>();
+                }
+                placesToUpdateQueue_.Add(new Dictionary<string,string>{{type,id}});
+            }
+        },TaskScheduler.FromCurrentSynchronizationContext());
     }
 
     public bool cooldownVisitingPlaceFinished(string type, int id){
@@ -376,7 +491,7 @@ public class firebaseHandler : MonoBehaviour
         PARA DEBUGEAR RAPIDO
         
         */
-        //return true;
+        return true;
         /*
         
         PARA DEBUGEAR RAPIDO
@@ -399,7 +514,7 @@ public class firebaseHandler : MonoBehaviour
         PARA DEBUGEAR RAPIDO
         
         */
-        //return true;
+        return true;
         /*
         
         PARA DEBUGEAR RAPIDO
@@ -482,23 +597,16 @@ public class firebaseHandler : MonoBehaviour
                 Debug.Log("Error: "+task.Exception);
             } else if (task.IsCompleted) {
                 DataSnapshot snapshot = task.Result;
-                //Debug.Log(snapshot.GetRawJsonValue());
                 //           id                 data
                 List<Dictionary<string,string>> listVersion = JsonConvert.DeserializeObject<List<Dictionary<string,string>>>(snapshot.GetRawJsonValue());
                 Dictionary<string,Dictionary<string,string>> dictionaryVersion = new Dictionary<string,Dictionary<string,string>>();
                 for(int i = 0; i <listVersion.Count; i++ ){
                     dictionaryVersion[i.ToString()] = listVersion[i];
                 }
-                /*foreach(var key in dictionaryVersion.Keys){
-                    Debug.Log($"\"{key}\"");
-                    foreach(var key2 in dictionaryVersion[key].Keys){
-                        Debug.Log($"\t\"{key2}\" : \"{dictionaryVersion[key][key2]}\"");
-                    }
-                }*/
                 allPlaces_[typeSite] = dictionaryVersion;
                 if(allPlaces_.Count == mapRulesHandler.getTypesOfSites().Count){
                     placesReady_ = true;
-                    Debug.Log("ready!");
+                    Debug.Log("Places ready!");
                 }
             }
         },TaskScheduler.FromCurrentSynchronizationContext());
@@ -561,13 +669,120 @@ public class firebaseHandler : MonoBehaviour
         return allPlaces_[type][id];
     }
 
-    
-
-
     void OnApplicationQuit(){
         FirebaseApp.DefaultInstance.Dispose();
         StoredPlace.saveAll();
     }
 
+    void uploadPlacesQueue(){
+        foreach(Dictionary<string,string> placeToUpdate in placesToUpdateQueue_){
+            foreach(string key in placeToUpdate.Keys){
+                //creo que esto va a petar porque no puedes modificar un diccionario mientras lo recorres.
+                placesToUpdateQueue_.Remove(placeToUpdate);
+                writePlaceData(key, placeToUpdate[key]);
+            }
+        }
+    }
+
+/*
+        cuando aceptas la peticion updateas la lista de amigos aceptados
+        si eliminas un amigo updateas la lista de amigos de este usuario, crear otra lista de amigos eliminados
+
+POR ALGUN MOTIVO USERDATA NUNCA LLEGA A ESTAR READY!
+SI NO COMPRUEBO SI ESTA READY PETA POR QUE DICE QUE HAY NULL REFERENCE EN USERDATA friendDataIsComplete() LINEA 284
+
+*/
+    private void downloadAllFriendData(){
+        for(int index = 0; index < actualUser_.countOfFriends(); index++){
+            string uid = actualUser_.getFriend(index);
+            if(friendDataDownloadQueue_.Exists(friendDataForDownload => friendDataForDownload == uid)){
+                friendDataDownloadQueue_.Remove(uid);
+                downloadFriendData(uid);
+            }
+        }
+    }
+
+    private void downloadFriendData(string uid){
+        FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/displayName_").GetValueAsync().ContinueWith(displayNameTask => {
+            if (displayNameTask.IsFaulted) {
+                // Handle the error...
+                Debug.Log("Error: "+displayNameTask.Exception);
+                friendDataDownloadQueue_.Add(uid);
+            } else if (displayNameTask.IsCompleted) {
+                DataSnapshot snapshotDisplayName = displayNameTask.Result;
+                string displayName;
+                if(snapshotDisplayName.GetRawJsonValue() == null){
+                    displayName = "null";
+                }else{
+                    displayName = JsonConvert.DeserializeObject<string>(snapshotDisplayName.GetRawJsonValue());
+                }
+                FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/deletedFriends_").GetValueAsync().ContinueWith(deletedFriendsTask => {
+                    if (deletedFriendsTask.IsFaulted) {
+                        // Handle the error...
+                        Debug.Log("Error: "+deletedFriendsTask.Exception);
+                        friendDataDownloadQueue_.Add(uid);
+                    } else if (deletedFriendsTask.IsCompleted) {
+                        DataSnapshot deletedFriendsSnapshot = deletedFriendsTask.Result;
+                        List<string> deletedFriends;
+                        if(deletedFriendsSnapshot.GetRawJsonValue() == null){
+                            deletedFriends = new List<string>();
+                        }else{
+                            deletedFriends = JsonConvert.DeserializeObject<List<string>>(deletedFriendsSnapshot.GetRawJsonValue());
+                        }
+                        actualUser_.addFriendData(new FriendData(uid, displayName, deletedFriends));
+                    }
+                },TaskScheduler.FromCurrentSynchronizationContext());
+            }
+        },TaskScheduler.FromCurrentSynchronizationContext());
+    }
+
+    //llamar cuando se agrege a un amigo
+    public void addFriendDataToDownload(string uid){
+        friendDataDownloadQueue_.Add(uid);
+    }
+
+    private void downloadAllNewFriendInvitationsData(){
+        for(int index = 0; index < actualUser_.countOfNewFriends(); index++){
+            string uid = actualUser_.getNewFriend(index);
+            if(newFriendDataDownloadQueue_.Exists(newFriendDataForDownload => newFriendDataForDownload == uid)){
+                newFriendDataDownloadQueue_.Remove(uid);
+                downloadNewFriendInvitationData(uid);
+            }
+        }
+    }
+
+    private void downloadNewFriendInvitationData(string uid){
+        FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/displayName_").GetValueAsync().ContinueWith(displayNameTask => {
+            if (displayNameTask.IsFaulted) {
+                // Handle the error...
+                Debug.Log("Error: "+displayNameTask.Exception);
+                newFriendDataDownloadQueue_.Add(uid);
+            } else if (displayNameTask.IsCompleted) {
+                DataSnapshot snapshotDisplayName = displayNameTask.Result;
+                string displayName;
+                if(snapshotDisplayName.GetRawJsonValue() == null){
+                    displayName = "null";
+                }else{
+                    displayName = JsonConvert.DeserializeObject<string>(snapshotDisplayName.GetRawJsonValue());
+                }
+                FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/acceptedFriendsInvitations_").GetValueAsync().ContinueWith(acceptedNewFriendsTask => {
+                    if (acceptedNewFriendsTask.IsFaulted) {
+                        // Handle the error...
+                        Debug.Log("Error: "+acceptedNewFriendsTask.Exception);
+                        newFriendDataDownloadQueue_.Add(uid);
+                    } else if (acceptedNewFriendsTask.IsCompleted) {
+                        DataSnapshot newFriendsSnapshot = acceptedNewFriendsTask.Result;
+                        List<string> newFriends;
+                        if(newFriendsSnapshot.GetRawJsonValue() == null){
+                            newFriends = new List<string>();
+                        }else{
+                            newFriends = JsonConvert.DeserializeObject<List<string>>(newFriendsSnapshot.GetRawJsonValue());
+                        }
+                        actualUser_.addNewFriendData(new newFriendData(uid, displayName, newFriends));
+                    }
+                },TaskScheduler.FromCurrentSynchronizationContext());
+            }
+        },TaskScheduler.FromCurrentSynchronizationContext());
+    }
 }
 

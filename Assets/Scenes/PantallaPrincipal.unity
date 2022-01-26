@@ -418,7 +418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2099174124110514113, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
       propertyPath: m_Text
-      value: Zone Score
+      value: Score Zone
       objectReference: {fileID: 0}
     - target: {fileID: 2099174124110514113, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
       propertyPath: m_FontData.m_BestFit

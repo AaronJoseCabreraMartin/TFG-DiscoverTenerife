@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PantallaInvitacionesAmigos.unity
     guid: 3036e0dccbb23c84582bfb4a0f8b100a
+  - enabled: 1
+    path: Assets/Scenes/PantallaListaAmigos.unity
+    guid: 8efb61eaaf0326040980803cde3d2032
   m_configObjects: {}

@@ -32,9 +32,9 @@ public class newFriendInvitationPanel : MonoBehaviour
     }
 
     private void fillPanel(){
-        for(int i = 0; i < firebaseHandler.firebaseHandlerInstance_.actualUser_.countOfFriendInvitations(); i++){
+        for(int i = 0; i < firebaseHandler.firebaseHandlerInstance_.actualUser_.countOfNewFriendData(); i++){
             GameObject newInvitationObject = Instantiate(invitationPrefab_, new Vector3(0, 0, 0), Quaternion.identity);
-            newInvitationObject.GetComponent<newFriendInvitation>().setDisplayName(firebaseHandler.firebaseHandlerInstance_.actualUser_.getFriendInvitation(i));
+            newInvitationObject.GetComponent<newFriendInvitation>().setData(firebaseHandler.firebaseHandlerInstance_.actualUser_.getNewFriendData(i));
             newInvitationObject.transform.SetParent(this.transform);
             newInvitationObject.GetComponent<newFriendInvitation>().setPanel(this.gameObject);
             invitations_.Add(newInvitationObject);
@@ -56,10 +56,6 @@ public class newFriendInvitationPanel : MonoBehaviour
     }
 
     public void invitationDeleted(GameObject invitationDeleted){
-        Debug.Log("Esto no esta del todo bien porque hay que diferenciar de añadir amigo y borrar solicitud");
-        Debug.Log("si se acepta una peticion UserData debe el elemento desde solicitudes a amigos");
-        Debug.Log("en ambos casos, firebase debe subir los cambios!");
         invitations_.RemoveAt(invitations_.FindIndex(element => element == invitationDeleted));
-        firebaseHandler.firebaseHandlerInstance_.actualUser_.deleteInvitationByName(invitationDeleted.GetComponent<newFriendInvitation>().getName());
     }
 }
