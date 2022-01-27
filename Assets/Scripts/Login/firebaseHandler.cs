@@ -24,6 +24,7 @@ public class firebaseHandler : MonoBehaviour
 
     public UserData actualUser_ = null;
     private bool firebaseDependenciesResolved = false;
+    private bool firebaseDependenciesRunning = false;
     private bool placesReady_ = false;
     private bool userDataReady_ = false;
     //              type of place          id                 DATA
@@ -56,34 +57,36 @@ public class firebaseHandler : MonoBehaviour
     }
 
     void Update(){
-        if(!firebaseDependenciesResolved){
+        if(!firebaseDependenciesResolved && !firebaseDependenciesRunning){
+            firebaseDependenciesRunning = true;
             // cuando termine           A                           ejecuta         B                   con este contexto (para acceder a las cosas privadas)
             Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(CheckDependenciesFirebase,TaskScheduler.FromCurrentSynchronizationContext());
-        }
-        bool readyForUpdateChanges = internetConnection() && userDataReady_ && placesReady_ && firebaseDependenciesResolved;
-        //Si hay conexion y no se han enviado las visitas offline, envialas.
-        if(readyForUpdateChanges && StoredPlace.changesToUpdate_ ){
-            StoredPlace.UpdateChanges();
-        }
-
-        if(readyForUpdateChanges && placesToUpdateQueue_ != null){
-            if(placesToUpdateQueue_.Count == 0){
-                placesToUpdateQueue_ = null;
-            }else{
-                uploadPlacesQueue();
+        }else if(firebaseDependenciesResolved && !firebaseDependenciesRunning){
+            bool readyForUpdateChanges = internetConnection() && userDataReady_ && placesReady_ && firebaseDependenciesResolved;
+            //Si hay conexion y no se han enviado las visitas offline, envialas.
+            if(readyForUpdateChanges && StoredPlace.changesToUpdate_ ){
+                StoredPlace.UpdateChanges();
             }
-        }
 
-        if(readyForUpdateChanges && userDataUploaded_ == "false"){
-            writeUserData();
-        }
+            if(readyForUpdateChanges && placesToUpdateQueue_ != null){
+                if(placesToUpdateQueue_.Count == 0){
+                    placesToUpdateQueue_ = null;
+                }else{
+                    uploadPlacesQueue();
+                }
+            }
 
-        if(readyForUpdateChanges && friendDataDownloadQueue_.Count != 0){
-            downloadAllFriendData();
-        }
+            if(readyForUpdateChanges && userDataUploaded_ == "false"){
+                writeUserData();
+            }
 
-        if(readyForUpdateChanges && newFriendDataDownloadQueue_.Count != 0){
-            downloadAllNewFriendInvitationsData();
+            if(readyForUpdateChanges && friendDataDownloadQueue_.Count != 0){
+                downloadAllFriendData();
+            }
+
+            if(readyForUpdateChanges && newFriendDataDownloadQueue_.Count != 0){
+                downloadAllNewFriendInvitationsData();
+            }
         }
     }
     
@@ -103,11 +106,13 @@ public class firebaseHandler : MonoBehaviour
             // application.
             CreateFirebaseObject();
             firebaseDependenciesResolved = true;
+            firebaseDependenciesRunning = false;
             Debug.Log("Firebase Connected!!!");
             //ya habia una sesion iniciada antes!
             if(auth != null){
                 Debug.Log("YA HABIA UNA SESION INICIADA!! "+ (auth.CurrentUser.IsAnonymous ? "Anonymous" : auth.CurrentUser.DisplayName));
-                ChangeScene.changeScene("PantallaPrincipal");
+                //ChangeScene.changeScene("PantallaPrincipal");
+                GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation("PantallaPrincipal");
                 downloadAllPlaces();
                 readUserData();
             }
@@ -116,6 +121,7 @@ public class firebaseHandler : MonoBehaviour
             "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
             // Firebase Unity SDK is not safe to use here.
             firebaseDependenciesResolved = false;
+            firebaseDependenciesRunning = false;
         }
     }
 
@@ -229,77 +235,52 @@ public class firebaseHandler : MonoBehaviour
     //button function
     public void SignInWithGoogle()
     {
+        Debug.Log($"*******************firebaseDependenciesResolved = {firebaseDependenciesResolved}*******************");
+        Debug.Log($"*******************firebaseDependenciesRunning = {firebaseDependenciesRunning}*******************");
+        if(!firebaseDependenciesResolved || firebaseDependenciesRunning){
+            return;
+        }
         GoogleSignIn.Configuration = configuration;
         GoogleSignIn.Configuration.UseGameSignIn = false;
         GoogleSignIn.Configuration.RequestIdToken = true;
 
-        GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnAuthenticationFinished);
+        GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnAuthenticationFinished,TaskScheduler.FromCurrentSynchronizationContext());
     }
     
     // internal es que solo tienen acceso este fichero!? algo asi lei
     internal void OnAuthenticationFinished(Task<GoogleSignInUser> task)
     {
-        string errors = "";
-        if (task.IsFaulted)
-        {
-            using (IEnumerator<Exception> enumerator = task.Exception.InnerExceptions.GetEnumerator())
-            {
-                if (enumerator.MoveNext())
-                {
-                    GoogleSignIn.SignInException error = (GoogleSignIn.SignInException)enumerator.Current;
-                    errors += "Got Error: " + error.Status + " " + error.Message + "\n";
-                }
-                else
-                {
-                    errors += "Got Unexpected Exception?!?" + task.Exception + "\n";
-                }
-            }
-        }
-        else if (task.IsCanceled)
-        {
-            errors += "Canceled";
-        }
-        else
-        {
-            Debug.Log("Welcome: " + task.Result.DisplayName + "!");
-            Debug.Log("Email = " + task.Result.Email);
-            Debug.Log("Google ID Token = " + task.Result.IdToken);
-            SignInWithGoogleOnFirebase(task.Result.IdToken,task.Result);
-        }
+        Task<GoogleSignInUser> signIn = GoogleSignIn.DefaultInstance.SignIn ();
 
-        if(errors.Length != 0){
-            GameObject.Find("googleLoginController").GetComponent<googleLoginController>().errorLoginUser(errors);
-            Debug.Log("llamada a funcion algo salio mal(errors)");
-        }
-    }
-
-    private void SignInWithGoogleOnFirebase(string idToken, GoogleSignInUser user)
-    {
-        Credential credential = GoogleAuthProvider.GetCredential(idToken, null);
-        Debug.Log("Para buscar: hasta aqui todo bien");
-
-        auth.SignInWithCredentialAsync(credential).ContinueWith(task =>
-        {
-            //peta en este punto
-            // warn system ignoring header x-firebase-locale because its value was null. 
-            Debug.Log("Pabuscar: he llegado aqui 2");
-            string errors = "";
-            AggregateException ex = task.Exception;
-            if (ex != null)
-            {
-                if (ex.InnerExceptions[0] is FirebaseException inner && (inner.ErrorCode != 0)){
-                    errors += "\nError code = " + inner.ErrorCode + " Message = " + inner.Message;
-                }
-            }
-            else
-            {
-                GameObject.Find("Login button Google").GetComponent<googleLoginController>().userLogedSuccessfully(user.DisplayName);
-                Debug.Log("se inicio sesion correctamente! llamada a TODO OK.");
-                downloadAllPlaces();
-            }
-            if(errors.Length != 0){
-                GameObject.Find("Login button Google").GetComponent<googleLoginController>().errorLoginUser(errors);
-                Debug.Log("llamada a funcion algo salio mal(errors)");
+        TaskCompletionSource<FirebaseUser> signInCompleted = new TaskCompletionSource<FirebaseUser> ();
+        signIn.ContinueWith (task => {
+            if (task.IsCanceled) {
+                Debug.Log("Google SingIn is cancelled!");
+                signInCompleted.SetCanceled ();
+            } else if (task.IsFaulted) {
+                Debug.Log($"Google SingIn has an exception! {task.Exception}");
+                signInCompleted.SetException (task.Exception);
+            } else {
+                Credential credential = Firebase.Auth.GoogleAuthProvider.GetCredential (((Task<GoogleSignInUser>)task).Result.IdToken, null);
+                auth.SignInWithCredentialAsync(credential).ContinueWith(authTask => {
+                    if (authTask.IsCanceled) {
+                        Debug.Log("Google SingIn on authentication is cancelled!");
+                        signInCompleted.SetCanceled();
+                    } else if (authTask.IsFaulted) {
+                        Debug.Log($"Google SingIn on authentication has an exception! {authTask.Exception}");
+                        signInCompleted.SetException(authTask.Exception);
+                    } else {
+        Debug.Log($"firebaseDependenciesResolved = {firebaseDependenciesResolved}");
+                        signInCompleted.SetResult(((Task<FirebaseUser>)authTask).Result);
+                        GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation("PantallaPrincipal");
+                        Debug.Log($"task.Result = {authTask.Result}");
+                        Debug.Log("Welcome: " + authTask.Result.DisplayName + "!");
+                        Debug.Log("Email = " + authTask.Result.Email);
+                        Debug.Log($"auth.CurrentUser = {auth.CurrentUser}");
+                        downloadAllPlaces();
+                        readUserData();
+                    }
+                },TaskScheduler.FromCurrentSynchronizationContext());
             }
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
@@ -328,6 +309,7 @@ public class firebaseHandler : MonoBehaviour
         },TaskScheduler.FromCurrentSynchronizationContext());
 
         /*
+        //pruebas de que las reglas de seguridad están bien
         FirebaseDatabase.DefaultInstance.GetReference($"users/GzHvoKfRGLdmO0ouAtJmDTiy6zV2/baseCords_").GetValueAsync().ContinueWith(testTask => {
             if (testTask.IsFaulted) {
                 // Handle the error...
@@ -367,7 +349,8 @@ public class firebaseHandler : MonoBehaviour
         */
     }
 
-    public void readUserData(){ 
+    public void readUserData(){
+        Debug.Log($"readUserData: {auth.CurrentUser.UserId}");
         FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/visitedPlaces_").GetValueAsync().ContinueWith(taskPlaces => {
             if (taskPlaces.IsFaulted) {
                 // Handle the error...
@@ -491,6 +474,7 @@ public class firebaseHandler : MonoBehaviour
 
     public void writePlaceData(string type, string id){
         Place place = requestHandler_.getPlaceByTypeAndId(type,id);
+        Debug.Log("writePlaceData = "+place.ToJson());
         //database.Child("places").Child(type).Child(id).SetRawJsonValueAsync(place.ToJson());
         database.Child("places").Child(type).Child(id).SetRawJsonValueAsync(place.ToJson()).ContinueWith(uploadPlaceDataTask => {
             if(uploadPlaceDataTask.IsFaulted){
@@ -571,8 +555,8 @@ public class firebaseHandler : MonoBehaviour
         }else{
             actualUser_.newVisitAt(type,id,actualTime);
         }
-        allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"] = (Int32.Parse(allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"])+1).ToString();
-        //requestHandler_.oneMoreVisitToPlaceByTypeAndId(type,id.ToString());
+        //allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"] = (Int32.Parse(allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"])+1).ToString();
+        requestHandler_.oneMoreVisitToPlaceByTypeAndId(type,id.ToString());
         writePlaceData(type,id.ToString());
         writeUserData();
     }

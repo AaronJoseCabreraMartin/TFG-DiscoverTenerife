@@ -11,7 +11,6 @@ using UnityEngine.SceneManagement;
 public class gpsController : MonoBehaviour
 {
     public static gpsController gpsControllerInstance_;
-    private firebaseHandler firebaseHandlerObject_;
 
     private bool isItPermissionTime;
     private string nextPermission;
@@ -35,15 +34,26 @@ public class gpsController : MonoBehaviour
     // a 40 metros de Mirador El Tabonal Negro (centro)
     //private double defaultLatitude_ = 28.258;
     //private double defaultLongitude_ = -16.611;
-    
+    // Parque natural Corona Forestal (centro)
+    //private double defaultLatitude_ = 28.2486807;
+    //private double defaultLongitude_ = -16.5382264;
+
     // a 20 metros de la playa de los cristianos (sur)
     //private double defaultLatitude_ = 28.05015;
     //private double defaultLongitude_ = -16.7177;
     
     // a metros de la playa de las teresitas (norte)
-    private double defaultLatitude_ = 28.5097;
-    private double defaultLongitude_ = -16.18439;
+    //private double defaultLatitude_ = 28.5097;
+    //private double defaultLongitude_ = -16.18439;
     
+    // a metros de sendero Monte del agua (Oeste)
+    //private double defaultLatitude_ = 28.328925;
+    //private double defaultLongitude_ = -16.808909;
+    
+    // a metros de Piscina natural de guimar (Este)
+    private double defaultLatitude_ = 28.2600654;
+    private double defaultLongitude_ = -16.3924713;
+
     private double defaultAltitude_ = 255;
 
     void Awake(){
@@ -58,7 +68,6 @@ public class gpsController : MonoBehaviour
     
         Debug.Log("Las coordenadas por defecto deben empezar en 0, 0, 0 por defecto");
        
-        firebaseHandlerObject_ = firebaseHandler.firebaseHandlerInstance_;
         CreatePermissionList();
         Input.location.Start();
         gpsIsRunning_ = false;
@@ -95,7 +104,6 @@ public class gpsController : MonoBehaviour
     }
 
     void Update(){
-        
         if(Permission.HasUserAuthorizedPermission(Permission.CoarseLocation) && 
             Permission.HasUserAuthorizedPermission(Permission.FineLocation) && 
             Input.location.isEnabledByUser &&
@@ -107,9 +115,9 @@ public class gpsController : MonoBehaviour
                 altitude_ = Input.location.lastData.altitude;
                 //Debug.Log($"latitude_={latitude_},longitude_={longitude_}");
                 //si la base no ha sido establecida desde que tengas permisos, establecela
-            if(!firebaseHandlerObject_.actualUser_.baseEstablished()){
-                firebaseHandlerObject_.actualUser_.setBase(latitude_,longitude_);
-                firebaseHandlerObject_.writeUserData();
+            if(firebaseHandler.firebaseHandlerInstance_.actualUser_ != null && !firebaseHandler.firebaseHandlerInstance_.actualUser_.baseEstablished()){
+                firebaseHandler.firebaseHandlerInstance_.actualUser_.setBase(latitude_,longitude_);
+                firebaseHandler.firebaseHandlerInstance_.writeUserData();
             }
         }else{
             gpsIsRunning_ = false;
@@ -121,7 +129,7 @@ public class gpsController : MonoBehaviour
         
         
         //For debugging propources
-        float velocity = 0.0001f;
+        /*float velocity = 0.0001f;
         if (Input.GetKey("up")){
             defaultLatitude_ += velocity;
             Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
@@ -137,7 +145,7 @@ public class gpsController : MonoBehaviour
         if (Input.GetKey("left")){
             defaultLongitude_ -= velocity;
             Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
-        }
+        }*/
     }
 
     public double getLatitude(){

@@ -325,15 +325,8 @@ public class UserData{
         friendDataList_.Remove(friendDataList_.Find(friendData => friendData.getUid() == uid));
         Debug.Log("deleteFriend: "+ToJson());
     }
-/*
-los usuarios tienen permiso para 
-    escribir en una propiedad de los demas usuarios, la propiedad es friendsInvitations
-    leer los nombres de los usuarios, los displayName
-    escribir en una propiedad acceptedFriendInvitations
 
-    entonces tu te escribes a ti mismo en la lista friends invitations de tu amigo, el recibe la peticion
-    si acepta se escriben mutuamente en la lista de amigos, si se rechaza se borra de la lista friendsInvitations
-    para que A sepa que B acepto su peticion de amistad deberia haber un campo que tambien lo puedan editar todos los usuarios
-    que sea acceptedFriendInvitations
-*/
+    public VisitedPlace getStoryPlaceData(int index){
+        return visitedPlaces_[index];
+    }
 }

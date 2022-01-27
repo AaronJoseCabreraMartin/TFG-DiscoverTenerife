@@ -60,15 +60,6 @@ public class requestHandler
             sortPlaces();
         }
         Dictionary<string, bool> whatToSeeOptions = options.whatToSeeOptions();
-        
-        /*
-        
-        quizas cuando options controller detecte el cambio de orden deberia avisar
-        a esta clase con algun metodo tipo sort
-        elegir que sitios mostrar o no es facil solo hay que mirar que el tipo en concreto 
-        este a true o que no lo haya visitado
-
-        */
         bool placeDecided = false;
         while(!placeDecided){
             //cambia de tipo hasta que encuentres uno que si esta

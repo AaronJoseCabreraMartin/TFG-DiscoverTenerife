@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PantallaListaAmigos.unity
     guid: 8efb61eaaf0326040980803cde3d2032
+  - enabled: 1
+    path: Assets/Scenes/PantallaHistorial.unity
+    guid: b428abe8918f0864d8ebe4782f039c8b
   m_configObjects: {}

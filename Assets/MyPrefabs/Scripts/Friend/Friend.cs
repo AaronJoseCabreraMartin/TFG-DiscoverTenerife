@@ -43,6 +43,7 @@ public class Friend : MonoBehaviour
                 friendData_.addDeletedFriend(firebaseHandler.firebaseHandlerInstance_.auth.CurrentUser.UserId);
                 // avisar a firebase para que suba los cambios
                 firebaseHandler.firebaseHandlerInstance_.updateUserDeleteAFriend(friendData_.getUid(),friendData_.getStringConversionOfDeletedFriends());
+                firebaseHandler.firebaseHandlerInstance_.writeUserData();
                 //toast de amigo eliminado!
                 toastMessageObject_.GetComponent<toastMessage>().makeAnimation(friendData_.getDisplayName() + " is no longer a friend", new Color32(255,0,0,255), 5);
                 //destruye este objeto y actualiza el tamaño del panel

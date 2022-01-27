@@ -36,18 +36,22 @@ public class PlaceHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(placeLoaded_ == false){
-            /*
-            Esto esta limitando a un askForAPlace en cada frame seria mejor que askForAPlace recibiera que posicion quieres
-            por ejemplo teniendo una list<int> con los places que tiene que devolver en cada orden
-            */
-            if(place_ == null && PlaceHandler.serverHandler_.placesAreReady() && isMyTurn() && (Place.webClient_ == null || !Place.webClient_.IsBusy)){
-                //assing place
-                place_ = PlaceHandler.serverHandler_.askForAPlace();
-                place_.startDownload();
-                PlaceHandler.turn_++;
-            }else if (place_ != null && place_.isReady()){
-                loadPlace();
+        if(!PlaceHandler.serverHandler_){//es el primero
+            PlaceHandler.serverHandler_ = firebaseHandler.firebaseHandlerInstance_;
+        }else{
+            if(placeLoaded_ == false){
+                /*
+                Esto esta limitando a un askForAPlace en cada frame seria mejor que askForAPlace recibiera que posicion quieres
+                por ejemplo teniendo una list<int> con los places que tiene que devolver en cada orden
+                */
+                if(place_ == null && PlaceHandler.serverHandler_.placesAreReady() && isMyTurn() && (Place.webClient_ == null || !Place.webClient_.IsBusy)){
+                    //assing place
+                    place_ = PlaceHandler.serverHandler_.askForAPlace();
+                    place_.startDownload();
+                    PlaceHandler.turn_++;
+                }else if (place_ != null && place_.isReady()){
+                    loadPlace();
+                }
             }
         }
     }
