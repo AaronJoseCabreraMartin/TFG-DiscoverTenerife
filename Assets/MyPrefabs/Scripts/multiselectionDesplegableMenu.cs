@@ -3,15 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-/*
-
-hay un bug que al clickar en what to see y luego en choose distance unit las opciones de este se sobre ponen a las del otro
-hay que avisarse entre ellos de cual está mostrandose
-
-*/
-
-
 public class multiselectionDesplegableMenu : MonoBehaviour
 {
     public bool showToggles_;

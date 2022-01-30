@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,8 +14,8 @@ public class StoryPlace : MonoBehaviour
     public void setData(VisitedPlace visitedPlace){
         Dictionary<string,string> placeData = firebaseHandler.firebaseHandlerInstance_.getPlaceData(visitedPlace.type_, visitedPlace.id_.ToString());
         name_.GetComponent<Text>().text = placeData["name_"];
-        type_.GetComponent<Text>().text += visitedPlace.type_;
-        dateOfTheVisit_.GetComponent<Text>().text += visitedPlace.lastVisitTimestamp_.ToString();
-        timesVisited_.GetComponent<Text>().text += visitedPlace.timesVisited_.ToString();
+        type_.GetComponent<Text>().text = "Type: " + visitedPlace.type_;
+        dateOfTheVisit_.GetComponent<Text>().text = "Last Visit: " + (new DateTime(visitedPlace.lastVisitTimestamp_)).ToString();
+        timesVisited_.GetComponent<Text>().text = "Times visited: " + visitedPlace.timesVisited_.ToString();
     }
 }
