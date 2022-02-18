@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "5200c640ea72c407",
         "name": "com.ULLalu0101101019.DiscoverTenerife",
-        "processId": 25693,
+        "processId": 12875,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -54,6 +54,12 @@
             "deviceId": "5200c640ea72c407",
             "name": "com.ULLalu0101101019.DiscoverTenerife",
             "processId": 25693,
+            "exited": false
+        },
+        {
+            "deviceId": "5200c640ea72c407",
+            "name": "com.ULLalu0101101019.DiscoverTenerife",
+            "processId": 12875,
             "exited": false
         }
     ],

@@ -1,0 +1,174 @@
+\hypertarget{classgps_controller}{}\doxysection{gps\+Controller Class Reference}
+\label{classgps_controller}\index{gpsController@{gpsController}}
+
+
+class that handles the access to the GPS sensor of the current dispositive. This class follows the singleton pattern, so its only one instance during each excecution.  
+
+
+Inheritance diagram for gps\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgps_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classgps_controller_a1c1cb762d26b704c5d747634cbb29bb5}{get\+Latitude}} ()
+\begin{DoxyCompactList}\small\item\em getter of the latitude\+\_\+ property. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_a411c761c359ed713957d7d874ce00bab}{get\+Longitude}} ()
+\begin{DoxyCompactList}\small\item\em getter of the longitude\+\_\+ property. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_a36ddb0b2f1eb1fde157615d32756e969}{get\+Altitude}} ()
+\begin{DoxyCompactList}\small\item\em getter of the altitude\+\_\+ property. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_ac98d1ca0beb2b406af4ed84b397bc253}{Calculate\+Distance}} (double latitudeA, double longitudeA, double latitudeB, double longitudeB)
+\begin{DoxyCompactList}\small\item\em this method returns the distance between the two geographical points given on the choosen distance. It expects that the given parameters are on Hexadecimal notation, it converts them on sexagecimal using the sexagecimal\+To\+Radian method. It checks the distance\+In\+KM method of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} class to choose on which unit it has to return the distance. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_a4078376934b6f6255559b9b6cb3993ab}{Calculate\+Distance\+To\+User}} (double latitudeA, double longitudeA)
+\begin{DoxyCompactList}\small\item\em it calls the Calculate\+Distance method with the given coordenades and the user current coordenades. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classgps_controller_a770a260bb592a149da6860cc60759fb0}{get\+Zone\+Of}} (double latitude, double longitude)
+\item 
+string \mbox{\hyperlink{classgps_controller_a04f15c0205a5cf68bb72ab7f0fa377e8}{get\+Actual\+Zone\+Of\+User}} ()
+\begin{DoxyCompactList}\small\item\em it calls the get\+Zone\+Of method with the user coordenades and returns what that method returns. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classgps_controller_ad6b1614e9335c4d4b3b1f4b6dad21a84}{gps\+Is\+Running}} ()
+\begin{DoxyCompactList}\small\item\em getter of the gps\+Is\+Running\+\_\+ property. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgps_controller_a53b578acaf5c6327bc62f01ebf8ef3c7}\label{classgps_controller_a53b578acaf5c6327bc62f01ebf8ef3c7}} 
+static \mbox{\hyperlink{classgps_controller}{gps\+Controller}} {\bfseries gps\+Controller\+Instance\+\_\+}
+\begin{DoxyCompactList}\small\item\em reference to the \mbox{\hyperlink{classgps_controller}{gps\+Controller}} instance \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class that handles the access to the GPS sensor of the current dispositive. This class follows the singleton pattern, so its only one instance during each excecution. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgps_controller_ac98d1ca0beb2b406af4ed84b397bc253}\label{classgps_controller_ac98d1ca0beb2b406af4ed84b397bc253}} 
+\index{gpsController@{gpsController}!CalculateDistance@{CalculateDistance}}
+\index{CalculateDistance@{CalculateDistance}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{CalculateDistance()}{CalculateDistance()}}
+{\footnotesize\ttfamily double gps\+Controller.\+Calculate\+Distance (\begin{DoxyParamCaption}\item[{double}]{latitudeA,  }\item[{double}]{longitudeA,  }\item[{double}]{latitudeB,  }\item[{double}]{longitudeB }\end{DoxyParamCaption})}
+
+
+
+this method returns the distance between the two geographical points given on the choosen distance. It expects that the given parameters are on Hexadecimal notation, it converts them on sexagecimal using the sexagecimal\+To\+Radian method. It checks the distance\+In\+KM method of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} class to choose on which unit it has to return the distance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & that contains the latitude of the first point. \\
+\hline
+{\em double} & that contains the longitude of the first point. \\
+\hline
+{\em double} & that contains the latitude of the second point. \\
+\hline
+{\em double} & that contains the longitude of the second point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double the distance on the choosen unit. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_a4078376934b6f6255559b9b6cb3993ab}\label{classgps_controller_a4078376934b6f6255559b9b6cb3993ab}} 
+\index{gpsController@{gpsController}!CalculateDistanceToUser@{CalculateDistanceToUser}}
+\index{CalculateDistanceToUser@{CalculateDistanceToUser}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{CalculateDistanceToUser()}{CalculateDistanceToUser()}}
+{\footnotesize\ttfamily double gps\+Controller.\+Calculate\+Distance\+To\+User (\begin{DoxyParamCaption}\item[{double}]{latitudeA,  }\item[{double}]{longitudeA }\end{DoxyParamCaption})}
+
+
+
+it calls the Calculate\+Distance method with the given coordenades and the user current coordenades. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & that contains the latitude of the point. \\
+\hline
+{\em double} & that contains the longitude of the point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double that contains the distance between the user and the given point on the choosen unit. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_a04f15c0205a5cf68bb72ab7f0fa377e8}\label{classgps_controller_a04f15c0205a5cf68bb72ab7f0fa377e8}} 
+\index{gpsController@{gpsController}!getActualZoneOfUser@{getActualZoneOfUser}}
+\index{getActualZoneOfUser@{getActualZoneOfUser}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{getActualZoneOfUser()}{getActualZoneOfUser()}}
+{\footnotesize\ttfamily string gps\+Controller.\+get\+Actual\+Zone\+Of\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+it calls the get\+Zone\+Of method with the user coordenades and returns what that method returns. 
+
+\begin{DoxyReturn}{Returns}
+string current zone of the current user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_a36ddb0b2f1eb1fde157615d32756e969}\label{classgps_controller_a36ddb0b2f1eb1fde157615d32756e969}} 
+\index{gpsController@{gpsController}!getAltitude@{getAltitude}}
+\index{getAltitude@{getAltitude}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{getAltitude()}{getAltitude()}}
+{\footnotesize\ttfamily double gps\+Controller.\+get\+Altitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the altitude\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+the altitude\+\_\+ property value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_a1c1cb762d26b704c5d747634cbb29bb5}\label{classgps_controller_a1c1cb762d26b704c5d747634cbb29bb5}} 
+\index{gpsController@{gpsController}!getLatitude@{getLatitude}}
+\index{getLatitude@{getLatitude}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{getLatitude()}{getLatitude()}}
+{\footnotesize\ttfamily double gps\+Controller.\+get\+Latitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the latitude\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+the latitude\+\_\+ property value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_a411c761c359ed713957d7d874ce00bab}\label{classgps_controller_a411c761c359ed713957d7d874ce00bab}} 
+\index{gpsController@{gpsController}!getLongitude@{getLongitude}}
+\index{getLongitude@{getLongitude}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{getLongitude()}{getLongitude()}}
+{\footnotesize\ttfamily double gps\+Controller.\+get\+Longitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the longitude\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+the longitude\+\_\+ property value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_a770a260bb592a149da6860cc60759fb0}\label{classgps_controller_a770a260bb592a149da6860cc60759fb0}} 
+\index{gpsController@{gpsController}!getZoneOf@{getZoneOf}}
+\index{getZoneOf@{getZoneOf}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{getZoneOf()}{getZoneOf()}}
+{\footnotesize\ttfamily string gps\+Controller.\+get\+Zone\+Of (\begin{DoxyParamCaption}\item[{double}]{latitude,  }\item[{double}]{longitude }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & latitude of the point \\
+\hline
+{\em double} & longitude of the point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string it returns the zone of the given point. If it doesnt fit on any of the defined zones, it returns \char`\"{}\+Can\textquotesingle{}t Find Zone of given point\char`\"{} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_ad6b1614e9335c4d4b3b1f4b6dad21a84}\label{classgps_controller_ad6b1614e9335c4d4b3b1f4b6dad21a84}} 
+\index{gpsController@{gpsController}!gpsIsRunning@{gpsIsRunning}}
+\index{gpsIsRunning@{gpsIsRunning}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{gpsIsRunning()}{gpsIsRunning()}}
+{\footnotesize\ttfamily bool gps\+Controller.\+gps\+Is\+Running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the gps\+Is\+Running\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+true if the gps is running, false in other case. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/\+Main\+Screen/gps\+Controller.\+cs\end{DoxyCompactItemize}

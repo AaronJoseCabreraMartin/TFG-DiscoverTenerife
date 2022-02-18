@@ -8,17 +8,45 @@ using UnityEngine.Android;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/**
+  * @brief class that handles the access to the GPS sensor of the current dispositive.
+  * This class follows the singleton pattern, so its only one instance during each excecution.
+  */
 public class gpsController : MonoBehaviour
 {
+    /**
+      * @brief reference to the gpsController instance
+      */
     public static gpsController gpsControllerInstance_;
 
+    /**
+      * @brief true if its time to ask permission, false in other case
+      */
     private bool isItPermissionTime;
-    private string nextPermission;
+
+    /**
+      * @brief Stack<string> that contains all the permissions we have to ask.
+      */
     private Stack<string> permissions;
+
+    /**
+      * @brief true if the gps is avaible, false in other case.
+      */
     private bool gpsIsRunning_;
 
+    /**
+      * @brief double that stores the longitude number of the current user current gps location.
+      */
     private double longitude_;
+
+    /**
+      * @brief double that stores the latitude number of the current user current gps location.
+      */
     private double latitude_;
+
+    /**
+      * @brief double that stores the altitude number of the current user current gps location.
+      */
     private double altitude_;
 
     /*
@@ -56,6 +84,13 @@ public class gpsController : MonoBehaviour
 
     private double defaultAltitude_ = 255;
 
+
+    /**
+      * This method is called before the first frame. If there is another gpsController, it
+      * destroy this instance and return nothing. Other case, it set the gpsControllerInstance_ 
+      * static property as a reference of this gameObject. It also instantiate the rest of 
+      * the properties, calls the CreatePermissionList method and start the gps location process.
+      */
     void Awake(){
         if(gpsController.gpsControllerInstance_ != null){
             Destroy(this.gameObject); //no crees otro
@@ -73,8 +108,11 @@ public class gpsController : MonoBehaviour
         gpsIsRunning_ = false;
     }
 
-    
-
+    /**
+      * This method set the isItPermissionTime attribute as true, add both the CoarseLocation
+      * and the FineLocation permissions to the permissions property, and then, call the
+      * AskForPermissions method of gpsController.
+      */
     private void CreatePermissionList(){
         isItPermissionTime = true;
         permissions.Push(Permission.CoarseLocation);
@@ -82,16 +120,36 @@ public class gpsController : MonoBehaviour
         AskForPermissions();
     }
     
+    /**
+      * This method if the permissions stack property is empty, it calls the 
+      * CreatePermissionList first. In other case, ask for each permission that 
+      * is on the permissions property. When it finish, it sets the isItPermissionTime
+      * to false.
+      */
     private void AskForPermissions (){
-        while(!(permissions == null || permissions.Count <= 0)){
-            nextPermission = permissions.Pop();
-            if (Permission.HasUserAuthorizedPermission(nextPermission) == false) {
-                Permission.RequestUserPermission(nextPermission);
+        //Añadido
+        if(permissions.Count == 0){
+            CreatePermissionList();
+        }else{
+            while(!(permissions == null || permissions.Count <= 0)){
+                string nextPermission = permissions.Pop();
+                if (Permission.HasUserAuthorizedPermission(nextPermission) == false) {
+                    Permission.RequestUserPermission(nextPermission);
+                }
             }
+            isItPermissionTime = false;
         }
-        isItPermissionTime = false;
     }
 
+    /**
+      * @param bool true if the application is focusing in, false if the application
+      * is focusing out.
+      * @brief this method is called each time the application either focus in or focus out.
+      * If the application is focusing in and the isItPermissionTime property is true it calls
+      * the AskForPermissions method.
+      * If the application is focusing in it starts the Input.Location process.
+      * If the application is focusing out it stops the Input.Location process.
+      */
     private void OnApplicationFocus(bool focus){
         if (focus && isItPermissionTime) {
             AskForPermissions();
@@ -103,6 +161,17 @@ public class gpsController : MonoBehaviour
         }
     }
 
+    /**
+      * This method is called on each frame. 
+      * - If the user has given both CoarseLocation and
+      * FineLocation permissions, the gps service is active on the user's device and
+      * LocationService is running, it sets the gpsIsRunning_ property to true, gets the
+      * latitude, the longitude and the altitude of the user then it checks if the
+      * current user hasnt stablished its base, if that is the case it set the user base
+      * as the current latitude and longitude and call the writeUserData method of firebaseHandler.
+      * - If that is not the case, it sets the gpsIsRunning_ as false and it sets the 
+      * latitude_, longitude_ and altitude_ as the default ones.
+      */
     void Update(){
         if(Permission.HasUserAuthorizedPermission(Permission.CoarseLocation) && 
             Permission.HasUserAuthorizedPermission(Permission.FineLocation) && 
@@ -148,18 +217,41 @@ public class gpsController : MonoBehaviour
         }*/
     }
 
+    /**
+      * @return the latitude_ property value.
+      * @brief getter of the latitude_ property.
+      */
     public double getLatitude(){
         return latitude_;
     }
 
+    /**
+      * @return the longitude_ property value.
+      * @brief getter of the longitude_ property.
+      */
     public double getLongitude(){
         return longitude_;
     }
 
+    /**
+      * @return the altitude_ property value.
+      * @brief getter of the altitude_ property.
+      */
     public double getAltitude(){
         return altitude_;
     }
 
+    /**
+      * @param double that contains the latitude of the first point.
+      * @param double that contains the longitude of the first point.
+      * @param double that contains the latitude of the second point.
+      * @param double that contains the longitude of the second point.
+      * @return double the distance on the choosen unit.
+      * @brief this method returns the distance between the two geographical points given on the
+      * choosen distance. It expects that the given parameters are on Hexadecimal notation, it converts
+      * them on sexagecimal using the sexagecimalToRadian method. It checks the distanceInKM
+      * method of optionsController class to choose on which unit it has to return the distance.
+      */
     public double CalculateDistance(double latitudeA, double longitudeA, double latitudeB, double longitudeB){
         latitudeA = sexagecimalToRadian(latitudeA);
         longitudeA = sexagecimalToRadian(longitudeA);
@@ -175,15 +267,35 @@ public class gpsController : MonoBehaviour
         return options.distanceInKM() ? distanceCalculatedOnKm : distanceCalculatedOnKm * 0.621371;
     }
 
+    /**
+      * @param double that contains the latitude of the point.
+      * @param double that contains the longitude of the point.
+      * @return double that contains the distance between the user and the given point on 
+      * the choosen unit.
+      * @brief it calls the CalculateDistance method with the given coordenades and 
+      * the user current coordenades.
+      */
     public double CalculateDistanceToUser(double latitudeA, double longitudeA){
         return CalculateDistance(latitudeA, longitudeA, latitude_, longitude_);
     }
     
+    /**
+      * @param double sexagecimal number to convert.
+      * @return double radian conversion of the given number.
+      * @brief this method converts the given sexagecimal number to his radian number equivalent.
+      */
     private double sexagecimalToRadian(double sexagecimal) {
       return sexagecimal * (Math.PI/180);
     }
 
+    /**
+      * @param double latitude of the point
+      * @param double longitude of the point
+      * @return string it returns the zone of the given point. If it doesnt
+      * fit on any of the defined zones, it returns "Can't Find Zone of given point"
+      */
     public string getZoneOf(double latitude, double longitude){
+        //WTF este metodo deberia estar en maprulesHandler!!!!
         if(latitude <= 28.60634 && latitude >= 28.40631 &&
             longitude <= -16.11673 && longitude >= -16.93788){
             return "North";
@@ -213,10 +325,19 @@ public class gpsController : MonoBehaviour
         return $"Can't Find Zone of: {latitude}, {longitude}";
     }
 
+    /**
+      * @return string current zone of the current user.
+      * @brief it calls the getZoneOf method with the user coordenades and returns what
+      * that method returns.
+      */
     public string getActualZoneOfUser(){
         return getZoneOf(latitude_, longitude_);
     }
 
+    /**
+      * @return true if the gps is running, false in other case.
+      * @brief getter of the gpsIsRunning_ property.
+      */
     public bool gpsIsRunning(){
         return gpsIsRunning_;
     }

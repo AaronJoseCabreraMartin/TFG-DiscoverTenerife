@@ -10,34 +10,125 @@ using Firebase.Extensions;
 using Google;
 using Newtonsoft.Json;
 
+/**
+ * @brief This class follows the Singleton patron, so it only has one instance at the same time.
+ * The instance could be found on the firebaseHandlerInstance_ public static property.
+ * This class handles all the firebase releated methods like validating user, creating new users,
+ * downloading and uploading all the data from the database.
+ */ 
 public class firebaseHandler : MonoBehaviour
 {
-
+    /**
+      * @public
+      * This public static attribute store the unique instance of this class.
+      */
     public static firebaseHandler firebaseHandlerInstance_ = null;
 
-    FirebaseApp firebaseApp = null;
-    internal Firebase.Auth.FirebaseAuth auth = null;
-    internal DatabaseReference database = null;
+    /**
+      * 
+      */
+    private FirebaseApp firebaseApp = null;
+    
+    /**
+      * This attribute store the current authenticate user, it starts as null.
+      */
+    internal Firebase.Auth.FirebaseAuth auth = null;//CUIDADO ANTES ESTO ERA INTERNAL
     //EL USUARIO ACTUAL ESTA EN auth.CurrentUser
     
+    /**
+      * A reference to the firebase database, you have to use this attribute to
+      * access or modify the database data.
+      */
+    internal DatabaseReference database = null;//CUIDADO ANTES ESTO ERA INTERNAL
+    
+    /**
+      * This object store the configuration for accessing the Google SingIn services,
+      * it stores for example the WebClientId token.
+      */
     private GoogleSignInConfiguration configuration;
 
+    /**
+      * A instance of the class UserData, it stores the downloaded data from the database,
+      * check the documentation of that class to get more information.
+      */
     public UserData actualUser_ = null;
+    
+    /**
+      * This flag is true when the firebase dependences are resolved and ready to use. If this
+      * flag is false, this class will try to resolve the firebase dependencies each frame.
+      */
     private bool firebaseDependenciesResolved = false;
+    
+    /**
+      * This flag is true when the firebase dependences are trying to be resolved right now. This flag
+      * prevent this class for making several calls to the firebase dependencies resolver method.
+      */
     private bool firebaseDependenciesRunning = false;
+
+    /**
+      * This flag determinate if the information of the interesting points are already downloaded
+      * from the database and its ready to use.
+      */
     private bool placesReady_ = false;
+    
+    /**
+      * If this flag is true, the information of the user are already downloaded from the
+      * databse and its ready to use.
+      */
     private bool userDataReady_ = false;
+    /**
+      * This atribute store all the data of the places downloaded from the database. The data stored
+      * as strings on a dictionary so they cant be directly used, its necessary to use the Place class
+      * for interpreting the information that is stored on this attribute. The data is structured as following:
+      * - allPlaces contains an entry for each type of place, each entry is another dictionary.
+      * - Each of those dictionaries has an entry for each place of that type, each entry is another dictionary.
+      * - Each of those dictionaries are the information of each of the places but in a string form.
+      */
     //              type of place          id                 DATA
     private Dictionary<string,Dictionary<string,Dictionary<string,string>>> allPlaces_ = new Dictionary<string,Dictionary<string,Dictionary<string,string>>>();
-
+    
+    /**
+      * This atribute stores an instance of the requestHandler class, that class converts the information 
+      * of allPlaces_ on instances of the class Place. Check that class documentation for more info.
+      */
     private requestHandler requestHandler_;
 
+    /**
+      * This atribute stores the list of places that have been visited but the internet conection have failed
+      * when this class tried to upload it. This class will try to upload that information since it gets
+      * internet connection again.
+      */
     private List<Dictionary<string, string>> placesToUpdateQueue_;
+
+    /**
+      * It stores if the user data could be uptaded when it suffered any change. The possible values it
+      * can have are:
+      * - "false" : this state means that there is some changes on the user data that should be uploaded
+      * as soon as the internet connection is avaible.
+      * - "true" : this state means that there isnt any change on the user data that should be uploaded.
+      * - "inProgress" : this state means that the user data is uploading right now, this state prevent
+      * this class to make several calls to the uploading information method.
+      */
     private string userDataUploaded_;
+
+    /**
+      * It stores a list of the users ID that this class needs to download some information, because they
+      * are friends of the current user. As soon as the information is started to download, the uid is 
+      * removed from the list.
+      */
     private List<string> friendDataDownloadQueue_;
+
+    /**
+      * It stores a list of the users ID that this class needs to download some information because they
+      * sended a new friend invitation. As soon as the information is started to download, the uid is 
+      * removed from the list.
+      */
     private List<string> newFriendDataDownloadQueue_;
     
-
+    /**
+     * The awake method is called before the first frame, it checks if other 
+     * firebaseHandler was instanciated before, if that is the case, it destroy this object.
+     */
     private void Awake() {
         //GameObject[] objs = GameObject.FindGameObjectsWithTag("firebaseHandler");
         //if (objs.Length > 1) //si ya existe una firebaseHandler no crees otra
@@ -56,6 +147,12 @@ public class firebaseHandler : MonoBehaviour
         newFriendDataDownloadQueue_ = new List<string>();
     }
 
+    /**
+      * The Update method is called every frame. On this method this class constantly check:
+      * - If it has to resolve the firebase dependencies, on that case try to solve them first.
+      * - If the firebase dependencies has already been resolved, check if it has some information
+      * waiting for being uploaded or downloaded try if there is internet connection.
+      */
     void Update(){
         if(!firebaseDependenciesResolved && !firebaseDependenciesRunning){
             firebaseDependenciesRunning = true;
@@ -90,6 +187,9 @@ public class firebaseHandler : MonoBehaviour
         }
     }
     
+    /**
+      * This method returns true only if there is internet connection, otherwise it will return false.
+      */
     public bool internetConnection(){
         //string toShow = $"InternetConnection: ";
         //toShow+=$"CarrierDataNetwork = {Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork} ";
@@ -99,12 +199,25 @@ public class firebaseHandler : MonoBehaviour
                 Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork;
     }
 
+    /**
+      * @param Task<DependencyStatus> task to wait and take its results
+      * This method creates the firebase object and check if there is a previous session, it there is
+      * login that sesion. It also calls the method that download the places information and the user data.
+      */
     private void CheckDependenciesFirebase(Task<DependencyStatus> task) {
         var dependencyStatus = task.Result;
         if (dependencyStatus == Firebase.DependencyStatus.Available) {
             // Set a flag here indiciating that Firebase is ready to use by your
             // application.
-            CreateFirebaseObject();
+            //CreateFirebaseObject();
+            // Esto es para crear el objeto FirebaseApp, necesario para manejar los distintos metodos de firebase.
+            firebaseApp = FirebaseApp.DefaultInstance;
+            // para obtener el objeto Firebase.Auth.FirebaseAuth
+            auth = Firebase.Auth.FirebaseAuth.GetAuth(firebaseApp);
+            // con esto recogemos la referencia a la base de datos, para poder hacer operaciones de escritura o lectura.
+            //database = FirebaseDatabase.GetInstance(firebaseApp).RootReference;
+            //database = FirebaseDatabase.DefaultInstance.SetEditorDatabaseUrl("https://discovertenerife-fd031-default-rtdb.europe-west1.firebasedatabase.app/");
+            database = FirebaseDatabase.DefaultInstance.RootReference;
             firebaseDependenciesResolved = true;
             firebaseDependenciesRunning = false;
             Debug.Log("Firebase Connected!!!");
@@ -125,7 +238,7 @@ public class firebaseHandler : MonoBehaviour
         }
     }
 
-    private void CreateFirebaseObject(){
+    /*private void CreateFirebaseObject(){
         // Esto es para crear el objeto FirebaseApp, necesario para manejar los distintos metodos de firebase.
         firebaseApp = FirebaseApp.DefaultInstance;
         // para obtener el objeto Firebase.Auth.FirebaseAuth
@@ -134,13 +247,22 @@ public class firebaseHandler : MonoBehaviour
         //database = FirebaseDatabase.GetInstance(firebaseApp).RootReference;
         //database = FirebaseDatabase.DefaultInstance.SetEditorDatabaseUrl("https://discovertenerife-fd031-default-rtdb.europe-west1.firebasedatabase.app/");
         database = FirebaseDatabase.DefaultInstance.RootReference;
-    }
+    }*/
 
+    /**
+      * Getter of the flag that indicate that firebase dependencies are resolved or not.
+      */
     public bool FirebaseDependenciesAreResolved(){
         return firebaseDependenciesResolved;
     }
 
     ///// USER ACCOUNTS METHODS /////
+
+    /**
+      * @param string that contains the new user email.
+      * @param string that contains the new user password.
+      * This method tries to create a new user on the firebase backend with the given email and password.
+      */
     public void CreateNewUser(string email, string password){
         auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
             if (task.IsCanceled) {
@@ -183,6 +305,12 @@ public class firebaseHandler : MonoBehaviour
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
 
+    /**
+      * @param string that contains the user email that will try to login with.
+      * @param string that contains the user password that will try to login with.
+      * This method tries to start a sesion with the given email and password, if it finish successfully it will
+      * call the downloading information methods and also call the emailLoginController userLogedSuccessfully method.
+      */
     public void LoginUser(string email, string password){
         auth.SignInWithEmailAndPasswordAsync(email,password).ContinueWith(task => {
             if(task.Exception != null){
@@ -200,6 +328,11 @@ public class firebaseHandler : MonoBehaviour
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
 
+    /**
+      * This method tries to starts a session as an anonymous user, if it finish successfully it calls the 
+      * downloading information methods and it also calls the anonymousUserLoginSucessfully method of the 
+      * anonymousButtonHandler class.
+      */
     public void AnonymousUser(){
         //Si el current user es nulo, es que nunca se habia logeado o si con el que se ha loggeado tiene anonymous a false
         if(auth.CurrentUser == null || !auth.CurrentUser.IsAnonymous){
@@ -232,7 +365,10 @@ public class firebaseHandler : MonoBehaviour
         GameObject.Find("anonymousButtonHandler").GetComponent<anonymousButtonHandler>().anonymousUserLoginSucessfully();
     }
 
-    //button function
+    /**
+      * This method will be called when the google signin button is pressed, it start the google authentication
+      * process calling the method OnAuthenticationFinished when it finish.
+      */
     public void SignInWithGoogle()
     {
         if(!firebaseDependenciesResolved || firebaseDependenciesRunning){
@@ -244,7 +380,7 @@ public class firebaseHandler : MonoBehaviour
 
         GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnAuthenticationFinished,TaskScheduler.FromCurrentSynchronizationContext());
     }
-    
+    // WTF cambiar a privateee???
     // internal es que solo tienen acceso este fichero!? algo asi lei
     internal void OnAuthenticationFinished(Task<GoogleSignInUser> task)
     {
@@ -283,6 +419,9 @@ public class firebaseHandler : MonoBehaviour
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
 
+    /**
+      * This method end the current firebase user sesion.
+      */
     public void LogOut()
     {
         auth.SignOut();
@@ -297,6 +436,10 @@ public class firebaseHandler : MonoBehaviour
         database.Child("places").Child(type).Child(placeID.ToString()).SetRawJsonValueAsync(place.ToJson());
     }
 
+    /**
+      * This method uploads to the database all the current user releated information. It also upload 
+      * the changes on the user social preferences. 
+      */
     public void writeUserData(){
         Debug.Log("writeUserData..."+actualUser_.ToJson());
         //database.Child("users").Child(actualUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(actualUser_.ToJson());
@@ -415,6 +558,9 @@ public class firebaseHandler : MonoBehaviour
         */
     }
 
+    /**
+      * This method download all the information that is releated to the user from the firebase database.
+      */
     public void readUserData(){
         Debug.Log($"readUserData: {auth.CurrentUser.UserId}");
         FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/visitedPlaces_").GetValueAsync().ContinueWith(taskPlaces => {
@@ -538,6 +684,12 @@ public class firebaseHandler : MonoBehaviour
         },TaskScheduler.FromCurrentSynchronizationContext());       
     }
 
+    /**
+      * @param type string that contains the type of the place that we want to upload.
+      * @param id string that contains the id of the place that we want to upload.
+      * @brief This method uploads the data from the place that matches the given type and id. If the
+      * upload fails it adds the information of the place to placesToUploadQueue_
+      */
     public void writePlaceData(string type, string id){
         Place place = requestHandler_.getPlaceByTypeAndId(type,id);
         Debug.Log("writePlaceData = "+place.ToJson());
@@ -554,6 +706,13 @@ public class firebaseHandler : MonoBehaviour
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
 
+    /**
+      * @param string with the type of the place we want to check
+      * @param int with the id of the place we want to check
+      * @return bool with true if the cooldown for visiting the given place is finished, in other case, false.
+      * @brief This method returns true if the place with the given type and id is ready for a new
+      * visit. The cooldown time is defined on the class gameRules, check that class for more information.
+      */
     public bool cooldownVisitingPlaceFinished(string type, int id){
         /*
         
@@ -577,6 +736,12 @@ public class firebaseHandler : MonoBehaviour
         return true;
     }
 
+    /**
+      * @param StoredPlace the StoredPlace object that you want to check if you can visit it again.
+      * @return bool with true if the cooldown for visiting the given place is finished, in other case, false.
+      * @brief This method returns true if the place with the given type and id is ready for a new
+      * visit. The cooldown time is defined on the class gameRules, check that class for more information.
+      */
     public bool cooldownVisitingStoredPlaceFinished(StoredPlace storedPlace){
         /*
         
@@ -600,12 +765,32 @@ public class firebaseHandler : MonoBehaviour
         return true;
     }
     
-    
+    /**
+      * @param string that contains the name of the place that you want to check if its ready to visit
+      * it again
+      * @return bool with true if the cooldown for visiting the given place is finished, in other case, false.
+      * @brief This method returns true if the place with the given name is ready for a new
+      * visit. The cooldown time is defined on the class gameRules, check that class for more information. You
+      * have to be aware that its possible that two places has the same name, on that case, it will check
+      * only the first one.
+      */
     public bool cooldownVisitingPlaceByNameFinished(string name){
         Dictionary<string,string> typeAndId = findPlaceByName(name);
         return cooldownVisitingPlaceFinished(typeAndId["type"],Int32.Parse(typeAndId["id"]));
     }
 
+    /**
+      * @param string that contains the type of the place that current user has visited and you 
+      * want to register that visit.
+      * @param int that contains the id of the place that current user has visited and you 
+      * want to register that visit.
+      * @param long that contains the timestamp of the visit, the default value is -1. A negative
+      * value means that you want to use the current timestamp not the given one.
+      * @brief This method register a new visit for the place with the given type and id
+      * and the given timestamp, if the given timestamp is negative it will use the current timestamp.
+      * It also calls the writePlaceData and the writeUserData methods to upload the new visit 
+      * information to the database.
+      */
     public void userVisitedPlace(string type, int id, long timeOfTheVisit = -1){
         bool firstTime = true;
         for(int i = 0; i < actualUser_.visitedPlaces_.Count; i++ ){
@@ -629,16 +814,39 @@ public class firebaseHandler : MonoBehaviour
         writeUserData();
     }
 
+    /**
+      * @param string that contains the name of the place that current user has visited and you 
+      * want to register that visit.
+      * @param long that contains the timestamp of the visit, the default value is -1. A negative
+      * value means that you want to use the current timestamp not the given one.
+      * @brief This method search on all the places the first one who match the given name, and then,
+      * it calls the userVisitedPlace method, check that method for more information. You have to be
+      * aware that if two places has the same name, the new visit will be added only to the first one.
+      */
     public void userVisitedPlaceByName(string name, long timeOfTheVisit = -1){
         Dictionary<string,string> typeAndId = findPlaceByName(name);
         userVisitedPlace(typeAndId["type"],Int32.Parse(typeAndId["id"]),timeOfTheVisit);
     }
 
+    /**
+      * @param string that contains the name of the place that you want to check if current
+      * user has visit or not.
+      * @return bool true if user has visit a place with that name, false in other case.
+      * @brief This method search on the places that the current user has visited and check
+      * if there is at least one place with that name, on that case it returns true, it returns false
+      * in other case.
+      */
     public bool hasUserVisitPlaceByName(string name){
         Dictionary<string,string> typeAndId = findPlaceByName(name);
         return actualUser_.hasVisitPlace(typeAndId["type"],Int32.Parse(typeAndId["id"]));
     }
 
+    /**
+      * @return Place place that should be used next.
+      * @brief This method calls askForAPlace method of requestHandler and returns the place
+      * that that method returns. If you want more information check the requestHandler documentation.
+      * This method also instanciate a requestHandler if it doesnt exists when its called.
+      */
     public Place askForAPlace(){
         if(requestHandler_ == null){
             requestHandler_ = new requestHandler(allPlaces_);
@@ -646,6 +854,11 @@ public class firebaseHandler : MonoBehaviour
         return requestHandler_.askForAPlace();
     }
 
+    /**
+      * @brief This method start as many coroutines as types of places are defined on mapRulesHandler.
+      * Each coroutine will download the information of that type of place. If you want more information
+      * check the mapRulesHandler documentation and the downloadOneTypeOfSite method of this class.
+      */
     private void downloadAllPlaces(){
         foreach(string typeSite in mapRulesHandler.getTypesOfSites()){
             //StartCoroutine es como olvidate de esto hasta que termine, 
@@ -656,6 +869,12 @@ public class firebaseHandler : MonoBehaviour
         
     }
 
+    /**
+      * @param string that contains the type of the sites you want to download the information.
+      * @brief This coroutine tries to download all the places of the given type. If there is no
+      * internet connection it waits until there is avaible again. When all the places of all types
+      * has already downloaded it sets ON the placesReady_ flag.
+      */
     private IEnumerator downloadOneTypeOfSite(string typeSite){
         while(!internetConnection()){//debemos esperar a tener conexion
             yield return new WaitForSeconds(0.5f);
@@ -682,18 +901,37 @@ public class firebaseHandler : MonoBehaviour
         yield return new WaitForSeconds(0);
     }
 
+    /**
+      * @return bool true if all the places are downloaded and ready to use.
+      */
     public bool placesAreReady(){
         return placesReady_;
     }
 
+    /**
+      * @return bool true if the user data is downloaded and ready to use.
+      */
     public bool userDataIsReady(){
         return userDataReady_;
     }
 
+    /**
+      * @brief this method calls the sortPlaces method of the requestHandler class. Check
+      * that class documentation to get more information.
+      */
     public void sortPlaces(){
         requestHandler_.sortPlaces();
     }
-
+    /**
+      * @param string that contains the name of the searched place
+      * @return Dictionary<string,string> it contains two entries, id and type, they contains
+      * the id and the type of the place that matches the given name
+      * @brief this method returns a dictionary that contains the id and the type of the place
+      * that has the given name. If there isn't any place with that name, it will return a 
+      * dictionary that contains two entries id with the string "-1" and type with the string
+      * "noType". If there is more than one place with the given name, only the first one will
+      * be returned.
+      */
     public Dictionary<string,string> findPlaceByName(string name){
         Dictionary<string,string> toReturn = new Dictionary<string,string>();
         foreach(var type in allPlaces_.Keys){
@@ -719,6 +957,15 @@ public class firebaseHandler : MonoBehaviour
         return count;
     }
 
+    /**
+      * @param string that contains the name of a zone. Valid zones are determinated on 
+      * mapRulesHandler class.
+      * @return int the number of places that are on the given zone.
+      * @brief this method counts all the places that have the given zone name on their
+      * zone_ property. If there is no places on the given zone, it will show a message
+      * on the console and return a 0. The valid zones are determinated on the mapRulesHandler
+      * class, check its documentation for more information.
+      */
     public int totalOfPlacesOfZone(string zone){
         int count = 0;
         foreach(var type in allPlaces_.Keys){
@@ -734,15 +981,33 @@ public class firebaseHandler : MonoBehaviour
         return count;
     }
 
+    /**
+      * @param string that contains the type of the searched place.
+      * @param string that contains the id of the searched place.
+      * @return Dictionary<string, string> dictionary of strings that contains a string
+      * version of all the information of the searched place. 
+      * @brief This method search on the property allPlaces_ if there is a place with
+      * the given type and id. If there isn't any place that match both the given id 
+      * and the given type, it will return null.
+      */
     public Dictionary<string,string> getPlaceData(string type, string id){
         return allPlaces_[type][id];
     }
 
+    /**
+      * @brief This method is called when the application is closed, it saves all the offline 
+      * information and stop the firebase online services.
+      */
     void OnApplicationQuit(){
         FirebaseApp.DefaultInstance.Dispose();
         StoredPlace.saveAll();
     }
 
+    /**
+      * @brief this method tries to upload all the information that is on the placesToUpdateQueue_
+      * property. If it success, it erase the place from the list, but if its fails the writePlaceData
+      * will add again the place to the queue.
+      */
     void uploadPlacesQueue(){
         List<Dictionary<string,string>> toRemove = new List<Dictionary<string,string>>();
         foreach(Dictionary<string,string> placeToUpdate in placesToUpdateQueue_){
@@ -756,6 +1021,10 @@ public class firebaseHandler : MonoBehaviour
         }
     }
 
+    /**
+      * @brief this method calls the downloadFriendData method with each user id that is 
+      * on the friendDataDownloadQueue_.
+      */
     private void downloadAllFriendData(){
         for(int index = 0; index < actualUser_.countOfFriends(); index++){
             string uid = actualUser_.getFriend(index);
@@ -766,6 +1035,13 @@ public class firebaseHandler : MonoBehaviour
         }
     }
 
+    /**
+      * @param string that contains the user id of the friend of the current user that you want to
+      * obtain data.
+      * @brief this method tries to download the necesary information of the given user id. If it fails
+      * on the process it adds the user id to the friendDataDownloadQueue_ list. If it success it calls
+      * the addFriendData method of UserData class creating a new FriendData object.
+      */
     private void downloadFriendData(string uid){
         FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/displayName_").GetValueAsync().ContinueWith(displayNameTask => {
             if (displayNameTask.IsFaulted) {
@@ -800,11 +1076,25 @@ public class firebaseHandler : MonoBehaviour
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
 
-    //llamar cuando se agrege a un amigo
+    /**
+      * @param string that contains the user id that you want to download data.
+      * @brief this method adds the given user id to the friendDataDownloadQueue_ for being
+      * downloaded after.
+      */
     public void addFriendDataToDownload(string uid){
+        //llamar cuando se agrege a un amigo
+        /*
+            WTF
+            esto no es redundante??? no es mejor llamar simplemente a downloadFriendData
+            ya que si lo hace bien, pues ya está y si no, lo añade a la cola como este????
+        */
         friendDataDownloadQueue_.Add(uid);
     }
 
+    /**
+      * @brief This method calls downloadNewFriendInvitationData method with each of the 
+      * user ids that are on the new friends invitations list of the current user.
+      */
     private void downloadAllNewFriendInvitationsData(){
         for(int index = 0; index < actualUser_.countOfNewFriends(); index++){
             string uid = actualUser_.getNewFriend(index);
@@ -815,6 +1105,14 @@ public class firebaseHandler : MonoBehaviour
         }
     }
 
+    /**
+      * @param string that contains the user id that you want to download the enough information
+      * for create the newFriendInvitation object.
+      * @brief this method tries to download the display name and the list of newFriendsInvitations 
+      * of the user that matches the given user id. If its fails it adds the user id to the 
+      * newFriendDataDownloadQueue_ list and if its success, its calls the addNewFriendData method of
+      * UserData.
+      */
     private void downloadNewFriendInvitationData(string uid){
         FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/displayName_").GetValueAsync().ContinueWith(displayNameTask => {
             if (displayNameTask.IsFaulted) {
@@ -849,15 +1147,35 @@ public class firebaseHandler : MonoBehaviour
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
 
-    //uso los metodos de friend data y luego llamo aqui solo con la info que hay para subir
-    //TIENE que haber internet, sino no dejo hacer nada en friends
+    /**
+      * @param string that contains the user that will has erased the friendship with the current user.
+      * @param string that contains the deleted friends list of the user that has the given id.
+      * @brief WTF por que deletedFriendsList es un string en vez de una lista?!?!?.
+      * This method must be called when there is internet connection, otherwise it wont to nothing.
+      * This method upload the deletedFriends property of the user that has the given id.
+      */
     public void updateUserDeleteAFriend(string noFriendUid,string deletedFriendsList){
+        //uso los metodos de friend data y luego llamo aqui solo con la info que hay para subir
+        //TIENE que haber internet, sino no dejo hacer nada en friends
         database.Child("users").Child(noFriendUid).Child("deletedFriends_").SetRawJsonValueAsync(deletedFriendsList);
     }
 
-    //                                                displayName a buscar, friend/challenge o ranking
+    /**
+      * @param string that contains the displayName that you want to search
+      * @param string that contains the reason of the search, it could be friend, chanllege or ranking. 
+      * This reasons for the search has to be differenciated because users can allow or not be found by
+      * other users.
+      * @param SearchBar object that you want to advise when the search ends. This parameter is optional.
+      * @return Dictionary<string,string> A dictionary version of the necessary information of the
+      * player that has the given user id. 
+      * @brief This method tries to find other user on the list of users that allow be found by other users
+      * on the different types of searchs. The information that is returned depends on the type of the search.
+      * If a SearchBar object is given it will call the resultsOfTheSearch method of that class with
+      * a dictionary version of the found user.
+      */
     public Dictionary<string,string> SearchOtherUserByName(string toSearch, string type, SearchBar toAdvise = null){
-        //buscar el usuario con el displayName == toSearch
+    //                                                displayName a buscar, friend/challenge o ranking
+        //WTF POR QUE ESTE METODO DEVUELVE ALGO???? EL 99% DE LOS CASOS VA A DEVOLVER UN DICCIONARIO VACIO
         Dictionary<string,string> toReturn = new Dictionary<string,string>();
         //FirebaseDatabase.DefaultInstance.GetReference($"users/*/displayName_").GetValueAsync().ContinueWith(displayNameTask => {
         FirebaseDatabase.DefaultInstance.GetReference($"users/{type}").GetValueAsync().ContinueWith(searchTask => {
@@ -904,10 +1222,20 @@ public class firebaseHandler : MonoBehaviour
         return toReturn;
     }
 
-    // envia una peticion de amistad del usuario actual al uid que le digas
+    /**
+      * @param string that contains the user id of the player that the current user want to 
+      * send a new friendship invitation.
+      * @param SearchedPlayer object that handles the result of the sending
+      * @brief This method tries to send a new friendship invitation of the current user to the
+      * user that has the given id. The sending can produce three states:
+      * - sended: all was OK and the invitation was sended successfully.
+      * - failed: the sending failed because there is no internet connection or other error.
+      * - repeated: the sending failed because that user already have an invitation of the current user.
+      */
+    public void sendFriendshipInvitation(string uidToInvite, SearchedPlayer searchedPlayerToAdvice){
+    // envia una peticion de amistad del usuario current al uid que le digas
     // si le pasas un SearchedPlayer avisará con el resultado
     //  - sended, failed, repeated (ese usuario ya tenía una peticion de amistad tuya)
-    public void sendFriendshipInvitation(string uidToInvite, SearchedPlayer searchedPlayerToAdvice){
         Debug.Log($"sendFriendshipInvitation {uidToInvite} {searchedPlayerToAdvice}");
         FirebaseDatabase.DefaultInstance.GetReference($"users/{uidToInvite}/friendsInvitations_").GetValueAsync().ContinueWith(friendsInvitationsTask => {
             if (friendsInvitationsTask.IsFaulted) {
@@ -942,3 +1270,22 @@ public class firebaseHandler : MonoBehaviour
     }
 }
 
+/*
+
+Para hacer los retos:
+    Cada usuario deberia tener un atributo publico que sea un array de objetos RETO
+    Reto contiene:
+        uid del usuario que te reto
+        timestamp de cuando lo mandó
+        ¿timestamp de cuando termina? se puede calcular poniendo en gamerules 7 dias
+        id sitio al que ir
+        type sitio al que ir
+    Solo puedes ser retado una vez simultaneamente por cada usuario
+    Los retos se pueden cancelar
+    Cada vez que se visite un sitio se deberia comprobar si este está en la lista de retos y actuar en consecuencia
+
+    Los usuarios deberian tener un atributo "score_" normas en el LATEX quizas multiplico las puntuaciones por 10 para que los % afecten mas
+    es decir visitar un sitio ya visitado previamente que sea 10 puntos en vez de 1 entonces si es un 10% ya son 11 puntos... es más facil que
+    la puntuacion aumente con numeros mas grandes (por la aproximacion)
+
+*/

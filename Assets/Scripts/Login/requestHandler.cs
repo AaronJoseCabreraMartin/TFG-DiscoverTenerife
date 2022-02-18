@@ -3,21 +3,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+  * @brief class that controls the request of places information.
+  */
 public class requestHandler
 {
-    
+    /**
+      * @brief stores the type of the next place that will be returned.
+      */
     private int actualIndexType_;
-    private List<string> typesOfSites_;
+
+    /**
+      * @brief List of strings that contains the valid types of the places.
+      */
+    private List<string> typesOfSites_;//WTF esto deberia cogerlo de las gamerules y si
+    // algun lugar tiene un tipo que no esta en la lista arrojar un error.
     
+    /**
+      * @brief stores the index of the next place that will be returned.
+      */
     private int actualIndexPlace_;
+
+    /**
+      * Stores all the places splited by types.
+      * - First index: Type.
+      * - Second index: Place ID.
+      */
     private List<List<Place>> listOfPlaces_;
+
+    /**
+      * Stores the sorted index of the places when the type is defined.
+      */
+    private List<List<int>> sortedPlaceIndex_;
     // almacena una lista de int por cada tipo
     // cada posicion de esa lista de int indica un indice
     // del lugar que debemos buscar en listOfPlaces
-    private List<List<int>> sortedPlaceIndex_;
 
+    /**
+      * @brief true if the places should be sorted by distance, false in other case.
+      */
     private bool sortedByDistance_;
 
+    /**
+      * @param Dictionary<string,Dictionary<string,Dictionary<string,string>>> dictionary string conversion
+      * the data of all places.
+      * @brief constructor of the requestHandler class, it initialize all the properties of the
+      * object and instanciate a new Place and store it on the listOfPlaces_ property for each 
+      * place of the given dictionary. 
+      */
     public requestHandler(Dictionary<string,Dictionary<string,Dictionary<string,string>>> allPlaces){
         typesOfSites_ = new List<string>();
         actualIndexType_ = 0;
@@ -52,6 +85,14 @@ public class requestHandler
             - Natural Parks   -> mostrar parques naturales
             - Already Visited -> mostrar los ya vistos
     */
+    /**
+      * @returns Place the next place that should be showed to the user.
+      * @brief this method access to the sortByLessDistance method of optionsController class and
+      * it shorts the places acording to the chosen sort method calling the sortPlaces method if the
+      * chosen sort method has changed since last call to this method. It returns the next place that
+      * should be showed to the user acording to the sorting method and the prefferences of the current
+      * user of what the current user wants to see.
+      */
     public Place askForAPlace(){
         optionsController options = optionsController.optionsControllerInstance_;
         firebaseHandler firebaseHandlerObject = firebaseHandler.firebaseHandlerInstance_;
@@ -86,6 +127,9 @@ public class requestHandler
         return toReturn;
     }
 
+    /**
+      * @brief updates the actualIndexPlace_ property to point the next place type that should be chosen.
+      */
     private void updateTypeIndex(){
         actualIndexType_ = (actualIndexType_+1)%listOfPlaces_.Count;
         if(actualIndexPlace_ != 0){
@@ -93,6 +137,10 @@ public class requestHandler
         }
     }
 
+    /**
+      * @brief updates the actualIndexPlace_ property to point the next place id that should be chosen.
+      * If it finshes all the places from that type, it calls the updateTypeIndex method.
+      */
     private void updatePlaceIndex(){
         if(actualIndexPlace_ + 1 >= listOfPlaces_[actualIndexType_].Count){
             actualIndexPlace_ = 0;
@@ -103,6 +151,9 @@ public class requestHandler
         }
     }
 
+    /**
+      * @brief Sorts the places acording to the current user preferences.
+      */
     public void sortPlaces(){
         optionsController options = optionsController.optionsControllerInstance_;
         gpsController gps = gpsController.gpsControllerInstance_; 
@@ -151,9 +202,19 @@ public class requestHandler
         }
     }
 
+    /**
+      * @brief Calls the method oneMoreVisit of the given instance of the class Place that
+      * matches the given type and id.
+      */
     public void oneMoreVisitToPlaceByTypeAndId(string type, string id){
         listOfPlaces_[typesOfSites_.IndexOf(type)][Int32.Parse(id)].oneMoreVisit();
     }
+
+    /**
+      * @return Place with the given type and id.
+      * @brief It returns the place that match the given type and id, if there inst any
+      * place with that index or type it will raise an exception.
+      */
     public Place getPlaceByTypeAndId(string type, string id){
         return listOfPlaces_[typesOfSites_.IndexOf(type)][Int32.Parse(id)];
     }

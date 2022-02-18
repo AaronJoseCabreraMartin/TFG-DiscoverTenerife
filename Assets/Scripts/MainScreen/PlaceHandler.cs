@@ -5,19 +5,49 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+  * @brief This class handles an element of the site panel. It shows a loading gif animation
+  * when its downloading the image of the showed place.
+  */
 public class PlaceHandler : MonoBehaviour
 {
+    /**
+      * @brief Animator that stores the loading gif.
+      */
     [SerializeField] private Animator transition_;
 
-    private static firebaseHandler serverHandler_;
+    /**
+      * @brief Reference to the firebaseHandler object.
+      */
+    private static firebaseHandler serverHandler_; //WTF no deberia hacer falta.
+    
+    /**
+      * @brief Place object that stores the place's data.
+      */
     private Place place_;
+
+    /**
+      * @brief bool true if the place_ has already downloaded the place's photo
+      */
     private bool placeLoaded_;
 
+    /**
+      * @brief stores a reference to the place chose by the user. It is a static property
+      * to allow conserve the information even when the user changes the scene.
+      */
+    public static Place choosenPlace_ = null;
     //almacena que sitio a escogido el usuario cuando clicka en uno
     // para cambiar de escena y consevar la informacion
-    public static Place choosenPlace_ = null;
+
+    /** 
+      * @brief stores the index of the place that has to download the image at this moment.
+      */
     private static int turn_ = 0;
 
+    /**
+      * @brief This method is called before the first frame, it initialices the static properties 
+      * turn_ as 0, and serverHandler_ as the firebase instance.
+      */
     void Awake()
     {
         PlaceHandler.turn_ = 0;
@@ -26,14 +56,24 @@ public class PlaceHandler : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
+    /**
+      * @brief This method is called on the first frame, it initialices the place_
+      * property as null and the placeLoaded_ as false. 
+      */
     void Start()
     {
         place_ = null;
         placeLoaded_ = false;
     }
 
-    // Update is called once per frame
+    /**
+      * @brief This method is called once per frame.
+      * - It checks if the serverHandler_ static property is null, it that is the case it tries
+      * to get the firebaseHandlerInstance_ static propert of firebaseHandler.
+      * - If the serverHandler static property isnt null, and the place didnt load al ready,
+      * if its the turn of the current place, it starts the download and add 1 to the turn. And
+      * if the place has been selected but they are ready, it calls the loadPlace method.
+      */
     void Update()
     {
         if(!PlaceHandler.serverHandler_){//es el primero
@@ -56,6 +96,10 @@ public class PlaceHandler : MonoBehaviour
         }
     }
 
+    /**
+      * This method should be called when the place is ready to be shown. It hides the loading
+      * gif and set the name and the image on this gameobject. It sets the placeLoaded_ to true.
+      */
     private void loadPlace(){
         transition_.SetTrigger("Success");
         transition_.enabled = false;
@@ -64,10 +108,19 @@ public class PlaceHandler : MonoBehaviour
         placeLoaded_ = true;
     }
 
+    /**
+      * @brief this method should be called when the user chose this place. It sets the 
+      * choosenPlace_ static property as a reference to the place_ property.
+      */
     public void selectPlace(){
         PlaceHandler.choosenPlace_ = place_;
     }
 
+    /**
+      * @return bool, true if its the turn of this place false in other case.
+      * @brief This method checks if its the turn of this place using this gameobject
+      * name and the turn_ static property of PlaceHandler.
+      */
     private bool isMyTurn(){
         return Int32.Parse(Regex.Match(gameObject.name, @"\d+").Value) == PlaceHandler.turn_;
     }

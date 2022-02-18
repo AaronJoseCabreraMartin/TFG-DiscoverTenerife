@@ -3,18 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+  * @brief Class that controls the panels that shows the information of 
+  * each stored place.
+  */
 public class StoredPlacesController : MonoBehaviour
 {
+    /**
+      * @brief StoredPlace that the user has chosen. Its a static property
+      * to keep the information between scenes.
+      */
     public static StoredPlace choosenStoredPlace_;
+
+    //eeeeeeeeh WTF para que quiero estoo? 
     public static StoredPlacesController StoredPlacesControllerObject_;
 
+    /**
+      * @brief Reference to the GameObject that contains the panel that shows the stored places.
+      */
     [SerializeField] private GameObject storedPlacesPanel_;
 
+    /**
+      * @brief List of all the StoredPlaces that are shown by the panel. 
+      */
     private List<StoredPlace> storedPlaces_;
+
+    /**
+      * @brief The text that will be shown when one of the spaces for store a place is free.
+      */
     private string defaultText_ = "You have this empty field to store a place for visit it when you don't have internet conection.";
 
-    void Awake()
-    {        
+    /**
+      * @brief This method is called before the first frame. It sets the information
+      * of each stored place on the correspondent element of the panel, and add a reference
+      * of the StoredPlace object that is on the index-th position to the storedPlaces_ list. 
+      * If there isnt any place stored on one of the index it will add null to the
+      * storedPlaces_ list.
+      */
+    void Awake(){        
         storedPlaces_ = new List<StoredPlace>();
         int index = 0;
         foreach(Transform storedPlaceObject in storedPlacesPanel_.transform){
@@ -28,16 +54,15 @@ public class StoredPlacesController : MonoBehaviour
             }
             index++;
         }
+        //WTF esto siempre apunta a la ultima que se haya inicializado, no lo uso mas en esta clase.
         StoredPlacesController.StoredPlacesControllerObject_ = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
+    /**
+      * @param int index of which place is chosen the current user.
+      * @brief This method should be called when the user choose one of the stored
+      * places. It selects the stored place that is on the index-th position.
+      */
     public void chooseStoredPlace(int index){
         if(index >= storedPlaces_.Count || !StoredPlace.thereIsAPlaceStoredIn(index) ){
             Debug.Log($"Error, no se encuentra stored place numero {index} en chooseStoredPlace");
@@ -46,6 +71,13 @@ public class StoredPlacesController : MonoBehaviour
         }
     }
 
+    /**
+      * @param int index of which place the user wants to delete.
+      * @brief This method should be called when the user clicks on the delete
+      * one stored place button. It deletes the stored information of the
+      * index-th stored place. It also updates the information of the panel
+      * that shows its information. 
+      */
     public void deleteStoredPlace(int index){
         if(index >= storedPlaces_.Count ){
             Debug.Log($"Error, no se encuentra stored place numero {index} en chooseStoredPlace");
@@ -56,7 +88,11 @@ public class StoredPlacesController : MonoBehaviour
         }
     }
 
+    /**
+      * @brief this method is called when the current GameObject is destroyed. It
+      * makes the StoredPlacesControllerObject_ static property null again.
+      */
     void OnDestroy(){
-        StoredPlacesController.StoredPlacesControllerObject_ = null;
+        StoredPlacesController.StoredPlacesControllerObject_ = null;//WTF
     }
 }

@@ -1,0 +1,125 @@
+\hypertarget{classoptions_controller}{}\doxysection{options\+Controller Class Reference}
+\label{classoptions_controller}\index{optionsController@{optionsController}}
+
+
+Controls the options that the user has chosen. It follows the singleton pattern so it only can be one instance of this class per execution. This class isnt destroyed on load.  
+
+
+Inheritance diagram for options\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classoptions_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classoptions_controller_ae9a9da3b00c9a88c6b7908c4f7f99a24}{distance\+In\+KM}} ()
+\begin{DoxyCompactList}\small\item\em getter of the distance\+In\+KM\+\_\+ property. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoptions_controller_a6e9363ba745b146f10b00a08ae4c396b}{sort\+By\+Less\+Distance}} ()
+\begin{DoxyCompactList}\small\item\em getter of the sort\+By\+Less\+Distance\+\_\+ property. \end{DoxyCompactList}\item 
+Dictionary$<$ string, bool $>$ \mbox{\hyperlink{classoptions_controller_ae4a6a34c71d12a1a32335c9ba5c8ca36}{what\+To\+See\+Options}} ()
+\begin{DoxyCompactList}\small\item\em return a dictionary that contains an entry for each type of place, each entry has a boolean value that is true if the user chose he wants to see it and false if he dont want to see it. There is an aditional entry for choosing if the user wants to see places that he already had visited. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classoptions_controller_a38e20b204374a1c4cc95582ad77855f7}\label{classoptions_controller_a38e20b204374a1c4cc95582ad77855f7}} 
+void {\bfseries copy\+Options} ()
+\begin{DoxyCompactList}\small\item\em this method make that the gameobjects of the options screen show the same choices that this class has stored on his attributes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classoptions_controller_a15da51c58fdffb93e7c9e6e1617f778c}\label{classoptions_controller_a15da51c58fdffb93e7c9e6e1617f778c}} 
+void {\bfseries copy\+Story\+Options} ()
+\begin{DoxyCompactList}\small\item\em this method make that the gameobject of the story options show the same choices that this class has stored on his attributes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classoptions_controller_aedb1cdf944aa791bbe2ad4f857f18415}\label{classoptions_controller_aedb1cdf944aa791bbe2ad4f857f18415}} 
+void {\bfseries save\+Options} ()
+\begin{DoxyCompactList}\small\item\em this method store on this class attributes the user choices of the options screen and sets the options\+Copied\+\_\+ property to true. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoptions_controller_a6ff9d7c5d582a54b1849db93572fa62e}{sort\+Story\+By\+First\+Visit}} ()
+\begin{DoxyCompactList}\small\item\em getter of the sort\+Story\+By\+First\+Visit\+\_\+ attribute. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoptions_controller_ae9405eac4aae3d08022be7a5ea641948}{social\+Options}} (string option)
+\begin{DoxyCompactList}\small\item\em getter of the given social option. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classoptions_controller_a12043b70a6fcf40dc84a46ad488f4365}\label{classoptions_controller_a12043b70a6fcf40dc84a46ad488f4365}} 
+static \mbox{\hyperlink{classoptions_controller}{options\+Controller}} {\bfseries options\+Controller\+Instance\+\_\+} = null
+\begin{DoxyCompactList}\small\item\em reference to the unique instance of the class that can exist on each execution. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classoptions_controller_ac29da7d555a81106d1a2c2918c4d5cdd}\label{classoptions_controller_ac29da7d555a81106d1a2c2918c4d5cdd}} 
+static Game\+Object {\bfseries last\+Option\+Clicked\+\_\+}
+\begin{DoxyCompactList}\small\item\em reference to the last clicked option on the options screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controls the options that the user has chosen. It follows the singleton pattern so it only can be one instance of this class per execution. This class isnt destroyed on load. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classoptions_controller_ae9a9da3b00c9a88c6b7908c4f7f99a24}\label{classoptions_controller_ae9a9da3b00c9a88c6b7908c4f7f99a24}} 
+\index{optionsController@{optionsController}!distanceInKM@{distanceInKM}}
+\index{distanceInKM@{distanceInKM}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{distanceInKM()}{distanceInKM()}}
+{\footnotesize\ttfamily bool options\+Controller.\+distance\+In\+KM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the distance\+In\+KM\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+true if the user has chosen the distance unit as kilometers, false if the user has chosen the distance unit as milles. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classoptions_controller_ae9405eac4aae3d08022be7a5ea641948}\label{classoptions_controller_ae9405eac4aae3d08022be7a5ea641948}} 
+\index{optionsController@{optionsController}!socialOptions@{socialOptions}}
+\index{socialOptions@{socialOptions}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{socialOptions()}{socialOptions()}}
+{\footnotesize\ttfamily bool options\+Controller.\+social\+Options (\begin{DoxyParamCaption}\item[{string}]{option }\end{DoxyParamCaption})}
+
+
+
+getter of the given social option. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & social option that you want to access. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the social option is active, false in other case. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classoptions_controller_a6e9363ba745b146f10b00a08ae4c396b}\label{classoptions_controller_a6e9363ba745b146f10b00a08ae4c396b}} 
+\index{optionsController@{optionsController}!sortByLessDistance@{sortByLessDistance}}
+\index{sortByLessDistance@{sortByLessDistance}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{sortByLessDistance()}{sortByLessDistance()}}
+{\footnotesize\ttfamily bool options\+Controller.\+sort\+By\+Less\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the sort\+By\+Less\+Distance\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+true if the user has chosen to sort the places as less distance first, false if the user has chosen to sort the places as more visited first. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classoptions_controller_a6ff9d7c5d582a54b1849db93572fa62e}\label{classoptions_controller_a6ff9d7c5d582a54b1849db93572fa62e}} 
+\index{optionsController@{optionsController}!sortStoryByFirstVisit@{sortStoryByFirstVisit}}
+\index{sortStoryByFirstVisit@{sortStoryByFirstVisit}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{sortStoryByFirstVisit()}{sortStoryByFirstVisit()}}
+{\footnotesize\ttfamily bool options\+Controller.\+sort\+Story\+By\+First\+Visit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the sort\+Story\+By\+First\+Visit\+\_\+ attribute. 
+
+\begin{DoxyReturn}{Returns}
+bool true if the user has chose to sort first visit first on the story screen, false if the user has chose to sort the last visit first on the story screen. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classoptions_controller_ae4a6a34c71d12a1a32335c9ba5c8ca36}\label{classoptions_controller_ae4a6a34c71d12a1a32335c9ba5c8ca36}} 
+\index{optionsController@{optionsController}!whatToSeeOptions@{whatToSeeOptions}}
+\index{whatToSeeOptions@{whatToSeeOptions}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{whatToSeeOptions()}{whatToSeeOptions()}}
+{\footnotesize\ttfamily Dictionary$<$ string, bool $>$ options\+Controller.\+what\+To\+See\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+return a dictionary that contains an entry for each type of place, each entry has a boolean value that is true if the user chose he wants to see it and false if he dont want to see it. There is an aditional entry for choosing if the user wants to see places that he already had visited. 
+
+\begin{DoxyReturn}{Returns}
+dictionary with one entry for each type of site, the value mean if the user want to see that type or not. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/\+Main\+Screen/options\+Controller.\+cs\end{DoxyCompactItemize}

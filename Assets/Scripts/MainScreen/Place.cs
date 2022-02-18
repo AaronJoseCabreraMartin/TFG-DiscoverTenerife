@@ -4,22 +4,68 @@ using UnityEngine;
 using System;
 using System.Net;
 
+/**
+  * @brief class that stores all the information of a place. It also has to download the image of the place.
+  */
 public class Place
 {
-    //SerializeField significa que se puede ver en el inspector (para poder convertirlo en JSON)
+    /**
+      * @brief name of the represented place.
+      */
     [SerializeField] private string name_;
+
+    /**
+      * @brief address of the represented place.
+      */
     [SerializeField] private string address_;
+
+    /**
+      * @brief latitude of the geographical coordenades of the represented place.
+      */
     [SerializeField] private double latitude_;
+
+    /**
+      * @brief longitude of the geographical coordenades of the represented place.
+      */
     [SerializeField] private double longitude_;
+
+    /**
+      * @brief imageLink of the image of the represented place.
+      */
     [SerializeField] private string imageLink_;
+
+    /**
+      * @brief times that this place has been visited for any user.
+      */
     [SerializeField] private int timesItHasBeenVisited_;
+
+    /**
+      * @brief zone of the map that the represented place belongs.
+      */
     [SerializeField] private string zone_;
 
+    /**
+      * @brief Image of the reprecented place.
+      */
     private Sprite image_;
-    private bool ready_ = false;
-    //private WebClient webClient_ = null;
-    static public WebClient webClient_ = null;
 
+    /**
+      * @brief bool that control if this place is ready to use.
+      */
+    private bool ready_ = false;
+
+    /**
+      * @brief web client that download the image.
+      */
+    static public WebClient webClient_ = null;
+    //private WebClient webClient_ = null;
+
+    /**
+      * @param Dictionary<string,string> data on string version of this place.
+      * It expects a dictionary that has entries for addres_, imageLink_, latitude_,
+      * longitude_, name_, timesItHasBeenVisited_ and zone_. It also initializes the
+      * image_ property to null.
+      */
     public Place(Dictionary<string,string> data){
         address_ = data["address_"];
         imageLink_ = data["imageLink_"];
@@ -31,46 +77,74 @@ public class Place
         image_ = null;
     }
 
-    public string getName()
-    {
+    /**
+      * @return string with the name_'s property value
+      * @brief getter of the name_ attribute
+      */
+    public string getName(){
         return name_;
     }
 
-    public string getAddress()
-    {
+    /**
+      * @return string with the address's property value
+      * @brief getter of the address attribute
+      */
+    public string getAddress(){
         return address_;
     }
 
-    public double getLatitude()
-    {
+    /**
+      * @return string with the latitude_'s property value
+      * @brief getter of the latitude_ attribute
+      */
+    public double getLatitude(){
         return latitude_;
     }
 
-    public double getLongitude()
-    {
+    /**
+      * @return string with the longitude_'s property value
+      * @brief getter of the longitude_ attribute
+      */
+    public double getLongitude(){
         return longitude_;
     }
 
-    public string getZone()
-    {
+    /**
+      * @return string with the zone_'s property value
+      * @brief getter of the zone_ attribute
+      */
+    public string getZone(){
         return zone_;
     }
 
-    public Sprite getImage()
-    {
+    /**
+      * @return string with the image_'s property value
+      * @brief getter of the image_ attribute
+      */
+    public Sprite getImage(){
         return image_;
     }
 
-    public bool isReady()
-    {
+    /**
+      * @return string with the ready_'s property value, true if this place is ready, false
+      * in other case.
+      * @brief getter of the ready_ attribute
+      */
+    public bool isReady(){
         return ready_;
     }
 
-    
+    /**
+      * @brief add one to the timesItHasBeenVisited_ property.
+      */
     public void oneMoreVisit(){
         timesItHasBeenVisited_++;
     }
 
+    /**
+      * @return string that contains a string conversion of this object. The conversion
+      * follows the JSON format.
+      */
     public string ToJson(){
         string toReturn = "{";
         toReturn += $"\"address_\" : \"{address_}\",";
@@ -85,10 +159,18 @@ public class Place
         return toReturn;
     }
 
+    /**
+      * @return string with the timesItHasBeenVisited_'s property value
+      * @brief getter of the timesItHasBeenVisited_ attribute
+      */
     public int getTimesItHasBeenVisited(){
         return timesItHasBeenVisited_;
     }
 
+    /**
+      * @brief if the image_ property is null, this start the donwload method of the
+      * WebClient_ property and initialize the image_ porperty to the real image. 
+      */
     public void startDownload()
     {
         if(image_ == null ){

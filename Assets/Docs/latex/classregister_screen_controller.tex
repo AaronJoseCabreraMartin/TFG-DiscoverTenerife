@@ -1,0 +1,69 @@
+\hypertarget{classregister_screen_controller}{}\doxysection{register\+Screen\+Controller Class Reference}
+\label{classregister_screen_controller}\index{registerScreenController@{registerScreenController}}
+
+
+Class that controls all the inputs and the buttons of the register screen. It also controls the error messages that are show for giving information to the user.  
+
+
+Inheritance diagram for register\+Screen\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classregister_screen_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classregister_screen_controller_ac653e4cef19f2c5e4ccb716a6efa028b}{try\+To\+Register\+User}} ()
+\item 
+void \mbox{\hyperlink{classregister_screen_controller_ab482a507fd62595ee7f455187664d8ab}{user\+Created\+Successfully}} (string name)
+\begin{DoxyCompactList}\small\item\em This method should be called when the register process finished successfully. It changes the in\+Progress attribute to false and calls the change\+Scene\+With\+Animation method of \mbox{\hyperlink{class_change_scene}{Change\+Scene}} for transit between the current scene to the main screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classregister_screen_controller_a7b02d3f215828efb1e1401504b6900c2}{error\+Creating\+User}} (string error)
+\begin{DoxyCompactList}\small\item\em This method should be called when the register process failed. It changes the in\+Progress attribute to false and creates a red toast message showing the error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that controls all the inputs and the buttons of the register screen. It also controls the error messages that are show for giving information to the user. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classregister_screen_controller_a7b02d3f215828efb1e1401504b6900c2}\label{classregister_screen_controller_a7b02d3f215828efb1e1401504b6900c2}} 
+\index{registerScreenController@{registerScreenController}!errorCreatingUser@{errorCreatingUser}}
+\index{errorCreatingUser@{errorCreatingUser}!registerScreenController@{registerScreenController}}
+\doxysubsubsection{\texorpdfstring{errorCreatingUser()}{errorCreatingUser()}}
+{\footnotesize\ttfamily void register\+Screen\+Controller.\+error\+Creating\+User (\begin{DoxyParamCaption}\item[{string}]{error }\end{DoxyParamCaption})}
+
+
+
+This method should be called when the register process failed. It changes the in\+Progress attribute to false and creates a red toast message showing the error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & that contains information about the error that happened during the registration process. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classregister_screen_controller_ac653e4cef19f2c5e4ccb716a6efa028b}\label{classregister_screen_controller_ac653e4cef19f2c5e4ccb716a6efa028b}} 
+\index{registerScreenController@{registerScreenController}!tryToRegisterUser@{tryToRegisterUser}}
+\index{tryToRegisterUser@{tryToRegisterUser}!registerScreenController@{registerScreenController}}
+\doxysubsubsection{\texorpdfstring{tryToRegisterUser()}{tryToRegisterUser()}}
+{\footnotesize\ttfamily void register\+Screen\+Controller.\+try\+To\+Register\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method should be called when the user press the register button. If the in\+Progress attribute is true, it doesnt do nothing. It checks if the user has wrote something on each field and if the email is well formated and the both passwords are the same and they had a length of more than 6 characters. If any of the previous errors happen, it shows a toast message with the error. If every thing was ok, it calls the Create\+New\+User \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} method with the given user and password. \mbox{\Hypertarget{classregister_screen_controller_ab482a507fd62595ee7f455187664d8ab}\label{classregister_screen_controller_ab482a507fd62595ee7f455187664d8ab}} 
+\index{registerScreenController@{registerScreenController}!userCreatedSuccessfully@{userCreatedSuccessfully}}
+\index{userCreatedSuccessfully@{userCreatedSuccessfully}!registerScreenController@{registerScreenController}}
+\doxysubsubsection{\texorpdfstring{userCreatedSuccessfully()}{userCreatedSuccessfully()}}
+{\footnotesize\ttfamily void register\+Screen\+Controller.\+user\+Created\+Successfully (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+
+This method should be called when the register process finished successfully. It changes the in\+Progress attribute to false and calls the change\+Scene\+With\+Animation method of \mbox{\hyperlink{class_change_scene}{Change\+Scene}} for transit between the current scene to the main screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & that contains the new user\textquotesingle{}s name. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/\+Register\+Screen/register\+Screen\+Controller.\+cs\end{DoxyCompactItemize}

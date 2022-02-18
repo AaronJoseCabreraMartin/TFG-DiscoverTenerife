@@ -4,26 +4,98 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/**
+  * @brief Controls the options that the user has chosen. It follows the singleton pattern so
+  * it only can be one instance of this class per execution. This class isnt destroyed
+  * on load.
+  */
 public class optionsController : MonoBehaviour
 {
+    /**
+      * @brief reference to the unique instance of the class that can exist on each execution.
+      */
     public static optionsController optionsControllerInstance_ = null;
 
+    /**
+      * @brief true if the user has chosen to see the distance in Kilometers, false if 
+      * the user has chosen to see the distance in Milles.
+      */
     private bool distanceInKM_;
+
+    /**
+      * @brief This dictionary has an entry for each type of site. The key is the type of
+      * the site, and the value is if the user has chosen to see that type of site or not.
+      */
     private Dictionary<string, bool> whatToSee_;
+
+    /**
+      * @brief This dictionary has an entry for each social option, allow that other users
+      * can find me on the ranking, allow that other user can send me friendship invitations
+      * or allow that my friends can chanllege me.
+      */
     private Dictionary<string, bool> socialOptions_;
+
+    /**
+      * @brief true if the user has chosen that places has to be sorted by less distance first,
+      * false if the user has chosen that places has to be sorted by more visited first.
+      */
     private bool sortByLessDistance_;
+
+    /**
+      * @brief true if the user has chosen that places on the story has to be sorted by 
+      * first visited first, false if the user has chosen that the places on the story
+      * has to be sorted by most recent visited first.
+      */
     private bool sortStoryByFirstVisit_;
+
+    /**
+      * @brief contains the name of the last scene that this object was.
+      */
     private string lastScene_;
 
+    /**
+      * @brief reference to the game object of the sorting places options.
+      */
     private uniqueselectionDesplegableMenu sortByLessDistanceMenu_;
+
+    /**
+      * @brief reference to the game object of the what type of places
+      * you want to see options.
+      */
     private multiselectionDesplegableMenu whatToSeeMenu_;
+    
+    /**
+      * @brief reference to the game object of the social options.
+      */
     private multiselectionDesplegableMenu socialOptionsMenu_;
+
+    /**
+      * @brief reference to the game object of the chosing distance unit options.
+      */
     private uniqueselectionDesplegableMenu distanceUnitMenu_;
+
+    /**
+      * @brief reference to the game object of the sorting places on the story options.
+      */
     private uniqueselectionDesplegableMenu sortStoryMenu_;
     
+    /**
+      * @brief true if the value of the options were asigned to the game object 
+      * that represent those options.
+      */
     private bool optionsCopied_;
+
+    /**
+      * @brief reference to the last clicked option on the options screen.
+      */
     static public GameObject lastOptionClicked_;
 
+
+    /**
+      * @brief this method is called before the first frame, it checks if exits
+      * another optionsController instance, on that case destroy this gameobject.
+      * It also stores the name of the current scene.
+      */
     void Awake(){
         if(optionsController.optionsControllerInstance_ != null){
             Destroy(this.gameObject); //no crees otro
@@ -34,6 +106,13 @@ public class optionsController : MonoBehaviour
         lastScene_ = SceneManager.GetActiveScene().name;
     }
 
+    /**
+      * @brief this method is called on the first frame. It check if the user has 
+      * already stored some options on the current device, if that is not the case,
+      * it creates the option as activated. If the user has already stored some options
+      * it loads the options from the current device. It also intializes all the properties 
+      * of the object.
+      */
     void Start(){
         whatToSee_ = new Dictionary<string, bool>();
         List<string> options = new List<string> { "Viewpoints", "Hiking Routes", "Beaches", "Natural Pools","Natural Parks", "Already Visited"};
@@ -81,6 +160,20 @@ public class optionsController : MonoBehaviour
         optionsCopied_ = false;
     }
 
+    /**
+      * @brief this method is called each frame. 
+      * First it checks if the options isnt copied and youre on the options screen or in the story screen
+      * and calls the copyOptions or the copyStoryOptions respectively.
+      * It also check if youre exiting the options screen or the story screen and if that is the
+      * case it calls the storeOptions method.
+      * If youre changing scene and youre on the options screen it finds and initialize the 
+      * sortByLessDistanceMenu_, whatToSeeMenu_, distanceUnitMenu_, socialOptionsMenu_ properties and sets
+      * the optionsCopied_ as false. 
+      * If youre changing scene and youre on the story screen it finds and initialize the
+      * sortStoryMenu_ property and sets the optionsCopied_ as false.
+      * If youre changing scene and youre neither on the story screen nor the options screen
+      * it sets the gameobject of the options as null.
+      */
     void Update(){
         if(!optionsCopied_ && sortByLessDistanceMenu_ != null && distanceUnitMenu_ != null && whatToSeeMenu_ != null){
             copyOptions();//si existian opciones previas, deben mostrarse
@@ -106,18 +199,38 @@ public class optionsController : MonoBehaviour
                 sortByLessDistanceMenu_ = null;
                 whatToSeeMenu_ = null;
                 distanceUnitMenu_ = null;
+                socialOptionsMenu_ = null;
+                sortStoryMenu_ = null;
             }
         }
     }
 
+    /**
+      * @return true if the user has chosen the distance unit as kilometers, false
+      * if the user has chosen the distance unit as milles.
+      * @brief getter of the distanceInKM_ property.
+      */
     public bool distanceInKM(){
         return distanceInKM_;
     }
 
+    /**
+      * @return true if the user has chosen to sort the places as less distance first,
+      * false if the user has chosen to sort the places as more visited first.
+      * @brief getter of the sortByLessDistance_ property.
+      */
     public bool sortByLessDistance(){
         return sortByLessDistance_;
     }
 
+    /**
+      * @return dictionary with one entry for each type of site, the value mean if the
+      * user want to see that type or not.
+      * @brief return a dictionary that contains an entry for each type of place, each entry has
+      * a boolean value that is true if the user chose he wants to see it and false if he dont
+      * want to see it. There is an aditional entry for choosing if the user wants to see places
+      * that he already had visited.
+      */
     public Dictionary<string, bool> whatToSeeOptions(){
         bool areAllFalse = true;
         foreach(var key in whatToSee_.Keys){
@@ -143,6 +256,10 @@ public class optionsController : MonoBehaviour
         return whatToSeeOptions;
     }
 
+    /**
+      * @brief this method make that the gameobjects of the options screen show the same
+      * choices that this class has stored on his attributes.
+      */
     public void copyOptions(){
         // esto se deberia poder quitar
         uniqueselectionDesplegableMenu newSortByLessDistanceMenu_ = GameObject.Find("/Canvas/Short results by").gameObject.GetComponent<uniqueselectionDesplegableMenu>();
@@ -183,12 +300,20 @@ public class optionsController : MonoBehaviour
         optionsCopied_ = true;
     }
 
+    /**
+      * @brief this method make that the gameobject of the story options show the same
+      * choices that this class has stored on his attributes.
+      */
     public void copyStoryOptions(){
         //Debug.Log($"On copyStoryOptions con {sortStoryByFirstVisit_}");
         sortStoryMenu_.selectToggle((sortStoryByFirstVisit_ ? 0 : 1));
         optionsCopied_ = true;
     }
 
+    /**
+      * @brief this method store on this class attributes the user choices of the 
+      * options screen and sets the optionsCopied_ property to true.
+      */
     public void saveOptions(){
         //string toShow = "On save Options ";
         if(sortByLessDistanceMenu_ && whatToSeeMenu_ && distanceUnitMenu_){
@@ -228,6 +353,10 @@ public class optionsController : MonoBehaviour
         //Debug.Log(toShow);
     }
 
+    /**
+      * @brief This method stores the options choices of the current user on the current
+      * device.
+      */
     private void storeOptions(){
         //string toShow ="On storeOptions ";
         List<string> options = new List<string> { "Viewpoints", "Hiking Routes", "Beaches", "Natural Pools","Natural Parks", "Already Visited"};
@@ -252,10 +381,21 @@ public class optionsController : MonoBehaviour
         //Debug.Log(toShow);
     }
 
+    /**
+      * @return bool true if the user has chose to sort first visit first on the
+      * story screen, false if the user has chose to sort the last visit first on
+      * the story screen.
+      * @brief getter of the sortStoryByFirstVisit_ attribute.
+      */
     public bool sortStoryByFirstVisit(){
         return sortStoryByFirstVisit_;
     }
 
+    /**
+      * @param string social option that you want to access.
+      * @return bool true if the social option is active, false in other case.
+      * @brief getter of the given social option.
+      */
     public bool socialOptions(string option){
         return socialOptions_[option];
     }

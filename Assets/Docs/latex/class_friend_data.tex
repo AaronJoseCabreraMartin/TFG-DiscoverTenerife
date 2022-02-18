@@ -1,0 +1,107 @@
+\hypertarget{class_friend_data}{}\doxysection{Friend\+Data Class Reference}
+\label{class_friend_data}\index{FriendData@{FriendData}}
+
+
+Class that stores the information of a friend of the current user.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_friend_data_a806d0f0959decfd2aedcdfad9d810418}{Friend\+Data}} (string uid, string display\+Name, List$<$ string $>$ deleted\+Friends)
+\begin{DoxyCompactList}\small\item\em Constructor that initialize the uid\+\_\+, the display\+Name\+\_\+ and the deleted\+Friends\+\_\+ properties with the given parameters. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_friend_data_a5672a40f6da7620fc48171c85340f5bd}{get\+Uid}} ()
+\begin{DoxyCompactList}\small\item\em getter of the user id. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_friend_data_ac701617ed454ef3cb6f08d7fe40472cd}{get\+Display\+Name}} ()
+\begin{DoxyCompactList}\small\item\em getter of the user id. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_friend_data_a9d8910f8ea8e150e386d95a8d6557098}{add\+Deleted\+Friend}} (string uid)
+\begin{DoxyCompactList}\small\item\em this method add the given user id to the deleted\+Friends\+\_\+ property list. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_friend_data_ac6caa06257178af46846426ddd3e0d55}{get\+String\+Conversion\+Of\+Deleted\+Friends}} ()
+\begin{DoxyCompactList}\small\item\em this method convers the deleted\+Friends\+\_\+ property into a string with the JSON format and returns the conversion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that stores the information of a friend of the current user. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_friend_data_a806d0f0959decfd2aedcdfad9d810418}\label{class_friend_data_a806d0f0959decfd2aedcdfad9d810418}} 
+\index{FriendData@{FriendData}!FriendData@{FriendData}}
+\index{FriendData@{FriendData}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{FriendData()}{FriendData()}}
+{\footnotesize\ttfamily Friend\+Data.\+Friend\+Data (\begin{DoxyParamCaption}\item[{string}]{uid,  }\item[{string}]{display\+Name,  }\item[{List$<$ string $>$}]{deleted\+Friends }\end{DoxyParamCaption})}
+
+
+
+Constructor that initialize the uid\+\_\+, the display\+Name\+\_\+ and the deleted\+Friends\+\_\+ properties with the given parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & user id of the represented user. \\
+\hline
+{\em string} & display name of the represented user. \\
+\hline
+{\em List$<$string$>$} & list of strings that contains the user ids from the users that have deleted the friendship. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_friend_data_a9d8910f8ea8e150e386d95a8d6557098}\label{class_friend_data_a9d8910f8ea8e150e386d95a8d6557098}} 
+\index{FriendData@{FriendData}!addDeletedFriend@{addDeletedFriend}}
+\index{addDeletedFriend@{addDeletedFriend}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{addDeletedFriend()}{addDeletedFriend()}}
+{\footnotesize\ttfamily void Friend\+Data.\+add\+Deleted\+Friend (\begin{DoxyParamCaption}\item[{string}]{uid }\end{DoxyParamCaption})}
+
+
+
+this method add the given user id to the deleted\+Friends\+\_\+ property list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & with the user id of the user that has deleted the friendship. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_friend_data_ac701617ed454ef3cb6f08d7fe40472cd}\label{class_friend_data_ac701617ed454ef3cb6f08d7fe40472cd}} 
+\index{FriendData@{FriendData}!getDisplayName@{getDisplayName}}
+\index{getDisplayName@{getDisplayName}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{getDisplayName()}{getDisplayName()}}
+{\footnotesize\ttfamily string Friend\+Data.\+get\+Display\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the user id. 
+
+\begin{DoxyReturn}{Returns}
+string with the display name of the represented user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_friend_data_ac6caa06257178af46846426ddd3e0d55}\label{class_friend_data_ac6caa06257178af46846426ddd3e0d55}} 
+\index{FriendData@{FriendData}!getStringConversionOfDeletedFriends@{getStringConversionOfDeletedFriends}}
+\index{getStringConversionOfDeletedFriends@{getStringConversionOfDeletedFriends}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{getStringConversionOfDeletedFriends()}{getStringConversionOfDeletedFriends()}}
+{\footnotesize\ttfamily string Friend\+Data.\+get\+String\+Conversion\+Of\+Deleted\+Friends (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+this method convers the deleted\+Friends\+\_\+ property into a string with the JSON format and returns the conversion. 
+
+\begin{DoxyReturn}{Returns}
+string with a string conversion of the deleted\+Friends\+\_\+ list on JSON format. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_friend_data_a5672a40f6da7620fc48171c85340f5bd}\label{class_friend_data_a5672a40f6da7620fc48171c85340f5bd}} 
+\index{FriendData@{FriendData}!getUid@{getUid}}
+\index{getUid@{getUid}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{getUid()}{getUid()}}
+{\footnotesize\ttfamily string Friend\+Data.\+get\+Uid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the user id. 
+
+\begin{DoxyReturn}{Returns}
+string with the user id of the represented user. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/\+Friends\+Screen/Friend\+Data.\+cs\end{DoxyCompactItemize}
