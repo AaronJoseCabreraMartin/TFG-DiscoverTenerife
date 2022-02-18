@@ -1,0 +1,51 @@
+\hypertarget{classgoogle_login_controller}{}\doxysection{google\+Login\+Controller Class Reference}
+\label{classgoogle_login_controller}\index{googleLoginController@{googleLoginController}}
+
+
+Class that controlls the google login button.  
+
+
+Inheritance diagram for google\+Login\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgoogle_login_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classgoogle_login_controller_a986d9e8bebd6f1763fb1f7835340d099}{try\+To\+Login\+User}} ()
+\item 
+void \mbox{\hyperlink{classgoogle_login_controller_a1fe4e0f27f9d5b590b40d263a9866ee8}{user\+Loged\+Successfully}} (string name)
+\item 
+void \mbox{\hyperlink{classgoogle_login_controller_ac332b2da63d7095f0959d168098ff372}{error\+Login\+User}} (string error)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that controlls the google login button. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgoogle_login_controller_ac332b2da63d7095f0959d168098ff372}\label{classgoogle_login_controller_ac332b2da63d7095f0959d168098ff372}} 
+\index{googleLoginController@{googleLoginController}!errorLoginUser@{errorLoginUser}}
+\index{errorLoginUser@{errorLoginUser}!googleLoginController@{googleLoginController}}
+\doxysubsubsection{\texorpdfstring{errorLoginUser()}{errorLoginUser()}}
+{\footnotesize\ttfamily void google\+Login\+Controller.\+error\+Login\+User (\begin{DoxyParamCaption}\item[{string}]{error }\end{DoxyParamCaption})}
+
+This method should be called if the login with google process coudnt finish. It shows the error on the console. It also set the in\+Progress property to false. \mbox{\Hypertarget{classgoogle_login_controller_a986d9e8bebd6f1763fb1f7835340d099}\label{classgoogle_login_controller_a986d9e8bebd6f1763fb1f7835340d099}} 
+\index{googleLoginController@{googleLoginController}!tryToLoginUser@{tryToLoginUser}}
+\index{tryToLoginUser@{tryToLoginUser}!googleLoginController@{googleLoginController}}
+\doxysubsubsection{\texorpdfstring{tryToLoginUser()}{tryToLoginUser()}}
+{\footnotesize\ttfamily void google\+Login\+Controller.\+try\+To\+Login\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+If the in\+Progress property is false, it sets the in\+Progress property to true and it calls the Sign\+In\+With\+Google method of the \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class. If the in\+Progress property is true. It doenst do nothing, thanks to that you cant make several parallel calls to the sing in method of goole. \mbox{\Hypertarget{classgoogle_login_controller_a1fe4e0f27f9d5b590b40d263a9866ee8}\label{classgoogle_login_controller_a1fe4e0f27f9d5b590b40d263a9866ee8}} 
+\index{googleLoginController@{googleLoginController}!userLogedSuccessfully@{userLogedSuccessfully}}
+\index{userLogedSuccessfully@{userLogedSuccessfully}!googleLoginController@{googleLoginController}}
+\doxysubsubsection{\texorpdfstring{userLogedSuccessfully()}{userLogedSuccessfully()}}
+{\footnotesize\ttfamily void google\+Login\+Controller.\+user\+Loged\+Successfully (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+This method sould be called if the login with google process finished successfully. It calls the change\+Scene method of the \mbox{\hyperlink{class_change_scene}{Change\+Scene}} class, in order to change the scene to the main one. It also set the in\+Progress property to false. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/\+Login/google\+Login\+Controller.\+cs\end{DoxyCompactItemize}

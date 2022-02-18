@@ -1,0 +1,68 @@
+\hypertarget{class_change_scene}{}\doxysection{Change\+Scene Class Reference}
+\label{class_change_scene}\index{ChangeScene@{ChangeScene}}
+
+
+This class follows the singleton pattern, the unique instance of the class can be found on an object with the tag \char`\"{}scene\+Manager\char`\"{}. It has to be instanciate because the coroutines cant be used in static methods, so if you need to use the change\+Scene\+With\+Animation method you have to have an instance of the class. It also has the public static method change\+Scene that allow change the active scene to other but without any transition.  
+
+
+Inheritance diagram for Change\+Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_change_scene}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_change_scene_aec5f7cebd799808ce35651ee8a937d08}{change\+Scene\+With\+Animation}} (string scene\+Name, float transition\+Time=1f, string text=\char`\"{}Loading...\char`\"{})
+\begin{DoxyCompactList}\small\item\em this method starts a coroutine that execute the make\+Fade\+In\+Fade\+Out\+Animation method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_change_scene_a3f4ed5dc8217783509a99092e3273c13}{change\+Scene}} (string scene\+Name)
+\begin{DoxyCompactList}\small\item\em This method tries to load the scene that have the given name, if there isnt any scene with the given name it will produce an exception. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class follows the singleton pattern, the unique instance of the class can be found on an object with the tag \char`\"{}scene\+Manager\char`\"{}. It has to be instanciate because the coroutines cant be used in static methods, so if you need to use the change\+Scene\+With\+Animation method you have to have an instance of the class. It also has the public static method change\+Scene that allow change the active scene to other but without any transition. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_change_scene_a3f4ed5dc8217783509a99092e3273c13}\label{class_change_scene_a3f4ed5dc8217783509a99092e3273c13}} 
+\index{ChangeScene@{ChangeScene}!changeScene@{changeScene}}
+\index{changeScene@{changeScene}!ChangeScene@{ChangeScene}}
+\doxysubsubsection{\texorpdfstring{changeScene()}{changeScene()}}
+{\footnotesize\ttfamily static void Change\+Scene.\+change\+Scene (\begin{DoxyParamCaption}\item[{string}]{scene\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This method tries to load the scene that have the given name, if there isnt any scene with the given name it will produce an exception. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & that contains the name of the scene that it will change. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_change_scene_aec5f7cebd799808ce35651ee8a937d08}\label{class_change_scene_aec5f7cebd799808ce35651ee8a937d08}} 
+\index{ChangeScene@{ChangeScene}!changeSceneWithAnimation@{changeSceneWithAnimation}}
+\index{changeSceneWithAnimation@{changeSceneWithAnimation}!ChangeScene@{ChangeScene}}
+\doxysubsubsection{\texorpdfstring{changeSceneWithAnimation()}{changeSceneWithAnimation()}}
+{\footnotesize\ttfamily void Change\+Scene.\+change\+Scene\+With\+Animation (\begin{DoxyParamCaption}\item[{string}]{scene\+Name,  }\item[{float}]{transition\+Time = {\ttfamily 1f},  }\item[{string}]{text = {\ttfamily \char`\"{}Loading...\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+this method starts a coroutine that execute the make\+Fade\+In\+Fade\+Out\+Animation method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the name of the scene to change \\
+\hline
+{\em float} & the duration time of the transition in seconds \\
+\hline
+{\em string} & the text that will be showed during the transition \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/Change\+Scene.\+cs\end{DoxyCompactItemize}
