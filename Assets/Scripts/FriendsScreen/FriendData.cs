@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
-  * @brief Class that stores the information of a friend of the current user.
+  * @brief Class that stores the information of one of the current user's friend.
   */
 public class FriendData
 {
