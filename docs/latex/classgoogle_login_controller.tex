@@ -20,6 +20,11 @@ void \mbox{\hyperlink{classgoogle_login_controller_a1fe4e0f27f9d5b590b40d263a986
 \item 
 void \mbox{\hyperlink{classgoogle_login_controller_ac332b2da63d7095f0959d168098ff372}{error\+Login\+User}} (string error)
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classgoogle_login_controller_a462c01579c1bc45da100ea1812a145f6}{in\+Progress}} = false
+\begin{DoxyCompactList}\small\item\em True if the sing in method is on progress. False in other case. Its initial value is false. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -46,6 +51,19 @@ If the in\+Progress property is false, it sets the in\+Progress property to true
 
 This method sould be called if the login with google process finished successfully. It calls the change\+Scene method of the \mbox{\hyperlink{class_change_scene}{Change\+Scene}} class, in order to change the scene to the main one. It also set the in\+Progress property to false. 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classgoogle_login_controller_a462c01579c1bc45da100ea1812a145f6}\label{classgoogle_login_controller_a462c01579c1bc45da100ea1812a145f6}} 
+\index{googleLoginController@{googleLoginController}!inProgress@{inProgress}}
+\index{inProgress@{inProgress}!googleLoginController@{googleLoginController}}
+\doxysubsubsection{\texorpdfstring{inProgress}{inProgress}}
+{\footnotesize\ttfamily bool google\+Login\+Controller.\+in\+Progress = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+True if the sing in method is on progress. False in other case. Its initial value is false. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Login/google\+Login\+Controller.\+cs\end{DoxyCompactItemize}
+Scripts/\+Login/\mbox{\hyperlink{google_login_controller_8cs}{google\+Login\+Controller.\+cs}}\end{DoxyCompactItemize}

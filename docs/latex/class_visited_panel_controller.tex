@@ -16,20 +16,149 @@ Inheritance diagram for Visited\+Panel\+Controller\+:\begin{figure}[H]
 \item 
 void \mbox{\hyperlink{class_visited_panel_controller_ab0259f4efb3e836f81c15e2ba3deee66}{Check\+New\+State}} ()
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_visited_panel_controller_afe829c423b86f43e459b4dabb0be01e8}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em This method is called on the first frame, it intializes the firebase\+Handler\+Object\+\_\+, not\+Visited\+Color\+\_\+ and visited\+Color\+\_\+ properties. If both the places\+Are\+Ready and user\+Data\+Is\+Ready methods of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} return true, it calls the Check\+New\+State method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_visited_panel_controller_a48aafb32ab03ce314c8bcf8ac14607cb}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method is called once per frame, it checks if the information hasnt been loaded and both places\+Are\+Ready and user\+Data\+Is\+Ready return true it calls the Check\+New\+State method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_visited_panel_controller_a1b8fa1b4e501938e4fbad43fa106b96e}{image\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the background image of the sign. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_visited_panel_controller_aebc3650fd99b70f241bdc16901a5f376}{text\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the text of the sign. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_visited_panel_controller_a3a228d329efec188d3af3739355a6a49}{not\+Visited\+Text\+\_\+}}
+\begin{DoxyCompactList}\small\item\em String that contains the not visited message. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_visited_panel_controller_a8f821c045ba464e3a3347503e0f1a301}{visited\+Text\+\_\+}}
+\begin{DoxyCompactList}\small\item\em String that contains the visited message. \end{DoxyCompactList}\item 
+Color32 \mbox{\hyperlink{class_visited_panel_controller_afbbbdcd98a52f07b6d2c6b6efa4ee73e}{not\+Visited\+Color\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Color of the background of the sign when it isnt already visited. \end{DoxyCompactList}\item 
+Color32 \mbox{\hyperlink{class_visited_panel_controller_a772203e072164bfbfd1e3bcc11af27b5}{visited\+Color\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Color of the background of the sign when it is already visited. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_visited_panel_controller_a6548278e3b9a5ea83d41e63d5d8016ae}{loaded\+\_\+}} = false
+\begin{DoxyCompactList}\small\item\em Bolean that controls if the information was already checked to show the correct one. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} \mbox{\hyperlink{class_visited_panel_controller_a5ca3da9cd1f0337822e453f753074660}{firebase\+Handler\+Object\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Reference to the \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class that shows if the user has already visited the chosen place. 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_visited_panel_controller_afe829c423b86f43e459b4dabb0be01e8}\label{class_visited_panel_controller_afe829c423b86f43e459b4dabb0be01e8}} 
+\index{VisitedPanelController@{VisitedPanelController}!Awake@{Awake}}
+\index{Awake@{Awake}!VisitedPanelController@{VisitedPanelController}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Visited\+Panel\+Controller.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called on the first frame, it intializes the firebase\+Handler\+Object\+\_\+, not\+Visited\+Color\+\_\+ and visited\+Color\+\_\+ properties. If both the places\+Are\+Ready and user\+Data\+Is\+Ready methods of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} return true, it calls the Check\+New\+State method. 
+
 \mbox{\Hypertarget{class_visited_panel_controller_ab0259f4efb3e836f81c15e2ba3deee66}\label{class_visited_panel_controller_ab0259f4efb3e836f81c15e2ba3deee66}} 
 \index{VisitedPanelController@{VisitedPanelController}!CheckNewState@{CheckNewState}}
 \index{CheckNewState@{CheckNewState}!VisitedPanelController@{VisitedPanelController}}
 \doxysubsubsection{\texorpdfstring{CheckNewState()}{CheckNewState()}}
 {\footnotesize\ttfamily void Visited\+Panel\+Controller.\+Check\+New\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-It checks if the user has already visited the chosen place, and change both the text and the background color to show if the user has already visited it or not. It also sets the loaded\+\_\+ attribute as true. 
+It checks if the user has already visited the chosen place, and change both the text and the background color to show if the user has already visited it or not. It also sets the loaded\+\_\+ attribute as true. \mbox{\Hypertarget{class_visited_panel_controller_a48aafb32ab03ce314c8bcf8ac14607cb}\label{class_visited_panel_controller_a48aafb32ab03ce314c8bcf8ac14607cb}} 
+\index{VisitedPanelController@{VisitedPanelController}!Update@{Update}}
+\index{Update@{Update}!VisitedPanelController@{VisitedPanelController}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Visited\+Panel\+Controller.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called once per frame, it checks if the information hasnt been loaded and both places\+Are\+Ready and user\+Data\+Is\+Ready return true it calls the Check\+New\+State method. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_visited_panel_controller_a5ca3da9cd1f0337822e453f753074660}\label{class_visited_panel_controller_a5ca3da9cd1f0337822e453f753074660}} 
+\index{VisitedPanelController@{VisitedPanelController}!firebaseHandlerObject\_@{firebaseHandlerObject\_}}
+\index{firebaseHandlerObject\_@{firebaseHandlerObject\_}!VisitedPanelController@{VisitedPanelController}}
+\doxysubsubsection{\texorpdfstring{firebaseHandlerObject\_}{firebaseHandlerObject\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} Visited\+Panel\+Controller.\+firebase\+Handler\+Object\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} instance. 
+
+\mbox{\Hypertarget{class_visited_panel_controller_a1b8fa1b4e501938e4fbad43fa106b96e}\label{class_visited_panel_controller_a1b8fa1b4e501938e4fbad43fa106b96e}} 
+\index{VisitedPanelController@{VisitedPanelController}!image\_@{image\_}}
+\index{image\_@{image\_}!VisitedPanelController@{VisitedPanelController}}
+\doxysubsubsection{\texorpdfstring{image\_}{image\_}}
+{\footnotesize\ttfamily Game\+Object Visited\+Panel\+Controller.\+image\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the background image of the sign. 
+
+\mbox{\Hypertarget{class_visited_panel_controller_a6548278e3b9a5ea83d41e63d5d8016ae}\label{class_visited_panel_controller_a6548278e3b9a5ea83d41e63d5d8016ae}} 
+\index{VisitedPanelController@{VisitedPanelController}!loaded\_@{loaded\_}}
+\index{loaded\_@{loaded\_}!VisitedPanelController@{VisitedPanelController}}
+\doxysubsubsection{\texorpdfstring{loaded\_}{loaded\_}}
+{\footnotesize\ttfamily bool Visited\+Panel\+Controller.\+loaded\+\_\+ = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Bolean that controls if the information was already checked to show the correct one. 
+
+\mbox{\Hypertarget{class_visited_panel_controller_afbbbdcd98a52f07b6d2c6b6efa4ee73e}\label{class_visited_panel_controller_afbbbdcd98a52f07b6d2c6b6efa4ee73e}} 
+\index{VisitedPanelController@{VisitedPanelController}!notVisitedColor\_@{notVisitedColor\_}}
+\index{notVisitedColor\_@{notVisitedColor\_}!VisitedPanelController@{VisitedPanelController}}
+\doxysubsubsection{\texorpdfstring{notVisitedColor\_}{notVisitedColor\_}}
+{\footnotesize\ttfamily Color32 Visited\+Panel\+Controller.\+not\+Visited\+Color\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Color of the background of the sign when it isnt already visited. 
+
+\mbox{\Hypertarget{class_visited_panel_controller_a3a228d329efec188d3af3739355a6a49}\label{class_visited_panel_controller_a3a228d329efec188d3af3739355a6a49}} 
+\index{VisitedPanelController@{VisitedPanelController}!notVisitedText\_@{notVisitedText\_}}
+\index{notVisitedText\_@{notVisitedText\_}!VisitedPanelController@{VisitedPanelController}}
+\doxysubsubsection{\texorpdfstring{notVisitedText\_}{notVisitedText\_}}
+{\footnotesize\ttfamily string Visited\+Panel\+Controller.\+not\+Visited\+Text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+String that contains the not visited message. 
+
+\mbox{\Hypertarget{class_visited_panel_controller_aebc3650fd99b70f241bdc16901a5f376}\label{class_visited_panel_controller_aebc3650fd99b70f241bdc16901a5f376}} 
+\index{VisitedPanelController@{VisitedPanelController}!text\_@{text\_}}
+\index{text\_@{text\_}!VisitedPanelController@{VisitedPanelController}}
+\doxysubsubsection{\texorpdfstring{text\_}{text\_}}
+{\footnotesize\ttfamily Game\+Object Visited\+Panel\+Controller.\+text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the text of the sign. 
+
+\mbox{\Hypertarget{class_visited_panel_controller_a772203e072164bfbfd1e3bcc11af27b5}\label{class_visited_panel_controller_a772203e072164bfbfd1e3bcc11af27b5}} 
+\index{VisitedPanelController@{VisitedPanelController}!visitedColor\_@{visitedColor\_}}
+\index{visitedColor\_@{visitedColor\_}!VisitedPanelController@{VisitedPanelController}}
+\doxysubsubsection{\texorpdfstring{visitedColor\_}{visitedColor\_}}
+{\footnotesize\ttfamily Color32 Visited\+Panel\+Controller.\+visited\+Color\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Color of the background of the sign when it is already visited. 
+
+\mbox{\Hypertarget{class_visited_panel_controller_a8f821c045ba464e3a3347503e0f1a301}\label{class_visited_panel_controller_a8f821c045ba464e3a3347503e0f1a301}} 
+\index{VisitedPanelController@{VisitedPanelController}!visitedText\_@{visitedText\_}}
+\index{visitedText\_@{visitedText\_}!VisitedPanelController@{VisitedPanelController}}
+\doxysubsubsection{\texorpdfstring{visitedText\_}{visitedText\_}}
+{\footnotesize\ttfamily string Visited\+Panel\+Controller.\+visited\+Text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+String that contains the visited message. 
+
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Place\+Screen/Visited\+Panel\+Controller.\+cs\end{DoxyCompactItemize}
+Scripts/\+Place\+Screen/\mbox{\hyperlink{_visited_panel_controller_8cs}{Visited\+Panel\+Controller.\+cs}}\end{DoxyCompactItemize}

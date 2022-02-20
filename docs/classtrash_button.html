@@ -64,10 +64,15 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classtrash_button-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">trashButton Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class that handles the delete button of the stored places panel element.  
+ <a href="classtrash_button.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for trashButton:</div>
 <div class="dyncontent">
@@ -77,12 +82,152 @@ Inheritance diagram for trashButton:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4181172ca3382cad5b0ce6ed37cc2b1e"><td class="memItemLeft" align="right" valign="top"><a id="a4181172ca3382cad5b0ce6ed37cc2b1e" name="a4181172ca3382cad5b0ce6ed37cc2b1e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>OnClick</b> ()</td></tr>
+<tr class="memitem:a4181172ca3382cad5b0ce6ed37cc2b1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrash_button.html#a4181172ca3382cad5b0ce6ed37cc2b1e">OnClick</a> ()</td></tr>
+<tr class="memdesc:a4181172ca3382cad5b0ce6ed37cc2b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method should be called when the delete button is clicked by the user. If the user has not uploaded visits on this stored place, it notify the user to make it aware of what is he doing. If the user hasnt any visit for upload, it just call deleteStoredPlace method of <a class="el" href="class_stored_places_controller.html" title="Class that controls the panels that shows the information of each stored place.">StoredPlacesController</a> class.  <a href="classtrash_button.html#a4181172ca3382cad5b0ce6ed37cc2b1e">More...</a><br /></td></tr>
 <tr class="separator:a4181172ca3382cad5b0ce6ed37cc2b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ac6e67f4c2498969251187a5c5b8a1208"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrash_button.html#ac6e67f4c2498969251187a5c5b8a1208">Start</a> ()</td></tr>
+<tr class="memdesc:ac6e67f4c2498969251187a5c5b8a1208"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called on the first frame. It initialices the shouldAdviseUser_ property as true.  <a href="classtrash_button.html#ac6e67f4c2498969251187a5c5b8a1208">More...</a><br /></td></tr>
+<tr class="separator:ac6e67f4c2498969251187a5c5b8a1208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a8fa587627d96f758d8b29cb1bde1439b"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrash_button.html#a8fa587627d96f758d8b29cb1bde1439b">toastMessageObject_</a></td></tr>
+<tr class="memdesc:a8fa587627d96f758d8b29cb1bde1439b"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject with the reference to the toastmessage where the messages will be shown.  <a href="classtrash_button.html#a8fa587627d96f758d8b29cb1bde1439b">More...</a><br /></td></tr>
+<tr class="separator:a8fa587627d96f758d8b29cb1bde1439b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38b5914522d40b753b1587377db92bfa"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrash_button.html#a38b5914522d40b753b1587377db92bfa">numberOfNotUploadedVisits_</a></td></tr>
+<tr class="memdesc:a38b5914522d40b753b1587377db92bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that will shown the number of not uploaded visits of the stored place.  <a href="classtrash_button.html#a38b5914522d40b753b1587377db92bfa">More...</a><br /></td></tr>
+<tr class="separator:a38b5914522d40b753b1587377db92bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af170c27fd9ec25ce502d151f7c4bb3ae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtrash_button.html#af170c27fd9ec25ce502d151f7c4bb3ae">shouldAdviseUser_</a></td></tr>
+<tr class="memdesc:af170c27fd9ec25ce502d151f7c4bb3ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if it has to notify the user before deleting the stored place. False if it has not to notify the user.  <a href="classtrash_button.html#af170c27fd9ec25ce502d151f7c4bb3ae">More...</a><br /></td></tr>
+<tr class="separator:af170c27fd9ec25ce502d151f7c4bb3ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Class that handles the delete button of the stored places panel element. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4181172ca3382cad5b0ce6ed37cc2b1e" name="a4181172ca3382cad5b0ce6ed37cc2b1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4181172ca3382cad5b0ce6ed37cc2b1e">&#9670;&nbsp;</a></span>OnClick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void trashButton.OnClick </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method should be called when the delete button is clicked by the user. If the user has not uploaded visits on this stored place, it notify the user to make it aware of what is he doing. If the user hasnt any visit for upload, it just call deleteStoredPlace method of <a class="el" href="class_stored_places_controller.html" title="Class that controls the panels that shows the information of each stored place.">StoredPlacesController</a> class. </p>
+
+</div>
+</div>
+<a id="ac6e67f4c2498969251187a5c5b8a1208" name="ac6e67f4c2498969251187a5c5b8a1208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6e67f4c2498969251187a5c5b8a1208">&#9670;&nbsp;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void trashButton.Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is called on the first frame. It initialices the shouldAdviseUser_ property as true. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a38b5914522d40b753b1587377db92bfa" name="a38b5914522d40b753b1587377db92bfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38b5914522d40b753b1587377db92bfa">&#9670;&nbsp;</a></span>numberOfNotUploadedVisits_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject trashButton.numberOfNotUploadedVisits_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that will shown the number of not uploaded visits of the stored place. </p>
+
+</div>
+</div>
+<a id="af170c27fd9ec25ce502d151f7c4bb3ae" name="af170c27fd9ec25ce502d151f7c4bb3ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af170c27fd9ec25ce502d151f7c4bb3ae">&#9670;&nbsp;</a></span>shouldAdviseUser_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trashButton.shouldAdviseUser_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>True if it has to notify the user before deleting the stored place. False if it has not to notify the user. </p>
+
+</div>
+</div>
+<a id="a8fa587627d96f758d8b29cb1bde1439b" name="a8fa587627d96f758d8b29cb1bde1439b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fa587627d96f758d8b29cb1bde1439b">&#9670;&nbsp;</a></span>toastMessageObject_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject trashButton.toastMessageObject_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject with the reference to the toastmessage where the messages will be shown. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>MyPrefabs/Scripts/storedPlace/trashButton.cs</li>
+<li>MyPrefabs/Scripts/storedPlace/<a class="el" href="trash_button_8cs.html">trashButton.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -11,11 +11,83 @@ Inheritance diagram for actual\+Zone\+Controller\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{classactual_zone_controller}
 \end{center}
 \end{figure}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classactual_zone_controller_a57361d01d274396f0be97318d14bf96e}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em this method is called before the first frame, it initializes the gps\+Controller\+\_\+ property. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classactual_zone_controller_a8cc115736708a3911293e2a869ba5017}{Update}} ()
+\begin{DoxyCompactList}\small\item\em this method is called each frame, it checks if the user has changed his zone. If that is the case, it update the text\+Object\+\_\+ to show the new current zone. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classactual_zone_controller_a6553a8fbf4835101bba3577cc2951cbc}{text\+Object\+\_\+}}
+\begin{DoxyCompactList}\small\item\em text where the current zone will be shown. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgps_controller}{gps\+Controller}} \mbox{\hyperlink{classactual_zone_controller_a66d45aef4d782eb30869d469a5971407}{gps\+Controller\+\_\+}} = null
+\begin{DoxyCompactList}\small\item\em stores a reference to the \mbox{\hyperlink{classgps_controller}{gps\+Controller}}. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classactual_zone_controller_aed0736b1171234e27eb51c136867734e}{last\+Zone\+\_\+}} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em stores the last zone that the user was, for optimization reasons. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class that shows the zone that the current user is. 
 
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classactual_zone_controller_a57361d01d274396f0be97318d14bf96e}\label{classactual_zone_controller_a57361d01d274396f0be97318d14bf96e}} 
+\index{actualZoneController@{actualZoneController}!Awake@{Awake}}
+\index{Awake@{Awake}!actualZoneController@{actualZoneController}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void actual\+Zone\+Controller.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this method is called before the first frame, it initializes the gps\+Controller\+\_\+ property. 
+
+\mbox{\Hypertarget{classactual_zone_controller_a8cc115736708a3911293e2a869ba5017}\label{classactual_zone_controller_a8cc115736708a3911293e2a869ba5017}} 
+\index{actualZoneController@{actualZoneController}!Update@{Update}}
+\index{Update@{Update}!actualZoneController@{actualZoneController}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void actual\+Zone\+Controller.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this method is called each frame, it checks if the user has changed his zone. If that is the case, it update the text\+Object\+\_\+ to show the new current zone. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classactual_zone_controller_a66d45aef4d782eb30869d469a5971407}\label{classactual_zone_controller_a66d45aef4d782eb30869d469a5971407}} 
+\index{actualZoneController@{actualZoneController}!gpsController\_@{gpsController\_}}
+\index{gpsController\_@{gpsController\_}!actualZoneController@{actualZoneController}}
+\doxysubsubsection{\texorpdfstring{gpsController\_}{gpsController\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgps_controller}{gps\+Controller}} actual\+Zone\+Controller.\+gps\+Controller\+\_\+ = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+stores a reference to the \mbox{\hyperlink{classgps_controller}{gps\+Controller}}. 
+
+\mbox{\Hypertarget{classactual_zone_controller_aed0736b1171234e27eb51c136867734e}\label{classactual_zone_controller_aed0736b1171234e27eb51c136867734e}} 
+\index{actualZoneController@{actualZoneController}!lastZone\_@{lastZone\_}}
+\index{lastZone\_@{lastZone\_}!actualZoneController@{actualZoneController}}
+\doxysubsubsection{\texorpdfstring{lastZone\_}{lastZone\_}}
+{\footnotesize\ttfamily string actual\+Zone\+Controller.\+last\+Zone\+\_\+ = \char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+stores the last zone that the user was, for optimization reasons. 
+
+\mbox{\Hypertarget{classactual_zone_controller_a6553a8fbf4835101bba3577cc2951cbc}\label{classactual_zone_controller_a6553a8fbf4835101bba3577cc2951cbc}} 
+\index{actualZoneController@{actualZoneController}!textObject\_@{textObject\_}}
+\index{textObject\_@{textObject\_}!actualZoneController@{actualZoneController}}
+\doxysubsubsection{\texorpdfstring{textObject\_}{textObject\_}}
+{\footnotesize\ttfamily Game\+Object actual\+Zone\+Controller.\+text\+Object\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+text where the current zone will be shown. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Main\+Screen/actual\+Zone\+Controller.\+cs\end{DoxyCompactItemize}
+Scripts/\+Main\+Screen/\mbox{\hyperlink{actual_zone_controller_8cs}{actual\+Zone\+Controller.\+cs}}\end{DoxyCompactItemize}

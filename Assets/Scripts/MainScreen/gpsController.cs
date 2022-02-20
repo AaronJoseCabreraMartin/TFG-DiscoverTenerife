@@ -184,8 +184,8 @@ public class gpsController : MonoBehaviour
                 altitude_ = Input.location.lastData.altitude;
                 //Debug.Log($"latitude_={latitude_},longitude_={longitude_}");
                 //si la base no ha sido establecida desde que tengas permisos, establecela
-            if(firebaseHandler.firebaseHandlerInstance_.actualUser_ != null && !firebaseHandler.firebaseHandlerInstance_.actualUser_.baseEstablished()){
-                firebaseHandler.firebaseHandlerInstance_.actualUser_.setBase(latitude_,longitude_);
+            if(firebaseHandler.firebaseHandlerInstance_.currentUser_ != null && !firebaseHandler.firebaseHandlerInstance_.currentUser_.baseEstablished()){
+                firebaseHandler.firebaseHandlerInstance_.currentUser_.setBase(latitude_,longitude_);
                 firebaseHandler.firebaseHandlerInstance_.writeUserData();
             }
         }else{
@@ -330,7 +330,7 @@ public class gpsController : MonoBehaviour
       * @brief it calls the getZoneOf method with the user coordenades and returns what
       * that method returns.
       */
-    public string getActualZoneOfUser(){
+    public string getcurrentZoneOfUser(){
         return getZoneOf(latitude_, longitude_);
     }
 

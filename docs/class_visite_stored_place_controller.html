@@ -64,6 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_visite_stored_place_controller-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">VisiteStoredPlaceController Class Reference</div></div>
 </div><!--header-->
@@ -80,15 +82,263 @@ Inheritance diagram for VisiteStoredPlaceController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afa3530d31302a52d562d321ae8bddde6"><td class="memItemLeft" align="right" valign="top"><a id="afa3530d31302a52d562d321ae8bddde6" name="afa3530d31302a52d562d321ae8bddde6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CheckNewState</b> ()</td></tr>
-<tr class="memdesc:afa3530d31302a52d562d321ae8bddde6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method check if the current stored chosen place was already visited and then, shows both the correspondent background and text. <br /></td></tr>
+<tr class="memitem:afa3530d31302a52d562d321ae8bddde6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_visite_stored_place_controller.html#afa3530d31302a52d562d321ae8bddde6">CheckNewState</a> ()</td></tr>
+<tr class="memdesc:afa3530d31302a52d562d321ae8bddde6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method check if the current stored chosen place was already visited and then, shows both the correspondent background and text.  <a href="class_visite_stored_place_controller.html#afa3530d31302a52d562d321ae8bddde6">More...</a><br /></td></tr>
 <tr class="separator:afa3530d31302a52d562d321ae8bddde6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a74af2d0736fa6e0cfa48a471becc7a26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_visite_stored_place_controller.html#a74af2d0736fa6e0cfa48a471becc7a26">Awake</a> ()</td></tr>
+<tr class="memdesc:a74af2d0736fa6e0cfa48a471becc7a26"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called before the first frame. It initiaize both the notVisitedColor_ and the visitedColor_ attributes and calls the CheckNewState method.  <a href="class_visite_stored_place_controller.html#a74af2d0736fa6e0cfa48a471becc7a26">More...</a><br /></td></tr>
+<tr class="separator:a74af2d0736fa6e0cfa48a471becc7a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af64b745706c2343d66fb29fc9c6c3666"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_visite_stored_place_controller.html#af64b745706c2343d66fb29fc9c6c3666">Update</a> ()</td></tr>
+<tr class="memdesc:af64b745706c2343d66fb29fc9c6c3666"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called once each frame. It calls the CheckNewState method.  <a href="class_visite_stored_place_controller.html#af64b745706c2343d66fb29fc9c6c3666">More...</a><br /></td></tr>
+<tr class="separator:af64b745706c2343d66fb29fc9c6c3666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a822f370fc9ba9773ff870c4ddd330e5b"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_visite_stored_place_controller.html#a822f370fc9ba9773ff870c4ddd330e5b">image_</a></td></tr>
+<tr class="memdesc:a822f370fc9ba9773ff870c4ddd330e5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that has the background image of the panel.  <a href="class_visite_stored_place_controller.html#a822f370fc9ba9773ff870c4ddd330e5b">More...</a><br /></td></tr>
+<tr class="separator:a822f370fc9ba9773ff870c4ddd330e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d402375a289f4cb5bdcf7c967b6424a"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_visite_stored_place_controller.html#a5d402375a289f4cb5bdcf7c967b6424a">text_</a></td></tr>
+<tr class="memdesc:a5d402375a289f4cb5bdcf7c967b6424a"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that has the text of the panel.  <a href="class_visite_stored_place_controller.html#a5d402375a289f4cb5bdcf7c967b6424a">More...</a><br /></td></tr>
+<tr class="separator:a5d402375a289f4cb5bdcf7c967b6424a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acce00587ae3f65c887eddea2a6632e64"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_visite_stored_place_controller.html#acce00587ae3f65c887eddea2a6632e64">notVisitedText_</a></td></tr>
+<tr class="memdesc:acce00587ae3f65c887eddea2a6632e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">string that contains the text that will be shown when the user havent visited the current chosen stored place.  <a href="class_visite_stored_place_controller.html#acce00587ae3f65c887eddea2a6632e64">More...</a><br /></td></tr>
+<tr class="separator:acce00587ae3f65c887eddea2a6632e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a530e42f0a8c32fff4c4914f14c522b45"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_visite_stored_place_controller.html#a530e42f0a8c32fff4c4914f14c522b45">visitedText_</a></td></tr>
+<tr class="memdesc:a530e42f0a8c32fff4c4914f14c522b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">string that contains the text that will be shown when the user have visited the current chosen stored place.  <a href="class_visite_stored_place_controller.html#a530e42f0a8c32fff4c4914f14c522b45">More...</a><br /></td></tr>
+<tr class="separator:a530e42f0a8c32fff4c4914f14c522b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24898c54bd169f08c91f7bc5b4e80f81"><td class="memItemLeft" align="right" valign="top">Color32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_visite_stored_place_controller.html#a24898c54bd169f08c91f7bc5b4e80f81">notVisitedColor_</a></td></tr>
+<tr class="memdesc:a24898c54bd169f08c91f7bc5b4e80f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Color of the panel when the user havent visited the current chosen stored place.  <a href="class_visite_stored_place_controller.html#a24898c54bd169f08c91f7bc5b4e80f81">More...</a><br /></td></tr>
+<tr class="separator:a24898c54bd169f08c91f7bc5b4e80f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbea17c44c282d9e68e071f96c9d3cdf"><td class="memItemLeft" align="right" valign="top">Color32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_visite_stored_place_controller.html#afbea17c44c282d9e68e071f96c9d3cdf">visitedColor_</a></td></tr>
+<tr class="memdesc:afbea17c44c282d9e68e071f96c9d3cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Color of the panel when the user have visited the current chosen stored place.  <a href="class_visite_stored_place_controller.html#afbea17c44c282d9e68e071f96c9d3cdf">More...</a><br /></td></tr>
+<tr class="separator:afbea17c44c282d9e68e071f96c9d3cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class that controls the panel that shows if the user has visited the chosen stored place. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/StoredPlaceScreen/VisiteStoredPlaceController.cs</li>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a74af2d0736fa6e0cfa48a471becc7a26" name="a74af2d0736fa6e0cfa48a471becc7a26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74af2d0736fa6e0cfa48a471becc7a26">&#9670;&nbsp;</a></span>Awake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VisiteStoredPlaceController.Awake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is called before the first frame. It initiaize both the notVisitedColor_ and the visitedColor_ attributes and calls the CheckNewState method. </p>
+
+</div>
+</div>
+<a id="afa3530d31302a52d562d321ae8bddde6" name="afa3530d31302a52d562d321ae8bddde6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa3530d31302a52d562d321ae8bddde6">&#9670;&nbsp;</a></span>CheckNewState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VisiteStoredPlaceController.CheckNewState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method check if the current stored chosen place was already visited and then, shows both the correspondent background and text. </p>
+
+</div>
+</div>
+<a id="af64b745706c2343d66fb29fc9c6c3666" name="af64b745706c2343d66fb29fc9c6c3666"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af64b745706c2343d66fb29fc9c6c3666">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VisiteStoredPlaceController.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is called once each frame. It calls the CheckNewState method. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a822f370fc9ba9773ff870c4ddd330e5b" name="a822f370fc9ba9773ff870c4ddd330e5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a822f370fc9ba9773ff870c4ddd330e5b">&#9670;&nbsp;</a></span>image_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject VisiteStoredPlaceController.image_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that has the background image of the panel. </p>
+
+</div>
+</div>
+<a id="a24898c54bd169f08c91f7bc5b4e80f81" name="a24898c54bd169f08c91f7bc5b4e80f81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24898c54bd169f08c91f7bc5b4e80f81">&#9670;&nbsp;</a></span>notVisitedColor_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Color32 VisiteStoredPlaceController.notVisitedColor_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Color of the panel when the user havent visited the current chosen stored place. </p>
+
+</div>
+</div>
+<a id="acce00587ae3f65c887eddea2a6632e64" name="acce00587ae3f65c887eddea2a6632e64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acce00587ae3f65c887eddea2a6632e64">&#9670;&nbsp;</a></span>notVisitedText_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string VisiteStoredPlaceController.notVisitedText_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>string that contains the text that will be shown when the user havent visited the current chosen stored place. </p>
+
+</div>
+</div>
+<a id="a5d402375a289f4cb5bdcf7c967b6424a" name="a5d402375a289f4cb5bdcf7c967b6424a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d402375a289f4cb5bdcf7c967b6424a">&#9670;&nbsp;</a></span>text_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject VisiteStoredPlaceController.text_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that has the text of the panel. </p>
+
+</div>
+</div>
+<a id="afbea17c44c282d9e68e071f96c9d3cdf" name="afbea17c44c282d9e68e071f96c9d3cdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbea17c44c282d9e68e071f96c9d3cdf">&#9670;&nbsp;</a></span>visitedColor_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Color32 VisiteStoredPlaceController.visitedColor_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Color of the panel when the user have visited the current chosen stored place. </p>
+
+</div>
+</div>
+<a id="a530e42f0a8c32fff4c4914f14c522b45" name="a530e42f0a8c32fff4c4914f14c522b45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a530e42f0a8c32fff4c4914f14c522b45">&#9670;&nbsp;</a></span>visitedText_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string VisiteStoredPlaceController.visitedText_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>string that contains the text that will be shown when the user have visited the current chosen stored place. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>Scripts/StoredPlaceScreen/<a class="el" href="_visite_stored_place_controller_8cs.html">VisiteStoredPlaceController.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

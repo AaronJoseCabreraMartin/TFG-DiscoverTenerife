@@ -1131,8 +1131,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -345, y: -116}
-  m_SizeDelta: {x: 152.8622, y: 120.1411}
+  m_AnchoredPosition: {x: -337, y: -116}
+  m_SizeDelta: {x: 170.6042, y: 120.1411}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &427014235
 MonoBehaviour:
@@ -1167,7 +1167,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Actual
+  m_Text: 'Current
 
     zone:'
 --- !u!222 &427014236

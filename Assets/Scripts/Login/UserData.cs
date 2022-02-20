@@ -549,7 +549,7 @@ public class UserData{
     public void deleteFriend(string uid){
         friendList_.Remove(uid);
         friendDataList_.Remove(friendDataList_.Find(friendData => friendData.getUid() == uid));
-        Debug.Log("deleteFriend: "+ToJson());
+        //Debug.Log("deleteFriend: "+ToJson());
     }
 
     /**
@@ -561,5 +561,17 @@ public class UserData{
       */
     public VisitedPlace getStoryPlaceData(int index){
         return visitedPlaces_[index];
+    }
+
+    /**
+      * @return string with the user id of the current user.
+      * @brief getter of the user id.
+      */
+    public string getUid(){
+      return firebaseUserData_.UserId;
+    }
+
+    public bool isAFriendByDisplayName(string displayName){
+      return friendDataList_.Exists(friendData => friendData.getDisplayName() == displayName);
     }
 }

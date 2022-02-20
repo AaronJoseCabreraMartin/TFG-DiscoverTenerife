@@ -64,6 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_searched_friends_panel-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">SearchedFriendsPanel Class Reference</div></div>
 </div><!--header-->
@@ -85,13 +87,36 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4201ccb2cbf9fc366b3e7e866afd0318"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea4acc3befa53222068dd7ef090271ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#aea4acc3befa53222068dd7ef090271ce">getSearchedFriendsCount</a> ()</td></tr>
 <tr class="separator:aea4acc3befa53222068dd7ef090271ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04adc15cea9c228cdae5af8b5a66053b"><td class="memItemLeft" align="right" valign="top"><a id="a04adc15cea9c228cdae5af8b5a66053b" name="a04adc15cea9c228cdae5af8b5a66053b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearSearchedFriendsPanel</b> ()</td></tr>
-<tr class="memdesc:a04adc15cea9c228cdae5af8b5a66053b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method destroy each of the elements of the panel and calls the adjustPanelSize method. <br /></td></tr>
+<tr class="memitem:a04adc15cea9c228cdae5af8b5a66053b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#a04adc15cea9c228cdae5af8b5a66053b">clearSearchedFriendsPanel</a> ()</td></tr>
+<tr class="memdesc:a04adc15cea9c228cdae5af8b5a66053b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method destroy each of the elements of the panel and calls the adjustPanelSize method.  <a href="class_searched_friends_panel.html#a04adc15cea9c228cdae5af8b5a66053b">More...</a><br /></td></tr>
 <tr class="separator:a04adc15cea9c228cdae5af8b5a66053b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa929018b26c5d03d4f22e98431a32f35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#aa929018b26c5d03d4f22e98431a32f35">makeToast</a> (string message, Color32 color, int duration)</td></tr>
-<tr class="memdesc:aa929018b26c5d03d4f22e98431a32f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method calls the makeAnimation method of the <a class="el" href="classtoast_message.html">toastMessage</a> class with the same arguments that its called.  <a href="class_searched_friends_panel.html#aa929018b26c5d03d4f22e98431a32f35">More...</a><br /></td></tr>
+<tr class="memdesc:aa929018b26c5d03d4f22e98431a32f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method calls the makeAnimation method of the <a class="el" href="classtoast_message.html" title="class that controls the colored messages that are shown to the user giving him information but they h...">toastMessage</a> class with the same arguments that its called.  <a href="class_searched_friends_panel.html#aa929018b26c5d03d4f22e98431a32f35">More...</a><br /></td></tr>
 <tr class="separator:aa929018b26c5d03d4f22e98431a32f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a7a306e84216533144a4a4546a3690a70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#a7a306e84216533144a4a4546a3690a70">Awake</a> ()</td></tr>
+<tr class="memdesc:a7a306e84216533144a4a4546a3690a70"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called before the first frame. It initializes both the searchedFriends_ and the initialHeight_ property.  <a href="class_searched_friends_panel.html#a7a306e84216533144a4a4546a3690a70">More...</a><br /></td></tr>
+<tr class="separator:a7a306e84216533144a4a4546a3690a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d385f26d0787a66ed4f6bb8b957dd3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#a3d385f26d0787a66ed4f6bb8b957dd3e">adjustPanelSize</a> ()</td></tr>
+<tr class="memdesc:a3d385f26d0787a66ed4f6bb8b957dd3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method adjust the size of the panel if there is more than 4 elements on it. This method should be called each time that its added a new searched friend. This method allows the panel keep the aparience when more elements are added or deleted.  <a href="class_searched_friends_panel.html#a3d385f26d0787a66ed4f6bb8b957dd3e">More...</a><br /></td></tr>
+<tr class="separator:a3d385f26d0787a66ed4f6bb8b957dd3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a71e3ca9216a864776934a49b3a3f0c63"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#a71e3ca9216a864776934a49b3a3f0c63">searchedFriendPrefab_</a></td></tr>
+<tr class="memdesc:a71e3ca9216a864776934a49b3a3f0c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject the prefab that shows the information of the searched user.  <a href="class_searched_friends_panel.html#a71e3ca9216a864776934a49b3a3f0c63">More...</a><br /></td></tr>
+<tr class="separator:a71e3ca9216a864776934a49b3a3f0c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac74959ddf816bcbe7496a1b8b0966442"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#ac74959ddf816bcbe7496a1b8b0966442">toastMessage_</a></td></tr>
+<tr class="memdesc:ac74959ddf816bcbe7496a1b8b0966442"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject the toast message object that will alert the user with the errors if they happen.  <a href="class_searched_friends_panel.html#ac74959ddf816bcbe7496a1b8b0966442">More...</a><br /></td></tr>
+<tr class="separator:ac74959ddf816bcbe7496a1b8b0966442"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cdb9bbabadd94015d248bb0405438e1"><td class="memItemLeft" align="right" valign="top">List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#a5cdb9bbabadd94015d248bb0405438e1">searchedFriends_</a></td></tr>
+<tr class="memdesc:a5cdb9bbabadd94015d248bb0405438e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;GameObject&gt; List of the generated prefabs that represent the users that were found by the search.  <a href="class_searched_friends_panel.html#a5cdb9bbabadd94015d248bb0405438e1">More...</a><br /></td></tr>
+<tr class="separator:a5cdb9bbabadd94015d248bb0405438e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06fb4ba0135baf655ea68ee39731622c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#a06fb4ba0135baf655ea68ee39731622c">initialHeight_</a></td></tr>
+<tr class="memdesc:a06fb4ba0135baf655ea68ee39731622c"><td class="mdescLeft">&#160;</td><td class="mdescRight">the original height of the panel.  <a href="class_searched_friends_panel.html#a06fb4ba0135baf655ea68ee39731622c">More...</a><br /></td></tr>
+<tr class="separator:a06fb4ba0135baf655ea68ee39731622c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class that controls the panel that shows the result of player search. </p>
@@ -119,6 +144,79 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearSearchedFriendsP
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a3d385f26d0787a66ed4f6bb8b957dd3e" name="a3d385f26d0787a66ed4f6bb8b957dd3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d385f26d0787a66ed4f6bb8b957dd3e">&#9670;&nbsp;</a></span>adjustPanelSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SearchedFriendsPanel.adjustPanelSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method adjust the size of the panel if there is more than 4 elements on it. This method should be called each time that its added a new searched friend. This method allows the panel keep the aparience when more elements are added or deleted. </p>
+
+</div>
+</div>
+<a id="a7a306e84216533144a4a4546a3690a70" name="a7a306e84216533144a4a4546a3690a70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a306e84216533144a4a4546a3690a70">&#9670;&nbsp;</a></span>Awake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SearchedFriendsPanel.Awake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is called before the first frame. It initializes both the searchedFriends_ and the initialHeight_ property. </p>
+
+</div>
+</div>
+<a id="a04adc15cea9c228cdae5af8b5a66053b" name="a04adc15cea9c228cdae5af8b5a66053b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04adc15cea9c228cdae5af8b5a66053b">&#9670;&nbsp;</a></span>clearSearchedFriendsPanel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SearchedFriendsPanel.clearSearchedFriendsPanel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method destroy each of the elements of the panel and calls the adjustPanelSize method. </p>
 
 </div>
 </div>
@@ -172,7 +270,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearSearchedFriendsP
       </table>
 </div><div class="memdoc">
 
-<p>this method calls the makeAnimation method of the <a class="el" href="classtoast_message.html">toastMessage</a> class with the same arguments that its called. </p>
+<p>this method calls the makeAnimation method of the <a class="el" href="classtoast_message.html" title="class that controls the colored messages that are shown to the user giving him information but they h...">toastMessage</a> class with the same arguments that its called. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">string</td><td>menssage to show on the displayed toast. </td></tr>
@@ -184,8 +282,105 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearSearchedFriendsP
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a06fb4ba0135baf655ea68ee39731622c" name="a06fb4ba0135baf655ea68ee39731622c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06fb4ba0135baf655ea68ee39731622c">&#9670;&nbsp;</a></span>initialHeight_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float SearchedFriendsPanel.initialHeight_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the original height of the panel. </p>
+
+</div>
+</div>
+<a id="a71e3ca9216a864776934a49b3a3f0c63" name="a71e3ca9216a864776934a49b3a3f0c63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71e3ca9216a864776934a49b3a3f0c63">&#9670;&nbsp;</a></span>searchedFriendPrefab_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject SearchedFriendsPanel.searchedFriendPrefab_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject the prefab that shows the information of the searched user. </p>
+
+</div>
+</div>
+<a id="a5cdb9bbabadd94015d248bb0405438e1" name="a5cdb9bbabadd94015d248bb0405438e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cdb9bbabadd94015d248bb0405438e1">&#9670;&nbsp;</a></span>searchedFriends_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;GameObject&gt; SearchedFriendsPanel.searchedFriends_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List&lt;GameObject&gt; List of the generated prefabs that represent the users that were found by the search. </p>
+
+</div>
+</div>
+<a id="ac74959ddf816bcbe7496a1b8b0966442" name="ac74959ddf816bcbe7496a1b8b0966442"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac74959ddf816bcbe7496a1b8b0966442">&#9670;&nbsp;</a></span>toastMessage_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject SearchedFriendsPanel.toastMessage_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject the toast message object that will alert the user with the errors if they happen. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/FindFriendScreen/SearchedFriendsPanel.cs</li>
+<li>Scripts/FindFriendScreen/<a class="el" href="_searched_friends_panel_8cs.html">SearchedFriendsPanel.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

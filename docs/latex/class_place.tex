@@ -24,22 +24,40 @@ Sprite \mbox{\hyperlink{class_place_a33601cb1153e1f0f6bc67c38ab204a33}{get\+Imag
 \begin{DoxyCompactList}\small\item\em getter of the image\+\_\+ attribute \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_place_a610ebba52df9201c73ac2e3ffcdb1ec8}{is\+Ready}} ()
 \begin{DoxyCompactList}\small\item\em getter of the ready\+\_\+ attribute \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_place_aea94cad4a28c14d9483b25b5d44e795b}\label{class_place_aea94cad4a28c14d9483b25b5d44e795b}} 
-void {\bfseries one\+More\+Visit} ()
+void \mbox{\hyperlink{class_place_aea94cad4a28c14d9483b25b5d44e795b}{one\+More\+Visit}} ()
 \begin{DoxyCompactList}\small\item\em add one to the times\+It\+Has\+Been\+Visited\+\_\+ property. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_place_a79fd80547eeb619b31fc05d1d2b6e4f8}{To\+Json}} ()
 \item 
 int \mbox{\hyperlink{class_place_a98694eb75048b02938e155e2dc457c79}{get\+Times\+It\+Has\+Been\+Visited}} ()
 \begin{DoxyCompactList}\small\item\em getter of the times\+It\+Has\+Been\+Visited\+\_\+ attribute \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_place_a46e5e2a3284526f409e7511a18827201}\label{class_place_a46e5e2a3284526f409e7511a18827201}} 
-void {\bfseries start\+Download} ()
+void \mbox{\hyperlink{class_place_a46e5e2a3284526f409e7511a18827201}{start\+Download}} ()
 \begin{DoxyCompactList}\small\item\em if the image\+\_\+ property is null, this start the donwload method of the Web\+Client\+\_\+ property and initialize the image\+\_\+ porperty to the real image. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_place_a4f8fd076c2979ab6f526501ca6d666cf}\label{class_place_a4f8fd076c2979ab6f526501ca6d666cf}} 
-static Web\+Client {\bfseries web\+Client\+\_\+} = null
+static Web\+Client \mbox{\hyperlink{class_place_a4f8fd076c2979ab6f526501ca6d666cf}{web\+Client\+\_\+}} = null
 \begin{DoxyCompactList}\small\item\em web client that download the image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_place_a69a7250ce96fd1b235cd6dfe199ef5f4}{name\+\_\+}}
+\begin{DoxyCompactList}\small\item\em name of the represented place. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_place_ae9a5efc1e1f1742ff7db2fbf6884c55a}{address\+\_\+}}
+\begin{DoxyCompactList}\small\item\em address of the represented place. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_place_accfe4a1d7bcf0de5e90e82df96500da2}{latitude\+\_\+}}
+\begin{DoxyCompactList}\small\item\em latitude of the geographical coordenades of the represented place. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_place_aec0e45e45252e10c9579de31ca28262d}{longitude\+\_\+}}
+\begin{DoxyCompactList}\small\item\em longitude of the geographical coordenades of the represented place. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_place_a3a38b3e3504a51104c0b284e6a7ee45e}{image\+Link\+\_\+}}
+\begin{DoxyCompactList}\small\item\em image\+Link of the image of the represented place. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_place_a4c9e407a0a4908f5031905e4dca311e4}{times\+It\+Has\+Been\+Visited\+\_\+}}
+\begin{DoxyCompactList}\small\item\em times that this place has been visited for any user. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_place_a5a066f5f3ebe0c7a1a88cec05da78de0}{zone\+\_\+}}
+\begin{DoxyCompactList}\small\item\em zone of the map that the represented place belongs. \end{DoxyCompactList}\item 
+Sprite \mbox{\hyperlink{class_place_a8a6b78c542ddbd1fe38c2d7e7966ddef}{image\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Image of the reprecented place. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_place_a936cb0b0e0cbcd37f08a245f02690eb5}{ready\+\_\+}} = false
+\begin{DoxyCompactList}\small\item\em bool that control if this place is ready to use. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -164,6 +182,26 @@ getter of the ready\+\_\+ attribute
 \begin{DoxyReturn}{Returns}
 string with the ready\+\_\+\textquotesingle{}s property value, true if this place is ready, false in other case. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_place_aea94cad4a28c14d9483b25b5d44e795b}\label{class_place_aea94cad4a28c14d9483b25b5d44e795b}} 
+\index{Place@{Place}!oneMoreVisit@{oneMoreVisit}}
+\index{oneMoreVisit@{oneMoreVisit}!Place@{Place}}
+\doxysubsubsection{\texorpdfstring{oneMoreVisit()}{oneMoreVisit()}}
+{\footnotesize\ttfamily void Place.\+one\+More\+Visit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+add one to the times\+It\+Has\+Been\+Visited\+\_\+ property. 
+
+\mbox{\Hypertarget{class_place_a46e5e2a3284526f409e7511a18827201}\label{class_place_a46e5e2a3284526f409e7511a18827201}} 
+\index{Place@{Place}!startDownload@{startDownload}}
+\index{startDownload@{startDownload}!Place@{Place}}
+\doxysubsubsection{\texorpdfstring{startDownload()}{startDownload()}}
+{\footnotesize\ttfamily void Place.\+start\+Download (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+if the image\+\_\+ property is null, this start the donwload method of the Web\+Client\+\_\+ property and initialize the image\+\_\+ porperty to the real image. 
+
 \mbox{\Hypertarget{class_place_a79fd80547eeb619b31fc05d1d2b6e4f8}\label{class_place_a79fd80547eeb619b31fc05d1d2b6e4f8}} 
 \index{Place@{Place}!ToJson@{ToJson}}
 \index{ToJson@{ToJson}!Place@{Place}}
@@ -175,6 +213,109 @@ string that contains a string conversion of this object. The conversion follows 
 \end{DoxyReturn}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_place_ae9a5efc1e1f1742ff7db2fbf6884c55a}\label{class_place_ae9a5efc1e1f1742ff7db2fbf6884c55a}} 
+\index{Place@{Place}!address\_@{address\_}}
+\index{address\_@{address\_}!Place@{Place}}
+\doxysubsubsection{\texorpdfstring{address\_}{address\_}}
+{\footnotesize\ttfamily string Place.\+address\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+address of the represented place. 
+
+\mbox{\Hypertarget{class_place_a8a6b78c542ddbd1fe38c2d7e7966ddef}\label{class_place_a8a6b78c542ddbd1fe38c2d7e7966ddef}} 
+\index{Place@{Place}!image\_@{image\_}}
+\index{image\_@{image\_}!Place@{Place}}
+\doxysubsubsection{\texorpdfstring{image\_}{image\_}}
+{\footnotesize\ttfamily Sprite Place.\+image\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Image of the reprecented place. 
+
+\mbox{\Hypertarget{class_place_a3a38b3e3504a51104c0b284e6a7ee45e}\label{class_place_a3a38b3e3504a51104c0b284e6a7ee45e}} 
+\index{Place@{Place}!imageLink\_@{imageLink\_}}
+\index{imageLink\_@{imageLink\_}!Place@{Place}}
+\doxysubsubsection{\texorpdfstring{imageLink\_}{imageLink\_}}
+{\footnotesize\ttfamily string Place.\+image\+Link\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+image\+Link of the image of the represented place. 
+
+\mbox{\Hypertarget{class_place_accfe4a1d7bcf0de5e90e82df96500da2}\label{class_place_accfe4a1d7bcf0de5e90e82df96500da2}} 
+\index{Place@{Place}!latitude\_@{latitude\_}}
+\index{latitude\_@{latitude\_}!Place@{Place}}
+\doxysubsubsection{\texorpdfstring{latitude\_}{latitude\_}}
+{\footnotesize\ttfamily double Place.\+latitude\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+latitude of the geographical coordenades of the represented place. 
+
+\mbox{\Hypertarget{class_place_aec0e45e45252e10c9579de31ca28262d}\label{class_place_aec0e45e45252e10c9579de31ca28262d}} 
+\index{Place@{Place}!longitude\_@{longitude\_}}
+\index{longitude\_@{longitude\_}!Place@{Place}}
+\doxysubsubsection{\texorpdfstring{longitude\_}{longitude\_}}
+{\footnotesize\ttfamily double Place.\+longitude\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+longitude of the geographical coordenades of the represented place. 
+
+\mbox{\Hypertarget{class_place_a69a7250ce96fd1b235cd6dfe199ef5f4}\label{class_place_a69a7250ce96fd1b235cd6dfe199ef5f4}} 
+\index{Place@{Place}!name\_@{name\_}}
+\index{name\_@{name\_}!Place@{Place}}
+\doxysubsubsection{\texorpdfstring{name\_}{name\_}}
+{\footnotesize\ttfamily string Place.\+name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+name of the represented place. 
+
+\mbox{\Hypertarget{class_place_a936cb0b0e0cbcd37f08a245f02690eb5}\label{class_place_a936cb0b0e0cbcd37f08a245f02690eb5}} 
+\index{Place@{Place}!ready\_@{ready\_}}
+\index{ready\_@{ready\_}!Place@{Place}}
+\doxysubsubsection{\texorpdfstring{ready\_}{ready\_}}
+{\footnotesize\ttfamily bool Place.\+ready\+\_\+ = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+bool that control if this place is ready to use. 
+
+\mbox{\Hypertarget{class_place_a4c9e407a0a4908f5031905e4dca311e4}\label{class_place_a4c9e407a0a4908f5031905e4dca311e4}} 
+\index{Place@{Place}!timesItHasBeenVisited\_@{timesItHasBeenVisited\_}}
+\index{timesItHasBeenVisited\_@{timesItHasBeenVisited\_}!Place@{Place}}
+\doxysubsubsection{\texorpdfstring{timesItHasBeenVisited\_}{timesItHasBeenVisited\_}}
+{\footnotesize\ttfamily int Place.\+times\+It\+Has\+Been\+Visited\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+times that this place has been visited for any user. 
+
+\mbox{\Hypertarget{class_place_a4f8fd076c2979ab6f526501ca6d666cf}\label{class_place_a4f8fd076c2979ab6f526501ca6d666cf}} 
+\index{Place@{Place}!webClient\_@{webClient\_}}
+\index{webClient\_@{webClient\_}!Place@{Place}}
+\doxysubsubsection{\texorpdfstring{webClient\_}{webClient\_}}
+{\footnotesize\ttfamily Web\+Client Place.\+web\+Client\+\_\+ = null\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+web client that download the image. 
+
+\mbox{\Hypertarget{class_place_a5a066f5f3ebe0c7a1a88cec05da78de0}\label{class_place_a5a066f5f3ebe0c7a1a88cec05da78de0}} 
+\index{Place@{Place}!zone\_@{zone\_}}
+\index{zone\_@{zone\_}!Place@{Place}}
+\doxysubsubsection{\texorpdfstring{zone\_}{zone\_}}
+{\footnotesize\ttfamily string Place.\+zone\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+zone of the map that the represented place belongs. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Main\+Screen/Place.\+cs\end{DoxyCompactItemize}
+Scripts/\+Main\+Screen/\mbox{\hyperlink{_place_8cs}{Place.\+cs}}\end{DoxyCompactItemize}

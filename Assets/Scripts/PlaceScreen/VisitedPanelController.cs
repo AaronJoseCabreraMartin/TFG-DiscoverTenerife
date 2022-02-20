@@ -81,7 +81,7 @@ public class VisitedPanelController : MonoBehaviour
       * sets the loaded_ attribute as true. 
       */
     public void CheckNewState(){
-        bool playerHasVisitThisPlace = firebaseHandlerObject_.hasUserVisitPlaceByName(PlaceHandler.choosenPlace_.getName());
+        bool playerHasVisitThisPlace = firebaseHandlerObject_.hasUserVisitPlaceByName(PlaceHandler.chosenPlace_.getName());
         image_.GetComponent<Image>().color = (playerHasVisitThisPlace ? visitedColor_ : notVisitedColor_);
         text_.GetComponent<Text>().text = (playerHasVisitThisPlace ? visitedText_ : notVisitedText_);
         loaded_ = true;

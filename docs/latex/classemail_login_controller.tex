@@ -20,12 +20,47 @@ void \mbox{\hyperlink{classemail_login_controller_a5068564643d233df608929443e4d6
 \begin{DoxyCompactList}\small\item\em This method should be called when the login process worked successfully, it sets the in\+Progress flag to false and call the change\+Scene\+With\+Animation method of the class \mbox{\hyperlink{class_change_scene}{Change\+Scene}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classemail_login_controller_ae26e2b5345c62ddee6e164c2e5ea9c8b}{error\+Login\+User}} (string error)
 \begin{DoxyCompactList}\small\item\em This method should be called when the login process failed. It makes a toast message that shows the given error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classemail_login_controller_a5d3572bf2f6794027e6599369d7e3a80}{is\+Email}} (string email)
+\begin{DoxyCompactList}\small\item\em this method returns if the given string contains a email that matches the well formated email regular expression. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{classemail_login_controller_aa9bb671a24225a8e7ffc834ab6fbd6c0}{Change\+Image\+Color}} (Image to\+Mark, int time)
+\begin{DoxyCompactList}\small\item\em This coroutine change the color of the given image to red, then wait the given number of seconds and then change the color of the given image to white again. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classemail_login_controller_ab4a150b7f76e426a1f9e433f8da0d629}{user}}
+\begin{DoxyCompactList}\small\item\em Game\+Object this reference contains the input box for the user email field. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classemail_login_controller_afaf6fbf0033dc9bf68aff4de423746e9}{password}}
+\begin{DoxyCompactList}\small\item\em Game\+Object this reference contains the input box for the user password field. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classemail_login_controller_a825c6ba21591da60168e171b90abdb4c}{toast\+Message\+Object\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object this reference contains the toast message panel that show the user the errors that are happening. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classemail_login_controller_a1788e6a2b4f7262f91002f7e4e9c36d6}{in\+Progress}} = false
+\begin{DoxyCompactList}\small\item\em bool this flag is true when the logging process is working, and false in otherwise. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class that controls the email login button. It also makes information messages for the user. 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classemail_login_controller_aa9bb671a24225a8e7ffc834ab6fbd6c0}\label{classemail_login_controller_aa9bb671a24225a8e7ffc834ab6fbd6c0}} 
+\index{emailLoginController@{emailLoginController}!ChangeImageColor@{ChangeImageColor}}
+\index{ChangeImageColor@{ChangeImageColor}!emailLoginController@{emailLoginController}}
+\doxysubsubsection{\texorpdfstring{ChangeImageColor()}{ChangeImageColor()}}
+{\footnotesize\ttfamily IEnumerator email\+Login\+Controller.\+Change\+Image\+Color (\begin{DoxyParamCaption}\item[{Image}]{to\+Mark,  }\item[{int}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This coroutine change the color of the given image to red, then wait the given number of seconds and then change the color of the given image to white again. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Image} & the image of the input field that you want to change the color. \\
+\hline
+{\em int} & the time in seconds that you want to let the color changed. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classemail_login_controller_ae26e2b5345c62ddee6e164c2e5ea9c8b}\label{classemail_login_controller_ae26e2b5345c62ddee6e164c2e5ea9c8b}} 
 \index{emailLoginController@{emailLoginController}!errorLoginUser@{errorLoginUser}}
 \index{errorLoginUser@{errorLoginUser}!emailLoginController@{emailLoginController}}
@@ -41,6 +76,24 @@ This method should be called when the login process failed. It makes a toast mes
 {\em string} & that contains the error that happened during the logging process \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classemail_login_controller_a5d3572bf2f6794027e6599369d7e3a80}\label{classemail_login_controller_a5d3572bf2f6794027e6599369d7e3a80}} 
+\index{emailLoginController@{emailLoginController}!isEmail@{isEmail}}
+\index{isEmail@{isEmail}!emailLoginController@{emailLoginController}}
+\doxysubsubsection{\texorpdfstring{isEmail()}{isEmail()}}
+{\footnotesize\ttfamily bool email\+Login\+Controller.\+is\+Email (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this method returns if the given string contains a email that matches the well formated email regular expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & to check if it contains a valid format email \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the given string is a valid format email, false in otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classemail_login_controller_a39c0918d7d6d5572baaf3c03d8589522}\label{classemail_login_controller_a39c0918d7d6d5572baaf3c03d8589522}} 
 \index{emailLoginController@{emailLoginController}!tryToLoginUser@{tryToLoginUser}}
 \index{tryToLoginUser@{tryToLoginUser}!emailLoginController@{emailLoginController}}
@@ -71,6 +124,49 @@ This method should be called when the login process worked successfully, it sets
 \end{DoxyParams}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classemail_login_controller_a1788e6a2b4f7262f91002f7e4e9c36d6}\label{classemail_login_controller_a1788e6a2b4f7262f91002f7e4e9c36d6}} 
+\index{emailLoginController@{emailLoginController}!inProgress@{inProgress}}
+\index{inProgress@{inProgress}!emailLoginController@{emailLoginController}}
+\doxysubsubsection{\texorpdfstring{inProgress}{inProgress}}
+{\footnotesize\ttfamily bool email\+Login\+Controller.\+in\+Progress = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+bool this flag is true when the logging process is working, and false in otherwise. 
+
+\mbox{\Hypertarget{classemail_login_controller_afaf6fbf0033dc9bf68aff4de423746e9}\label{classemail_login_controller_afaf6fbf0033dc9bf68aff4de423746e9}} 
+\index{emailLoginController@{emailLoginController}!password@{password}}
+\index{password@{password}!emailLoginController@{emailLoginController}}
+\doxysubsubsection{\texorpdfstring{password}{password}}
+{\footnotesize\ttfamily Game\+Object email\+Login\+Controller.\+password\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object this reference contains the input box for the user password field. 
+
+\mbox{\Hypertarget{classemail_login_controller_a825c6ba21591da60168e171b90abdb4c}\label{classemail_login_controller_a825c6ba21591da60168e171b90abdb4c}} 
+\index{emailLoginController@{emailLoginController}!toastMessageObject\_@{toastMessageObject\_}}
+\index{toastMessageObject\_@{toastMessageObject\_}!emailLoginController@{emailLoginController}}
+\doxysubsubsection{\texorpdfstring{toastMessageObject\_}{toastMessageObject\_}}
+{\footnotesize\ttfamily Game\+Object email\+Login\+Controller.\+toast\+Message\+Object\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object this reference contains the toast message panel that show the user the errors that are happening. 
+
+\mbox{\Hypertarget{classemail_login_controller_ab4a150b7f76e426a1f9e433f8da0d629}\label{classemail_login_controller_ab4a150b7f76e426a1f9e433f8da0d629}} 
+\index{emailLoginController@{emailLoginController}!user@{user}}
+\index{user@{user}!emailLoginController@{emailLoginController}}
+\doxysubsubsection{\texorpdfstring{user}{user}}
+{\footnotesize\ttfamily Game\+Object email\+Login\+Controller.\+user\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object this reference contains the input box for the user email field. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Email\+Login\+Screen/email\+Login\+Controller.\+cs\end{DoxyCompactItemize}
+Scripts/\+Email\+Login\+Screen/\mbox{\hyperlink{email_login_controller_8cs}{email\+Login\+Controller.\+cs}}\end{DoxyCompactItemize}

@@ -11,7 +11,7 @@ public class requestHandler
     /**
       * @brief stores the type of the next place that will be returned.
       */
-    private int actualIndexType_;
+    private int currentIndexType_;
 
     /**
       * @brief List of strings that contains the valid types of the places.
@@ -22,7 +22,7 @@ public class requestHandler
     /**
       * @brief stores the index of the next place that will be returned.
       */
-    private int actualIndexPlace_;
+    private int currentIndexPlace_;
 
     /**
       * Stores all the places splited by types.
@@ -53,7 +53,7 @@ public class requestHandler
       */
     public requestHandler(Dictionary<string,Dictionary<string,Dictionary<string,string>>> allPlaces){
         typesOfSites_ = new List<string>();
-        actualIndexType_ = 0;
+        currentIndexType_ = 0;
         listOfPlaces_ = new List<List<Place>>();
         sortedPlaceIndex_ = new List<List<int>>();
         foreach(var typeOfSite in allPlaces.Keys){
@@ -61,13 +61,13 @@ public class requestHandler
             listOfPlaces_.Add(new List<Place>());
             sortedPlaceIndex_.Add(new List<int>());
             foreach(var siteId in allPlaces[typeOfSite].Keys){
-                listOfPlaces_[actualIndexType_].Add(new Place(allPlaces[typeOfSite][siteId]));
-                sortedPlaceIndex_[actualIndexType_].Add(Int32.Parse(siteId));
+                listOfPlaces_[currentIndexType_].Add(new Place(allPlaces[typeOfSite][siteId]));
+                sortedPlaceIndex_[currentIndexType_].Add(Int32.Parse(siteId));
             }
-            actualIndexType_++;
+            currentIndexType_++;
         }
-        actualIndexType_ = 0;
-        actualIndexPlace_ = 0;
+        currentIndexType_ = 0;
+        currentIndexPlace_ = 0;
         sortPlaces();
         sortedByDistance_ = true;
     }
@@ -104,16 +104,16 @@ public class requestHandler
         bool placeDecided = false;
         while(!placeDecided){
             //cambia de tipo hasta que encuentres uno que si esta
-            while(!whatToSeeOptions[typesOfSites_[actualIndexType_]]){
+            while(!whatToSeeOptions[typesOfSites_[currentIndexType_]]){
                 updateTypeIndex();            
             }
             if(!whatToSeeOptions["Already Visited"]){
-                int previousIndexType = actualIndexType_;
-                while(firebaseHandlerObject.actualUser_.hasVisitPlace(typesOfSites_[actualIndexType_],sortedPlaceIndex_[actualIndexType_][actualIndexPlace_])){
+                int previousIndexType = currentIndexType_;
+                while(firebaseHandlerObject.currentUser_.hasVisitPlace(typesOfSites_[currentIndexType_],sortedPlaceIndex_[currentIndexType_][currentIndexPlace_])){
                     updatePlaceIndex();
                 }
-                //si cambia de tipo debemos asegurarnos de que el tipo actual lo quiere ver
-                if(previousIndexType == actualIndexType_){
+                //si cambia de tipo debemos asegurarnos de que el tipo current lo quiere ver
+                if(previousIndexType == currentIndexType_){
                     placeDecided = true;
                 }
             }else{
@@ -121,33 +121,33 @@ public class requestHandler
             }
         }
 
-        Place toReturn = listOfPlaces_[actualIndexType_][sortedPlaceIndex_[actualIndexType_][actualIndexPlace_]];
+        Place toReturn = listOfPlaces_[currentIndexType_][sortedPlaceIndex_[currentIndexType_][currentIndexPlace_]];
         updatePlaceIndex();
         //toReturn.startDownload();
         return toReturn;
     }
 
     /**
-      * @brief updates the actualIndexPlace_ property to point the next place type that should be chosen.
+      * @brief updates the currentIndexPlace_ property to point the next place type that should be chosen.
       */
     private void updateTypeIndex(){
-        actualIndexType_ = (actualIndexType_+1)%listOfPlaces_.Count;
-        if(actualIndexPlace_ != 0){
-            actualIndexPlace_ = 0;
+        currentIndexType_ = (currentIndexType_+1)%listOfPlaces_.Count;
+        if(currentIndexPlace_ != 0){
+            currentIndexPlace_ = 0;
         }
     }
 
     /**
-      * @brief updates the actualIndexPlace_ property to point the next place id that should be chosen.
+      * @brief updates the currentIndexPlace_ property to point the next place id that should be chosen.
       * If it finshes all the places from that type, it calls the updateTypeIndex method.
       */
     private void updatePlaceIndex(){
-        if(actualIndexPlace_ + 1 >= listOfPlaces_[actualIndexType_].Count){
-            actualIndexPlace_ = 0;
+        if(currentIndexPlace_ + 1 >= listOfPlaces_[currentIndexType_].Count){
+            currentIndexPlace_ = 0;
             //si el indextype se pasa vuelve a 0
             updateTypeIndex();
         }else{
-            actualIndexPlace_++;
+            currentIndexPlace_++;
         }
     }
 

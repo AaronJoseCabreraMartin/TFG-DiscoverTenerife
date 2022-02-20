@@ -55,11 +55,11 @@ public class statsController : MonoBehaviour
       * using the getters of UserData class. It also changes the dataLoaded_ to true.
       */
     private void loadData(){
-        infoPanels_[0].GetComponent<informationPosterController>().updateData(firebaseHandlerObject_.actualUser_.countOfVisitedPlaces().ToString());
-        infoPanels_[1].GetComponent<informationPosterController>().updateData(firebaseHandlerObject_.actualUser_.countOfAccumulatedVisits().ToString());
-        infoPanels_[2].GetComponent<informationPosterController>().updateData(firebaseHandlerObject_.actualUser_.mostVisitedPlace());
-        infoPanels_[3].GetComponent<informationPosterController>().updateData(firebaseHandlerObject_.actualUser_.mostVisitedZone());
-        infoPanels_[4].GetComponent<informationPosterController>().updateData(firebaseHandlerObject_.actualUser_.mostVisitedType());
+        infoPanels_[0].GetComponent<informationPosterController>().updateData(firebaseHandlerObject_.currentUser_.countOfVisitedPlaces().ToString());
+        infoPanels_[1].GetComponent<informationPosterController>().updateData(firebaseHandlerObject_.currentUser_.countOfAccumulatedVisits().ToString());
+        infoPanels_[2].GetComponent<informationPosterController>().updateData(firebaseHandlerObject_.currentUser_.mostVisitedPlace());
+        infoPanels_[3].GetComponent<informationPosterController>().updateData(firebaseHandlerObject_.currentUser_.mostVisitedZone());
+        infoPanels_[4].GetComponent<informationPosterController>().updateData(firebaseHandlerObject_.currentUser_.mostVisitedType());
         dataLoaded_ = true;
     }
 }

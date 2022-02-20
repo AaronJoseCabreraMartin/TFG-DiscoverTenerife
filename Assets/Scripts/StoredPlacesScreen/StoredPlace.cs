@@ -135,7 +135,7 @@ public class StoredPlace
 
     /**
       * @brief Register a new visit to the represented stored place.
-      * It uses the actual timestamp. It changes the visited_ property to true.
+      * It uses the current timestamp. It changes the visited_ property to true.
       * It also set the changesToUpdtate_ static property to true.
       */
     public void oneMoreVisit(){
@@ -187,7 +187,7 @@ public class StoredPlace
         Me hace falta el timestamp para controlar, con la hora que no se visite un sitio mas de la cuenta
         el timestamp lo tiene el visitedPlace -.-"
         */
-        PlayerPrefs.SetString(index+"lastVisitTimestamp_",firebaseHandler.firebaseHandlerInstance_.actualUser_.getTimestampByName(place.getName()).ToString());
+        PlayerPrefs.SetString(index+"lastVisitTimestamp_",firebaseHandler.firebaseHandlerInstance_.currentUser_.getTimestampByName(place.getName()).ToString());
         
         PlayerPrefs.SetInt(index+"newVisitsForThisPlace_",0);
         PlayerPrefs.SetInt(index+"visited_", 

@@ -35,7 +35,7 @@ public class PlaceHandler : MonoBehaviour
       * @brief stores a reference to the place chose by the user. It is a static property
       * to allow conserve the information even when the user changes the scene.
       */
-    public static Place choosenPlace_ = null;
+    public static Place chosenPlace_ = null;
     //almacena que sitio a escogido el usuario cuando clicka en uno
     // para cambiar de escena y consevar la informacion
 
@@ -110,10 +110,10 @@ public class PlaceHandler : MonoBehaviour
 
     /**
       * @brief this method should be called when the user chose this place. It sets the 
-      * choosenPlace_ static property as a reference to the place_ property.
+      * chosenPlace_ static property as a reference to the place_ property.
       */
     public void selectPlace(){
-        PlaceHandler.choosenPlace_ = place_;
+        PlaceHandler.chosenPlace_ = place_;
     }
 
     /**

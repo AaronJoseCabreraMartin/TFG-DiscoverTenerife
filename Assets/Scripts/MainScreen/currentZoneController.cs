@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /**
   * @brief Class that shows the zone that the current user is.
   */
-public class actualZoneController : MonoBehaviour
+public class currentZoneController : MonoBehaviour
 {
     /**
       * @brief text where the current zone will be shown.
@@ -37,7 +37,7 @@ public class actualZoneController : MonoBehaviour
       * the case, it update the textObject_ to show the new current zone.
       */
     void Update(){
-        string currentZone = gpsController_.getActualZoneOfUser();
+        string currentZone = gpsController_.getcurrentZoneOfUser();
         if(lastZone_ != currentZone){
             lastZone_ = currentZone;
             textObject_.GetComponent<Text>().text = currentZone;

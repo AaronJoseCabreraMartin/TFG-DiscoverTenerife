@@ -18,6 +18,15 @@ void \mbox{\hyperlink{classnew_friend_data_aece40db965008d680ce3a0e4c25f2ee4}{ad
 \begin{DoxyCompactList}\small\item\em this method add the given user id to the list of the accepted friends of the represented user. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{classnew_friend_data_ae202609da0ebcd0829daead9f4c470e6}{get\+String\+Conversion\+Of\+Accepted\+Friend\+Invitations}} ()
 \begin{DoxyCompactList}\small\item\em this method returns a string conversion of the accepted friends list on the json format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classnew_friend_data_a73b61d15fb238be2bc409c4ccca673d2}{uid\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that contains the user id of the user that has sended the friendship invitation. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classnew_friend_data_ae77485f7f254084b9101bdbd1917af38}{display\+Name\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that contains the display name of the user that has sended the friendship invitation. \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{classnew_friend_data_ad9157f9135895b0cc1fb3f6fc958724e}{accepted\+Friends\+Invitations\+\_\+}}
+\begin{DoxyCompactList}\small\item\em list of string that contains the accepted friendships invitations of the user that sended the friendship invitation. This is necessary because if the friendship invitation is accepted the user id of the current user has to be added to the list. It has to be a list because more than one friend can accept your invitations before you connect to the app again. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -102,6 +111,39 @@ string that contains the user id of the represented user.
 \end{DoxyReturn}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnew_friend_data_ad9157f9135895b0cc1fb3f6fc958724e}\label{classnew_friend_data_ad9157f9135895b0cc1fb3f6fc958724e}} 
+\index{newFriendData@{newFriendData}!acceptedFriendsInvitations\_@{acceptedFriendsInvitations\_}}
+\index{acceptedFriendsInvitations\_@{acceptedFriendsInvitations\_}!newFriendData@{newFriendData}}
+\doxysubsubsection{\texorpdfstring{acceptedFriendsInvitations\_}{acceptedFriendsInvitations\_}}
+{\footnotesize\ttfamily List$<$string$>$ new\+Friend\+Data.\+accepted\+Friends\+Invitations\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+list of string that contains the accepted friendships invitations of the user that sended the friendship invitation. This is necessary because if the friendship invitation is accepted the user id of the current user has to be added to the list. It has to be a list because more than one friend can accept your invitations before you connect to the app again. 
+
+\mbox{\Hypertarget{classnew_friend_data_ae77485f7f254084b9101bdbd1917af38}\label{classnew_friend_data_ae77485f7f254084b9101bdbd1917af38}} 
+\index{newFriendData@{newFriendData}!displayName\_@{displayName\_}}
+\index{displayName\_@{displayName\_}!newFriendData@{newFriendData}}
+\doxysubsubsection{\texorpdfstring{displayName\_}{displayName\_}}
+{\footnotesize\ttfamily string new\+Friend\+Data.\+display\+Name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the display name of the user that has sended the friendship invitation. 
+
+\mbox{\Hypertarget{classnew_friend_data_a73b61d15fb238be2bc409c4ccca673d2}\label{classnew_friend_data_a73b61d15fb238be2bc409c4ccca673d2}} 
+\index{newFriendData@{newFriendData}!uid\_@{uid\_}}
+\index{uid\_@{uid\_}!newFriendData@{newFriendData}}
+\doxysubsubsection{\texorpdfstring{uid\_}{uid\_}}
+{\footnotesize\ttfamily string new\+Friend\+Data.\+uid\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the user id of the user that has sended the friendship invitation. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Friends\+Invitations\+Screen/new\+Friend\+Data.\+cs\end{DoxyCompactItemize}
+Scripts/\+Friends\+Invitations\+Screen/\mbox{\hyperlink{new_friend_data_8cs}{new\+Friend\+Data.\+cs}}\end{DoxyCompactItemize}

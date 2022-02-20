@@ -33,21 +33,21 @@ public class PlaceImageController : MonoBehaviour
 
     /**
       * @brief This method is called on the first frame, it sets the loaded_ attribute to
-      * true and if the choosenPlace_ property of PlaceHandler isnt null it calls the FillFields method.
+      * true and if the chosenPlace_ property of PlaceHandler isnt null it calls the FillFields method.
       */
     void Start(){
         loaded_ = false;
-        if(PlaceHandler.choosenPlace_ != null){
+        if(PlaceHandler.chosenPlace_ != null){
           FillFields();
         }
     }
 
     /**
       * @brief This method is called on each frame, if loaded_ attribute is false and 
-      * if the choosenPlace_ property of PlaceHandler isnt null it calls the FillFields method.
+      * if the chosenPlace_ property of PlaceHandler isnt null it calls the FillFields method.
       */
     void Update(){
-        if(PlaceHandler.choosenPlace_ != null && !loaded_){
+        if(PlaceHandler.chosenPlace_ != null && !loaded_){
           FillFields();
         }
     }
@@ -60,11 +60,11 @@ public class PlaceImageController : MonoBehaviour
       * chosen to show the distance to the place. It also sets the loaded_ property to true.
       */
     void FillFields(){
-      name_.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getName();
-      address_.GetComponent<Text>().text = PlaceHandler.choosenPlace_.getAddress();
+      name_.GetComponent<Text>().text = PlaceHandler.chosenPlace_.getName();
+      address_.GetComponent<Text>().text = PlaceHandler.chosenPlace_.getAddress();
       optionsController options = optionsController.optionsControllerInstance_;
       distance_.GetComponent<Text>().text = Math.Round(CalculateDistance(),2).ToString() + (options.distanceInKM() ? " kms" : " milles");
-      gameObject.GetComponent<Image>().sprite = PlaceHandler.choosenPlace_.getImage();
+      gameObject.GetComponent<Image>().sprite = PlaceHandler.chosenPlace_.getImage();
       loaded_ = true;
     }
 
@@ -74,8 +74,8 @@ public class PlaceImageController : MonoBehaviour
       * current user on the chosen unit. 
       */
     private double CalculateDistance(){
-      double placeLatitude = PlaceHandler.choosenPlace_.getLatitude();
-      double placeLongitude = PlaceHandler.choosenPlace_.getLongitude();
+      double placeLatitude = PlaceHandler.chosenPlace_.getLatitude();
+      double placeLongitude = PlaceHandler.chosenPlace_.getLongitude();
       gpsController gps = gpsController.gpsControllerInstance_; 
       return gps.CalculateDistanceToUser(placeLatitude,placeLongitude);
     }

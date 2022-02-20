@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /**
   * @brief Class that shows the current zone current user's score
   */
-public class actualZoneScoreController : MonoBehaviour
+public class currentZoneScoreController : MonoBehaviour
 {
     /**
       * @brief GameObject that contains the text where the score will be showed.
@@ -53,7 +53,7 @@ public class actualZoneScoreController : MonoBehaviour
       * If all the conditions are true, it calls the updateZoneData method.
       */
     void Update(){
-        string userZone = gpsController_.getActualZoneOfUser();
+        string userZone = gpsController_.getcurrentZoneOfUser();
         if(lastZone_ != userZone &&  firebaseHandlerObject_.FirebaseDependenciesAreResolved() && 
             firebaseHandlerObject_.placesAreReady() && firebaseHandlerObject_.userDataIsReady()){
                 updateZoneData();
@@ -67,13 +67,13 @@ public class actualZoneScoreController : MonoBehaviour
       * properties for show the score of the current zone.
       */
     private void updateZoneData(){
-        string userZone = gpsController_.getActualZoneOfUser();
+        string userZone = gpsController_.getcurrentZoneOfUser();
         //WTF no deberia comprobar que la zona está en el mapRulesHandler???
         if(userZone == "North" || userZone == "West" || userZone == "Center"
                 || userZone == "East" || userZone == "South"){
-            float countOfVisitedPlacesOfActualZone = firebaseHandlerObject_.actualUser_.countOfVisitedPlacesOfZone(userZone);
-            float totalPlacesOfActualZone = firebaseHandlerObject_.totalOfPlacesOfZone(userZone);
-            float fractionOfVisited = countOfVisitedPlacesOfActualZone / totalPlacesOfActualZone;
+            float countOfVisitedPlacesOfcurrentZone = firebaseHandlerObject_.currentUser_.countOfVisitedPlacesOfZone(userZone);
+            float totalPlacesOfcurrentZone = firebaseHandlerObject_.totalOfPlacesOfZone(userZone);
+            float fractionOfVisited = countOfVisitedPlacesOfcurrentZone / totalPlacesOfcurrentZone;
             gameObject.GetComponent<Image>().fillAmount = fractionOfVisited ;
             textObject_.GetComponent<Text>().text = Math.Round(fractionOfVisited*100,2).ToString()+"%";
             lastZone_ = userZone; 

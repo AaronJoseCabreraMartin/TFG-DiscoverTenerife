@@ -90,8 +90,6 @@ public class emailLoginController : MonoBehaviour
                 inProgress = false;
                 return;
             }
-            
-            //esto debe ser asi porque firebaseHandler no existe en esta escena
             firebaseHandler.firebaseHandlerInstance_.LoginUser(userText,passwordText);
         }
     }

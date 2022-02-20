@@ -64,7 +64,7 @@ public class mapPartHandler : MonoBehaviour
       * SCRIPT IS ATTACHED.</b> 
       */
     private void loadData(){        
-        float countVisitedPlacesOfZone = (float) firebaseHandlerObject_.actualUser_.countVisitedPlacesOfZone(gameObject.name);
+        float countVisitedPlacesOfZone = (float) firebaseHandlerObject_.currentUser_.countVisitedPlacesOfZone(gameObject.name);
         float totalPlacesOfZone = (float) firebaseHandlerObject_.totalOfPlacesOfZone(gameObject.name);
         float value = countVisitedPlacesOfZone/totalPlacesOfZone;
         percentage_.GetComponent<Text>().text = Math.Round(value*100,2).ToString()+"%";

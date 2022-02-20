@@ -2,7 +2,7 @@
 \label{class_friend_data}\index{FriendData@{FriendData}}
 
 
-Class that stores the information of a friend of the current user.  
+Class that stores the information of one of the current user\textquotesingle{}s friend.  
 
 
 \doxysubsection*{Public Member Functions}
@@ -18,10 +18,23 @@ void \mbox{\hyperlink{class_friend_data_a9d8910f8ea8e150e386d95a8d6557098}{add\+
 \begin{DoxyCompactList}\small\item\em this method add the given user id to the deleted\+Friends\+\_\+ property list. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_friend_data_ac6caa06257178af46846426ddd3e0d55}{get\+String\+Conversion\+Of\+Deleted\+Friends}} ()
 \begin{DoxyCompactList}\small\item\em this method convers the deleted\+Friends\+\_\+ property into a string with the JSON format and returns the conversion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_friend_data_afb4ec77fd883d415aa195f27252e4b92}{uid\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that contains the user id of the represented user. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_friend_data_ab6dca0146af6cfdaaa88114bf229d5b3}{display\+Name\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that contains the display name of the represented user. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_friend_data_a1b05cf93a446c89846afbb1c2db94a50}{rank\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that contains the current rank of the represented user. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_friend_data_af85f53c9d066f3141ecace674f6d0bc1}{score\+\_\+}}
+\begin{DoxyCompactList}\small\item\em int that contains the current score of the represented user. \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{class_friend_data_a7f8885c2598b54ec152eeb515693702f}{deleted\+Friends\+\_\+}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Class that stores the information of a friend of the current user. 
+Class that stores the information of one of the current user\textquotesingle{}s friend. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_friend_data_a806d0f0959decfd2aedcdfad9d810418}\label{class_friend_data_a806d0f0959decfd2aedcdfad9d810418}} 
@@ -102,6 +115,55 @@ string with the user id of the represented user.
 \end{DoxyReturn}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_friend_data_a7f8885c2598b54ec152eeb515693702f}\label{class_friend_data_a7f8885c2598b54ec152eeb515693702f}} 
+\index{FriendData@{FriendData}!deletedFriends\_@{deletedFriends\_}}
+\index{deletedFriends\_@{deletedFriends\_}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{deletedFriends\_}{deletedFriends\_}}
+{\footnotesize\ttfamily List$<$string$>$ Friend\+Data.\+deleted\+Friends\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+List that contains strings with the user id of the users that has removed their frienship with the represented user. It has to be a list because more than one user can erase their friendship before the represented user connects again to the app. \mbox{\Hypertarget{class_friend_data_ab6dca0146af6cfdaaa88114bf229d5b3}\label{class_friend_data_ab6dca0146af6cfdaaa88114bf229d5b3}} 
+\index{FriendData@{FriendData}!displayName\_@{displayName\_}}
+\index{displayName\_@{displayName\_}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{displayName\_}{displayName\_}}
+{\footnotesize\ttfamily string Friend\+Data.\+display\+Name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the display name of the represented user. 
+
+\mbox{\Hypertarget{class_friend_data_a1b05cf93a446c89846afbb1c2db94a50}\label{class_friend_data_a1b05cf93a446c89846afbb1c2db94a50}} 
+\index{FriendData@{FriendData}!rank\_@{rank\_}}
+\index{rank\_@{rank\_}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{rank\_}{rank\_}}
+{\footnotesize\ttfamily string Friend\+Data.\+rank\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the current rank of the represented user. 
+
+\mbox{\Hypertarget{class_friend_data_af85f53c9d066f3141ecace674f6d0bc1}\label{class_friend_data_af85f53c9d066f3141ecace674f6d0bc1}} 
+\index{FriendData@{FriendData}!score\_@{score\_}}
+\index{score\_@{score\_}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{score\_}{score\_}}
+{\footnotesize\ttfamily int Friend\+Data.\+score\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+int that contains the current score of the represented user. 
+
+\mbox{\Hypertarget{class_friend_data_afb4ec77fd883d415aa195f27252e4b92}\label{class_friend_data_afb4ec77fd883d415aa195f27252e4b92}} 
+\index{FriendData@{FriendData}!uid\_@{uid\_}}
+\index{uid\_@{uid\_}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{uid\_}{uid\_}}
+{\footnotesize\ttfamily string Friend\+Data.\+uid\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the user id of the represented user. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Friends\+Screen/Friend\+Data.\+cs\end{DoxyCompactItemize}
+Scripts/\+Friends\+Screen/\mbox{\hyperlink{_friend_data_8cs}{Friend\+Data.\+cs}}\end{DoxyCompactItemize}

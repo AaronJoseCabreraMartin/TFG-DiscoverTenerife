@@ -20,14 +20,11 @@ bool \mbox{\hyperlink{classoptions_controller_a6e9363ba745b146f10b00a08ae4c396b}
 \begin{DoxyCompactList}\small\item\em getter of the sort\+By\+Less\+Distance\+\_\+ property. \end{DoxyCompactList}\item 
 Dictionary$<$ string, bool $>$ \mbox{\hyperlink{classoptions_controller_ae4a6a34c71d12a1a32335c9ba5c8ca36}{what\+To\+See\+Options}} ()
 \begin{DoxyCompactList}\small\item\em return a dictionary that contains an entry for each type of place, each entry has a boolean value that is true if the user chose he wants to see it and false if he dont want to see it. There is an aditional entry for choosing if the user wants to see places that he already had visited. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classoptions_controller_a38e20b204374a1c4cc95582ad77855f7}\label{classoptions_controller_a38e20b204374a1c4cc95582ad77855f7}} 
-void {\bfseries copy\+Options} ()
+void \mbox{\hyperlink{classoptions_controller_a38e20b204374a1c4cc95582ad77855f7}{copy\+Options}} ()
 \begin{DoxyCompactList}\small\item\em this method make that the gameobjects of the options screen show the same choices that this class has stored on his attributes. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classoptions_controller_a15da51c58fdffb93e7c9e6e1617f778c}\label{classoptions_controller_a15da51c58fdffb93e7c9e6e1617f778c}} 
-void {\bfseries copy\+Story\+Options} ()
+void \mbox{\hyperlink{classoptions_controller_a15da51c58fdffb93e7c9e6e1617f778c}{copy\+Story\+Options}} ()
 \begin{DoxyCompactList}\small\item\em this method make that the gameobject of the story options show the same choices that this class has stored on his attributes. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classoptions_controller_aedb1cdf944aa791bbe2ad4f857f18415}\label{classoptions_controller_aedb1cdf944aa791bbe2ad4f857f18415}} 
-void {\bfseries save\+Options} ()
+void \mbox{\hyperlink{classoptions_controller_aedb1cdf944aa791bbe2ad4f857f18415}{save\+Options}} ()
 \begin{DoxyCompactList}\small\item\em this method store on this class attributes the user choices of the options screen and sets the options\+Copied\+\_\+ property to true. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoptions_controller_a6ff9d7c5d582a54b1849db93572fa62e}{sort\+Story\+By\+First\+Visit}} ()
 \begin{DoxyCompactList}\small\item\em getter of the sort\+Story\+By\+First\+Visit\+\_\+ attribute. \end{DoxyCompactList}\item 
@@ -36,18 +33,84 @@ bool \mbox{\hyperlink{classoptions_controller_ae9405eac4aae3d08022be7a5ea641948}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classoptions_controller_a12043b70a6fcf40dc84a46ad488f4365}\label{classoptions_controller_a12043b70a6fcf40dc84a46ad488f4365}} 
-static \mbox{\hyperlink{classoptions_controller}{options\+Controller}} {\bfseries options\+Controller\+Instance\+\_\+} = null
+static \mbox{\hyperlink{classoptions_controller}{options\+Controller}} \mbox{\hyperlink{classoptions_controller_a12043b70a6fcf40dc84a46ad488f4365}{options\+Controller\+Instance\+\_\+}} = null
 \begin{DoxyCompactList}\small\item\em reference to the unique instance of the class that can exist on each execution. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classoptions_controller_ac29da7d555a81106d1a2c2918c4d5cdd}\label{classoptions_controller_ac29da7d555a81106d1a2c2918c4d5cdd}} 
-static Game\+Object {\bfseries last\+Option\+Clicked\+\_\+}
+static Game\+Object \mbox{\hyperlink{classoptions_controller_ac29da7d555a81106d1a2c2918c4d5cdd}{last\+Option\+Clicked\+\_\+}}
 \begin{DoxyCompactList}\small\item\em reference to the last clicked option on the options screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classoptions_controller_a614191fb7d0d9c21343572329c0834e2}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em this method is called before the first frame, it checks if exits another \mbox{\hyperlink{classoptions_controller}{options\+Controller}} instance, on that case destroy this gameobject. It also stores the name of the current scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoptions_controller_a1098e18c0f0a51d1a0a595294d421aa9}{Start}} ()
+\begin{DoxyCompactList}\small\item\em this method is called on the first frame. It check if the user has already stored some options on the current device, if that is not the case, it creates the option as activated. If the user has already stored some options it loads the options from the current device. It also intializes all the properties of the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoptions_controller_ac44a569082c0946f41928c0fcd671d15}{Update}} ()
+\begin{DoxyCompactList}\small\item\em this method is called each frame. First it checks if the options isnt copied and youre on the options screen or in the story screen and calls the copy\+Options or the copy\+Story\+Options respectively. It also check if youre exiting the options screen or the story screen and if that is the case it calls the store\+Options method. If youre changing scene and youre on the options screen it finds and initialize the sort\+By\+Less\+Distance\+Menu\+\_\+, what\+To\+See\+Menu\+\_\+, distance\+Unit\+Menu\+\_\+, social\+Options\+Menu\+\_\+ properties and sets the options\+Copied\+\_\+ as false. If youre changing scene and youre on the story screen it finds and initialize the sort\+Story\+Menu\+\_\+ property and sets the options\+Copied\+\_\+ as false. If youre changing scene and youre neither on the story screen nor the options screen it sets the gameobject of the options as null. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoptions_controller_a360631053041a1ff6cb3cc8501098b97}{store\+Options}} ()
+\begin{DoxyCompactList}\small\item\em This method stores the options choices of the current user on the current device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classoptions_controller_aa64dea8ce62a7b160a626cb1c1bdc8b8}{distance\+In\+KM\+\_\+}}
+\begin{DoxyCompactList}\small\item\em true if the user has chosen to see the distance in Kilometers, false if the user has chosen to see the distance in Milles. \end{DoxyCompactList}\item 
+Dictionary$<$ string, bool $>$ \mbox{\hyperlink{classoptions_controller_a9fd45af8fb665e2dac79c635854667bf}{what\+To\+See\+\_\+}}
+\begin{DoxyCompactList}\small\item\em This dictionary has an entry for each type of site. The key is the type of the site, and the value is if the user has chosen to see that type of site or not. \end{DoxyCompactList}\item 
+Dictionary$<$ string, bool $>$ \mbox{\hyperlink{classoptions_controller_adc2e671a51106ead2dae3f3247e74f59}{social\+Options\+\_\+}}
+\begin{DoxyCompactList}\small\item\em This dictionary has an entry for each social option, allow that other users can find me on the ranking, allow that other user can send me friendship invitations or allow that my friends can chanllege me. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoptions_controller_a3901d8a632c8964639fe480ede0630cb}{sort\+By\+Less\+Distance\+\_\+}}
+\begin{DoxyCompactList}\small\item\em true if the user has chosen that places has to be sorted by less distance first, false if the user has chosen that places has to be sorted by more visited first. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoptions_controller_ab6a5a91e858d0d818792cec5d09cf9ae}{sort\+Story\+By\+First\+Visit\+\_\+}}
+\begin{DoxyCompactList}\small\item\em true if the user has chosen that places on the story has to be sorted by first visited first, false if the user has chosen that the places on the story has to be sorted by most recent visited first. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classoptions_controller_a995392b0e2ad45dcd26ef8e76fca19cd}{last\+Scene\+\_\+}}
+\begin{DoxyCompactList}\small\item\em contains the name of the last scene that this object was. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classuniqueselection_desplegable_menu}{uniqueselection\+Desplegable\+Menu}} \mbox{\hyperlink{classoptions_controller_ae2833ed81e4279ef9d7327f4a39deb95}{sort\+By\+Less\+Distance\+Menu\+\_\+}}
+\begin{DoxyCompactList}\small\item\em reference to the game object of the sorting places options. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmultiselection_desplegable_menu}{multiselection\+Desplegable\+Menu}} \mbox{\hyperlink{classoptions_controller_ac6904410ac6699e82a870c30c4d1f18d}{what\+To\+See\+Menu\+\_\+}}
+\begin{DoxyCompactList}\small\item\em reference to the game object of the what type of places you want to see options. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmultiselection_desplegable_menu}{multiselection\+Desplegable\+Menu}} \mbox{\hyperlink{classoptions_controller_a44e7f29e3f955e18e7dcdffbf636a611}{social\+Options\+Menu\+\_\+}}
+\begin{DoxyCompactList}\small\item\em reference to the game object of the social options. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classuniqueselection_desplegable_menu}{uniqueselection\+Desplegable\+Menu}} \mbox{\hyperlink{classoptions_controller_a6e84b183d91098797ff67fcc6c5c3e6b}{distance\+Unit\+Menu\+\_\+}}
+\begin{DoxyCompactList}\small\item\em reference to the game object of the chosing distance unit options. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classuniqueselection_desplegable_menu}{uniqueselection\+Desplegable\+Menu}} \mbox{\hyperlink{classoptions_controller_a51a6262a364afd79b856054ad79a90a7}{sort\+Story\+Menu\+\_\+}}
+\begin{DoxyCompactList}\small\item\em reference to the game object of the sorting places on the story options. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoptions_controller_a6b0656e801d4309fa9269401684c6210}{options\+Copied\+\_\+}}
+\begin{DoxyCompactList}\small\item\em true if the value of the options were asigned to the game object that represent those options. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Controls the options that the user has chosen. It follows the singleton pattern so it only can be one instance of this class per execution. This class isnt destroyed on load. 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classoptions_controller_a614191fb7d0d9c21343572329c0834e2}\label{classoptions_controller_a614191fb7d0d9c21343572329c0834e2}} 
+\index{optionsController@{optionsController}!Awake@{Awake}}
+\index{Awake@{Awake}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void options\+Controller.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this method is called before the first frame, it checks if exits another \mbox{\hyperlink{classoptions_controller}{options\+Controller}} instance, on that case destroy this gameobject. It also stores the name of the current scene. 
+
+\mbox{\Hypertarget{classoptions_controller_a38e20b204374a1c4cc95582ad77855f7}\label{classoptions_controller_a38e20b204374a1c4cc95582ad77855f7}} 
+\index{optionsController@{optionsController}!copyOptions@{copyOptions}}
+\index{copyOptions@{copyOptions}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{copyOptions()}{copyOptions()}}
+{\footnotesize\ttfamily void options\+Controller.\+copy\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+this method make that the gameobjects of the options screen show the same choices that this class has stored on his attributes. 
+
+\mbox{\Hypertarget{classoptions_controller_a15da51c58fdffb93e7c9e6e1617f778c}\label{classoptions_controller_a15da51c58fdffb93e7c9e6e1617f778c}} 
+\index{optionsController@{optionsController}!copyStoryOptions@{copyStoryOptions}}
+\index{copyStoryOptions@{copyStoryOptions}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{copyStoryOptions()}{copyStoryOptions()}}
+{\footnotesize\ttfamily void options\+Controller.\+copy\+Story\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+this method make that the gameobject of the story options show the same choices that this class has stored on his attributes. 
+
 \mbox{\Hypertarget{classoptions_controller_ae9a9da3b00c9a88c6b7908c4f7f99a24}\label{classoptions_controller_ae9a9da3b00c9a88c6b7908c4f7f99a24}} 
 \index{optionsController@{optionsController}!distanceInKM@{distanceInKM}}
 \index{distanceInKM@{distanceInKM}!optionsController@{optionsController}}
@@ -61,6 +124,16 @@ getter of the distance\+In\+KM\+\_\+ property.
 \begin{DoxyReturn}{Returns}
 true if the user has chosen the distance unit as kilometers, false if the user has chosen the distance unit as milles. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classoptions_controller_aedb1cdf944aa791bbe2ad4f857f18415}\label{classoptions_controller_aedb1cdf944aa791bbe2ad4f857f18415}} 
+\index{optionsController@{optionsController}!saveOptions@{saveOptions}}
+\index{saveOptions@{saveOptions}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{saveOptions()}{saveOptions()}}
+{\footnotesize\ttfamily void options\+Controller.\+save\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+this method store on this class attributes the user choices of the options screen and sets the options\+Copied\+\_\+ property to true. 
+
 \mbox{\Hypertarget{classoptions_controller_ae9405eac4aae3d08022be7a5ea641948}\label{classoptions_controller_ae9405eac4aae3d08022be7a5ea641948}} 
 \index{optionsController@{optionsController}!socialOptions@{socialOptions}}
 \index{socialOptions@{socialOptions}!optionsController@{optionsController}}
@@ -105,6 +178,36 @@ getter of the sort\+Story\+By\+First\+Visit\+\_\+ attribute.
 \begin{DoxyReturn}{Returns}
 bool true if the user has chose to sort first visit first on the story screen, false if the user has chose to sort the last visit first on the story screen. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classoptions_controller_a1098e18c0f0a51d1a0a595294d421aa9}\label{classoptions_controller_a1098e18c0f0a51d1a0a595294d421aa9}} 
+\index{optionsController@{optionsController}!Start@{Start}}
+\index{Start@{Start}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void options\+Controller.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this method is called on the first frame. It check if the user has already stored some options on the current device, if that is not the case, it creates the option as activated. If the user has already stored some options it loads the options from the current device. It also intializes all the properties of the object. 
+
+\mbox{\Hypertarget{classoptions_controller_a360631053041a1ff6cb3cc8501098b97}\label{classoptions_controller_a360631053041a1ff6cb3cc8501098b97}} 
+\index{optionsController@{optionsController}!storeOptions@{storeOptions}}
+\index{storeOptions@{storeOptions}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{storeOptions()}{storeOptions()}}
+{\footnotesize\ttfamily void options\+Controller.\+store\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method stores the options choices of the current user on the current device. 
+
+\mbox{\Hypertarget{classoptions_controller_ac44a569082c0946f41928c0fcd671d15}\label{classoptions_controller_ac44a569082c0946f41928c0fcd671d15}} 
+\index{optionsController@{optionsController}!Update@{Update}}
+\index{Update@{Update}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void options\+Controller.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this method is called each frame. First it checks if the options isnt copied and youre on the options screen or in the story screen and calls the copy\+Options or the copy\+Story\+Options respectively. It also check if youre exiting the options screen or the story screen and if that is the case it calls the store\+Options method. If youre changing scene and youre on the options screen it finds and initialize the sort\+By\+Less\+Distance\+Menu\+\_\+, what\+To\+See\+Menu\+\_\+, distance\+Unit\+Menu\+\_\+, social\+Options\+Menu\+\_\+ properties and sets the options\+Copied\+\_\+ as false. If youre changing scene and youre on the story screen it finds and initialize the sort\+Story\+Menu\+\_\+ property and sets the options\+Copied\+\_\+ as false. If youre changing scene and youre neither on the story screen nor the options screen it sets the gameobject of the options as null. 
+
 \mbox{\Hypertarget{classoptions_controller_ae4a6a34c71d12a1a32335c9ba5c8ca36}\label{classoptions_controller_ae4a6a34c71d12a1a32335c9ba5c8ca36}} 
 \index{optionsController@{optionsController}!whatToSeeOptions@{whatToSeeOptions}}
 \index{whatToSeeOptions@{whatToSeeOptions}!optionsController@{optionsController}}
@@ -120,6 +223,149 @@ dictionary with one entry for each type of site, the value mean if the user want
 \end{DoxyReturn}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classoptions_controller_aa64dea8ce62a7b160a626cb1c1bdc8b8}\label{classoptions_controller_aa64dea8ce62a7b160a626cb1c1bdc8b8}} 
+\index{optionsController@{optionsController}!distanceInKM\_@{distanceInKM\_}}
+\index{distanceInKM\_@{distanceInKM\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{distanceInKM\_}{distanceInKM\_}}
+{\footnotesize\ttfamily bool options\+Controller.\+distance\+In\+KM\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if the user has chosen to see the distance in Kilometers, false if the user has chosen to see the distance in Milles. 
+
+\mbox{\Hypertarget{classoptions_controller_a6e84b183d91098797ff67fcc6c5c3e6b}\label{classoptions_controller_a6e84b183d91098797ff67fcc6c5c3e6b}} 
+\index{optionsController@{optionsController}!distanceUnitMenu\_@{distanceUnitMenu\_}}
+\index{distanceUnitMenu\_@{distanceUnitMenu\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{distanceUnitMenu\_}{distanceUnitMenu\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classuniqueselection_desplegable_menu}{uniqueselection\+Desplegable\+Menu}} options\+Controller.\+distance\+Unit\+Menu\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+reference to the game object of the chosing distance unit options. 
+
+\mbox{\Hypertarget{classoptions_controller_ac29da7d555a81106d1a2c2918c4d5cdd}\label{classoptions_controller_ac29da7d555a81106d1a2c2918c4d5cdd}} 
+\index{optionsController@{optionsController}!lastOptionClicked\_@{lastOptionClicked\_}}
+\index{lastOptionClicked\_@{lastOptionClicked\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{lastOptionClicked\_}{lastOptionClicked\_}}
+{\footnotesize\ttfamily Game\+Object options\+Controller.\+last\+Option\+Clicked\+\_\+\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+reference to the last clicked option on the options screen. 
+
+\mbox{\Hypertarget{classoptions_controller_a995392b0e2ad45dcd26ef8e76fca19cd}\label{classoptions_controller_a995392b0e2ad45dcd26ef8e76fca19cd}} 
+\index{optionsController@{optionsController}!lastScene\_@{lastScene\_}}
+\index{lastScene\_@{lastScene\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{lastScene\_}{lastScene\_}}
+{\footnotesize\ttfamily string options\+Controller.\+last\+Scene\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contains the name of the last scene that this object was. 
+
+\mbox{\Hypertarget{classoptions_controller_a12043b70a6fcf40dc84a46ad488f4365}\label{classoptions_controller_a12043b70a6fcf40dc84a46ad488f4365}} 
+\index{optionsController@{optionsController}!optionsControllerInstance\_@{optionsControllerInstance\_}}
+\index{optionsControllerInstance\_@{optionsControllerInstance\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{optionsControllerInstance\_}{optionsControllerInstance\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classoptions_controller}{options\+Controller}} options\+Controller.\+options\+Controller\+Instance\+\_\+ = null\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+reference to the unique instance of the class that can exist on each execution. 
+
+\mbox{\Hypertarget{classoptions_controller_a6b0656e801d4309fa9269401684c6210}\label{classoptions_controller_a6b0656e801d4309fa9269401684c6210}} 
+\index{optionsController@{optionsController}!optionsCopied\_@{optionsCopied\_}}
+\index{optionsCopied\_@{optionsCopied\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{optionsCopied\_}{optionsCopied\_}}
+{\footnotesize\ttfamily bool options\+Controller.\+options\+Copied\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if the value of the options were asigned to the game object that represent those options. 
+
+\mbox{\Hypertarget{classoptions_controller_adc2e671a51106ead2dae3f3247e74f59}\label{classoptions_controller_adc2e671a51106ead2dae3f3247e74f59}} 
+\index{optionsController@{optionsController}!socialOptions\_@{socialOptions\_}}
+\index{socialOptions\_@{socialOptions\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{socialOptions\_}{socialOptions\_}}
+{\footnotesize\ttfamily Dictionary$<$string, bool$>$ options\+Controller.\+social\+Options\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This dictionary has an entry for each social option, allow that other users can find me on the ranking, allow that other user can send me friendship invitations or allow that my friends can chanllege me. 
+
+\mbox{\Hypertarget{classoptions_controller_a44e7f29e3f955e18e7dcdffbf636a611}\label{classoptions_controller_a44e7f29e3f955e18e7dcdffbf636a611}} 
+\index{optionsController@{optionsController}!socialOptionsMenu\_@{socialOptionsMenu\_}}
+\index{socialOptionsMenu\_@{socialOptionsMenu\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{socialOptionsMenu\_}{socialOptionsMenu\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmultiselection_desplegable_menu}{multiselection\+Desplegable\+Menu}} options\+Controller.\+social\+Options\+Menu\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+reference to the game object of the social options. 
+
+\mbox{\Hypertarget{classoptions_controller_a3901d8a632c8964639fe480ede0630cb}\label{classoptions_controller_a3901d8a632c8964639fe480ede0630cb}} 
+\index{optionsController@{optionsController}!sortByLessDistance\_@{sortByLessDistance\_}}
+\index{sortByLessDistance\_@{sortByLessDistance\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{sortByLessDistance\_}{sortByLessDistance\_}}
+{\footnotesize\ttfamily bool options\+Controller.\+sort\+By\+Less\+Distance\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if the user has chosen that places has to be sorted by less distance first, false if the user has chosen that places has to be sorted by more visited first. 
+
+\mbox{\Hypertarget{classoptions_controller_ae2833ed81e4279ef9d7327f4a39deb95}\label{classoptions_controller_ae2833ed81e4279ef9d7327f4a39deb95}} 
+\index{optionsController@{optionsController}!sortByLessDistanceMenu\_@{sortByLessDistanceMenu\_}}
+\index{sortByLessDistanceMenu\_@{sortByLessDistanceMenu\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{sortByLessDistanceMenu\_}{sortByLessDistanceMenu\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classuniqueselection_desplegable_menu}{uniqueselection\+Desplegable\+Menu}} options\+Controller.\+sort\+By\+Less\+Distance\+Menu\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+reference to the game object of the sorting places options. 
+
+\mbox{\Hypertarget{classoptions_controller_ab6a5a91e858d0d818792cec5d09cf9ae}\label{classoptions_controller_ab6a5a91e858d0d818792cec5d09cf9ae}} 
+\index{optionsController@{optionsController}!sortStoryByFirstVisit\_@{sortStoryByFirstVisit\_}}
+\index{sortStoryByFirstVisit\_@{sortStoryByFirstVisit\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{sortStoryByFirstVisit\_}{sortStoryByFirstVisit\_}}
+{\footnotesize\ttfamily bool options\+Controller.\+sort\+Story\+By\+First\+Visit\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if the user has chosen that places on the story has to be sorted by first visited first, false if the user has chosen that the places on the story has to be sorted by most recent visited first. 
+
+\mbox{\Hypertarget{classoptions_controller_a51a6262a364afd79b856054ad79a90a7}\label{classoptions_controller_a51a6262a364afd79b856054ad79a90a7}} 
+\index{optionsController@{optionsController}!sortStoryMenu\_@{sortStoryMenu\_}}
+\index{sortStoryMenu\_@{sortStoryMenu\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{sortStoryMenu\_}{sortStoryMenu\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classuniqueselection_desplegable_menu}{uniqueselection\+Desplegable\+Menu}} options\+Controller.\+sort\+Story\+Menu\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+reference to the game object of the sorting places on the story options. 
+
+\mbox{\Hypertarget{classoptions_controller_a9fd45af8fb665e2dac79c635854667bf}\label{classoptions_controller_a9fd45af8fb665e2dac79c635854667bf}} 
+\index{optionsController@{optionsController}!whatToSee\_@{whatToSee\_}}
+\index{whatToSee\_@{whatToSee\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{whatToSee\_}{whatToSee\_}}
+{\footnotesize\ttfamily Dictionary$<$string, bool$>$ options\+Controller.\+what\+To\+See\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This dictionary has an entry for each type of site. The key is the type of the site, and the value is if the user has chosen to see that type of site or not. 
+
+\mbox{\Hypertarget{classoptions_controller_ac6904410ac6699e82a870c30c4d1f18d}\label{classoptions_controller_ac6904410ac6699e82a870c30c4d1f18d}} 
+\index{optionsController@{optionsController}!whatToSeeMenu\_@{whatToSeeMenu\_}}
+\index{whatToSeeMenu\_@{whatToSeeMenu\_}!optionsController@{optionsController}}
+\doxysubsubsection{\texorpdfstring{whatToSeeMenu\_}{whatToSeeMenu\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmultiselection_desplegable_menu}{multiselection\+Desplegable\+Menu}} options\+Controller.\+what\+To\+See\+Menu\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+reference to the game object of the what type of places you want to see options. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Main\+Screen/options\+Controller.\+cs\end{DoxyCompactItemize}
+Scripts/\+Main\+Screen/\mbox{\hyperlink{options_controller_8cs}{options\+Controller.\+cs}}\end{DoxyCompactItemize}

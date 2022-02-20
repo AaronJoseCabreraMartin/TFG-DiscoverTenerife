@@ -63,6 +63,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classno_new_invitations_message-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">noNewInvitationsMessage Class Reference</div></div>
 </div><!--header-->
@@ -76,10 +78,128 @@ Inheritance diagram for noNewInvitationsMessage:</div>
  <div class="center">
   <img src="classno_new_invitations_message.png" alt=""/>
  </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a366c6297dde9c005b24b72bdbf13cec1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classno_new_invitations_message.html#a366c6297dde9c005b24b72bdbf13cec1">Update</a> ()</td></tr>
+<tr class="separator:a366c6297dde9c005b24b72bdbf13cec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a8758acddd7e06122c4c7dd3c6909dbb0"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classno_new_invitations_message.html#a8758acddd7e06122c4c7dd3c6909dbb0">newFriendInvitationPanel_</a></td></tr>
+<tr class="memdesc:a8758acddd7e06122c4c7dd3c6909dbb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that references the panel that handles the new friendships invitations.  <a href="classno_new_invitations_message.html#a8758acddd7e06122c4c7dd3c6909dbb0">More...</a><br /></td></tr>
+<tr class="separator:a8758acddd7e06122c4c7dd3c6909dbb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfd535651b55f5169a3c6dd3443af61b"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classno_new_invitations_message.html#abfd535651b55f5169a3c6dd3443af61b">image_</a></td></tr>
+<tr class="memdesc:abfd535651b55f5169a3c6dd3443af61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the background image that will be showed when there isnt any new friendship invitations.  <a href="classno_new_invitations_message.html#abfd535651b55f5169a3c6dd3443af61b">More...</a><br /></td></tr>
+<tr class="separator:abfd535651b55f5169a3c6dd3443af61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9545f7d6b1d2af6f2c809a0ed84ce851"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classno_new_invitations_message.html#a9545f7d6b1d2af6f2c809a0ed84ce851">text_</a></td></tr>
+<tr class="memdesc:a9545f7d6b1d2af6f2c809a0ed84ce851"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the text that will be showed when there isnt any new friendship invitations.  <a href="classno_new_invitations_message.html#a9545f7d6b1d2af6f2c809a0ed84ce851">More...</a><br /></td></tr>
+<tr class="separator:a9545f7d6b1d2af6f2c809a0ed84ce851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Simply class that controls the no new invitations message of the friend invitations screen. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/FriendsInvitationsScreen/noNewInvitationsMessage.cs</li>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a366c6297dde9c005b24b72bdbf13cec1" name="a366c6297dde9c005b24b72bdbf13cec1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a366c6297dde9c005b24b72bdbf13cec1">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void noNewInvitationsMessage.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >This method is called every frame, it shows the background image and the text if the getInvitationsCount method of <a class="el" href="classnew_friend_invitation_panel.html" title="Class that controls the panel that shows the new friendships invitations.">newFriendInvitationPanel</a> class returns a zero. It hide them in other case. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="abfd535651b55f5169a3c6dd3443af61b" name="abfd535651b55f5169a3c6dd3443af61b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfd535651b55f5169a3c6dd3443af61b">&#9670;&nbsp;</a></span>image_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject noNewInvitationsMessage.image_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that contains the background image that will be showed when there isnt any new friendship invitations. </p>
+
+</div>
+</div>
+<a id="a8758acddd7e06122c4c7dd3c6909dbb0" name="a8758acddd7e06122c4c7dd3c6909dbb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8758acddd7e06122c4c7dd3c6909dbb0">&#9670;&nbsp;</a></span>newFriendInvitationPanel_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject noNewInvitationsMessage.newFriendInvitationPanel_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that references the panel that handles the new friendships invitations. </p>
+
+</div>
+</div>
+<a id="a9545f7d6b1d2af6f2c809a0ed84ce851" name="a9545f7d6b1d2af6f2c809a0ed84ce851"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9545f7d6b1d2af6f2c809a0ed84ce851">&#9670;&nbsp;</a></span>text_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject noNewInvitationsMessage.text_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that contains the text that will be showed when there isnt any new friendship invitations. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>Scripts/FriendsInvitationsScreen/<a class="el" href="no_new_invitations_message_8cs.html">noNewInvitationsMessage.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

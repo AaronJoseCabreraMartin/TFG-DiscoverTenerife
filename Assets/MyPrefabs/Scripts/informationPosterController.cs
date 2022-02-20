@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /**
-  * @brief MIRAR EN EL UNITY QUE ES ESTO
+  * @brief This class controls the informative panel
+  * prefab that is used for example on the stats screen.
   */
 public class informationPosterController : MonoBehaviour
 {

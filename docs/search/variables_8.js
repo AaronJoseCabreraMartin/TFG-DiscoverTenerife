@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['showtoggles_5f_0',['showToggles_',['../classmultiselection_desplegable_menu.html#a08394c8b17ee258f775cb86ad40158fe',1,'multiselectionDesplegableMenu']]]
+  ['maxdistance_5f_0',['maxDistance_',['../classgame_rules.html#a8ea1ade2366b500b6e44d3bb6711979d',1,'gameRules']]],
+  ['maxplacesstored_5f_1',['maxPlacesStored_',['../classgame_rules.html#a72d8076629f6b963aa41539d417bd0be',1,'gameRules']]],
+  ['minutesofcooldown_5f_2',['minutesOfCooldown_',['../classgame_rules.html#a01b79e51a2543764b2d3398398d5c3f9',1,'gameRules']]]
 ];

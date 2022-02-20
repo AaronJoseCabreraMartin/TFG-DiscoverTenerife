@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classmap_rules_handler-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">mapRulesHandler Class Reference</div></div>
 </div><!--header-->
@@ -80,6 +81,15 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a18a51173f287b1ec60290eb99e0fcc3b"><td class="memItemLeft" align="right" valign="top">static List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap_rules_handler.html#a18a51173f287b1ec60290eb99e0fcc3b">getTypesOfSites</a> ()</td></tr>
 <tr class="memdesc:a18a51173f287b1ec60290eb99e0fcc3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the typeOfSites_ static property.  <a href="classmap_rules_handler.html#a18a51173f287b1ec60290eb99e0fcc3b">More...</a><br /></td></tr>
 <tr class="separator:a18a51173f287b1ec60290eb99e0fcc3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:abfbc24eef6b55f82ed07e7983c706b8a"><td class="memItemLeft" align="right" valign="top">static List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap_rules_handler.html#abfbc24eef6b55f82ed07e7983c706b8a">zoneNames_</a> = new List&lt;string&gt; { &quot;North&quot;, &quot;West&quot;, &quot;Center&quot;, &quot;East&quot;, &quot;South&quot;}</td></tr>
+<tr class="memdesc:abfbc24eef6b55f82ed07e7983c706b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;string&gt; that contains the name of each of the zones that is divided the map of the app.  <a href="classmap_rules_handler.html#abfbc24eef6b55f82ed07e7983c706b8a">More...</a><br /></td></tr>
+<tr class="separator:abfbc24eef6b55f82ed07e7983c706b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47742398c54993b393e966bfbfac2a1b"><td class="memItemLeft" align="right" valign="top">static List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap_rules_handler.html#a47742398c54993b393e966bfbfac2a1b">typesOfSites_</a> = new List&lt;string&gt; { &quot;beaches&quot;, &quot;hikingRoutes&quot;, &quot;naturalParks&quot;, &quot;naturalPools&quot;, &quot;viewpoints&quot;}</td></tr>
+<tr class="memdesc:a47742398c54993b393e966bfbfac2a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;string&gt; that contains the valid types of the interesting points.  <a href="classmap_rules_handler.html#a47742398c54993b393e966bfbfac2a1b">More...</a><br /></td></tr>
+<tr class="separator:a47742398c54993b393e966bfbfac2a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class stores the geographic zone releated values, like which are the zones of the map. </p>
@@ -141,8 +151,58 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a47742398c54993b393e966bfbfac2a1b" name="a47742398c54993b393e966bfbfac2a1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47742398c54993b393e966bfbfac2a1b">&#9670;&nbsp;</a></span>typesOfSites_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; mapRulesHandler.typesOfSites_ = new List&lt;string&gt; { &quot;beaches&quot;, &quot;hikingRoutes&quot;, &quot;naturalParks&quot;, &quot;naturalPools&quot;, &quot;viewpoints&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List&lt;string&gt; that contains the valid types of the interesting points. </p>
+<p >You have to be aware that changing this attribute wont change the options menu, you will have to change the option menu manually. </p>
+
+</div>
+</div>
+<a id="abfbc24eef6b55f82ed07e7983c706b8a" name="abfbc24eef6b55f82ed07e7983c706b8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfbc24eef6b55f82ed07e7983c706b8a">&#9670;&nbsp;</a></span>zoneNames_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; mapRulesHandler.zoneNames_ = new List&lt;string&gt; { &quot;North&quot;, &quot;West&quot;, &quot;Center&quot;, &quot;East&quot;, &quot;South&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List&lt;string&gt; that contains the name of each of the zones that is divided the map of the app. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/mapRulesHandler.cs</li>
+<li>Scripts/<a class="el" href="map_rules_handler_8cs.html">mapRulesHandler.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

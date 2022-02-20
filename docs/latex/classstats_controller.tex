@@ -11,11 +11,95 @@ Inheritance diagram for stats\+Controller\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{classstats_controller}
 \end{center}
 \end{figure}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classstats_controller_a73e4c184512df7d2734783421f3b5219}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em This method is called before the first frame, it instantiate the firebase\+Handler\+Object\+\_\+ property and checks if both places\+Are\+Ready and user\+Data\+Is\+Ready method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} return true it calls load\+Data method, in other case it sets the data\+Loaded\+\_\+ property to false. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classstats_controller_a86b3d5fe7baabcb6256d485337306867}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method is called once on each frame. If the data isnt loaded and both places\+Are\+Ready and user\+Data\+Is\+Ready methods of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class returns true it calls the load\+Data method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classstats_controller_adff83ff992d2afed04bc196eb9cdbafc}{load\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Update the data of all the panels that shows the current user\textquotesingle{}s stats using the getters of \mbox{\hyperlink{class_user_data}{User\+Data}} class. It also changes the data\+Loaded\+\_\+ to true. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classstats_controller_a54f98adc20a21752ee200ade3b209018}{info\+Panels\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Array with all the Game\+Objects that shows the different stats of the current user. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} \mbox{\hyperlink{classstats_controller_a8260652d90240570ab7e488322ec8886}{firebase\+Handler\+Object\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Reference to the \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classstats_controller_a2d85fd31c418aa474a251446e9d07ed2}{data\+Loaded\+\_\+}}
+\begin{DoxyCompactList}\small\item\em True if the current user\textquotesingle{}s scores is already loaded, false in other case. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 class that controls he panels that show the current user stats. 
 
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstats_controller_a73e4c184512df7d2734783421f3b5219}\label{classstats_controller_a73e4c184512df7d2734783421f3b5219}} 
+\index{statsController@{statsController}!Awake@{Awake}}
+\index{Awake@{Awake}!statsController@{statsController}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void stats\+Controller.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called before the first frame, it instantiate the firebase\+Handler\+Object\+\_\+ property and checks if both places\+Are\+Ready and user\+Data\+Is\+Ready method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} return true it calls load\+Data method, in other case it sets the data\+Loaded\+\_\+ property to false. 
+
+\mbox{\Hypertarget{classstats_controller_adff83ff992d2afed04bc196eb9cdbafc}\label{classstats_controller_adff83ff992d2afed04bc196eb9cdbafc}} 
+\index{statsController@{statsController}!loadData@{loadData}}
+\index{loadData@{loadData}!statsController@{statsController}}
+\doxysubsubsection{\texorpdfstring{loadData()}{loadData()}}
+{\footnotesize\ttfamily void stats\+Controller.\+load\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Update the data of all the panels that shows the current user\textquotesingle{}s stats using the getters of \mbox{\hyperlink{class_user_data}{User\+Data}} class. It also changes the data\+Loaded\+\_\+ to true. 
+
+\mbox{\Hypertarget{classstats_controller_a86b3d5fe7baabcb6256d485337306867}\label{classstats_controller_a86b3d5fe7baabcb6256d485337306867}} 
+\index{statsController@{statsController}!Update@{Update}}
+\index{Update@{Update}!statsController@{statsController}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void stats\+Controller.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called once on each frame. If the data isnt loaded and both places\+Are\+Ready and user\+Data\+Is\+Ready methods of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class returns true it calls the load\+Data method. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classstats_controller_a2d85fd31c418aa474a251446e9d07ed2}\label{classstats_controller_a2d85fd31c418aa474a251446e9d07ed2}} 
+\index{statsController@{statsController}!dataLoaded\_@{dataLoaded\_}}
+\index{dataLoaded\_@{dataLoaded\_}!statsController@{statsController}}
+\doxysubsubsection{\texorpdfstring{dataLoaded\_}{dataLoaded\_}}
+{\footnotesize\ttfamily bool stats\+Controller.\+data\+Loaded\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+True if the current user\textquotesingle{}s scores is already loaded, false in other case. 
+
+\mbox{\Hypertarget{classstats_controller_a8260652d90240570ab7e488322ec8886}\label{classstats_controller_a8260652d90240570ab7e488322ec8886}} 
+\index{statsController@{statsController}!firebaseHandlerObject\_@{firebaseHandlerObject\_}}
+\index{firebaseHandlerObject\_@{firebaseHandlerObject\_}!statsController@{statsController}}
+\doxysubsubsection{\texorpdfstring{firebaseHandlerObject\_}{firebaseHandlerObject\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} stats\+Controller.\+firebase\+Handler\+Object\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} object. 
+
+\mbox{\Hypertarget{classstats_controller_a54f98adc20a21752ee200ade3b209018}\label{classstats_controller_a54f98adc20a21752ee200ade3b209018}} 
+\index{statsController@{statsController}!infoPanels\_@{infoPanels\_}}
+\index{infoPanels\_@{infoPanels\_}!statsController@{statsController}}
+\doxysubsubsection{\texorpdfstring{infoPanels\_}{infoPanels\_}}
+{\footnotesize\ttfamily Game\+Object \mbox{[}$\,$\mbox{]} stats\+Controller.\+info\+Panels\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Array with all the Game\+Objects that shows the different stats of the current user. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Stats\+Screen/stats\+Controller.\+cs\end{DoxyCompactItemize}
+Scripts/\+Stats\+Screen/\mbox{\hyperlink{stats_controller_8cs}{stats\+Controller.\+cs}}\end{DoxyCompactItemize}

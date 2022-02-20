@@ -36,8 +36,8 @@ public class googleLoginController : MonoBehaviour
     public void userLogedSuccessfully(string name){
         inProgress = false;
         Debug.Log("userCreatedSuccessfully: " + name);
-        ChangeScene.changeScene("PantallaPrincipal");
-        //GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation("PantallaPrincipal");
+        //ChangeScene.changeScene("PantallaPrincipal");
+        GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation("PantallaPrincipal");
     }
 
     /**

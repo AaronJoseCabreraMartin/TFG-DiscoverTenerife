@@ -65,6 +65,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_change_scene-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ChangeScene Class Reference</div></div>
 </div><!--header-->
@@ -90,10 +92,53 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f4ed5dc8217783509a99092e3273c13"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_change_scene.html#a3f4ed5dc8217783509a99092e3273c13">changeScene</a> (string sceneName)</td></tr>
 <tr class="memdesc:a3f4ed5dc8217783509a99092e3273c13"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method tries to load the scene that have the given name, if there isnt any scene with the given name it will produce an exception.  <a href="class_change_scene.html#a3f4ed5dc8217783509a99092e3273c13">More...</a><br /></td></tr>
 <tr class="separator:a3f4ed5dc8217783509a99092e3273c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a5e027f84b1fe2bf6930130f88c48184d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_change_scene.html#a5e027f84b1fe2bf6930130f88c48184d">Awake</a> ()</td></tr>
+<tr class="memdesc:a5e027f84b1fe2bf6930130f88c48184d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called just before the first frame. It search for other sceneManager objects and if there is other one, it will destroy this instance. It also hide the text that will be showed during the fade in animation.  <a href="class_change_scene.html#a5e027f84b1fe2bf6930130f88c48184d">More...</a><br /></td></tr>
+<tr class="separator:a5e027f84b1fe2bf6930130f88c48184d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81bc94fbdebd0af8b2b8381af0c034ef"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_change_scene.html#a81bc94fbdebd0af8b2b8381af0c034ef">makeFadeInFadeOutAnimation</a> (string sceneName, float transitionTime, string text=&quot;Loading...&quot;)</td></tr>
+<tr class="memdesc:a81bc94fbdebd0af8b2b8381af0c034ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">this coroutine shows the given text, makes a fade in animation, change the scene, and then it does a fade out animation to hide both the text and the black image. All the process takes the given number of seconds.  <a href="class_change_scene.html#a81bc94fbdebd0af8b2b8381af0c034ef">More...</a><br /></td></tr>
+<tr class="separator:a81bc94fbdebd0af8b2b8381af0c034ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af9703411a7d2ead8c09a441089beb331"><td class="memItemLeft" align="right" valign="top">Animator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_change_scene.html#af9703411a7d2ead8c09a441089beb331">transition_</a></td></tr>
+<tr class="separator:af9703411a7d2ead8c09a441089beb331"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63a46cd014dfb35af4500ba33369e436"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_change_scene.html#a63a46cd014dfb35af4500ba33369e436">text_</a></td></tr>
+<tr class="separator:a63a46cd014dfb35af4500ba33369e436"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class follows the singleton pattern, the unique instance of the class can be found on an object with the tag "sceneManager". It has to be instanciate because the coroutines cant be used in static methods, so if you need to use the changeSceneWithAnimation method you have to have an instance of the class. It also has the public static method changeScene that allow change the active scene to other but without any transition. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5e027f84b1fe2bf6930130f88c48184d" name="a5e027f84b1fe2bf6930130f88c48184d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e027f84b1fe2bf6930130f88c48184d">&#9670;&nbsp;</a></span>Awake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ChangeScene.Awake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is called just before the first frame. It search for other sceneManager objects and if there is other one, it will destroy this instance. It also hide the text that will be showed during the fade in animation. </p>
+
+</div>
+</div>
 <a id="a3f4ed5dc8217783509a99092e3273c13" name="a3f4ed5dc8217783509a99092e3273c13"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f4ed5dc8217783509a99092e3273c13">&#9670;&nbsp;</a></span>changeScene()</h2>
 
@@ -172,8 +217,107 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a81bc94fbdebd0af8b2b8381af0c034ef" name="a81bc94fbdebd0af8b2b8381af0c034ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81bc94fbdebd0af8b2b8381af0c034ef">&#9670;&nbsp;</a></span>makeFadeInFadeOutAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerator ChangeScene.makeFadeInFadeOutAnimation </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>sceneName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>transitionTime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>text</em> = <code>&quot;Loading...&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>this coroutine shows the given text, makes a fade in animation, change the scene, and then it does a fade out animation to hide both the text and the black image. All the process takes the given number of seconds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>the name of the scene to change </td></tr>
+    <tr><td class="paramname">float</td><td>the duration time of the transition in seconds </td></tr>
+    <tr><td class="paramname">string</td><td>the text that will be showed during the transition </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a63a46cd014dfb35af4500ba33369e436" name="a63a46cd014dfb35af4500ba33369e436"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63a46cd014dfb35af4500ba33369e436">&#9670;&nbsp;</a></span>text_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject ChangeScene.text_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >this SerializeField GameObject contains a GameObject with the text that will be showed during the fade in animation. </p>
+
+</div>
+</div>
+<a id="af9703411a7d2ead8c09a441089beb331" name="af9703411a7d2ead8c09a441089beb331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9703411a7d2ead8c09a441089beb331">&#9670;&nbsp;</a></span>transition_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Animator ChangeScene.transition_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >this SerializeField Animator contains a reference to an Animator object that has the fade in and fade out animations </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/ChangeScene.cs</li>
+<li>Scripts/<a class="el" href="_change_scene_8cs.html">ChangeScene.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

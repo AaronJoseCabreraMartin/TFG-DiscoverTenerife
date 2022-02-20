@@ -65,6 +65,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classmultiselection_desplegable_menu-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">multiselectionDesplegableMenu Class Reference</div></div>
 </div><!--header-->
@@ -81,9 +83,8 @@ Inheritance diagram for multiselectionDesplegableMenu:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a828f3798be24472ff09b013d56c87d17"><td class="memItemLeft" align="right" valign="top"><a id="a828f3798be24472ff09b013d56c87d17" name="a828f3798be24472ff09b013d56c87d17"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>OnClick</b> ()</td></tr>
-<tr class="memdesc:a828f3798be24472ff09b013d56c87d17"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method should be called when the user clicks the menu's button. First it checks if the lastOptionClicked_ static property of <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a> is null it sets that property as this GameObject, if that property is this GameObject, it sets that property to null, in other case this method dont do nothing. When the lastOptionClicked_ static property of <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a> is null or it is this GameObject it changes the button's text to the default text or the saving text. It also changes the showToggles_ property to the opposite value, the anyChange to true and then calls the saveOptions method of <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a> class. <br /></td></tr>
+<tr class="memitem:a828f3798be24472ff09b013d56c87d17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmultiselection_desplegable_menu.html#a828f3798be24472ff09b013d56c87d17">OnClick</a> ()</td></tr>
+<tr class="memdesc:a828f3798be24472ff09b013d56c87d17"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method should be called when the user clicks the menu's button. First it checks if the lastOptionClicked_ static property of <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a> is null it sets that property as this GameObject, if that property is this GameObject, it sets that property to null, in other case this method dont do nothing. When the lastOptionClicked_ static property of <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a> is null or it is this GameObject it changes the button's text to the default text or the saving text. It also changes the showToggles_ property to the opposite value, the anyChange to true and then calls the saveOptions method of <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a> class.  <a href="classmultiselection_desplegable_menu.html#a828f3798be24472ff09b013d56c87d17">More...</a><br /></td></tr>
 <tr class="separator:a828f3798be24472ff09b013d56c87d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5d525284a5ac22b46ecdc2319443155"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmultiselection_desplegable_menu.html#ab5d525284a5ac22b46ecdc2319443155">showAllToggles</a> (bool show)</td></tr>
 <tr class="memdesc:ab5d525284a5ac22b46ecdc2319443155"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method hide all the menu's toggles if you give as a parameter a false, if you give a true it shows all of them. It puts the anyChange_ property as false.  <a href="classmultiselection_desplegable_menu.html#ab5d525284a5ac22b46ecdc2319443155">More...</a><br /></td></tr>
@@ -109,14 +110,39 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>OnClick</b> ()</td></
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a08394c8b17ee258f775cb86ad40158fe"><td class="memItemLeft" align="right" valign="top"><a id="a08394c8b17ee258f775cb86ad40158fe" name="a08394c8b17ee258f775cb86ad40158fe"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>showToggles_</b></td></tr>
-<tr class="memdesc:a08394c8b17ee258f775cb86ad40158fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if it has to show the toggles, false if it has to hide the toggles. <br /></td></tr>
+<tr class="memitem:a08394c8b17ee258f775cb86ad40158fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmultiselection_desplegable_menu.html#a08394c8b17ee258f775cb86ad40158fe">showToggles_</a></td></tr>
+<tr class="memdesc:a08394c8b17ee258f775cb86ad40158fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if it has to show the toggles, false if it has to hide the toggles.  <a href="classmultiselection_desplegable_menu.html#a08394c8b17ee258f775cb86ad40158fe">More...</a><br /></td></tr>
 <tr class="separator:a08394c8b17ee258f775cb86ad40158fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a339ecf3ed4c1b9e4cff14f4b5379e382"><td class="memItemLeft" align="right" valign="top"><a id="a339ecf3ed4c1b9e4cff14f4b5379e382" name="a339ecf3ed4c1b9e4cff14f4b5379e382"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>defaultToggleValue_</b> = true</td></tr>
-<tr class="memdesc:a339ecf3ed4c1b9e4cff14f4b5379e382"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if all the toggles have to been selected by default, false in other case. <br /></td></tr>
+<tr class="memitem:a339ecf3ed4c1b9e4cff14f4b5379e382"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmultiselection_desplegable_menu.html#a339ecf3ed4c1b9e4cff14f4b5379e382">defaultToggleValue_</a> = true</td></tr>
+<tr class="memdesc:a339ecf3ed4c1b9e4cff14f4b5379e382"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if all the toggles have to been selected by default, false in other case.  <a href="classmultiselection_desplegable_menu.html#a339ecf3ed4c1b9e4cff14f4b5379e382">More...</a><br /></td></tr>
 <tr class="separator:a339ecf3ed4c1b9e4cff14f4b5379e382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a1ea3d2762276952948aef3904ebdedb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmultiselection_desplegable_menu.html#a1ea3d2762276952948aef3904ebdedb9">Start</a> ()</td></tr>
+<tr class="memdesc:a1ea3d2762276952948aef3904ebdedb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called on the first frame. It search all the toggles that are childs of this gameobject, then it applies the default value to all of them. It also changes the text of the menu's button to the default text and intialize the anyChange_ property to true and the optionController_ property to a reference of the <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a>.  <a href="classmultiselection_desplegable_menu.html#a1ea3d2762276952948aef3904ebdedb9">More...</a><br /></td></tr>
+<tr class="separator:a1ea3d2762276952948aef3904ebdedb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec3eb75c400d2bd70be4f0ce65d5cc55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmultiselection_desplegable_menu.html#aec3eb75c400d2bd70be4f0ce65d5cc55">Update</a> ()</td></tr>
+<tr class="memdesc:aec3eb75c400d2bd70be4f0ce65d5cc55"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called on each frame. It checks if anyChange_ property is true, it calls the showAllToggles method.  <a href="classmultiselection_desplegable_menu.html#aec3eb75c400d2bd70be4f0ce65d5cc55">More...</a><br /></td></tr>
+<tr class="separator:aec3eb75c400d2bd70be4f0ce65d5cc55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a50ff243b29f940ffa9406df1c891363a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmultiselection_desplegable_menu.html#a50ff243b29f940ffa9406df1c891363a">anyChange_</a></td></tr>
+<tr class="memdesc:a50ff243b29f940ffa9406df1c891363a"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if there is any change on any of the toggles, false in other case.  <a href="classmultiselection_desplegable_menu.html#a50ff243b29f940ffa9406df1c891363a">More...</a><br /></td></tr>
+<tr class="separator:a50ff243b29f940ffa9406df1c891363a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a595041b250dd5765bd677da9738c6ba3"><td class="memItemLeft" align="right" valign="top">Toggle[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmultiselection_desplegable_menu.html#a595041b250dd5765bd677da9738c6ba3">toggles_</a></td></tr>
+<tr class="memdesc:a595041b250dd5765bd677da9738c6ba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array with a reference to all the toggles that this menu has.  <a href="classmultiselection_desplegable_menu.html#a595041b250dd5765bd677da9738c6ba3">More...</a><br /></td></tr>
+<tr class="separator:a595041b250dd5765bd677da9738c6ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d9a3e0373bfa4615b88ba78da6d6ce7"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmultiselection_desplegable_menu.html#a1d9a3e0373bfa4615b88ba78da6d6ce7">defaultText_</a></td></tr>
+<tr class="memdesc:a1d9a3e0373bfa4615b88ba78da6d6ce7"><td class="mdescLeft">&#160;</td><td class="mdescRight">String that contains the text that the button of the menu shows as default text.  <a href="classmultiselection_desplegable_menu.html#a1d9a3e0373bfa4615b88ba78da6d6ce7">More...</a><br /></td></tr>
+<tr class="separator:a1d9a3e0373bfa4615b88ba78da6d6ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3a3da073561821d904fdfd9cf7205aa"><td class="memItemLeft" align="right" valign="top">Text&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmultiselection_desplegable_menu.html#ac3a3da073561821d904fdfd9cf7205aa">textField_</a></td></tr>
+<tr class="memdesc:ac3a3da073561821d904fdfd9cf7205aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Text that is showed on the menu's button.  <a href="classmultiselection_desplegable_menu.html#ac3a3da073561821d904fdfd9cf7205aa">More...</a><br /></td></tr>
+<tr class="separator:ac3a3da073561821d904fdfd9cf7205aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d2e9c0462c20ed73e6f8333cf6d4a17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoptions_controller.html">optionsController</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmultiselection_desplegable_menu.html#a2d2e9c0462c20ed73e6f8333cf6d4a17">optionController_</a></td></tr>
+<tr class="memdesc:a2d2e9c0462c20ed73e6f8333cf6d4a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a> instance.  <a href="classmultiselection_desplegable_menu.html#a2d2e9c0462c20ed73e6f8333cf6d4a17">More...</a><br /></td></tr>
+<tr class="separator:a2d2e9c0462c20ed73e6f8333cf6d4a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This method controlls a multiselection desplegable menu. </p>
@@ -192,6 +218,25 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>defaultToggleValue_</
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool with the value of the toggle that has the given text. </dd></dl>
+
+</div>
+</div>
+<a id="a828f3798be24472ff09b013d56c87d17" name="a828f3798be24472ff09b013d56c87d17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a828f3798be24472ff09b013d56c87d17">&#9670;&nbsp;</a></span>OnClick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void multiselectionDesplegableMenu.OnClick </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method should be called when the user clicks the menu's button. First it checks if the lastOptionClicked_ static property of <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a> is null it sets that property as this GameObject, if that property is this GameObject, it sets that property to null, in other case this method dont do nothing. When the lastOptionClicked_ static property of <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a> is null or it is this GameObject it changes the button's text to the default text or the saving text. It also changes the showToggles_ property to the opposite value, the anyChange to true and then calls the saveOptions method of <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a> class. </p>
 
 </div>
 </div>
@@ -315,8 +360,215 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>defaultToggleValue_</
 
 </div>
 </div>
+<a id="a1ea3d2762276952948aef3904ebdedb9" name="a1ea3d2762276952948aef3904ebdedb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ea3d2762276952948aef3904ebdedb9">&#9670;&nbsp;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void multiselectionDesplegableMenu.Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is called on the first frame. It search all the toggles that are childs of this gameobject, then it applies the default value to all of them. It also changes the text of the menu's button to the default text and intialize the anyChange_ property to true and the optionController_ property to a reference of the <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a>. </p>
+
+</div>
+</div>
+<a id="aec3eb75c400d2bd70be4f0ce65d5cc55" name="aec3eb75c400d2bd70be4f0ce65d5cc55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec3eb75c400d2bd70be4f0ce65d5cc55">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void multiselectionDesplegableMenu.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is called on each frame. It checks if anyChange_ property is true, it calls the showAllToggles method. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a50ff243b29f940ffa9406df1c891363a" name="a50ff243b29f940ffa9406df1c891363a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50ff243b29f940ffa9406df1c891363a">&#9670;&nbsp;</a></span>anyChange_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool multiselectionDesplegableMenu.anyChange_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>True if there is any change on any of the toggles, false in other case. </p>
+
+</div>
+</div>
+<a id="a1d9a3e0373bfa4615b88ba78da6d6ce7" name="a1d9a3e0373bfa4615b88ba78da6d6ce7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d9a3e0373bfa4615b88ba78da6d6ce7">&#9670;&nbsp;</a></span>defaultText_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string multiselectionDesplegableMenu.defaultText_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>String that contains the text that the button of the menu shows as default text. </p>
+
+</div>
+</div>
+<a id="a339ecf3ed4c1b9e4cff14f4b5379e382" name="a339ecf3ed4c1b9e4cff14f4b5379e382"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a339ecf3ed4c1b9e4cff14f4b5379e382">&#9670;&nbsp;</a></span>defaultToggleValue_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool multiselectionDesplegableMenu.defaultToggleValue_ = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>True if all the toggles have to been selected by default, false in other case. </p>
+
+</div>
+</div>
+<a id="a2d2e9c0462c20ed73e6f8333cf6d4a17" name="a2d2e9c0462c20ed73e6f8333cf6d4a17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d2e9c0462c20ed73e6f8333cf6d4a17">&#9670;&nbsp;</a></span>optionController_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classoptions_controller.html">optionsController</a> multiselectionDesplegableMenu.optionController_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reference to the <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a> instance. </p>
+
+</div>
+</div>
+<a id="a08394c8b17ee258f775cb86ad40158fe" name="a08394c8b17ee258f775cb86ad40158fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08394c8b17ee258f775cb86ad40158fe">&#9670;&nbsp;</a></span>showToggles_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool multiselectionDesplegableMenu.showToggles_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>True if it has to show the toggles, false if it has to hide the toggles. </p>
+
+</div>
+</div>
+<a id="ac3a3da073561821d904fdfd9cf7205aa" name="ac3a3da073561821d904fdfd9cf7205aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3a3da073561821d904fdfd9cf7205aa">&#9670;&nbsp;</a></span>textField_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Text multiselectionDesplegableMenu.textField_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Text that is showed on the menu's button. </p>
+
+</div>
+</div>
+<a id="a595041b250dd5765bd677da9738c6ba3" name="a595041b250dd5765bd677da9738c6ba3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a595041b250dd5765bd677da9738c6ba3">&#9670;&nbsp;</a></span>toggles_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Toggle [] multiselectionDesplegableMenu.toggles_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Array with a reference to all the toggles that this menu has. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>MyPrefabs/Scripts/multiselectionDesplegableMenu.cs</li>
+<li>MyPrefabs/Scripts/<a class="el" href="multiselection_desplegable_menu_8cs.html">multiselectionDesplegableMenu.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

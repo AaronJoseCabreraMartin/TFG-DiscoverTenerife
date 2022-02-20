@@ -64,6 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_story_panel-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">StoryPanel Class Reference</div></div>
 </div><!--header-->
@@ -82,10 +84,116 @@ Inheritance diagram for StoryPanel:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4fe53b6d2c686d9eb4f38f61d71e9dc4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_story_panel.html#a4fe53b6d2c686d9eb4f38f61d71e9dc4">hidePanel</a> ()</td></tr>
 <tr class="separator:a4fe53b6d2c686d9eb4f38f61d71e9dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a816e6b470a302aefefb3028a737ca506"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_story_panel.html#a816e6b470a302aefefb3028a737ca506">Awake</a> ()</td></tr>
+<tr class="separator:a816e6b470a302aefefb3028a737ca506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa88072ce9a463ba3c32abf27374cca8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_story_panel.html#aa88072ce9a463ba3c32abf27374cca8c">Update</a> ()</td></tr>
+<tr class="separator:aa88072ce9a463ba3c32abf27374cca8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab50f356003f4514b61640cdfc8e42f0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_story_panel.html#ab50f356003f4514b61640cdfc8e42f0d">fillPanel</a> ()</td></tr>
+<tr class="separator:ab50f356003f4514b61640cdfc8e42f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3d48b9b23910c77937dbd6db1c3abd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_story_panel.html#aa3d48b9b23910c77937dbd6db1c3abd9">adjustPanelSize</a> ()</td></tr>
+<tr class="separator:aa3d48b9b23910c77937dbd6db1c3abd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9c4d415f3bd371d7e33b10325ba4362"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_story_panel.html#aa9c4d415f3bd371d7e33b10325ba4362">setData</a> ()</td></tr>
+<tr class="separator:aa9c4d415f3bd371d7e33b10325ba4362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a7b5a85f4db82eae2012ee3e2ed28b0a6"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_story_panel.html#a7b5a85f4db82eae2012ee3e2ed28b0a6">placeOnStoryPrefab_</a></td></tr>
+<tr class="memdesc:a7b5a85f4db82eae2012ee3e2ed28b0a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the prefab that represent an element on the current user story.  <a href="class_story_panel.html#a7b5a85f4db82eae2012ee3e2ed28b0a6">More...</a><br /></td></tr>
+<tr class="separator:a7b5a85f4db82eae2012ee3e2ed28b0a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af49d8a246feefe854555c5bb8c74ffa3"><td class="memItemLeft" align="right" valign="top">List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_story_panel.html#af49d8a246feefe854555c5bb8c74ffa3">placeOnStory_</a></td></tr>
+<tr class="memdesc:af49d8a246feefe854555c5bb8c74ffa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;GameObject&gt; list that contains references for all the elements that the panel has.  <a href="class_story_panel.html#af49d8a246feefe854555c5bb8c74ffa3">More...</a><br /></td></tr>
+<tr class="separator:af49d8a246feefe854555c5bb8c74ffa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7abea7d222ede6f225ef542264747f13"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_story_panel.html#a7abea7d222ede6f225ef542264747f13">panelFilled_</a></td></tr>
+<tr class="memdesc:a7abea7d222ede6f225ef542264747f13"><td class="mdescLeft">&#160;</td><td class="mdescRight">if true, the panel was already filled, false in other case.  <a href="class_story_panel.html#a7abea7d222ede6f225ef542264747f13">More...</a><br /></td></tr>
+<tr class="separator:a7abea7d222ede6f225ef542264747f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1768183516d60e858e54229e1c319d52"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_story_panel.html#a1768183516d60e858e54229e1c319d52">setDataTime_</a></td></tr>
+<tr class="memdesc:a1768183516d60e858e54229e1c319d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">if true, its time to set the data of all the elements of the panel.  <a href="class_story_panel.html#a1768183516d60e858e54229e1c319d52">More...</a><br /></td></tr>
+<tr class="separator:a1768183516d60e858e54229e1c319d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class that controls the panel that shows the story of the user. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa3d48b9b23910c77937dbd6db1c3abd9" name="aa3d48b9b23910c77937dbd6db1c3abd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3d48b9b23910c77937dbd6db1c3abd9">&#9670;&nbsp;</a></span>adjustPanelSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StoryPanel.adjustPanelSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >This method should be called when the elements of the panel changes. It adapts its height to make it keep the appearance. </p>
+
+</div>
+</div>
+<a id="a816e6b470a302aefefb3028a737ca506" name="a816e6b470a302aefefb3028a737ca506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a816e6b470a302aefefb3028a737ca506">&#9670;&nbsp;</a></span>Awake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StoryPanel.Awake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >This method is called before first frame, it initializes the atributtes placeOnStory_, it sets the panelFilled_ to false and the setDataTime_ to true. If both userDataIsReady and friendDataIsComplete of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class return true, it calls the fillPanel method </p>
+
+</div>
+</div>
+<a id="ab50f356003f4514b61640cdfc8e42f0d" name="ab50f356003f4514b61640cdfc8e42f0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab50f356003f4514b61640cdfc8e42f0d">&#9670;&nbsp;</a></span>fillPanel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StoryPanel.fillPanel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >This method instantiate a placeOnStoryPrefab_ prefab for each element on the visitedPlaces_ atribute of <a class="el" href="class_user_data.html" title="Class that stores the current user data.">UserData</a> class. It also change the panelFilled_ property to true and it also calls the adjustPanelSize method. </p>
+
+</div>
+</div>
 <a id="a4fe53b6d2c686d9eb4f38f61d71e9dc4" name="a4fe53b6d2c686d9eb4f38f61d71e9dc4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4fe53b6d2c686d9eb4f38f61d71e9dc4">&#9670;&nbsp;</a></span>hidePanel()</h2>
 
@@ -104,8 +212,161 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa9c4d415f3bd371d7e33b10325ba4362" name="aa9c4d415f3bd371d7e33b10325ba4362"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9c4d415f3bd371d7e33b10325ba4362">&#9670;&nbsp;</a></span>setData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StoryPanel.setData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >This method set the data of each prefab will shown, it sorts the data before giving it to the prefabs. </p>
+
+</div>
+</div>
+<a id="aa88072ce9a463ba3c32abf27374cca8c" name="aa88072ce9a463ba3c32abf27374cca8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa88072ce9a463ba3c32abf27374cca8c">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StoryPanel.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >This method is called each frame, it check:</p><ul>
+<li>if the user is changing the sorting method clicking on the options, it sets the setDataTime_ property to true.</li>
+<li>if the user stopped changing the options, setDataTime_ and panelFilled_ are true it calls the setData method and it changes the setDataTime_ property to false</li>
+<li>if the panelFilled_ property is false and both the userDataIsReady and the friendDataIsComplete methods of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class returns true, it calls the fillPanel method. </li>
+</ul>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7abea7d222ede6f225ef542264747f13" name="a7abea7d222ede6f225ef542264747f13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7abea7d222ede6f225ef542264747f13">&#9670;&nbsp;</a></span>panelFilled_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StoryPanel.panelFilled_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>if true, the panel was already filled, false in other case. </p>
+
+</div>
+</div>
+<a id="af49d8a246feefe854555c5bb8c74ffa3" name="af49d8a246feefe854555c5bb8c74ffa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af49d8a246feefe854555c5bb8c74ffa3">&#9670;&nbsp;</a></span>placeOnStory_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;GameObject&gt; StoryPanel.placeOnStory_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List&lt;GameObject&gt; list that contains references for all the elements that the panel has. </p>
+
+</div>
+</div>
+<a id="a7b5a85f4db82eae2012ee3e2ed28b0a6" name="a7b5a85f4db82eae2012ee3e2ed28b0a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b5a85f4db82eae2012ee3e2ed28b0a6">&#9670;&nbsp;</a></span>placeOnStoryPrefab_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject StoryPanel.placeOnStoryPrefab_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that contains the prefab that represent an element on the current user story. </p>
+
+</div>
+</div>
+<a id="a1768183516d60e858e54229e1c319d52" name="a1768183516d60e858e54229e1c319d52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1768183516d60e858e54229e1c319d52">&#9670;&nbsp;</a></span>setDataTime_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StoryPanel.setDataTime_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>if true, its time to set the data of all the elements of the panel. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/HistoryScreen/StoryPanel.cs</li>
+<li>Scripts/HistoryScreen/<a class="el" href="_story_panel_8cs.html">StoryPanel.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

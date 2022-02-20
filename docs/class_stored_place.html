@@ -66,6 +66,8 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_stored_place-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">StoredPlace Class Reference</div></div>
 </div><!--header-->
@@ -97,9 +99,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a39fb267fd9c192ea936ef13bdfa0fe6d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a39fb267fd9c192ea936ef13bdfa0fe6d">getZone</a> ()</td></tr>
 <tr class="memdesc:a39fb267fd9c192ea936ef13bdfa0fe6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the zone_ property.  <a href="class_stored_place.html#a39fb267fd9c192ea936ef13bdfa0fe6d">More...</a><br /></td></tr>
 <tr class="separator:a39fb267fd9c192ea936ef13bdfa0fe6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbfd18a129d3fa16f1b235dee63a9899"><td class="memItemLeft" align="right" valign="top"><a id="abbfd18a129d3fa16f1b235dee63a9899" name="abbfd18a129d3fa16f1b235dee63a9899"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>oneMoreVisit</b> ()</td></tr>
-<tr class="memdesc:abbfd18a129d3fa16f1b235dee63a9899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a new visit to the represented stored place. It uses the actual timestamp. It changes the visited_ property to true. It also set the changesToUpdtate_ static property to true. <br /></td></tr>
+<tr class="memitem:abbfd18a129d3fa16f1b235dee63a9899"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#abbfd18a129d3fa16f1b235dee63a9899">oneMoreVisit</a> ()</td></tr>
+<tr class="memdesc:abbfd18a129d3fa16f1b235dee63a9899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a new visit to the represented stored place. It uses the current timestamp. It changes the visited_ property to true. It also set the changesToUpdtate_ static property to true.  <a href="class_stored_place.html#abbfd18a129d3fa16f1b235dee63a9899">More...</a><br /></td></tr>
 <tr class="separator:abbfd18a129d3fa16f1b235dee63a9899"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6dc90fa3631d4437f8b8bb0084f980e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#ab6dc90fa3631d4437f8b8bb0084f980e">newVisitsForThisPlace</a> ()</td></tr>
 <tr class="memdesc:ab6dc90fa3631d4437f8b8bb0084f980e"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the newVisitsForThisPlace_ property.  <a href="class_stored_place.html#ab6dc90fa3631d4437f8b8bb0084f980e">More...</a><br /></td></tr>
@@ -125,9 +126,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a94ae7460e0bc267f2ee469c789811b69"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a94ae7460e0bc267f2ee469c789811b69">thereIsSpaceForOtherPlaceStored</a> ()</td></tr>
 <tr class="memdesc:a94ae7460e0bc267f2ee469c789811b69"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns true if the current user can store one or more places, it returns false if the current user cant store more places.  <a href="class_stored_place.html#a94ae7460e0bc267f2ee469c789811b69">More...</a><br /></td></tr>
 <tr class="separator:a94ae7460e0bc267f2ee469c789811b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5329b1b4ca20da031bc446e0091767e5"><td class="memItemLeft" align="right" valign="top"><a id="a5329b1b4ca20da031bc446e0091767e5" name="a5329b1b4ca20da031bc446e0091767e5"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>eraseStoredData</b> ()</td></tr>
-<tr class="memdesc:a5329b1b4ca20da031bc446e0091767e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method delete all the stored information on the current device. It also sets the static property changesToUpdate_ to false. <br /></td></tr>
+<tr class="memitem:a5329b1b4ca20da031bc446e0091767e5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a5329b1b4ca20da031bc446e0091767e5">eraseStoredData</a> ()</td></tr>
+<tr class="memdesc:a5329b1b4ca20da031bc446e0091767e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method delete all the stored information on the current device. It also sets the static property changesToUpdate_ to false.  <a href="class_stored_place.html#a5329b1b4ca20da031bc446e0091767e5">More...</a><br /></td></tr>
 <tr class="separator:a5329b1b4ca20da031bc446e0091767e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc3756e6fb92d52f62dcfcba33ef2bf3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#abc3756e6fb92d52f62dcfcba33ef2bf3">eraseStoredDataOf</a> (int index)</td></tr>
 <tr class="memdesc:abc3756e6fb92d52f62dcfcba33ef2bf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method deletes all the information of the place that is on the given index. If there isnt any information on that position it wont do nothing.  <a href="class_stored_place.html#abc3756e6fb92d52f62dcfcba33ef2bf3">More...</a><br /></td></tr>
@@ -135,25 +135,117 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>eraseStoredDat
 <tr class="memitem:aeb3eb6e9fdd2391dc5d4b6a45e2f15e2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#aeb3eb6e9fdd2391dc5d4b6a45e2f15e2">saveStoredPlace</a> (<a class="el" href="class_stored_place.html">StoredPlace</a> storedPlace)</td></tr>
 <tr class="memdesc:aeb3eb6e9fdd2391dc5d4b6a45e2f15e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method saves on the current device the changes of the given stored place. If the given place isnt stored, it will show a message on the console.  <a href="class_stored_place.html#aeb3eb6e9fdd2391dc5d4b6a45e2f15e2">More...</a><br /></td></tr>
 <tr class="separator:aeb3eb6e9fdd2391dc5d4b6a45e2f15e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89101fc35b1e47f38f9c812c60c42c8e"><td class="memItemLeft" align="right" valign="top"><a id="a89101fc35b1e47f38f9c812c60c42c8e" name="a89101fc35b1e47f38f9c812c60c42c8e"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>saveAll</b> ()</td></tr>
-<tr class="memdesc:a89101fc35b1e47f38f9c812c60c42c8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the PlayerPrefs's Save method in order to write on the current device all the stored information. <br /></td></tr>
+<tr class="memitem:a89101fc35b1e47f38f9c812c60c42c8e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a89101fc35b1e47f38f9c812c60c42c8e">saveAll</a> ()</td></tr>
+<tr class="memdesc:a89101fc35b1e47f38f9c812c60c42c8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the PlayerPrefs's Save method in order to write on the current device all the stored information.  <a href="class_stored_place.html#a89101fc35b1e47f38f9c812c60c42c8e">More...</a><br /></td></tr>
 <tr class="separator:a89101fc35b1e47f38f9c812c60c42c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79db8cdc262713658efd4e6548147858"><td class="memItemLeft" align="right" valign="top"><a id="a79db8cdc262713658efd4e6548147858" name="a79db8cdc262713658efd4e6548147858"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateChanges</b> ()</td></tr>
-<tr class="memdesc:a79db8cdc262713658efd4e6548147858"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method calls the userVisitedPlaceByName with each of the stored places that have been visited and they didnt uploaded the changes. <br /></td></tr>
+<tr class="memitem:a79db8cdc262713658efd4e6548147858"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a79db8cdc262713658efd4e6548147858">UpdateChanges</a> ()</td></tr>
+<tr class="memdesc:a79db8cdc262713658efd4e6548147858"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method calls the userVisitedPlaceByName with each of the stored places that have been visited and they didnt uploaded the changes.  <a href="class_stored_place.html#a79db8cdc262713658efd4e6548147858">More...</a><br /></td></tr>
 <tr class="separator:a79db8cdc262713658efd4e6548147858"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a64f0173954e68e202f0a8e9937ecb09b"><td class="memItemLeft" align="right" valign="top"><a id="a64f0173954e68e202f0a8e9937ecb09b" name="a64f0173954e68e202f0a8e9937ecb09b"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>changesToUpdate_</b> = true</td></tr>
-<tr class="memdesc:a64f0173954e68e202f0a8e9937ecb09b"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if any of the stored places has changes to update. <br /></td></tr>
+<tr class="memitem:a64f0173954e68e202f0a8e9937ecb09b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a64f0173954e68e202f0a8e9937ecb09b">changesToUpdate_</a> = true</td></tr>
+<tr class="memdesc:a64f0173954e68e202f0a8e9937ecb09b"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if any of the stored places has changes to update.  <a href="class_stored_place.html#a64f0173954e68e202f0a8e9937ecb09b">More...</a><br /></td></tr>
 <tr class="separator:a64f0173954e68e202f0a8e9937ecb09b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9983a952a79aae2119b3a841b0dbf314"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a9983a952a79aae2119b3a841b0dbf314">StoredPlace</a> (Dictionary&lt; string, string &gt; data)</td></tr>
+<tr class="memdesc:a9983a952a79aae2119b3a841b0dbf314"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, it initialices all the properties of the class. It expects a dictionary with the following entries: name_, address_, latitude_, longitude_, zone_, lastVisitTimestamp_, newVisitsForThisPlace_ and visited_.  <a href="class_stored_place.html#a9983a952a79aae2119b3a841b0dbf314">More...</a><br /></td></tr>
+<tr class="separator:a9983a952a79aae2119b3a841b0dbf314"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a9f7a651e85d9efe56ddddbf891a2b47c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a9f7a651e85d9efe56ddddbf891a2b47c">name_</a></td></tr>
+<tr class="memdesc:a9f7a651e85d9efe56ddddbf891a2b47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">string that stores the name of the stored place.  <a href="class_stored_place.html#a9f7a651e85d9efe56ddddbf891a2b47c">More...</a><br /></td></tr>
+<tr class="separator:a9f7a651e85d9efe56ddddbf891a2b47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03e03135a0e9a95b086de43a7390a027"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a03e03135a0e9a95b086de43a7390a027">address_</a></td></tr>
+<tr class="memdesc:a03e03135a0e9a95b086de43a7390a027"><td class="mdescLeft">&#160;</td><td class="mdescRight">string that stores the address of the stored place.  <a href="class_stored_place.html#a03e03135a0e9a95b086de43a7390a027">More...</a><br /></td></tr>
+<tr class="separator:a03e03135a0e9a95b086de43a7390a027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a844f1bf2c394653d77b7e44454171438"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a844f1bf2c394653d77b7e44454171438">latitude_</a></td></tr>
+<tr class="memdesc:a844f1bf2c394653d77b7e44454171438"><td class="mdescLeft">&#160;</td><td class="mdescRight">float that stores the latitude of the stored place.  <a href="class_stored_place.html#a844f1bf2c394653d77b7e44454171438">More...</a><br /></td></tr>
+<tr class="separator:a844f1bf2c394653d77b7e44454171438"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b7dc806e3d47a12ab83668d2856341e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a9b7dc806e3d47a12ab83668d2856341e">longitude_</a></td></tr>
+<tr class="memdesc:a9b7dc806e3d47a12ab83668d2856341e"><td class="mdescLeft">&#160;</td><td class="mdescRight">float that stores the longitude of the stored place.  <a href="class_stored_place.html#a9b7dc806e3d47a12ab83668d2856341e">More...</a><br /></td></tr>
+<tr class="separator:a9b7dc806e3d47a12ab83668d2856341e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e688363740525be85ed55a43300d1b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a85e688363740525be85ed55a43300d1b">newVisitsForThisPlace_</a></td></tr>
+<tr class="memdesc:a85e688363740525be85ed55a43300d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">int that stores the number of new visits to this stored place.  <a href="class_stored_place.html#a85e688363740525be85ed55a43300d1b">More...</a><br /></td></tr>
+<tr class="separator:a85e688363740525be85ed55a43300d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a00ff8a54f8221804a4b77e71704149"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a1a00ff8a54f8221804a4b77e71704149">zone_</a></td></tr>
+<tr class="memdesc:a1a00ff8a54f8221804a4b77e71704149"><td class="mdescLeft">&#160;</td><td class="mdescRight">string that stores the zone that the stored place belongs.  <a href="class_stored_place.html#a1a00ff8a54f8221804a4b77e71704149">More...</a><br /></td></tr>
+<tr class="separator:a1a00ff8a54f8221804a4b77e71704149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84ffac28a11863787327c7cf2ec7d6c6"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#a84ffac28a11863787327c7cf2ec7d6c6">lastVisitTimestamp_</a></td></tr>
+<tr class="memdesc:a84ffac28a11863787327c7cf2ec7d6c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">long that contains the timestamp of the last visit.  <a href="class_stored_place.html#a84ffac28a11863787327c7cf2ec7d6c6">More...</a><br /></td></tr>
+<tr class="separator:a84ffac28a11863787327c7cf2ec7d6c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af90e42f0cb49b53e1c7d60aa82bbcd2b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stored_place.html#af90e42f0cb49b53e1c7d60aa82bbcd2b">visited_</a></td></tr>
+<tr class="memdesc:af90e42f0cb49b53e1c7d60aa82bbcd2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean value, its true when the stored place was already visited.  <a href="class_stored_place.html#af90e42f0cb49b53e1c7d60aa82bbcd2b">More...</a><br /></td></tr>
+<tr class="separator:af90e42f0cb49b53e1c7d60aa82bbcd2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class that stores the data of one of the stored places. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9983a952a79aae2119b3a841b0dbf314" name="a9983a952a79aae2119b3a841b0dbf314"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9983a952a79aae2119b3a841b0dbf314">&#9670;&nbsp;</a></span>StoredPlace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">StoredPlace.StoredPlace </td>
+          <td>(</td>
+          <td class="paramtype">Dictionary&lt; string, string &gt;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor, it initialices all the properties of the class. It expects a dictionary with the following entries: name_, address_, latitude_, longitude_, zone_, lastVisitTimestamp_, newVisitsForThisPlace_ and visited_. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Dictionary</td><td>with the string conversion of the data of the stored place. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5329b1b4ca20da031bc446e0091767e5" name="a5329b1b4ca20da031bc446e0091767e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5329b1b4ca20da031bc446e0091767e5">&#9670;&nbsp;</a></span>eraseStoredData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void StoredPlace.eraseStoredData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method delete all the stored information on the current device. It also sets the static property changesToUpdate_ to false. </p>
+
+</div>
+</div>
 <a id="abc3756e6fb92d52f62dcfcba33ef2bf3" name="abc3756e6fb92d52f62dcfcba33ef2bf3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc3756e6fb92d52f62dcfcba33ef2bf3">&#9670;&nbsp;</a></span>eraseStoredDataOf()</h2>
 
@@ -398,6 +490,52 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>changesToUpdat
 
 </div>
 </div>
+<a id="abbfd18a129d3fa16f1b235dee63a9899" name="abbfd18a129d3fa16f1b235dee63a9899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbfd18a129d3fa16f1b235dee63a9899">&#9670;&nbsp;</a></span>oneMoreVisit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StoredPlace.oneMoreVisit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Register a new visit to the represented stored place. It uses the current timestamp. It changes the visited_ property to true. It also set the changesToUpdtate_ static property to true. </p>
+
+</div>
+</div>
+<a id="a89101fc35b1e47f38f9c812c60c42c8e" name="a89101fc35b1e47f38f9c812c60c42c8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89101fc35b1e47f38f9c812c60c42c8e">&#9670;&nbsp;</a></span>saveAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void StoredPlace.saveAll </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calls the PlayerPrefs's Save method in order to write on the current device all the stored information. </p>
+
+</div>
+</div>
 <a id="aeb3eb6e9fdd2391dc5d4b6a45e2f15e2" name="aeb3eb6e9fdd2391dc5d4b6a45e2f15e2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeb3eb6e9fdd2391dc5d4b6a45e2f15e2">&#9670;&nbsp;</a></span>saveStoredPlace()</h2>
 
@@ -558,6 +696,33 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>changesToUpdat
 
 </div>
 </div>
+<a id="a79db8cdc262713658efd4e6548147858" name="a79db8cdc262713658efd4e6548147858"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79db8cdc262713658efd4e6548147858">&#9670;&nbsp;</a></span>UpdateChanges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void StoredPlace.UpdateChanges </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method calls the userVisitedPlaceByName with each of the stored places that have been visited and they didnt uploaded the changes. </p>
+
+</div>
+</div>
 <a id="aeab5e03a281e0e823967fad12fe85f9b" name="aeab5e03a281e0e823967fad12fe85f9b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeab5e03a281e0e823967fad12fe85f9b">&#9670;&nbsp;</a></span>visited()</h2>
 
@@ -578,8 +743,225 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>changesToUpdat
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a03e03135a0e9a95b086de43a7390a027" name="a03e03135a0e9a95b086de43a7390a027"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03e03135a0e9a95b086de43a7390a027">&#9670;&nbsp;</a></span>address_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string StoredPlace.address_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>string that stores the address of the stored place. </p>
+
+</div>
+</div>
+<a id="a64f0173954e68e202f0a8e9937ecb09b" name="a64f0173954e68e202f0a8e9937ecb09b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64f0173954e68e202f0a8e9937ecb09b">&#9670;&nbsp;</a></span>changesToUpdate_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StoredPlace.changesToUpdate_ = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>true if any of the stored places has changes to update. </p>
+
+</div>
+</div>
+<a id="a84ffac28a11863787327c7cf2ec7d6c6" name="a84ffac28a11863787327c7cf2ec7d6c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84ffac28a11863787327c7cf2ec7d6c6">&#9670;&nbsp;</a></span>lastVisitTimestamp_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long StoredPlace.lastVisitTimestamp_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>long that contains the timestamp of the last visit. </p>
+
+</div>
+</div>
+<a id="a844f1bf2c394653d77b7e44454171438" name="a844f1bf2c394653d77b7e44454171438"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a844f1bf2c394653d77b7e44454171438">&#9670;&nbsp;</a></span>latitude_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float StoredPlace.latitude_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>float that stores the latitude of the stored place. </p>
+
+</div>
+</div>
+<a id="a9b7dc806e3d47a12ab83668d2856341e" name="a9b7dc806e3d47a12ab83668d2856341e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b7dc806e3d47a12ab83668d2856341e">&#9670;&nbsp;</a></span>longitude_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float StoredPlace.longitude_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>float that stores the longitude of the stored place. </p>
+
+</div>
+</div>
+<a id="a9f7a651e85d9efe56ddddbf891a2b47c" name="a9f7a651e85d9efe56ddddbf891a2b47c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f7a651e85d9efe56ddddbf891a2b47c">&#9670;&nbsp;</a></span>name_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string StoredPlace.name_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>string that stores the name of the stored place. </p>
+
+</div>
+</div>
+<a id="a85e688363740525be85ed55a43300d1b" name="a85e688363740525be85ed55a43300d1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85e688363740525be85ed55a43300d1b">&#9670;&nbsp;</a></span>newVisitsForThisPlace_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int StoredPlace.newVisitsForThisPlace_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>int that stores the number of new visits to this stored place. </p>
+
+</div>
+</div>
+<a id="af90e42f0cb49b53e1c7d60aa82bbcd2b" name="af90e42f0cb49b53e1c7d60aa82bbcd2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af90e42f0cb49b53e1c7d60aa82bbcd2b">&#9670;&nbsp;</a></span>visited_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StoredPlace.visited_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Boolean value, its true when the stored place was already visited. </p>
+
+</div>
+</div>
+<a id="a1a00ff8a54f8221804a4b77e71704149" name="a1a00ff8a54f8221804a4b77e71704149"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a00ff8a54f8221804a4b77e71704149">&#9670;&nbsp;</a></span>zone_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string StoredPlace.zone_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>string that stores the zone that the stored place belongs. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/StoredPlacesScreen/StoredPlace.cs</li>
+<li>Scripts/StoredPlacesScreen/<a class="el" href="_stored_place_8cs.html">StoredPlace.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

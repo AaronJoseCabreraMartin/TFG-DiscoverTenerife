@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classgame_rules-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">gameRules Class Reference</div></div>
 </div><!--header-->
@@ -83,6 +84,18 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f5de336cb7fc8dd5cb6c6a47bcc19e0"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a3f5de336cb7fc8dd5cb6c6a47bcc19e0">getMaxPlacesStored</a> ()</td></tr>
 <tr class="memdesc:a3f5de336cb7fc8dd5cb6c6a47bcc19e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the maxPlacesStored_ static property.  <a href="classgame_rules.html#a3f5de336cb7fc8dd5cb6c6a47bcc19e0">More...</a><br /></td></tr>
 <tr class="separator:a3f5de336cb7fc8dd5cb6c6a47bcc19e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a8ea1ade2366b500b6e44d3bb6711979d"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a8ea1ade2366b500b6e44d3bb6711979d">maxDistance_</a> = 0.05</td></tr>
+<tr class="memdesc:a8ea1ade2366b500b6e44d3bb6711979d"><td class="mdescLeft">&#160;</td><td class="mdescRight">double this static property stores the maximum distance between the player and an interesting point to be considerer as a visit. It is represented on kilometers, its default is 50m which is 0.05km  <a href="classgame_rules.html#a8ea1ade2366b500b6e44d3bb6711979d">More...</a><br /></td></tr>
+<tr class="separator:a8ea1ade2366b500b6e44d3bb6711979d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01b79e51a2543764b2d3398398d5c3f9"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a01b79e51a2543764b2d3398398d5c3f9">minutesOfCooldown_</a> = 60</td></tr>
+<tr class="memdesc:a01b79e51a2543764b2d3398398d5c3f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">contains the time in minutes that a player has to wait to visit again a place. Its default value is 60 minutes.  <a href="classgame_rules.html#a01b79e51a2543764b2d3398398d5c3f9">More...</a><br /></td></tr>
+<tr class="separator:a01b79e51a2543764b2d3398398d5c3f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72d8076629f6b963aa41539d417bd0be"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a72d8076629f6b963aa41539d417bd0be">maxPlacesStored_</a> = 5</td></tr>
+<tr class="memdesc:a72d8076629f6b963aa41539d417bd0be"><td class="mdescLeft">&#160;</td><td class="mdescRight">contains the maximum number of places that you can store in the pocket for internetless visits. Its default value is 5.  <a href="classgame_rules.html#a72d8076629f6b963aa41539d417bd0be">More...</a><br /></td></tr>
+<tr class="separator:a72d8076629f6b963aa41539d417bd0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class store as static properties the parameters that affect the game rules. For example it stores the maximum distance to a point to be considered as a valid visit. </p>
@@ -171,8 +184,81 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a8ea1ade2366b500b6e44d3bb6711979d" name="a8ea1ade2366b500b6e44d3bb6711979d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ea1ade2366b500b6e44d3bb6711979d">&#9670;&nbsp;</a></span>maxDistance_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gameRules.maxDistance_ = 0.05</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>double this static property stores the maximum distance between the player and an interesting point to be considerer as a visit. It is represented on kilometers, its default is 50m which is 0.05km </p>
+
+</div>
+</div>
+<a id="a72d8076629f6b963aa41539d417bd0be" name="a72d8076629f6b963aa41539d417bd0be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72d8076629f6b963aa41539d417bd0be">&#9670;&nbsp;</a></span>maxPlacesStored_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gameRules.maxPlacesStored_ = 5</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>contains the maximum number of places that you can store in the pocket for internetless visits. Its default value is 5. </p>
+
+</div>
+</div>
+<a id="a01b79e51a2543764b2d3398398d5c3f9" name="a01b79e51a2543764b2d3398398d5c3f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01b79e51a2543764b2d3398398d5c3f9">&#9670;&nbsp;</a></span>minutesOfCooldown_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gameRules.minutesOfCooldown_ = 60</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>contains the time in minutes that a player has to wait to visit again a place. Its default value is 60 minutes. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/gameRules.cs</li>
+<li>Scripts/<a class="el" href="game_rules_8cs.html">gameRules.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

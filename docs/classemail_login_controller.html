@@ -64,6 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classemail_login_controller-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">emailLoginController Class Reference</div></div>
 </div><!--header-->
@@ -88,10 +90,79 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae26e2b5345c62ddee6e164c2e5ea9c8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemail_login_controller.html#ae26e2b5345c62ddee6e164c2e5ea9c8b">errorLoginUser</a> (string error)</td></tr>
 <tr class="memdesc:ae26e2b5345c62ddee6e164c2e5ea9c8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method should be called when the login process failed. It makes a toast message that shows the given error.  <a href="classemail_login_controller.html#ae26e2b5345c62ddee6e164c2e5ea9c8b">More...</a><br /></td></tr>
 <tr class="separator:ae26e2b5345c62ddee6e164c2e5ea9c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a5d3572bf2f6794027e6599369d7e3a80"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemail_login_controller.html#a5d3572bf2f6794027e6599369d7e3a80">isEmail</a> (string email)</td></tr>
+<tr class="memdesc:a5d3572bf2f6794027e6599369d7e3a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method returns if the given string contains a email that matches the well formated email regular expression.  <a href="classemail_login_controller.html#a5d3572bf2f6794027e6599369d7e3a80">More...</a><br /></td></tr>
+<tr class="separator:a5d3572bf2f6794027e6599369d7e3a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9bb671a24225a8e7ffc834ab6fbd6c0"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemail_login_controller.html#aa9bb671a24225a8e7ffc834ab6fbd6c0">ChangeImageColor</a> (Image toMark, int time)</td></tr>
+<tr class="memdesc:aa9bb671a24225a8e7ffc834ab6fbd6c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This coroutine change the color of the given image to red, then wait the given number of seconds and then change the color of the given image to white again.  <a href="classemail_login_controller.html#aa9bb671a24225a8e7ffc834ab6fbd6c0">More...</a><br /></td></tr>
+<tr class="separator:aa9bb671a24225a8e7ffc834ab6fbd6c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ab4a150b7f76e426a1f9e433f8da0d629"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemail_login_controller.html#ab4a150b7f76e426a1f9e433f8da0d629">user</a></td></tr>
+<tr class="memdesc:ab4a150b7f76e426a1f9e433f8da0d629"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject this reference contains the input box for the user email field.  <a href="classemail_login_controller.html#ab4a150b7f76e426a1f9e433f8da0d629">More...</a><br /></td></tr>
+<tr class="separator:ab4a150b7f76e426a1f9e433f8da0d629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaf6fbf0033dc9bf68aff4de423746e9"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemail_login_controller.html#afaf6fbf0033dc9bf68aff4de423746e9">password</a></td></tr>
+<tr class="memdesc:afaf6fbf0033dc9bf68aff4de423746e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject this reference contains the input box for the user password field.  <a href="classemail_login_controller.html#afaf6fbf0033dc9bf68aff4de423746e9">More...</a><br /></td></tr>
+<tr class="separator:afaf6fbf0033dc9bf68aff4de423746e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a825c6ba21591da60168e171b90abdb4c"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemail_login_controller.html#a825c6ba21591da60168e171b90abdb4c">toastMessageObject_</a></td></tr>
+<tr class="memdesc:a825c6ba21591da60168e171b90abdb4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject this reference contains the toast message panel that show the user the errors that are happening.  <a href="classemail_login_controller.html#a825c6ba21591da60168e171b90abdb4c">More...</a><br /></td></tr>
+<tr class="separator:a825c6ba21591da60168e171b90abdb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1788e6a2b4f7262f91002f7e4e9c36d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemail_login_controller.html#a1788e6a2b4f7262f91002f7e4e9c36d6">inProgress</a> = false</td></tr>
+<tr class="memdesc:a1788e6a2b4f7262f91002f7e4e9c36d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">bool this flag is true when the logging process is working, and false in otherwise.  <a href="classemail_login_controller.html#a1788e6a2b4f7262f91002f7e4e9c36d6">More...</a><br /></td></tr>
+<tr class="separator:a1788e6a2b4f7262f91002f7e4e9c36d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class that controls the email login button. It also makes information messages for the user. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa9bb671a24225a8e7ffc834ab6fbd6c0" name="aa9bb671a24225a8e7ffc834ab6fbd6c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9bb671a24225a8e7ffc834ab6fbd6c0">&#9670;&nbsp;</a></span>ChangeImageColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerator emailLoginController.ChangeImageColor </td>
+          <td>(</td>
+          <td class="paramtype">Image&#160;</td>
+          <td class="paramname"><em>toMark</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This coroutine change the color of the given image to red, then wait the given number of seconds and then change the color of the given image to white again. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Image</td><td>the image of the input field that you want to change the color. </td></tr>
+    <tr><td class="paramname">int</td><td>the time in seconds that you want to let the color changed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ae26e2b5345c62ddee6e164c2e5ea9c8b" name="ae26e2b5345c62ddee6e164c2e5ea9c8b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae26e2b5345c62ddee6e164c2e5ea9c8b">&#9670;&nbsp;</a></span>errorLoginUser()</h2>
 
@@ -115,6 +186,41 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a5d3572bf2f6794027e6599369d7e3a80" name="a5d3572bf2f6794027e6599369d7e3a80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d3572bf2f6794027e6599369d7e3a80">&#9670;&nbsp;</a></span>isEmail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool emailLoginController.isEmail </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>email</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>this method returns if the given string contains a email that matches the well formated email regular expression. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>to check if it contains a valid format email </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool true if the given string is a valid format email, false in otherwise. </dd></dl>
 
 </div>
 </div>
@@ -167,8 +273,105 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1788e6a2b4f7262f91002f7e4e9c36d6" name="a1788e6a2b4f7262f91002f7e4e9c36d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1788e6a2b4f7262f91002f7e4e9c36d6">&#9670;&nbsp;</a></span>inProgress</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool emailLoginController.inProgress = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>bool this flag is true when the logging process is working, and false in otherwise. </p>
+
+</div>
+</div>
+<a id="afaf6fbf0033dc9bf68aff4de423746e9" name="afaf6fbf0033dc9bf68aff4de423746e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaf6fbf0033dc9bf68aff4de423746e9">&#9670;&nbsp;</a></span>password</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject emailLoginController.password</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject this reference contains the input box for the user password field. </p>
+
+</div>
+</div>
+<a id="a825c6ba21591da60168e171b90abdb4c" name="a825c6ba21591da60168e171b90abdb4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a825c6ba21591da60168e171b90abdb4c">&#9670;&nbsp;</a></span>toastMessageObject_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject emailLoginController.toastMessageObject_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject this reference contains the toast message panel that show the user the errors that are happening. </p>
+
+</div>
+</div>
+<a id="ab4a150b7f76e426a1f9e433f8da0d629" name="ab4a150b7f76e426a1f9e433f8da0d629"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4a150b7f76e426a1f9e433f8da0d629">&#9670;&nbsp;</a></span>user</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject emailLoginController.user</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject this reference contains the input box for the user email field. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/EmailLoginScreen/emailLoginController.cs</li>
+<li>Scripts/EmailLoginScreen/<a class="el" href="email_login_controller_8cs.html">emailLoginController.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

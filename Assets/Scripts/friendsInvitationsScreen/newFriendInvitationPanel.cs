@@ -45,7 +45,7 @@ public class newFriendInvitationPanel : MonoBehaviour
     /**
       * This method is called once per frame, it checks if the panel has al ready filled and if
       * the userDataIsReady method of firebaseHandler class returns true it calls the fillPanel method.
-      * It also check if the lastCount_ property isnt equal to the actual invitations_ count.
+      * It also check if the lastCount_ property isnt equal to the current invitations_ count.
       */
     void Update()
     {
@@ -62,9 +62,9 @@ public class newFriendInvitationPanel : MonoBehaviour
       * that the current user has. It changes the panelFilled_ property to true.
       */
     private void fillPanel(){
-        for(int i = 0; i < firebaseHandler.firebaseHandlerInstance_.actualUser_.countOfNewFriendData(); i++){
+        for(int i = 0; i < firebaseHandler.firebaseHandlerInstance_.currentUser_.countOfNewFriendData(); i++){
             GameObject newInvitationObject = Instantiate(invitationPrefab_, new Vector3(0, 0, 0), Quaternion.identity);
-            newInvitationObject.GetComponent<newFriendInvitation>().setData(firebaseHandler.firebaseHandlerInstance_.actualUser_.getNewFriendData(i));
+            newInvitationObject.GetComponent<newFriendInvitation>().setData(firebaseHandler.firebaseHandlerInstance_.currentUser_.getNewFriendData(i));
             newInvitationObject.transform.SetParent(this.transform);
             newInvitationObject.GetComponent<newFriendInvitation>().setPanel(this.gameObject);
             invitations_.Add(newInvitationObject);

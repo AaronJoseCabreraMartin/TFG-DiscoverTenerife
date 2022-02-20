@@ -21,18 +21,42 @@ void \mbox{\hyperlink{class_stored_places_controller_a67ea81a3e37920176975890ab9
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_stored_places_controller_aea4288962cd49cb7031db7ce256f2bbc}\label{class_stored_places_controller_aea4288962cd49cb7031db7ce256f2bbc}} 
-static \mbox{\hyperlink{class_stored_place}{Stored\+Place}} {\bfseries choosen\+Stored\+Place\+\_\+}
+static \mbox{\hyperlink{class_stored_place}{Stored\+Place}} \mbox{\hyperlink{class_stored_places_controller_aea4288962cd49cb7031db7ce256f2bbc}{choosen\+Stored\+Place\+\_\+}}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_stored_place}{Stored\+Place}} that the user has chosen. Its a static property to keep the information between scenes. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_stored_places_controller_a0b012d9adfe797840313a6c6aeba38db}\label{class_stored_places_controller_a0b012d9adfe797840313a6c6aeba38db}} 
-static \mbox{\hyperlink{class_stored_places_controller}{Stored\+Places\+Controller}} {\bfseries Stored\+Places\+Controller\+Object\+\_\+}
+static \mbox{\hyperlink{class_stored_places_controller}{Stored\+Places\+Controller}} \mbox{\hyperlink{class_stored_places_controller_a0b012d9adfe797840313a6c6aeba38db}{Stored\+Places\+Controller\+Object\+\_\+}}
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_stored_places_controller_a6381d13b90c33cffe3f7a3283054e063}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em This method is called before the first frame. It sets the information of each stored place on the correspondent element of the panel, and add a reference of the \mbox{\hyperlink{class_stored_place}{Stored\+Place}} object that is on the index-\/th position to the stored\+Places\+\_\+ list. If there isnt any place stored on one of the index it will add null to the stored\+Places\+\_\+ list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_stored_places_controller_ad756a37e98a2b293da4be9c1ae706034}{On\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em this method is called when the current Game\+Object is destroyed. It makes the Stored\+Places\+Controller\+Object\+\_\+ static property null again. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_stored_places_controller_a959ba1e99fbe2fb3195b3c1f1ae6e8ee}{stored\+Places\+Panel\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Reference to the Game\+Object that contains the panel that shows the stored places. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_stored_place}{Stored\+Place}} $>$ \mbox{\hyperlink{class_stored_places_controller_aa3229315905bf92eedf6a34e7393af0c}{stored\+Places\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of all the Stored\+Places that are shown by the panel. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_stored_places_controller_a8e324f41dde3548e71e0bd59a19442a4}{default\+Text\+\_\+}} = \char`\"{}You have this empty field to store a place for visit it when you don\textquotesingle{}t have internet conection.\char`\"{}
+\begin{DoxyCompactList}\small\item\em The text that will be shown when one of the spaces for store a place is free. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class that controls the panels that shows the information of each stored place. 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_stored_places_controller_a6381d13b90c33cffe3f7a3283054e063}\label{class_stored_places_controller_a6381d13b90c33cffe3f7a3283054e063}} 
+\index{StoredPlacesController@{StoredPlacesController}!Awake@{Awake}}
+\index{Awake@{Awake}!StoredPlacesController@{StoredPlacesController}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Stored\+Places\+Controller.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called before the first frame. It sets the information of each stored place on the correspondent element of the panel, and add a reference of the \mbox{\hyperlink{class_stored_place}{Stored\+Place}} object that is on the index-\/th position to the stored\+Places\+\_\+ list. If there isnt any place stored on one of the index it will add null to the stored\+Places\+\_\+ list. 
+
 \mbox{\Hypertarget{class_stored_places_controller_ad994b9c2f762a5bd4504c9a96b3d8067}\label{class_stored_places_controller_ad994b9c2f762a5bd4504c9a96b3d8067}} 
 \index{StoredPlacesController@{StoredPlacesController}!chooseStoredPlace@{chooseStoredPlace}}
 \index{chooseStoredPlace@{chooseStoredPlace}!StoredPlacesController@{StoredPlacesController}}
@@ -63,8 +87,67 @@ This method should be called when the user clicks on the delete one stored place
 {\em int} & index of which place the user wants to delete. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{class_stored_places_controller_ad756a37e98a2b293da4be9c1ae706034}\label{class_stored_places_controller_ad756a37e98a2b293da4be9c1ae706034}} 
+\index{StoredPlacesController@{StoredPlacesController}!OnDestroy@{OnDestroy}}
+\index{OnDestroy@{OnDestroy}!StoredPlacesController@{StoredPlacesController}}
+\doxysubsubsection{\texorpdfstring{OnDestroy()}{OnDestroy()}}
+{\footnotesize\ttfamily void Stored\+Places\+Controller.\+On\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this method is called when the current Game\+Object is destroyed. It makes the Stored\+Places\+Controller\+Object\+\_\+ static property null again. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_stored_places_controller_aea4288962cd49cb7031db7ce256f2bbc}\label{class_stored_places_controller_aea4288962cd49cb7031db7ce256f2bbc}} 
+\index{StoredPlacesController@{StoredPlacesController}!choosenStoredPlace\_@{choosenStoredPlace\_}}
+\index{choosenStoredPlace\_@{choosenStoredPlace\_}!StoredPlacesController@{StoredPlacesController}}
+\doxysubsubsection{\texorpdfstring{choosenStoredPlace\_}{choosenStoredPlace\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stored_place}{Stored\+Place}} Stored\+Places\+Controller.\+choosen\+Stored\+Place\+\_\+\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\mbox{\hyperlink{class_stored_place}{Stored\+Place}} that the user has chosen. Its a static property to keep the information between scenes. 
+
+\mbox{\Hypertarget{class_stored_places_controller_a8e324f41dde3548e71e0bd59a19442a4}\label{class_stored_places_controller_a8e324f41dde3548e71e0bd59a19442a4}} 
+\index{StoredPlacesController@{StoredPlacesController}!defaultText\_@{defaultText\_}}
+\index{defaultText\_@{defaultText\_}!StoredPlacesController@{StoredPlacesController}}
+\doxysubsubsection{\texorpdfstring{defaultText\_}{defaultText\_}}
+{\footnotesize\ttfamily string Stored\+Places\+Controller.\+default\+Text\+\_\+ = \char`\"{}You have this empty field to store a place for visit it when you don\textquotesingle{}t have internet conection.\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The text that will be shown when one of the spaces for store a place is free. 
+
+\mbox{\Hypertarget{class_stored_places_controller_aa3229315905bf92eedf6a34e7393af0c}\label{class_stored_places_controller_aa3229315905bf92eedf6a34e7393af0c}} 
+\index{StoredPlacesController@{StoredPlacesController}!storedPlaces\_@{storedPlaces\_}}
+\index{storedPlaces\_@{storedPlaces\_}!StoredPlacesController@{StoredPlacesController}}
+\doxysubsubsection{\texorpdfstring{storedPlaces\_}{storedPlaces\_}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_stored_place}{Stored\+Place}}$>$ Stored\+Places\+Controller.\+stored\+Places\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of all the Stored\+Places that are shown by the panel. 
+
+\mbox{\Hypertarget{class_stored_places_controller_a0b012d9adfe797840313a6c6aeba38db}\label{class_stored_places_controller_a0b012d9adfe797840313a6c6aeba38db}} 
+\index{StoredPlacesController@{StoredPlacesController}!StoredPlacesControllerObject\_@{StoredPlacesControllerObject\_}}
+\index{StoredPlacesControllerObject\_@{StoredPlacesControllerObject\_}!StoredPlacesController@{StoredPlacesController}}
+\doxysubsubsection{\texorpdfstring{StoredPlacesControllerObject\_}{StoredPlacesControllerObject\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stored_places_controller}{Stored\+Places\+Controller}} Stored\+Places\+Controller.\+Stored\+Places\+Controller\+Object\+\_\+\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_stored_places_controller_a959ba1e99fbe2fb3195b3c1f1ae6e8ee}\label{class_stored_places_controller_a959ba1e99fbe2fb3195b3c1f1ae6e8ee}} 
+\index{StoredPlacesController@{StoredPlacesController}!storedPlacesPanel\_@{storedPlacesPanel\_}}
+\index{storedPlacesPanel\_@{storedPlacesPanel\_}!StoredPlacesController@{StoredPlacesController}}
+\doxysubsubsection{\texorpdfstring{storedPlacesPanel\_}{storedPlacesPanel\_}}
+{\footnotesize\ttfamily Game\+Object Stored\+Places\+Controller.\+stored\+Places\+Panel\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the Game\+Object that contains the panel that shows the stored places. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Stored\+Places\+Screen/Stored\+Places\+Controller.\+cs\end{DoxyCompactItemize}
+Scripts/\+Stored\+Places\+Screen/\mbox{\hyperlink{_stored_places_controller_8cs}{Stored\+Places\+Controller.\+cs}}\end{DoxyCompactItemize}

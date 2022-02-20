@@ -53,7 +53,7 @@ public class ScoreOfTheWholeIslandController : MonoBehaviour
       * to show that proportion. It also sets the scoreLoaded_ attribute to true.
       */
     private void fillScore(){
-        float proportionOfVisited = (float)firebaseHandlerObject_.actualUser_.countOfVisitedPlaces()/firebaseHandlerObject_.totalOfPlaces();
+        float proportionOfVisited = (float)firebaseHandlerObject_.currentUser_.countOfVisitedPlaces()/firebaseHandlerObject_.totalOfPlaces();
         text_.GetComponent<Text>().text = "You have visited " + Math.Round(proportionOfVisited*100,2) + "% of the island";
         gameObject.GetComponent<Slider>().value = proportionOfVisited;
         scoreLoaded_ = true;

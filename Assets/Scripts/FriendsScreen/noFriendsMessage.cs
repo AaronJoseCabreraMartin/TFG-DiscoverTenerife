@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 /**
   * @brief Class that controls the image that is showed when there isnt any friend
-  * on the friend list of the actual user.
+  * on the friend list of the current user.
   */
 public class noFriendsMessage : MonoBehaviour
 {
@@ -16,13 +16,13 @@ public class noFriendsMessage : MonoBehaviour
 
     /**
       * @brief GameObject that contains the background image that is showed when there isnt any friend
-      * on the friend list of the actual user. 
+      * on the friend list of the current user. 
       */
     [SerializeField] private GameObject image_;
 
     /**
       * @brief GameObject that contains the text that is showed when there isnt any friend
-      * on the friend list of the actual user. 
+      * on the friend list of the current user. 
       */
     [SerializeField] private GameObject text_;
 

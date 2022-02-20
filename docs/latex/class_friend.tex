@@ -1,5 +1,10 @@
 \hypertarget{class_friend}{}\doxysection{Friend Class Reference}
 \label{class_friend}\index{Friend@{Friend}}
+
+
+class that controls the panel element that represent one of the current user friends.  
+
+
 Inheritance diagram for Friend\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,23 +14,183 @@ Inheritance diagram for Friend\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_friend_a6e228805f2886d8dbe7e4ade0ce3668a}\label{class_friend_a6e228805f2886d8dbe7e4ade0ce3668a}} 
-void {\bfseries set\+Data} (\mbox{\hyperlink{class_friend_data}{Friend\+Data}} friend\+Data)
+void \mbox{\hyperlink{class_friend_a6e228805f2886d8dbe7e4ade0ce3668a}{set\+Data}} (\mbox{\hyperlink{class_friend_data}{Friend\+Data}} friend\+Data)
+\begin{DoxyCompactList}\small\item\em The constructor of the class. It sets the user\+Was\+Notified\+\_\+ as false, it sets the shown text as the display name of the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_friend_afe44da06bb48ca3e1fa38c90392aa78a}{set\+Panel}} (Game\+Object panel)
+\begin{DoxyCompactList}\small\item\em Setter of the panel\+\_\+ property. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_friend_ad301703cad6844195d68e27a68454f2b}{chanllege\+Friend}} ()
+\begin{DoxyCompactList}\small\item\em TODO. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_friend_ad8f257a6e72ff1026f11defc068c01ca}{delete\+Friend}} ()
+\begin{DoxyCompactList}\small\item\em this method deletes the friendship relationship if there is internet connection. Before deleting the friendship relationship it notify the user to make him aware of what he is doing. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_friend_a8da65b46ba38c12762ea68308abe8975}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em getter of the display name of the represented user. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_friend_a878b592ba7cb49334bda9a0c86a0a308}{get\+Uid}} ()
+\begin{DoxyCompactList}\small\item\em getter of the user id of the represented user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_friend_afe44da06bb48ca3e1fa38c90392aa78a}\label{class_friend_afe44da06bb48ca3e1fa38c90392aa78a}} 
-void {\bfseries set\+Panel} (Game\+Object panel)
+void \mbox{\hyperlink{class_friend_a646bbbf9ea25b0c3902f4620b87d45d5}{destroy\+And\+Advice}} ()
+\begin{DoxyCompactList}\small\item\em This method destroy this Game\+Object and notify the \mbox{\hyperlink{classfriends_panel}{friends\+Panel}} object at it is attached to make it adjust his height. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
 \item 
+Game\+Object \mbox{\hyperlink{class_friend_aa7ebef0c752b4e58daa874a28684d8ea}{toast\+Message\+Object\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that references the \mbox{\hyperlink{classtoast_message}{toast\+Message}} object that will shown the information to the user. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_friend_a092f72fdc9455fe0d8741e6164c9f68d}{display\+Name\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that has the text where the display\+Name will be shown. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_friend_a5b2c8f663edab9994ee6bf3d6e1806a9}{panel\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that references the panel that this Game\+Object is attached. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_friend_data}{Friend\+Data}} \mbox{\hyperlink{class_friend_ae19f56b431b54aca3ad183a81dc34cd4}{friend\+Data\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Reference to a \mbox{\hyperlink{class_friend_data}{Friend\+Data}} object that contains all the information of the shown friend. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_friend_a2c4242175c053a345baabd1033ffd1f5}{user\+Was\+Notified\+\_\+}}
+\begin{DoxyCompactList}\small\item\em True if the user was notified about he is erasing a friend, false if you have to notify the user before deleting this friend. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class that controls the panel element that represent one of the current user friends. 
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_friend_ad301703cad6844195d68e27a68454f2b}\label{class_friend_ad301703cad6844195d68e27a68454f2b}} 
-void {\bfseries chanllege\+Friend} ()
-\item 
+\index{Friend@{Friend}!chanllegeFriend@{chanllegeFriend}}
+\index{chanllegeFriend@{chanllegeFriend}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{chanllegeFriend()}{chanllegeFriend()}}
+{\footnotesize\ttfamily void Friend.\+chanllege\+Friend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+TODO. 
+
 \mbox{\Hypertarget{class_friend_ad8f257a6e72ff1026f11defc068c01ca}\label{class_friend_ad8f257a6e72ff1026f11defc068c01ca}} 
-void {\bfseries delete\+Friend} ()
-\item 
+\index{Friend@{Friend}!deleteFriend@{deleteFriend}}
+\index{deleteFriend@{deleteFriend}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{deleteFriend()}{deleteFriend()}}
+{\footnotesize\ttfamily void Friend.\+delete\+Friend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+this method deletes the friendship relationship if there is internet connection. Before deleting the friendship relationship it notify the user to make him aware of what he is doing. 
+
+\mbox{\Hypertarget{class_friend_a646bbbf9ea25b0c3902f4620b87d45d5}\label{class_friend_a646bbbf9ea25b0c3902f4620b87d45d5}} 
+\index{Friend@{Friend}!destroyAndAdvice@{destroyAndAdvice}}
+\index{destroyAndAdvice@{destroyAndAdvice}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{destroyAndAdvice()}{destroyAndAdvice()}}
+{\footnotesize\ttfamily void Friend.\+destroy\+And\+Advice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method destroy this Game\+Object and notify the \mbox{\hyperlink{classfriends_panel}{friends\+Panel}} object at it is attached to make it adjust his height. 
+
 \mbox{\Hypertarget{class_friend_a8da65b46ba38c12762ea68308abe8975}\label{class_friend_a8da65b46ba38c12762ea68308abe8975}} 
-string {\bfseries get\+Name} ()
-\end{DoxyCompactItemize}
+\index{Friend@{Friend}!getName@{getName}}
+\index{getName@{getName}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily string Friend.\+get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the display name of the represented user. 
+
+\begin{DoxyReturn}{Returns}
+string that contains the display name of the user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_friend_a878b592ba7cb49334bda9a0c86a0a308}\label{class_friend_a878b592ba7cb49334bda9a0c86a0a308}} 
+\index{Friend@{Friend}!getUid@{getUid}}
+\index{getUid@{getUid}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{getUid()}{getUid()}}
+{\footnotesize\ttfamily string Friend.\+get\+Uid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the user id of the represented user. 
+
+\begin{DoxyReturn}{Returns}
+string that contains the user id of the user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_friend_a6e228805f2886d8dbe7e4ade0ce3668a}\label{class_friend_a6e228805f2886d8dbe7e4ade0ce3668a}} 
+\index{Friend@{Friend}!setData@{setData}}
+\index{setData@{setData}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{setData()}{setData()}}
+{\footnotesize\ttfamily void Friend.\+set\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_friend_data}{Friend\+Data}}}]{friend\+Data }\end{DoxyParamCaption})}
+
+
+
+The constructor of the class. It sets the user\+Was\+Notified\+\_\+ as false, it sets the shown text as the display name of the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the} & \mbox{\hyperlink{class_friend_data}{Friend\+Data}} object that contains all the information of the represented user. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_friend_afe44da06bb48ca3e1fa38c90392aa78a}\label{class_friend_afe44da06bb48ca3e1fa38c90392aa78a}} 
+\index{Friend@{Friend}!setPanel@{setPanel}}
+\index{setPanel@{setPanel}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{setPanel()}{setPanel()}}
+{\footnotesize\ttfamily void Friend.\+set\+Panel (\begin{DoxyParamCaption}\item[{Game\+Object}]{panel }\end{DoxyParamCaption})}
+
+
+
+Setter of the panel\+\_\+ property. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Game\+Object} & that contains the panel that this object is attached. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_friend_a092f72fdc9455fe0d8741e6164c9f68d}\label{class_friend_a092f72fdc9455fe0d8741e6164c9f68d}} 
+\index{Friend@{Friend}!displayName\_@{displayName\_}}
+\index{displayName\_@{displayName\_}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{displayName\_}{displayName\_}}
+{\footnotesize\ttfamily Game\+Object Friend.\+display\+Name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that has the text where the display\+Name will be shown. 
+
+\mbox{\Hypertarget{class_friend_ae19f56b431b54aca3ad183a81dc34cd4}\label{class_friend_ae19f56b431b54aca3ad183a81dc34cd4}} 
+\index{Friend@{Friend}!friendData\_@{friendData\_}}
+\index{friendData\_@{friendData\_}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{friendData\_}{friendData\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_friend_data}{Friend\+Data}} Friend.\+friend\+Data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to a \mbox{\hyperlink{class_friend_data}{Friend\+Data}} object that contains all the information of the shown friend. 
+
+\mbox{\Hypertarget{class_friend_a5b2c8f663edab9994ee6bf3d6e1806a9}\label{class_friend_a5b2c8f663edab9994ee6bf3d6e1806a9}} 
+\index{Friend@{Friend}!panel\_@{panel\_}}
+\index{panel\_@{panel\_}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{panel\_}{panel\_}}
+{\footnotesize\ttfamily Game\+Object Friend.\+panel\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that references the panel that this Game\+Object is attached. 
+
+\mbox{\Hypertarget{class_friend_aa7ebef0c752b4e58daa874a28684d8ea}\label{class_friend_aa7ebef0c752b4e58daa874a28684d8ea}} 
+\index{Friend@{Friend}!toastMessageObject\_@{toastMessageObject\_}}
+\index{toastMessageObject\_@{toastMessageObject\_}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{toastMessageObject\_}{toastMessageObject\_}}
+{\footnotesize\ttfamily Game\+Object Friend.\+toast\+Message\+Object\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that references the \mbox{\hyperlink{classtoast_message}{toast\+Message}} object that will shown the information to the user. 
+
+\mbox{\Hypertarget{class_friend_a2c4242175c053a345baabd1033ffd1f5}\label{class_friend_a2c4242175c053a345baabd1033ffd1f5}} 
+\index{Friend@{Friend}!userWasNotified\_@{userWasNotified\_}}
+\index{userWasNotified\_@{userWasNotified\_}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{userWasNotified\_}{userWasNotified\_}}
+{\footnotesize\ttfamily bool Friend.\+user\+Was\+Notified\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+True if the user was notified about he is erasing a friend, false if you have to notify the user before deleting this friend. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-My\+Prefabs/\+Scripts/\+Friend/Friend.\+cs\end{DoxyCompactItemize}
+My\+Prefabs/\+Scripts/\+Friend/\mbox{\hyperlink{_friend_8cs}{Friend.\+cs}}\end{DoxyCompactItemize}

@@ -1,5 +1,10 @@
 \hypertarget{classtoast_message}{}\doxysection{toast\+Message Class Reference}
 \label{classtoast_message}\index{toastMessage@{toastMessage}}
+
+
+class that controls the colored messages that are shown to the user giving him information but they hide after a few seconds.  
+
+
 Inheritance diagram for toast\+Message\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,11 +14,118 @@ Inheritance diagram for toast\+Message\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{classtoast_message_aa78557cd8b3e4a290a3bf350c62bf5bf}{make\+Animation}} (string message, Color32 color, int duration)
+\begin{DoxyCompactList}\small\item\em This method start the coroutine show\+Message with the given parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classtoast_message_a3bcb1a6ba71a5b64dded45449742d4a4}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em This method is called before the first frame. It calls the show method with false as a parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtoast_message_aea997b564d9023a4a5a2fec4cc40e220}{show}} (bool mode)
+\begin{DoxyCompactList}\small\item\em This method hides the text and the background image of the toast message if you give it a false, if you give it a true it shows the text and the background image. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{classtoast_message_a352aa292a59d07a076d2cf914e1b82ec}{show\+Message}} (string message, Color32 color, int duration)
+\begin{DoxyCompactList}\small\item\em This coroutine show the text and the background image with the given color and the given string during the given number of seconds, then it hides the message and the background image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classtoast_message_adbbccf1c8941f424b85b06a26c789578}{text\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the text that is shown on the toast message. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classtoast_message_a05924f1d082ffa46b445de7107ad3f40}{image\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the image that is shown as a background during the message is not hide. You can choose its color. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class that controls the colored messages that are shown to the user giving him information but they hide after a few seconds. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtoast_message_a3bcb1a6ba71a5b64dded45449742d4a4}\label{classtoast_message_a3bcb1a6ba71a5b64dded45449742d4a4}} 
+\index{toastMessage@{toastMessage}!Awake@{Awake}}
+\index{Awake@{Awake}!toastMessage@{toastMessage}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void toast\+Message.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called before the first frame. It calls the show method with false as a parameter. 
+
 \mbox{\Hypertarget{classtoast_message_aa78557cd8b3e4a290a3bf350c62bf5bf}\label{classtoast_message_aa78557cd8b3e4a290a3bf350c62bf5bf}} 
-void {\bfseries make\+Animation} (string message, Color32 color, int duration)
-\end{DoxyCompactItemize}
+\index{toastMessage@{toastMessage}!makeAnimation@{makeAnimation}}
+\index{makeAnimation@{makeAnimation}!toastMessage@{toastMessage}}
+\doxysubsubsection{\texorpdfstring{makeAnimation()}{makeAnimation()}}
+{\footnotesize\ttfamily void toast\+Message.\+make\+Animation (\begin{DoxyParamCaption}\item[{string}]{message,  }\item[{Color32}]{color,  }\item[{int}]{duration }\end{DoxyParamCaption})}
+
+
+
+This method start the coroutine show\+Message with the given parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & message that will be shown. \\
+\hline
+{\em Color32} & color of the background image. \\
+\hline
+{\em int} & time in seconds that the message will be shown. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtoast_message_aea997b564d9023a4a5a2fec4cc40e220}\label{classtoast_message_aea997b564d9023a4a5a2fec4cc40e220}} 
+\index{toastMessage@{toastMessage}!show@{show}}
+\index{show@{show}!toastMessage@{toastMessage}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily void toast\+Message.\+show (\begin{DoxyParamCaption}\item[{bool}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method hides the text and the background image of the toast message if you give it a false, if you give it a true it shows the text and the background image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & true if you want to show the message and the background image. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtoast_message_a352aa292a59d07a076d2cf914e1b82ec}\label{classtoast_message_a352aa292a59d07a076d2cf914e1b82ec}} 
+\index{toastMessage@{toastMessage}!showMessage@{showMessage}}
+\index{showMessage@{showMessage}!toastMessage@{toastMessage}}
+\doxysubsubsection{\texorpdfstring{showMessage()}{showMessage()}}
+{\footnotesize\ttfamily IEnumerator toast\+Message.\+show\+Message (\begin{DoxyParamCaption}\item[{string}]{message,  }\item[{Color32}]{color,  }\item[{int}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This coroutine show the text and the background image with the given color and the given string during the given number of seconds, then it hides the message and the background image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & message that will be shown. \\
+\hline
+{\em Color32} & color of the background image. \\
+\hline
+{\em int} & time in seconds that the message will be shown. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtoast_message_a05924f1d082ffa46b445de7107ad3f40}\label{classtoast_message_a05924f1d082ffa46b445de7107ad3f40}} 
+\index{toastMessage@{toastMessage}!image\_@{image\_}}
+\index{image\_@{image\_}!toastMessage@{toastMessage}}
+\doxysubsubsection{\texorpdfstring{image\_}{image\_}}
+{\footnotesize\ttfamily Game\+Object toast\+Message.\+image\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the image that is shown as a background during the message is not hide. You can choose its color. 
+
+\mbox{\Hypertarget{classtoast_message_adbbccf1c8941f424b85b06a26c789578}\label{classtoast_message_adbbccf1c8941f424b85b06a26c789578}} 
+\index{toastMessage@{toastMessage}!text\_@{text\_}}
+\index{text\_@{text\_}!toastMessage@{toastMessage}}
+\doxysubsubsection{\texorpdfstring{text\_}{text\_}}
+{\footnotesize\ttfamily Game\+Object toast\+Message.\+text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the text that is shown on the toast message. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-My\+Prefabs/\+Scripts/toast\+Message.\+cs\end{DoxyCompactItemize}
+My\+Prefabs/\+Scripts/\mbox{\hyperlink{toast_message_8cs}{toast\+Message.\+cs}}\end{DoxyCompactItemize}

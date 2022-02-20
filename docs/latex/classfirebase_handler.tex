@@ -28,8 +28,7 @@ void \mbox{\hyperlink{classfirebase_handler_a4fe29f48976a13c0b7e6058ef291739f}{S
 \item 
 void \mbox{\hyperlink{classfirebase_handler_a01a2d71ae9cac39dd471025595431a3e}{Log\+Out}} ()
 \item 
-\mbox{\Hypertarget{classfirebase_handler_a6f8c6e716d1526e02e1d37e73fa586ca}\label{classfirebase_handler_a6f8c6e716d1526e02e1d37e73fa586ca}} 
-void {\bfseries write\+New\+Place\+On\+Data\+Base} (\mbox{\hyperlink{class_place}{Place}} place, string type, int place\+ID)
+void \mbox{\hyperlink{classfirebase_handler_a6f8c6e716d1526e02e1d37e73fa586ca}{write\+New\+Place\+On\+Data\+Base}} (\mbox{\hyperlink{class_place}{Place}} place, string type, int place\+ID)
 \item 
 void \mbox{\hyperlink{classfirebase_handler_aba11f61e5325c292f87ab9cf860d4a47}{write\+User\+Data}} ()
 \item 
@@ -55,20 +54,18 @@ bool \mbox{\hyperlink{classfirebase_handler_a62e983ac87dcac624548cf24868db9c8}{p
 \item 
 bool \mbox{\hyperlink{classfirebase_handler_a3ca6a1aeb10049398462dec0bf5286e7}{user\+Data\+Is\+Ready}} ()
 \item 
-\mbox{\Hypertarget{classfirebase_handler_a0471139f7ee31242792fb109a2a9c45f}\label{classfirebase_handler_a0471139f7ee31242792fb109a2a9c45f}} 
-void {\bfseries sort\+Places} ()
+void \mbox{\hyperlink{classfirebase_handler_a0471139f7ee31242792fb109a2a9c45f}{sort\+Places}} ()
 \begin{DoxyCompactList}\small\item\em this method calls the sort\+Places method of the \mbox{\hyperlink{classrequest_handler}{request\+Handler}} class. Check that class documentation to get more information. \end{DoxyCompactList}\item 
 Dictionary$<$ string, string $>$ \mbox{\hyperlink{classfirebase_handler_adeb8dfca0be45c50bbc3890cc8c05048}{find\+Place\+By\+Name}} (string name)
 \begin{DoxyCompactList}\small\item\em this method returns a dictionary that contains the id and the type of the place that has the given name. If there isn\textquotesingle{}t any place with that name, it will return a dictionary that contains two entries id with the string \char`\"{}-\/1\char`\"{} and type with the string \char`\"{}no\+Type\char`\"{}. If there is more than one place with the given name, only the first one will be returned. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classfirebase_handler_ab5dc9ae5a71e0b308a311bb39d11d36c}\label{classfirebase_handler_ab5dc9ae5a71e0b308a311bb39d11d36c}} 
-int {\bfseries total\+Of\+Places} ()
+int \mbox{\hyperlink{classfirebase_handler_ab5dc9ae5a71e0b308a311bb39d11d36c}{total\+Of\+Places}} ()
 \item 
 int \mbox{\hyperlink{classfirebase_handler_ab2e1f3074b62519af5eb018eb8aaa7c8}{total\+Of\+Places\+Of\+Zone}} (string zone)
 \begin{DoxyCompactList}\small\item\em this method counts all the places that have the given zone name on their zone\+\_\+ property. If there is no places on the given zone, it will show a message on the console and return a 0. The valid zones are determinated on the \mbox{\hyperlink{classmap_rules_handler}{map\+Rules\+Handler}} class, check its documentation for more information. \end{DoxyCompactList}\item 
 Dictionary$<$ string, string $>$ \mbox{\hyperlink{classfirebase_handler_a79d494234917b59874830d3d758a71ff}{get\+Place\+Data}} (string type, string id)
 \begin{DoxyCompactList}\small\item\em This method search on the property all\+Places\+\_\+ if there is a place with the given type and id. If there isn\textquotesingle{}t any place that match both the given id and the given type, it will return null. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classfirebase_handler_a52e570d5c90783362238de73768243e7}{add\+Friend\+Data\+To\+Download}} (string uid)
-\begin{DoxyCompactList}\small\item\em this method adds the given user id to the friend\+Data\+Download\+Queue\+\_\+ for being downloaded after. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfirebase_handler_a79f50b713883df7fc275f725486fa424}{download\+Friend\+Data}} (string uid)
+\begin{DoxyCompactList}\small\item\em this method tries to download the necesary information of the given user id. If it fails on the process it adds the user id to the friend\+Data\+Download\+Queue\+\_\+ list. If it success it calls the add\+Friend\+Data method of \mbox{\hyperlink{class_user_data}{User\+Data}} class creating a new \mbox{\hyperlink{class_friend_data}{Friend\+Data}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classfirebase_handler_a1e64c2244615553b1c6d60498badfec3}{update\+User\+Delete\+AFriend}} (string no\+Friend\+Uid, string deleted\+Friends\+List)
 \begin{DoxyCompactList}\small\item\em WTF por que deleted\+Friends\+List es un string en vez de una lista?!?!?. This method must be called when there is internet connection, otherwise it wont to nothing. This method upload the deleted\+Friends property of the user that has the given id. \end{DoxyCompactList}\item 
 Dictionary$<$ string, string $>$ \mbox{\hyperlink{classfirebase_handler_a59e38bcbbfa4a3eca14e01bac8494fc5}{Search\+Other\+User\+By\+Name}} (string to\+Search, string type, \mbox{\hyperlink{class_search_bar}{Search\+Bar}} to\+Advise=null)
@@ -78,12 +75,62 @@ void \mbox{\hyperlink{classfirebase_handler_a8c59535dfc15cd611f0a6bda8b887b7c}{s
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_user_data}{User\+Data}} \mbox{\hyperlink{classfirebase_handler_a31c52c5358953859820e2f3f1266e57e}{actual\+User\+\_\+}} = null
+\mbox{\hyperlink{class_user_data}{User\+Data}} \mbox{\hyperlink{classfirebase_handler_a8bf24db68a008a90c667f918c5dc5d1f}{current\+User\+\_\+}} = null
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} \mbox{\hyperlink{classfirebase_handler_aaf00899aab5f1eccfaf3fe603ca317f5}{firebase\+Handler\+Instance\+\_\+}} = null
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classfirebase_handler_a107cf24e6ef564dd295c275b22cb76c2}{Awake}} ()
+\item 
+void \mbox{\hyperlink{classfirebase_handler_aacb6809cc1063e6d99a168da7ad4e221}{Update}} ()
+\item 
+void \mbox{\hyperlink{classfirebase_handler_ab36305f69c563c92c18a9788e78d91df}{Check\+Dependencies\+Firebase}} (Task$<$ Dependency\+Status $>$ task)
+\item 
+void \mbox{\hyperlink{classfirebase_handler_af32e8f72e94a98e2a3e7eb86e801b1c8}{download\+All\+Places}} ()
+\begin{DoxyCompactList}\small\item\em This method start as many coroutines as types of places are defined on \mbox{\hyperlink{classmap_rules_handler}{map\+Rules\+Handler}}. Each coroutine will download the information of that type of place. If you want more information check the \mbox{\hyperlink{classmap_rules_handler}{map\+Rules\+Handler}} documentation and the download\+One\+Type\+Of\+Site method of this class. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{classfirebase_handler_a8c779ceab25f62feccd95b3f19c9bc18}{download\+One\+Type\+Of\+Site}} (string type\+Site)
+\begin{DoxyCompactList}\small\item\em This coroutine tries to download all the places of the given type. If there is no internet connection it waits until there is avaible again. When all the places of all types has already downloaded it sets ON the places\+Ready\+\_\+ flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfirebase_handler_aa4e76c6c544cc8100150e10ca1530d78}{On\+Application\+Quit}} ()
+\begin{DoxyCompactList}\small\item\em This method is called when the application is closed, it saves all the offline information and stop the firebase online services. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfirebase_handler_a7d888fb6a6e77481385b3808f1052411}{upload\+Places\+Queue}} ()
+\begin{DoxyCompactList}\small\item\em this method tries to upload all the information that is on the places\+To\+Update\+Queue\+\_\+ property. If it success, it erase the place from the list, but if its fails the write\+Place\+Data will add again the place to the queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfirebase_handler_aa1fe00bd055164441b36e92a30407ef1}{download\+All\+Friend\+Data}} ()
+\begin{DoxyCompactList}\small\item\em this method calls the download\+Friend\+Data method with each user id that is on the friend\+Data\+Download\+Queue\+\_\+. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfirebase_handler_a3a17458f3343ca655fcf543a571944da}{download\+All\+New\+Friend\+Invitations\+Data}} ()
+\begin{DoxyCompactList}\small\item\em This method calls download\+New\+Friend\+Invitation\+Data method with each of the user ids that are on the new friends invitations list of the current user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfirebase_handler_ada3d92f5afe301370b0696a3a7ade2be}{download\+New\+Friend\+Invitation\+Data}} (string uid)
+\begin{DoxyCompactList}\small\item\em this method tries to download the display name and the list of new\+Friends\+Invitations of the user that matches the given user id. If its fails it adds the user id to the new\+Friend\+Data\+Download\+Queue\+\_\+ list and if its success, its calls the add\+New\+Friend\+Data method of \mbox{\hyperlink{class_user_data}{User\+Data}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Firebase\+App \mbox{\hyperlink{classfirebase_handler_a3d365ef2be6c733d643c49a4ac6c9c6f}{firebase\+App}} = null
+\item 
+Google\+Sign\+In\+Configuration \mbox{\hyperlink{classfirebase_handler_ab52221e41f82a8ab77f0d903146b4c0d}{configuration}}
+\item 
+bool \mbox{\hyperlink{classfirebase_handler_a0e6dd2b13fb3e1a9b3a8686bfedacacc}{firebase\+Dependencies\+Resolved}} = false
+\item 
+bool \mbox{\hyperlink{classfirebase_handler_ac262ba5e25a58136254a309a8aa2b103}{firebase\+Dependencies\+Running}} = false
+\item 
+bool \mbox{\hyperlink{classfirebase_handler_a1d02787e8de56031acebf457484c9752}{places\+Ready\+\_\+}} = false
+\item 
+bool \mbox{\hyperlink{classfirebase_handler_a19f92443e4e88477defb22d67236d746}{user\+Data\+Ready\+\_\+}} = false
+\item 
+Dictionary$<$ string, Dictionary$<$ string, Dictionary$<$ string, string $>$ $>$ $>$ \mbox{\hyperlink{classfirebase_handler_a6879d06e68b41954015ccc83838f8eba}{all\+Places\+\_\+}} = new Dictionary$<$string,Dictionary$<$string,Dictionary$<$string,string$>$$>$$>$()
+\item 
+\mbox{\hyperlink{classrequest_handler}{request\+Handler}} \mbox{\hyperlink{classfirebase_handler_aa72469a53537caef3bc8d7751cfead9b}{request\+Handler\+\_\+}}
+\item 
+List$<$ Dictionary$<$ string, string $>$ $>$ \mbox{\hyperlink{classfirebase_handler_a90dc41c05914c176572d603666605de5}{places\+To\+Update\+Queue\+\_\+}}
+\item 
+string \mbox{\hyperlink{classfirebase_handler_ada9d752ba9fa5633662cd1d10a2a096d}{user\+Data\+Uploaded\+\_\+}}
+\item 
+List$<$ string $>$ \mbox{\hyperlink{classfirebase_handler_ab765de99224181490bac7003babb04b1}{friend\+Data\+Download\+Queue\+\_\+}}
+\item 
+List$<$ string $>$ \mbox{\hyperlink{classfirebase_handler_a3f90b30b7131095e3995d37ac9eeeef7}{new\+Friend\+Data\+Download\+Queue\+\_\+}}
 \end{DoxyCompactItemize}
 
 
@@ -91,21 +138,6 @@ static \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} \mbox{\hyperl
 This class follows the Singleton patron, so it only has one instance at the same time. The instance could be found on the firebase\+Handler\+Instance\+\_\+ public static property. This class handles all the firebase releated methods like validating user, creating new users, downloading and uploading all the data from the database. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classfirebase_handler_a52e570d5c90783362238de73768243e7}\label{classfirebase_handler_a52e570d5c90783362238de73768243e7}} 
-\index{firebaseHandler@{firebaseHandler}!addFriendDataToDownload@{addFriendDataToDownload}}
-\index{addFriendDataToDownload@{addFriendDataToDownload}!firebaseHandler@{firebaseHandler}}
-\doxysubsubsection{\texorpdfstring{addFriendDataToDownload()}{addFriendDataToDownload()}}
-{\footnotesize\ttfamily void firebase\+Handler.\+add\+Friend\+Data\+To\+Download (\begin{DoxyParamCaption}\item[{string}]{uid }\end{DoxyParamCaption})}
-
-
-
-this method adds the given user id to the friend\+Data\+Download\+Queue\+\_\+ for being downloaded after. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em string} & that contains the user id that you want to download data. \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{classfirebase_handler_a297e1c6be17087c8721385c645f747a8}\label{classfirebase_handler_a297e1c6be17087c8721385c645f747a8}} 
 \index{firebaseHandler@{firebaseHandler}!AnonymousUser@{AnonymousUser}}
 \index{AnonymousUser@{AnonymousUser}!firebaseHandler@{firebaseHandler}}
@@ -125,6 +157,23 @@ This method calls ask\+For\+APlace method of \mbox{\hyperlink{classrequest_handl
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_place}{Place}} place that should be used next. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classfirebase_handler_a107cf24e6ef564dd295c275b22cb76c2}\label{classfirebase_handler_a107cf24e6ef564dd295c275b22cb76c2}} 
+\index{firebaseHandler@{firebaseHandler}!Awake@{Awake}}
+\index{Awake@{Awake}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+The awake method is called before the first frame, it checks if other \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} was instanciated before, if that is the case, it destroy this object. \mbox{\Hypertarget{classfirebase_handler_ab36305f69c563c92c18a9788e78d91df}\label{classfirebase_handler_ab36305f69c563c92c18a9788e78d91df}} 
+\index{firebaseHandler@{firebaseHandler}!CheckDependenciesFirebase@{CheckDependenciesFirebase}}
+\index{CheckDependenciesFirebase@{CheckDependenciesFirebase}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{CheckDependenciesFirebase()}{CheckDependenciesFirebase()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+Check\+Dependencies\+Firebase (\begin{DoxyParamCaption}\item[{Task$<$ Dependency\+Status $>$}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Task$<$\+Dependency\+Status$>$} & task to wait and take its results This method creates the firebase object and check if there is a previous session, it there is login that sesion. It also calls the method that download the places information and the user data. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classfirebase_handler_a7894071f3ee618eb2e46d8f0b1ea7fed}\label{classfirebase_handler_a7894071f3ee618eb2e46d8f0b1ea7fed}} 
 \index{firebaseHandler@{firebaseHandler}!cooldownVisitingPlaceByNameFinished@{cooldownVisitingPlaceByNameFinished}}
 \index{cooldownVisitingPlaceByNameFinished@{cooldownVisitingPlaceByNameFinished}!firebaseHandler@{firebaseHandler}}
@@ -192,6 +241,81 @@ bool with true if the cooldown for visiting the given place is finished, in othe
 {\em string} & that contains the new user email. \\
 \hline
 {\em string} & that contains the new user password. This method tries to create a new user on the firebase backend with the given email and password. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classfirebase_handler_aa1fe00bd055164441b36e92a30407ef1}\label{classfirebase_handler_aa1fe00bd055164441b36e92a30407ef1}} 
+\index{firebaseHandler@{firebaseHandler}!downloadAllFriendData@{downloadAllFriendData}}
+\index{downloadAllFriendData@{downloadAllFriendData}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{downloadAllFriendData()}{downloadAllFriendData()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+download\+All\+Friend\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this method calls the download\+Friend\+Data method with each user id that is on the friend\+Data\+Download\+Queue\+\_\+. 
+
+\mbox{\Hypertarget{classfirebase_handler_a3a17458f3343ca655fcf543a571944da}\label{classfirebase_handler_a3a17458f3343ca655fcf543a571944da}} 
+\index{firebaseHandler@{firebaseHandler}!downloadAllNewFriendInvitationsData@{downloadAllNewFriendInvitationsData}}
+\index{downloadAllNewFriendInvitationsData@{downloadAllNewFriendInvitationsData}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{downloadAllNewFriendInvitationsData()}{downloadAllNewFriendInvitationsData()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+download\+All\+New\+Friend\+Invitations\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method calls download\+New\+Friend\+Invitation\+Data method with each of the user ids that are on the new friends invitations list of the current user. 
+
+\mbox{\Hypertarget{classfirebase_handler_af32e8f72e94a98e2a3e7eb86e801b1c8}\label{classfirebase_handler_af32e8f72e94a98e2a3e7eb86e801b1c8}} 
+\index{firebaseHandler@{firebaseHandler}!downloadAllPlaces@{downloadAllPlaces}}
+\index{downloadAllPlaces@{downloadAllPlaces}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{downloadAllPlaces()}{downloadAllPlaces()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+download\+All\+Places (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method start as many coroutines as types of places are defined on \mbox{\hyperlink{classmap_rules_handler}{map\+Rules\+Handler}}. Each coroutine will download the information of that type of place. If you want more information check the \mbox{\hyperlink{classmap_rules_handler}{map\+Rules\+Handler}} documentation and the download\+One\+Type\+Of\+Site method of this class. 
+
+\mbox{\Hypertarget{classfirebase_handler_a79f50b713883df7fc275f725486fa424}\label{classfirebase_handler_a79f50b713883df7fc275f725486fa424}} 
+\index{firebaseHandler@{firebaseHandler}!downloadFriendData@{downloadFriendData}}
+\index{downloadFriendData@{downloadFriendData}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{downloadFriendData()}{downloadFriendData()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+download\+Friend\+Data (\begin{DoxyParamCaption}\item[{string}]{uid }\end{DoxyParamCaption})}
+
+
+
+this method tries to download the necesary information of the given user id. If it fails on the process it adds the user id to the friend\+Data\+Download\+Queue\+\_\+ list. If it success it calls the add\+Friend\+Data method of \mbox{\hyperlink{class_user_data}{User\+Data}} class creating a new \mbox{\hyperlink{class_friend_data}{Friend\+Data}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & that contains the user id of the friend of the current user that you want to obtain data. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classfirebase_handler_ada3d92f5afe301370b0696a3a7ade2be}\label{classfirebase_handler_ada3d92f5afe301370b0696a3a7ade2be}} 
+\index{firebaseHandler@{firebaseHandler}!downloadNewFriendInvitationData@{downloadNewFriendInvitationData}}
+\index{downloadNewFriendInvitationData@{downloadNewFriendInvitationData}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{downloadNewFriendInvitationData()}{downloadNewFriendInvitationData()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+download\+New\+Friend\+Invitation\+Data (\begin{DoxyParamCaption}\item[{string}]{uid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this method tries to download the display name and the list of new\+Friends\+Invitations of the user that matches the given user id. If its fails it adds the user id to the new\+Friend\+Data\+Download\+Queue\+\_\+ list and if its success, its calls the add\+New\+Friend\+Data method of \mbox{\hyperlink{class_user_data}{User\+Data}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & that contains the user id that you want to download the enough information for create the \mbox{\hyperlink{classnew_friend_invitation}{new\+Friend\+Invitation}} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classfirebase_handler_a8c779ceab25f62feccd95b3f19c9bc18}\label{classfirebase_handler_a8c779ceab25f62feccd95b3f19c9bc18}} 
+\index{firebaseHandler@{firebaseHandler}!downloadOneTypeOfSite@{downloadOneTypeOfSite}}
+\index{downloadOneTypeOfSite@{downloadOneTypeOfSite}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{downloadOneTypeOfSite()}{downloadOneTypeOfSite()}}
+{\footnotesize\ttfamily IEnumerator firebase\+Handler.\+download\+One\+Type\+Of\+Site (\begin{DoxyParamCaption}\item[{string}]{type\+Site }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This coroutine tries to download all the places of the given type. If there is no internet connection it waits until there is avaible again. When all the places of all types has already downloaded it sets ON the places\+Ready\+\_\+ flag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & that contains the type of the sites you want to download the information. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classfirebase_handler_adeb8dfca0be45c50bbc3890cc8c05048}\label{classfirebase_handler_adeb8dfca0be45c50bbc3890cc8c05048}} 
@@ -281,7 +405,17 @@ This method returns true only if there is internet connection, otherwise it will
 \doxysubsubsection{\texorpdfstring{LogOut()}{LogOut()}}
 {\footnotesize\ttfamily void firebase\+Handler.\+Log\+Out (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-This method end the current firebase user sesion. \mbox{\Hypertarget{classfirebase_handler_a62e983ac87dcac624548cf24868db9c8}\label{classfirebase_handler_a62e983ac87dcac624548cf24868db9c8}} 
+This method end the current firebase user sesion. \mbox{\Hypertarget{classfirebase_handler_aa4e76c6c544cc8100150e10ca1530d78}\label{classfirebase_handler_aa4e76c6c544cc8100150e10ca1530d78}} 
+\index{firebaseHandler@{firebaseHandler}!OnApplicationQuit@{OnApplicationQuit}}
+\index{OnApplicationQuit@{OnApplicationQuit}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{OnApplicationQuit()}{OnApplicationQuit()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+On\+Application\+Quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called when the application is closed, it saves all the offline information and stop the firebase online services. 
+
+\mbox{\Hypertarget{classfirebase_handler_a62e983ac87dcac624548cf24868db9c8}\label{classfirebase_handler_a62e983ac87dcac624548cf24868db9c8}} 
 \index{firebaseHandler@{firebaseHandler}!placesAreReady@{placesAreReady}}
 \index{placesAreReady@{placesAreReady}!firebaseHandler@{firebaseHandler}}
 \doxysubsubsection{\texorpdfstring{placesAreReady()}{placesAreReady()}}
@@ -346,7 +480,23 @@ This method tries to send a new friendship invitation of the current user to the
 \doxysubsubsection{\texorpdfstring{SignInWithGoogle()}{SignInWithGoogle()}}
 {\footnotesize\ttfamily void firebase\+Handler.\+Sign\+In\+With\+Google (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-This method will be called when the google signin button is pressed, it start the google authentication process calling the method On\+Authentication\+Finished when it finish. \mbox{\Hypertarget{classfirebase_handler_ab2e1f3074b62519af5eb018eb8aaa7c8}\label{classfirebase_handler_ab2e1f3074b62519af5eb018eb8aaa7c8}} 
+This method will be called when the google signin button is pressed, it start the google authentication process calling the method On\+Authentication\+Finished when it finish. \mbox{\Hypertarget{classfirebase_handler_a0471139f7ee31242792fb109a2a9c45f}\label{classfirebase_handler_a0471139f7ee31242792fb109a2a9c45f}} 
+\index{firebaseHandler@{firebaseHandler}!sortPlaces@{sortPlaces}}
+\index{sortPlaces@{sortPlaces}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{sortPlaces()}{sortPlaces()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+sort\+Places (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+this method calls the sort\+Places method of the \mbox{\hyperlink{classrequest_handler}{request\+Handler}} class. Check that class documentation to get more information. 
+
+\mbox{\Hypertarget{classfirebase_handler_ab5dc9ae5a71e0b308a311bb39d11d36c}\label{classfirebase_handler_ab5dc9ae5a71e0b308a311bb39d11d36c}} 
+\index{firebaseHandler@{firebaseHandler}!totalOfPlaces@{totalOfPlaces}}
+\index{totalOfPlaces@{totalOfPlaces}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{totalOfPlaces()}{totalOfPlaces()}}
+{\footnotesize\ttfamily int firebase\+Handler.\+total\+Of\+Places (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classfirebase_handler_ab2e1f3074b62519af5eb018eb8aaa7c8}\label{classfirebase_handler_ab2e1f3074b62519af5eb018eb8aaa7c8}} 
 \index{firebaseHandler@{firebaseHandler}!totalOfPlacesOfZone@{totalOfPlacesOfZone}}
 \index{totalOfPlacesOfZone@{totalOfPlacesOfZone}!firebaseHandler@{firebaseHandler}}
 \doxysubsubsection{\texorpdfstring{totalOfPlacesOfZone()}{totalOfPlacesOfZone()}}
@@ -364,7 +514,17 @@ this method counts all the places that have the given zone name on their zone\+\
 \begin{DoxyReturn}{Returns}
 int the number of places that are on the given zone. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classfirebase_handler_a1e64c2244615553b1c6d60498badfec3}\label{classfirebase_handler_a1e64c2244615553b1c6d60498badfec3}} 
+\mbox{\Hypertarget{classfirebase_handler_aacb6809cc1063e6d99a168da7ad4e221}\label{classfirebase_handler_aacb6809cc1063e6d99a168da7ad4e221}} 
+\index{firebaseHandler@{firebaseHandler}!Update@{Update}}
+\index{Update@{Update}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+The Update method is called every frame. On this method this class constantly check\+:
+\begin{DoxyItemize}
+\item If it has to resolve the firebase dependencies, on that case try to solve them first.
+\item If the firebase dependencies has already been resolved, check if it has some information waiting for being uploaded or downloaded try if there is internet connection. 
+\end{DoxyItemize}\mbox{\Hypertarget{classfirebase_handler_a1e64c2244615553b1c6d60498badfec3}\label{classfirebase_handler_a1e64c2244615553b1c6d60498badfec3}} 
 \index{firebaseHandler@{firebaseHandler}!updateUserDeleteAFriend@{updateUserDeleteAFriend}}
 \index{updateUserDeleteAFriend@{updateUserDeleteAFriend}!firebaseHandler@{firebaseHandler}}
 \doxysubsubsection{\texorpdfstring{updateUserDeleteAFriend()}{updateUserDeleteAFriend()}}
@@ -381,6 +541,16 @@ WTF por que deleted\+Friends\+List es un string en vez de una lista?!?!?. This m
 {\em string} & that contains the deleted friends list of the user that has the given id. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classfirebase_handler_a7d888fb6a6e77481385b3808f1052411}\label{classfirebase_handler_a7d888fb6a6e77481385b3808f1052411}} 
+\index{firebaseHandler@{firebaseHandler}!uploadPlacesQueue@{uploadPlacesQueue}}
+\index{uploadPlacesQueue@{uploadPlacesQueue}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{uploadPlacesQueue()}{uploadPlacesQueue()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+upload\+Places\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this method tries to upload all the information that is on the places\+To\+Update\+Queue\+\_\+ property. If it success, it erase the place from the list, but if its fails the write\+Place\+Data will add again the place to the queue. 
+
 \mbox{\Hypertarget{classfirebase_handler_a3ca6a1aeb10049398462dec0bf5286e7}\label{classfirebase_handler_a3ca6a1aeb10049398462dec0bf5286e7}} 
 \index{firebaseHandler@{firebaseHandler}!userDataIsReady@{userDataIsReady}}
 \index{userDataIsReady@{userDataIsReady}!firebaseHandler@{firebaseHandler}}
@@ -426,6 +596,12 @@ This method search on all the places the first one who match the given name, and
 {\em long} & that contains the timestamp of the visit, the default value is -\/1. A negative value means that you want to use the current timestamp not the given one. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classfirebase_handler_a6f8c6e716d1526e02e1d37e73fa586ca}\label{classfirebase_handler_a6f8c6e716d1526e02e1d37e73fa586ca}} 
+\index{firebaseHandler@{firebaseHandler}!writeNewPlaceOnDataBase@{writeNewPlaceOnDataBase}}
+\index{writeNewPlaceOnDataBase@{writeNewPlaceOnDataBase}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{writeNewPlaceOnDataBase()}{writeNewPlaceOnDataBase()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+write\+New\+Place\+On\+Data\+Base (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_place}{Place}}}]{place,  }\item[{string}]{type,  }\item[{int}]{place\+ID }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{classfirebase_handler_a3246face54b37d05f1706fd2c679fb4c}\label{classfirebase_handler_a3246face54b37d05f1706fd2c679fb4c}} 
 \index{firebaseHandler@{firebaseHandler}!writePlaceData@{writePlaceData}}
 \index{writePlaceData@{writePlaceData}!firebaseHandler@{firebaseHandler}}
@@ -452,20 +628,102 @@ This method uploads the data from the place that matches the given type and id. 
 This method uploads to the database all the current user releated information. It also upload the changes on the user social preferences. 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classfirebase_handler_a31c52c5358953859820e2f3f1266e57e}\label{classfirebase_handler_a31c52c5358953859820e2f3f1266e57e}} 
-\index{firebaseHandler@{firebaseHandler}!actualUser\_@{actualUser\_}}
-\index{actualUser\_@{actualUser\_}!firebaseHandler@{firebaseHandler}}
-\doxysubsubsection{\texorpdfstring{actualUser\_}{actualUser\_}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_user_data}{User\+Data}} firebase\+Handler.\+actual\+User\+\_\+ = null}
+\mbox{\Hypertarget{classfirebase_handler_a6879d06e68b41954015ccc83838f8eba}\label{classfirebase_handler_a6879d06e68b41954015ccc83838f8eba}} 
+\index{firebaseHandler@{firebaseHandler}!allPlaces\_@{allPlaces\_}}
+\index{allPlaces\_@{allPlaces\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{allPlaces\_}{allPlaces\_}}
+{\footnotesize\ttfamily Dictionary$<$string,Dictionary$<$string,Dictionary$<$string,string$>$ $>$ $>$ firebase\+Handler.\+all\+Places\+\_\+ = new Dictionary$<$string,Dictionary$<$string,Dictionary$<$string,string$>$$>$$>$()\hspace{0.3cm}{\ttfamily [private]}}
 
-A instance of the class \mbox{\hyperlink{class_user_data}{User\+Data}}, it stores the downloaded data from the database, check the documentation of that class to get more information. \mbox{\Hypertarget{classfirebase_handler_aaf00899aab5f1eccfaf3fe603ca317f5}\label{classfirebase_handler_aaf00899aab5f1eccfaf3fe603ca317f5}} 
+This atribute store all the data of the places downloaded from the database. The data stored as strings on a dictionary so they cant be directly used, its necessary to use the \mbox{\hyperlink{class_place}{Place}} class for interpreting the information that is stored on this attribute. The data is structured as following\+:
+\begin{DoxyItemize}
+\item all\+Places contains an entry for each type of place, each entry is another dictionary.
+\item Each of those dictionaries has an entry for each place of that type, each entry is another dictionary.
+\item Each of those dictionaries are the information of each of the places but in a string form. 
+\end{DoxyItemize}\mbox{\Hypertarget{classfirebase_handler_ab52221e41f82a8ab77f0d903146b4c0d}\label{classfirebase_handler_ab52221e41f82a8ab77f0d903146b4c0d}} 
+\index{firebaseHandler@{firebaseHandler}!configuration@{configuration}}
+\index{configuration@{configuration}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{configuration}{configuration}}
+{\footnotesize\ttfamily Google\+Sign\+In\+Configuration firebase\+Handler.\+configuration\hspace{0.3cm}{\ttfamily [private]}}
+
+This object store the configuration for accessing the Google Sing\+In services, it stores for example the Web\+Client\+Id token. \mbox{\Hypertarget{classfirebase_handler_a8bf24db68a008a90c667f918c5dc5d1f}\label{classfirebase_handler_a8bf24db68a008a90c667f918c5dc5d1f}} 
+\index{firebaseHandler@{firebaseHandler}!currentUser\_@{currentUser\_}}
+\index{currentUser\_@{currentUser\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{currentUser\_}{currentUser\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_user_data}{User\+Data}} firebase\+Handler.\+current\+User\+\_\+ = null}
+
+A instance of the class \mbox{\hyperlink{class_user_data}{User\+Data}}, it stores the downloaded data from the database, check the documentation of that class to get more information. \mbox{\Hypertarget{classfirebase_handler_a3d365ef2be6c733d643c49a4ac6c9c6f}\label{classfirebase_handler_a3d365ef2be6c733d643c49a4ac6c9c6f}} 
+\index{firebaseHandler@{firebaseHandler}!firebaseApp@{firebaseApp}}
+\index{firebaseApp@{firebaseApp}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{firebaseApp}{firebaseApp}}
+{\footnotesize\ttfamily Firebase\+App firebase\+Handler.\+firebase\+App = null\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfirebase_handler_a0e6dd2b13fb3e1a9b3a8686bfedacacc}\label{classfirebase_handler_a0e6dd2b13fb3e1a9b3a8686bfedacacc}} 
+\index{firebaseHandler@{firebaseHandler}!firebaseDependenciesResolved@{firebaseDependenciesResolved}}
+\index{firebaseDependenciesResolved@{firebaseDependenciesResolved}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{firebaseDependenciesResolved}{firebaseDependenciesResolved}}
+{\footnotesize\ttfamily bool firebase\+Handler.\+firebase\+Dependencies\+Resolved = false\hspace{0.3cm}{\ttfamily [private]}}
+
+This flag is true when the firebase dependences are resolved and ready to use. If this flag is false, this class will try to resolve the firebase dependencies each frame. \mbox{\Hypertarget{classfirebase_handler_ac262ba5e25a58136254a309a8aa2b103}\label{classfirebase_handler_ac262ba5e25a58136254a309a8aa2b103}} 
+\index{firebaseHandler@{firebaseHandler}!firebaseDependenciesRunning@{firebaseDependenciesRunning}}
+\index{firebaseDependenciesRunning@{firebaseDependenciesRunning}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{firebaseDependenciesRunning}{firebaseDependenciesRunning}}
+{\footnotesize\ttfamily bool firebase\+Handler.\+firebase\+Dependencies\+Running = false\hspace{0.3cm}{\ttfamily [private]}}
+
+This flag is true when the firebase dependences are trying to be resolved right now. This flag prevent this class for making several calls to the firebase dependencies resolver method. \mbox{\Hypertarget{classfirebase_handler_aaf00899aab5f1eccfaf3fe603ca317f5}\label{classfirebase_handler_aaf00899aab5f1eccfaf3fe603ca317f5}} 
 \index{firebaseHandler@{firebaseHandler}!firebaseHandlerInstance\_@{firebaseHandlerInstance\_}}
 \index{firebaseHandlerInstance\_@{firebaseHandlerInstance\_}!firebaseHandler@{firebaseHandler}}
 \doxysubsubsection{\texorpdfstring{firebaseHandlerInstance\_}{firebaseHandlerInstance\_}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} firebase\+Handler.\+firebase\+Handler\+Instance\+\_\+ = null\hspace{0.3cm}{\ttfamily [static]}}
 
-This public static attribute store the unique instance of this class. 
+This public static attribute store the unique instance of this class. \mbox{\Hypertarget{classfirebase_handler_ab765de99224181490bac7003babb04b1}\label{classfirebase_handler_ab765de99224181490bac7003babb04b1}} 
+\index{firebaseHandler@{firebaseHandler}!friendDataDownloadQueue\_@{friendDataDownloadQueue\_}}
+\index{friendDataDownloadQueue\_@{friendDataDownloadQueue\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{friendDataDownloadQueue\_}{friendDataDownloadQueue\_}}
+{\footnotesize\ttfamily List$<$string$>$ firebase\+Handler.\+friend\+Data\+Download\+Queue\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+It stores a list of the users ID that this class needs to download some information, because they are friends of the current user. As soon as the information is started to download, the uid is removed from the list. \mbox{\Hypertarget{classfirebase_handler_a3f90b30b7131095e3995d37ac9eeeef7}\label{classfirebase_handler_a3f90b30b7131095e3995d37ac9eeeef7}} 
+\index{firebaseHandler@{firebaseHandler}!newFriendDataDownloadQueue\_@{newFriendDataDownloadQueue\_}}
+\index{newFriendDataDownloadQueue\_@{newFriendDataDownloadQueue\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{newFriendDataDownloadQueue\_}{newFriendDataDownloadQueue\_}}
+{\footnotesize\ttfamily List$<$string$>$ firebase\+Handler.\+new\+Friend\+Data\+Download\+Queue\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+It stores a list of the users ID that this class needs to download some information because they sended a new friend invitation. As soon as the information is started to download, the uid is removed from the list. \mbox{\Hypertarget{classfirebase_handler_a1d02787e8de56031acebf457484c9752}\label{classfirebase_handler_a1d02787e8de56031acebf457484c9752}} 
+\index{firebaseHandler@{firebaseHandler}!placesReady\_@{placesReady\_}}
+\index{placesReady\_@{placesReady\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{placesReady\_}{placesReady\_}}
+{\footnotesize\ttfamily bool firebase\+Handler.\+places\+Ready\+\_\+ = false\hspace{0.3cm}{\ttfamily [private]}}
+
+This flag determinate if the information of the interesting points are already downloaded from the database and its ready to use. \mbox{\Hypertarget{classfirebase_handler_a90dc41c05914c176572d603666605de5}\label{classfirebase_handler_a90dc41c05914c176572d603666605de5}} 
+\index{firebaseHandler@{firebaseHandler}!placesToUpdateQueue\_@{placesToUpdateQueue\_}}
+\index{placesToUpdateQueue\_@{placesToUpdateQueue\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{placesToUpdateQueue\_}{placesToUpdateQueue\_}}
+{\footnotesize\ttfamily List$<$Dictionary$<$string, string$>$ $>$ firebase\+Handler.\+places\+To\+Update\+Queue\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+This atribute stores the list of places that have been visited but the internet conection have failed when this class tried to upload it. This class will try to upload that information since it gets internet connection again. \mbox{\Hypertarget{classfirebase_handler_aa72469a53537caef3bc8d7751cfead9b}\label{classfirebase_handler_aa72469a53537caef3bc8d7751cfead9b}} 
+\index{firebaseHandler@{firebaseHandler}!requestHandler\_@{requestHandler\_}}
+\index{requestHandler\_@{requestHandler\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{requestHandler\_}{requestHandler\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrequest_handler}{request\+Handler}} firebase\+Handler.\+request\+Handler\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+This atribute stores an instance of the \mbox{\hyperlink{classrequest_handler}{request\+Handler}} class, that class converts the information of all\+Places\+\_\+ on instances of the class \mbox{\hyperlink{class_place}{Place}}. Check that class documentation for more info. \mbox{\Hypertarget{classfirebase_handler_a19f92443e4e88477defb22d67236d746}\label{classfirebase_handler_a19f92443e4e88477defb22d67236d746}} 
+\index{firebaseHandler@{firebaseHandler}!userDataReady\_@{userDataReady\_}}
+\index{userDataReady\_@{userDataReady\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{userDataReady\_}{userDataReady\_}}
+{\footnotesize\ttfamily bool firebase\+Handler.\+user\+Data\+Ready\+\_\+ = false\hspace{0.3cm}{\ttfamily [private]}}
+
+If this flag is true, the information of the user are already downloaded from the databse and its ready to use. \mbox{\Hypertarget{classfirebase_handler_ada9d752ba9fa5633662cd1d10a2a096d}\label{classfirebase_handler_ada9d752ba9fa5633662cd1d10a2a096d}} 
+\index{firebaseHandler@{firebaseHandler}!userDataUploaded\_@{userDataUploaded\_}}
+\index{userDataUploaded\_@{userDataUploaded\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{userDataUploaded\_}{userDataUploaded\_}}
+{\footnotesize\ttfamily string firebase\+Handler.\+user\+Data\+Uploaded\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+It stores if the user data could be uptaded when it suffered any change. The possible values it can have are\+:
+\begin{DoxyItemize}
+\item \char`\"{}false\char`\"{} \+: this state means that there is some changes on the user data that should be uploaded as soon as the internet connection is avaible.
+\item \char`\"{}true\char`\"{} \+: this state means that there isnt any change on the user data that should be uploaded.
+\item \char`\"{}in\+Progress\char`\"{} \+: this state means that the user data is uploading right now, this state prevent this class to make several calls to the uploading information method. 
+\end{DoxyItemize}
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Login/firebase\+Handler.\+cs\end{DoxyCompactItemize}
+Scripts/\+Login/\mbox{\hyperlink{firebase_handler_8cs}{firebase\+Handler.\+cs}}\end{DoxyCompactItemize}

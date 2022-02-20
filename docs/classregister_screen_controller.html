@@ -64,6 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classregister_screen_controller-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">registerScreenController Class Reference</div></div>
 </div><!--header-->
@@ -88,10 +90,82 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7b02d3f215828efb1e1401504b6900c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregister_screen_controller.html#a7b02d3f215828efb1e1401504b6900c2">errorCreatingUser</a> (string error)</td></tr>
 <tr class="memdesc:a7b02d3f215828efb1e1401504b6900c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method should be called when the register process failed. It changes the inProgress attribute to false and creates a red toast message showing the error.  <a href="classregister_screen_controller.html#a7b02d3f215828efb1e1401504b6900c2">More...</a><br /></td></tr>
 <tr class="separator:a7b02d3f215828efb1e1401504b6900c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9220dbc8f4920ca59578ce42c036b447"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregister_screen_controller.html#a9220dbc8f4920ca59578ce42c036b447">isEmail</a> (string email)</td></tr>
+<tr class="memdesc:a9220dbc8f4920ca59578ce42c036b447"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns true if the given string contains a email and false in other case.  <a href="classregister_screen_controller.html#a9220dbc8f4920ca59578ce42c036b447">More...</a><br /></td></tr>
+<tr class="separator:a9220dbc8f4920ca59578ce42c036b447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab04ccaca73f2c4398b39fd10ae60fdbb"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregister_screen_controller.html#ab04ccaca73f2c4398b39fd10ae60fdbb">ChangeImageColor</a> (Image toMark, int time)</td></tr>
+<tr class="memdesc:ab04ccaca73f2c4398b39fd10ae60fdbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coroutine that change the color of the given image to red, wait the given number of seconds and then, change the color to white again.  <a href="classregister_screen_controller.html#ab04ccaca73f2c4398b39fd10ae60fdbb">More...</a><br /></td></tr>
+<tr class="separator:ab04ccaca73f2c4398b39fd10ae60fdbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a68e6b1c445c46a1af26f987de53e9a4a"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregister_screen_controller.html#a68e6b1c445c46a1af26f987de53e9a4a">user</a></td></tr>
+<tr class="memdesc:a68e6b1c445c46a1af26f987de53e9a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the input field where the user writes his email.  <a href="classregister_screen_controller.html#a68e6b1c445c46a1af26f987de53e9a4a">More...</a><br /></td></tr>
+<tr class="separator:a68e6b1c445c46a1af26f987de53e9a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4824dec2ad413c79811558975c5bb51d"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregister_screen_controller.html#a4824dec2ad413c79811558975c5bb51d">password</a></td></tr>
+<tr class="memdesc:a4824dec2ad413c79811558975c5bb51d"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the input field where the user writes his password.  <a href="classregister_screen_controller.html#a4824dec2ad413c79811558975c5bb51d">More...</a><br /></td></tr>
+<tr class="separator:a4824dec2ad413c79811558975c5bb51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a3f2277cf76940d1acda25a5a1bc678"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregister_screen_controller.html#a1a3f2277cf76940d1acda25a5a1bc678">confirmPassword</a></td></tr>
+<tr class="memdesc:a1a3f2277cf76940d1acda25a5a1bc678"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the input field where the user writes again his password.  <a href="classregister_screen_controller.html#a1a3f2277cf76940d1acda25a5a1bc678">More...</a><br /></td></tr>
+<tr class="separator:a1a3f2277cf76940d1acda25a5a1bc678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18b774514340c00c0289db768e35e96d"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregister_screen_controller.html#a18b774514340c00c0289db768e35e96d">toastMessageObject_</a></td></tr>
+<tr class="memdesc:a18b774514340c00c0289db768e35e96d"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the toast message that shows the errors and the information to the user.  <a href="classregister_screen_controller.html#a18b774514340c00c0289db768e35e96d">More...</a><br /></td></tr>
+<tr class="separator:a18b774514340c00c0289db768e35e96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d282311f55a3559100ee05900effc16"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classregister_screen_controller.html#a1d282311f55a3559100ee05900effc16">inProgress</a> = false</td></tr>
+<tr class="memdesc:a1d282311f55a3559100ee05900effc16"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean that control if the register process is currently working. This helps to avoid several parallel calls to the register process.  <a href="classregister_screen_controller.html#a1d282311f55a3559100ee05900effc16">More...</a><br /></td></tr>
+<tr class="separator:a1d282311f55a3559100ee05900effc16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class that controls all the inputs and the buttons of the register screen. It also controls the error messages that are show for giving information to the user. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab04ccaca73f2c4398b39fd10ae60fdbb" name="ab04ccaca73f2c4398b39fd10ae60fdbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab04ccaca73f2c4398b39fd10ae60fdbb">&#9670;&nbsp;</a></span>ChangeImageColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerator registerScreenController.ChangeImageColor </td>
+          <td>(</td>
+          <td class="paramtype">Image&#160;</td>
+          <td class="paramname"><em>toMark</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Coroutine that change the color of the given image to red, wait the given number of seconds and then, change the color to white again. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Image</td><td>image to change the color. </td></tr>
+    <tr><td class="paramname">int</td><td>seconds that this coroutine waits to make the color change again. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a7b02d3f215828efb1e1401504b6900c2" name="a7b02d3f215828efb1e1401504b6900c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b02d3f215828efb1e1401504b6900c2">&#9670;&nbsp;</a></span>errorCreatingUser()</h2>
 
@@ -115,6 +189,41 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a9220dbc8f4920ca59578ce42c036b447" name="a9220dbc8f4920ca59578ce42c036b447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9220dbc8f4920ca59578ce42c036b447">&#9670;&nbsp;</a></span>isEmail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool registerScreenController.isEmail </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>email</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method returns true if the given string contains a email and false in other case. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>that contains the email that the user wrote. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool true if the given email match the regular expression of an email, false in other case. </dd></dl>
 
 </div>
 </div>
@@ -162,8 +271,129 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1a3f2277cf76940d1acda25a5a1bc678" name="a1a3f2277cf76940d1acda25a5a1bc678"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a3f2277cf76940d1acda25a5a1bc678">&#9670;&nbsp;</a></span>confirmPassword</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject registerScreenController.confirmPassword</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that contains the input field where the user writes again his password. </p>
+
+</div>
+</div>
+<a id="a1d282311f55a3559100ee05900effc16" name="a1d282311f55a3559100ee05900effc16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d282311f55a3559100ee05900effc16">&#9670;&nbsp;</a></span>inProgress</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool registerScreenController.inProgress = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>boolean that control if the register process is currently working. This helps to avoid several parallel calls to the register process. </p>
+
+</div>
+</div>
+<a id="a4824dec2ad413c79811558975c5bb51d" name="a4824dec2ad413c79811558975c5bb51d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4824dec2ad413c79811558975c5bb51d">&#9670;&nbsp;</a></span>password</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject registerScreenController.password</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that contains the input field where the user writes his password. </p>
+
+</div>
+</div>
+<a id="a18b774514340c00c0289db768e35e96d" name="a18b774514340c00c0289db768e35e96d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18b774514340c00c0289db768e35e96d">&#9670;&nbsp;</a></span>toastMessageObject_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject registerScreenController.toastMessageObject_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that contains the toast message that shows the errors and the information to the user. </p>
+
+</div>
+</div>
+<a id="a68e6b1c445c46a1af26f987de53e9a4a" name="a68e6b1c445c46a1af26f987de53e9a4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68e6b1c445c46a1af26f987de53e9a4a">&#9670;&nbsp;</a></span>user</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject registerScreenController.user</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that contains the input field where the user writes his email. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/RegisterScreen/registerScreenController.cs</li>
+<li>Scripts/RegisterScreen/<a class="el" href="register_screen_controller_8cs.html">registerScreenController.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

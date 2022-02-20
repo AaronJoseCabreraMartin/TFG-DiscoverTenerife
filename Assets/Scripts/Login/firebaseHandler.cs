@@ -51,7 +51,7 @@ public class firebaseHandler : MonoBehaviour
       * A instance of the class UserData, it stores the downloaded data from the database,
       * check the documentation of that class to get more information.
       */
-    public UserData actualUser_ = null;
+    public UserData currentUser_ = null;
     
     /**
       * This flag is true when the firebase dependences are resolved and ready to use. If this
@@ -294,7 +294,7 @@ public class firebaseHandler : MonoBehaviour
                 Debug.Log("User profile updated successfully.");
                 
                 Debug.Log($"Firebase user created successfully: {newUser.DisplayName} ({ newUser.UserId})");
-                actualUser_ = new UserData(auth.CurrentUser);
+                currentUser_ = new UserData(auth.CurrentUser);
                 writeUserData();
                 GameObject.Find("registerController").GetComponent<registerScreenController>().userCreatedSuccessfully(newUser.DisplayName);
                 downloadAllPlaces();
@@ -319,7 +319,7 @@ public class firebaseHandler : MonoBehaviour
 
             }else{
                 Debug.Log($"Se ha iniciado sesión correctamente: {task.Result.DisplayName} ({ task.Result.UserId})");
-                //actualUser_ = new UserData(auth.CurrentUser);
+                //currentUser_ = new UserData(auth.CurrentUser);
                 readUserData();
                 GameObject.Find("emailLoginController").GetComponent<emailLoginController>().userLogedSuccessfully(task.Result.DisplayName);
                 downloadAllPlaces();
@@ -350,7 +350,7 @@ public class firebaseHandler : MonoBehaviour
 
                 Firebase.Auth.FirebaseUser newUser = task.Result;
                 Debug.Log($"Nuevo usuario anonimo registrado correctamente: {newUser.DisplayName} ({newUser.UserId})");
-                actualUser_ = new UserData(auth.CurrentUser);
+                currentUser_ = new UserData(auth.CurrentUser);
                 userDataReady_ = true;
                 writeUserData();
                 //no hay que hacer read por lo tanto, ya esta ready
@@ -359,7 +359,7 @@ public class firebaseHandler : MonoBehaviour
         }else{
             Debug.Log($"El usuario anonimo ya existia {auth.CurrentUser.DisplayName} {auth.CurrentUser.UserId}");
             readUserData();
-            //actualUser_ = new UserData(auth.CurrentUser);
+            //currentUser_ = new UserData(auth.CurrentUser);
             downloadAllPlaces();
         }
         GameObject.Find("anonymousButtonHandler").GetComponent<anonymousButtonHandler>().anonymousUserLoginSucessfully();
@@ -380,8 +380,7 @@ public class firebaseHandler : MonoBehaviour
 
         GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnAuthenticationFinished,TaskScheduler.FromCurrentSynchronizationContext());
     }
-    // WTF cambiar a privateee???
-    // internal es que solo tienen acceso este fichero!? algo asi lei
+    
     internal void OnAuthenticationFinished(Task<GoogleSignInUser> task)
     {
         Task<GoogleSignInUser> signIn = GoogleSignIn.DefaultInstance.SignIn ();
@@ -441,10 +440,10 @@ public class firebaseHandler : MonoBehaviour
       * the changes on the user social preferences. 
       */
     public void writeUserData(){
-        Debug.Log("writeUserData..."+actualUser_.ToJson());
-        //database.Child("users").Child(actualUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(actualUser_.ToJson());
+        Debug.Log("writeUserData..."+currentUser_.ToJson());
+        //database.Child("users").Child(currentUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(currentUser_.ToJson());
         userDataUploaded_ = "inProgress";
-        database.Child("users").Child(actualUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(actualUser_.ToJson()).ContinueWith(taskUploadUserData =>{
+        database.Child("users").Child(currentUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(currentUser_.ToJson()).ContinueWith(taskUploadUserData =>{
             Debug.Log("data wrote! " + (taskUploadUserData.IsCompleted ? "true" : "false") );
             if(optionsController.optionsControllerInstance_.socialOptions("addMe") ||
                 optionsController.optionsControllerInstance_.socialOptions("challengeMe") ||
@@ -463,8 +462,8 @@ public class firebaseHandler : MonoBehaviour
                             }else{
                                 usersList = JsonConvert.DeserializeObject<List<string>>(snapshotAllowFriendInvitations.GetRawJsonValue());
                             }
-                            if(optionsController.optionsControllerInstance_.socialOptions("addMe") && usersList.IndexOf(actualUser_.firebaseUserData_.UserId) == -1){
-                                usersList.Add(actualUser_.firebaseUserData_.UserId);
+                            if(optionsController.optionsControllerInstance_.socialOptions("addMe") && usersList.IndexOf(currentUser_.firebaseUserData_.UserId) == -1){
+                                usersList.Add(currentUser_.firebaseUserData_.UserId);
                                 string stringConversion = JsonConvert.SerializeObject(usersList);
                                 database.Child("users").Child("usersThatAllowFriendshipInvitations").SetRawJsonValueAsync(stringConversion);
                             }
@@ -481,8 +480,8 @@ public class firebaseHandler : MonoBehaviour
                                     }else{
                                         usersList = JsonConvert.DeserializeObject<List<string>>(snapshotAllowBeChallenged.GetRawJsonValue());
                                     }
-                                    if(optionsController.optionsControllerInstance_.socialOptions("challengeMe") && usersList.IndexOf(actualUser_.firebaseUserData_.UserId) == -1){
-                                        usersList.Add(actualUser_.firebaseUserData_.UserId);
+                                    if(optionsController.optionsControllerInstance_.socialOptions("challengeMe") && usersList.IndexOf(currentUser_.firebaseUserData_.UserId) == -1){
+                                        usersList.Add(currentUser_.firebaseUserData_.UserId);
                                         string stringConversion = JsonConvert.SerializeObject(usersList);
                                         database.Child("users").Child("usersThatAllowBeChallenged").SetRawJsonValueAsync(stringConversion);
                                     }
@@ -500,8 +499,8 @@ public class firebaseHandler : MonoBehaviour
                                         }else{
                                             usersList = JsonConvert.DeserializeObject<List<string>>(snapshotAllowAppearedOnRanking.GetRawJsonValue());
                                         }
-                                        if(optionsController.optionsControllerInstance_.socialOptions("challengeMe") && usersList.IndexOf(actualUser_.firebaseUserData_.UserId) == -1){
-                                            usersList.Add(actualUser_.firebaseUserData_.UserId);
+                                        if(optionsController.optionsControllerInstance_.socialOptions("challengeMe") && usersList.IndexOf(currentUser_.firebaseUserData_.UserId) == -1){
+                                            usersList.Add(currentUser_.firebaseUserData_.UserId);
                                             string stringConversion = JsonConvert.SerializeObject(usersList);
                                             database.Child("users").Child("usersThatAllowAppearedOnRanking").SetRawJsonValueAsync(stringConversion);
                                         }
@@ -664,7 +663,7 @@ public class firebaseHandler : MonoBehaviour
                                                             haveToUploadData = true; 
                                                         }
 
-                                                        actualUser_ = new UserData(auth.CurrentUser, visitedPlacesListVersion, baseCordsData, friendsList, friendsInvitationsList, acceptedFriendsInvitationsList, deletedFriendsList );
+                                                        currentUser_ = new UserData(auth.CurrentUser, visitedPlacesListVersion, baseCordsData, friendsList, friendsInvitationsList, acceptedFriendsInvitationsList, deletedFriendsList );
                                                         //por cualquiera de los caminos tiene que estar la user data lista
                                                         userDataReady_ = true;
                                                         if(haveToUploadData){
@@ -725,8 +724,8 @@ public class firebaseHandler : MonoBehaviour
         PARA DEBUGEAR RAPIDO
         
         */
-        if(actualUser_.visitedPlaces_.Exists(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id)){
-            VisitedPlace place = actualUser_.visitedPlaces_.Find(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id);
+        if(currentUser_.visitedPlaces_.Exists(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id)){
+            VisitedPlace place = currentUser_.visitedPlaces_.Find(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id);
             //si ya lo habia visitado devolvemos true si ha cumplido el cooldown
             // hay 10.000.000 de ticks en un segundo, * 60 son minutos
             //Debug.Log($"{place.lastVisitTimestamp_} + {gameRules.getMinutesOfCooldown() * 10000000 * 60}\n {place.lastVisitTimestamp_ + gameRules.getMinutesOfCooldown() * 10000000 * 60} < {DateTime.Now.Ticks} ? ");
@@ -793,20 +792,20 @@ public class firebaseHandler : MonoBehaviour
       */
     public void userVisitedPlace(string type, int id, long timeOfTheVisit = -1){
         bool firstTime = true;
-        for(int i = 0; i < actualUser_.visitedPlaces_.Count; i++ ){
+        for(int i = 0; i < currentUser_.visitedPlaces_.Count; i++ ){
             //busco en los ya visitados y si es uno de esos, contabilizo la visita
-            if(actualUser_.visitedPlaces_[i].type_ == type && actualUser_.visitedPlaces_[i].id_ == id){
+            if(currentUser_.visitedPlaces_[i].type_ == type && currentUser_.visitedPlaces_[i].id_ == id){
                 firstTime = false;
-                //actualUser_.visitedPlaces_[i].timesVisited_++;
+                //currentUser_.visitedPlaces_[i].timesVisited_++;
                 break;
             }
         }
-        long actualTime = timeOfTheVisit <= 0 ? DateTime.Now.Ticks : timeOfTheVisit;
+        long currentTime = timeOfTheVisit <= 0 ? DateTime.Now.Ticks : timeOfTheVisit;
         //si no lo habia visitado antes, registro la visita
         if(firstTime){
-            actualUser_.visitedPlaces_.Add(new VisitedPlace(type,id,1,actualTime));
+            currentUser_.visitedPlaces_.Add(new VisitedPlace(type,id,1,currentTime));
         }else{
-            actualUser_.newVisitAt(type,id,actualTime);
+            currentUser_.newVisitAt(type,id,currentTime);
         }
         //allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"] = (Int32.Parse(allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"])+1).ToString();
         requestHandler_.oneMoreVisitToPlaceByTypeAndId(type,id.ToString());
@@ -838,7 +837,7 @@ public class firebaseHandler : MonoBehaviour
       */
     public bool hasUserVisitPlaceByName(string name){
         Dictionary<string,string> typeAndId = findPlaceByName(name);
-        return actualUser_.hasVisitPlace(typeAndId["type"],Int32.Parse(typeAndId["id"]));
+        return currentUser_.hasVisitPlace(typeAndId["type"],Int32.Parse(typeAndId["id"]));
     }
 
     /**
@@ -1026,8 +1025,8 @@ public class firebaseHandler : MonoBehaviour
       * on the friendDataDownloadQueue_.
       */
     private void downloadAllFriendData(){
-        for(int index = 0; index < actualUser_.countOfFriends(); index++){
-            string uid = actualUser_.getFriend(index);
+        for(int index = 0; index < currentUser_.countOfFriends(); index++){
+            string uid = currentUser_.getFriend(index);
             if(friendDataDownloadQueue_.Exists(friendDataForDownload => friendDataForDownload == uid)){
                 friendDataDownloadQueue_.Remove(uid);
                 downloadFriendData(uid);
@@ -1042,7 +1041,7 @@ public class firebaseHandler : MonoBehaviour
       * on the process it adds the user id to the friendDataDownloadQueue_ list. If it success it calls
       * the addFriendData method of UserData class creating a new FriendData object.
       */
-    private void downloadFriendData(string uid){
+    public void downloadFriendData(string uid){
         FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/displayName_").GetValueAsync().ContinueWith(displayNameTask => {
             if (displayNameTask.IsFaulted) {
                 // Handle the error...
@@ -1069,7 +1068,7 @@ public class firebaseHandler : MonoBehaviour
                         }else{
                             deletedFriends = JsonConvert.DeserializeObject<List<string>>(deletedFriendsSnapshot.GetRawJsonValue());
                         }
-                        actualUser_.addFriendData(new FriendData(uid, displayName, deletedFriends));
+                        currentUser_.addFriendData(new FriendData(uid, displayName, deletedFriends));
                     }
                 },TaskScheduler.FromCurrentSynchronizationContext());
             }
@@ -1077,27 +1076,12 @@ public class firebaseHandler : MonoBehaviour
     }
 
     /**
-      * @param string that contains the user id that you want to download data.
-      * @brief this method adds the given user id to the friendDataDownloadQueue_ for being
-      * downloaded after.
-      */
-    public void addFriendDataToDownload(string uid){
-        //llamar cuando se agrege a un amigo
-        /*
-            WTF
-            esto no es redundante??? no es mejor llamar simplemente a downloadFriendData
-            ya que si lo hace bien, pues ya está y si no, lo añade a la cola como este????
-        */
-        friendDataDownloadQueue_.Add(uid);
-    }
-
-    /**
       * @brief This method calls downloadNewFriendInvitationData method with each of the 
       * user ids that are on the new friends invitations list of the current user.
       */
     private void downloadAllNewFriendInvitationsData(){
-        for(int index = 0; index < actualUser_.countOfNewFriends(); index++){
-            string uid = actualUser_.getNewFriend(index);
+        for(int index = 0; index < currentUser_.countOfNewFriends(); index++){
+            string uid = currentUser_.getNewFriend(index);
             if(newFriendDataDownloadQueue_.Exists(newFriendDataForDownload => newFriendDataForDownload == uid)){
                 newFriendDataDownloadQueue_.Remove(uid);
                 downloadNewFriendInvitationData(uid);
@@ -1140,7 +1124,7 @@ public class firebaseHandler : MonoBehaviour
                         }else{
                             newFriends = JsonConvert.DeserializeObject<List<string>>(newFriendsSnapshot.GetRawJsonValue());
                         }
-                        actualUser_.addNewFriendData(new newFriendData(uid, displayName, newFriends));
+                        currentUser_.addNewFriendData(new newFriendData(uid, displayName, newFriends));
                     }
                 },TaskScheduler.FromCurrentSynchronizationContext());
             }

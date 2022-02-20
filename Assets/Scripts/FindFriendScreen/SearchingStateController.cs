@@ -80,7 +80,7 @@ public class SearchingStateController : MonoBehaviour
         if(state == "searching"){
             text_.GetComponent<Text>().text = searchingText_;
         }else if(state == "notFound"){
-            text_.GetComponent<Text>().text = noResultText_;
+            text_.GetComponent<Text>().text = noResultText_ + "\n" + searchBarInstance_.getWordsToSearch();
         }else{
             text_.GetComponent<Text>().text = waitingText_;
         }

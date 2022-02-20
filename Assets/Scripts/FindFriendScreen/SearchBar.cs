@@ -45,18 +45,16 @@ public class SearchBar : MonoBehaviour
 
     /**
       * @brief This method is called when the user finish to write on the search bar input box, 
-      * if there is no internet connection or the searched user is the current user it set the 
-      * state_ property to notFound. If there is internet connection and the user wrote something
-      * on the search bar it calls the SearchOtherUserByName method of firebaseHandler.
+      * if there is no internet connection or the searched user is the current user or the searched
+      * user is currently a friend it sets the state_ property to notFound. If there is internet 
+      * connection and the user wrote something on the search bar it calls the SearchOtherUserByName 
+      * method of firebaseHandler.
       */
     public void OnEndWriting(string searchedName){
-        
-        Debug.Log("WTF DEBERIA COMPROBAR QUE NO ESTÁ EN TU LISTA DE AMIGOS YA!!!");
-        
-        //si no hay internet o es tu propio uid ni lo intenta buscar
+        //si no hay internet o es tu propio uid o ya es un amigo ni lo intenta buscar
         if( !firebaseHandler.firebaseHandlerInstance_.internetConnection() || 
-            //WTF no deberia ser el firebaseHandler.firebaseHandlerInstance_.auth.CurrentUser.DisplayName!?!?
-            text_.GetComponent<Text>().text == firebaseHandler.firebaseHandlerInstance_.auth.CurrentUser.UserId){
+            text_.GetComponent<Text>().text == firebaseHandler.firebaseHandlerInstance_.auth.CurrentUser.DisplayName ||
+            firebaseHandler.firebaseHandlerInstance_.currentUser_.isAFriendByDisplayName(text_.GetComponent<Text>().text) ){
                 state_ = "notFound";
         }else if(firebaseHandler.firebaseHandlerInstance_.internetConnection() && text_.GetComponent<Text>().text.Length != 0){
             Debug.Log("Searching "+text_.GetComponent<Text>().text);
@@ -86,9 +84,18 @@ public class SearchBar : MonoBehaviour
     }
 
     /**
+      * @return string with the current state of the search.
       * @brief getter of the current state of the search.
       */
     public string getState(){
         return state_;
+    }
+
+    /**
+      * @return string with what the user wrote on the search bar.
+      * @brief Getter of the string that the user wrote on the search bar.
+      */
+    public string getWordsToSearch(){
+      return text_.GetComponent<Text>().text;
     }
 }

@@ -23,14 +23,19 @@ public class SearchedFriendsPanel : MonoBehaviour
       * users that were found by the search.
       */
     private List<GameObject> searchedFriends_;
+
+    /**
+      * @brief the original height of the panel.
+      */
+    private float initialHeight_;
     
     /**
-      * @brief This method is called before the first frame. It only initialize the 
-      * searchedFriends_ property.
+      * @brief This method is called before the first frame. It initializes both the 
+      * searchedFriends_ and the initialHeight_ property.
       */
-    void Awake()
-    {
+    void Awake(){
         searchedFriends_ = new List<GameObject>();
+        initialHeight_ = GetComponent<RectTransform>().rect.height;
     }
 
     /**
@@ -53,16 +58,17 @@ public class SearchedFriendsPanel : MonoBehaviour
     }
 
     /**
-      * This method adjust the size of the panel if there is more than 4 elements on it.
+      * @brief This method adjust the size of the panel if there is more than 4 elements on it.
       * This method should be called each time that its added a new searched friend. 
       * This method allows the panel keep the aparience when more elements are added or deleted.
       */
     private void adjustPanelSize(){
-        // WTF si hago una busqueda con 200 elementos y luego hago otra con 1 solo elemento no va a encoger!!
         if(searchedFriends_.Count > 4){
             float newHeight = GetComponent<RectTransform>().rect.height;
             newHeight += 300*(searchedFriends_.Count-4);
             GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);
+        }else{
+            GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, initialHeight_);
         }
     }
 

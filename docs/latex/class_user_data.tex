@@ -75,16 +75,37 @@ void \mbox{\hyperlink{class_user_data_a69c2a00d197c95ea8bbab8c898b14b7c}{accept\
 void \mbox{\hyperlink{class_user_data_a50db7e291859fb2528611546994abacb}{delete\+Friend}} (string uid)
 \begin{DoxyCompactList}\small\item\em This method remove either the given user id of the friend list and the correspondent data from the properties of the current user. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_visited_place}{Visited\+Place}} \mbox{\hyperlink{class_user_data_a9f5c6cfd83db6f136bcd9c6c124d8eb9}{get\+Story\+Place\+Data}} (int index)
-\begin{DoxyCompactList}\small\item\em This method returns the \mbox{\hyperlink{class_visited_place}{Visited\+Place}} that is stored on the given position. If the given position is bigger than the visited\+Places\+\_\+ size or the given index is negative it will raise an exception. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This method returns the \mbox{\hyperlink{class_visited_place}{Visited\+Place}} that is stored on the given position. If the given position is bigger than the visited\+Places\+\_\+ size or the given index is negative it will raise an exception. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_user_data_acdcd246281e9e23e1a0a87f84f172191}{get\+Uid}} ()
+\begin{DoxyCompactList}\small\item\em getter of the user id. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_user_data_ae0d987deec76a4a895f568a4a0e60d54}{is\+AFriend\+By\+Display\+Name}} (string display\+Name)
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_user_data_a015120b3253cdc39f1949ce59b533b45}\label{class_user_data_a015120b3253cdc39f1949ce59b533b45}} 
-Firebase.\+Auth.\+Firebase\+User {\bfseries firebase\+User\+Data\+\_\+}
+Firebase.\+Auth.\+Firebase\+User \mbox{\hyperlink{class_user_data_a015120b3253cdc39f1949ce59b533b45}{firebase\+User\+Data\+\_\+}}
 \begin{DoxyCompactList}\small\item\em Reference to the current user firebase data. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_user_data_ad18cfa73e4fb27cd88a3a87b776601ee}\label{class_user_data_ad18cfa73e4fb27cd88a3a87b776601ee}} 
-List$<$ \mbox{\hyperlink{class_visited_place}{Visited\+Place}} $>$ {\bfseries visited\+Places\+\_\+}
+List$<$ \mbox{\hyperlink{class_visited_place}{Visited\+Place}} $>$ \mbox{\hyperlink{class_user_data_ad18cfa73e4fb27cd88a3a87b776601ee}{visited\+Places\+\_\+}}
 \begin{DoxyCompactList}\small\item\em List of the places that the current user has visited. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_user_data_a88df6bf4aee17f5d47ac73d6e8b26e7d}{display\+Name\+\_\+}}
+\begin{DoxyCompactList}\small\item\em String that contains the display name of the current user. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_user_data_a3737c33065f28d4254c08616e99b96ba}{base\+Latitude\+\_\+}}
+\begin{DoxyCompactList}\small\item\em double that contains the latitude of the base of the current user. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_user_data_afb850371a90b4562c8125d379f1a0a61}{base\+Longitude\+\_\+}}
+\begin{DoxyCompactList}\small\item\em double that contains the longitude of the base of the current user. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_user_data_a59e0e8c5528474b99d3c9b81c2f2fe0e}{base\+Established\+\_\+}}
+\begin{DoxyCompactList}\small\item\em bool true if the user has already stablished his base, false in other case. \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{class_user_data_a357a4b4527f067d0e8661ea0d85161e1}{friend\+List\+\_\+}}
+\begin{DoxyCompactList}\small\item\em list of strings that contains all the user ids of the friends of the current user. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_friend_data}{Friend\+Data}} $>$ \mbox{\hyperlink{class_user_data_a516229bceaf4f7436349b2c8879dd4a4}{friend\+Data\+List\+\_\+}}
+\begin{DoxyCompactList}\small\item\em list that contains all the data of the friends of the current user. \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{class_user_data_a8371972f612f1720b29ea21b99e8f1b9}{friend\+Invitations\+List\+\_\+}}
+\begin{DoxyCompactList}\small\item\em list that contains strings with the user ids of all the user that has sended a friendship invitation to the current user and the current user hasnt accepted or denied. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}} $>$ \mbox{\hyperlink{class_user_data_ac1bdf8b29343efeae375d0f448827103}{new\+Friend\+Data\+List\+\_\+}}
+\begin{DoxyCompactList}\small\item\em list that stores all the necessary information of the users those that the current user has a new friendship invitation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -464,6 +485,19 @@ It returns the timestamp of the last visit to the place that has the given name,
 \begin{DoxyReturn}{Returns}
 long the timestamp of the last visit to the place that has the given name. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_user_data_acdcd246281e9e23e1a0a87f84f172191}\label{class_user_data_acdcd246281e9e23e1a0a87f84f172191}} 
+\index{UserData@{UserData}!getUid@{getUid}}
+\index{getUid@{getUid}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{getUid()}{getUid()}}
+{\footnotesize\ttfamily string User\+Data.\+get\+Uid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the user id. 
+
+\begin{DoxyReturn}{Returns}
+string with the user id of the current user. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_user_data_ab76064b9acb9eec0765fbc81e1680cda}\label{class_user_data_ab76064b9acb9eec0765fbc81e1680cda}} 
 \index{UserData@{UserData}!hasVisitPlace@{hasVisitPlace}}
 \index{hasVisitPlace@{hasVisitPlace}!UserData@{UserData}}
@@ -484,6 +518,12 @@ bool true if the current user has visited the place that has the given type and 
 {\em int} & id of the searched place. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{class_user_data_ae0d987deec76a4a895f568a4a0e60d54}\label{class_user_data_ae0d987deec76a4a895f568a4a0e60d54}} 
+\index{UserData@{UserData}!isAFriendByDisplayName@{isAFriendByDisplayName}}
+\index{isAFriendByDisplayName@{isAFriendByDisplayName}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{isAFriendByDisplayName()}{isAFriendByDisplayName()}}
+{\footnotesize\ttfamily bool User\+Data.\+is\+AFriend\+By\+Display\+Name (\begin{DoxyParamCaption}\item[{string}]{display\+Name }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_user_data_aadd0256d160f93e53f69d93079a6c48b}\label{class_user_data_aadd0256d160f93e53f69d93079a6c48b}} 
 \index{UserData@{UserData}!mostVisitedPlace@{mostVisitedPlace}}
 \index{mostVisitedPlace@{mostVisitedPlace}!UserData@{UserData}}
@@ -583,6 +623,109 @@ string that contains the JSON formated conversion of the current object.
 \end{DoxyReturn}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_user_data_a59e0e8c5528474b99d3c9b81c2f2fe0e}\label{class_user_data_a59e0e8c5528474b99d3c9b81c2f2fe0e}} 
+\index{UserData@{UserData}!baseEstablished\_@{baseEstablished\_}}
+\index{baseEstablished\_@{baseEstablished\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{baseEstablished\_}{baseEstablished\_}}
+{\footnotesize\ttfamily bool User\+Data.\+base\+Established\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+bool true if the user has already stablished his base, false in other case. 
+
+\mbox{\Hypertarget{class_user_data_a3737c33065f28d4254c08616e99b96ba}\label{class_user_data_a3737c33065f28d4254c08616e99b96ba}} 
+\index{UserData@{UserData}!baseLatitude\_@{baseLatitude\_}}
+\index{baseLatitude\_@{baseLatitude\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{baseLatitude\_}{baseLatitude\_}}
+{\footnotesize\ttfamily double User\+Data.\+base\+Latitude\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+double that contains the latitude of the base of the current user. 
+
+\mbox{\Hypertarget{class_user_data_afb850371a90b4562c8125d379f1a0a61}\label{class_user_data_afb850371a90b4562c8125d379f1a0a61}} 
+\index{UserData@{UserData}!baseLongitude\_@{baseLongitude\_}}
+\index{baseLongitude\_@{baseLongitude\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{baseLongitude\_}{baseLongitude\_}}
+{\footnotesize\ttfamily double User\+Data.\+base\+Longitude\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+double that contains the longitude of the base of the current user. 
+
+\mbox{\Hypertarget{class_user_data_a88df6bf4aee17f5d47ac73d6e8b26e7d}\label{class_user_data_a88df6bf4aee17f5d47ac73d6e8b26e7d}} 
+\index{UserData@{UserData}!displayName\_@{displayName\_}}
+\index{displayName\_@{displayName\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{displayName\_}{displayName\_}}
+{\footnotesize\ttfamily string User\+Data.\+display\+Name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+String that contains the display name of the current user. 
+
+\mbox{\Hypertarget{class_user_data_a015120b3253cdc39f1949ce59b533b45}\label{class_user_data_a015120b3253cdc39f1949ce59b533b45}} 
+\index{UserData@{UserData}!firebaseUserData\_@{firebaseUserData\_}}
+\index{firebaseUserData\_@{firebaseUserData\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{firebaseUserData\_}{firebaseUserData\_}}
+{\footnotesize\ttfamily Firebase.\+Auth.\+Firebase\+User User\+Data.\+firebase\+User\+Data\+\_\+}
+
+
+
+Reference to the current user firebase data. 
+
+\mbox{\Hypertarget{class_user_data_a516229bceaf4f7436349b2c8879dd4a4}\label{class_user_data_a516229bceaf4f7436349b2c8879dd4a4}} 
+\index{UserData@{UserData}!friendDataList\_@{friendDataList\_}}
+\index{friendDataList\_@{friendDataList\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{friendDataList\_}{friendDataList\_}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_friend_data}{Friend\+Data}}$>$ User\+Data.\+friend\+Data\+List\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+list that contains all the data of the friends of the current user. 
+
+\mbox{\Hypertarget{class_user_data_a8371972f612f1720b29ea21b99e8f1b9}\label{class_user_data_a8371972f612f1720b29ea21b99e8f1b9}} 
+\index{UserData@{UserData}!friendInvitationsList\_@{friendInvitationsList\_}}
+\index{friendInvitationsList\_@{friendInvitationsList\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{friendInvitationsList\_}{friendInvitationsList\_}}
+{\footnotesize\ttfamily List$<$string$>$ User\+Data.\+friend\+Invitations\+List\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+list that contains strings with the user ids of all the user that has sended a friendship invitation to the current user and the current user hasnt accepted or denied. 
+
+\mbox{\Hypertarget{class_user_data_a357a4b4527f067d0e8661ea0d85161e1}\label{class_user_data_a357a4b4527f067d0e8661ea0d85161e1}} 
+\index{UserData@{UserData}!friendList\_@{friendList\_}}
+\index{friendList\_@{friendList\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{friendList\_}{friendList\_}}
+{\footnotesize\ttfamily List$<$string$>$ User\+Data.\+friend\+List\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+list of strings that contains all the user ids of the friends of the current user. 
+
+\mbox{\Hypertarget{class_user_data_ac1bdf8b29343efeae375d0f448827103}\label{class_user_data_ac1bdf8b29343efeae375d0f448827103}} 
+\index{UserData@{UserData}!newFriendDataList\_@{newFriendDataList\_}}
+\index{newFriendDataList\_@{newFriendDataList\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{newFriendDataList\_}{newFriendDataList\_}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}}$>$ User\+Data.\+new\+Friend\+Data\+List\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+list that stores all the necessary information of the users those that the current user has a new friendship invitation. 
+
+\mbox{\Hypertarget{class_user_data_ad18cfa73e4fb27cd88a3a87b776601ee}\label{class_user_data_ad18cfa73e4fb27cd88a3a87b776601ee}} 
+\index{UserData@{UserData}!visitedPlaces\_@{visitedPlaces\_}}
+\index{visitedPlaces\_@{visitedPlaces\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{visitedPlaces\_}{visitedPlaces\_}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_visited_place}{Visited\+Place}}$>$ User\+Data.\+visited\+Places\+\_\+}
+
+
+
+List of the places that the current user has visited. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Login/User\+Data.\+cs\end{DoxyCompactItemize}
+Scripts/\+Login/\mbox{\hyperlink{_user_data_8cs}{User\+Data.\+cs}}\end{DoxyCompactItemize}

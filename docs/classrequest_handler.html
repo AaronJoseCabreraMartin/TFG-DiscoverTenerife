@@ -64,6 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classrequest_handler-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">requestHandler Class Reference</div></div>
 </div><!--header-->
@@ -80,17 +82,43 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab90cafa9ee042a09fc43051473610487"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_place.html">Place</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrequest_handler.html#ab90cafa9ee042a09fc43051473610487">askForAPlace</a> ()</td></tr>
 <tr class="memdesc:ab90cafa9ee042a09fc43051473610487"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method access to the sortByLessDistance method of <a class="el" href="classoptions_controller.html" title="Controls the options that the user has chosen. It follows the singleton pattern so it only can be one...">optionsController</a> class and it shorts the places acording to the chosen sort method calling the sortPlaces method if the chosen sort method has changed since last call to this method. It returns the next place that should be showed to the user acording to the sorting method and the prefferences of the current user of what the current user wants to see.  <a href="classrequest_handler.html#ab90cafa9ee042a09fc43051473610487">More...</a><br /></td></tr>
 <tr class="separator:ab90cafa9ee042a09fc43051473610487"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1de643057d5925139555f8d86f0d6928"><td class="memItemLeft" align="right" valign="top"><a id="a1de643057d5925139555f8d86f0d6928" name="a1de643057d5925139555f8d86f0d6928"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>sortPlaces</b> ()</td></tr>
-<tr class="memdesc:a1de643057d5925139555f8d86f0d6928"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts the places acording to the current user preferences. <br /></td></tr>
+<tr class="memitem:a1de643057d5925139555f8d86f0d6928"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrequest_handler.html#a1de643057d5925139555f8d86f0d6928">sortPlaces</a> ()</td></tr>
+<tr class="memdesc:a1de643057d5925139555f8d86f0d6928"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts the places acording to the current user preferences.  <a href="classrequest_handler.html#a1de643057d5925139555f8d86f0d6928">More...</a><br /></td></tr>
 <tr class="separator:a1de643057d5925139555f8d86f0d6928"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b70f4378a4b1e7bdd52afb7301b0496"><td class="memItemLeft" align="right" valign="top"><a id="a4b70f4378a4b1e7bdd52afb7301b0496" name="a4b70f4378a4b1e7bdd52afb7301b0496"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>oneMoreVisitToPlaceByTypeAndId</b> (string type, string id)</td></tr>
-<tr class="memdesc:a4b70f4378a4b1e7bdd52afb7301b0496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the method oneMoreVisit of the given instance of the class <a class="el" href="class_place.html" title="class that stores all the information of a place. It also has to download the image of the place.">Place</a> that matches the given type and id. <br /></td></tr>
+<tr class="memitem:a4b70f4378a4b1e7bdd52afb7301b0496"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrequest_handler.html#a4b70f4378a4b1e7bdd52afb7301b0496">oneMoreVisitToPlaceByTypeAndId</a> (string type, string id)</td></tr>
+<tr class="memdesc:a4b70f4378a4b1e7bdd52afb7301b0496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the method oneMoreVisit of the given instance of the class <a class="el" href="class_place.html" title="class that stores all the information of a place. It also has to download the image of the place.">Place</a> that matches the given type and id.  <a href="classrequest_handler.html#a4b70f4378a4b1e7bdd52afb7301b0496">More...</a><br /></td></tr>
 <tr class="separator:a4b70f4378a4b1e7bdd52afb7301b0496"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac06e06309e2ae1fd81a1fe41533f3045"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_place.html">Place</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrequest_handler.html#ac06e06309e2ae1fd81a1fe41533f3045">getPlaceByTypeAndId</a> (string type, string id)</td></tr>
 <tr class="memdesc:ac06e06309e2ae1fd81a1fe41533f3045"><td class="mdescLeft">&#160;</td><td class="mdescRight">It returns the place that match the given type and id, if there inst any place with that index or type it will raise an exception.  <a href="classrequest_handler.html#ac06e06309e2ae1fd81a1fe41533f3045">More...</a><br /></td></tr>
 <tr class="separator:ac06e06309e2ae1fd81a1fe41533f3045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a5a80ac042e4db9eaeedec90ec7f243fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrequest_handler.html#a5a80ac042e4db9eaeedec90ec7f243fe">updateTypeIndex</a> ()</td></tr>
+<tr class="memdesc:a5a80ac042e4db9eaeedec90ec7f243fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates the currentIndexPlace_ property to point the next place type that should be chosen.  <a href="classrequest_handler.html#a5a80ac042e4db9eaeedec90ec7f243fe">More...</a><br /></td></tr>
+<tr class="separator:a5a80ac042e4db9eaeedec90ec7f243fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6f1212bb3319f0002e6dedddc49d24d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrequest_handler.html#ac6f1212bb3319f0002e6dedddc49d24d">updatePlaceIndex</a> ()</td></tr>
+<tr class="memdesc:ac6f1212bb3319f0002e6dedddc49d24d"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates the currentIndexPlace_ property to point the next place id that should be chosen. If it finshes all the places from that type, it calls the updateTypeIndex method.  <a href="classrequest_handler.html#ac6f1212bb3319f0002e6dedddc49d24d">More...</a><br /></td></tr>
+<tr class="separator:ac6f1212bb3319f0002e6dedddc49d24d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aaf98bfbcfc7eaf537504dad0d45b5fc9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrequest_handler.html#aaf98bfbcfc7eaf537504dad0d45b5fc9">currentIndexType_</a></td></tr>
+<tr class="memdesc:aaf98bfbcfc7eaf537504dad0d45b5fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the type of the next place that will be returned.  <a href="classrequest_handler.html#aaf98bfbcfc7eaf537504dad0d45b5fc9">More...</a><br /></td></tr>
+<tr class="separator:aaf98bfbcfc7eaf537504dad0d45b5fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0456f4a33533918edbef902c7869e19f"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrequest_handler.html#a0456f4a33533918edbef902c7869e19f">typesOfSites_</a></td></tr>
+<tr class="memdesc:a0456f4a33533918edbef902c7869e19f"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of strings that contains the valid types of the places.  <a href="classrequest_handler.html#a0456f4a33533918edbef902c7869e19f">More...</a><br /></td></tr>
+<tr class="separator:a0456f4a33533918edbef902c7869e19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15bf2a387bd778b2be2a0a25a3367d86"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrequest_handler.html#a15bf2a387bd778b2be2a0a25a3367d86">currentIndexPlace_</a></td></tr>
+<tr class="memdesc:a15bf2a387bd778b2be2a0a25a3367d86"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the index of the next place that will be returned.  <a href="classrequest_handler.html#a15bf2a387bd778b2be2a0a25a3367d86">More...</a><br /></td></tr>
+<tr class="separator:a15bf2a387bd778b2be2a0a25a3367d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fbea7352f0d8f9666b85f8e227d592f"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; <a class="el" href="class_place.html">Place</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrequest_handler.html#a5fbea7352f0d8f9666b85f8e227d592f">listOfPlaces_</a></td></tr>
+<tr class="separator:a5fbea7352f0d8f9666b85f8e227d592f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab88eccab4bdb91595758f93083605c70"><td class="memItemLeft" align="right" valign="top">List&lt; List&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrequest_handler.html#ab88eccab4bdb91595758f93083605c70">sortedPlaceIndex_</a></td></tr>
+<tr class="separator:ab88eccab4bdb91595758f93083605c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d12b585f7d86d1b239a8366f7e7f78e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrequest_handler.html#a0d12b585f7d86d1b239a8366f7e7f78e">sortedByDistance_</a></td></tr>
+<tr class="memdesc:a0d12b585f7d86d1b239a8366f7e7f78e"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if the places should be sorted by distance, false in other case.  <a href="classrequest_handler.html#a0d12b585f7d86d1b239a8366f7e7f78e">More...</a><br /></td></tr>
+<tr class="separator:a0d12b585f7d86d1b239a8366f7e7f78e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >class that controls the request of places information. </p>
@@ -173,8 +201,257 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>oneMoreVisitToPlaceBy
 
 </div>
 </div>
+<a id="a4b70f4378a4b1e7bdd52afb7301b0496" name="a4b70f4378a4b1e7bdd52afb7301b0496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b70f4378a4b1e7bdd52afb7301b0496">&#9670;&nbsp;</a></span>oneMoreVisitToPlaceByTypeAndId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void requestHandler.oneMoreVisitToPlaceByTypeAndId </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calls the method oneMoreVisit of the given instance of the class <a class="el" href="class_place.html" title="class that stores all the information of a place. It also has to download the image of the place.">Place</a> that matches the given type and id. </p>
+
+</div>
+</div>
+<a id="a1de643057d5925139555f8d86f0d6928" name="a1de643057d5925139555f8d86f0d6928"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1de643057d5925139555f8d86f0d6928">&#9670;&nbsp;</a></span>sortPlaces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void requestHandler.sortPlaces </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sorts the places acording to the current user preferences. </p>
+
+</div>
+</div>
+<a id="ac6f1212bb3319f0002e6dedddc49d24d" name="ac6f1212bb3319f0002e6dedddc49d24d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6f1212bb3319f0002e6dedddc49d24d">&#9670;&nbsp;</a></span>updatePlaceIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void requestHandler.updatePlaceIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>updates the currentIndexPlace_ property to point the next place id that should be chosen. If it finshes all the places from that type, it calls the updateTypeIndex method. </p>
+
+</div>
+</div>
+<a id="a5a80ac042e4db9eaeedec90ec7f243fe" name="a5a80ac042e4db9eaeedec90ec7f243fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a80ac042e4db9eaeedec90ec7f243fe">&#9670;&nbsp;</a></span>updateTypeIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void requestHandler.updateTypeIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>updates the currentIndexPlace_ property to point the next place type that should be chosen. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a15bf2a387bd778b2be2a0a25a3367d86" name="a15bf2a387bd778b2be2a0a25a3367d86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15bf2a387bd778b2be2a0a25a3367d86">&#9670;&nbsp;</a></span>currentIndexPlace_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int requestHandler.currentIndexPlace_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>stores the index of the next place that will be returned. </p>
+
+</div>
+</div>
+<a id="aaf98bfbcfc7eaf537504dad0d45b5fc9" name="aaf98bfbcfc7eaf537504dad0d45b5fc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf98bfbcfc7eaf537504dad0d45b5fc9">&#9670;&nbsp;</a></span>currentIndexType_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int requestHandler.currentIndexType_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>stores the type of the next place that will be returned. </p>
+
+</div>
+</div>
+<a id="a5fbea7352f0d8f9666b85f8e227d592f" name="a5fbea7352f0d8f9666b85f8e227d592f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fbea7352f0d8f9666b85f8e227d592f">&#9670;&nbsp;</a></span>listOfPlaces_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;List&lt;<a class="el" href="class_place.html">Place</a>&gt; &gt; requestHandler.listOfPlaces_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Stores all the places splited by types.</p><ul>
+<li>First index: Type.</li>
+<li>Second index: <a class="el" href="class_place.html" title="class that stores all the information of a place. It also has to download the image of the place.">Place</a> ID. </li>
+</ul>
+
+</div>
+</div>
+<a id="a0d12b585f7d86d1b239a8366f7e7f78e" name="a0d12b585f7d86d1b239a8366f7e7f78e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d12b585f7d86d1b239a8366f7e7f78e">&#9670;&nbsp;</a></span>sortedByDistance_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool requestHandler.sortedByDistance_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>true if the places should be sorted by distance, false in other case. </p>
+
+</div>
+</div>
+<a id="ab88eccab4bdb91595758f93083605c70" name="ab88eccab4bdb91595758f93083605c70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab88eccab4bdb91595758f93083605c70">&#9670;&nbsp;</a></span>sortedPlaceIndex_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;List&lt;int&gt; &gt; requestHandler.sortedPlaceIndex_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Stores the sorted index of the places when the type is defined. </p>
+
+</div>
+</div>
+<a id="a0456f4a33533918edbef902c7869e19f" name="a0456f4a33533918edbef902c7869e19f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0456f4a33533918edbef902c7869e19f">&#9670;&nbsp;</a></span>typesOfSites_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; requestHandler.typesOfSites_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List of strings that contains the valid types of the places. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/Login/requestHandler.cs</li>
+<li>Scripts/Login/<a class="el" href="request_handler_8cs.html">requestHandler.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

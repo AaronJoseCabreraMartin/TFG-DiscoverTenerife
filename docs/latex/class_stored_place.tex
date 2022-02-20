@@ -22,9 +22,8 @@ long \mbox{\hyperlink{class_stored_place_a0a4a889cc33024bb17656b3d1cf6719e}{last
 \begin{DoxyCompactList}\small\item\em getter of the last\+Visit\+Timestamp\+\_\+ property. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_stored_place_a39fb267fd9c192ea936ef13bdfa0fe6d}{get\+Zone}} ()
 \begin{DoxyCompactList}\small\item\em getter of the zone\+\_\+ property. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_stored_place_abbfd18a129d3fa16f1b235dee63a9899}\label{class_stored_place_abbfd18a129d3fa16f1b235dee63a9899}} 
-void {\bfseries one\+More\+Visit} ()
-\begin{DoxyCompactList}\small\item\em Register a new visit to the represented stored place. It uses the actual timestamp. It changes the visited\+\_\+ property to true. It also set the changes\+To\+Updtate\+\_\+ static property to true. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_stored_place_abbfd18a129d3fa16f1b235dee63a9899}{one\+More\+Visit}} ()
+\begin{DoxyCompactList}\small\item\em Register a new visit to the represented stored place. It uses the current timestamp. It changes the visited\+\_\+ property to true. It also set the changes\+To\+Updtate\+\_\+ static property to true. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_stored_place_ab6dc90fa3631d4437f8b8bb0084f980e}{new\+Visits\+For\+This\+Place}} ()
 \begin{DoxyCompactList}\small\item\em getter of the new\+Visits\+For\+This\+Place\+\_\+ property. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
@@ -42,31 +41,79 @@ static bool \mbox{\hyperlink{class_stored_place_a7274010847da562a3db0aa2805e4f4b
 \begin{DoxyCompactList}\small\item\em This method returns false if you dont have any place stored, it returns true in other case. \end{DoxyCompactList}\item 
 static bool \mbox{\hyperlink{class_stored_place_a94ae7460e0bc267f2ee469c789811b69}{there\+Is\+Space\+For\+Other\+Place\+Stored}} ()
 \begin{DoxyCompactList}\small\item\em This method returns true if the current user can store one or more places, it returns false if the current user cant store more places. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_stored_place_a5329b1b4ca20da031bc446e0091767e5}\label{class_stored_place_a5329b1b4ca20da031bc446e0091767e5}} 
-static void {\bfseries erase\+Stored\+Data} ()
+static void \mbox{\hyperlink{class_stored_place_a5329b1b4ca20da031bc446e0091767e5}{erase\+Stored\+Data}} ()
 \begin{DoxyCompactList}\small\item\em This method delete all the stored information on the current device. It also sets the static property changes\+To\+Update\+\_\+ to false. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_stored_place_abc3756e6fb92d52f62dcfcba33ef2bf3}{erase\+Stored\+Data\+Of}} (int index)
 \begin{DoxyCompactList}\small\item\em This method deletes all the information of the place that is on the given index. If there isnt any information on that position it wont do nothing. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_stored_place_aeb3eb6e9fdd2391dc5d4b6a45e2f15e2}{save\+Stored\+Place}} (\mbox{\hyperlink{class_stored_place}{Stored\+Place}} stored\+Place)
 \begin{DoxyCompactList}\small\item\em This method saves on the current device the changes of the given stored place. If the given place isnt stored, it will show a message on the console. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_stored_place_a89101fc35b1e47f38f9c812c60c42c8e}\label{class_stored_place_a89101fc35b1e47f38f9c812c60c42c8e}} 
-static void {\bfseries save\+All} ()
+static void \mbox{\hyperlink{class_stored_place_a89101fc35b1e47f38f9c812c60c42c8e}{save\+All}} ()
 \begin{DoxyCompactList}\small\item\em Calls the Player\+Prefs\textquotesingle{}s Save method in order to write on the current device all the stored information. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_stored_place_a79db8cdc262713658efd4e6548147858}\label{class_stored_place_a79db8cdc262713658efd4e6548147858}} 
-static void {\bfseries Update\+Changes} ()
+static void \mbox{\hyperlink{class_stored_place_a79db8cdc262713658efd4e6548147858}{Update\+Changes}} ()
 \begin{DoxyCompactList}\small\item\em This method calls the user\+Visited\+Place\+By\+Name with each of the stored places that have been visited and they didnt uploaded the changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_stored_place_a64f0173954e68e202f0a8e9937ecb09b}\label{class_stored_place_a64f0173954e68e202f0a8e9937ecb09b}} 
-static bool {\bfseries changes\+To\+Update\+\_\+} = true
+static bool \mbox{\hyperlink{class_stored_place_a64f0173954e68e202f0a8e9937ecb09b}{changes\+To\+Update\+\_\+}} = true
 \begin{DoxyCompactList}\small\item\em true if any of the stored places has changes to update. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_stored_place_a9983a952a79aae2119b3a841b0dbf314}{Stored\+Place}} (Dictionary$<$ string, string $>$ data)
+\begin{DoxyCompactList}\small\item\em Constructor, it initialices all the properties of the class. It expects a dictionary with the following entries\+: name\+\_\+, address\+\_\+, latitude\+\_\+, longitude\+\_\+, zone\+\_\+, last\+Visit\+Timestamp\+\_\+, new\+Visits\+For\+This\+Place\+\_\+ and visited\+\_\+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_stored_place_a9f7a651e85d9efe56ddddbf891a2b47c}{name\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that stores the name of the stored place. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_stored_place_a03e03135a0e9a95b086de43a7390a027}{address\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that stores the address of the stored place. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_stored_place_a844f1bf2c394653d77b7e44454171438}{latitude\+\_\+}}
+\begin{DoxyCompactList}\small\item\em float that stores the latitude of the stored place. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_stored_place_a9b7dc806e3d47a12ab83668d2856341e}{longitude\+\_\+}}
+\begin{DoxyCompactList}\small\item\em float that stores the longitude of the stored place. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_stored_place_a85e688363740525be85ed55a43300d1b}{new\+Visits\+For\+This\+Place\+\_\+}}
+\begin{DoxyCompactList}\small\item\em int that stores the number of new visits to this stored place. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_stored_place_a1a00ff8a54f8221804a4b77e71704149}{zone\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that stores the zone that the stored place belongs. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{class_stored_place_a84ffac28a11863787327c7cf2ec7d6c6}{last\+Visit\+Timestamp\+\_\+}}
+\begin{DoxyCompactList}\small\item\em long that contains the timestamp of the last visit. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_stored_place_af90e42f0cb49b53e1c7d60aa82bbcd2b}{visited\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Boolean value, its true when the stored place was already visited. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class that stores the data of one of the stored places. 
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_stored_place_a9983a952a79aae2119b3a841b0dbf314}\label{class_stored_place_a9983a952a79aae2119b3a841b0dbf314}} 
+\index{StoredPlace@{StoredPlace}!StoredPlace@{StoredPlace}}
+\index{StoredPlace@{StoredPlace}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{StoredPlace()}{StoredPlace()}}
+{\footnotesize\ttfamily Stored\+Place.\+Stored\+Place (\begin{DoxyParamCaption}\item[{Dictionary$<$ string, string $>$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructor, it initialices all the properties of the class. It expects a dictionary with the following entries\+: name\+\_\+, address\+\_\+, latitude\+\_\+, longitude\+\_\+, zone\+\_\+, last\+Visit\+Timestamp\+\_\+, new\+Visits\+For\+This\+Place\+\_\+ and visited\+\_\+. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Dictionary} & with the string conversion of the data of the stored place. \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_stored_place_a5329b1b4ca20da031bc446e0091767e5}\label{class_stored_place_a5329b1b4ca20da031bc446e0091767e5}} 
+\index{StoredPlace@{StoredPlace}!eraseStoredData@{eraseStoredData}}
+\index{eraseStoredData@{eraseStoredData}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{eraseStoredData()}{eraseStoredData()}}
+{\footnotesize\ttfamily static void Stored\+Place.\+erase\+Stored\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This method delete all the stored information on the current device. It also sets the static property changes\+To\+Update\+\_\+ to false. 
+
 \mbox{\Hypertarget{class_stored_place_abc3756e6fb92d52f62dcfcba33ef2bf3}\label{class_stored_place_abc3756e6fb92d52f62dcfcba33ef2bf3}} 
 \index{StoredPlace@{StoredPlace}!eraseStoredDataOf@{eraseStoredDataOf}}
 \index{eraseStoredDataOf@{eraseStoredDataOf}!StoredPlace@{StoredPlace}}
@@ -209,6 +256,26 @@ getter of the new\+Visits\+For\+This\+Place\+\_\+ property.
 \begin{DoxyReturn}{Returns}
 int that contains the property new\+Visits\+For\+This\+Place\+\_\+\textquotesingle{}s value. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_stored_place_abbfd18a129d3fa16f1b235dee63a9899}\label{class_stored_place_abbfd18a129d3fa16f1b235dee63a9899}} 
+\index{StoredPlace@{StoredPlace}!oneMoreVisit@{oneMoreVisit}}
+\index{oneMoreVisit@{oneMoreVisit}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{oneMoreVisit()}{oneMoreVisit()}}
+{\footnotesize\ttfamily void Stored\+Place.\+one\+More\+Visit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Register a new visit to the represented stored place. It uses the current timestamp. It changes the visited\+\_\+ property to true. It also set the changes\+To\+Updtate\+\_\+ static property to true. 
+
+\mbox{\Hypertarget{class_stored_place_a89101fc35b1e47f38f9c812c60c42c8e}\label{class_stored_place_a89101fc35b1e47f38f9c812c60c42c8e}} 
+\index{StoredPlace@{StoredPlace}!saveAll@{saveAll}}
+\index{saveAll@{saveAll}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{saveAll()}{saveAll()}}
+{\footnotesize\ttfamily static void Stored\+Place.\+save\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calls the Player\+Prefs\textquotesingle{}s Save method in order to write on the current device all the stored information. 
+
 \mbox{\Hypertarget{class_stored_place_aeb3eb6e9fdd2391dc5d4b6a45e2f15e2}\label{class_stored_place_aeb3eb6e9fdd2391dc5d4b6a45e2f15e2}} 
 \index{StoredPlace@{StoredPlace}!saveStoredPlace@{saveStoredPlace}}
 \index{saveStoredPlace@{saveStoredPlace}!StoredPlace@{StoredPlace}}
@@ -286,6 +353,16 @@ This method returns true if the current user can store one or more places, it re
 \begin{DoxyReturn}{Returns}
 true if the current user can store another place. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_stored_place_a79db8cdc262713658efd4e6548147858}\label{class_stored_place_a79db8cdc262713658efd4e6548147858}} 
+\index{StoredPlace@{StoredPlace}!UpdateChanges@{UpdateChanges}}
+\index{UpdateChanges@{UpdateChanges}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{UpdateChanges()}{UpdateChanges()}}
+{\footnotesize\ttfamily static void Stored\+Place.\+Update\+Changes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This method calls the user\+Visited\+Place\+By\+Name with each of the stored places that have been visited and they didnt uploaded the changes. 
+
 \mbox{\Hypertarget{class_stored_place_aeab5e03a281e0e823967fad12fe85f9b}\label{class_stored_place_aeab5e03a281e0e823967fad12fe85f9b}} 
 \index{StoredPlace@{StoredPlace}!visited@{visited}}
 \index{visited@{visited}!StoredPlace@{StoredPlace}}
@@ -301,6 +378,99 @@ bool that contains the property visited\+\_\+\textquotesingle{}s value.
 \end{DoxyReturn}
 
 
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_stored_place_a03e03135a0e9a95b086de43a7390a027}\label{class_stored_place_a03e03135a0e9a95b086de43a7390a027}} 
+\index{StoredPlace@{StoredPlace}!address\_@{address\_}}
+\index{address\_@{address\_}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{address\_}{address\_}}
+{\footnotesize\ttfamily string Stored\+Place.\+address\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that stores the address of the stored place. 
+
+\mbox{\Hypertarget{class_stored_place_a64f0173954e68e202f0a8e9937ecb09b}\label{class_stored_place_a64f0173954e68e202f0a8e9937ecb09b}} 
+\index{StoredPlace@{StoredPlace}!changesToUpdate\_@{changesToUpdate\_}}
+\index{changesToUpdate\_@{changesToUpdate\_}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{changesToUpdate\_}{changesToUpdate\_}}
+{\footnotesize\ttfamily bool Stored\+Place.\+changes\+To\+Update\+\_\+ = true\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+true if any of the stored places has changes to update. 
+
+\mbox{\Hypertarget{class_stored_place_a84ffac28a11863787327c7cf2ec7d6c6}\label{class_stored_place_a84ffac28a11863787327c7cf2ec7d6c6}} 
+\index{StoredPlace@{StoredPlace}!lastVisitTimestamp\_@{lastVisitTimestamp\_}}
+\index{lastVisitTimestamp\_@{lastVisitTimestamp\_}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{lastVisitTimestamp\_}{lastVisitTimestamp\_}}
+{\footnotesize\ttfamily long Stored\+Place.\+last\+Visit\+Timestamp\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+long that contains the timestamp of the last visit. 
+
+\mbox{\Hypertarget{class_stored_place_a844f1bf2c394653d77b7e44454171438}\label{class_stored_place_a844f1bf2c394653d77b7e44454171438}} 
+\index{StoredPlace@{StoredPlace}!latitude\_@{latitude\_}}
+\index{latitude\_@{latitude\_}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{latitude\_}{latitude\_}}
+{\footnotesize\ttfamily float Stored\+Place.\+latitude\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+float that stores the latitude of the stored place. 
+
+\mbox{\Hypertarget{class_stored_place_a9b7dc806e3d47a12ab83668d2856341e}\label{class_stored_place_a9b7dc806e3d47a12ab83668d2856341e}} 
+\index{StoredPlace@{StoredPlace}!longitude\_@{longitude\_}}
+\index{longitude\_@{longitude\_}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{longitude\_}{longitude\_}}
+{\footnotesize\ttfamily float Stored\+Place.\+longitude\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+float that stores the longitude of the stored place. 
+
+\mbox{\Hypertarget{class_stored_place_a9f7a651e85d9efe56ddddbf891a2b47c}\label{class_stored_place_a9f7a651e85d9efe56ddddbf891a2b47c}} 
+\index{StoredPlace@{StoredPlace}!name\_@{name\_}}
+\index{name\_@{name\_}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{name\_}{name\_}}
+{\footnotesize\ttfamily string Stored\+Place.\+name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that stores the name of the stored place. 
+
+\mbox{\Hypertarget{class_stored_place_a85e688363740525be85ed55a43300d1b}\label{class_stored_place_a85e688363740525be85ed55a43300d1b}} 
+\index{StoredPlace@{StoredPlace}!newVisitsForThisPlace\_@{newVisitsForThisPlace\_}}
+\index{newVisitsForThisPlace\_@{newVisitsForThisPlace\_}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{newVisitsForThisPlace\_}{newVisitsForThisPlace\_}}
+{\footnotesize\ttfamily int Stored\+Place.\+new\+Visits\+For\+This\+Place\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+int that stores the number of new visits to this stored place. 
+
+\mbox{\Hypertarget{class_stored_place_af90e42f0cb49b53e1c7d60aa82bbcd2b}\label{class_stored_place_af90e42f0cb49b53e1c7d60aa82bbcd2b}} 
+\index{StoredPlace@{StoredPlace}!visited\_@{visited\_}}
+\index{visited\_@{visited\_}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{visited\_}{visited\_}}
+{\footnotesize\ttfamily bool Stored\+Place.\+visited\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Boolean value, its true when the stored place was already visited. 
+
+\mbox{\Hypertarget{class_stored_place_a1a00ff8a54f8221804a4b77e71704149}\label{class_stored_place_a1a00ff8a54f8221804a4b77e71704149}} 
+\index{StoredPlace@{StoredPlace}!zone\_@{zone\_}}
+\index{zone\_@{zone\_}!StoredPlace@{StoredPlace}}
+\doxysubsubsection{\texorpdfstring{zone\_}{zone\_}}
+{\footnotesize\ttfamily string Stored\+Place.\+zone\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that stores the zone that the stored place belongs. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Stored\+Places\+Screen/Stored\+Place.\+cs\end{DoxyCompactItemize}
+Scripts/\+Stored\+Places\+Screen/\mbox{\hyperlink{_stored_place_8cs}{Stored\+Place.\+cs}}\end{DoxyCompactItemize}

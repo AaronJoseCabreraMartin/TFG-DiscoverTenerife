@@ -1,5 +1,10 @@
 \hypertarget{classuniqueselection_desplegable_menu}{}\doxysection{uniqueselection\+Desplegable\+Menu Class Reference}
 \label{classuniqueselection_desplegable_menu}\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+
+
+This class controls the unique selection desplegable menu.  
+
+
 Inheritance diagram for uniqueselection\+Desplegable\+Menu\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,32 +14,242 @@ Inheritance diagram for uniqueselection\+Desplegable\+Menu\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classuniqueselection_desplegable_menu_ac3d46d433ee37914ae0156bdc4e26e6c}\label{classuniqueselection_desplegable_menu_ac3d46d433ee37914ae0156bdc4e26e6c}} 
-void {\bfseries On\+Click} ()
+void \mbox{\hyperlink{classuniqueselection_desplegable_menu_ac3d46d433ee37914ae0156bdc4e26e6c}{On\+Click}} ()
+\begin{DoxyCompactList}\small\item\em This method should be called when the main button of the menu is clicked by the user. It checks if last\+Option\+Clicked\+\_\+ static property of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} class\+: \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classuniqueselection_desplegable_menu_a4b2e75b5bd9e4a4946b4fbd8440e34a0}{show\+All\+Toggles}} (bool show)
 \item 
-\mbox{\Hypertarget{classuniqueselection_desplegable_menu_a4b2e75b5bd9e4a4946b4fbd8440e34a0}\label{classuniqueselection_desplegable_menu_a4b2e75b5bd9e4a4946b4fbd8440e34a0}} 
-void {\bfseries show\+All\+Toggles} (bool show)
-\item 
-\mbox{\Hypertarget{classuniqueselection_desplegable_menu_aaab5507f8e8b23dea82d974dcafbb30b}\label{classuniqueselection_desplegable_menu_aaab5507f8e8b23dea82d974dcafbb30b}} 
-bool {\bfseries check\+Toggle} (int index)
-\item 
-\mbox{\Hypertarget{classuniqueselection_desplegable_menu_a8292157300484a3b3e47d8173f78013f}\label{classuniqueselection_desplegable_menu_a8292157300484a3b3e47d8173f78013f}} 
-int {\bfseries size} ()
-\item 
-\mbox{\Hypertarget{classuniqueselection_desplegable_menu_a28031f08035db3a225c6bf9b3a304627}\label{classuniqueselection_desplegable_menu_a28031f08035db3a225c6bf9b3a304627}} 
-void {\bfseries select\+Toggle} (int index)
-\item 
-\mbox{\Hypertarget{classuniqueselection_desplegable_menu_afd6ac935fff81bb35ea8ce7b402a5da7}\label{classuniqueselection_desplegable_menu_afd6ac935fff81bb35ea8ce7b402a5da7}} 
-void {\bfseries save\+Options} ()
-\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{classuniqueselection_desplegable_menu_aaab5507f8e8b23dea82d974dcafbb30b}{check\+Toggle}} (int index)
+\begin{DoxyCompactList}\small\item\em This method returns true if the toggle that is on the index-\/th position is on, in other case its false. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classuniqueselection_desplegable_menu_a8292157300484a3b3e47d8173f78013f}{size}} ()
+\begin{DoxyCompactList}\small\item\em getter of the length of the toggles\+\_\+ property. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classuniqueselection_desplegable_menu_a28031f08035db3a225c6bf9b3a304627}{select\+Toggle}} (int index)
+\begin{DoxyCompactList}\small\item\em This method active the toggle that is on the index-\/th position. it also puts the any\+Change\+\_\+ property to true. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classuniqueselection_desplegable_menu_afd6ac935fff81bb35ea8ce7b402a5da7}{save\+Options}} ()
+\begin{DoxyCompactList}\small\item\em This method calls the save\+Options method of the \mbox{\hyperlink{classoptions_controller}{options\+Controller}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+bool \mbox{\hyperlink{classuniqueselection_desplegable_menu_a1200d1cb8bedb8c1a350e9ac93a7a62e}{show\+Toggles\+\_\+}}
+\begin{DoxyCompactList}\small\item\em true if the toggles should be shown, false if the toggles should be hidden. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classuniqueselection_desplegable_menu_a61597c76eb83c0c5f6bd475087114093}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em This method is called before the first frame, it initialices any\+Change\+\_\+ as true, show\+Toggles\+\_\+ as false, the shown text as the default text and the active toggle as zero. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classuniqueselection_desplegable_menu_a2430fa07278411b594b73e3a6e8021aa}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method is called once per frame. If anychange\+\_\+ is false, it doesnt do nothing but if its true, it calls show\+All\+Toggles and update\+State methods. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classuniqueselection_desplegable_menu_acd8d415524d34aa389dc1789bb8a6a2d}{update\+State}} ()
+\begin{DoxyCompactList}\small\item\em This method put off all the toggles except the active one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classuniqueselection_desplegable_menu_ade9e5a6670ec78c7c46d85f8a0a230f1}{toggles\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Array of Game\+Objects that each of them contains a toggle. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classuniqueselection_desplegable_menu_ae15ea5233adf7beb8f76da26f2d43727}{default\+Text\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The default text that will be shown when the user didnt have clicked on the menu. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classuniqueselection_desplegable_menu_af74aeae8c4c5a280c087ade7d3f91075}{save\+Text\+\_\+}} = \char`\"{}Click here to save options\char`\"{}
+\begin{DoxyCompactList}\small\item\em The default text that will be shown when the user have clicked on the menu. \end{DoxyCompactList}\item 
+Text \mbox{\hyperlink{classuniqueselection_desplegable_menu_a5cd655e85905d4bdaffccfadf8d162ce}{text\+Field\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Text that shows the state of the menu, waiting to be clicked for showing itself or waiting to be clicked for hiding itself. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classuniqueselection_desplegable_menu_a213c1b18ed347c0bbeea4292014e4b88}{any\+Change\+\_\+}}
+\begin{DoxyCompactList}\small\item\em true if there is some change that could reconfigure the menu or the toggle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classuniqueselection_desplegable_menu_a923916ae4f97cdc280f08ad7941eed05}{active\+Toggle\+\_\+}}
+\begin{DoxyCompactList}\small\item\em int that store the position of the current active toggle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class controls the unique selection desplegable menu. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_a61597c76eb83c0c5f6bd475087114093}\label{classuniqueselection_desplegable_menu_a61597c76eb83c0c5f6bd475087114093}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!Awake@{Awake}}
+\index{Awake@{Awake}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void uniqueselection\+Desplegable\+Menu.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called before the first frame, it initialices any\+Change\+\_\+ as true, show\+Toggles\+\_\+ as false, the shown text as the default text and the active toggle as zero. 
+
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_aaab5507f8e8b23dea82d974dcafbb30b}\label{classuniqueselection_desplegable_menu_aaab5507f8e8b23dea82d974dcafbb30b}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!checkToggle@{checkToggle}}
+\index{checkToggle@{checkToggle}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{checkToggle()}{checkToggle()}}
+{\footnotesize\ttfamily bool uniqueselection\+Desplegable\+Menu.\+check\+Toggle (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+This method returns true if the toggle that is on the index-\/th position is on, in other case its false. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & the toggle\textquotesingle{}s number that you want to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool, true if the active\+Toggle\+\_\+ is the same as the given number, false in other case. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_ac3d46d433ee37914ae0156bdc4e26e6c}\label{classuniqueselection_desplegable_menu_ac3d46d433ee37914ae0156bdc4e26e6c}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!OnClick@{OnClick}}
+\index{OnClick@{OnClick}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{OnClick()}{OnClick()}}
+{\footnotesize\ttfamily void uniqueselection\+Desplegable\+Menu.\+On\+Click (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method should be called when the main button of the menu is clicked by the user. It checks if last\+Option\+Clicked\+\_\+ static property of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} class\+: 
+
+
+\begin{DoxyItemize}
+\item if it is null, it sets last\+Option\+Clicked\+\_\+ as this game\+Object.
+\item if it is this game\+Object, it sets it as null.
+\item if it is another game\+Object, it doesnt do nothing.
+\end{DoxyItemize}
+
+That is the way to control that only one of the desplegables menus are opened at the same time. It also sets the correspondent text to the text field. Hide or shown the toggles, and it calls the save\+Options method of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} class. \mbox{\Hypertarget{classuniqueselection_desplegable_menu_afd6ac935fff81bb35ea8ce7b402a5da7}\label{classuniqueselection_desplegable_menu_afd6ac935fff81bb35ea8ce7b402a5da7}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!saveOptions@{saveOptions}}
+\index{saveOptions@{saveOptions}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{saveOptions()}{saveOptions()}}
+{\footnotesize\ttfamily void uniqueselection\+Desplegable\+Menu.\+save\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method calls the save\+Options method of the \mbox{\hyperlink{classoptions_controller}{options\+Controller}} class. 
+
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_a28031f08035db3a225c6bf9b3a304627}\label{classuniqueselection_desplegable_menu_a28031f08035db3a225c6bf9b3a304627}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!selectToggle@{selectToggle}}
+\index{selectToggle@{selectToggle}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{selectToggle()}{selectToggle()}}
+{\footnotesize\ttfamily void uniqueselection\+Desplegable\+Menu.\+select\+Toggle (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+This method active the toggle that is on the index-\/th position. it also puts the any\+Change\+\_\+ property to true. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & the position of the toggle that you want to select. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_a4b2e75b5bd9e4a4946b4fbd8440e34a0}\label{classuniqueselection_desplegable_menu_a4b2e75b5bd9e4a4946b4fbd8440e34a0}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!showAllToggles@{showAllToggles}}
+\index{showAllToggles@{showAllToggles}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{showAllToggles()}{showAllToggles()}}
+{\footnotesize\ttfamily void uniqueselection\+Desplegable\+Menu.\+show\+All\+Toggles (\begin{DoxyParamCaption}\item[{bool}]{show }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & true if you want to show all the toggles, false if you want to hide them. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_a8292157300484a3b3e47d8173f78013f}\label{classuniqueselection_desplegable_menu_a8292157300484a3b3e47d8173f78013f}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!size@{size}}
+\index{size@{size}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily int uniqueselection\+Desplegable\+Menu.\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the length of the toggles\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+int Length of the toggles\+\_\+ property. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_a2430fa07278411b594b73e3a6e8021aa}\label{classuniqueselection_desplegable_menu_a2430fa07278411b594b73e3a6e8021aa}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!Update@{Update}}
+\index{Update@{Update}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void uniqueselection\+Desplegable\+Menu.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called once per frame. If anychange\+\_\+ is false, it doesnt do nothing but if its true, it calls show\+All\+Toggles and update\+State methods. 
+
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_acd8d415524d34aa389dc1789bb8a6a2d}\label{classuniqueselection_desplegable_menu_acd8d415524d34aa389dc1789bb8a6a2d}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!updateState@{updateState}}
+\index{updateState@{updateState}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{updateState()}{updateState()}}
+{\footnotesize\ttfamily void uniqueselection\+Desplegable\+Menu.\+update\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method put off all the toggles except the active one. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_a923916ae4f97cdc280f08ad7941eed05}\label{classuniqueselection_desplegable_menu_a923916ae4f97cdc280f08ad7941eed05}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!activeToggle\_@{activeToggle\_}}
+\index{activeToggle\_@{activeToggle\_}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{activeToggle\_}{activeToggle\_}}
+{\footnotesize\ttfamily int uniqueselection\+Desplegable\+Menu.\+active\+Toggle\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+int that store the position of the current active toggle. 
+
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_a213c1b18ed347c0bbeea4292014e4b88}\label{classuniqueselection_desplegable_menu_a213c1b18ed347c0bbeea4292014e4b88}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!anyChange\_@{anyChange\_}}
+\index{anyChange\_@{anyChange\_}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{anyChange\_}{anyChange\_}}
+{\footnotesize\ttfamily bool uniqueselection\+Desplegable\+Menu.\+any\+Change\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if there is some change that could reconfigure the menu or the toggle. 
+
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_ae15ea5233adf7beb8f76da26f2d43727}\label{classuniqueselection_desplegable_menu_ae15ea5233adf7beb8f76da26f2d43727}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!defaultText\_@{defaultText\_}}
+\index{defaultText\_@{defaultText\_}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{defaultText\_}{defaultText\_}}
+{\footnotesize\ttfamily string uniqueselection\+Desplegable\+Menu.\+default\+Text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The default text that will be shown when the user didnt have clicked on the menu. 
+
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_af74aeae8c4c5a280c087ade7d3f91075}\label{classuniqueselection_desplegable_menu_af74aeae8c4c5a280c087ade7d3f91075}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!saveText\_@{saveText\_}}
+\index{saveText\_@{saveText\_}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{saveText\_}{saveText\_}}
+{\footnotesize\ttfamily string uniqueselection\+Desplegable\+Menu.\+save\+Text\+\_\+ = \char`\"{}Click here to save options\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The default text that will be shown when the user have clicked on the menu. 
+
 \mbox{\Hypertarget{classuniqueselection_desplegable_menu_a1200d1cb8bedb8c1a350e9ac93a7a62e}\label{classuniqueselection_desplegable_menu_a1200d1cb8bedb8c1a350e9ac93a7a62e}} 
-bool {\bfseries show\+Toggles\+\_\+}
-\end{DoxyCompactItemize}
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!showToggles\_@{showToggles\_}}
+\index{showToggles\_@{showToggles\_}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{showToggles\_}{showToggles\_}}
+{\footnotesize\ttfamily bool uniqueselection\+Desplegable\+Menu.\+show\+Toggles\+\_\+}
+
+
+
+true if the toggles should be shown, false if the toggles should be hidden. 
+
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_a5cd655e85905d4bdaffccfadf8d162ce}\label{classuniqueselection_desplegable_menu_a5cd655e85905d4bdaffccfadf8d162ce}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!textField\_@{textField\_}}
+\index{textField\_@{textField\_}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{textField\_}{textField\_}}
+{\footnotesize\ttfamily Text uniqueselection\+Desplegable\+Menu.\+text\+Field\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Text that shows the state of the menu, waiting to be clicked for showing itself or waiting to be clicked for hiding itself. 
+
+\mbox{\Hypertarget{classuniqueselection_desplegable_menu_ade9e5a6670ec78c7c46d85f8a0a230f1}\label{classuniqueselection_desplegable_menu_ade9e5a6670ec78c7c46d85f8a0a230f1}} 
+\index{uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}!toggles\_@{toggles\_}}
+\index{toggles\_@{toggles\_}!uniqueselectionDesplegableMenu@{uniqueselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{toggles\_}{toggles\_}}
+{\footnotesize\ttfamily Game\+Object \mbox{[}$\,$\mbox{]} uniqueselection\+Desplegable\+Menu.\+toggles\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Array of Game\+Objects that each of them contains a toggle. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-My\+Prefabs/\+Scripts/uniqueselection\+Desplegable\+Menu.\+cs\end{DoxyCompactItemize}
+My\+Prefabs/\+Scripts/\mbox{\hyperlink{uniqueselection_desplegable_menu_8cs}{uniqueselection\+Desplegable\+Menu.\+cs}}\end{DoxyCompactItemize}

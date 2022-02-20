@@ -64,10 +64,15 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classstored_place_handler-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">storedPlaceHandler Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class that controls the element of a panel that represent a stored place. It extracts the index from the name of this GameObject.  
+ <a href="classstored_place_handler.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for storedPlaceHandler:</div>
 <div class="dyncontent">
@@ -77,12 +82,99 @@ Inheritance diagram for storedPlaceHandler:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a927f471c5a5a02591ea9cac42be73159"><td class="memItemLeft" align="right" valign="top"><a id="a927f471c5a5a02591ea9cac42be73159" name="a927f471c5a5a02591ea9cac42be73159"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getIndex</b> ()</td></tr>
+<tr class="memitem:a927f471c5a5a02591ea9cac42be73159"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstored_place_handler.html#a927f471c5a5a02591ea9cac42be73159">getIndex</a> ()</td></tr>
+<tr class="memdesc:a927f471c5a5a02591ea9cac42be73159"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of the index_ property.  <a href="classstored_place_handler.html#a927f471c5a5a02591ea9cac42be73159">More...</a><br /></td></tr>
 <tr class="separator:a927f471c5a5a02591ea9cac42be73159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:adce53d4f79401f24bf6ade0283aec232"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstored_place_handler.html#adce53d4f79401f24bf6ade0283aec232">Awake</a> ()</td></tr>
+<tr class="memdesc:adce53d4f79401f24bf6ade0283aec232"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called on the first frame, it initialices the index_ property as the number that this GameObject has on its name.  <a href="classstored_place_handler.html#adce53d4f79401f24bf6ade0283aec232">More...</a><br /></td></tr>
+<tr class="separator:adce53d4f79401f24bf6ade0283aec232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ad99be25714d49836a5715d0af448e2d2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstored_place_handler.html#ad99be25714d49836a5715d0af448e2d2">index_</a></td></tr>
+<tr class="memdesc:ad99be25714d49836a5715d0af448e2d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">index of this stored place.  <a href="classstored_place_handler.html#ad99be25714d49836a5715d0af448e2d2">More...</a><br /></td></tr>
+<tr class="separator:ad99be25714d49836a5715d0af448e2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Class that controls the element of a panel that represent a stored place. It extracts the index from the name of this GameObject. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="adce53d4f79401f24bf6ade0283aec232" name="adce53d4f79401f24bf6ade0283aec232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adce53d4f79401f24bf6ade0283aec232">&#9670;&nbsp;</a></span>Awake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void storedPlaceHandler.Awake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is called on the first frame, it initialices the index_ property as the number that this GameObject has on its name. </p>
+
+</div>
+</div>
+<a id="a927f471c5a5a02591ea9cac42be73159" name="a927f471c5a5a02591ea9cac42be73159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a927f471c5a5a02591ea9cac42be73159">&#9670;&nbsp;</a></span>getIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int storedPlaceHandler.getIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter of the index_ property. </p>
+<dl class="section return"><dt>Returns</dt><dd>int with the index of this GameObject. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad99be25714d49836a5715d0af448e2d2" name="ad99be25714d49836a5715d0af448e2d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad99be25714d49836a5715d0af448e2d2">&#9670;&nbsp;</a></span>index_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int storedPlaceHandler.index_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>index of this stored place. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>MyPrefabs/Scripts/storedPlace/storedPlaceHandler.cs</li>
+<li>MyPrefabs/Scripts/storedPlace/<a class="el" href="stored_place_handler_8cs.html">storedPlaceHandler.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

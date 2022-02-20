@@ -1,5 +1,10 @@
 \hypertarget{class_story_place}{}\doxysection{Story\+Place Class Reference}
 \label{class_story_place}\index{StoryPlace@{StoryPlace}}
+
+
+Class that controls the panels that shows the information of a visited place on the story panel.  
+
+
 Inheritance diagram for Story\+Place\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,11 +14,85 @@ Inheritance diagram for Story\+Place\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{class_story_place_a0da6e4a12bdab8cced95747a16ed460a}{set\+Data}} (\mbox{\hyperlink{class_visited_place}{Visited\+Place}} visited\+Place)
+\begin{DoxyCompactList}\small\item\em This method update all the text that are showed to show the information of the given place. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_story_place_a5db8985dd2b0bf817286291a88076195}{name\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Reference to the Game\+Object that shows the name of the place. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_story_place_a76978e00a0f3c89be87c85eadd14aad3}{type\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Reference to the Game\+Object that shows the type of the place. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_story_place_a39d3780c56e80985d9d088ef1288ead1}{date\+Of\+The\+Visit\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Reference to the Game\+Object that shows the date of the last visit to that place. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_story_place_aa07a4b16ea40a02de8a9d34d2eda7502}{times\+Visited\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Reference to the Game\+Object that shows the times that a place was visited. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that controls the panels that shows the information of a visited place on the story panel. 
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_story_place_a0da6e4a12bdab8cced95747a16ed460a}\label{class_story_place_a0da6e4a12bdab8cced95747a16ed460a}} 
-void {\bfseries set\+Data} (\mbox{\hyperlink{class_visited_place}{Visited\+Place}} visited\+Place)
-\end{DoxyCompactItemize}
+\index{StoryPlace@{StoryPlace}!setData@{setData}}
+\index{setData@{setData}!StoryPlace@{StoryPlace}}
+\doxysubsubsection{\texorpdfstring{setData()}{setData()}}
+{\footnotesize\ttfamily void Story\+Place.\+set\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_visited_place}{Visited\+Place}}}]{visited\+Place }\end{DoxyParamCaption})}
+
+
+
+This method update all the text that are showed to show the information of the given place. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_visited_place}{Visited\+Place}}} & a reference to the represented visited place. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_story_place_a39d3780c56e80985d9d088ef1288ead1}\label{class_story_place_a39d3780c56e80985d9d088ef1288ead1}} 
+\index{StoryPlace@{StoryPlace}!dateOfTheVisit\_@{dateOfTheVisit\_}}
+\index{dateOfTheVisit\_@{dateOfTheVisit\_}!StoryPlace@{StoryPlace}}
+\doxysubsubsection{\texorpdfstring{dateOfTheVisit\_}{dateOfTheVisit\_}}
+{\footnotesize\ttfamily Game\+Object Story\+Place.\+date\+Of\+The\+Visit\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the Game\+Object that shows the date of the last visit to that place. 
+
+\mbox{\Hypertarget{class_story_place_a5db8985dd2b0bf817286291a88076195}\label{class_story_place_a5db8985dd2b0bf817286291a88076195}} 
+\index{StoryPlace@{StoryPlace}!name\_@{name\_}}
+\index{name\_@{name\_}!StoryPlace@{StoryPlace}}
+\doxysubsubsection{\texorpdfstring{name\_}{name\_}}
+{\footnotesize\ttfamily Game\+Object Story\+Place.\+name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the Game\+Object that shows the name of the place. 
+
+\mbox{\Hypertarget{class_story_place_aa07a4b16ea40a02de8a9d34d2eda7502}\label{class_story_place_aa07a4b16ea40a02de8a9d34d2eda7502}} 
+\index{StoryPlace@{StoryPlace}!timesVisited\_@{timesVisited\_}}
+\index{timesVisited\_@{timesVisited\_}!StoryPlace@{StoryPlace}}
+\doxysubsubsection{\texorpdfstring{timesVisited\_}{timesVisited\_}}
+{\footnotesize\ttfamily Game\+Object Story\+Place.\+times\+Visited\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the Game\+Object that shows the times that a place was visited. 
+
+\mbox{\Hypertarget{class_story_place_a76978e00a0f3c89be87c85eadd14aad3}\label{class_story_place_a76978e00a0f3c89be87c85eadd14aad3}} 
+\index{StoryPlace@{StoryPlace}!type\_@{type\_}}
+\index{type\_@{type\_}!StoryPlace@{StoryPlace}}
+\doxysubsubsection{\texorpdfstring{type\_}{type\_}}
+{\footnotesize\ttfamily Game\+Object Story\+Place.\+type\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the Game\+Object that shows the type of the place. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-My\+Prefabs/\+Scripts/Story\+Place.\+cs\end{DoxyCompactItemize}
+My\+Prefabs/\+Scripts/\mbox{\hyperlink{_story_place_8cs}{Story\+Place.\+cs}}\end{DoxyCompactItemize}

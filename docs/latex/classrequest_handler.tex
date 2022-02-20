@@ -12,14 +12,34 @@ class that controls the request of places information.
 \begin{DoxyCompactList}\small\item\em constructor of the \mbox{\hyperlink{classrequest_handler}{request\+Handler}} class, it initialize all the properties of the object and instanciate a new \mbox{\hyperlink{class_place}{Place}} and store it on the list\+Of\+Places\+\_\+ property for each place of the given dictionary. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_place}{Place}} \mbox{\hyperlink{classrequest_handler_ab90cafa9ee042a09fc43051473610487}{ask\+For\+APlace}} ()
 \begin{DoxyCompactList}\small\item\em this method access to the sort\+By\+Less\+Distance method of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} class and it shorts the places acording to the chosen sort method calling the sort\+Places method if the chosen sort method has changed since last call to this method. It returns the next place that should be showed to the user acording to the sorting method and the prefferences of the current user of what the current user wants to see. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classrequest_handler_a1de643057d5925139555f8d86f0d6928}\label{classrequest_handler_a1de643057d5925139555f8d86f0d6928}} 
-void {\bfseries sort\+Places} ()
+void \mbox{\hyperlink{classrequest_handler_a1de643057d5925139555f8d86f0d6928}{sort\+Places}} ()
 \begin{DoxyCompactList}\small\item\em Sorts the places acording to the current user preferences. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classrequest_handler_a4b70f4378a4b1e7bdd52afb7301b0496}\label{classrequest_handler_a4b70f4378a4b1e7bdd52afb7301b0496}} 
-void {\bfseries one\+More\+Visit\+To\+Place\+By\+Type\+And\+Id} (string type, string id)
+void \mbox{\hyperlink{classrequest_handler_a4b70f4378a4b1e7bdd52afb7301b0496}{one\+More\+Visit\+To\+Place\+By\+Type\+And\+Id}} (string type, string id)
 \begin{DoxyCompactList}\small\item\em Calls the method one\+More\+Visit of the given instance of the class \mbox{\hyperlink{class_place}{Place}} that matches the given type and id. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_place}{Place}} \mbox{\hyperlink{classrequest_handler_ac06e06309e2ae1fd81a1fe41533f3045}{get\+Place\+By\+Type\+And\+Id}} (string type, string id)
 \begin{DoxyCompactList}\small\item\em It returns the place that match the given type and id, if there inst any place with that index or type it will raise an exception. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classrequest_handler_a5a80ac042e4db9eaeedec90ec7f243fe}{update\+Type\+Index}} ()
+\begin{DoxyCompactList}\small\item\em updates the current\+Index\+Place\+\_\+ property to point the next place type that should be chosen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrequest_handler_ac6f1212bb3319f0002e6dedddc49d24d}{update\+Place\+Index}} ()
+\begin{DoxyCompactList}\small\item\em updates the current\+Index\+Place\+\_\+ property to point the next place id that should be chosen. If it finshes all the places from that type, it calls the update\+Type\+Index method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classrequest_handler_aaf98bfbcfc7eaf537504dad0d45b5fc9}{current\+Index\+Type\+\_\+}}
+\begin{DoxyCompactList}\small\item\em stores the type of the next place that will be returned. \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{classrequest_handler_a0456f4a33533918edbef902c7869e19f}{types\+Of\+Sites\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of strings that contains the valid types of the places. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrequest_handler_a15bf2a387bd778b2be2a0a25a3367d86}{current\+Index\+Place\+\_\+}}
+\begin{DoxyCompactList}\small\item\em stores the index of the next place that will be returned. \end{DoxyCompactList}\item 
+List$<$ List$<$ \mbox{\hyperlink{class_place}{Place}} $>$ $>$ \mbox{\hyperlink{classrequest_handler_a5fbea7352f0d8f9666b85f8e227d592f}{list\+Of\+Places\+\_\+}}
+\item 
+List$<$ List$<$ int $>$ $>$ \mbox{\hyperlink{classrequest_handler_ab88eccab4bdb91595758f93083605c70}{sorted\+Place\+Index\+\_\+}}
+\item 
+bool \mbox{\hyperlink{classrequest_handler_a0d12b585f7d86d1b239a8366f7e7f78e}{sorted\+By\+Distance\+\_\+}}
+\begin{DoxyCompactList}\small\item\em true if the places should be sorted by distance, false in other case. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -70,8 +90,107 @@ It returns the place that match the given type and id, if there inst any place w
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_place}{Place}} with the given type and id. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classrequest_handler_a4b70f4378a4b1e7bdd52afb7301b0496}\label{classrequest_handler_a4b70f4378a4b1e7bdd52afb7301b0496}} 
+\index{requestHandler@{requestHandler}!oneMoreVisitToPlaceByTypeAndId@{oneMoreVisitToPlaceByTypeAndId}}
+\index{oneMoreVisitToPlaceByTypeAndId@{oneMoreVisitToPlaceByTypeAndId}!requestHandler@{requestHandler}}
+\doxysubsubsection{\texorpdfstring{oneMoreVisitToPlaceByTypeAndId()}{oneMoreVisitToPlaceByTypeAndId()}}
+{\footnotesize\ttfamily void request\+Handler.\+one\+More\+Visit\+To\+Place\+By\+Type\+And\+Id (\begin{DoxyParamCaption}\item[{string}]{type,  }\item[{string}]{id }\end{DoxyParamCaption})}
+
+
+
+Calls the method one\+More\+Visit of the given instance of the class \mbox{\hyperlink{class_place}{Place}} that matches the given type and id. 
+
+\mbox{\Hypertarget{classrequest_handler_a1de643057d5925139555f8d86f0d6928}\label{classrequest_handler_a1de643057d5925139555f8d86f0d6928}} 
+\index{requestHandler@{requestHandler}!sortPlaces@{sortPlaces}}
+\index{sortPlaces@{sortPlaces}!requestHandler@{requestHandler}}
+\doxysubsubsection{\texorpdfstring{sortPlaces()}{sortPlaces()}}
+{\footnotesize\ttfamily void request\+Handler.\+sort\+Places (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sorts the places acording to the current user preferences. 
+
+\mbox{\Hypertarget{classrequest_handler_ac6f1212bb3319f0002e6dedddc49d24d}\label{classrequest_handler_ac6f1212bb3319f0002e6dedddc49d24d}} 
+\index{requestHandler@{requestHandler}!updatePlaceIndex@{updatePlaceIndex}}
+\index{updatePlaceIndex@{updatePlaceIndex}!requestHandler@{requestHandler}}
+\doxysubsubsection{\texorpdfstring{updatePlaceIndex()}{updatePlaceIndex()}}
+{\footnotesize\ttfamily void request\+Handler.\+update\+Place\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+updates the current\+Index\+Place\+\_\+ property to point the next place id that should be chosen. If it finshes all the places from that type, it calls the update\+Type\+Index method. 
+
+\mbox{\Hypertarget{classrequest_handler_a5a80ac042e4db9eaeedec90ec7f243fe}\label{classrequest_handler_a5a80ac042e4db9eaeedec90ec7f243fe}} 
+\index{requestHandler@{requestHandler}!updateTypeIndex@{updateTypeIndex}}
+\index{updateTypeIndex@{updateTypeIndex}!requestHandler@{requestHandler}}
+\doxysubsubsection{\texorpdfstring{updateTypeIndex()}{updateTypeIndex()}}
+{\footnotesize\ttfamily void request\+Handler.\+update\+Type\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+updates the current\+Index\+Place\+\_\+ property to point the next place type that should be chosen. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classrequest_handler_a15bf2a387bd778b2be2a0a25a3367d86}\label{classrequest_handler_a15bf2a387bd778b2be2a0a25a3367d86}} 
+\index{requestHandler@{requestHandler}!currentIndexPlace\_@{currentIndexPlace\_}}
+\index{currentIndexPlace\_@{currentIndexPlace\_}!requestHandler@{requestHandler}}
+\doxysubsubsection{\texorpdfstring{currentIndexPlace\_}{currentIndexPlace\_}}
+{\footnotesize\ttfamily int request\+Handler.\+current\+Index\+Place\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+stores the index of the next place that will be returned. 
+
+\mbox{\Hypertarget{classrequest_handler_aaf98bfbcfc7eaf537504dad0d45b5fc9}\label{classrequest_handler_aaf98bfbcfc7eaf537504dad0d45b5fc9}} 
+\index{requestHandler@{requestHandler}!currentIndexType\_@{currentIndexType\_}}
+\index{currentIndexType\_@{currentIndexType\_}!requestHandler@{requestHandler}}
+\doxysubsubsection{\texorpdfstring{currentIndexType\_}{currentIndexType\_}}
+{\footnotesize\ttfamily int request\+Handler.\+current\+Index\+Type\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+stores the type of the next place that will be returned. 
+
+\mbox{\Hypertarget{classrequest_handler_a5fbea7352f0d8f9666b85f8e227d592f}\label{classrequest_handler_a5fbea7352f0d8f9666b85f8e227d592f}} 
+\index{requestHandler@{requestHandler}!listOfPlaces\_@{listOfPlaces\_}}
+\index{listOfPlaces\_@{listOfPlaces\_}!requestHandler@{requestHandler}}
+\doxysubsubsection{\texorpdfstring{listOfPlaces\_}{listOfPlaces\_}}
+{\footnotesize\ttfamily List$<$List$<$\mbox{\hyperlink{class_place}{Place}}$>$ $>$ request\+Handler.\+list\+Of\+Places\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Stores all the places splited by types.
+\begin{DoxyItemize}
+\item First index\+: Type.
+\item Second index\+: \mbox{\hyperlink{class_place}{Place}} ID. 
+\end{DoxyItemize}\mbox{\Hypertarget{classrequest_handler_a0d12b585f7d86d1b239a8366f7e7f78e}\label{classrequest_handler_a0d12b585f7d86d1b239a8366f7e7f78e}} 
+\index{requestHandler@{requestHandler}!sortedByDistance\_@{sortedByDistance\_}}
+\index{sortedByDistance\_@{sortedByDistance\_}!requestHandler@{requestHandler}}
+\doxysubsubsection{\texorpdfstring{sortedByDistance\_}{sortedByDistance\_}}
+{\footnotesize\ttfamily bool request\+Handler.\+sorted\+By\+Distance\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if the places should be sorted by distance, false in other case. 
+
+\mbox{\Hypertarget{classrequest_handler_ab88eccab4bdb91595758f93083605c70}\label{classrequest_handler_ab88eccab4bdb91595758f93083605c70}} 
+\index{requestHandler@{requestHandler}!sortedPlaceIndex\_@{sortedPlaceIndex\_}}
+\index{sortedPlaceIndex\_@{sortedPlaceIndex\_}!requestHandler@{requestHandler}}
+\doxysubsubsection{\texorpdfstring{sortedPlaceIndex\_}{sortedPlaceIndex\_}}
+{\footnotesize\ttfamily List$<$List$<$int$>$ $>$ request\+Handler.\+sorted\+Place\+Index\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Stores the sorted index of the places when the type is defined. \mbox{\Hypertarget{classrequest_handler_a0456f4a33533918edbef902c7869e19f}\label{classrequest_handler_a0456f4a33533918edbef902c7869e19f}} 
+\index{requestHandler@{requestHandler}!typesOfSites\_@{typesOfSites\_}}
+\index{typesOfSites\_@{typesOfSites\_}!requestHandler@{requestHandler}}
+\doxysubsubsection{\texorpdfstring{typesOfSites\_}{typesOfSites\_}}
+{\footnotesize\ttfamily List$<$string$>$ request\+Handler.\+types\+Of\+Sites\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of strings that contains the valid types of the places. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Login/request\+Handler.\+cs\end{DoxyCompactItemize}
+Scripts/\+Login/\mbox{\hyperlink{request_handler_8cs}{request\+Handler.\+cs}}\end{DoxyCompactItemize}

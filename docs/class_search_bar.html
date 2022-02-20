@@ -64,6 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_search_bar-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">SearchBar Class Reference</div></div>
 </div><!--header-->
@@ -80,25 +82,150 @@ Inheritance diagram for SearchBar:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a25247902f80c5a6c9df84bb564c03214"><td class="memItemLeft" align="right" valign="top"><a id="a25247902f80c5a6c9df84bb564c03214" name="a25247902f80c5a6c9df84bb564c03214"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>OnWriting</b> (string whatIsWriting)</td></tr>
-<tr class="memdesc:a25247902f80c5a6c9df84bb564c03214"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called when the user is writing on the search bar input box, it sets the state_ property to "waiting" value. <br /></td></tr>
+<tr class="memitem:a25247902f80c5a6c9df84bb564c03214"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_bar.html#a25247902f80c5a6c9df84bb564c03214">OnWriting</a> (string whatIsWriting)</td></tr>
+<tr class="memdesc:a25247902f80c5a6c9df84bb564c03214"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called when the user is writing on the search bar input box, it sets the state_ property to "waiting" value.  <a href="class_search_bar.html#a25247902f80c5a6c9df84bb564c03214">More...</a><br /></td></tr>
 <tr class="separator:a25247902f80c5a6c9df84bb564c03214"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fc81eb58deaea5c23dbddfe4c173e3b"><td class="memItemLeft" align="right" valign="top"><a id="a4fc81eb58deaea5c23dbddfe4c173e3b" name="a4fc81eb58deaea5c23dbddfe4c173e3b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>OnEndWriting</b> (string searchedName)</td></tr>
-<tr class="memdesc:a4fc81eb58deaea5c23dbddfe4c173e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called when the user finish to write on the search bar input box, if there is no internet connection or the searched user is the current user it set the state_ property to notFound. If there is internet connection and the user wrote something on the search bar it calls the SearchOtherUserByName method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a>. <br /></td></tr>
+<tr class="memitem:a4fc81eb58deaea5c23dbddfe4c173e3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_bar.html#a4fc81eb58deaea5c23dbddfe4c173e3b">OnEndWriting</a> (string searchedName)</td></tr>
+<tr class="memdesc:a4fc81eb58deaea5c23dbddfe4c173e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called when the user finish to write on the search bar input box, if there is no internet connection or the searched user is the current user or the searched user is currently a friend it sets the state_ property to notFound. If there is internet connection and the user wrote something on the search bar it calls the SearchOtherUserByName method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a>.  <a href="class_search_bar.html#a4fc81eb58deaea5c23dbddfe4c173e3b">More...</a><br /></td></tr>
 <tr class="separator:a4fc81eb58deaea5c23dbddfe4c173e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2589aaf0675597d84f4b2af0a004d333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_bar.html#a2589aaf0675597d84f4b2af0a004d333">resultsOfTheSearch</a> (Dictionary&lt; string, string &gt; result)</td></tr>
 <tr class="memdesc:a2589aaf0675597d84f4b2af0a004d333"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method checks the result of the search and set the correct state if the result finished successfully, it calls the addSearchedFriendToPanel method of the <a class="el" href="class_searched_friends_panel.html" title="Class that controls the panel that shows the result of player search.">SearchedFriendsPanel</a> class.  <a href="class_search_bar.html#a2589aaf0675597d84f4b2af0a004d333">More...</a><br /></td></tr>
 <tr class="separator:a2589aaf0675597d84f4b2af0a004d333"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10c186d32b981cd7b96db1ee8454c7f3"><td class="memItemLeft" align="right" valign="top"><a id="a10c186d32b981cd7b96db1ee8454c7f3" name="a10c186d32b981cd7b96db1ee8454c7f3"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> ()</td></tr>
-<tr class="memdesc:a10c186d32b981cd7b96db1ee8454c7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the current state of the search. <br /></td></tr>
+<tr class="memitem:a10c186d32b981cd7b96db1ee8454c7f3"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_bar.html#a10c186d32b981cd7b96db1ee8454c7f3">getState</a> ()</td></tr>
+<tr class="memdesc:a10c186d32b981cd7b96db1ee8454c7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the current state of the search.  <a href="class_search_bar.html#a10c186d32b981cd7b96db1ee8454c7f3">More...</a><br /></td></tr>
 <tr class="separator:a10c186d32b981cd7b96db1ee8454c7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abda687052d305384b7196f1edf8e44c4"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_bar.html#abda687052d305384b7196f1edf8e44c4">getWordsToSearch</a> ()</td></tr>
+<tr class="memdesc:abda687052d305384b7196f1edf8e44c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of the string that the user wrote on the search bar.  <a href="class_search_bar.html#abda687052d305384b7196f1edf8e44c4">More...</a><br /></td></tr>
+<tr class="separator:abda687052d305384b7196f1edf8e44c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a6719136ca96cfe03ae59f40bc40dfdd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_bar.html#a6719136ca96cfe03ae59f40bc40dfdd2">Awake</a> ()</td></tr>
+<tr class="memdesc:a6719136ca96cfe03ae59f40bc40dfdd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called before the first frame, it sets the state_ property to "waiting" value.  <a href="class_search_bar.html#a6719136ca96cfe03ae59f40bc40dfdd2">More...</a><br /></td></tr>
+<tr class="separator:a6719136ca96cfe03ae59f40bc40dfdd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4392dac61c8edccfdb0d4a8908f43e87"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_bar.html#a4392dac61c8edccfdb0d4a8908f43e87">text_</a></td></tr>
+<tr class="memdesc:a4392dac61c8edccfdb0d4a8908f43e87"><td class="mdescLeft">&#160;</td><td class="mdescRight">This should be a reference to the text of the input panel.  <a href="class_search_bar.html#a4392dac61c8edccfdb0d4a8908f43e87">More...</a><br /></td></tr>
+<tr class="separator:a4392dac61c8edccfdb0d4a8908f43e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af445d69448e35e0327863e3b2ab8dabe"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_bar.html#af445d69448e35e0327863e3b2ab8dabe">panel_</a></td></tr>
+<tr class="memdesc:af445d69448e35e0327863e3b2ab8dabe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This should be a reference to the panel that shows the results of the search.  <a href="class_search_bar.html#af445d69448e35e0327863e3b2ab8dabe">More...</a><br /></td></tr>
+<tr class="separator:af445d69448e35e0327863e3b2ab8dabe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f0ae7fd16540604b20117a18a40ab71"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_bar.html#a3f0ae7fd16540604b20117a18a40ab71">state_</a></td></tr>
+<tr class="memdesc:a3f0ae7fd16540604b20117a18a40ab71"><td class="mdescLeft">&#160;</td><td class="mdescRight">This property controls the state of the search. It could be:  <a href="class_search_bar.html#a3f0ae7fd16540604b20117a18a40ab71">More...</a><br /></td></tr>
+<tr class="separator:a3f0ae7fd16540604b20117a18a40ab71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class controls the search bar of the screen that allow the user find other users to send them a new friendship invitation. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6719136ca96cfe03ae59f40bc40dfdd2" name="a6719136ca96cfe03ae59f40bc40dfdd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6719136ca96cfe03ae59f40bc40dfdd2">&#9670;&nbsp;</a></span>Awake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SearchBar.Awake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is called before the first frame, it sets the state_ property to "waiting" value. </p>
+
+</div>
+</div>
+<a id="a10c186d32b981cd7b96db1ee8454c7f3" name="a10c186d32b981cd7b96db1ee8454c7f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c186d32b981cd7b96db1ee8454c7f3">&#9670;&nbsp;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string SearchBar.getState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getter of the current state of the search. </p>
+<dl class="section return"><dt>Returns</dt><dd>string with the current state of the search. </dd></dl>
+
+</div>
+</div>
+<a id="abda687052d305384b7196f1edf8e44c4" name="abda687052d305384b7196f1edf8e44c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abda687052d305384b7196f1edf8e44c4">&#9670;&nbsp;</a></span>getWordsToSearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string SearchBar.getWordsToSearch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter of the string that the user wrote on the search bar. </p>
+<dl class="section return"><dt>Returns</dt><dd>string with what the user wrote on the search bar. </dd></dl>
+
+</div>
+</div>
+<a id="a4fc81eb58deaea5c23dbddfe4c173e3b" name="a4fc81eb58deaea5c23dbddfe4c173e3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc81eb58deaea5c23dbddfe4c173e3b">&#9670;&nbsp;</a></span>OnEndWriting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SearchBar.OnEndWriting </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>searchedName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method is called when the user finish to write on the search bar input box, if there is no internet connection or the searched user is the current user or the searched user is currently a friend it sets the state_ property to notFound. If there is internet connection and the user wrote something on the search bar it calls the SearchOtherUserByName method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a>. </p>
+
+</div>
+</div>
+<a id="a25247902f80c5a6c9df84bb564c03214" name="a25247902f80c5a6c9df84bb564c03214"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25247902f80c5a6c9df84bb564c03214">&#9670;&nbsp;</a></span>OnWriting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SearchBar.OnWriting </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>whatIsWriting</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method is called when the user is writing on the search bar input box, it sets the state_ property to "waiting" value. </p>
+
+</div>
+</div>
 <a id="a2589aaf0675597d84f4b2af0a004d333" name="a2589aaf0675597d84f4b2af0a004d333"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2589aaf0675597d84f4b2af0a004d333">&#9670;&nbsp;</a></span>resultsOfTheSearch()</h2>
 
@@ -125,8 +252,87 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> ()</td
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="af445d69448e35e0327863e3b2ab8dabe" name="af445d69448e35e0327863e3b2ab8dabe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af445d69448e35e0327863e3b2ab8dabe">&#9670;&nbsp;</a></span>panel_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject SearchBar.panel_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This should be a reference to the panel that shows the results of the search. </p>
+
+</div>
+</div>
+<a id="a3f0ae7fd16540604b20117a18a40ab71" name="a3f0ae7fd16540604b20117a18a40ab71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f0ae7fd16540604b20117a18a40ab71">&#9670;&nbsp;</a></span>state_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string SearchBar.state_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This property controls the state of the search. It could be: </p>
+<ul>
+<li>waiting: That means that the search not even started.</li>
+<li>searching: That means that it is searching right now.</li>
+<li>notFound: That means that the search didnt found any results.</li>
+<li>found: That means that the search found some results. </li>
+</ul>
+
+</div>
+</div>
+<a id="a4392dac61c8edccfdb0d4a8908f43e87" name="a4392dac61c8edccfdb0d4a8908f43e87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4392dac61c8edccfdb0d4a8908f43e87">&#9670;&nbsp;</a></span>text_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject SearchBar.text_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This should be a reference to the text of the input panel. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/FindFriendScreen/SearchBar.cs</li>
+<li>Scripts/FindFriendScreen/<a class="el" href="_search_bar_8cs.html">SearchBar.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

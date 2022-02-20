@@ -37,7 +37,7 @@ public class friendsPanel : MonoBehaviour
         friends_ = new List<GameObject>();
         panelFilled_ = false;
         lastCount_ = 0;
-        if(firebaseHandler.firebaseHandlerInstance_.userDataIsReady() && firebaseHandler.firebaseHandlerInstance_.actualUser_.friendDataIsComplete()){
+        if(firebaseHandler.firebaseHandlerInstance_.userDataIsReady() && firebaseHandler.firebaseHandlerInstance_.currentUser_.friendDataIsComplete()){
             fillPanel();
         } 
     }
@@ -50,7 +50,7 @@ public class friendsPanel : MonoBehaviour
       */
     void Update()
     {
-        if(!panelFilled_ && firebaseHandler.firebaseHandlerInstance_.userDataIsReady() && firebaseHandler.firebaseHandlerInstance_.actualUser_.friendDataIsComplete()){
+        if(!panelFilled_ && firebaseHandler.firebaseHandlerInstance_.userDataIsReady() && firebaseHandler.firebaseHandlerInstance_.currentUser_.friendDataIsComplete()){
             fillPanel();
         }
         if(lastCount_ != friends_.Count){
@@ -63,9 +63,9 @@ public class friendsPanel : MonoBehaviour
       * it on the friends_ list. It also change the value of the property panelFilled_ to true. 
       */
     private void fillPanel(){
-        for(int i = 0; i < firebaseHandler.firebaseHandlerInstance_.actualUser_.countOfFriendData(); i++){
+        for(int i = 0; i < firebaseHandler.firebaseHandlerInstance_.currentUser_.countOfFriendData(); i++){
             GameObject friendObject = Instantiate(friendPrefab_, new Vector3(0, 0, 0), Quaternion.identity);
-            friendObject.GetComponent<Friend>().setData(firebaseHandler.firebaseHandlerInstance_.actualUser_.getFriendData(i));
+            friendObject.GetComponent<Friend>().setData(firebaseHandler.firebaseHandlerInstance_.currentUser_.getFriendData(i));
             friendObject.transform.SetParent(this.transform);
             friendObject.GetComponent<Friend>().setPanel(this.gameObject);
             friends_.Add(friendObject);
@@ -79,9 +79,10 @@ public class friendsPanel : MonoBehaviour
       * changes. It uptade the lastCount_ property value.
       */
     private void adjustPanelSize(){
+        float baseHeight = (float)(gameObject.transform.GetChild(0).Find("Background").GetComponent<RectTransform>().rect.height * 1.25);
         if(friends_.Count > 4){
             float newHeight = GetComponent<RectTransform>().rect.height;
-            newHeight += lastCount_ < friends_.Count ? 300*(friends_.Count-4) : -300*(lastCount_-friends_.Count);
+            newHeight += lastCount_ < friends_.Count ? baseHeight*(friends_.Count-4) : -baseHeight*(lastCount_-friends_.Count);
             GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);
         }
         lastCount_ = friends_.Count;
@@ -102,7 +103,7 @@ public class friendsPanel : MonoBehaviour
       */
     public void friendDeleted(GameObject friendDeleted){
         friends_.Remove(friendDeleted);
-        //WTF porque esto esta comentado!???!?!? deberia subir los cambios a firebase, no???
-        //firebaseHandler.firebaseHandlerInstance_.actualUser_.deleteFriendByName(friendDeleted.GetComponent<Friend>().getName());
+        firebaseHandler.firebaseHandlerInstance_.currentUser_.deleteFriend(friendDeleted.GetComponent<Friend>().getUid());
+        
     }
 }

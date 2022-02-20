@@ -64,10 +64,15 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classtoast_message-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">toastMessage Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>class that controls the colored messages that are shown to the user giving him information but they hide after a few seconds.  
+ <a href="classtoast_message.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for toastMessage:</div>
 <div class="dyncontent">
@@ -77,12 +82,242 @@ Inheritance diagram for toastMessage:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa78557cd8b3e4a290a3bf350c62bf5bf"><td class="memItemLeft" align="right" valign="top"><a id="aa78557cd8b3e4a290a3bf350c62bf5bf" name="aa78557cd8b3e4a290a3bf350c62bf5bf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>makeAnimation</b> (string message, Color32 color, int duration)</td></tr>
+<tr class="memitem:aa78557cd8b3e4a290a3bf350c62bf5bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoast_message.html#aa78557cd8b3e4a290a3bf350c62bf5bf">makeAnimation</a> (string message, Color32 color, int duration)</td></tr>
+<tr class="memdesc:aa78557cd8b3e4a290a3bf350c62bf5bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method start the coroutine showMessage with the given parameters.  <a href="classtoast_message.html#aa78557cd8b3e4a290a3bf350c62bf5bf">More...</a><br /></td></tr>
 <tr class="separator:aa78557cd8b3e4a290a3bf350c62bf5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a3bcb1a6ba71a5b64dded45449742d4a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoast_message.html#a3bcb1a6ba71a5b64dded45449742d4a4">Awake</a> ()</td></tr>
+<tr class="memdesc:a3bcb1a6ba71a5b64dded45449742d4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called before the first frame. It calls the show method with false as a parameter.  <a href="classtoast_message.html#a3bcb1a6ba71a5b64dded45449742d4a4">More...</a><br /></td></tr>
+<tr class="separator:a3bcb1a6ba71a5b64dded45449742d4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea997b564d9023a4a5a2fec4cc40e220"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoast_message.html#aea997b564d9023a4a5a2fec4cc40e220">show</a> (bool mode)</td></tr>
+<tr class="memdesc:aea997b564d9023a4a5a2fec4cc40e220"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method hides the text and the background image of the toast message if you give it a false, if you give it a true it shows the text and the background image.  <a href="classtoast_message.html#aea997b564d9023a4a5a2fec4cc40e220">More...</a><br /></td></tr>
+<tr class="separator:aea997b564d9023a4a5a2fec4cc40e220"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a352aa292a59d07a076d2cf914e1b82ec"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoast_message.html#a352aa292a59d07a076d2cf914e1b82ec">showMessage</a> (string message, Color32 color, int duration)</td></tr>
+<tr class="memdesc:a352aa292a59d07a076d2cf914e1b82ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">This coroutine show the text and the background image with the given color and the given string during the given number of seconds, then it hides the message and the background image.  <a href="classtoast_message.html#a352aa292a59d07a076d2cf914e1b82ec">More...</a><br /></td></tr>
+<tr class="separator:a352aa292a59d07a076d2cf914e1b82ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:adbbccf1c8941f424b85b06a26c789578"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoast_message.html#adbbccf1c8941f424b85b06a26c789578">text_</a></td></tr>
+<tr class="memdesc:adbbccf1c8941f424b85b06a26c789578"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the text that is shown on the toast message.  <a href="classtoast_message.html#adbbccf1c8941f424b85b06a26c789578">More...</a><br /></td></tr>
+<tr class="separator:adbbccf1c8941f424b85b06a26c789578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05924f1d082ffa46b445de7107ad3f40"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoast_message.html#a05924f1d082ffa46b445de7107ad3f40">image_</a></td></tr>
+<tr class="memdesc:a05924f1d082ffa46b445de7107ad3f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the image that is shown as a background during the message is not hide. You can choose its color.  <a href="classtoast_message.html#a05924f1d082ffa46b445de7107ad3f40">More...</a><br /></td></tr>
+<tr class="separator:a05924f1d082ffa46b445de7107ad3f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >class that controls the colored messages that are shown to the user giving him information but they hide after a few seconds. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3bcb1a6ba71a5b64dded45449742d4a4" name="a3bcb1a6ba71a5b64dded45449742d4a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bcb1a6ba71a5b64dded45449742d4a4">&#9670;&nbsp;</a></span>Awake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toastMessage.Awake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is called before the first frame. It calls the show method with false as a parameter. </p>
+
+</div>
+</div>
+<a id="aa78557cd8b3e4a290a3bf350c62bf5bf" name="aa78557cd8b3e4a290a3bf350c62bf5bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa78557cd8b3e4a290a3bf350c62bf5bf">&#9670;&nbsp;</a></span>makeAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toastMessage.makeAnimation </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Color32&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>duration</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method start the coroutine showMessage with the given parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>message that will be shown. </td></tr>
+    <tr><td class="paramname">Color32</td><td>color of the background image. </td></tr>
+    <tr><td class="paramname">int</td><td>time in seconds that the message will be shown. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aea997b564d9023a4a5a2fec4cc40e220" name="aea997b564d9023a4a5a2fec4cc40e220"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea997b564d9023a4a5a2fec4cc40e220">&#9670;&nbsp;</a></span>show()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toastMessage.show </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method hides the text and the background image of the toast message if you give it a false, if you give it a true it shows the text and the background image. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bool</td><td>true if you want to show the message and the background image. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a352aa292a59d07a076d2cf914e1b82ec" name="a352aa292a59d07a076d2cf914e1b82ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a352aa292a59d07a076d2cf914e1b82ec">&#9670;&nbsp;</a></span>showMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerator toastMessage.showMessage </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Color32&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>duration</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This coroutine show the text and the background image with the given color and the given string during the given number of seconds, then it hides the message and the background image. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>message that will be shown. </td></tr>
+    <tr><td class="paramname">Color32</td><td>color of the background image. </td></tr>
+    <tr><td class="paramname">int</td><td>time in seconds that the message will be shown. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a05924f1d082ffa46b445de7107ad3f40" name="a05924f1d082ffa46b445de7107ad3f40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05924f1d082ffa46b445de7107ad3f40">&#9670;&nbsp;</a></span>image_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject toastMessage.image_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that contains the image that is shown as a background during the message is not hide. You can choose its color. </p>
+
+</div>
+</div>
+<a id="adbbccf1c8941f424b85b06a26c789578" name="adbbccf1c8941f424b85b06a26c789578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbbccf1c8941f424b85b06a26c789578">&#9670;&nbsp;</a></span>text_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject toastMessage.text_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that contains the text that is shown on the toast message. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>MyPrefabs/Scripts/toastMessage.cs</li>
+<li>MyPrefabs/Scripts/<a class="el" href="toast_message_8cs.html">toastMessage.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

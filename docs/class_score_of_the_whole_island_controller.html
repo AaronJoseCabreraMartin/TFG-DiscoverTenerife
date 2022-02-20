@@ -63,6 +63,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_score_of_the_whole_island_controller-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ScoreOfTheWholeIslandController Class Reference</div></div>
 </div><!--header-->
@@ -76,10 +78,190 @@ Inheritance diagram for ScoreOfTheWholeIslandController:</div>
  <div class="center">
   <img src="class_score_of_the_whole_island_controller.png" alt=""/>
  </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a162f3d2eb1690ba3a6e15ac4b4b4d7ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score_of_the_whole_island_controller.html#a162f3d2eb1690ba3a6e15ac4b4b4d7ba">Start</a> ()</td></tr>
+<tr class="memdesc:a162f3d2eb1690ba3a6e15ac4b4b4d7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method is called on the first frame, if both placesAreReady and userDataIsReady methods of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class return true it calls the fillScore method.  <a href="class_score_of_the_whole_island_controller.html#a162f3d2eb1690ba3a6e15ac4b4b4d7ba">More...</a><br /></td></tr>
+<tr class="separator:a162f3d2eb1690ba3a6e15ac4b4b4d7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c1c4816f67e2ee684fcc325153d689c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score_of_the_whole_island_controller.html#a9c1c4816f67e2ee684fcc325153d689c">Update</a> ()</td></tr>
+<tr class="memdesc:a9c1c4816f67e2ee684fcc325153d689c"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method is called on each frame, if both placesAreReady and userDataIsReady methods of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class return true and scoreLoaded_ property is false, it calls the fillScore method.  <a href="class_score_of_the_whole_island_controller.html#a9c1c4816f67e2ee684fcc325153d689c">More...</a><br /></td></tr>
+<tr class="separator:a9c1c4816f67e2ee684fcc325153d689c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a642d1e87e8eff425b60e5c76f98f104a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score_of_the_whole_island_controller.html#a642d1e87e8eff425b60e5c76f98f104a">fillScore</a> ()</td></tr>
+<tr class="memdesc:a642d1e87e8eff425b60e5c76f98f104a"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method calculates the proportion of places of the whole island that the current user has visited and it sets the text and the value of the slider to show that proportion. It also sets the scoreLoaded_ attribute to true.  <a href="class_score_of_the_whole_island_controller.html#a642d1e87e8eff425b60e5c76f98f104a">More...</a><br /></td></tr>
+<tr class="separator:a642d1e87e8eff425b60e5c76f98f104a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aea15be1f7d2430d625508797e644dacb"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score_of_the_whole_island_controller.html#aea15be1f7d2430d625508797e644dacb">text_</a></td></tr>
+<tr class="memdesc:aea15be1f7d2430d625508797e644dacb"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that has the text where the scored will be shown.  <a href="class_score_of_the_whole_island_controller.html#aea15be1f7d2430d625508797e644dacb">More...</a><br /></td></tr>
+<tr class="separator:aea15be1f7d2430d625508797e644dacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ad0fd0679f6c4508d6349dcee4608a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score_of_the_whole_island_controller.html#a1ad0fd0679f6c4508d6349dcee4608a4">scoreLoaded_</a> = false</td></tr>
+<tr class="memdesc:a1ad0fd0679f6c4508d6349dcee4608a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean value, its true if the score was already downloaded and false in other case.  <a href="class_score_of_the_whole_island_controller.html#a1ad0fd0679f6c4508d6349dcee4608a4">More...</a><br /></td></tr>
+<tr class="separator:a1ad0fd0679f6c4508d6349dcee4608a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe6c47700b1c65bfdb41068991cbd0cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfirebase_handler.html">firebaseHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score_of_the_whole_island_controller.html#afe6c47700b1c65bfdb41068991cbd0cd">firebaseHandlerObject_</a></td></tr>
+<tr class="memdesc:afe6c47700b1c65bfdb41068991cbd0cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">reference to the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> instance.  <a href="class_score_of_the_whole_island_controller.html#afe6c47700b1c65bfdb41068991cbd0cd">More...</a><br /></td></tr>
+<tr class="separator:afe6c47700b1c65bfdb41068991cbd0cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class that controls the bar that shows the whole island score of the current user. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/MainScreen/ScoreOfTheWholeIslandController.cs</li>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a642d1e87e8eff425b60e5c76f98f104a" name="a642d1e87e8eff425b60e5c76f98f104a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a642d1e87e8eff425b60e5c76f98f104a">&#9670;&nbsp;</a></span>fillScore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ScoreOfTheWholeIslandController.fillScore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>this method calculates the proportion of places of the whole island that the current user has visited and it sets the text and the value of the slider to show that proportion. It also sets the scoreLoaded_ attribute to true. </p>
+
+</div>
+</div>
+<a id="a162f3d2eb1690ba3a6e15ac4b4b4d7ba" name="a162f3d2eb1690ba3a6e15ac4b4b4d7ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a162f3d2eb1690ba3a6e15ac4b4b4d7ba">&#9670;&nbsp;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ScoreOfTheWholeIslandController.Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>this method is called on the first frame, if both placesAreReady and userDataIsReady methods of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class return true it calls the fillScore method. </p>
+
+</div>
+</div>
+<a id="a9c1c4816f67e2ee684fcc325153d689c" name="a9c1c4816f67e2ee684fcc325153d689c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c1c4816f67e2ee684fcc325153d689c">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ScoreOfTheWholeIslandController.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>this method is called on each frame, if both placesAreReady and userDataIsReady methods of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class return true and scoreLoaded_ property is false, it calls the fillScore method. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="afe6c47700b1c65bfdb41068991cbd0cd" name="afe6c47700b1c65bfdb41068991cbd0cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe6c47700b1c65bfdb41068991cbd0cd">&#9670;&nbsp;</a></span>firebaseHandlerObject_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classfirebase_handler.html">firebaseHandler</a> ScoreOfTheWholeIslandController.firebaseHandlerObject_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>reference to the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> instance. </p>
+
+</div>
+</div>
+<a id="a1ad0fd0679f6c4508d6349dcee4608a4" name="a1ad0fd0679f6c4508d6349dcee4608a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ad0fd0679f6c4508d6349dcee4608a4">&#9670;&nbsp;</a></span>scoreLoaded_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ScoreOfTheWholeIslandController.scoreLoaded_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>boolean value, its true if the score was already downloaded and false in other case. </p>
+
+</div>
+</div>
+<a id="aea15be1f7d2430d625508797e644dacb" name="aea15be1f7d2430d625508797e644dacb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea15be1f7d2430d625508797e644dacb">&#9670;&nbsp;</a></span>text_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject ScoreOfTheWholeIslandController.text_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that has the text where the scored will be shown. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>Scripts/MainScreen/<a class="el" href="_score_of_the_whole_island_controller_8cs.html">ScoreOfTheWholeIslandController.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

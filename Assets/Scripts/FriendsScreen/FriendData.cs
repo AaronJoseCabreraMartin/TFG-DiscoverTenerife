@@ -18,12 +18,12 @@ public class FriendData
     private string displayName_;
     
     /**
-      * @brief string that contains the actual rank of the represented user.
+      * @brief string that contains the current rank of the represented user.
       */
     private string rank_;
     
     /**
-      * @brief int that contains the actual score of the represented user.
+      * @brief int that contains the current score of the represented user.
       */
     private int score_;
 

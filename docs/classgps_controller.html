@@ -65,6 +65,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classgps_controller-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">gpsController Class Reference</div></div>
 </div><!--header-->
@@ -98,23 +100,118 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4078376934b6f6255559b9b6cb3993ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a770a260bb592a149da6860cc60759fb0"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a770a260bb592a149da6860cc60759fb0">getZoneOf</a> (double latitude, double longitude)</td></tr>
 <tr class="separator:a770a260bb592a149da6860cc60759fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04f15c0205a5cf68bb72ab7f0fa377e8"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a04f15c0205a5cf68bb72ab7f0fa377e8">getActualZoneOfUser</a> ()</td></tr>
-<tr class="memdesc:a04f15c0205a5cf68bb72ab7f0fa377e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">it calls the getZoneOf method with the user coordenades and returns what that method returns.  <a href="classgps_controller.html#a04f15c0205a5cf68bb72ab7f0fa377e8">More...</a><br /></td></tr>
-<tr class="separator:a04f15c0205a5cf68bb72ab7f0fa377e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97c28380b3abb7e0c7010cdcf44eaf61"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a97c28380b3abb7e0c7010cdcf44eaf61">getcurrentZoneOfUser</a> ()</td></tr>
+<tr class="memdesc:a97c28380b3abb7e0c7010cdcf44eaf61"><td class="mdescLeft">&#160;</td><td class="mdescRight">it calls the getZoneOf method with the user coordenades and returns what that method returns.  <a href="classgps_controller.html#a97c28380b3abb7e0c7010cdcf44eaf61">More...</a><br /></td></tr>
+<tr class="separator:a97c28380b3abb7e0c7010cdcf44eaf61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6b1614e9335c4d4b3b1f4b6dad21a84"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#ad6b1614e9335c4d4b3b1f4b6dad21a84">gpsIsRunning</a> ()</td></tr>
 <tr class="memdesc:ad6b1614e9335c4d4b3b1f4b6dad21a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the gpsIsRunning_ property.  <a href="classgps_controller.html#ad6b1614e9335c4d4b3b1f4b6dad21a84">More...</a><br /></td></tr>
 <tr class="separator:ad6b1614e9335c4d4b3b1f4b6dad21a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a53b578acaf5c6327bc62f01ebf8ef3c7"><td class="memItemLeft" align="right" valign="top"><a id="a53b578acaf5c6327bc62f01ebf8ef3c7" name="a53b578acaf5c6327bc62f01ebf8ef3c7"></a>
-static <a class="el" href="classgps_controller.html">gpsController</a>&#160;</td><td class="memItemRight" valign="bottom"><b>gpsControllerInstance_</b></td></tr>
-<tr class="memdesc:a53b578acaf5c6327bc62f01ebf8ef3c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">reference to the <a class="el" href="classgps_controller.html" title="class that handles the access to the GPS sensor of the current dispositive. This class follows the si...">gpsController</a> instance <br /></td></tr>
+<tr class="memitem:a53b578acaf5c6327bc62f01ebf8ef3c7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classgps_controller.html">gpsController</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a53b578acaf5c6327bc62f01ebf8ef3c7">gpsControllerInstance_</a></td></tr>
+<tr class="memdesc:a53b578acaf5c6327bc62f01ebf8ef3c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">reference to the <a class="el" href="classgps_controller.html" title="class that handles the access to the GPS sensor of the current dispositive. This class follows the si...">gpsController</a> instance  <a href="classgps_controller.html#a53b578acaf5c6327bc62f01ebf8ef3c7">More...</a><br /></td></tr>
 <tr class="separator:a53b578acaf5c6327bc62f01ebf8ef3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aa47772ed8cc064412134b8fee42f153e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#aa47772ed8cc064412134b8fee42f153e">Awake</a> ()</td></tr>
+<tr class="separator:aa47772ed8cc064412134b8fee42f153e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbe7c33af28d76776da75e45e6e5683b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#acbe7c33af28d76776da75e45e6e5683b">CreatePermissionList</a> ()</td></tr>
+<tr class="separator:acbe7c33af28d76776da75e45e6e5683b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad311df10d73a0ea1291c1f550b89517e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#ad311df10d73a0ea1291c1f550b89517e">AskForPermissions</a> ()</td></tr>
+<tr class="separator:ad311df10d73a0ea1291c1f550b89517e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a4407d75bb672d74e7ced20b2c7383e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a2a4407d75bb672d74e7ced20b2c7383e">OnApplicationFocus</a> (bool focus)</td></tr>
+<tr class="memdesc:a2a4407d75bb672d74e7ced20b2c7383e"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method is called each time the application either focus in or focus out. If the application is focusing in and the isItPermissionTime property is true it calls the AskForPermissions method. If the application is focusing in it starts the Input.Location process. If the application is focusing out it stops the Input.Location process.  <a href="classgps_controller.html#a2a4407d75bb672d74e7ced20b2c7383e">More...</a><br /></td></tr>
+<tr class="separator:a2a4407d75bb672d74e7ced20b2c7383e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe6e69acf0f941d8aa82c2fcf243a646"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#abe6e69acf0f941d8aa82c2fcf243a646">Update</a> ()</td></tr>
+<tr class="separator:abe6e69acf0f941d8aa82c2fcf243a646"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55b91336db8dda84e8545e550f4c449f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a55b91336db8dda84e8545e550f4c449f">sexagecimalToRadian</a> (double sexagecimal)</td></tr>
+<tr class="memdesc:a55b91336db8dda84e8545e550f4c449f"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method converts the given sexagecimal number to his radian number equivalent.  <a href="classgps_controller.html#a55b91336db8dda84e8545e550f4c449f">More...</a><br /></td></tr>
+<tr class="separator:a55b91336db8dda84e8545e550f4c449f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a0b573b691d0a6c507c9335e83dfcee06"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a0b573b691d0a6c507c9335e83dfcee06">isItPermissionTime</a></td></tr>
+<tr class="memdesc:a0b573b691d0a6c507c9335e83dfcee06"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if its time to ask permission, false in other case  <a href="classgps_controller.html#a0b573b691d0a6c507c9335e83dfcee06">More...</a><br /></td></tr>
+<tr class="separator:a0b573b691d0a6c507c9335e83dfcee06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb8e7522f020231a38f0fb06d42dbebd"><td class="memItemLeft" align="right" valign="top">Stack&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#acb8e7522f020231a38f0fb06d42dbebd">permissions</a></td></tr>
+<tr class="memdesc:acb8e7522f020231a38f0fb06d42dbebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stack&lt;string&gt; that contains all the permissions we have to ask.  <a href="classgps_controller.html#acb8e7522f020231a38f0fb06d42dbebd">More...</a><br /></td></tr>
+<tr class="separator:acb8e7522f020231a38f0fb06d42dbebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac53d2cc8f014c4862bc101ea0c94d554"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#ac53d2cc8f014c4862bc101ea0c94d554">gpsIsRunning_</a></td></tr>
+<tr class="memdesc:ac53d2cc8f014c4862bc101ea0c94d554"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if the gps is avaible, false in other case.  <a href="classgps_controller.html#ac53d2cc8f014c4862bc101ea0c94d554">More...</a><br /></td></tr>
+<tr class="separator:ac53d2cc8f014c4862bc101ea0c94d554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a391d12d4b793478aefb89afa16a08bba"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a391d12d4b793478aefb89afa16a08bba">longitude_</a></td></tr>
+<tr class="memdesc:a391d12d4b793478aefb89afa16a08bba"><td class="mdescLeft">&#160;</td><td class="mdescRight">double that stores the longitude number of the current user current gps location.  <a href="classgps_controller.html#a391d12d4b793478aefb89afa16a08bba">More...</a><br /></td></tr>
+<tr class="separator:a391d12d4b793478aefb89afa16a08bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad680d95aad469a49813d54e20caa1895"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#ad680d95aad469a49813d54e20caa1895">latitude_</a></td></tr>
+<tr class="memdesc:ad680d95aad469a49813d54e20caa1895"><td class="mdescLeft">&#160;</td><td class="mdescRight">double that stores the latitude number of the current user current gps location.  <a href="classgps_controller.html#ad680d95aad469a49813d54e20caa1895">More...</a><br /></td></tr>
+<tr class="separator:ad680d95aad469a49813d54e20caa1895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5c1ea3970d3840e9029b95e67534cdb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#ad5c1ea3970d3840e9029b95e67534cdb">altitude_</a></td></tr>
+<tr class="memdesc:ad5c1ea3970d3840e9029b95e67534cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">double that stores the altitude number of the current user current gps location.  <a href="classgps_controller.html#ad5c1ea3970d3840e9029b95e67534cdb">More...</a><br /></td></tr>
+<tr class="separator:ad5c1ea3970d3840e9029b95e67534cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67be4cf579a0d7f9b8cbbd0828596c44"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a67be4cf579a0d7f9b8cbbd0828596c44">defaultLatitude_</a> = 28.2600654</td></tr>
+<tr class="separator:a67be4cf579a0d7f9b8cbbd0828596c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46c6167224d5d049842f907b8848ef99"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a46c6167224d5d049842f907b8848ef99">defaultLongitude_</a> = -16.3924713</td></tr>
+<tr class="separator:a46c6167224d5d049842f907b8848ef99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfd1c5446e7a85f779b2d587867345a7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#acfd1c5446e7a85f779b2d587867345a7">defaultAltitude_</a> = 255</td></tr>
+<tr class="separator:acfd1c5446e7a85f779b2d587867345a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >class that handles the access to the GPS sensor of the current dispositive. This class follows the singleton pattern, so its only one instance during each excecution. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad311df10d73a0ea1291c1f550b89517e" name="ad311df10d73a0ea1291c1f550b89517e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad311df10d73a0ea1291c1f550b89517e">&#9670;&nbsp;</a></span>AskForPermissions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gpsController.AskForPermissions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >This method if the permissions stack property is empty, it calls the CreatePermissionList first. In other case, ask for each permission that is on the permissions property. When it finish, it sets the isItPermissionTime to false. </p>
+
+</div>
+</div>
+<a id="aa47772ed8cc064412134b8fee42f153e" name="aa47772ed8cc064412134b8fee42f153e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa47772ed8cc064412134b8fee42f153e">&#9670;&nbsp;</a></span>Awake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gpsController.Awake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >This method is called before the first frame. If there is another <a class="el" href="classgps_controller.html" title="class that handles the access to the GPS sensor of the current dispositive. This class follows the si...">gpsController</a>, it destroy this instance and return nothing. Other case, it set the gpsControllerInstance_ static property as a reference of this gameObject. It also instantiate the rest of the properties, calls the CreatePermissionList method and start the gps location process. </p>
+
+</div>
+</div>
 <a id="ac98d1ca0beb2b406af4ed84b397bc253" name="ac98d1ca0beb2b406af4ed84b397bc253"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac98d1ca0beb2b406af4ed84b397bc253">&#9670;&nbsp;</a></span>CalculateDistance()</h2>
 
@@ -205,23 +302,29 @@ static <a class="el" href="classgps_controller.html">gpsController</a>&#160;</td
 
 </div>
 </div>
-<a id="a04f15c0205a5cf68bb72ab7f0fa377e8" name="a04f15c0205a5cf68bb72ab7f0fa377e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04f15c0205a5cf68bb72ab7f0fa377e8">&#9670;&nbsp;</a></span>getActualZoneOfUser()</h2>
+<a id="acbe7c33af28d76776da75e45e6e5683b" name="acbe7c33af28d76776da75e45e6e5683b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbe7c33af28d76776da75e45e6e5683b">&#9670;&nbsp;</a></span>CreatePermissionList()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string gpsController.getActualZoneOfUser </td>
+          <td class="memname">void gpsController.CreatePermissionList </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-
-<p>it calls the getZoneOf method with the user coordenades and returns what that method returns. </p>
-<dl class="section return"><dt>Returns</dt><dd>string current zone of the current user. </dd></dl>
+<p >This method set the isItPermissionTime attribute as true, add both the CoarseLocation and the FineLocation permissions to the permissions property, and then, call the AskForPermissions method of <a class="el" href="classgps_controller.html" title="class that handles the access to the GPS sensor of the current dispositive. This class follows the si...">gpsController</a>. </p>
 
 </div>
 </div>
@@ -242,6 +345,26 @@ static <a class="el" href="classgps_controller.html">gpsController</a>&#160;</td
 
 <p>getter of the altitude_ property. </p>
 <dl class="section return"><dt>Returns</dt><dd>the altitude_ property value. </dd></dl>
+
+</div>
+</div>
+<a id="a97c28380b3abb7e0c7010cdcf44eaf61" name="a97c28380b3abb7e0c7010cdcf44eaf61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97c28380b3abb7e0c7010cdcf44eaf61">&#9670;&nbsp;</a></span>getcurrentZoneOfUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string gpsController.getcurrentZoneOfUser </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>it calls the getZoneOf method with the user coordenades and returns what that method returns. </p>
+<dl class="section return"><dt>Returns</dt><dd>string current zone of the current user. </dd></dl>
 
 </div>
 </div>
@@ -341,8 +464,341 @@ static <a class="el" href="classgps_controller.html">gpsController</a>&#160;</td
 
 </div>
 </div>
+<a id="a2a4407d75bb672d74e7ced20b2c7383e" name="a2a4407d75bb672d74e7ced20b2c7383e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a4407d75bb672d74e7ced20b2c7383e">&#9670;&nbsp;</a></span>OnApplicationFocus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gpsController.OnApplicationFocus </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>focus</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>this method is called each time the application either focus in or focus out. If the application is focusing in and the isItPermissionTime property is true it calls the AskForPermissions method. If the application is focusing in it starts the Input.Location process. If the application is focusing out it stops the Input.Location process. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bool</td><td>true if the application is focusing in, false if the application is focusing out. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a55b91336db8dda84e8545e550f4c449f" name="a55b91336db8dda84e8545e550f4c449f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55b91336db8dda84e8545e550f4c449f">&#9670;&nbsp;</a></span>sexagecimalToRadian()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gpsController.sexagecimalToRadian </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>sexagecimal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>this method converts the given sexagecimal number to his radian number equivalent. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>sexagecimal number to convert. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double radian conversion of the given number. </dd></dl>
+
+</div>
+</div>
+<a id="abe6e69acf0f941d8aa82c2fcf243a646" name="abe6e69acf0f941d8aa82c2fcf243a646"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe6e69acf0f941d8aa82c2fcf243a646">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gpsController.Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >This method is called on each frame.</p><ul>
+<li>If the user has given both CoarseLocation and FineLocation permissions, the gps service is active on the user's device and LocationService is running, it sets the gpsIsRunning_ property to true, gets the latitude, the longitude and the altitude of the user then it checks if the current user hasnt stablished its base, if that is the case it set the user base as the current latitude and longitude and call the writeUserData method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a>.</li>
+<li>If that is not the case, it sets the gpsIsRunning_ as false and it sets the latitude_, longitude_ and altitude_ as the default ones. </li>
+</ul>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad5c1ea3970d3840e9029b95e67534cdb" name="ad5c1ea3970d3840e9029b95e67534cdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5c1ea3970d3840e9029b95e67534cdb">&#9670;&nbsp;</a></span>altitude_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gpsController.altitude_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>double that stores the altitude number of the current user current gps location. </p>
+
+</div>
+</div>
+<a id="acfd1c5446e7a85f779b2d587867345a7" name="acfd1c5446e7a85f779b2d587867345a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfd1c5446e7a85f779b2d587867345a7">&#9670;&nbsp;</a></span>defaultAltitude_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gpsController.defaultAltitude_ = 255</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67be4cf579a0d7f9b8cbbd0828596c44" name="a67be4cf579a0d7f9b8cbbd0828596c44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67be4cf579a0d7f9b8cbbd0828596c44">&#9670;&nbsp;</a></span>defaultLatitude_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gpsController.defaultLatitude_ = 28.2600654</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a46c6167224d5d049842f907b8848ef99" name="a46c6167224d5d049842f907b8848ef99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46c6167224d5d049842f907b8848ef99">&#9670;&nbsp;</a></span>defaultLongitude_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gpsController.defaultLongitude_ = -16.3924713</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a53b578acaf5c6327bc62f01ebf8ef3c7" name="a53b578acaf5c6327bc62f01ebf8ef3c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53b578acaf5c6327bc62f01ebf8ef3c7">&#9670;&nbsp;</a></span>gpsControllerInstance_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgps_controller.html">gpsController</a> gpsController.gpsControllerInstance_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>reference to the <a class="el" href="classgps_controller.html" title="class that handles the access to the GPS sensor of the current dispositive. This class follows the si...">gpsController</a> instance </p>
+
+</div>
+</div>
+<a id="ac53d2cc8f014c4862bc101ea0c94d554" name="ac53d2cc8f014c4862bc101ea0c94d554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac53d2cc8f014c4862bc101ea0c94d554">&#9670;&nbsp;</a></span>gpsIsRunning_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gpsController.gpsIsRunning_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>true if the gps is avaible, false in other case. </p>
+
+</div>
+</div>
+<a id="a0b573b691d0a6c507c9335e83dfcee06" name="a0b573b691d0a6c507c9335e83dfcee06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b573b691d0a6c507c9335e83dfcee06">&#9670;&nbsp;</a></span>isItPermissionTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gpsController.isItPermissionTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>true if its time to ask permission, false in other case </p>
+
+</div>
+</div>
+<a id="ad680d95aad469a49813d54e20caa1895" name="ad680d95aad469a49813d54e20caa1895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad680d95aad469a49813d54e20caa1895">&#9670;&nbsp;</a></span>latitude_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gpsController.latitude_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>double that stores the latitude number of the current user current gps location. </p>
+
+</div>
+</div>
+<a id="a391d12d4b793478aefb89afa16a08bba" name="a391d12d4b793478aefb89afa16a08bba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a391d12d4b793478aefb89afa16a08bba">&#9670;&nbsp;</a></span>longitude_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gpsController.longitude_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>double that stores the longitude number of the current user current gps location. </p>
+
+</div>
+</div>
+<a id="acb8e7522f020231a38f0fb06d42dbebd" name="acb8e7522f020231a38f0fb06d42dbebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb8e7522f020231a38f0fb06d42dbebd">&#9670;&nbsp;</a></span>permissions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Stack&lt;string&gt; gpsController.permissions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stack&lt;string&gt; that contains all the permissions we have to ask. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Scripts/MainScreen/gpsController.cs</li>
+<li>Scripts/MainScreen/<a class="el" href="gps_controller_8cs.html">gpsController.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

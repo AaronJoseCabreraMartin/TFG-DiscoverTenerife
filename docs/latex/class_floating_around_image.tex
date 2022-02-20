@@ -11,11 +11,67 @@ Inheritance diagram for Floating\+Around\+Image\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{class_floating_around_image}
 \end{center}
 \end{figure}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_floating_around_image_afade2c400465ca1638c89ad0dca28664}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Image \mbox{\hyperlink{class_floating_around_image_ad2685c30a0637ba47d740726d6b98054}{image\+\_\+}}
+\begin{DoxyCompactList}\small\item\em the image that will be animated. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_floating_around_image_ad667a068db7e7942258a8e025e8f0961}{velocity\+X\+\_\+}} = 100.\+0f
+\begin{DoxyCompactList}\small\item\em the velocity of the image on the X axis. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_floating_around_image_ad983ad71e46ef9b3a8f1b349fb70e4d8}{velocity\+Y\+\_\+}} = 100.\+0f
+\begin{DoxyCompactList}\small\item\em the velocity of the image on the Y axis. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class that makes the given image bouncing randomly between the limits of his father. 
 
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_floating_around_image_afade2c400465ca1638c89ad0dca28664}\label{class_floating_around_image_afade2c400465ca1638c89ad0dca28664}} 
+\index{FloatingAroundImage@{FloatingAroundImage}!Update@{Update}}
+\index{Update@{Update}!FloatingAroundImage@{FloatingAroundImage}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Floating\+Around\+Image.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method is called each frame, it calculates if the image will move out of bounds. If that is the case, it change the X axis velocity or the Y axis velocity to make it bounce on the limit. Other wise it will move the image on the X axis with the X axis velocity and the same for the Y axis. It also use the Time.\+delta\+Time to make the movement smoothly. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_floating_around_image_ad2685c30a0637ba47d740726d6b98054}\label{class_floating_around_image_ad2685c30a0637ba47d740726d6b98054}} 
+\index{FloatingAroundImage@{FloatingAroundImage}!image\_@{image\_}}
+\index{image\_@{image\_}!FloatingAroundImage@{FloatingAroundImage}}
+\doxysubsubsection{\texorpdfstring{image\_}{image\_}}
+{\footnotesize\ttfamily Image Floating\+Around\+Image.\+image\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+the image that will be animated. 
+
+\mbox{\Hypertarget{class_floating_around_image_ad667a068db7e7942258a8e025e8f0961}\label{class_floating_around_image_ad667a068db7e7942258a8e025e8f0961}} 
+\index{FloatingAroundImage@{FloatingAroundImage}!velocityX\_@{velocityX\_}}
+\index{velocityX\_@{velocityX\_}!FloatingAroundImage@{FloatingAroundImage}}
+\doxysubsubsection{\texorpdfstring{velocityX\_}{velocityX\_}}
+{\footnotesize\ttfamily float Floating\+Around\+Image.\+velocity\+X\+\_\+ = 100.\+0f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+the velocity of the image on the X axis. 
+
+\mbox{\Hypertarget{class_floating_around_image_ad983ad71e46ef9b3a8f1b349fb70e4d8}\label{class_floating_around_image_ad983ad71e46ef9b3a8f1b349fb70e4d8}} 
+\index{FloatingAroundImage@{FloatingAroundImage}!velocityY\_@{velocityY\_}}
+\index{velocityY\_@{velocityY\_}!FloatingAroundImage@{FloatingAroundImage}}
+\doxysubsubsection{\texorpdfstring{velocityY\_}{velocityY\_}}
+{\footnotesize\ttfamily float Floating\+Around\+Image.\+velocity\+Y\+\_\+ = 100.\+0f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+the velocity of the image on the Y axis. 
+
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Scripts/\+Find\+Friend\+Screen/Floating\+Around\+Image.\+cs\end{DoxyCompactItemize}
+Scripts/\+Find\+Friend\+Screen/\mbox{\hyperlink{_floating_around_image_8cs}{Floating\+Around\+Image.\+cs}}\end{DoxyCompactItemize}

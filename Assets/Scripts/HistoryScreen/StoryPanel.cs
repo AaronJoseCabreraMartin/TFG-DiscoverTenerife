@@ -38,7 +38,7 @@ public class StoryPanel : MonoBehaviour
         panelFilled_ = false;
         setDataTime_ = true;
         if(firebaseHandler.firebaseHandlerInstance_ != null && firebaseHandler.firebaseHandlerInstance_.userDataIsReady() 
-            && firebaseHandler.firebaseHandlerInstance_.actualUser_.friendDataIsComplete()){
+            && firebaseHandler.firebaseHandlerInstance_.currentUser_.friendDataIsComplete()){
                 fillPanel();
         } 
     }
@@ -60,7 +60,7 @@ public class StoryPanel : MonoBehaviour
             setData();
             setDataTime_ = false;
         }else if(!panelFilled_ && firebaseHandler.firebaseHandlerInstance_ != null && firebaseHandler.firebaseHandlerInstance_.userDataIsReady() 
-            && firebaseHandler.firebaseHandlerInstance_.actualUser_.friendDataIsComplete()){
+            && firebaseHandler.firebaseHandlerInstance_.currentUser_.friendDataIsComplete()){
                 fillPanel();
         }
     }
@@ -71,9 +71,9 @@ public class StoryPanel : MonoBehaviour
       * and it also calls the adjustPanelSize method.
       */
     private void fillPanel(){
-        for(int i = 0; i < firebaseHandler.firebaseHandlerInstance_.actualUser_.countOfVisitedPlaces(); i++){
+        for(int i = 0; i < firebaseHandler.firebaseHandlerInstance_.currentUser_.countOfVisitedPlaces(); i++){
             GameObject storyPlace = Instantiate(placeOnStoryPrefab_, new Vector3(0, 0, 0), Quaternion.identity);
-            storyPlace.GetComponent<StoryPlace>().setData(firebaseHandler.firebaseHandlerInstance_.actualUser_.getStoryPlaceData(i));
+            storyPlace.GetComponent<StoryPlace>().setData(firebaseHandler.firebaseHandlerInstance_.currentUser_.getStoryPlaceData(i));
             storyPlace.transform.SetParent(this.transform);
             placeOnStory_.Add(storyPlace);
         }
@@ -99,7 +99,7 @@ public class StoryPanel : MonoBehaviour
     private void setData(){
         if(optionsController.optionsControllerInstance_.sortStoryByFirstVisit()){
             for(int i = 0; i < placeOnStory_.Count; i++){
-                placeOnStory_[i].GetComponent<StoryPlace>().setData(firebaseHandler.firebaseHandlerInstance_.actualUser_.getStoryPlaceData(i));
+                placeOnStory_[i].GetComponent<StoryPlace>().setData(firebaseHandler.firebaseHandlerInstance_.currentUser_.getStoryPlaceData(i));
             }
         }else{
             List<int> sortedIndex = new List<int>();
@@ -107,8 +107,8 @@ public class StoryPanel : MonoBehaviour
                 sortedIndex.Add(i);
             }
             sortedIndex.Sort(delegate(int a, int b){
-                VisitedPlace visitedPlaceA = firebaseHandler.firebaseHandlerInstance_.actualUser_.getStoryPlaceData(a);
-                VisitedPlace visitedPlaceB = firebaseHandler.firebaseHandlerInstance_.actualUser_.getStoryPlaceData(b);
+                VisitedPlace visitedPlaceA = firebaseHandler.firebaseHandlerInstance_.currentUser_.getStoryPlaceData(a);
+                VisitedPlace visitedPlaceB = firebaseHandler.firebaseHandlerInstance_.currentUser_.getStoryPlaceData(b);
                 if(visitedPlaceA.lastVisitTimestamp_ == visitedPlaceB.lastVisitTimestamp_){
                     return 0;
                 }else{
@@ -117,7 +117,7 @@ public class StoryPanel : MonoBehaviour
                 }
             });
             for(int i = 0; i < placeOnStory_.Count; i++){
-                placeOnStory_[i].GetComponent<StoryPlace>().setData(firebaseHandler.firebaseHandlerInstance_.actualUser_.getStoryPlaceData(sortedIndex[i]));
+                placeOnStory_[i].GetComponent<StoryPlace>().setData(firebaseHandler.firebaseHandlerInstance_.currentUser_.getStoryPlaceData(sortedIndex[i]));
             }
         }
     }
