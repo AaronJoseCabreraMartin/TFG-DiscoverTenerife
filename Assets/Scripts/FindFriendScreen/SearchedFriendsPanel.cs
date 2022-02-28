@@ -86,6 +86,7 @@ public class SearchedFriendsPanel : MonoBehaviour
     public void clearSearchedFriendsPanel(){
         while(searchedFriends_.Count != 0){
             Destroy(searchedFriends_[0]);
+            searchedFriends_.RemoveAt(0);
         }
         searchedFriends_.Clear();
         adjustPanelSize();

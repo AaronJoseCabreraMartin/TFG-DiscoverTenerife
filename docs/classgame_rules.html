@@ -84,6 +84,18 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f5de336cb7fc8dd5cb6c6a47bcc19e0"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a3f5de336cb7fc8dd5cb6c6a47bcc19e0">getMaxPlacesStored</a> ()</td></tr>
 <tr class="memdesc:a3f5de336cb7fc8dd5cb6c6a47bcc19e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the maxPlacesStored_ static property.  <a href="classgame_rules.html#a3f5de336cb7fc8dd5cb6c6a47bcc19e0">More...</a><br /></td></tr>
 <tr class="separator:a3f5de336cb7fc8dd5cb6c6a47bcc19e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb0c711cb90fdf7f62f66df7589fec42"><td class="memItemLeft" align="right" valign="top">static long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#aeb0c711cb90fdf7f62f66df7589fec42">getExpiryTimeForChallenges</a> ()</td></tr>
+<tr class="memdesc:aeb0c711cb90fdf7f62f66df7589fec42"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the expiryTimeForChallenges_ static property.  <a href="classgame_rules.html#aeb0c711cb90fdf7f62f66df7589fec42">More...</a><br /></td></tr>
+<tr class="separator:aeb0c711cb90fdf7f62f66df7589fec42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae35bc1635fdc6e6a58d4e84fb4363098"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#ae35bc1635fdc6e6a58d4e84fb4363098">challengeHasExpired</a> (long startTimestamp)</td></tr>
+<tr class="memdesc:ae35bc1635fdc6e6a58d4e84fb4363098"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns true if the current timestamp is bigger than the given timestamp plus the expiryTimeForChallenges static property because if its bigger its means that the expiry time is on the past.  <a href="classgame_rules.html#ae35bc1635fdc6e6a58d4e84fb4363098">More...</a><br /></td></tr>
+<tr class="separator:ae35bc1635fdc6e6a58d4e84fb4363098"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa56c4517faf577404ad1b4bcf978d747"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#aa56c4517faf577404ad1b4bcf978d747">calculateChallengeScore</a> (long startTimestamp, long completationTimestamp, double distanceToUserBase)</td></tr>
+<tr class="memdesc:aa56c4517faf577404ad1b4bcf978d747"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method calculates the score of a completed challenge using the timestamp of the challenge's begginging, the timestamp of the challenge's completation and the distance in kilometers to the user's base.  <a href="classgame_rules.html#aa56c4517faf577404ad1b4bcf978d747">More...</a><br /></td></tr>
+<tr class="separator:aa56c4517faf577404ad1b4bcf978d747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b9778536e281d32726b77c6ffa50a0a"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a2b9778536e281d32726b77c6ffa50a0a">getScoreToTheChallenger</a> ()</td></tr>
+<tr class="memdesc:a2b9778536e281d32726b77c6ffa50a0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the scoreToTheChallenger_ property.  <a href="classgame_rules.html#a2b9778536e281d32726b77c6ffa50a0a">More...</a><br /></td></tr>
+<tr class="separator:a2b9778536e281d32726b77c6ffa50a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -96,10 +108,132 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:a72d8076629f6b963aa41539d417bd0be"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a72d8076629f6b963aa41539d417bd0be">maxPlacesStored_</a> = 5</td></tr>
 <tr class="memdesc:a72d8076629f6b963aa41539d417bd0be"><td class="mdescLeft">&#160;</td><td class="mdescRight">contains the maximum number of places that you can store in the pocket for internetless visits. Its default value is 5.  <a href="classgame_rules.html#a72d8076629f6b963aa41539d417bd0be">More...</a><br /></td></tr>
 <tr class="separator:a72d8076629f6b963aa41539d417bd0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a829698691006551502408fb75ceb49f9"><td class="memItemLeft" align="right" valign="top">static long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a829698691006551502408fb75ceb49f9">expiryTimeForChallenges_</a> = 6048000000000</td></tr>
+<tr class="memdesc:a829698691006551502408fb75ceb49f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">contains the time that challenges stay active until they expire. Its default value is 7 days.  <a href="classgame_rules.html#a829698691006551502408fb75ceb49f9">More...</a><br /></td></tr>
+<tr class="separator:a829698691006551502408fb75ceb49f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a671fb67d96770665c6f6ade3e4d2d254"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a671fb67d96770665c6f6ade3e4d2d254">scoreToTheChallenger_</a> = 0.1d</td></tr>
+<tr class="memdesc:a671fb67d96770665c6f6ade3e4d2d254"><td class="mdescLeft">&#160;</td><td class="mdescRight">proportion of points that challenger should get when other user completes his challenges.  <a href="classgame_rules.html#a671fb67d96770665c6f6ade3e4d2d254">More...</a><br /></td></tr>
+<tr class="separator:a671fb67d96770665c6f6ade3e4d2d254"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class store as static properties the parameters that affect the game rules. For example it stores the maximum distance to a point to be considered as a valid visit. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa56c4517faf577404ad1b4bcf978d747" name="aa56c4517faf577404ad1b4bcf978d747"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa56c4517faf577404ad1b4bcf978d747">&#9670;&nbsp;</a></span>calculateChallengeScore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int gameRules.calculateChallengeScore </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>startTimestamp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>completationTimestamp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>distanceToUserBase</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method calculates the score of a completed challenge using the timestamp of the challenge's begginging, the timestamp of the challenge's completation and the distance in kilometers to the user's base. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">long</td><td>timestamp of the begginging of the challenge. </td></tr>
+    <tr><td class="paramname">long</td><td>timestamp of the completation of the challenge. </td></tr>
+    <tr><td class="paramname">double</td><td>distance in kms to the user. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int score of the completed challenge. </dd></dl>
+
+</div>
+</div>
+<a id="ae35bc1635fdc6e6a58d4e84fb4363098" name="ae35bc1635fdc6e6a58d4e84fb4363098"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae35bc1635fdc6e6a58d4e84fb4363098">&#9670;&nbsp;</a></span>challengeHasExpired()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool gameRules.challengeHasExpired </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>startTimestamp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method returns true if the current timestamp is bigger than the given timestamp plus the expiryTimeForChallenges static property because if its bigger its means that the expiry time is on the past. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">long</td><td>with the timestamp when the challenge was started. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool true if the challenge that started on the given timestmap has already expired, false in other case. </dd></dl>
+
+</div>
+</div>
+<a id="aeb0c711cb90fdf7f62f66df7589fec42" name="aeb0c711cb90fdf7f62f66df7589fec42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb0c711cb90fdf7f62f66df7589fec42">&#9670;&nbsp;</a></span>getExpiryTimeForChallenges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static long gameRules.getExpiryTimeForChallenges </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getter of the expiryTimeForChallenges_ static property. </p>
+<dl class="section return"><dt>Returns</dt><dd>the time that challenges stay active until they expire. </dd></dl>
+
+</div>
+</div>
 <a id="aec4e4b835aef5d4da09d82d0b91c8c09" name="aec4e4b835aef5d4da09d82d0b91c8c09"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aec4e4b835aef5d4da09d82d0b91c8c09">&#9670;&nbsp;</a></span>getMaxDistance()</h2>
 
@@ -184,7 +318,59 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a2b9778536e281d32726b77c6ffa50a0a" name="a2b9778536e281d32726b77c6ffa50a0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b9778536e281d32726b77c6ffa50a0a">&#9670;&nbsp;</a></span>getScoreToTheChallenger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double gameRules.getScoreToTheChallenger </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getter of the scoreToTheChallenger_ property. </p>
+<dl class="section return"><dt>Returns</dt><dd>double with the scoreToTheChallenger_ static property value. </dd></dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a829698691006551502408fb75ceb49f9" name="a829698691006551502408fb75ceb49f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a829698691006551502408fb75ceb49f9">&#9670;&nbsp;</a></span>expiryTimeForChallenges_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long gameRules.expiryTimeForChallenges_ = 6048000000000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>contains the time that challenges stay active until they expire. Its default value is 7 days. </p>
+
+</div>
+</div>
 <a id="a8ea1ade2366b500b6e44d3bb6711979d" name="a8ea1ade2366b500b6e44d3bb6711979d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8ea1ade2366b500b6e44d3bb6711979d">&#9670;&nbsp;</a></span>maxDistance_</h2>
 
@@ -254,6 +440,30 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>contains the time in minutes that a player has to wait to visit again a place. Its default value is 60 minutes. </p>
+
+</div>
+</div>
+<a id="a671fb67d96770665c6f6ade3e4d2d254" name="a671fb67d96770665c6f6ade3e4d2d254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a671fb67d96770665c6f6ade3e4d2d254">&#9670;&nbsp;</a></span>scoreToTheChallenger_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double gameRules.scoreToTheChallenger_ = 0.1d</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>proportion of points that challenger should get when other user completes his challenges. </p>
 
 </div>
 </div>

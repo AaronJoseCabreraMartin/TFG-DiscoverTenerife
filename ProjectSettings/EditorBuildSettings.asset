@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PantallaBuscarJugador.unity
     guid: e8399b5165dab0c4e9ced46d6c858f9c
+  - enabled: 1
+    path: Assets/Scenes/PantallaBuscarAmigoParaRetar.unity
+    guid: 680171dad1c59de418e687b1fa5ac257
   m_configObjects: {}

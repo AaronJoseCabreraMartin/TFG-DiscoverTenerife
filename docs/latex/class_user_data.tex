@@ -8,7 +8,7 @@ Class that stores the current user data.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_user_data_ad2db6e3bd5259af132f03fd19aaef858}{User\+Data}} (Firebase.\+Auth.\+Firebase\+User new\+Fire\+Base\+User\+Data, List$<$ Dictionary$<$ string, string $>$ $>$ old\+Visited\+Places=null, Dictionary$<$ string, string $>$ base\+Cords\+Data=null, List$<$ string $>$ friend\+List=null, List$<$ string $>$ friend\+Invitations\+List=null, List$<$ string $>$ friend\+Invitations\+Accepted\+List=null, List$<$ string $>$ deleted\+Friends\+List=null)
+\mbox{\hyperlink{class_user_data_a8cfe12eacc656497cb3c0a13afd2fa81}{User\+Data}} (Firebase.\+Auth.\+Firebase\+User new\+Fire\+Base\+User\+Data, List$<$ Dictionary$<$ string, string $>$ $>$ old\+Visited\+Places=null, Dictionary$<$ string, string $>$ base\+Cords\+Data=null, List$<$ string $>$ friend\+List=null, List$<$ string $>$ friend\+Invitations\+List=null, List$<$ string $>$ friend\+Invitations\+Accepted\+List=null, List$<$ string $>$ deleted\+Friends\+List=null, List$<$ Dictionary$<$ string, string $>$ $>$ challenges\+Data=null)
 \begin{DoxyCompactList}\small\item\em Constructor. It initialices all the properties taking aware if they have been given with a real value or they are null. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_user_data_ad45dbf0d28037fad834fc1efe0c66efe}{To\+Json}} ()
 \begin{DoxyCompactList}\small\item\em This method converts all the properties of the current object in a string that follows the JSON format. \end{DoxyCompactList}\item 
@@ -79,7 +79,7 @@ void \mbox{\hyperlink{class_user_data_a50db7e291859fb2528611546994abacb}{delete\
 string \mbox{\hyperlink{class_user_data_acdcd246281e9e23e1a0a87f84f172191}{get\+Uid}} ()
 \begin{DoxyCompactList}\small\item\em getter of the user id. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_user_data_ae0d987deec76a4a895f568a4a0e60d54}{is\+AFriend\+By\+Display\+Name}} (string display\+Name)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This method checks if on the current user\textquotesingle{}s friend list exists any user with the given display name. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -105,18 +105,20 @@ List$<$ \mbox{\hyperlink{class_friend_data}{Friend\+Data}} $>$ \mbox{\hyperlink{
 List$<$ string $>$ \mbox{\hyperlink{class_user_data_a8371972f612f1720b29ea21b99e8f1b9}{friend\+Invitations\+List\+\_\+}}
 \begin{DoxyCompactList}\small\item\em list that contains strings with the user ids of all the user that has sended a friendship invitation to the current user and the current user hasnt accepted or denied. \end{DoxyCompactList}\item 
 List$<$ \mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}} $>$ \mbox{\hyperlink{class_user_data_ac1bdf8b29343efeae375d0f448827103}{new\+Friend\+Data\+List\+\_\+}}
-\begin{DoxyCompactList}\small\item\em list that stores all the necessary information of the users those that the current user has a new friendship invitation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em list that stores all the necessary information of the users those that the current user has a new friendship invitation. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} $>$ \mbox{\hyperlink{class_user_data_a8167d9172038670f5b26c27219f9829d}{challenges\+\_\+}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class that stores the current user data. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_user_data_ad2db6e3bd5259af132f03fd19aaef858}\label{class_user_data_ad2db6e3bd5259af132f03fd19aaef858}} 
+\mbox{\Hypertarget{class_user_data_a8cfe12eacc656497cb3c0a13afd2fa81}\label{class_user_data_a8cfe12eacc656497cb3c0a13afd2fa81}} 
 \index{UserData@{UserData}!UserData@{UserData}}
 \index{UserData@{UserData}!UserData@{UserData}}
 \doxysubsubsection{\texorpdfstring{UserData()}{UserData()}}
-{\footnotesize\ttfamily User\+Data.\+User\+Data (\begin{DoxyParamCaption}\item[{Firebase.\+Auth.\+Firebase\+User}]{new\+Fire\+Base\+User\+Data,  }\item[{List$<$ Dictionary$<$ string, string $>$ $>$}]{old\+Visited\+Places = {\ttfamily null},  }\item[{Dictionary$<$ string, string $>$}]{base\+Cords\+Data = {\ttfamily null},  }\item[{List$<$ string $>$}]{friend\+List = {\ttfamily null},  }\item[{List$<$ string $>$}]{friend\+Invitations\+List = {\ttfamily null},  }\item[{List$<$ string $>$}]{friend\+Invitations\+Accepted\+List = {\ttfamily null},  }\item[{List$<$ string $>$}]{deleted\+Friends\+List = {\ttfamily null} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily User\+Data.\+User\+Data (\begin{DoxyParamCaption}\item[{Firebase.\+Auth.\+Firebase\+User}]{new\+Fire\+Base\+User\+Data,  }\item[{List$<$ Dictionary$<$ string, string $>$ $>$}]{old\+Visited\+Places = {\ttfamily null},  }\item[{Dictionary$<$ string, string $>$}]{base\+Cords\+Data = {\ttfamily null},  }\item[{List$<$ string $>$}]{friend\+List = {\ttfamily null},  }\item[{List$<$ string $>$}]{friend\+Invitations\+List = {\ttfamily null},  }\item[{List$<$ string $>$}]{friend\+Invitations\+Accepted\+List = {\ttfamily null},  }\item[{List$<$ string $>$}]{deleted\+Friends\+List = {\ttfamily null},  }\item[{List$<$ Dictionary$<$ string, string $>$ $>$}]{challenges\+Data = {\ttfamily null} }\end{DoxyParamCaption})}
 
 
 
@@ -239,7 +241,7 @@ int how many new friendship invitations the current user has.
 {\footnotesize\ttfamily int User\+Data.\+count\+Of\+Friends (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyReturn}{Returns}
-int how many friends the current user has. 
+int how many friends has the current user. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_user_data_a3b6e17cfa434c5bcab3666875ec253c7}\label{class_user_data_a3b6e17cfa434c5bcab3666875ec253c7}} 
 \index{UserData@{UserData}!countOfNewFriendData@{countOfNewFriendData}}
@@ -524,6 +526,18 @@ bool true if the current user has visited the place that has the given type and 
 \doxysubsubsection{\texorpdfstring{isAFriendByDisplayName()}{isAFriendByDisplayName()}}
 {\footnotesize\ttfamily bool User\+Data.\+is\+AFriend\+By\+Display\+Name (\begin{DoxyParamCaption}\item[{string}]{display\+Name }\end{DoxyParamCaption})}
 
+
+
+This method checks if on the current user\textquotesingle{}s friend list exists any user with the given display name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & that contains the user\textquotesingle{}s display name. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the current user has a friend with the given display name. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_user_data_aadd0256d160f93e53f69d93079a6c48b}\label{class_user_data_aadd0256d160f93e53f69d93079a6c48b}} 
 \index{UserData@{UserData}!mostVisitedPlace@{mostVisitedPlace}}
 \index{mostVisitedPlace@{mostVisitedPlace}!UserData@{UserData}}
@@ -653,6 +667,12 @@ double that contains the latitude of the base of the current user.
 
 
 double that contains the longitude of the base of the current user. 
+
+\mbox{\Hypertarget{class_user_data_a8167d9172038670f5b26c27219f9829d}\label{class_user_data_a8167d9172038670f5b26c27219f9829d}} 
+\index{UserData@{UserData}!challenges\_@{challenges\_}}
+\index{challenges\_@{challenges\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{challenges\_}{challenges\_}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classchallenge_data}{challenge\+Data}}$>$ User\+Data.\+challenges\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{class_user_data_a88df6bf4aee17f5d47ac73d6e8b26e7d}\label{class_user_data_a88df6bf4aee17f5d47ac73d6e8b26e7d}} 
 \index{UserData@{UserData}!displayName\_@{displayName\_}}

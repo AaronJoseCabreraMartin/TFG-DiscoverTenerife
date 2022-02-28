@@ -26,6 +26,11 @@ public class newFriendInvitationPanel : MonoBehaviour
       * @brief it stores the last quantity of invitations which the panel has adapted its height.
       */
     private int lastCount_;
+
+    /**
+      * @brief initial height of the panel.
+      */
+    private float initialHeight_;
     
     /**
       * This method is called before the first frame, it instanciate the invitations_, panelFilled_
@@ -36,6 +41,7 @@ public class newFriendInvitationPanel : MonoBehaviour
     {
         invitations_ = new List<GameObject>();
         panelFilled_ = false;
+        initialHeight_ = (float)gameObject.transform.GetComponent<RectTransform>().rect.height;
         lastCount_ = 0;
         if(firebaseHandler.firebaseHandlerInstance_.userDataIsReady()){
             fillPanel();
@@ -77,10 +83,13 @@ public class newFriendInvitationPanel : MonoBehaviour
       * adjust the height of the panel to keep the apparence when the number of elements changes.
       */
     private void adjustPanelSize(){
+        float baseHeight = (float)(gameObject.transform.GetChild(0).Find("Background").GetComponent<RectTransform>().rect.height * 1.25);
         if(invitations_.Count > 4){
             float newHeight = GetComponent<RectTransform>().rect.height;
-            newHeight += lastCount_ < invitations_.Count ? 300*(invitations_.Count-4) : -300*(lastCount_-invitations_.Count);
+            newHeight += lastCount_ < invitations_.Count ? baseHeight*(invitations_.Count-4) : -baseHeight*(lastCount_-invitations_.Count);
             GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);
+        }else{
+            GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, initialHeight_);
         }
         lastCount_ = invitations_.Count;
     }

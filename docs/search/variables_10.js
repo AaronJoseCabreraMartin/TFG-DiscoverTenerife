@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['velocityx_5f_0',['velocityX_',['../class_floating_around_image.html#ad667a068db7e7942258a8e025e8f0961',1,'FloatingAroundImage']]],
-  ['velocityy_5f_1',['velocityY_',['../class_floating_around_image.html#ad983ad71e46ef9b3a8f1b349fb70e4d8',1,'FloatingAroundImage']]],
-  ['visited_5f_2',['visited_',['../class_stored_place.html#af90e42f0cb49b53e1c7d60aa82bbcd2b',1,'StoredPlace']]],
-  ['visitedcolor_5f_3',['visitedColor_',['../class_visited_panel_controller.html#a772203e072164bfbfd1e3bcc11af27b5',1,'VisitedPanelController.visitedColor_()'],['../class_visite_stored_place_controller.html#afbea17c44c282d9e68e071f96c9d3cdf',1,'VisiteStoredPlaceController.visitedColor_()']]],
-  ['visitedpanelobject_5f_4',['visitedPanelObject_',['../class_register_as_visited_button.html#a93344af4368ef6b4c3dbc88c00f0e88a',1,'RegisterAsVisitedButton.visitedPanelObject_()'],['../class_register_as_visited_stored_place_button.html#a55878ae5854282ba4d52c7b55128835a',1,'RegisterAsVisitedStoredPlaceButton.visitedPanelObject_()']]],
-  ['visitedplaces_5f_5',['visitedPlaces_',['../class_user_data.html#ad18cfa73e4fb27cd88a3a87b776601ee',1,'UserData']]],
-  ['visitedtext_5f_6',['visitedText_',['../class_visited_panel_controller.html#a8f821c045ba464e3a3347503e0f1a301',1,'VisitedPanelController.visitedText_()'],['../class_visite_stored_place_controller.html#a530e42f0a8c32fff4c4914f14c522b45',1,'VisiteStoredPlaceController.visitedText_()']]]
+  ['uid_5f_0',['uid_',['../classnew_friend_data.html#a73b61d15fb238be2bc409c4ccca673d2',1,'newFriendData.uid_()'],['../class_friend_data.html#afb4ec77fd883d415aa195f27252e4b92',1,'FriendData.uid_()']]],
+  ['user_1',['user',['../classemail_login_controller.html#ab4a150b7f76e426a1f9e433f8da0d629',1,'emailLoginController.user()'],['../classregister_screen_controller.html#a68e6b1c445c46a1af26f987de53e9a4a',1,'registerScreenController.user()']]],
+  ['userdataready_5f_2',['userDataReady_',['../classfirebase_handler.html#a19f92443e4e88477defb22d67236d746',1,'firebaseHandler']]],
+  ['userdatauploaded_5f_3',['userDataUploaded_',['../classfirebase_handler.html#ada9d752ba9fa5633662cd1d10a2a096d',1,'firebaseHandler']]],
+  ['userid_5f_4',['UserId_',['../class_u_i_dbutton.html#a2eb70075f9e7c596ec4e0ce63fa6386e',1,'UIDbutton']]],
+  ['usersthatallowappearedonranking_5f_5',['usersThatAllowAppearedOnRanking_',['../class_friend_data.html#a08ca1d0de0004cf5ca34d792af7d4a73',1,'FriendData']]],
+  ['usersthatallowbechallenged_5f_6',['usersThatAllowBeChallenged_',['../class_friend_data.html#a39b4fefb9b0641592901340da23f0f68',1,'FriendData']]],
+  ['usersthatallowfriendshipinvitations_5f_7',['usersThatAllowFriendshipInvitations_',['../class_friend_data.html#adfac7077755272d716299d2c2d3e48a0',1,'FriendData']]],
+  ['userwasnotified_5f_8',['userWasNotified_',['../class_friend.html#a2c4242175c053a345baabd1033ffd1f5',1,'Friend']]]
 ];

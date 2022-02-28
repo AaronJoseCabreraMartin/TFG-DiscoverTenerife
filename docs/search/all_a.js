@@ -8,11 +8,13 @@ var searchData=
   ['mapruleshandler_5',['mapRulesHandler',['../classmap_rules_handler.html',1,'']]],
   ['mapruleshandler_2ecs_6',['mapRulesHandler.cs',['../map_rules_handler_8cs.html',1,'']]],
   ['maxdistance_5f_7',['maxDistance_',['../classgame_rules.html#a8ea1ade2366b500b6e44d3bb6711979d',1,'gameRules']]],
-  ['maxplacesstored_5f_8',['maxPlacesStored_',['../classgame_rules.html#a72d8076629f6b963aa41539d417bd0be',1,'gameRules']]],
-  ['minutesofcooldown_5f_9',['minutesOfCooldown_',['../classgame_rules.html#a01b79e51a2543764b2d3398398d5c3f9',1,'gameRules']]],
-  ['mostvisitedplace_10',['mostVisitedPlace',['../class_user_data.html#aadd0256d160f93e53f69d93079a6c48b',1,'UserData']]],
-  ['mostvisitedtype_11',['mostVisitedType',['../class_user_data.html#acdc1317134f609f751f9b0e1ff3c9553',1,'UserData']]],
-  ['mostvisitedzone_12',['mostVisitedZone',['../class_user_data.html#ac9e9894e3fb898a33c689facdaca6f93',1,'UserData']]],
-  ['multiselectiondesplegablemenu_13',['multiselectionDesplegableMenu',['../classmultiselection_desplegable_menu.html',1,'']]],
-  ['multiselectiondesplegablemenu_2ecs_14',['multiselectionDesplegableMenu.cs',['../multiselection_desplegable_menu_8cs.html',1,'']]]
+  ['maxlimit_5f_8',['maxLimit_',['../classscroll_rect_controller.html#ad1dcc368bff894c48922caecfaa5761f',1,'scrollRectController']]],
+  ['maxplacesstored_5f_9',['maxPlacesStored_',['../classgame_rules.html#a72d8076629f6b963aa41539d417bd0be',1,'gameRules']]],
+  ['minlimit_5f_10',['minLimit_',['../classscroll_rect_controller.html#a9a7be70721dcaca1dcf8554e53310256',1,'scrollRectController']]],
+  ['minutesofcooldown_5f_11',['minutesOfCooldown_',['../classgame_rules.html#a01b79e51a2543764b2d3398398d5c3f9',1,'gameRules']]],
+  ['mostvisitedplace_12',['mostVisitedPlace',['../class_user_data.html#aadd0256d160f93e53f69d93079a6c48b',1,'UserData']]],
+  ['mostvisitedtype_13',['mostVisitedType',['../class_user_data.html#acdc1317134f609f751f9b0e1ff3c9553',1,'UserData']]],
+  ['mostvisitedzone_14',['mostVisitedZone',['../class_user_data.html#ac9e9894e3fb898a33c689facdaca6f93',1,'UserData']]],
+  ['multiselectiondesplegablemenu_15',['multiselectionDesplegableMenu',['../classmultiselection_desplegable_menu.html',1,'']]],
+  ['multiselectiondesplegablemenu_2ecs_16',['multiselectionDesplegableMenu.cs',['../multiselection_desplegable_menu_8cs.html',1,'']]]
 ];

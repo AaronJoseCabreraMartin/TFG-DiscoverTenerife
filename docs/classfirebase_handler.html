@@ -149,15 +149,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a79f50b713883df7fc275f725486fa424"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a79f50b713883df7fc275f725486fa424">downloadFriendData</a> (string uid)</td></tr>
 <tr class="memdesc:a79f50b713883df7fc275f725486fa424"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method tries to download the necesary information of the given user id. If it fails on the process it adds the user id to the friendDataDownloadQueue_ list. If it success it calls the addFriendData method of <a class="el" href="class_user_data.html" title="Class that stores the current user data.">UserData</a> class creating a new <a class="el" href="class_friend_data.html" title="Class that stores the information of one of the current user&#39;s friend.">FriendData</a> object.  <a href="classfirebase_handler.html#a79f50b713883df7fc275f725486fa424">More...</a><br /></td></tr>
 <tr class="separator:a79f50b713883df7fc275f725486fa424"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e64c2244615553b1c6d60498badfec3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a1e64c2244615553b1c6d60498badfec3">updateUserDeleteAFriend</a> (string noFriendUid, string deletedFriendsList)</td></tr>
-<tr class="memdesc:a1e64c2244615553b1c6d60498badfec3"><td class="mdescLeft">&#160;</td><td class="mdescRight">WTF por que deletedFriendsList es un string en vez de una lista?!?!?. This method must be called when there is internet connection, otherwise it wont to nothing. This method upload the deletedFriends property of the user that has the given id.  <a href="classfirebase_handler.html#a1e64c2244615553b1c6d60498badfec3">More...</a><br /></td></tr>
-<tr class="separator:a1e64c2244615553b1c6d60498badfec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59e38bcbbfa4a3eca14e01bac8494fc5"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a59e38bcbbfa4a3eca14e01bac8494fc5">SearchOtherUserByName</a> (string toSearch, string type, <a class="el" href="class_search_bar.html">SearchBar</a> toAdvise=null)</td></tr>
-<tr class="memdesc:a59e38bcbbfa4a3eca14e01bac8494fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method tries to find other user on the list of users that allow be found by other users on the different types of searchs. The information that is returned depends on the type of the search. If a <a class="el" href="class_search_bar.html" title="This class controls the search bar of the screen that allow the user find other users to send them a ...">SearchBar</a> object is given it will call the resultsOfTheSearch method of that class with a dictionary version of the found user.  <a href="classfirebase_handler.html#a59e38bcbbfa4a3eca14e01bac8494fc5">More...</a><br /></td></tr>
-<tr class="separator:a59e38bcbbfa4a3eca14e01bac8494fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dce85004e8ee815fe14f564b75d7c91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a5dce85004e8ee815fe14f564b75d7c91">updateUserDeleteAFriend</a> (string noFriendUid, string deletedFriendsListInJSON)</td></tr>
+<tr class="memdesc:a5dce85004e8ee815fe14f564b75d7c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method must be called when there is internet connection, otherwise it wont to nothing. This method upload the deletedFriends property of the user that has the given id.  <a href="classfirebase_handler.html#a5dce85004e8ee815fe14f564b75d7c91">More...</a><br /></td></tr>
+<tr class="separator:a5dce85004e8ee815fe14f564b75d7c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3c1ddbba64c73b7ec1a927c945bda60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aa3c1ddbba64c73b7ec1a927c945bda60">SearchOtherUserByName</a> (string toSearch, string type, <a class="el" href="class_search_bar.html">SearchBar</a> toAdvise=null)</td></tr>
+<tr class="memdesc:aa3c1ddbba64c73b7ec1a927c945bda60"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method tries to find other user on the list of users that allow be found by other users on the different types of searchs. If a <a class="el" href="class_search_bar.html" title="This class controls the search bar of the screen that allow the user find other users to send them a ...">SearchBar</a> object is given it will call the resultsOfTheSearch method of that class with a dictionary version of the found user.  <a href="classfirebase_handler.html#aa3c1ddbba64c73b7ec1a927c945bda60">More...</a><br /></td></tr>
+<tr class="separator:aa3c1ddbba64c73b7ec1a927c945bda60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c59535dfc15cd611f0a6bda8b887b7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a8c59535dfc15cd611f0a6bda8b887b7c">sendFriendshipInvitation</a> (string uidToInvite, <a class="el" href="class_searched_player.html">SearchedPlayer</a> searchedPlayerToAdvice)</td></tr>
 <tr class="memdesc:a8c59535dfc15cd611f0a6bda8b887b7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method tries to send a new friendship invitation of the current user to the user that has the given id. The sending can produce three states:  <a href="classfirebase_handler.html#a8c59535dfc15cd611f0a6bda8b887b7c">More...</a><br /></td></tr>
 <tr class="separator:a8c59535dfc15cd611f0a6bda8b887b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a753ceb400dcd4339b2b7d609f09102"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a3a753ceb400dcd4339b2b7d609f09102">askForNewPlaces</a> ()</td></tr>
+<tr class="memdesc:a3a753ceb400dcd4339b2b7d609f09102"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method calls the updateStartIndex method of the <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> class to make the <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> choose new places.  <a href="classfirebase_handler.html#a3a753ceb400dcd4339b2b7d609f09102">More...</a><br /></td></tr>
+<tr class="separator:a3a753ceb400dcd4339b2b7d609f09102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89ce698937f9f0b6c9e1da9cee773e64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a89ce698937f9f0b6c9e1da9cee773e64">uploadFriendChallengesOf</a> (<a class="el" href="class_friend_data.html">FriendData</a> friendDataToUpload)</td></tr>
+<tr class="memdesc:a89ce698937f9f0b6c9e1da9cee773e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method upload the challengue list of the given user.  <a href="classfirebase_handler.html#a89ce698937f9f0b6c9e1da9cee773e64">More...</a><br /></td></tr>
+<tr class="separator:a89ce698937f9f0b6c9e1da9cee773e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -198,6 +204,15 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:ada3d92f5afe301370b0696a3a7ade2be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ada3d92f5afe301370b0696a3a7ade2be">downloadNewFriendInvitationData</a> (string uid)</td></tr>
 <tr class="memdesc:ada3d92f5afe301370b0696a3a7ade2be"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method tries to download the display name and the list of newFriendsInvitations of the user that matches the given user id. If its fails it adds the user id to the newFriendDataDownloadQueue_ list and if its success, its calls the addNewFriendData method of <a class="el" href="class_user_data.html" title="Class that stores the current user data.">UserData</a>.  <a href="classfirebase_handler.html#ada3d92f5afe301370b0696a3a7ade2be">More...</a><br /></td></tr>
 <tr class="separator:ada3d92f5afe301370b0696a3a7ade2be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abffc3260d05bb5082b7a683ae80274f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#abffc3260d05bb5082b7a683ae80274f7">OnDestroy</a> ()</td></tr>
+<tr class="memdesc:abffc3260d05bb5082b7a683ae80274f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called when the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> object is destroyed.  <a href="classfirebase_handler.html#abffc3260d05bb5082b7a683ae80274f7">More...</a><br /></td></tr>
+<tr class="separator:abffc3260d05bb5082b7a683ae80274f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46fb1d4715589815b6c57b8442edb79e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a46fb1d4715589815b6c57b8442edb79e">OnSceneLoaded</a> (Scene scene, LoadSceneMode mode)</td></tr>
+<tr class="memdesc:a46fb1d4715589815b6c57b8442edb79e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called each time a scene is loaded, if placesReady_ variable is true, it calls the useStartIndex method of the <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> object, to allow keeping with same places.  <a href="classfirebase_handler.html#a46fb1d4715589815b6c57b8442edb79e">More...</a><br /></td></tr>
+<tr class="separator:a46fb1d4715589815b6c57b8442edb79e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9979443635c9d02f69d2ae5671ece914"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a9979443635c9d02f69d2ae5671ece914">downloadUsersPermissionsLists</a> ()</td></tr>
+<tr class="memdesc:a9979443635c9d02f69d2ae5671ece914"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method download the lists of the user social permissions. They are usersThatAllowFriendshipInvitations, usersThatAllowBeChallenged and usersThatAllowAppearedOnRanking. The downloadingAnyOfTheUsersPermissionsLists_ is set as a true. The social permissions are downloaded in a parallel way for searching more efficiency if some of them failed the downloadingAnyOfTheUsersPermissionsLists_ property will be set as false again.  <a href="classfirebase_handler.html#a9979443635c9d02f69d2ae5671ece914">More...</a><br /></td></tr>
+<tr class="separator:a9979443635c9d02f69d2ae5671ece914"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -225,6 +240,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ab765de99224181490bac7003babb04b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f90b30b7131095e3995d37ac9eeeef7"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a3f90b30b7131095e3995d37ac9eeeef7">newFriendDataDownloadQueue_</a></td></tr>
 <tr class="separator:a3f90b30b7131095e3995d37ac9eeeef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60ebe38d3bc1ee2d3197eafabd58fc83"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a60ebe38d3bc1ee2d3197eafabd58fc83">downloadingAnyOfTheUsersPermissionsLists_</a></td></tr>
+<tr class="memdesc:a60ebe38d3bc1ee2d3197eafabd58fc83"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if it is trying to download any of the user permissions lists right now. false in other case.  <a href="classfirebase_handler.html#a60ebe38d3bc1ee2d3197eafabd58fc83">More...</a><br /></td></tr>
+<tr class="separator:a60ebe38d3bc1ee2d3197eafabd58fc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class follows the Singleton patron, so it only has one instance at the same time. The instance could be found on the firebaseHandlerInstance_ public static property. This class handles all the firebase releated methods like validating user, creating new users, downloading and uploading all the data from the database. </p>
@@ -264,6 +282,25 @@ Private Attributes</h2></td></tr>
 
 <p>This method calls askForAPlace method of <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> and returns the place that that method returns. If you want more information check the <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> documentation. This method also instanciate a <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> if it doesnt exists when its called. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_place.html" title="class that stores all the information of a place. It also has to download the image of the place.">Place</a> place that should be used next. </dd></dl>
+
+</div>
+</div>
+<a id="a3a753ceb400dcd4339b2b7d609f09102" name="a3a753ceb400dcd4339b2b7d609f09102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a753ceb400dcd4339b2b7d609f09102">&#9670;&nbsp;</a></span>askForNewPlaces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.askForNewPlaces </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method calls the updateStartIndex method of the <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> class to make the <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> choose new places. </p>
 
 </div>
 </div>
@@ -627,6 +664,33 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a9979443635c9d02f69d2ae5671ece914" name="a9979443635c9d02f69d2ae5671ece914"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9979443635c9d02f69d2ae5671ece914">&#9670;&nbsp;</a></span>downloadUsersPermissionsLists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.downloadUsersPermissionsLists </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method download the lists of the user social permissions. They are usersThatAllowFriendshipInvitations, usersThatAllowBeChallenged and usersThatAllowAppearedOnRanking. The downloadingAnyOfTheUsersPermissionsLists_ is set as a true. The social permissions are downloaded in a parallel way for searching more efficiency if some of them failed the downloadingAnyOfTheUsersPermissionsLists_ property will be set as false again. </p>
+
+</div>
+</div>
 <a id="adeb8dfca0be45c50bbc3890cc8c05048" name="adeb8dfca0be45c50bbc3890cc8c05048"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adeb8dfca0be45c50bbc3890cc8c05048">&#9670;&nbsp;</a></span>findPlaceByName()</h2>
 
@@ -835,6 +899,78 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="abffc3260d05bb5082b7a683ae80274f7" name="abffc3260d05bb5082b7a683ae80274f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abffc3260d05bb5082b7a683ae80274f7">&#9670;&nbsp;</a></span>OnDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.OnDestroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is called when the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> object is destroyed. </p>
+
+</div>
+</div>
+<a id="a46fb1d4715589815b6c57b8442edb79e" name="a46fb1d4715589815b6c57b8442edb79e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46fb1d4715589815b6c57b8442edb79e">&#9670;&nbsp;</a></span>OnSceneLoaded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.OnSceneLoaded </td>
+          <td>(</td>
+          <td class="paramtype">Scene&#160;</td>
+          <td class="paramname"><em>scene</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LoadSceneMode&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method is called each time a scene is loaded, if placesReady_ variable is true, it calls the useStartIndex method of the <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> object, to allow keeping with same places. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Scene</td><td>the information of the scene it just has loaded. </td></tr>
+    <tr><td class="paramname">LoadSceneMode</td><td>object that contains the information of the way that the scene was loaded. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a62e983ac87dcac624548cf24868db9c8" name="a62e983ac87dcac624548cf24868db9c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a62e983ac87dcac624548cf24868db9c8">&#9670;&nbsp;</a></span>placesAreReady()</h2>
 
@@ -871,14 +1007,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a59e38bcbbfa4a3eca14e01bac8494fc5" name="a59e38bcbbfa4a3eca14e01bac8494fc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59e38bcbbfa4a3eca14e01bac8494fc5">&#9670;&nbsp;</a></span>SearchOtherUserByName()</h2>
+<a id="aa3c1ddbba64c73b7ec1a927c945bda60" name="aa3c1ddbba64c73b7ec1a927c945bda60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3c1ddbba64c73b7ec1a927c945bda60">&#9670;&nbsp;</a></span>SearchOtherUserByName()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Dictionary&lt; string, string &gt; firebaseHandler.SearchOtherUserByName </td>
+          <td class="memname">void firebaseHandler.SearchOtherUserByName </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>toSearch</em>, </td>
@@ -903,7 +1039,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This method tries to find other user on the list of users that allow be found by other users on the different types of searchs. The information that is returned depends on the type of the search. If a <a class="el" href="class_search_bar.html" title="This class controls the search bar of the screen that allow the user find other users to send them a ...">SearchBar</a> object is given it will call the resultsOfTheSearch method of that class with a dictionary version of the found user. </p>
+<p>This method tries to find other user on the list of users that allow be found by other users on the different types of searchs. If a <a class="el" href="class_search_bar.html" title="This class controls the search bar of the screen that allow the user find other users to send them a ...">SearchBar</a> object is given it will call the resultsOfTheSearch method of that class with a dictionary version of the found user. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">string</td><td>that contains the displayName that you want to search </td></tr>
@@ -912,7 +1048,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Dictionary&lt;string,string&gt; A dictionary version of the necessary information of the player that has the given user id. </dd></dl>
 
 </div>
 </div>
@@ -1068,8 +1203,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1e64c2244615553b1c6d60498badfec3" name="a1e64c2244615553b1c6d60498badfec3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e64c2244615553b1c6d60498badfec3">&#9670;&nbsp;</a></span>updateUserDeleteAFriend()</h2>
+<a id="a5dce85004e8ee815fe14f564b75d7c91" name="a5dce85004e8ee815fe14f564b75d7c91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dce85004e8ee815fe14f564b75d7c91">&#9670;&nbsp;</a></span>updateUserDeleteAFriend()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1084,7 +1219,7 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>deletedFriendsList</em>&#160;</td>
+          <td class="paramname"><em>deletedFriendsListInJSON</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1094,11 +1229,37 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>WTF por que deletedFriendsList es un string en vez de una lista?!?!?. This method must be called when there is internet connection, otherwise it wont to nothing. This method upload the deletedFriends property of the user that has the given id. </p>
+<p>This method must be called when there is internet connection, otherwise it wont to nothing. This method upload the deletedFriends property of the user that has the given id. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">string</td><td>that contains the user that will has erased the friendship with the current user. </td></tr>
-    <tr><td class="paramname">string</td><td>that contains the deleted friends list of the user that has the given id. </td></tr>
+    <tr><td class="paramname">string</td><td>that contains the deleted friends list of the user that has the given id in the JSON format. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a89ce698937f9f0b6c9e1da9cee773e64" name="a89ce698937f9f0b6c9e1da9cee773e64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89ce698937f9f0b6c9e1da9cee773e64">&#9670;&nbsp;</a></span>uploadFriendChallengesOf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.uploadFriendChallengesOf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_friend_data.html">FriendData</a>&#160;</td>
+          <td class="paramname"><em>friendDataToUpload</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>this method upload the challengue list of the given user. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_friend_data.html" title="Class that stores the information of one of the current user&#39;s friend.">FriendData</a></td><td>object that contains all the information releated to the user that own the challenges we want to upload. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1383,6 +1544,30 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >A instance of the class <a class="el" href="class_user_data.html" title="Class that stores the current user data.">UserData</a>, it stores the downloaded data from the database, check the documentation of that class to get more information. </p>
+
+</div>
+</div>
+<a id="a60ebe38d3bc1ee2d3197eafabd58fc83" name="a60ebe38d3bc1ee2d3197eafabd58fc83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60ebe38d3bc1ee2d3197eafabd58fc83">&#9670;&nbsp;</a></span>downloadingAnyOfTheUsersPermissionsLists_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool firebaseHandler.downloadingAnyOfTheUsersPermissionsLists_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>true if it is trying to download any of the user permissions lists right now. false in other case. </p>
 
 </div>
 </div>

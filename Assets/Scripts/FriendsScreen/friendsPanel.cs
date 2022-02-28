@@ -26,7 +26,12 @@ public class friendsPanel : MonoBehaviour
       * @brief count of the elements that the panel is showing the last time it adapted its height.
       */
     private int lastCount_;
-    
+
+    /**
+      * @brief initial height of the panel.
+      */
+    private float initialHeight_;
+
     /**
       * This method is called before the first frame, it initialices the friends_, panelFilled_ and 
       * lastCount_ property. And also, if both methods userDataIsReady and friendDataIsComplete of the 
@@ -37,6 +42,7 @@ public class friendsPanel : MonoBehaviour
         friends_ = new List<GameObject>();
         panelFilled_ = false;
         lastCount_ = 0;
+        initialHeight_ = (float)gameObject.transform.GetComponent<RectTransform>().rect.height;
         if(firebaseHandler.firebaseHandlerInstance_.userDataIsReady() && firebaseHandler.firebaseHandlerInstance_.currentUser_.friendDataIsComplete()){
             fillPanel();
         } 
@@ -84,6 +90,8 @@ public class friendsPanel : MonoBehaviour
             float newHeight = GetComponent<RectTransform>().rect.height;
             newHeight += lastCount_ < friends_.Count ? baseHeight*(friends_.Count-4) : -baseHeight*(lastCount_-friends_.Count);
             GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);
+        }else{
+            GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, initialHeight_);
         }
         lastCount_ = friends_.Count;
     }
@@ -104,6 +112,5 @@ public class friendsPanel : MonoBehaviour
     public void friendDeleted(GameObject friendDeleted){
         friends_.Remove(friendDeleted);
         firebaseHandler.firebaseHandlerInstance_.currentUser_.deleteFriend(friendDeleted.GetComponent<Friend>().getUid());
-        
     }
 }

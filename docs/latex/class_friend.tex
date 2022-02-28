@@ -25,12 +25,18 @@ void \mbox{\hyperlink{class_friend_ad8f257a6e72ff1026f11defc068c01ca}{delete\+Fr
 string \mbox{\hyperlink{class_friend_a8da65b46ba38c12762ea68308abe8975}{get\+Name}} ()
 \begin{DoxyCompactList}\small\item\em getter of the display name of the represented user. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_friend_a878b592ba7cb49334bda9a0c86a0a308}{get\+Uid}} ()
-\begin{DoxyCompactList}\small\item\em getter of the user id of the represented user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em getter of the user id of the represented user. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_friend_data}{Friend\+Data}} \mbox{\hyperlink{class_friend_ab8c05ea62a621c598a374b0ce6f2d0f5}{get\+Friend\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Getter of the friend\+Data\+\_\+ property. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_friend_abfe11adc15a0deeadd45d0f3e948fa5a}{choose\+This\+Friend\+And\+Upload}} ()
+\begin{DoxyCompactList}\small\item\em This method if there is internet connection, selects the represented friend to be challenged, creates a new challenge on the selected friend, calls the upload\+Friend\+Challenges\+Of method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class, advise the user with a toastmessage and then, destroy this Game\+Object. If there is no internet connection it simply shows a toastmessage telling the user that it needs internet connection to challenge his friend successfully. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_friend_a646bbbf9ea25b0c3902f4620b87d45d5}{destroy\+And\+Advice}} ()
-\begin{DoxyCompactList}\small\item\em This method destroy this Game\+Object and notify the \mbox{\hyperlink{classfriends_panel}{friends\+Panel}} object at it is attached to make it adjust his height. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This method destroy this Game\+Object and notify the \mbox{\hyperlink{classfriends_panel}{friends\+Panel}} object at it is attached to make it adjust his height. \end{DoxyCompactList}\item 
+IEnumerator \mbox{\hyperlink{class_friend_ac943e32987b52c57e5b9a50cc1efc487}{destroy\+After\+Seconds}} (int seconds)
+\begin{DoxyCompactList}\small\item\em This method wait for the given number of seconds and then it calls the destroy\+And\+Advice method. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,6 +66,16 @@ class that controls the panel element that represent one of the current user fri
 
 TODO. 
 
+\mbox{\Hypertarget{class_friend_abfe11adc15a0deeadd45d0f3e948fa5a}\label{class_friend_abfe11adc15a0deeadd45d0f3e948fa5a}} 
+\index{Friend@{Friend}!chooseThisFriendAndUpload@{chooseThisFriendAndUpload}}
+\index{chooseThisFriendAndUpload@{chooseThisFriendAndUpload}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{chooseThisFriendAndUpload()}{chooseThisFriendAndUpload()}}
+{\footnotesize\ttfamily void Friend.\+choose\+This\+Friend\+And\+Upload (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method if there is internet connection, selects the represented friend to be challenged, creates a new challenge on the selected friend, calls the upload\+Friend\+Challenges\+Of method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class, advise the user with a toastmessage and then, destroy this Game\+Object. If there is no internet connection it simply shows a toastmessage telling the user that it needs internet connection to challenge his friend successfully. 
+
 \mbox{\Hypertarget{class_friend_ad8f257a6e72ff1026f11defc068c01ca}\label{class_friend_ad8f257a6e72ff1026f11defc068c01ca}} 
 \index{Friend@{Friend}!deleteFriend@{deleteFriend}}
 \index{deleteFriend@{deleteFriend}!Friend@{Friend}}
@@ -70,6 +86,21 @@ TODO.
 
 this method deletes the friendship relationship if there is internet connection. Before deleting the friendship relationship it notify the user to make him aware of what he is doing. 
 
+\mbox{\Hypertarget{class_friend_ac943e32987b52c57e5b9a50cc1efc487}\label{class_friend_ac943e32987b52c57e5b9a50cc1efc487}} 
+\index{Friend@{Friend}!destroyAfterSeconds@{destroyAfterSeconds}}
+\index{destroyAfterSeconds@{destroyAfterSeconds}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{destroyAfterSeconds()}{destroyAfterSeconds()}}
+{\footnotesize\ttfamily IEnumerator Friend.\+destroy\+After\+Seconds (\begin{DoxyParamCaption}\item[{int}]{seconds }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method wait for the given number of seconds and then it calls the destroy\+And\+Advice method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & number of seconds that it has to wait. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_friend_a646bbbf9ea25b0c3902f4620b87d45d5}\label{class_friend_a646bbbf9ea25b0c3902f4620b87d45d5}} 
 \index{Friend@{Friend}!destroyAndAdvice@{destroyAndAdvice}}
 \index{destroyAndAdvice@{destroyAndAdvice}!Friend@{Friend}}
@@ -80,6 +111,19 @@ this method deletes the friendship relationship if there is internet connection.
 
 This method destroy this Game\+Object and notify the \mbox{\hyperlink{classfriends_panel}{friends\+Panel}} object at it is attached to make it adjust his height. 
 
+\mbox{\Hypertarget{class_friend_ab8c05ea62a621c598a374b0ce6f2d0f5}\label{class_friend_ab8c05ea62a621c598a374b0ce6f2d0f5}} 
+\index{Friend@{Friend}!getFriendData@{getFriendData}}
+\index{getFriendData@{getFriendData}!Friend@{Friend}}
+\doxysubsubsection{\texorpdfstring{getFriendData()}{getFriendData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_friend_data}{Friend\+Data}} Friend.\+get\+Friend\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter of the friend\+Data\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{class_friend_data}{Friend\+Data}} object that is on the friend\+Data\+\_\+ attribute. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_friend_a8da65b46ba38c12762ea68308abe8975}\label{class_friend_a8da65b46ba38c12762ea68308abe8975}} 
 \index{Friend@{Friend}!getName@{getName}}
 \index{getName@{getName}!Friend@{Friend}}

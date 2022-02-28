@@ -100,12 +100,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a878b592ba7cb49334bda9a0c86a0a308"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#a878b592ba7cb49334bda9a0c86a0a308">getUid</a> ()</td></tr>
 <tr class="memdesc:a878b592ba7cb49334bda9a0c86a0a308"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the user id of the represented user.  <a href="class_friend.html#a878b592ba7cb49334bda9a0c86a0a308">More...</a><br /></td></tr>
 <tr class="separator:a878b592ba7cb49334bda9a0c86a0a308"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8c05ea62a621c598a374b0ce6f2d0f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_friend_data.html">FriendData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#ab8c05ea62a621c598a374b0ce6f2d0f5">getFriendData</a> ()</td></tr>
+<tr class="memdesc:ab8c05ea62a621c598a374b0ce6f2d0f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of the friendData_ property.  <a href="class_friend.html#ab8c05ea62a621c598a374b0ce6f2d0f5">More...</a><br /></td></tr>
+<tr class="separator:ab8c05ea62a621c598a374b0ce6f2d0f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfe11adc15a0deeadd45d0f3e948fa5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#abfe11adc15a0deeadd45d0f3e948fa5a">chooseThisFriendAndUpload</a> ()</td></tr>
+<tr class="memdesc:abfe11adc15a0deeadd45d0f3e948fa5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method if there is internet connection, selects the represented friend to be challenged, creates a new challenge on the selected friend, calls the uploadFriendChallengesOf method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class, advise the user with a toastmessage and then, destroy this GameObject. If there is no internet connection it simply shows a toastmessage telling the user that it needs internet connection to challenge his friend successfully.  <a href="class_friend.html#abfe11adc15a0deeadd45d0f3e948fa5a">More...</a><br /></td></tr>
+<tr class="separator:abfe11adc15a0deeadd45d0f3e948fa5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a646bbbf9ea25b0c3902f4620b87d45d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#a646bbbf9ea25b0c3902f4620b87d45d5">destroyAndAdvice</a> ()</td></tr>
 <tr class="memdesc:a646bbbf9ea25b0c3902f4620b87d45d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method destroy this GameObject and notify the <a class="el" href="classfriends_panel.html" title="Class that controls the panel that shows the friends of the current user.">friendsPanel</a> object at it is attached to make it adjust his height.  <a href="class_friend.html#a646bbbf9ea25b0c3902f4620b87d45d5">More...</a><br /></td></tr>
 <tr class="separator:a646bbbf9ea25b0c3902f4620b87d45d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac943e32987b52c57e5b9a50cc1efc487"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#ac943e32987b52c57e5b9a50cc1efc487">destroyAfterSeconds</a> (int seconds)</td></tr>
+<tr class="memdesc:ac943e32987b52c57e5b9a50cc1efc487"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method wait for the given number of seconds and then it calls the destroyAndAdvice method.  <a href="class_friend.html#ac943e32987b52c57e5b9a50cc1efc487">More...</a><br /></td></tr>
+<tr class="separator:ac943e32987b52c57e5b9a50cc1efc487"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -147,6 +156,25 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="abfe11adc15a0deeadd45d0f3e948fa5a" name="abfe11adc15a0deeadd45d0f3e948fa5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfe11adc15a0deeadd45d0f3e948fa5a">&#9670;&nbsp;</a></span>chooseThisFriendAndUpload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Friend.chooseThisFriendAndUpload </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method if there is internet connection, selects the represented friend to be challenged, creates a new challenge on the selected friend, calls the uploadFriendChallengesOf method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class, advise the user with a toastmessage and then, destroy this GameObject. If there is no internet connection it simply shows a toastmessage telling the user that it needs internet connection to challenge his friend successfully. </p>
+
+</div>
+</div>
 <a id="ad8f257a6e72ff1026f11defc068c01ca" name="ad8f257a6e72ff1026f11defc068c01ca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad8f257a6e72ff1026f11defc068c01ca">&#9670;&nbsp;</a></span>deleteFriend()</h2>
 
@@ -163,6 +191,40 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>this method deletes the friendship relationship if there is internet connection. Before deleting the friendship relationship it notify the user to make him aware of what he is doing. </p>
+
+</div>
+</div>
+<a id="ac943e32987b52c57e5b9a50cc1efc487" name="ac943e32987b52c57e5b9a50cc1efc487"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac943e32987b52c57e5b9a50cc1efc487">&#9670;&nbsp;</a></span>destroyAfterSeconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerator Friend.destroyAfterSeconds </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>seconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method wait for the given number of seconds and then it calls the destroyAndAdvice method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>number of seconds that it has to wait. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -190,6 +252,26 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This method destroy this GameObject and notify the <a class="el" href="classfriends_panel.html" title="Class that controls the panel that shows the friends of the current user.">friendsPanel</a> object at it is attached to make it adjust his height. </p>
+
+</div>
+</div>
+<a id="ab8c05ea62a621c598a374b0ce6f2d0f5" name="ab8c05ea62a621c598a374b0ce6f2d0f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8c05ea62a621c598a374b0ce6f2d0f5">&#9670;&nbsp;</a></span>getFriendData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_friend_data.html">FriendData</a> Friend.getFriendData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter of the friendData_ property. </p>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="class_friend_data.html" title="Class that stores the information of one of the current user&#39;s friend.">FriendData</a> object that is on the friendData_ attribute. </dd></dl>
 
 </div>
 </div>

@@ -39,7 +39,6 @@ public class ChangeScene : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
         text_.SetActive(false);//para evitar que reciba el los clicks
-        //DontDestroyOnLoad(transform.root.gameObject);
     }
 
     /**
@@ -83,4 +82,7 @@ public class ChangeScene : MonoBehaviour
         transition_.SetTrigger("Reset");
         text_.SetActive(false);//para evitar que reciba el los clicks
     }
+
+    
+
 }

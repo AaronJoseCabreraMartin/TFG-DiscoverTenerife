@@ -51,6 +51,7 @@ public class SearchBar : MonoBehaviour
       * method of firebaseHandler.
       */
     public void OnEndWriting(string searchedName){
+        panel_.GetComponent<SearchedFriendsPanel>().clearSearchedFriendsPanel();
         //si no hay internet o es tu propio uid o ya es un amigo ni lo intenta buscar
         if( !firebaseHandler.firebaseHandlerInstance_.internetConnection() || 
             text_.GetComponent<Text>().text == firebaseHandler.firebaseHandlerInstance_.auth.CurrentUser.DisplayName ||

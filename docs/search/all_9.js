@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['lastcount_5f_0',['lastCount_',['../classnew_friend_invitation_panel.html#ae11a9e8070d56b829a0ea9417fd0869b',1,'newFriendInvitationPanel.lastCount_()'],['../classfriends_panel.html#a4c95308020ee5ff3cfcb248ff0372507',1,'friendsPanel.lastCount_()']]],
+  ['lastcount_5f_0',['lastCount_',['../classnew_friend_invitation_panel.html#ae11a9e8070d56b829a0ea9417fd0869b',1,'newFriendInvitationPanel.lastCount_()'],['../classfriends_panel.html#a4c95308020ee5ff3cfcb248ff0372507',1,'friendsPanel.lastCount_()'],['../class_search_a_friend_to_challenge_panel.html#aa350afc8e26a0f28cadf8bcbb63e3a43',1,'SearchAFriendToChallengePanel.lastCount_()']]],
   ['lastoptionclicked_5f_1',['lastOptionClicked_',['../classoptions_controller.html#ac29da7d555a81106d1a2c2918c4d5cdd',1,'optionsController']]],
   ['lastscene_5f_2',['lastScene_',['../classoptions_controller.html#a995392b0e2ad45dcd26ef8e76fca19cd',1,'optionsController']]],
   ['lastvisittimestamp_3',['lastVisitTimestamp',['../class_stored_place.html#a0a4a889cc33024bb17656b3d1cf6719e',1,'StoredPlace']]],

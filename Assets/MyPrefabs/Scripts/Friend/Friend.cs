@@ -92,7 +92,8 @@ public class Friend : MonoBehaviour
                 //toast de amigo eliminado!
                 toastMessageObject_.GetComponent<toastMessage>().makeAnimation(friendData_.getDisplayName() + " is no longer a friend", new Color32(255,0,0,255), 5);
                 //destruye este objeto y actualiza el tamaño del panel
-                destroyAndAdvice();
+                //destroyAndAdvice();
+                StartCoroutine(destroyAfterSeconds(5));
             }else{
                 toastMessageObject_.GetComponent<toastMessage>().makeAnimation("Are you sure that you want to delete "+friendData_.getDisplayName() + " as a friend?", new Color32(255,145,15,255), 5);
                 userWasNotified_ = true;
@@ -108,7 +109,13 @@ public class Friend : MonoBehaviour
       * his height.
       */
     private void destroyAndAdvice(){
-        panel_.GetComponent<friendsPanel>().friendDeleted(this.gameObject);
+        if(panel_!= null){
+            if(panel_.GetComponent<friendsPanel>() != null){
+              panel_.GetComponent<friendsPanel>().friendDeleted(this.gameObject);
+            }else if(panel_.GetComponent<SearchAFriendToChallengePanel>() != null){
+              panel_.GetComponent<SearchAFriendToChallengePanel>().deleteAChallengeableFriend(this.gameObject);
+            }
+        }
         Destroy(this.gameObject);
         Destroy(this);
     }
@@ -127,5 +134,46 @@ public class Friend : MonoBehaviour
       */
     public string getUid(){
       return friendData_.getUid();
+    }
+
+    /**
+      * @return The FriendData object that is on the friendData_ attribute.
+      * @brief Getter of the friendData_ property.
+      */
+    public FriendData getFriendData(){
+      return friendData_;
+    }
+
+    /**
+      * @brief This method if there is internet connection, selects the represented friend 
+      * to be challenged, creates a new challenge on the selected friend, calls the
+      * uploadFriendChallengesOf method of firebaseHandler class, advise the user with a
+      * toastmessage and then, destroy this GameObject. If there is no internet connection
+      * it simply shows a toastmessage telling the user that it needs internet connection
+      * to challenge his friend successfully.
+      */
+    public void chooseThisFriendAndUpload(){
+      if(firebaseHandler.firebaseHandlerInstance_.internetConnection()){
+        FriendData.chosenFriend_ = GetComponent<Friend>().getFriendData();
+        Debug.Log(FriendData.chosenFriend_);
+        Debug.Log(FriendData.chosenFriend_.getDisplayName());
+        Dictionary<string,string> placeKeys = firebaseHandler.firebaseHandlerInstance_.findPlaceByName(PlaceHandler.chosenPlace_.getName());
+        friendData_.createNewChallenge(placeKeys["id"], placeKeys["type"],firebaseHandler.firebaseHandlerInstance_.currentUser_.getUid());
+        firebaseHandler.firebaseHandlerInstance_.uploadFriendChallengesOf(friendData_);
+        toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You have chanllege " + FriendData.chosenFriend_.getDisplayName() + " successfully", new Color32(76,175,80,255), 5);
+        StartCoroutine(destroyAfterSeconds(5));
+      }else{
+        toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You don't have internet connection, try it again later.", new Color32(255,0,0,255), 5);
+      }
+    }
+
+    /**
+      * @param int number of seconds that it has to wait.
+      * @brief This method wait for the given number of seconds and then
+      * it calls the destroyAndAdvice method.
+      */
+    IEnumerator destroyAfterSeconds(int seconds){
+        yield return new WaitForSeconds(seconds);
+        destroyAndAdvice();
     }
 }

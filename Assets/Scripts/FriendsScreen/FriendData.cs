@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +29,7 @@ public class FriendData
     private int score_;
 
     /**
-      * List that contains strings with the user id of the users that has removed
+      * @brief List that contains strings with the user id of the users that has removed
       * their frienship with the represented user. It has to be a list because more than
       * one user can erase their friendship before the represented user connects again to 
       * the app.
@@ -36,17 +37,52 @@ public class FriendData
     private List<string> deletedFriends_;
 
     /**
+      * @brief List that contains challengeData objects that represents all the challenges
+      * that the represented friend has.
+      */
+    private List<challengeData> challenges_;
+
+    /**
+      * @brief List of strings that contains the user id of the users that
+      * allow receive friendships invitations from other players.
+      */
+    public static List<string> usersThatAllowFriendshipInvitations_;
+
+    /**
+      * @brief List of strings that contains the user id of the users that
+      * allow receive challenges from other players that are they friends.
+      */
+    public static List<string> usersThatAllowBeChallenged_;
+
+    /**
+      * @brief List of strings that contains the user id of the users that
+      * allow be shown on the ranking of the players.
+      */
+    public static List<string> usersThatAllowAppearedOnRanking_;
+
+    /**
+      * @brief static property that stored the information of the chosen friend.
+      */
+    public static FriendData chosenFriend_;
+
+    /**
       * @param string user id of the represented user.
       * @param string display name of the represented user.
       * @param List<string> list of strings that contains the user ids from the users
       * that have deleted the friendship.
-      * @brief Constructor that initialize the uid_, the displayName_ and the deletedFriends_ properties
-      * with the given parameters.
+      * @param List<Dictionary<string,string>> list that contains all the information on
+      * dictionaries of strings of all the challenges that represented friend has.
+      * @brief Constructor that initialize the uid_, the displayName_, the deletedFriends_ and
+      * challenges_ properties with the given parameters.
       */
-    public FriendData(string uid, string displayName, List<string> deletedFriends){
+    public FriendData(string uid, string displayName, List<string> deletedFriends, List<Dictionary<string,string>> challengeData){
         uid_ = uid;
         displayName_ = displayName;
         deletedFriends_ = deletedFriends;
+        challenges_ = new List<challengeData>();
+        foreach(Dictionary<string,string> challengeInfo in challengeData ){
+          challenges_.Add(new challengeData(challengeInfo));
+        }
     }
 
     /**
@@ -89,4 +125,54 @@ public class FriendData
         conversion += "]";
         return conversion;
     }
+
+    /**
+      * @param string that contains the place id of the place that the user has
+      * to visit for completing the challenge.
+      * @param string that contains the type of the place that the user has to
+      * visit for completing the challenge.
+      * @param string that contains the user id of the user that has challenged
+      * the represented user.
+      * @brief this method instanciate a new challengeData object with the given information
+      * and the current ticks and it adds the new challengeData object to the challenges_
+      * property. 
+      */
+    public void createNewChallenge(string placeId, string placeType, string challengerId){
+      Dictionary<string,string> challengeInfo = new Dictionary<string,string>();
+      challengeInfo["placeId_"] = placeId;
+      challengeInfo["placeType_"] = placeType;
+      challengeInfo["challengerId_"] = challengerId;
+      challengeInfo["startTimestamp_"] = DateTime.Now.Ticks.ToString();
+      challenges_.Add(new challengeData(challengeInfo));
+    }
+
+    /**
+      * @param string that contains the user id of the user that we are going
+      * to check.
+      * @return bool, true if the represented user has a challenge of the
+      * given user id.
+      * @brief This method returns true if the represented user has a challenge
+      * of the user that has the given user id, in other case, it returns false.
+      */
+    public bool hasAChallengeOfThisUser(string uid){
+      return challenges_.Exists(challenge => challenge.getChallengerId() == uid);
+    }
+
+    /**
+      * @return string that contains the JSON conversion in a string.
+      * @brief This method returns a string conversion of the whole list
+      * of challenges of the represented user. It uses the ToJson method
+      * of the challengeData class.
+      */
+    public string getStringConversionOfChallenges(){
+      string conversion = "[";
+        for(int index = 0; index < challenges_.Count; index++){
+          conversion += challenges_[index].ToJson();
+          if(index + 1 != challenges_.Count){
+            conversion += ",";
+          }
+        }
+        conversion += "]";
+        return conversion;
+   }
 }

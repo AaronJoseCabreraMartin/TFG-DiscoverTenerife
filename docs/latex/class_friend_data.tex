@@ -8,8 +8,8 @@ Class that stores the information of one of the current user\textquotesingle{}s 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_friend_data_a806d0f0959decfd2aedcdfad9d810418}{Friend\+Data}} (string uid, string display\+Name, List$<$ string $>$ deleted\+Friends)
-\begin{DoxyCompactList}\small\item\em Constructor that initialize the uid\+\_\+, the display\+Name\+\_\+ and the deleted\+Friends\+\_\+ properties with the given parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_friend_data_ad5912f990db26a2c23a4c50c39a5cb78}{Friend\+Data}} (string uid, string display\+Name, List$<$ string $>$ deleted\+Friends, List$<$ Dictionary$<$ string, string $>$ $>$ \mbox{\hyperlink{classchallenge_data}{challenge\+Data}})
+\begin{DoxyCompactList}\small\item\em Constructor that initialize the uid\+\_\+, the display\+Name\+\_\+, the deleted\+Friends\+\_\+ and challenges\+\_\+ properties with the given parameters. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_friend_data_a5672a40f6da7620fc48171c85340f5bd}{get\+Uid}} ()
 \begin{DoxyCompactList}\small\item\em getter of the user id. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_friend_data_ac701617ed454ef3cb6f08d7fe40472cd}{get\+Display\+Name}} ()
@@ -17,7 +17,24 @@ string \mbox{\hyperlink{class_friend_data_ac701617ed454ef3cb6f08d7fe40472cd}{get
 void \mbox{\hyperlink{class_friend_data_a9d8910f8ea8e150e386d95a8d6557098}{add\+Deleted\+Friend}} (string uid)
 \begin{DoxyCompactList}\small\item\em this method add the given user id to the deleted\+Friends\+\_\+ property list. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_friend_data_ac6caa06257178af46846426ddd3e0d55}{get\+String\+Conversion\+Of\+Deleted\+Friends}} ()
-\begin{DoxyCompactList}\small\item\em this method convers the deleted\+Friends\+\_\+ property into a string with the JSON format and returns the conversion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em this method convers the deleted\+Friends\+\_\+ property into a string with the JSON format and returns the conversion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_friend_data_a94fbf86dbe4cd0dacd45d686256e1676}{create\+New\+Challenge}} (string place\+Id, string place\+Type, string challenger\+Id)
+\begin{DoxyCompactList}\small\item\em this method instanciate a new \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} object with the given information and the current ticks and it adds the new \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} object to the challenges\+\_\+ property. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_friend_data_a41d6f813897844252a4718eb67829eb8}{has\+AChallenge\+Of\+This\+User}} (string uid)
+\begin{DoxyCompactList}\small\item\em This method returns true if the represented user has a challenge of the user that has the given user id, in other case, it returns false. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_friend_data_a97a96ecafcdb857bd6d26d79ba001260}{get\+String\+Conversion\+Of\+Challenges}} ()
+\begin{DoxyCompactList}\small\item\em This method returns a string conversion of the whole list of challenges of the represented user. It uses the To\+Json method of the \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static List$<$ string $>$ \mbox{\hyperlink{class_friend_data_adfac7077755272d716299d2c2d3e48a0}{users\+That\+Allow\+Friendship\+Invitations\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of strings that contains the user id of the users that allow receive friendships invitations from other players. \end{DoxyCompactList}\item 
+static List$<$ string $>$ \mbox{\hyperlink{class_friend_data_a39b4fefb9b0641592901340da23f0f68}{users\+That\+Allow\+Be\+Challenged\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of strings that contains the user id of the users that allow receive challenges from other players that are they friends. \end{DoxyCompactList}\item 
+static List$<$ string $>$ \mbox{\hyperlink{class_friend_data_a08ca1d0de0004cf5ca34d792af7d4a73}{users\+That\+Allow\+Appeared\+On\+Ranking\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of strings that contains the user id of the users that allow be shown on the ranking of the players. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_friend_data}{Friend\+Data}} \mbox{\hyperlink{class_friend_data_a433f437d25a047dc9b3644e57941d2ea}{chosen\+Friend\+\_\+}}
+\begin{DoxyCompactList}\small\item\em static property that stored the information of the chosen friend. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -30,22 +47,24 @@ string \mbox{\hyperlink{class_friend_data_a1b05cf93a446c89846afbb1c2db94a50}{ran
 int \mbox{\hyperlink{class_friend_data_af85f53c9d066f3141ecace674f6d0bc1}{score\+\_\+}}
 \begin{DoxyCompactList}\small\item\em int that contains the current score of the represented user. \end{DoxyCompactList}\item 
 List$<$ string $>$ \mbox{\hyperlink{class_friend_data_a7f8885c2598b54ec152eeb515693702f}{deleted\+Friends\+\_\+}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em List that contains strings with the user id of the users that has removed their frienship with the represented user. It has to be a list because more than one user can erase their friendship before the represented user connects again to the app. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} $>$ \mbox{\hyperlink{class_friend_data_abffaa92568ab33bf58dd6d4030f711d3}{challenges\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List that contains \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} objects that represents all the challenges that the represented friend has. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class that stores the information of one of the current user\textquotesingle{}s friend. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_friend_data_a806d0f0959decfd2aedcdfad9d810418}\label{class_friend_data_a806d0f0959decfd2aedcdfad9d810418}} 
+\mbox{\Hypertarget{class_friend_data_ad5912f990db26a2c23a4c50c39a5cb78}\label{class_friend_data_ad5912f990db26a2c23a4c50c39a5cb78}} 
 \index{FriendData@{FriendData}!FriendData@{FriendData}}
 \index{FriendData@{FriendData}!FriendData@{FriendData}}
 \doxysubsubsection{\texorpdfstring{FriendData()}{FriendData()}}
-{\footnotesize\ttfamily Friend\+Data.\+Friend\+Data (\begin{DoxyParamCaption}\item[{string}]{uid,  }\item[{string}]{display\+Name,  }\item[{List$<$ string $>$}]{deleted\+Friends }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Friend\+Data.\+Friend\+Data (\begin{DoxyParamCaption}\item[{string}]{uid,  }\item[{string}]{display\+Name,  }\item[{List$<$ string $>$}]{deleted\+Friends,  }\item[{List$<$ Dictionary$<$ string, string $>$ $>$}]{challenge\+Data }\end{DoxyParamCaption})}
 
 
 
-Constructor that initialize the uid\+\_\+, the display\+Name\+\_\+ and the deleted\+Friends\+\_\+ properties with the given parameters. 
+Constructor that initialize the uid\+\_\+, the display\+Name\+\_\+, the deleted\+Friends\+\_\+ and challenges\+\_\+ properties with the given parameters. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -54,6 +73,8 @@ Constructor that initialize the uid\+\_\+, the display\+Name\+\_\+ and the delet
 {\em string} & display name of the represented user. \\
 \hline
 {\em List$<$string$>$} & list of strings that contains the user ids from the users that have deleted the friendship. \\
+\hline
+{\em List$<$\+Dictionary$<$string,string$>$$>$} & list that contains all the information on dictionaries of strings of all the challenges that represented friend has. \\
 \hline
 \end{DoxyParams}
 
@@ -74,6 +95,25 @@ this method add the given user id to the deleted\+Friends\+\_\+ property list.
 {\em string} & with the user id of the user that has deleted the friendship. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{class_friend_data_a94fbf86dbe4cd0dacd45d686256e1676}\label{class_friend_data_a94fbf86dbe4cd0dacd45d686256e1676}} 
+\index{FriendData@{FriendData}!createNewChallenge@{createNewChallenge}}
+\index{createNewChallenge@{createNewChallenge}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{createNewChallenge()}{createNewChallenge()}}
+{\footnotesize\ttfamily void Friend\+Data.\+create\+New\+Challenge (\begin{DoxyParamCaption}\item[{string}]{place\+Id,  }\item[{string}]{place\+Type,  }\item[{string}]{challenger\+Id }\end{DoxyParamCaption})}
+
+
+
+this method instanciate a new \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} object with the given information and the current ticks and it adds the new \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} object to the challenges\+\_\+ property. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & that contains the place id of the place that the user has to visit for completing the challenge. \\
+\hline
+{\em string} & that contains the type of the place that the user has to visit for completing the challenge. \\
+\hline
+{\em string} & that contains the user id of the user that has challenged the represented user. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_friend_data_ac701617ed454ef3cb6f08d7fe40472cd}\label{class_friend_data_ac701617ed454ef3cb6f08d7fe40472cd}} 
 \index{FriendData@{FriendData}!getDisplayName@{getDisplayName}}
 \index{getDisplayName@{getDisplayName}!FriendData@{FriendData}}
@@ -86,6 +126,19 @@ getter of the user id.
 
 \begin{DoxyReturn}{Returns}
 string with the display name of the represented user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_friend_data_a97a96ecafcdb857bd6d26d79ba001260}\label{class_friend_data_a97a96ecafcdb857bd6d26d79ba001260}} 
+\index{FriendData@{FriendData}!getStringConversionOfChallenges@{getStringConversionOfChallenges}}
+\index{getStringConversionOfChallenges@{getStringConversionOfChallenges}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{getStringConversionOfChallenges()}{getStringConversionOfChallenges()}}
+{\footnotesize\ttfamily string Friend\+Data.\+get\+String\+Conversion\+Of\+Challenges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method returns a string conversion of the whole list of challenges of the represented user. It uses the To\+Json method of the \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} class. 
+
+\begin{DoxyReturn}{Returns}
+string that contains the JSON conversion in a string. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_friend_data_ac6caa06257178af46846426ddd3e0d55}\label{class_friend_data_ac6caa06257178af46846426ddd3e0d55}} 
 \index{FriendData@{FriendData}!getStringConversionOfDeletedFriends@{getStringConversionOfDeletedFriends}}
@@ -113,16 +166,58 @@ getter of the user id.
 \begin{DoxyReturn}{Returns}
 string with the user id of the represented user. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_friend_data_a41d6f813897844252a4718eb67829eb8}\label{class_friend_data_a41d6f813897844252a4718eb67829eb8}} 
+\index{FriendData@{FriendData}!hasAChallengeOfThisUser@{hasAChallengeOfThisUser}}
+\index{hasAChallengeOfThisUser@{hasAChallengeOfThisUser}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{hasAChallengeOfThisUser()}{hasAChallengeOfThisUser()}}
+{\footnotesize\ttfamily bool Friend\+Data.\+has\+AChallenge\+Of\+This\+User (\begin{DoxyParamCaption}\item[{string}]{uid }\end{DoxyParamCaption})}
+
+
+
+This method returns true if the represented user has a challenge of the user that has the given user id, in other case, it returns false. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & that contains the user id of the user that we are going to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool, true if the represented user has a challenge of the given user id. 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_friend_data_abffaa92568ab33bf58dd6d4030f711d3}\label{class_friend_data_abffaa92568ab33bf58dd6d4030f711d3}} 
+\index{FriendData@{FriendData}!challenges\_@{challenges\_}}
+\index{challenges\_@{challenges\_}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{challenges\_}{challenges\_}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classchallenge_data}{challenge\+Data}}$>$ Friend\+Data.\+challenges\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List that contains \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} objects that represents all the challenges that the represented friend has. 
+
+\mbox{\Hypertarget{class_friend_data_a433f437d25a047dc9b3644e57941d2ea}\label{class_friend_data_a433f437d25a047dc9b3644e57941d2ea}} 
+\index{FriendData@{FriendData}!chosenFriend\_@{chosenFriend\_}}
+\index{chosenFriend\_@{chosenFriend\_}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{chosenFriend\_}{chosenFriend\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_friend_data}{Friend\+Data}} Friend\+Data.\+chosen\+Friend\+\_\+\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+static property that stored the information of the chosen friend. 
+
 \mbox{\Hypertarget{class_friend_data_a7f8885c2598b54ec152eeb515693702f}\label{class_friend_data_a7f8885c2598b54ec152eeb515693702f}} 
 \index{FriendData@{FriendData}!deletedFriends\_@{deletedFriends\_}}
 \index{deletedFriends\_@{deletedFriends\_}!FriendData@{FriendData}}
 \doxysubsubsection{\texorpdfstring{deletedFriends\_}{deletedFriends\_}}
 {\footnotesize\ttfamily List$<$string$>$ Friend\+Data.\+deleted\+Friends\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
 
-List that contains strings with the user id of the users that has removed their frienship with the represented user. It has to be a list because more than one user can erase their friendship before the represented user connects again to the app. \mbox{\Hypertarget{class_friend_data_ab6dca0146af6cfdaaa88114bf229d5b3}\label{class_friend_data_ab6dca0146af6cfdaaa88114bf229d5b3}} 
+
+
+List that contains strings with the user id of the users that has removed their frienship with the represented user. It has to be a list because more than one user can erase their friendship before the represented user connects again to the app. 
+
+\mbox{\Hypertarget{class_friend_data_ab6dca0146af6cfdaaa88114bf229d5b3}\label{class_friend_data_ab6dca0146af6cfdaaa88114bf229d5b3}} 
 \index{FriendData@{FriendData}!displayName\_@{displayName\_}}
 \index{displayName\_@{displayName\_}!FriendData@{FriendData}}
 \doxysubsubsection{\texorpdfstring{displayName\_}{displayName\_}}
@@ -161,6 +256,36 @@ int that contains the current score of the represented user.
 
 
 string that contains the user id of the represented user. 
+
+\mbox{\Hypertarget{class_friend_data_a08ca1d0de0004cf5ca34d792af7d4a73}\label{class_friend_data_a08ca1d0de0004cf5ca34d792af7d4a73}} 
+\index{FriendData@{FriendData}!usersThatAllowAppearedOnRanking\_@{usersThatAllowAppearedOnRanking\_}}
+\index{usersThatAllowAppearedOnRanking\_@{usersThatAllowAppearedOnRanking\_}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{usersThatAllowAppearedOnRanking\_}{usersThatAllowAppearedOnRanking\_}}
+{\footnotesize\ttfamily List$<$string$>$ Friend\+Data.\+users\+That\+Allow\+Appeared\+On\+Ranking\+\_\+\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+List of strings that contains the user id of the users that allow be shown on the ranking of the players. 
+
+\mbox{\Hypertarget{class_friend_data_a39b4fefb9b0641592901340da23f0f68}\label{class_friend_data_a39b4fefb9b0641592901340da23f0f68}} 
+\index{FriendData@{FriendData}!usersThatAllowBeChallenged\_@{usersThatAllowBeChallenged\_}}
+\index{usersThatAllowBeChallenged\_@{usersThatAllowBeChallenged\_}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{usersThatAllowBeChallenged\_}{usersThatAllowBeChallenged\_}}
+{\footnotesize\ttfamily List$<$string$>$ Friend\+Data.\+users\+That\+Allow\+Be\+Challenged\+\_\+\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+List of strings that contains the user id of the users that allow receive challenges from other players that are they friends. 
+
+\mbox{\Hypertarget{class_friend_data_adfac7077755272d716299d2c2d3e48a0}\label{class_friend_data_adfac7077755272d716299d2c2d3e48a0}} 
+\index{FriendData@{FriendData}!usersThatAllowFriendshipInvitations\_@{usersThatAllowFriendshipInvitations\_}}
+\index{usersThatAllowFriendshipInvitations\_@{usersThatAllowFriendshipInvitations\_}!FriendData@{FriendData}}
+\doxysubsubsection{\texorpdfstring{usersThatAllowFriendshipInvitations\_}{usersThatAllowFriendshipInvitations\_}}
+{\footnotesize\ttfamily List$<$string$>$ Friend\+Data.\+users\+That\+Allow\+Friendship\+Invitations\+\_\+\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+List of strings that contains the user id of the users that allow receive friendships invitations from other players. 
 
 
 

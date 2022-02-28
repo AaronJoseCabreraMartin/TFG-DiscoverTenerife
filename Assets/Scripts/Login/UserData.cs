@@ -63,8 +63,7 @@ public class UserData{
       */
     private List<newFriendData> newFriendDataList_;
 
-    //almacena el UID de los usuarios que han aceptado tu solicitud de amistad
-    //private List<string> acceptedFriendInvitationsList_;//darle a los usuarios permiso para añadirse en la lista de amigos de los otros???
+    private List<challengeData> challenges_;
 
     /**
       * @param Firebase.Auth.FirebaseUser firebase user data
@@ -86,7 +85,7 @@ public class UserData{
     public UserData(Firebase.Auth.FirebaseUser newFireBaseUserData, List<Dictionary<string,string>> oldVisitedPlaces = null, 
                     Dictionary<string,string> baseCordsData = null, List<string> friendList = null, 
                     List<string> friendInvitationsList = null, List<string> friendInvitationsAcceptedList = null,
-                    List<string> deletedFriendsList = null){
+                    List<string> deletedFriendsList = null, List<Dictionary<string,string>> challengesData = null){
         firebaseUserData_ = newFireBaseUserData;
         visitedPlaces_ = new List<VisitedPlace>();
         if(oldVisitedPlaces != null){
@@ -128,6 +127,14 @@ public class UserData{
                 friendList_.Remove(uid);
             }
         }
+
+        foreach(Dictionary<string,string> challenge in challengesData){
+          if(challenge["startTimestamp_"] != null && !gameRules.challengeHasExpired(Int64.Parse(challenge["startTimestamp_"]))){
+            //si el reto no se ha caducado lo guardo
+            challenges_.Add(new challengeData(challenge));
+          }
+        }
+
         /*
         for(int index = 0; index < 30; index++){
             friendInvitationsList_.Add(index.ToString());
@@ -173,6 +180,18 @@ public class UserData{
             }
             conversion += "],";
         }
+        
+        if(challenges_.Count != 0){
+          conversion += "\"challenges_\" : [";
+          for(int i = 0; i < challenges_.Count; i++){
+              conversion += challenges_[i].ToJson();
+              if(i+1 < challenges_.Count){
+                  conversion += ",";
+              }
+          }
+          conversion += "],";
+        }
+
         conversion += "\"visitedPlaces_\" : [";
         for(int i = 0; i < visitedPlaces_.Count; i++){
             conversion += visitedPlaces_[i].ToJson();
@@ -426,7 +445,7 @@ public class UserData{
     }
 
     /**
-      * @return int how many friends the current user has.
+      * @return int how many friends has the current user.
       */
     public int countOfFriends(){
         return friendList_.Count;
@@ -571,6 +590,12 @@ public class UserData{
       return firebaseUserData_.UserId;
     }
 
+    /**
+      * @param string that contains the user's display name.
+      * @return true if the current user has a friend with the given display name.
+      * @brief This method checks if on the current user's friend list exists any user
+      * with the given display name.
+      */
     public bool isAFriendByDisplayName(string displayName){
       return friendDataList_.Exists(friendData => friendData.getDisplayName() == displayName);
     }
