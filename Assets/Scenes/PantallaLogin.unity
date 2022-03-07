@@ -710,6 +710,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GPSerrorImage
       objectReference: {fileID: 0}
+    - target: {fileID: 2801245488819927750, guid: 628b1d18699150549b488df69ce9ecdd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2801245488819927751, guid: 628b1d18699150549b488df69ce9ecdd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -103,9 +103,12 @@ public class gameRules{
       * challenge's completation and the distance in kilometers to the user's base.
       */
     static public int calculateChallengeScore(long startTimestamp, long completationTimestamp, double distanceToUserBase){
-      double timeScore = 2.0 - ((double)completationTimestamp)/((double)(startTimestamp+gameRules.expiryTimeForChallenges_));
+      // tiene que ser 2 - [0,1] por que así cuanto menos tiempo haya usado, más cerca de 0 da la división y entonces, más cerca de 2 está
+      double timeScore = 2.0 - ((double)(completationTimestamp-startTimestamp))/((double)(gameRules.expiryTimeForChallenges_-startTimestamp));
+      Debug.Log($"startTimestamp = {startTimestamp} completationTimestamp = {completationTimestamp} distanceToUserBase = {distanceToUserBase} timeScore = {timeScore}");
+      Debug.Log($"total de puntuación por completar el reto: {timeScore*distanceToUserBase}");
       //timeScore is always between 1 and 2
-      return (int)(timeScore*1.5d*distanceToUserBase);
+      return (int)(timeScore*distanceToUserBase);
     }
 
     /**
@@ -115,11 +118,45 @@ public class gameRules{
     static private double scoreToTheChallenger_ = 0.1d;
 
     /**
-      * @return double with the scoreToTheChallenger_ static
-      * property value.
-      * @brief getter of the scoreToTheChallenger_ property.
+      * @param double that is the score that earned the challenged person.
+      * @return double with scored that the challenger should earn.
+      * @brief this method returns the score that the challenger should
+      * obtain knowing how much score the challenged person earned.
       */
-    static public double getScoreToTheChallenger(){
-      return gameRules.scoreToTheChallenger_;
+    static public double getScoreToTheChallenger(double scoreOfChallenged){
+      return gameRules.scoreToTheChallenger_*scoreOfChallenged;
+    }
+
+    /**
+      * @brief points that the user will receive as minimum for visiting a new place.
+      */
+    static private double baseBonusNewVisit_ = 15.0d;
+    
+    /**
+      * @brief points that the user will receive as minimum for visiting a place that
+      * he has already visited.
+      */
+    static private double baseBonusVisit_ = 10.0d;
+
+    /**
+      * @param int number of visits of the visited place.
+      * @param int number of visits of the most visited place.
+      * @param bool true if the user never has visited that place. Its default value
+      * is false.
+      * @return double score that should earn the current user.
+      * @brief This method calculates the score that the current user has to earn when
+      * he visits a place. For calculating the score it needs the visits of that place,
+      * the number of visits of the most visited place and it also needs if the user
+      * has already visit that place or not. The score will be higher if the user visits
+      * a new place than if the user visits a place that he has already visited it. The
+      * score will be proportional to the number of visits that place has compared to
+      * the most visited place.
+      */
+    static public double getScoreForVisitingAPlace(int placeVisits, int maxVisits, bool newVisit = false){
+      double scoreBonus = 2.0d - ((double)placeVisits)/((double)(maxVisits)+1.0d);
+      //scoreBonus esta entre (1, 2] y será más alto cuantas menos visitas haya recibido el lugar comparándolo con el que más visitas ha recibido.
+      Debug.Log($"placeVisits = {placeVisits} maxVisits = {maxVisits} newVisit = {newVisit}");
+      Debug.Log($"scoreBonus = {scoreBonus} formula = "+scoreBonus * (newVisit ? gameRules.baseBonusNewVisit_ : gameRules.baseBonusVisit_));
+      return scoreBonus * (newVisit ? gameRules.baseBonusNewVisit_ : gameRules.baseBonusVisit_);
     }
 }

@@ -13,5 +13,6 @@ var searchData=
   ['distance_5f_10',['distance_',['../class_place_image_controller.html#a5fa1dfc21ccfdc5ab8b475c221030ef6',1,'PlaceImageController.distance_()'],['../class_stored_place_image_controller.html#add8850a0498e2676ce299dac36649e2b',1,'StoredPlaceImageController.distance_()']]],
   ['distanceinkm_5f_11',['distanceInKM_',['../classoptions_controller.html#aa64dea8ce62a7b160a626cb1c1bdc8b8',1,'optionsController']]],
   ['distanceunitmenu_5f_12',['distanceUnitMenu_',['../classoptions_controller.html#a6e84b183d91098797ff67fcc6c5c3e6b',1,'optionsController']]],
-  ['downloadinganyoftheuserspermissionslists_5f_13',['downloadingAnyOfTheUsersPermissionsLists_',['../classfirebase_handler.html#a60ebe38d3bc1ee2d3197eafabd58fc83',1,'firebaseHandler']]]
+  ['downloadinganyoftheuserspermissionslists_5f_13',['downloadingAnyOfTheUsersPermissionsLists_',['../classfirebase_handler.html#a60ebe38d3bc1ee2d3197eafabd58fc83',1,'firebaseHandler']]],
+  ['durationqueue_5f_14',['durationQueue_',['../classtoast_message.html#a3bebfbe3001bb88fedfa57483ff37307',1,'toastMessage']]]
 ];

@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['zone_5f_0',['zone_',['../class_place.html#a5a066f5f3ebe0c7a1a88cec05da78de0',1,'Place.zone_()'],['../class_stored_place.html#a1a00ff8a54f8221804a4b77e71704149',1,'StoredPlace.zone_()']]],
-  ['zonenames_5f_1',['zoneNames_',['../classmap_rules_handler.html#abfbc24eef6b55f82ed07e7983c706b8a',1,'mapRulesHandler']]]
+  ['waitingbackground_5f_0',['waitingBackground_',['../class_searching_state_controller.html#a0d223f7a4a130d949ee95f8cfcb96026',1,'SearchingStateController']]],
+  ['waitingtext_5f_1',['waitingText_',['../class_searching_state_controller.html#a0b2e46333656f20cebd2d64a3c3a9819',1,'SearchingStateController']]],
+  ['webclient_5f_2',['webClient_',['../class_place.html#a4f8fd076c2979ab6f526501ca6d666cf',1,'Place']]],
+  ['whattosee_5f_3',['whatToSee_',['../classoptions_controller.html#a9fd45af8fb665e2dac79c635854667bf',1,'optionsController']]],
+  ['whattoseemenu_5f_4',['whatToSeeMenu_',['../classoptions_controller.html#ac6904410ac6699e82a870c30c4d1f18d',1,'optionsController']]],
+  ['whattoseeoptions_5f_5',['whatToSeeOptions_',['../classrequest_handler.html#a40e78dd86f63926138771aa73752da9f',1,'requestHandler']]]
 ];

@@ -4,4 +4,4 @@
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classtoast_message}{toast\+Message}}
-\begin{DoxyCompactList}\small\item\em class that controls the colored messages that are shown to the user giving him information but they hide after a few seconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em class that controls the colored messages that are shown to the user giving him information but they hide after a few seconds. It has a system of queues because if you start several pararell coroutines at the same time of showing the toast message only the last one will be shown, but I solved this problem using the queue system. Each message will wait until its the first one of the queue and there inst any other message showing itself at that moment to show the first one. \end{DoxyCompactList}\end{DoxyCompactItemize}

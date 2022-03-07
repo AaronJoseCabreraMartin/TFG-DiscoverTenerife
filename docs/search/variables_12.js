@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['waitingbackground_5f_0',['waitingBackground_',['../class_searching_state_controller.html#a0d223f7a4a130d949ee95f8cfcb96026',1,'SearchingStateController']]],
-  ['waitingtext_5f_1',['waitingText_',['../class_searching_state_controller.html#a0b2e46333656f20cebd2d64a3c3a9819',1,'SearchingStateController']]],
-  ['webclient_5f_2',['webClient_',['../class_place.html#a4f8fd076c2979ab6f526501ca6d666cf',1,'Place']]],
-  ['whattosee_5f_3',['whatToSee_',['../classoptions_controller.html#a9fd45af8fb665e2dac79c635854667bf',1,'optionsController']]],
-  ['whattoseemenu_5f_4',['whatToSeeMenu_',['../classoptions_controller.html#ac6904410ac6699e82a870c30c4d1f18d',1,'optionsController']]],
-  ['whattoseeoptions_5f_5',['whatToSeeOptions_',['../classrequest_handler.html#a40e78dd86f63926138771aa73752da9f',1,'requestHandler']]]
+  ['velocityx_5f_0',['velocityX_',['../class_floating_around_image.html#ad667a068db7e7942258a8e025e8f0961',1,'FloatingAroundImage']]],
+  ['velocityy_5f_1',['velocityY_',['../class_floating_around_image.html#ad983ad71e46ef9b3a8f1b349fb70e4d8',1,'FloatingAroundImage']]],
+  ['visited_5f_2',['visited_',['../class_stored_place.html#af90e42f0cb49b53e1c7d60aa82bbcd2b',1,'StoredPlace']]],
+  ['visitedcolor_5f_3',['visitedColor_',['../class_visited_panel_controller.html#a772203e072164bfbfd1e3bcc11af27b5',1,'VisitedPanelController.visitedColor_()'],['../class_visite_stored_place_controller.html#afbea17c44c282d9e68e071f96c9d3cdf',1,'VisiteStoredPlaceController.visitedColor_()']]],
+  ['visitedpanelobject_5f_4',['visitedPanelObject_',['../class_register_as_visited_button.html#a93344af4368ef6b4c3dbc88c00f0e88a',1,'RegisterAsVisitedButton.visitedPanelObject_()'],['../class_register_as_visited_stored_place_button.html#a55878ae5854282ba4d52c7b55128835a',1,'RegisterAsVisitedStoredPlaceButton.visitedPanelObject_()']]],
+  ['visitedplaces_5f_5',['visitedPlaces_',['../class_user_data.html#ad18cfa73e4fb27cd88a3a87b776601ee',1,'UserData']]],
+  ['visitedtext_5f_6',['visitedText_',['../class_visited_panel_controller.html#a8f821c045ba464e3a3347503e0f1a301',1,'VisitedPanelController.visitedText_()'],['../class_visite_stored_place_controller.html#a530e42f0a8c32fff4c4914f14c522b45',1,'VisiteStoredPlaceController.visitedText_()']]]
 ];

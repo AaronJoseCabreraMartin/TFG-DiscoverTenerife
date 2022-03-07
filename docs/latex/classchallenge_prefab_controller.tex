@@ -1,0 +1,274 @@
+\hypertarget{classchallenge_prefab_controller}{}\doxysection{challenge\+Prefab\+Controller Class Reference}
+\label{classchallenge_prefab_controller}\index{challengePrefabController@{challengePrefabController}}
+
+
+This class controls the prefab that shows the information of one of the current user\textquotesingle{}s challenge.  
+
+
+Inheritance diagram for challenge\+Prefab\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classchallenge_prefab_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classchallenge_prefab_controller_ada431bcb864f2ec5a826c813acb7b6ef}{set\+Challenge\+Data}} (\mbox{\hyperlink{classchallenge_data}{challenge\+Data}} challenge)
+\begin{DoxyCompactList}\small\item\em This method is the setter of the challenge\+\_\+ property. It also puts the filled\+\_\+ property as false and call the fill\+Fields method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classchallenge_prefab_controller_aa8d741793ff14486ec0b1f7e3841ca7c}{set\+Panel}} (Game\+Object panel)
+\begin{DoxyCompactList}\small\item\em Setter of the panel\+\_\+ property. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classchallenge_prefab_controller_ab820ff3d55d89a98fe072cb803ba3474}{delete\+This\+Challenge}} ()
+\begin{DoxyCompactList}\small\item\em This method delete this challenge and disattached it from the panel that is attached. The first time its called it makes a \mbox{\hyperlink{classtoast_message}{toast\+Message}} warning the user that it will remove this challenge, if the user confirms the removing touching again on the button, this method destroy this game object and calls challenge\+Deleted method of \mbox{\hyperlink{classchallenges_panel_controller}{challenges\+Panel\+Controller}}, destroy\+Challenge\+By\+Challenger\+Id of \mbox{\hyperlink{class_user_data}{User\+Data}} and write\+User\+Data from \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classchallenge_prefab_controller_a3aa36786ae355b2ba5a10c6709948f2f}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em This method is called before the first frame. It initialices the\+: user\+Was\+Warned\+\_\+, filled\+\_\+ and challenge\+\_\+ properties, and it sets the place\+Name\+\_\+, place\+Zone\+\_\+, expire\+Date\+\_\+ and challenger\+\_\+ text as the correspondent default ones. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classchallenge_prefab_controller_a9da64614e879334eca97a5a1786981ac}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method is called each frame. It only checks if the filled\+\_\+ property is false, it that is the case it calls the fill\+Fields method. In other case this method dont do nothing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classchallenge_prefab_controller_a1610194a352932eabc98ac0fa71475d8}{fill\+Fields}} ()
+\begin{DoxyCompactList}\small\item\em This method checks if the friend\+Data\+Is\+Complete method of \mbox{\hyperlink{class_user_data}{User\+Data}} is true and if the challenge\+\_\+ is not null, it sets all the texts of the prefab and also sets the filled\+\_\+ property as true. If both contitions are not true, this method dont do nothing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classchallenge_prefab_controller_a1c1deec6cb154d7c528014ea91a89bf4}{place\+Name\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that shows the name of the challenge\textquotesingle{}s place. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classchallenge_prefab_controller_ab9892b2ea168e679a7fa7bfbdd2d80bc}{place\+Zone\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that shows the name of the challenge\textquotesingle{}s place. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classchallenge_prefab_controller_adc3a207113a7709d214150fbd2bfb42d}{expire\+Date\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that shows the challenge\textquotesingle{}s expire date. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classchallenge_prefab_controller_ab0033e51b1709b1ebad30f6b64d4336d}{challenger\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that shows the player that sended this challenge. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classchallenge_prefab_controller_a2ad43ca00092053521fdd4e5568cfd97}{toast\+Message\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the \mbox{\hyperlink{classtoast_message}{toast\+Message}} that will shown the error messages to the user. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classchallenge_prefab_controller_a04299956b766558655195009915c2eb6}{place\+Name\+Default\+Text\+\_\+}} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em string that contains the default text of the text that will shown the place\textquotesingle{}s name. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classchallenge_prefab_controller_a942959201a72abdf9c29a3d2c47ca4ac}{place\+Zone\+Default\+Text\+\_\+}} = \char`\"{}Zone\+:\char`\"{}
+\begin{DoxyCompactList}\small\item\em string that contains the default text of the text that will shown the place\textquotesingle{}s zone. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classchallenge_prefab_controller_a830968c9e52b6b4b11a55f08c29966b0}{expire\+Date\+Default\+Text\+\_\+}} = \char`\"{}Expire Date\+:\textbackslash{}n\char`\"{}
+\begin{DoxyCompactList}\small\item\em string that contains the default text of the text that will shown the challenge\textquotesingle{}s expire date. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classchallenge_prefab_controller_a2ddfbba159d8b3d547f7faf93cf1723d}{challenger\+Default\+Text\+\_\+}} = \char`\"{}Challenger\+:\char`\"{}
+\begin{DoxyCompactList}\small\item\em string that contains the default text of the text that will shown the name of the user that sended this challenge. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classchallenge_prefab_controller_a20fe54320426658c44559bb3d93d0bcf}{user\+Was\+Warned\+\_\+}}
+\begin{DoxyCompactList}\small\item\em true if the user was warned before deleting the challenge. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classchallenge_prefab_controller_a7f2698662d6f79d45e8610be46e8edf2}{filled\+\_\+}}
+\begin{DoxyCompactList}\small\item\em true if the prefab is showing the challenge\textquotesingle{}s information. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classchallenge_data}{challenge\+Data}} \mbox{\hyperlink{classchallenge_prefab_controller_a9ac83225b0d922930bb8be9937bb1b0e}{challenge\+\_\+}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} object that contains all the information of the challenge that will be shown. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classchallenge_prefab_controller_a37a91c759741bec8cd13c2c2b9a3d011}{panel\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that references the panel that this Game\+Object is attached. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class controls the prefab that shows the information of one of the current user\textquotesingle{}s challenge. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classchallenge_prefab_controller_a3aa36786ae355b2ba5a10c6709948f2f}\label{classchallenge_prefab_controller_a3aa36786ae355b2ba5a10c6709948f2f}} 
+\index{challengePrefabController@{challengePrefabController}!Awake@{Awake}}
+\index{Awake@{Awake}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void challenge\+Prefab\+Controller.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called before the first frame. It initialices the\+: user\+Was\+Warned\+\_\+, filled\+\_\+ and challenge\+\_\+ properties, and it sets the place\+Name\+\_\+, place\+Zone\+\_\+, expire\+Date\+\_\+ and challenger\+\_\+ text as the correspondent default ones. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_ab820ff3d55d89a98fe072cb803ba3474}\label{classchallenge_prefab_controller_ab820ff3d55d89a98fe072cb803ba3474}} 
+\index{challengePrefabController@{challengePrefabController}!deleteThisChallenge@{deleteThisChallenge}}
+\index{deleteThisChallenge@{deleteThisChallenge}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{deleteThisChallenge()}{deleteThisChallenge()}}
+{\footnotesize\ttfamily void challenge\+Prefab\+Controller.\+delete\+This\+Challenge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method delete this challenge and disattached it from the panel that is attached. The first time its called it makes a \mbox{\hyperlink{classtoast_message}{toast\+Message}} warning the user that it will remove this challenge, if the user confirms the removing touching again on the button, this method destroy this game object and calls challenge\+Deleted method of \mbox{\hyperlink{classchallenges_panel_controller}{challenges\+Panel\+Controller}}, destroy\+Challenge\+By\+Challenger\+Id of \mbox{\hyperlink{class_user_data}{User\+Data}} and write\+User\+Data from \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}}. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_a1610194a352932eabc98ac0fa71475d8}\label{classchallenge_prefab_controller_a1610194a352932eabc98ac0fa71475d8}} 
+\index{challengePrefabController@{challengePrefabController}!fillFields@{fillFields}}
+\index{fillFields@{fillFields}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{fillFields()}{fillFields()}}
+{\footnotesize\ttfamily void challenge\+Prefab\+Controller.\+fill\+Fields (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method checks if the friend\+Data\+Is\+Complete method of \mbox{\hyperlink{class_user_data}{User\+Data}} is true and if the challenge\+\_\+ is not null, it sets all the texts of the prefab and also sets the filled\+\_\+ property as true. If both contitions are not true, this method dont do nothing. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_ada431bcb864f2ec5a826c813acb7b6ef}\label{classchallenge_prefab_controller_ada431bcb864f2ec5a826c813acb7b6ef}} 
+\index{challengePrefabController@{challengePrefabController}!setChallengeData@{setChallengeData}}
+\index{setChallengeData@{setChallengeData}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{setChallengeData()}{setChallengeData()}}
+{\footnotesize\ttfamily void challenge\+Prefab\+Controller.\+set\+Challenge\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classchallenge_data}{challenge\+Data}}}]{challenge }\end{DoxyParamCaption})}
+
+
+
+This method is the setter of the challenge\+\_\+ property. It also puts the filled\+\_\+ property as false and call the fill\+Fields method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classchallenge_data}{challenge\+Data}}} & object that contains all the information of the represented challenge. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classchallenge_prefab_controller_aa8d741793ff14486ec0b1f7e3841ca7c}\label{classchallenge_prefab_controller_aa8d741793ff14486ec0b1f7e3841ca7c}} 
+\index{challengePrefabController@{challengePrefabController}!setPanel@{setPanel}}
+\index{setPanel@{setPanel}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{setPanel()}{setPanel()}}
+{\footnotesize\ttfamily void challenge\+Prefab\+Controller.\+set\+Panel (\begin{DoxyParamCaption}\item[{Game\+Object}]{panel }\end{DoxyParamCaption})}
+
+
+
+Setter of the panel\+\_\+ property. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Game\+Object} & that contains the panel that this object is attached. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classchallenge_prefab_controller_a9da64614e879334eca97a5a1786981ac}\label{classchallenge_prefab_controller_a9da64614e879334eca97a5a1786981ac}} 
+\index{challengePrefabController@{challengePrefabController}!Update@{Update}}
+\index{Update@{Update}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void challenge\+Prefab\+Controller.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called each frame. It only checks if the filled\+\_\+ property is false, it that is the case it calls the fill\+Fields method. In other case this method dont do nothing. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classchallenge_prefab_controller_a9ac83225b0d922930bb8be9937bb1b0e}\label{classchallenge_prefab_controller_a9ac83225b0d922930bb8be9937bb1b0e}} 
+\index{challengePrefabController@{challengePrefabController}!challenge\_@{challenge\_}}
+\index{challenge\_@{challenge\_}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{challenge\_}{challenge\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} challenge\+Prefab\+Controller.\+challenge\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{classchallenge_data}{challenge\+Data}} object that contains all the information of the challenge that will be shown. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_ab0033e51b1709b1ebad30f6b64d4336d}\label{classchallenge_prefab_controller_ab0033e51b1709b1ebad30f6b64d4336d}} 
+\index{challengePrefabController@{challengePrefabController}!challenger\_@{challenger\_}}
+\index{challenger\_@{challenger\_}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{challenger\_}{challenger\_}}
+{\footnotesize\ttfamily Game\+Object challenge\+Prefab\+Controller.\+challenger\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that shows the player that sended this challenge. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_a2ddfbba159d8b3d547f7faf93cf1723d}\label{classchallenge_prefab_controller_a2ddfbba159d8b3d547f7faf93cf1723d}} 
+\index{challengePrefabController@{challengePrefabController}!challengerDefaultText\_@{challengerDefaultText\_}}
+\index{challengerDefaultText\_@{challengerDefaultText\_}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{challengerDefaultText\_}{challengerDefaultText\_}}
+{\footnotesize\ttfamily string challenge\+Prefab\+Controller.\+challenger\+Default\+Text\+\_\+ = \char`\"{}Challenger\+:\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the default text of the text that will shown the name of the user that sended this challenge. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_adc3a207113a7709d214150fbd2bfb42d}\label{classchallenge_prefab_controller_adc3a207113a7709d214150fbd2bfb42d}} 
+\index{challengePrefabController@{challengePrefabController}!expireDate\_@{expireDate\_}}
+\index{expireDate\_@{expireDate\_}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{expireDate\_}{expireDate\_}}
+{\footnotesize\ttfamily Game\+Object challenge\+Prefab\+Controller.\+expire\+Date\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that shows the challenge\textquotesingle{}s expire date. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_a830968c9e52b6b4b11a55f08c29966b0}\label{classchallenge_prefab_controller_a830968c9e52b6b4b11a55f08c29966b0}} 
+\index{challengePrefabController@{challengePrefabController}!expireDateDefaultText\_@{expireDateDefaultText\_}}
+\index{expireDateDefaultText\_@{expireDateDefaultText\_}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{expireDateDefaultText\_}{expireDateDefaultText\_}}
+{\footnotesize\ttfamily string challenge\+Prefab\+Controller.\+expire\+Date\+Default\+Text\+\_\+ = \char`\"{}Expire Date\+:\textbackslash{}n\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the default text of the text that will shown the challenge\textquotesingle{}s expire date. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_a7f2698662d6f79d45e8610be46e8edf2}\label{classchallenge_prefab_controller_a7f2698662d6f79d45e8610be46e8edf2}} 
+\index{challengePrefabController@{challengePrefabController}!filled\_@{filled\_}}
+\index{filled\_@{filled\_}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{filled\_}{filled\_}}
+{\footnotesize\ttfamily bool challenge\+Prefab\+Controller.\+filled\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if the prefab is showing the challenge\textquotesingle{}s information. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_a37a91c759741bec8cd13c2c2b9a3d011}\label{classchallenge_prefab_controller_a37a91c759741bec8cd13c2c2b9a3d011}} 
+\index{challengePrefabController@{challengePrefabController}!panel\_@{panel\_}}
+\index{panel\_@{panel\_}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{panel\_}{panel\_}}
+{\footnotesize\ttfamily Game\+Object challenge\+Prefab\+Controller.\+panel\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that references the panel that this Game\+Object is attached. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_a1c1deec6cb154d7c528014ea91a89bf4}\label{classchallenge_prefab_controller_a1c1deec6cb154d7c528014ea91a89bf4}} 
+\index{challengePrefabController@{challengePrefabController}!placeName\_@{placeName\_}}
+\index{placeName\_@{placeName\_}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{placeName\_}{placeName\_}}
+{\footnotesize\ttfamily Game\+Object challenge\+Prefab\+Controller.\+place\+Name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that shows the name of the challenge\textquotesingle{}s place. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_a04299956b766558655195009915c2eb6}\label{classchallenge_prefab_controller_a04299956b766558655195009915c2eb6}} 
+\index{challengePrefabController@{challengePrefabController}!placeNameDefaultText\_@{placeNameDefaultText\_}}
+\index{placeNameDefaultText\_@{placeNameDefaultText\_}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{placeNameDefaultText\_}{placeNameDefaultText\_}}
+{\footnotesize\ttfamily string challenge\+Prefab\+Controller.\+place\+Name\+Default\+Text\+\_\+ = \char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the default text of the text that will shown the place\textquotesingle{}s name. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_ab9892b2ea168e679a7fa7bfbdd2d80bc}\label{classchallenge_prefab_controller_ab9892b2ea168e679a7fa7bfbdd2d80bc}} 
+\index{challengePrefabController@{challengePrefabController}!placeZone\_@{placeZone\_}}
+\index{placeZone\_@{placeZone\_}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{placeZone\_}{placeZone\_}}
+{\footnotesize\ttfamily Game\+Object challenge\+Prefab\+Controller.\+place\+Zone\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that shows the name of the challenge\textquotesingle{}s place. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_a942959201a72abdf9c29a3d2c47ca4ac}\label{classchallenge_prefab_controller_a942959201a72abdf9c29a3d2c47ca4ac}} 
+\index{challengePrefabController@{challengePrefabController}!placeZoneDefaultText\_@{placeZoneDefaultText\_}}
+\index{placeZoneDefaultText\_@{placeZoneDefaultText\_}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{placeZoneDefaultText\_}{placeZoneDefaultText\_}}
+{\footnotesize\ttfamily string challenge\+Prefab\+Controller.\+place\+Zone\+Default\+Text\+\_\+ = \char`\"{}Zone\+:\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the default text of the text that will shown the place\textquotesingle{}s zone. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_a2ad43ca00092053521fdd4e5568cfd97}\label{classchallenge_prefab_controller_a2ad43ca00092053521fdd4e5568cfd97}} 
+\index{challengePrefabController@{challengePrefabController}!toastMessage\_@{toastMessage\_}}
+\index{toastMessage\_@{toastMessage\_}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{toastMessage\_}{toastMessage\_}}
+{\footnotesize\ttfamily Game\+Object challenge\+Prefab\+Controller.\+toast\+Message\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the \mbox{\hyperlink{classtoast_message}{toast\+Message}} that will shown the error messages to the user. 
+
+\mbox{\Hypertarget{classchallenge_prefab_controller_a20fe54320426658c44559bb3d93d0bcf}\label{classchallenge_prefab_controller_a20fe54320426658c44559bb3d93d0bcf}} 
+\index{challengePrefabController@{challengePrefabController}!userWasWarned\_@{userWasWarned\_}}
+\index{userWasWarned\_@{userWasWarned\_}!challengePrefabController@{challengePrefabController}}
+\doxysubsubsection{\texorpdfstring{userWasWarned\_}{userWasWarned\_}}
+{\footnotesize\ttfamily bool challenge\+Prefab\+Controller.\+user\+Was\+Warned\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if the user was warned before deleting the challenge. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Prefabs/\+Scripts/challenge\+Prefab/\mbox{\hyperlink{challenge_prefab_controller_8cs}{challenge\+Prefab\+Controller.\+cs}}\end{DoxyCompactItemize}

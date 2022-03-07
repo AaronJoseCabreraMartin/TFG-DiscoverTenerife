@@ -20,8 +20,10 @@ static bool \mbox{\hyperlink{classgame_rules_ae35bc1635fdc6e6a58d4e84fb4363098}{
 \begin{DoxyCompactList}\small\item\em This method returns true if the current timestamp is bigger than the given timestamp plus the expiry\+Time\+For\+Challenges static property because if its bigger its means that the expiry time is on the past. \end{DoxyCompactList}\item 
 static int \mbox{\hyperlink{classgame_rules_aa56c4517faf577404ad1b4bcf978d747}{calculate\+Challenge\+Score}} (long start\+Timestamp, long completation\+Timestamp, double distance\+To\+User\+Base)
 \begin{DoxyCompactList}\small\item\em This method calculates the score of a completed challenge using the timestamp of the challenge\textquotesingle{}s begginging, the timestamp of the challenge\textquotesingle{}s completation and the distance in kilometers to the user\textquotesingle{}s base. \end{DoxyCompactList}\item 
-static double \mbox{\hyperlink{classgame_rules_a2b9778536e281d32726b77c6ffa50a0a}{get\+Score\+To\+The\+Challenger}} ()
-\begin{DoxyCompactList}\small\item\em getter of the score\+To\+The\+Challenger\+\_\+ property. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static double \mbox{\hyperlink{classgame_rules_af79e830d246293590950129e40d46af2}{get\+Score\+To\+The\+Challenger}} (double score\+Of\+Challenged)
+\begin{DoxyCompactList}\small\item\em this method returns the score that the challenger should obtain knowing how much score the challenged person earned. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classgame_rules_a1aade0f700ba488ec966a0b2499fb4f5}{get\+Score\+For\+Visiting\+APlace}} (int place\+Visits, int max\+Visits, bool new\+Visit=false)
+\begin{DoxyCompactList}\small\item\em This method calculates the score that the current user has to earn when he visits a place. For calculating the score it needs the visits of that place, the number of visits of the most visited place and it also needs if the user has already visit that place or not. The score will be higher if the user visits a new place than if the user visits a place that he has already visited it. The score will be proportional to the number of visits that place has compared to the most visited place. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -34,7 +36,11 @@ static int \mbox{\hyperlink{classgame_rules_a72d8076629f6b963aa41539d417bd0be}{m
 static long \mbox{\hyperlink{classgame_rules_a829698691006551502408fb75ceb49f9}{expiry\+Time\+For\+Challenges\+\_\+}} = 6048000000000
 \begin{DoxyCompactList}\small\item\em contains the time that challenges stay active until they expire. Its default value is 7 days. \end{DoxyCompactList}\item 
 static double \mbox{\hyperlink{classgame_rules_a671fb67d96770665c6f6ade3e4d2d254}{score\+To\+The\+Challenger\+\_\+}} = 0.\+1d
-\begin{DoxyCompactList}\small\item\em proportion of points that challenger should get when other user completes his challenges. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em proportion of points that challenger should get when other user completes his challenges. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classgame_rules_af4ddb3ee02960e8f9ab5d3527a7d59ad}{base\+Bonus\+New\+Visit\+\_\+}} = 15.\+0d
+\begin{DoxyCompactList}\small\item\em points that the user will receive as minimum for visiting a new place. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classgame_rules_a389ecb3f5093fd39746d692635638421}{base\+Bonus\+Visit\+\_\+}} = 10.\+0d
+\begin{DoxyCompactList}\small\item\em points that the user will receive as minimum for visiting a place that he has already visited. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -133,22 +139,69 @@ getter of the minutes\+Of\+Cooldown\+\_\+ static property.
 \begin{DoxyReturn}{Returns}
 double that contains the time in minutes that a player has to wait to visit again a place. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classgame_rules_a2b9778536e281d32726b77c6ffa50a0a}\label{classgame_rules_a2b9778536e281d32726b77c6ffa50a0a}} 
+\mbox{\Hypertarget{classgame_rules_a1aade0f700ba488ec966a0b2499fb4f5}\label{classgame_rules_a1aade0f700ba488ec966a0b2499fb4f5}} 
+\index{gameRules@{gameRules}!getScoreForVisitingAPlace@{getScoreForVisitingAPlace}}
+\index{getScoreForVisitingAPlace@{getScoreForVisitingAPlace}!gameRules@{gameRules}}
+\doxysubsubsection{\texorpdfstring{getScoreForVisitingAPlace()}{getScoreForVisitingAPlace()}}
+{\footnotesize\ttfamily static double game\+Rules.\+get\+Score\+For\+Visiting\+APlace (\begin{DoxyParamCaption}\item[{int}]{place\+Visits,  }\item[{int}]{max\+Visits,  }\item[{bool}]{new\+Visit = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This method calculates the score that the current user has to earn when he visits a place. For calculating the score it needs the visits of that place, the number of visits of the most visited place and it also needs if the user has already visit that place or not. The score will be higher if the user visits a new place than if the user visits a place that he has already visited it. The score will be proportional to the number of visits that place has compared to the most visited place. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & number of visits of the visited place. \\
+\hline
+{\em int} & number of visits of the most visited place. \\
+\hline
+{\em bool} & true if the user never has visited that place. Its default value is false. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double score that should earn the current user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgame_rules_af79e830d246293590950129e40d46af2}\label{classgame_rules_af79e830d246293590950129e40d46af2}} 
 \index{gameRules@{gameRules}!getScoreToTheChallenger@{getScoreToTheChallenger}}
 \index{getScoreToTheChallenger@{getScoreToTheChallenger}!gameRules@{gameRules}}
 \doxysubsubsection{\texorpdfstring{getScoreToTheChallenger()}{getScoreToTheChallenger()}}
-{\footnotesize\ttfamily static double game\+Rules.\+get\+Score\+To\+The\+Challenger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static double game\+Rules.\+get\+Score\+To\+The\+Challenger (\begin{DoxyParamCaption}\item[{double}]{score\+Of\+Challenged }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-getter of the score\+To\+The\+Challenger\+\_\+ property. 
+this method returns the score that the challenger should obtain knowing how much score the challenged person earned. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em double} & that is the score that earned the challenged person. \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double with the score\+To\+The\+Challenger\+\_\+ static property value. 
+double with scored that the challenger should earn. 
 \end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classgame_rules_af4ddb3ee02960e8f9ab5d3527a7d59ad}\label{classgame_rules_af4ddb3ee02960e8f9ab5d3527a7d59ad}} 
+\index{gameRules@{gameRules}!baseBonusNewVisit\_@{baseBonusNewVisit\_}}
+\index{baseBonusNewVisit\_@{baseBonusNewVisit\_}!gameRules@{gameRules}}
+\doxysubsubsection{\texorpdfstring{baseBonusNewVisit\_}{baseBonusNewVisit\_}}
+{\footnotesize\ttfamily double game\+Rules.\+base\+Bonus\+New\+Visit\+\_\+ = 15.\+0d\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+points that the user will receive as minimum for visiting a new place. 
+
+\mbox{\Hypertarget{classgame_rules_a389ecb3f5093fd39746d692635638421}\label{classgame_rules_a389ecb3f5093fd39746d692635638421}} 
+\index{gameRules@{gameRules}!baseBonusVisit\_@{baseBonusVisit\_}}
+\index{baseBonusVisit\_@{baseBonusVisit\_}!gameRules@{gameRules}}
+\doxysubsubsection{\texorpdfstring{baseBonusVisit\_}{baseBonusVisit\_}}
+{\footnotesize\ttfamily double game\+Rules.\+base\+Bonus\+Visit\+\_\+ = 10.\+0d\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+points that the user will receive as minimum for visiting a place that he has already visited. 
+
 \mbox{\Hypertarget{classgame_rules_a829698691006551502408fb75ceb49f9}\label{classgame_rules_a829698691006551502408fb75ceb49f9}} 
 \index{gameRules@{gameRules}!expiryTimeForChallenges\_@{expiryTimeForChallenges\_}}
 \index{expiryTimeForChallenges\_@{expiryTimeForChallenges\_}!gameRules@{gameRules}}

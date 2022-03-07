@@ -1343,6 +1343,9 @@ MonoBehaviour:
   storyPanel_: {fileID: 1136276702}
   image_: {fileID: 587245183}
   text_: {fileID: 1733918188}
+  sortingText_: Choose the sorting option to see your story
+  noStoryText_: You don't have visited any place. Try to visit one place and then
+    come back.
 --- !u!1001 &2030491646
 PrefabInstance:
   m_ObjectHideFlags: 0

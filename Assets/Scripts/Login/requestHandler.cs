@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -279,5 +280,15 @@ public class requestHandler
         }
 
         return false;
+    }
+
+    /**
+      * @return int the maximum number of visits between all places.
+      * @brief This method calculates the maximum number of visits between each
+      * type of place and then, it calculates the maximum number of all types.
+      * Basically, it returns the maximum number of visits between all places.
+      */
+    public int visitsOfMostVisitedPlace(){
+      return listOfPlaces_.Max(typeOfPlaces => typeOfPlaces.Max(place => place.getTimesItHasBeenVisited()));
     }
 }

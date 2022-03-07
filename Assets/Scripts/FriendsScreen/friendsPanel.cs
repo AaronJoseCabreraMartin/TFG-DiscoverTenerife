@@ -85,8 +85,8 @@ public class friendsPanel : MonoBehaviour
       * changes. It uptade the lastCount_ property value.
       */
     private void adjustPanelSize(){
-        float baseHeight = (float)(gameObject.transform.GetChild(0).Find("Background").GetComponent<RectTransform>().rect.height * 1.25);
         if(friends_.Count > 4){
+            float baseHeight = (float)(gameObject.transform.GetChild(0).Find("Background").GetComponent<RectTransform>().rect.height * 1.25);
             float newHeight = GetComponent<RectTransform>().rect.height;
             newHeight += lastCount_ < friends_.Count ? baseHeight*(friends_.Count-4) : -baseHeight*(lastCount_-friends_.Count);
             GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);

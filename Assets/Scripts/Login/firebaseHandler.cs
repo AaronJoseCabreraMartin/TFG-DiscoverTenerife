@@ -92,7 +92,7 @@ public class firebaseHandler : MonoBehaviour
       * This atribute stores an instance of the requestHandler class, that class converts the information 
       * of allPlaces_ on instances of the class Place. Check that class documentation for more info.
       */
-    private requestHandler requestHandler_;
+    public requestHandler requestHandler_;
 
     /**
       * This atribute stores the list of places that have been visited but the internet conection have failed
@@ -133,6 +133,15 @@ public class firebaseHandler : MonoBehaviour
     private bool downloadingAnyOfTheUsersPermissionsLists_;
     
     /**
+      * @brief true if there is changes on the social preferences that should be uploaded.
+      */
+    private bool hasToUploadSocialPreferences_;
+
+    private List<Dictionary<string,string>> otherUserScoresToUpload_;
+
+    private bool uploadingNotifications_;
+
+    /**
      * The awake method is called before the first frame, it checks if other 
      * firebaseHandler was instanciated before, if that is the case, it destroy this object.
      */
@@ -153,7 +162,7 @@ public class firebaseHandler : MonoBehaviour
         //Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(CheckDependenciesFirebase,TaskScheduler.FromCurrentSynchronizationContext());
         friendDataDownloadQueue_ = new List<string>();
         newFriendDataDownloadQueue_ = new List<string>();
-
+        otherUserScoresToUpload_ = new List<Dictionary<string,string>>();
     }
 
     /**
@@ -168,13 +177,13 @@ public class firebaseHandler : MonoBehaviour
             // cuando termine           A                           ejecuta         B                   con este contexto (para acceder a las cosas privadas)
             Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(CheckDependenciesFirebase,TaskScheduler.FromCurrentSynchronizationContext());
         }else if(firebaseDependenciesResolved && !firebaseDependenciesRunning){
-            bool readyForUpdateChanges = internetConnection() && userDataReady_ && placesReady_ && firebaseDependenciesResolved;
+            bool readyForUploadChanges = internetConnection() && userDataReady_ && placesReady_ && firebaseDependenciesResolved;
             //Si hay conexion y no se han enviado las visitas offline, envialas.
-            if(readyForUpdateChanges && StoredPlace.changesToUpdate_ ){
-                StoredPlace.UpdateChanges();
+            if(readyForUploadChanges && StoredPlace.changesToUpdate_ ){
+                StoredPlace.UploadChanges();
             }
 
-            if(readyForUpdateChanges && placesToUpdateQueue_ != null){
+            if(readyForUploadChanges && placesToUpdateQueue_ != null){
                 if(placesToUpdateQueue_.Count == 0){
                     placesToUpdateQueue_ = null;
                 }else{
@@ -182,15 +191,15 @@ public class firebaseHandler : MonoBehaviour
                 }
             }
 
-            if(readyForUpdateChanges && userDataUploaded_ == "false"){
+            if(readyForUploadChanges && userDataUploaded_ == "false"){
                 writeUserData();
             }
 
-            if(readyForUpdateChanges && friendDataDownloadQueue_.Count != 0){
+            if(readyForUploadChanges && friendDataDownloadQueue_.Count != 0){
                 downloadAllFriendData();
             }
 
-            if(readyForUpdateChanges && newFriendDataDownloadQueue_.Count != 0){
+            if(readyForUploadChanges && newFriendDataDownloadQueue_.Count != 0){
                 downloadAllNewFriendInvitationsData();
             }
 
@@ -200,6 +209,22 @@ public class firebaseHandler : MonoBehaviour
                   FriendData.usersThatAllowAppearedOnRanking_ == null )){
                     downloadUsersPermissionsLists();
             }
+
+            if(readyForUploadChanges && hasToUploadSocialPreferences_){
+                uploadSocialPreferences();
+            }
+
+            if(readyForUploadChanges && otherUserScoresToUpload_.Count != 0){
+                uploadOtherUserScores();
+            }
+
+            if(readyForUploadChanges && currentUser_.friendDataIsComplete() && currentUser_.anyUserHasToBeNotified() && !uploadingNotifications_){
+                string userThatHaveToBeNotified = currentUser_.nextFriendToBeNotified();
+                Debug.Log($"userThatHaveToBeNotified = {userThatHaveToBeNotified}");
+                Debug.Log($"getStringConversionOfNewAcceptedFriends = " + currentUser_.getFriendDataByUID(userThatHaveToBeNotified).getStringConversionOfNewAcceptedFriends() );
+                updateUserAddedAFriend(userThatHaveToBeNotified, 
+                                        currentUser_.getFriendDataByUID(userThatHaveToBeNotified).getStringConversionOfNewAcceptedFriends());
+            }
         }
     }
     
@@ -207,10 +232,6 @@ public class firebaseHandler : MonoBehaviour
       * This method returns true only if there is internet connection, otherwise it will return false.
       */
     public bool internetConnection(){
-        //string toShow = $"InternetConnection: ";
-        //toShow+=$"CarrierDataNetwork = {Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork} ";
-        //toShow+=$"LocalAreaNetwork = {Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork}";
-        //Debug.Log(toShow);
         return Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork || 
                 Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork;
     }
@@ -449,76 +470,9 @@ public class firebaseHandler : MonoBehaviour
         //database.Child("users").Child(currentUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(currentUser_.ToJson());
         userDataUploaded_ = "inProgress";
         database.Child("users").Child(currentUser_.firebaseUserData_.UserId).SetRawJsonValueAsync(currentUser_.ToJson()).ContinueWith(taskUploadUserData =>{
-            Debug.Log("data wrote! " + (taskUploadUserData.IsCompleted ? "true" : "false") );
-            if(optionsController.optionsControllerInstance_.socialOptions("addMe") ||
-                optionsController.optionsControllerInstance_.socialOptions("challengeMe") ||
-                optionsController.optionsControllerInstance_.socialOptions("ranking")){
-                    FirebaseDatabase.DefaultInstance.GetReference($"users/usersThatAllowFriendshipInvitations").GetValueAsync().ContinueWith(taskAllowFriendInvitations => {
-                        if (taskAllowFriendInvitations.IsFaulted) {
-                            // Handle the error...
-                            Debug.Log("Error: "+taskAllowFriendInvitations.Exception);
-                            userDataUploaded_ = "false";
-                        } else if (taskAllowFriendInvitations.IsCompleted) {
-                            DataSnapshot snapshotAllowFriendInvitations = taskAllowFriendInvitations.Result;
-                            List<string> usersList;
-                            //Debug.Log($"snapshotAllowFriendInvitations = {snapshotAllowFriendInvitations.GetRawJsonValue()}");
-                            if(snapshotAllowFriendInvitations.GetRawJsonValue() == null){
-                                usersList = new List<string>();
-                            }else{
-                                usersList = JsonConvert.DeserializeObject<List<string>>(snapshotAllowFriendInvitations.GetRawJsonValue());
-                            }
-                            if(optionsController.optionsControllerInstance_.socialOptions("addMe") && usersList.IndexOf(currentUser_.firebaseUserData_.UserId) == -1){
-                                usersList.Add(currentUser_.firebaseUserData_.UserId);
-                                string stringConversion = JsonConvert.SerializeObject(usersList);
-                                database.Child("users").Child("usersThatAllowFriendshipInvitations").SetRawJsonValueAsync(stringConversion);
-                            }
-                            FirebaseDatabase.DefaultInstance.GetReference($"users/usersThatAllowBeChallenged").GetValueAsync().ContinueWith(taskAllowBeChallenged => {
-                                if (taskAllowBeChallenged.IsFaulted) {
-                                    // Handle the error...
-                                    Debug.Log("Error: "+taskAllowBeChallenged.Exception);
-                                    userDataUploaded_ = "false";
-                                } else if (taskAllowBeChallenged.IsCompleted) {
-                                    DataSnapshot snapshotAllowBeChallenged = taskAllowBeChallenged.Result;
-                                    //Debug.Log($"snapshotAllowBeChallenged = {snapshotAllowBeChallenged.GetRawJsonValue()}");
-                                    if(snapshotAllowBeChallenged.GetRawJsonValue() == null){
-                                        usersList = new List<string>();
-                                    }else{
-                                        usersList = JsonConvert.DeserializeObject<List<string>>(snapshotAllowBeChallenged.GetRawJsonValue());
-                                    }
-                                    if(optionsController.optionsControllerInstance_.socialOptions("challengeMe") && usersList.IndexOf(currentUser_.firebaseUserData_.UserId) == -1){
-                                        usersList.Add(currentUser_.firebaseUserData_.UserId);
-                                        string stringConversion = JsonConvert.SerializeObject(usersList);
-                                        database.Child("users").Child("usersThatAllowBeChallenged").SetRawJsonValueAsync(stringConversion);
-                                    }
-                                }
-                                FirebaseDatabase.DefaultInstance.GetReference($"users/usersThatAllowAppearedOnRanking").GetValueAsync().ContinueWith(taskAllowAppearedOnRanking => {
-                                    if (taskAllowAppearedOnRanking.IsFaulted) {
-                                        // Handle the error...
-                                        Debug.Log("Error: "+taskAllowAppearedOnRanking.Exception);
-                                        userDataUploaded_ = "false";
-                                    } else if (taskAllowAppearedOnRanking.IsCompleted) {
-                                        DataSnapshot snapshotAllowAppearedOnRanking = taskAllowAppearedOnRanking.Result;
-                                        //Debug.Log($"snapshotAllowAppearedOnRanking = {snapshotAllowAppearedOnRanking.GetRawJsonValue()}");
-                                        if(snapshotAllowAppearedOnRanking.GetRawJsonValue() == null){
-                                            usersList = new List<string>();
-                                        }else{
-                                            usersList = JsonConvert.DeserializeObject<List<string>>(snapshotAllowAppearedOnRanking.GetRawJsonValue());
-                                        }
-                                        if(optionsController.optionsControllerInstance_.socialOptions("challengeMe") && usersList.IndexOf(currentUser_.firebaseUserData_.UserId) == -1){
-                                            usersList.Add(currentUser_.firebaseUserData_.UserId);
-                                            string stringConversion = JsonConvert.SerializeObject(usersList);
-                                            database.Child("users").Child("usersThatAllowAppearedOnRanking").SetRawJsonValueAsync(stringConversion);
-                                        }
-                                        userDataUploaded_ = "true";
-                                    }
-                                },TaskScheduler.FromCurrentSynchronizationContext());
-                            },TaskScheduler.FromCurrentSynchronizationContext());
-                        }
-                    },TaskScheduler.FromCurrentSynchronizationContext());
-            }else{
-                userDataUploaded_ = taskUploadUserData.IsCompleted ? "true" : "false";
-            }
-
+            Debug.Log("data wrote? " + (taskUploadUserData.IsCompleted ? "true" : "false") );
+            uploadSocialPreferences();
+            userDataUploaded_ = taskUploadUserData.IsCompleted ? "true" : "false";
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
 
@@ -642,14 +596,50 @@ public class firebaseHandler : MonoBehaviour
                                                                     haveToUploadData = true; 
                                                                 }
                                                         
-                                                                currentUser_ = new UserData(auth.CurrentUser, visitedPlacesListVersion, baseCordsData, friendsList, friendsInvitationsList, 
-                                                                                            acceptedFriendsInvitationsList, deletedFriendsList, challengesList );
-                                                                //por cualquiera de los caminos tiene que estar la user data lista
-                                                                userDataReady_ = true;
-                                                                if(haveToUploadData){
-                                                                    writeUserData();
-                                                                }
+                                                                FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/score_").GetValueAsync().ContinueWith(taskScore => {
+                                                                    if (taskScore.IsFaulted) {
+                                                                        // Handle the error...
+                                                                        Debug.Log("Error: "+taskScore.Exception);
+                                                                    } else if (taskScore.IsCompleted) {
+                                                                        DataSnapshot snapshotScore = taskScore.Result;
+                                                                        string userScore;
+                                                                        //Debug.Log($"snapshotScore = {snapshotScore.GetRawJsonValue()}");
+                                                                        if(snapshotScore.GetRawJsonValue() == null){
+                                                                            userScore = null;
+                                                                            haveToUploadData = true; 
+                                                                        }else{
+                                                                            userScore = JsonConvert.DeserializeObject<string>(snapshotScore.GetRawJsonValue());
+                                                                        }
+                                                                        
+                                                                        FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/earnedScore_").GetValueAsync().ContinueWith(taskEarnedScore => {
+                                                                            if (taskEarnedScore.IsFaulted) {
+                                                                                // Handle the error...
+                                                                                Debug.Log("Error: "+taskEarnedScore.Exception);
+                                                                            } else if (taskEarnedScore.IsCompleted) {
+                                                                                DataSnapshot snapshotEarnedScore = taskEarnedScore.Result;
+                                                                                string userEarnedScore;
+                                                                                //Debug.Log($"snapshotEarnedScore = {snapshotEarnedScore.GetRawJsonValue()}");
+                                                                                if(snapshotEarnedScore.GetRawJsonValue() == null){
+                                                                                    userEarnedScore = null;
+                                                                                }else{
+                                                                                    userEarnedScore = JsonConvert.DeserializeObject<string>(snapshotEarnedScore.GetRawJsonValue());
+                                                                                    haveToUploadData = true;
+                                                                                }
 
+                                                                                currentUser_ = new UserData(auth.CurrentUser, visitedPlacesListVersion, baseCordsData, 
+                                                                                                            friendsList, friendsInvitationsList, acceptedFriendsInvitationsList, 
+                                                                                                            deletedFriendsList, challengesList, userScore, userEarnedScore);
+
+                                                                                //por cualquiera de los caminos tiene que estar la user data lista
+                                                                                userDataReady_ = true;
+                                                                                if(haveToUploadData){
+                                                                                    writeUserData();
+                                                                                }
+                                                                            
+                                                                            }
+                                                                        },TaskScheduler.FromCurrentSynchronizationContext());
+                                                                    }
+                                                                },TaskScheduler.FromCurrentSynchronizationContext());
                                                             }
                                                         },TaskScheduler.FromCurrentSynchronizationContext());
                                                     }
@@ -737,7 +727,6 @@ public class firebaseHandler : MonoBehaviour
             
             //si ya lo habia visitado devolvemos true si ha cumplido el cooldown
             // hay 10.000.000 de ticks en un segundo, * 60 son minutos
-            //Debug.Log($"{storedPlace.lastVisitTimestamp()} + {gameRules.getMinutesOfCooldown() * 10000000 * 60}\n {storedPlace.lastVisitTimestamp() + gameRules.getMinutesOfCooldown() * 10000000 * 60} < {DateTime.Now.Ticks} ? ");
             return (storedPlace.lastVisitTimestamp() + gameRules.getMinutesOfCooldown() * 600000000 < DateTime.Now.Ticks);
         }
         //si no lo habia visitado, el cooldown siempre se ha cumplido
@@ -771,23 +760,9 @@ public class firebaseHandler : MonoBehaviour
       * information to the database.
       */
     public void userVisitedPlace(string type, int id, long timeOfTheVisit = -1){
-        bool firstTime = true;
-        for(int i = 0; i < currentUser_.visitedPlaces_.Count; i++ ){
-            //busco en los ya visitados y si es uno de esos, contabilizo la visita
-            if(currentUser_.visitedPlaces_[i].type_ == type && currentUser_.visitedPlaces_[i].id_ == id){
-                firstTime = false;
-                //currentUser_.visitedPlaces_[i].timesVisited_++;
-                break;
-            }
-        }
         long currentTime = timeOfTheVisit <= 0 ? DateTime.Now.Ticks : timeOfTheVisit;
-        //si no lo habia visitado antes, registro la visita
-        if(firstTime){
-            currentUser_.visitedPlaces_.Add(new VisitedPlace(type,id,1,currentTime));
-        }else{
-            currentUser_.newVisitAt(type,id,currentTime);
-        }
-        //allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"] = (Int32.Parse(allPlaces_[type][id.ToString()]["timesItHasBeenVisited_"])+1).ToString();
+        currentUser_.newVisitAt(type,id,currentTime);
+
         requestHandler_.oneMoreVisitToPlaceByTypeAndId(type,id.ToString());
         writePlaceData(type,id.ToString());
         writeUserData();
@@ -1061,7 +1036,26 @@ public class firebaseHandler : MonoBehaviour
                                 }else{
                                     challenges = JsonConvert.DeserializeObject<List<Dictionary<string,string>>>(challengesSnapshot.GetRawJsonValue());
                                 }
-                                currentUser_.addFriendData(new FriendData(uid, displayName, deletedFriends, challenges));
+                                FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/acceptedFriendsInvitations_").GetValueAsync().ContinueWith(acceptedNewFriendsTask => {
+                                    if (acceptedNewFriendsTask.IsFaulted) {
+                                        // Handle the error...
+                                        Debug.Log("Error: "+acceptedNewFriendsTask.Exception);
+                                        friendDataDownloadQueue_.Add(uid);
+                                    } else if (acceptedNewFriendsTask.IsCompleted) {
+                                        DataSnapshot acceptedNewFriendsSnapshot = acceptedNewFriendsTask.Result;
+                                        List<string> acceptedNewFriends;
+                                        if(acceptedNewFriendsSnapshot.GetRawJsonValue() == null){
+                                            acceptedNewFriends = new List<string>();
+                                        }else{
+                                            acceptedNewFriends = JsonConvert.DeserializeObject<List<string>>(acceptedNewFriendsSnapshot.GetRawJsonValue());
+                                        }
+                                        
+                                        if(currentUser_.hasToBeNotified(uid)){
+                                            acceptedNewFriends.Add(currentUser_.getUid());
+                                        }
+                                        currentUser_.addFriendData(new FriendData(uid, displayName, deletedFriends, challenges, acceptedNewFriends));
+                                    }
+                                },TaskScheduler.FromCurrentSynchronizationContext());
                             }
                         },TaskScheduler.FromCurrentSynchronizationContext());
                     }
@@ -1211,7 +1205,6 @@ public class firebaseHandler : MonoBehaviour
     // envia una peticion de amistad del usuario current al uid que le digas
     // si le pasas un SearchedPlayer avisará con el resultado
     //  - sended, failed, repeated (ese usuario ya tenía una peticion de amistad tuya)
-        Debug.Log($"sendFriendshipInvitation {uidToInvite} {searchedPlayerToAdvice}");
         FirebaseDatabase.DefaultInstance.GetReference($"users/{uidToInvite}/friendsInvitations_").GetValueAsync().ContinueWith(friendsInvitationsTask => {
             if (friendsInvitationsTask.IsFaulted) {
                 Debug.Log($"Fallo al acceder a la lista de solicitudes de amistad de {uidToInvite}: "+friendsInvitationsTask.Exception);
@@ -1219,7 +1212,6 @@ public class firebaseHandler : MonoBehaviour
             }else if(friendsInvitationsTask.IsCompleted){
                 DataSnapshot snapshotFriendsInvitations = friendsInvitationsTask.Result;
                 List<string> friendsInvitationsConverted;
-                Debug.Log($"snapshotFriendsInvitations = {snapshotFriendsInvitations.GetRawJsonValue()}");
                 if(snapshotFriendsInvitations.GetRawJsonValue() == null){
                     friendsInvitationsConverted = new List<string>();
                 }else{
@@ -1229,7 +1221,6 @@ public class firebaseHandler : MonoBehaviour
                     searchedPlayerToAdvice.resultOfTheSending("repeated");
                 }else{
                     friendsInvitationsConverted.Add(auth.CurrentUser.UserId);
-                    Debug.Log($"friendsInvitationsConverted = {JsonConvert.SerializeObject(friendsInvitationsConverted)}");
                     //subir la lista de amigos y notificar a searchedPlayerToAdvice
                     database.Child($"users/{uidToInvite}/friendsInvitations_").SetRawJsonValueAsync(JsonConvert.SerializeObject(friendsInvitationsConverted)).ContinueWith(uploadInvitationsTask => {
                         if(uploadInvitationsTask.IsFaulted){
@@ -1296,7 +1287,6 @@ public class firebaseHandler : MonoBehaviour
                     downloadingAnyOfTheUsersPermissionsLists_ = false;
                 }else if(searchTask.IsCompleted){
                     DataSnapshot snapshotSearch = searchTask.Result;
-                    Debug.Log(snapshotSearch.GetRawJsonValue());
                     if(snapshotSearch.GetRawJsonValue() != null){
                         FriendData.usersThatAllowFriendshipInvitations_ = JsonConvert.DeserializeObject<List<string>>(snapshotSearch.GetRawJsonValue());
                     }
@@ -1316,7 +1306,6 @@ public class firebaseHandler : MonoBehaviour
                     downloadingAnyOfTheUsersPermissionsLists_ = false;
                 }else if(searchTask.IsCompleted){
                     DataSnapshot snapshotSearch = searchTask.Result;
-                    Debug.Log(snapshotSearch.GetRawJsonValue());
                     if(snapshotSearch.GetRawJsonValue() != null){
                         FriendData.usersThatAllowBeChallenged_ = JsonConvert.DeserializeObject<List<string>>(snapshotSearch.GetRawJsonValue());
                     }
@@ -1336,7 +1325,6 @@ public class firebaseHandler : MonoBehaviour
                     downloadingAnyOfTheUsersPermissionsLists_ = false;
                 }else if(searchTask.IsCompleted){
                     DataSnapshot snapshotSearch = searchTask.Result;
-                    Debug.Log(snapshotSearch.GetRawJsonValue());
                     if(snapshotSearch.GetRawJsonValue() != null){
                         FriendData.usersThatAllowAppearedOnRanking_ = JsonConvert.DeserializeObject<List<string>>(snapshotSearch.GetRawJsonValue());
                     }
@@ -1359,24 +1347,157 @@ public class firebaseHandler : MonoBehaviour
         //TIENE que haber internet
         database.Child("users").Child(friendDataToUpload.getUid()).Child("challenges_").SetRawJsonValueAsync(friendDataToUpload.getStringConversionOfChallenges());
     }
+
+    /**
+      * @brief this method should be called either when there is changes on the current user's social preferences or
+      * the last changes couldnt been uploaded on the past. It checks if there is any change on the three permision
+      * and upload to the firebase database the changes on the preferences. It checks if the three lists are uploaded,
+      * if one or more of them fails on the uploading, it puts the hasToUploadSocialPreferences_ property to true, so
+      * this method will be called again when the internet connection is ready.
+      */
+    public void uploadSocialPreferences(){
+        bool changesToUpload = false;
+        int countOfDone = 0;
+        string currentUserId = currentUser_.firebaseUserData_.UserId.ToString();
+        if(optionsController.optionsControllerInstance_.socialOptions("addMe") && !FriendData.usersThatAllowFriendshipInvitations_.Exists(uid => uid == currentUserId)){
+            //el usuario permite recibir peticiones de amistad y no está en la lista
+            FriendData.usersThatAllowFriendshipInvitations_.Add(currentUserId);
+            changesToUpload = true;
+        }else if(!optionsController.optionsControllerInstance_.socialOptions("addMe") && FriendData.usersThatAllowFriendshipInvitations_.Exists(uid => uid == currentUserId)){
+            //el usuario NO permite recibir peticiones de amistad y está en la lista
+            FriendData.usersThatAllowFriendshipInvitations_.Remove(currentUserId);
+            changesToUpload = true;
+        }
+
+        if(changesToUpload){
+            string stringConversion = JsonConvert.SerializeObject(FriendData.usersThatAllowFriendshipInvitations_);
+            database.Child("users").Child("usersThatAllowFriendshipInvitations").SetRawJsonValueAsync(stringConversion).ContinueWith(uploadListTask => {
+                if(uploadListTask.IsCompleted){
+                    countOfDone++;
+                    if(countOfDone == 3){
+                        hasToUploadSocialPreferences_ = false;
+                    }
+                }else{
+                    hasToUploadSocialPreferences_ = true;
+                }
+            },TaskScheduler.FromCurrentSynchronizationContext());
+        }else{
+            countOfDone++;
+            if(countOfDone == 3){
+                hasToUploadSocialPreferences_ = false;
+            }
+        }
+
+        changesToUpload = false;
+        if(optionsController.optionsControllerInstance_.socialOptions("challengeMe") && !FriendData.usersThatAllowBeChallenged_.Exists(uid => uid == currentUserId)){
+            //el usuario permite recibir retos y no está en la lista
+            FriendData.usersThatAllowBeChallenged_.Add(currentUserId);
+            changesToUpload = true;
+        }else if(!optionsController.optionsControllerInstance_.socialOptions("challengeMe") && FriendData.usersThatAllowBeChallenged_.Exists(uid => uid == currentUserId)){
+            //el usuario NO permite recibir retos y está en la lista
+            FriendData.usersThatAllowBeChallenged_.Remove(currentUserId);
+            changesToUpload = true;
+        }
+
+        if(changesToUpload){
+            string stringConversion = JsonConvert.SerializeObject(FriendData.usersThatAllowBeChallenged_);
+            database.Child("users").Child("usersThatAllowBeChallenged").SetRawJsonValueAsync(stringConversion).ContinueWith(uploadListTask => {
+                if(uploadListTask.IsCompleted){
+                    countOfDone++;
+                    if(countOfDone == 3){
+                        hasToUploadSocialPreferences_ = false;
+                    }
+                }else{
+                    hasToUploadSocialPreferences_ = true;
+                }
+            },TaskScheduler.FromCurrentSynchronizationContext());
+        }else{
+            countOfDone++;
+            if(countOfDone == 3){
+                hasToUploadSocialPreferences_ = false;
+            }
+        }
+
+        changesToUpload = false;
+        if(optionsController.optionsControllerInstance_.socialOptions("ranking") && !FriendData.usersThatAllowAppearedOnRanking_.Exists(uid => uid == currentUserId)){
+            //el usuario permite aparecer en el ranking y no está en la lista
+            FriendData.usersThatAllowAppearedOnRanking_.Add(currentUserId);
+            changesToUpload = true;
+        }else if(!optionsController.optionsControllerInstance_.socialOptions("ranking") && FriendData.usersThatAllowAppearedOnRanking_.Exists(uid => uid == currentUserId)){
+            //el usuario NO permite aparecer en el ranking y está en la lista
+            FriendData.usersThatAllowAppearedOnRanking_.Remove(currentUserId);
+            changesToUpload = true;
+        }
+
+        if(changesToUpload){
+            string stringConversion = JsonConvert.SerializeObject(FriendData.usersThatAllowAppearedOnRanking_);
+            database.Child("users").Child("usersThatAllowAppearedOnRanking").SetRawJsonValueAsync(stringConversion).ContinueWith(uploadListTask => {
+                if(uploadListTask.IsCompleted){
+                    countOfDone++;
+                    if(countOfDone == 3){
+                        hasToUploadSocialPreferences_ = false;
+                    }
+                }else{
+                    hasToUploadSocialPreferences_ = true;
+                }
+            },TaskScheduler.FromCurrentSynchronizationContext());
+        }else{
+            countOfDone++;
+            if(countOfDone == 3){
+                hasToUploadSocialPreferences_ = false;
+            }
+        }
+    }
+
+    /**
+      * @param Dictionary<string,string> with the information of the score and the user id
+      * that need to be uploaded.
+      * @brief This method adds the given dictionary to the otherUserScoresToUpload_ list.
+      */
+    public void addOtherUserScoreToUpload(Dictionary<string,string> uidAndScore){
+        otherUserScoresToUpload_.Add(uidAndScore);
+    }
+
+    /**
+      * @brief This method tries to upload the information of the first element of
+      * otherUserScoresToUpload_ list, it removes the first element just before
+      * of trying to upload it. If it fails on the uploading, it adds again the 
+      * dictionary with the information to the otherUserScoresToUpload_ list.
+      * The information it uploads is the the earnedScore_ to the user id.
+      */
+    void uploadOtherUserScores(){
+        string uid = otherUserScoresToUpload_[0]["uid_"];
+        string score = "\"" + otherUserScoresToUpload_[0]["score_"] + "\"";
+        otherUserScoresToUpload_.RemoveAt(0);
+        database.Child("users").Child(uid).Child("earnedScore_").SetRawJsonValueAsync(score).ContinueWith(uploadScoreTask => {
+            if(!uploadScoreTask.IsCompleted){
+                Dictionary<string,string> toUpload = new Dictionary<string,string>();
+                toUpload["uid_"] = uid;
+                toUpload["score_"] = score;
+                otherUserScoresToUpload_.Add(toUpload);
+            }
+        },TaskScheduler.FromCurrentSynchronizationContext());
+    }
+
+    /**
+      * @param string user id of the friend that has been acepted
+      * @param string with the conversion of the accepted friendships invitations in JSON 
+      * format.
+      * @brief This method tries to upload the accepted friendships invitations list of the 
+      * given user. If it complete it succesfully, it removes the friendUid of the list of the 
+      * user that need to be notified with the hasBeenNotified method. It also sets the
+      * uploadingNotifications_ property as true but when the try of updating finish, in
+      * any way, it sets the uploadingNotifications_ property as false.
+      */
+    public void updateUserAddedAFriend(string friendUid, string acceptedFriendsInvitationsListInJSON){
+        uploadingNotifications_ = true;
+        //uso los metodos de friend data y luego llamo aqui solo con la info que hay para subir
+        //TIENE que haber internet, sino no dejo hacer nada en friends
+        database.Child("users").Child(friendUid).Child("acceptedFriendsInvitations_").SetRawJsonValueAsync(acceptedFriendsInvitationsListInJSON).ContinueWith(uploadScoreTask => {
+            if(uploadScoreTask.IsCompleted){
+                currentUser_.hasBeenNotified(friendUid);
+            }
+            uploadingNotifications_ = false;
+        },TaskScheduler.FromCurrentSynchronizationContext());;
+    }
 }
-
-/*
-
-Para hacer los retos:
-    Cada usuario deberia tener un atributo publico que sea un array de objetos RETO
-    Reto contiene:
-        uid del usuario que te reto
-        timestamp de cuando lo mandó
-        ¿timestamp de cuando termina? se puede calcular poniendo en gamerules 7 dias
-        id sitio al que ir
-        type sitio al que ir
-    Solo puedes ser retado una vez simultaneamente por cada usuario
-    Los retos se pueden cancelar
-    Cada vez que se visite un sitio se deberia comprobar si este está en la lista de retos y actuar en consecuencia
-
-    Los usuarios deberian tener un atributo "score_" normas en el LATEX quizas multiplico las puntuaciones por 10 para que los % afecten mas
-    es decir visitar un sitio ya visitado previamente que sea 10 puntos en vez de 1 entonces si es un 10% ya son 11 puntos... es más facil que
-    la puntuacion aumente con numeros mas grandes (por la aproximacion)
-
-*/

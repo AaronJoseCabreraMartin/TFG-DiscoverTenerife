@@ -25,7 +25,7 @@ public class RegisterAsVisitedButton : MonoBehaviour
       * - If you dont have internet connection it will show an error on a toast message.
       * - If the user is close enough it calls the userVisitedPlaceByName
       * method of firebaseHandler, the CheckNewState of the VisitedPanelController class and 
-      * shows a toast message giving information to the user.
+      * shows some toast messages giving information to the user.
       * - If the user is close enough but it cant visit again that place it shows a toast
       * message telling to the user that he has to wait.
       * - If the user is not close enough it shows a toast message with the error, telling the user 
@@ -42,7 +42,18 @@ public class RegisterAsVisitedButton : MonoBehaviour
             if(gpsController.gpsControllerInstance_.CalculateDistanceToUser(PlaceHandler.chosenPlace_.getLatitude(), PlaceHandler.chosenPlace_.getLongitude()) < gameRules.getMaxDistance()){
                 if(firebaseHandler.firebaseHandlerInstance_.cooldownVisitingPlaceByNameFinished(PlaceHandler.chosenPlace_.getName())){
                     firebaseHandler.firebaseHandlerInstance_.userVisitedPlaceByName(PlaceHandler.chosenPlace_.getName());
-                    toastMessageInstance.makeAnimation("You register this place as visited successfully", new Color32(76,175,80,255), 5);
+
+                    toastMessageInstance.makeAnimation("You register this place as visited successfully!", new Color32(76,175,80,255), 2);
+                    toastMessageInstance.makeAnimation(
+                              "You have earned " + firebaseHandler.firebaseHandlerInstance_.currentUser_.lastVisitScore().ToString() + " points!", 
+                              new Color32(76,175,80,255), 3);
+                    
+                    int challengeScore = firebaseHandler.firebaseHandlerInstance_.currentUser_.lastChallengeScore();
+                    if(challengeScore != 0){
+                      toastMessageInstance.makeAnimation(
+                            "You also have completed a challenge! You have earned " + challengeScore.ToString() + " extra points!", 
+                            new Color32(76,175,80,255), 3);
+                    }
                     visitedPanelObject_.GetComponent<VisitedPanelController>().CheckNewState();
                 }else{
                     toastMessageInstance.makeAnimation("You have to wait to register this place as visited again", new Color32(255,145,15,255), 5);

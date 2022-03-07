@@ -338,6 +338,7 @@ public class optionsController : MonoBehaviour
                 socialOptions_["addMe"] = changes["Other users can send me friendship invitations"];
                 socialOptions_["challengeMe"] = changes["Friends can challenge me"];
                 socialOptions_["ranking"] = changes["Other users can see me on the ranking"];
+                firebaseHandler.firebaseHandlerInstance_.uploadSocialPreferences();
                 
             }
             distanceInKM_ = distanceUnitMenu_.checkToggle(0);

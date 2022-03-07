@@ -76,9 +76,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad5912f990db26a2c23a4c50c39a5cb78"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend_data.html#ad5912f990db26a2c23a4c50c39a5cb78">FriendData</a> (string uid, string displayName, List&lt; string &gt; deletedFriends, List&lt; Dictionary&lt; string, string &gt; &gt; <a class="el" href="classchallenge_data.html">challengeData</a>)</td></tr>
-<tr class="memdesc:ad5912f990db26a2c23a4c50c39a5cb78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that initialize the uid_, the displayName_, the deletedFriends_ and challenges_ properties with the given parameters.  <a href="class_friend_data.html#ad5912f990db26a2c23a4c50c39a5cb78">More...</a><br /></td></tr>
-<tr class="separator:ad5912f990db26a2c23a4c50c39a5cb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad97259e60e13c68aa7b6200aac4a6e41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend_data.html#ad97259e60e13c68aa7b6200aac4a6e41">FriendData</a> (string uid, string displayName, List&lt; string &gt; deletedFriends, List&lt; Dictionary&lt; string, string &gt; &gt; <a class="el" href="classchallenge_data.html">challengeData</a>, List&lt; string &gt; acceptedFriends)</td></tr>
+<tr class="memdesc:ad97259e60e13c68aa7b6200aac4a6e41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that initialize the uid_, the displayName_, the deletedFriends_ and challenges_ properties with the given parameters.  <a href="class_friend_data.html#ad97259e60e13c68aa7b6200aac4a6e41">More...</a><br /></td></tr>
+<tr class="separator:ad97259e60e13c68aa7b6200aac4a6e41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5672a40f6da7620fc48171c85340f5bd"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend_data.html#a5672a40f6da7620fc48171c85340f5bd">getUid</a> ()</td></tr>
 <tr class="memdesc:a5672a40f6da7620fc48171c85340f5bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the user id.  <a href="class_friend_data.html#a5672a40f6da7620fc48171c85340f5bd">More...</a><br /></td></tr>
 <tr class="separator:a5672a40f6da7620fc48171c85340f5bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -100,6 +100,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a97a96ecafcdb857bd6d26d79ba001260"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend_data.html#a97a96ecafcdb857bd6d26d79ba001260">getStringConversionOfChallenges</a> ()</td></tr>
 <tr class="memdesc:a97a96ecafcdb857bd6d26d79ba001260"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns a string conversion of the whole list of challenges of the represented user. It uses the ToJson method of the <a class="el" href="classchallenge_data.html" title="Class that stores the information of one challenge.">challengeData</a> class.  <a href="class_friend_data.html#a97a96ecafcdb857bd6d26d79ba001260">More...</a><br /></td></tr>
 <tr class="separator:a97a96ecafcdb857bd6d26d79ba001260"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ee8a48d0f093287f17ed490b36420e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend_data.html#a2ee8a48d0f093287f17ed490b36420e1">addANewAcceptedFriend</a> (string uid)</td></tr>
+<tr class="memdesc:a2ee8a48d0f093287f17ed490b36420e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method adds the given user id to the list of friendships invitations accepted if the given user id isnt on the acceptedFriendsInvitations_ property list.  <a href="class_friend_data.html#a2ee8a48d0f093287f17ed490b36420e1">More...</a><br /></td></tr>
+<tr class="separator:a2ee8a48d0f093287f17ed490b36420e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a735f0e4f277a99a577a1ce3221ebf4f7"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend_data.html#a735f0e4f277a99a577a1ce3221ebf4f7">getStringConversionOfNewAcceptedFriends</a> ()</td></tr>
+<tr class="memdesc:a735f0e4f277a99a577a1ce3221ebf4f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns a string that contains the conversion of the acceptedFriendsInvitations_ list property in JSON format.  <a href="class_friend_data.html#a735f0e4f277a99a577a1ce3221ebf4f7">More...</a><br /></td></tr>
+<tr class="separator:a735f0e4f277a99a577a1ce3221ebf4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -136,12 +142,15 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:abffaa92568ab33bf58dd6d4030f711d3"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classchallenge_data.html">challengeData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend_data.html#abffaa92568ab33bf58dd6d4030f711d3">challenges_</a></td></tr>
 <tr class="memdesc:abffaa92568ab33bf58dd6d4030f711d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">List that contains <a class="el" href="classchallenge_data.html" title="Class that stores the information of one challenge.">challengeData</a> objects that represents all the challenges that the represented friend has.  <a href="class_friend_data.html#abffaa92568ab33bf58dd6d4030f711d3">More...</a><br /></td></tr>
 <tr class="separator:abffaa92568ab33bf58dd6d4030f711d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc288ab81308eba8f4a14cf08b67d21c"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend_data.html#adc288ab81308eba8f4a14cf08b67d21c">acceptedFriendsInvitations_</a></td></tr>
+<tr class="memdesc:adc288ab81308eba8f4a14cf08b67d21c"><td class="mdescLeft">&#160;</td><td class="mdescRight">List that contains the invitations that this user sended and the other player accepted de invitation.  <a href="class_friend_data.html#adc288ab81308eba8f4a14cf08b67d21c">More...</a><br /></td></tr>
+<tr class="separator:adc288ab81308eba8f4a14cf08b67d21c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class that stores the information of one of the current user's friend. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad5912f990db26a2c23a4c50c39a5cb78" name="ad5912f990db26a2c23a4c50c39a5cb78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5912f990db26a2c23a4c50c39a5cb78">&#9670;&nbsp;</a></span>FriendData()</h2>
+<a id="ad97259e60e13c68aa7b6200aac4a6e41" name="ad97259e60e13c68aa7b6200aac4a6e41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad97259e60e13c68aa7b6200aac4a6e41">&#9670;&nbsp;</a></span>FriendData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -168,7 +177,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">List&lt; Dictionary&lt; string, string &gt; &gt;&#160;</td>
-          <td class="paramname"><em>challengeData</em>&#160;</td>
+          <td class="paramname"><em>challengeData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List&lt; string &gt;&#160;</td>
+          <td class="paramname"><em>acceptedFriends</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -192,6 +207,32 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2ee8a48d0f093287f17ed490b36420e1" name="a2ee8a48d0f093287f17ed490b36420e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ee8a48d0f093287f17ed490b36420e1">&#9670;&nbsp;</a></span>addANewAcceptedFriend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FriendData.addANewAcceptedFriend </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>uid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method adds the given user id to the list of friendships invitations accepted if the given user id isnt on the acceptedFriendsInvitations_ property list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>with the user id of the user that has accepted the friendship invitation that this user has sended. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a9d8910f8ea8e150e386d95a8d6557098" name="a9d8910f8ea8e150e386d95a8d6557098"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d8910f8ea8e150e386d95a8d6557098">&#9670;&nbsp;</a></span>addDeletedFriend()</h2>
 
@@ -322,6 +363,26 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a735f0e4f277a99a577a1ce3221ebf4f7" name="a735f0e4f277a99a577a1ce3221ebf4f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a735f0e4f277a99a577a1ce3221ebf4f7">&#9670;&nbsp;</a></span>getStringConversionOfNewAcceptedFriends()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string FriendData.getStringConversionOfNewAcceptedFriends </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method returns a string that contains the conversion of the acceptedFriendsInvitations_ list property in JSON format. </p>
+<dl class="section return"><dt>Returns</dt><dd>string with the conversion of acceptedFriendsInvitations_ list property in JSON format. </dd></dl>
+
+</div>
+</div>
 <a id="a5672a40f6da7620fc48171c85340f5bd" name="a5672a40f6da7620fc48171c85340f5bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5672a40f6da7620fc48171c85340f5bd">&#9670;&nbsp;</a></span>getUid()</h2>
 
@@ -370,6 +431,30 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="adc288ab81308eba8f4a14cf08b67d21c" name="adc288ab81308eba8f4a14cf08b67d21c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc288ab81308eba8f4a14cf08b67d21c">&#9670;&nbsp;</a></span>acceptedFriendsInvitations_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; FriendData.acceptedFriendsInvitations_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List that contains the invitations that this user sended and the other player accepted de invitation. </p>
+
+</div>
+</div>
 <a id="abffaa92568ab33bf58dd6d4030f711d3" name="abffaa92568ab33bf58dd6d4030f711d3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abffaa92568ab33bf58dd6d4030f711d3">&#9670;&nbsp;</a></span>challenges_</h2>
 

@@ -58,12 +58,12 @@ public class notificationController : MonoBehaviour
         }
 
         if(toObserve_ == "chanlleges"){
-            //return firebaseHandler.firebaseHandlerInstance_.currentUser_.countOfChanlleges() != 0; 
+            return firebaseHandler.firebaseHandlerInstance_.currentUser_.getQuantityOfChallenges() != 0; 
         }
 
         if(toObserve_ == "all"){
-            return firebaseHandler.firebaseHandlerInstance_.currentUser_.countOfNewFriends() != 0;
-            // || firebaseHandler.firebaseHandlerInstance_.currentUser_.countOfChanlleges() != 0;
+            return firebaseHandler.firebaseHandlerInstance_.currentUser_.countOfNewFriends() != 0
+                    || firebaseHandler.firebaseHandlerInstance_.currentUser_.getQuantityOfChallenges() != 0;
         }
         return false;
     }

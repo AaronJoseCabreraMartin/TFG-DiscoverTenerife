@@ -1,0 +1,157 @@
+\hypertarget{classchallenges_panel_controller}{}\doxysection{challenges\+Panel\+Controller Class Reference}
+\label{classchallenges_panel_controller}\index{challengesPanelController@{challengesPanelController}}
+
+
+Class that controls the panel that shows all the challenges that the current user has, it also controls the image that will be shown when the user doesnt have any challenge.  
+
+
+Inheritance diagram for challenges\+Panel\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classchallenges_panel_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classchallenges_panel_controller_a913d7ff7573c0ba24843115253e54f8a}{challenge\+Deleted}} (Game\+Object invitation\+Deleted)
+\begin{DoxyCompactList}\small\item\em tries to remove the given gameobject of the challenges\+\_\+ property. If the gameobject isnt on the list, it will raise an index out of range exception. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classchallenges_panel_controller_a665eb9b181aacb9391924842c933cfe5}{Awake}} ()
+\item 
+void \mbox{\hyperlink{classchallenges_panel_controller_a93d927aa6e2982a048d30dfedf780f89}{Update}} ()
+\item 
+void \mbox{\hyperlink{classchallenges_panel_controller_ad8a369ff924479bcdaa51fee4ae9596f}{fill\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classchallenges_panel_controller_a5b81b900c0424a730442b5a9c1c89a2a}{adjust\+Panel\+Size}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classchallenges_panel_controller_a79d48b7fa71a634812ec3d52fb805f66}{challenge\+Prefab\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the prefab that represent a challenge. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classchallenges_panel_controller_af2dcca86713a9860c7f2cac34a6a8c6c}{no\+Challenges\+Image\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the image that will be shown when the current user dont have any challenge. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classchallenges_panel_controller_a6d060cd4f6cb44c0218145d0a4e096e9}{panel\+Filled\+\_\+}}
+\begin{DoxyCompactList}\small\item\em if its true means that the panel was already filled, false in otherwhise. \end{DoxyCompactList}\item 
+List$<$ Game\+Object $>$ \mbox{\hyperlink{classchallenges_panel_controller_ab46966ab33506f10aee10f1685074a55}{challenges\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of the challenges prefab that are instanciated. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classchallenges_panel_controller_a862c002cbac2d1419d51e42c12439fae}{last\+Count\+\_\+}}
+\begin{DoxyCompactList}\small\item\em it stores the last quantity of challenges which the panel has adapted its height. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classchallenges_panel_controller_aba429daba21fc4f1d2e22d80ced6acbc}{initial\+Height\+\_\+}}
+\begin{DoxyCompactList}\small\item\em initial height of the panel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that controls the panel that shows all the challenges that the current user has, it also controls the image that will be shown when the user doesnt have any challenge. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classchallenges_panel_controller_a5b81b900c0424a730442b5a9c1c89a2a}\label{classchallenges_panel_controller_a5b81b900c0424a730442b5a9c1c89a2a}} 
+\index{challengesPanelController@{challengesPanelController}!adjustPanelSize@{adjustPanelSize}}
+\index{adjustPanelSize@{adjustPanelSize}!challengesPanelController@{challengesPanelController}}
+\doxysubsubsection{\texorpdfstring{adjustPanelSize()}{adjustPanelSize()}}
+{\footnotesize\ttfamily void challenges\+Panel\+Controller.\+adjust\+Panel\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method should be called each time that the panel adds or quits an element. This method adjust the height of the panel to keep the apparence when the number of elements changes. \mbox{\Hypertarget{classchallenges_panel_controller_a665eb9b181aacb9391924842c933cfe5}\label{classchallenges_panel_controller_a665eb9b181aacb9391924842c933cfe5}} 
+\index{challengesPanelController@{challengesPanelController}!Awake@{Awake}}
+\index{Awake@{Awake}!challengesPanelController@{challengesPanelController}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void challenges\+Panel\+Controller.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method is called before the first frame, it instanciate the challenges\+\_\+, panel\+Filled\+\_\+ and last\+Count\+\_\+ properties. And if the user\+Data\+Is\+Ready method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class returns true it calls the fill\+Panel method. \mbox{\Hypertarget{classchallenges_panel_controller_a913d7ff7573c0ba24843115253e54f8a}\label{classchallenges_panel_controller_a913d7ff7573c0ba24843115253e54f8a}} 
+\index{challengesPanelController@{challengesPanelController}!challengeDeleted@{challengeDeleted}}
+\index{challengeDeleted@{challengeDeleted}!challengesPanelController@{challengesPanelController}}
+\doxysubsubsection{\texorpdfstring{challengeDeleted()}{challengeDeleted()}}
+{\footnotesize\ttfamily void challenges\+Panel\+Controller.\+challenge\+Deleted (\begin{DoxyParamCaption}\item[{Game\+Object}]{invitation\+Deleted }\end{DoxyParamCaption})}
+
+
+
+tries to remove the given gameobject of the challenges\+\_\+ property. If the gameobject isnt on the list, it will raise an index out of range exception. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Game\+Object} & that contains the prefab element that has been deleted. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classchallenges_panel_controller_ad8a369ff924479bcdaa51fee4ae9596f}\label{classchallenges_panel_controller_ad8a369ff924479bcdaa51fee4ae9596f}} 
+\index{challengesPanelController@{challengesPanelController}!fillPanel@{fillPanel}}
+\index{fillPanel@{fillPanel}!challengesPanelController@{challengesPanelController}}
+\doxysubsubsection{\texorpdfstring{fillPanel()}{fillPanel()}}
+{\footnotesize\ttfamily void challenges\+Panel\+Controller.\+fill\+Panel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method is called to instanciate the panel. It creates a prefab for each new challenge invitation that the current user has. It changes the panel\+Filled\+\_\+ property to true. \mbox{\Hypertarget{classchallenges_panel_controller_a93d927aa6e2982a048d30dfedf780f89}\label{classchallenges_panel_controller_a93d927aa6e2982a048d30dfedf780f89}} 
+\index{challengesPanelController@{challengesPanelController}!Update@{Update}}
+\index{Update@{Update}!challengesPanelController@{challengesPanelController}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void challenges\+Panel\+Controller.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method is called once per frame, it checks if the panel has al ready filled and if the user\+Data\+Is\+Ready method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class returns true it calls the fill\+Panel method. If the last\+Count\+\_\+ property isnt equal to the current challenges\+\_\+ count it calls the adjust\+Panel\+Size method. It also shows the no\+Challenges\+Image\+\_\+ game\+Object if the challenges\+\_\+ list is empty. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classchallenges_panel_controller_a79d48b7fa71a634812ec3d52fb805f66}\label{classchallenges_panel_controller_a79d48b7fa71a634812ec3d52fb805f66}} 
+\index{challengesPanelController@{challengesPanelController}!challengePrefab\_@{challengePrefab\_}}
+\index{challengePrefab\_@{challengePrefab\_}!challengesPanelController@{challengesPanelController}}
+\doxysubsubsection{\texorpdfstring{challengePrefab\_}{challengePrefab\_}}
+{\footnotesize\ttfamily Game\+Object challenges\+Panel\+Controller.\+challenge\+Prefab\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the prefab that represent a challenge. 
+
+\mbox{\Hypertarget{classchallenges_panel_controller_ab46966ab33506f10aee10f1685074a55}\label{classchallenges_panel_controller_ab46966ab33506f10aee10f1685074a55}} 
+\index{challengesPanelController@{challengesPanelController}!challenges\_@{challenges\_}}
+\index{challenges\_@{challenges\_}!challengesPanelController@{challengesPanelController}}
+\doxysubsubsection{\texorpdfstring{challenges\_}{challenges\_}}
+{\footnotesize\ttfamily List$<$Game\+Object$>$ challenges\+Panel\+Controller.\+challenges\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List of the challenges prefab that are instanciated. 
+
+\mbox{\Hypertarget{classchallenges_panel_controller_aba429daba21fc4f1d2e22d80ced6acbc}\label{classchallenges_panel_controller_aba429daba21fc4f1d2e22d80ced6acbc}} 
+\index{challengesPanelController@{challengesPanelController}!initialHeight\_@{initialHeight\_}}
+\index{initialHeight\_@{initialHeight\_}!challengesPanelController@{challengesPanelController}}
+\doxysubsubsection{\texorpdfstring{initialHeight\_}{initialHeight\_}}
+{\footnotesize\ttfamily float challenges\+Panel\+Controller.\+initial\+Height\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+initial height of the panel. 
+
+\mbox{\Hypertarget{classchallenges_panel_controller_a862c002cbac2d1419d51e42c12439fae}\label{classchallenges_panel_controller_a862c002cbac2d1419d51e42c12439fae}} 
+\index{challengesPanelController@{challengesPanelController}!lastCount\_@{lastCount\_}}
+\index{lastCount\_@{lastCount\_}!challengesPanelController@{challengesPanelController}}
+\doxysubsubsection{\texorpdfstring{lastCount\_}{lastCount\_}}
+{\footnotesize\ttfamily int challenges\+Panel\+Controller.\+last\+Count\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+it stores the last quantity of challenges which the panel has adapted its height. 
+
+\mbox{\Hypertarget{classchallenges_panel_controller_af2dcca86713a9860c7f2cac34a6a8c6c}\label{classchallenges_panel_controller_af2dcca86713a9860c7f2cac34a6a8c6c}} 
+\index{challengesPanelController@{challengesPanelController}!noChallengesImage\_@{noChallengesImage\_}}
+\index{noChallengesImage\_@{noChallengesImage\_}!challengesPanelController@{challengesPanelController}}
+\doxysubsubsection{\texorpdfstring{noChallengesImage\_}{noChallengesImage\_}}
+{\footnotesize\ttfamily Game\+Object challenges\+Panel\+Controller.\+no\+Challenges\+Image\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the image that will be shown when the current user dont have any challenge. 
+
+\mbox{\Hypertarget{classchallenges_panel_controller_a6d060cd4f6cb44c0218145d0a4e096e9}\label{classchallenges_panel_controller_a6d060cd4f6cb44c0218145d0a4e096e9}} 
+\index{challengesPanelController@{challengesPanelController}!panelFilled\_@{panelFilled\_}}
+\index{panelFilled\_@{panelFilled\_}!challengesPanelController@{challengesPanelController}}
+\doxysubsubsection{\texorpdfstring{panelFilled\_}{panelFilled\_}}
+{\footnotesize\ttfamily bool challenges\+Panel\+Controller.\+panel\+Filled\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+if its true means that the panel was already filled, false in otherwhise. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/\+Challenges\+Screen/\mbox{\hyperlink{challenges_panel_controller_8cs}{challenges\+Panel\+Controller.\+cs}}\end{DoxyCompactItemize}

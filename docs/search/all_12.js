@@ -13,5 +13,6 @@ var searchData=
   ['visitedplaces_5f_10',['visitedPlaces_',['../class_user_data.html#ad18cfa73e4fb27cd88a3a87b776601ee',1,'UserData']]],
   ['visitedtext_5f_11',['visitedText_',['../class_visited_panel_controller.html#a8f821c045ba464e3a3347503e0f1a301',1,'VisitedPanelController.visitedText_()'],['../class_visite_stored_place_controller.html#a530e42f0a8c32fff4c4914f14c522b45',1,'VisiteStoredPlaceController.visitedText_()']]],
   ['visitestoredplacecontroller_12',['VisiteStoredPlaceController',['../class_visite_stored_place_controller.html',1,'']]],
-  ['visitestoredplacecontroller_2ecs_13',['VisiteStoredPlaceController.cs',['../_visite_stored_place_controller_8cs.html',1,'']]]
+  ['visitestoredplacecontroller_2ecs_13',['VisiteStoredPlaceController.cs',['../_visite_stored_place_controller_8cs.html',1,'']]],
+  ['visitsofmostvisitedplace_14',['visitsOfMostVisitedPlace',['../classrequest_handler.html#a4439a445bbe97705f794966d66ff3de8',1,'requestHandler']]]
 ];

@@ -164,11 +164,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89ce698937f9f0b6c9e1da9cee773e64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a89ce698937f9f0b6c9e1da9cee773e64">uploadFriendChallengesOf</a> (<a class="el" href="class_friend_data.html">FriendData</a> friendDataToUpload)</td></tr>
 <tr class="memdesc:a89ce698937f9f0b6c9e1da9cee773e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method upload the challengue list of the given user.  <a href="classfirebase_handler.html#a89ce698937f9f0b6c9e1da9cee773e64">More...</a><br /></td></tr>
 <tr class="separator:a89ce698937f9f0b6c9e1da9cee773e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61e7f123a1af4e702a8bcd558e3e0ba1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a61e7f123a1af4e702a8bcd558e3e0ba1">uploadSocialPreferences</a> ()</td></tr>
+<tr class="memdesc:a61e7f123a1af4e702a8bcd558e3e0ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method should be called either when there is changes on the current user's social preferences or the last changes couldnt been uploaded on the past. It checks if there is any change on the three permision and upload to the firebase database the changes on the preferences. It checks if the three lists are uploaded, if one or more of them fails on the uploading, it puts the hasToUploadSocialPreferences_ property to true, so this method will be called again when the internet connection is ready.  <a href="classfirebase_handler.html#a61e7f123a1af4e702a8bcd558e3e0ba1">More...</a><br /></td></tr>
+<tr class="separator:a61e7f123a1af4e702a8bcd558e3e0ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9604dc2667655b5cc8485136e1a2eb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#af9604dc2667655b5cc8485136e1a2eb1">addOtherUserScoreToUpload</a> (Dictionary&lt; string, string &gt; uidAndScore)</td></tr>
+<tr class="memdesc:af9604dc2667655b5cc8485136e1a2eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method adds the given dictionary to the otherUserScoresToUpload_ list.  <a href="classfirebase_handler.html#af9604dc2667655b5cc8485136e1a2eb1">More...</a><br /></td></tr>
+<tr class="separator:af9604dc2667655b5cc8485136e1a2eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69977b96acf330e38ff6174b2072b5c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a69977b96acf330e38ff6174b2072b5c9">updateUserAddedAFriend</a> (string friendUid, string acceptedFriendsInvitationsListInJSON)</td></tr>
+<tr class="memdesc:a69977b96acf330e38ff6174b2072b5c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method tries to upload the accepted friendships invitations list of the given user. If it complete it succesfully, it removes the friendUid of the list of the user that need to be notified with the hasBeenNotified method. It also sets the uploadingNotifications_ property as true but when the try of updating finish, in any way, it sets the uploadingNotifications_ property as false.  <a href="classfirebase_handler.html#a69977b96acf330e38ff6174b2072b5c9">More...</a><br /></td></tr>
+<tr class="separator:a69977b96acf330e38ff6174b2072b5c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a8bf24db68a008a90c667f918c5dc5d1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_user_data.html">UserData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a8bf24db68a008a90c667f918c5dc5d1f">currentUser_</a> = null</td></tr>
 <tr class="separator:a8bf24db68a008a90c667f918c5dc5d1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa72469a53537caef3bc8d7751cfead9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrequest_handler.html">requestHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aa72469a53537caef3bc8d7751cfead9b">requestHandler_</a></td></tr>
+<tr class="separator:aa72469a53537caef3bc8d7751cfead9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -213,6 +224,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a9979443635c9d02f69d2ae5671ece914"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a9979443635c9d02f69d2ae5671ece914">downloadUsersPermissionsLists</a> ()</td></tr>
 <tr class="memdesc:a9979443635c9d02f69d2ae5671ece914"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method download the lists of the user social permissions. They are usersThatAllowFriendshipInvitations, usersThatAllowBeChallenged and usersThatAllowAppearedOnRanking. The downloadingAnyOfTheUsersPermissionsLists_ is set as a true. The social permissions are downloaded in a parallel way for searching more efficiency if some of them failed the downloadingAnyOfTheUsersPermissionsLists_ property will be set as false again.  <a href="classfirebase_handler.html#a9979443635c9d02f69d2ae5671ece914">More...</a><br /></td></tr>
 <tr class="separator:a9979443635c9d02f69d2ae5671ece914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aced0ec9e6ab899d5f667de635aea9b26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aced0ec9e6ab899d5f667de635aea9b26">uploadOtherUserScores</a> ()</td></tr>
+<tr class="memdesc:aced0ec9e6ab899d5f667de635aea9b26"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method tries to upload the information of the first element of otherUserScoresToUpload_ list, it removes the first element just before of trying to upload it. If it fails on the uploading, it adds again the dictionary with the information to the otherUserScoresToUpload_ list. The information it uploads is the the earnedScore_ to the user id.  <a href="classfirebase_handler.html#aced0ec9e6ab899d5f667de635aea9b26">More...</a><br /></td></tr>
+<tr class="separator:aced0ec9e6ab899d5f667de635aea9b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -230,8 +244,6 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a19f92443e4e88477defb22d67236d746"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6879d06e68b41954015ccc83838f8eba"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, Dictionary&lt; string, Dictionary&lt; string, string &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a6879d06e68b41954015ccc83838f8eba">allPlaces_</a> = new Dictionary&lt;string,Dictionary&lt;string,Dictionary&lt;string,string&gt;&gt;&gt;()</td></tr>
 <tr class="separator:a6879d06e68b41954015ccc83838f8eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa72469a53537caef3bc8d7751cfead9b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrequest_handler.html">requestHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aa72469a53537caef3bc8d7751cfead9b">requestHandler_</a></td></tr>
-<tr class="separator:aa72469a53537caef3bc8d7751cfead9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90dc41c05914c176572d603666605de5"><td class="memItemLeft" align="right" valign="top">List&lt; Dictionary&lt; string, string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a90dc41c05914c176572d603666605de5">placesToUpdateQueue_</a></td></tr>
 <tr class="separator:a90dc41c05914c176572d603666605de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada9d752ba9fa5633662cd1d10a2a096d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ada9d752ba9fa5633662cd1d10a2a096d">userDataUploaded_</a></td></tr>
@@ -243,10 +255,43 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a60ebe38d3bc1ee2d3197eafabd58fc83"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a60ebe38d3bc1ee2d3197eafabd58fc83">downloadingAnyOfTheUsersPermissionsLists_</a></td></tr>
 <tr class="memdesc:a60ebe38d3bc1ee2d3197eafabd58fc83"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if it is trying to download any of the user permissions lists right now. false in other case.  <a href="classfirebase_handler.html#a60ebe38d3bc1ee2d3197eafabd58fc83">More...</a><br /></td></tr>
 <tr class="separator:a60ebe38d3bc1ee2d3197eafabd58fc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40e6e1bf5891e799f61bb53d3b15604f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a40e6e1bf5891e799f61bb53d3b15604f">hasToUploadSocialPreferences_</a></td></tr>
+<tr class="memdesc:a40e6e1bf5891e799f61bb53d3b15604f"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if there is changes on the social preferences that should be uploaded.  <a href="classfirebase_handler.html#a40e6e1bf5891e799f61bb53d3b15604f">More...</a><br /></td></tr>
+<tr class="separator:a40e6e1bf5891e799f61bb53d3b15604f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeabf954f8e99deeedbff21ad73701eaa"><td class="memItemLeft" align="right" valign="top">List&lt; Dictionary&lt; string, string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aeabf954f8e99deeedbff21ad73701eaa">otherUserScoresToUpload_</a></td></tr>
+<tr class="separator:aeabf954f8e99deeedbff21ad73701eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab166f32d64bdd68341f1558d7a4a5a1f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ab166f32d64bdd68341f1558d7a4a5a1f">uploadingNotifications_</a></td></tr>
+<tr class="separator:ab166f32d64bdd68341f1558d7a4a5a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class follows the Singleton patron, so it only has one instance at the same time. The instance could be found on the firebaseHandlerInstance_ public static property. This class handles all the firebase releated methods like validating user, creating new users, downloading and uploading all the data from the database. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="af9604dc2667655b5cc8485136e1a2eb1" name="af9604dc2667655b5cc8485136e1a2eb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9604dc2667655b5cc8485136e1a2eb1">&#9670;&nbsp;</a></span>addOtherUserScoreToUpload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.addOtherUserScoreToUpload </td>
+          <td>(</td>
+          <td class="paramtype">Dictionary&lt; string, string &gt;&#160;</td>
+          <td class="paramname"><em>uidAndScore</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method adds the given dictionary to the otherUserScoresToUpload_ list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Dictionary&lt;string,string&gt;</td><td>with the information of the score and the user id that need to be uploaded. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a297e1c6be17087c8721385c645f747a8" name="a297e1c6be17087c8721385c645f747a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a297e1c6be17087c8721385c645f747a8">&#9670;&nbsp;</a></span>AnonymousUser()</h2>
 
@@ -1203,6 +1248,43 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a69977b96acf330e38ff6174b2072b5c9" name="a69977b96acf330e38ff6174b2072b5c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69977b96acf330e38ff6174b2072b5c9">&#9670;&nbsp;</a></span>updateUserAddedAFriend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.updateUserAddedAFriend </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>friendUid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>acceptedFriendsInvitationsListInJSON</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method tries to upload the accepted friendships invitations list of the given user. If it complete it succesfully, it removes the friendUid of the list of the user that need to be notified with the hasBeenNotified method. It also sets the uploadingNotifications_ property as true but when the try of updating finish, in any way, it sets the uploadingNotifications_ property as false. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>user id of the friend that has been acepted </td></tr>
+    <tr><td class="paramname">string</td><td>with the conversion of the accepted friendships invitations in JSON format. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5dce85004e8ee815fe14f564b75d7c91" name="a5dce85004e8ee815fe14f564b75d7c91"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5dce85004e8ee815fe14f564b75d7c91">&#9670;&nbsp;</a></span>updateUserDeleteAFriend()</h2>
 
@@ -1266,6 +1348,33 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aced0ec9e6ab899d5f667de635aea9b26" name="aced0ec9e6ab899d5f667de635aea9b26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aced0ec9e6ab899d5f667de635aea9b26">&#9670;&nbsp;</a></span>uploadOtherUserScores()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.uploadOtherUserScores </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method tries to upload the information of the first element of otherUserScoresToUpload_ list, it removes the first element just before of trying to upload it. If it fails on the uploading, it adds again the dictionary with the information to the otherUserScoresToUpload_ list. The information it uploads is the the earnedScore_ to the user id. </p>
+
+</div>
+</div>
 <a id="a7d888fb6a6e77481385b3808f1052411" name="a7d888fb6a6e77481385b3808f1052411"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d888fb6a6e77481385b3808f1052411">&#9670;&nbsp;</a></span>uploadPlacesQueue()</h2>
 
@@ -1290,6 +1399,25 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>this method tries to upload all the information that is on the placesToUpdateQueue_ property. If it success, it erase the place from the list, but if its fails the writePlaceData will add again the place to the queue. </p>
+
+</div>
+</div>
+<a id="a61e7f123a1af4e702a8bcd558e3e0ba1" name="a61e7f123a1af4e702a8bcd558e3e0ba1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61e7f123a1af4e702a8bcd558e3e0ba1">&#9670;&nbsp;</a></span>uploadSocialPreferences()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.uploadSocialPreferences </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>this method should be called either when there is changes on the current user's social preferences or the last changes couldnt been uploaded on the past. It checks if there is any change on the three permision and upload to the firebase database the changes on the preferences. It checks if the three lists are uploaded, if one or more of them fails on the uploading, it puts the hasToUploadSocialPreferences_ property to true, so this method will be called again when the internet connection is ready. </p>
 
 </div>
 </div>
@@ -1685,6 +1813,30 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a40e6e1bf5891e799f61bb53d3b15604f" name="a40e6e1bf5891e799f61bb53d3b15604f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e6e1bf5891e799f61bb53d3b15604f">&#9670;&nbsp;</a></span>hasToUploadSocialPreferences_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool firebaseHandler.hasToUploadSocialPreferences_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>true if there is changes on the social preferences that should be uploaded. </p>
+
+</div>
+</div>
 <a id="a3f90b30b7131095e3995d37ac9eeeef7" name="a3f90b30b7131095e3995d37ac9eeeef7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f90b30b7131095e3995d37ac9eeeef7">&#9670;&nbsp;</a></span>newFriendDataDownloadQueue_</h2>
 
@@ -1705,6 +1857,28 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p >It stores a list of the users ID that this class needs to download some information because they sended a new friend invitation. As soon as the information is started to download, the uid is removed from the list. </p>
+
+</div>
+</div>
+<a id="aeabf954f8e99deeedbff21ad73701eaa" name="aeabf954f8e99deeedbff21ad73701eaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeabf954f8e99deeedbff21ad73701eaa">&#9670;&nbsp;</a></span>otherUserScoresToUpload_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;Dictionary&lt;string,string&gt; &gt; firebaseHandler.otherUserScoresToUpload_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1759,12 +1933,27 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrequest_handler.html">requestHandler</a> firebaseHandler.requestHandler_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >This atribute stores an instance of the <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> class, that class converts the information of allPlaces_ on instances of the class <a class="el" href="class_place.html" title="class that stores all the information of a place. It also has to download the image of the place.">Place</a>. Check that class documentation for more info. </p>
+
+</div>
+</div>
+<a id="ab166f32d64bdd68341f1558d7a4a5a1f" name="ab166f32d64bdd68341f1558d7a4a5a1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab166f32d64bdd68341f1558d7a4a5a1f">&#9670;&nbsp;</a></span>uploadingNotifications_</h2>
+
+<div class="memitem">
+<div class="memproto">
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classrequest_handler.html">requestHandler</a> firebaseHandler.requestHandler_</td>
+          <td class="memname">bool firebaseHandler.uploadingNotifications_</td>
         </tr>
       </table>
   </td>
@@ -1773,7 +1962,6 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >This atribute stores an instance of the <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> class, that class converts the information of allPlaces_ on instances of the class <a class="el" href="class_place.html" title="class that stores all the information of a place. It also has to download the image of the place.">Place</a>. Check that class documentation for more info. </p>
 
 </div>
 </div>

@@ -75,11 +75,19 @@ void \mbox{\hyperlink{classfirebase_handler_a8c59535dfc15cd611f0a6bda8b887b7c}{s
 void \mbox{\hyperlink{classfirebase_handler_a3a753ceb400dcd4339b2b7d609f09102}{ask\+For\+New\+Places}} ()
 \begin{DoxyCompactList}\small\item\em This method calls the update\+Start\+Index method of the \mbox{\hyperlink{classrequest_handler}{request\+Handler}} class to make the \mbox{\hyperlink{classrequest_handler}{request\+Handler}} choose new places. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classfirebase_handler_a89ce698937f9f0b6c9e1da9cee773e64}{upload\+Friend\+Challenges\+Of}} (\mbox{\hyperlink{class_friend_data}{Friend\+Data}} friend\+Data\+To\+Upload)
-\begin{DoxyCompactList}\small\item\em this method upload the challengue list of the given user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em this method upload the challengue list of the given user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfirebase_handler_a61e7f123a1af4e702a8bcd558e3e0ba1}{upload\+Social\+Preferences}} ()
+\begin{DoxyCompactList}\small\item\em this method should be called either when there is changes on the current user\textquotesingle{}s social preferences or the last changes couldnt been uploaded on the past. It checks if there is any change on the three permision and upload to the firebase database the changes on the preferences. It checks if the three lists are uploaded, if one or more of them fails on the uploading, it puts the has\+To\+Upload\+Social\+Preferences\+\_\+ property to true, so this method will be called again when the internet connection is ready. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfirebase_handler_af9604dc2667655b5cc8485136e1a2eb1}{add\+Other\+User\+Score\+To\+Upload}} (Dictionary$<$ string, string $>$ uid\+And\+Score)
+\begin{DoxyCompactList}\small\item\em This method adds the given dictionary to the other\+User\+Scores\+To\+Upload\+\_\+ list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfirebase_handler_a69977b96acf330e38ff6174b2072b5c9}{update\+User\+Added\+AFriend}} (string friend\+Uid, string accepted\+Friends\+Invitations\+List\+In\+JSON)
+\begin{DoxyCompactList}\small\item\em This method tries to upload the accepted friendships invitations list of the given user. If it complete it succesfully, it removes the friend\+Uid of the list of the user that need to be notified with the has\+Been\+Notified method. It also sets the uploading\+Notifications\+\_\+ property as true but when the try of updating finish, in any way, it sets the uploading\+Notifications\+\_\+ property as false. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_user_data}{User\+Data}} \mbox{\hyperlink{classfirebase_handler_a8bf24db68a008a90c667f918c5dc5d1f}{current\+User\+\_\+}} = null
+\item 
+\mbox{\hyperlink{classrequest_handler}{request\+Handler}} \mbox{\hyperlink{classfirebase_handler_aa72469a53537caef3bc8d7751cfead9b}{request\+Handler\+\_\+}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
@@ -114,7 +122,9 @@ void \mbox{\hyperlink{classfirebase_handler_abffc3260d05bb5082b7a683ae80274f7}{O
 void \mbox{\hyperlink{classfirebase_handler_a46fb1d4715589815b6c57b8442edb79e}{On\+Scene\+Loaded}} (Scene scene, Load\+Scene\+Mode mode)
 \begin{DoxyCompactList}\small\item\em This method is called each time a scene is loaded, if places\+Ready\+\_\+ variable is true, it calls the use\+Start\+Index method of the \mbox{\hyperlink{classrequest_handler}{request\+Handler}} object, to allow keeping with same places. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classfirebase_handler_a9979443635c9d02f69d2ae5671ece914}{download\+Users\+Permissions\+Lists}} ()
-\begin{DoxyCompactList}\small\item\em This method download the lists of the user social permissions. They are users\+That\+Allow\+Friendship\+Invitations, users\+That\+Allow\+Be\+Challenged and users\+That\+Allow\+Appeared\+On\+Ranking. The downloading\+Any\+Of\+The\+Users\+Permissions\+Lists\+\_\+ is set as a true. The social permissions are downloaded in a parallel way for searching more efficiency if some of them failed the downloading\+Any\+Of\+The\+Users\+Permissions\+Lists\+\_\+ property will be set as false again. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This method download the lists of the user social permissions. They are users\+That\+Allow\+Friendship\+Invitations, users\+That\+Allow\+Be\+Challenged and users\+That\+Allow\+Appeared\+On\+Ranking. The downloading\+Any\+Of\+The\+Users\+Permissions\+Lists\+\_\+ is set as a true. The social permissions are downloaded in a parallel way for searching more efficiency if some of them failed the downloading\+Any\+Of\+The\+Users\+Permissions\+Lists\+\_\+ property will be set as false again. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfirebase_handler_aced0ec9e6ab899d5f667de635aea9b26}{upload\+Other\+User\+Scores}} ()
+\begin{DoxyCompactList}\small\item\em This method tries to upload the information of the first element of other\+User\+Scores\+To\+Upload\+\_\+ list, it removes the first element just before of trying to upload it. If it fails on the uploading, it adds again the dictionary with the information to the other\+User\+Scores\+To\+Upload\+\_\+ list. The information it uploads is the the earned\+Score\+\_\+ to the user id. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -132,8 +142,6 @@ bool \mbox{\hyperlink{classfirebase_handler_a19f92443e4e88477defb22d67236d746}{u
 \item 
 Dictionary$<$ string, Dictionary$<$ string, Dictionary$<$ string, string $>$ $>$ $>$ \mbox{\hyperlink{classfirebase_handler_a6879d06e68b41954015ccc83838f8eba}{all\+Places\+\_\+}} = new Dictionary$<$string,Dictionary$<$string,Dictionary$<$string,string$>$$>$$>$()
 \item 
-\mbox{\hyperlink{classrequest_handler}{request\+Handler}} \mbox{\hyperlink{classfirebase_handler_aa72469a53537caef3bc8d7751cfead9b}{request\+Handler\+\_\+}}
-\item 
 List$<$ Dictionary$<$ string, string $>$ $>$ \mbox{\hyperlink{classfirebase_handler_a90dc41c05914c176572d603666605de5}{places\+To\+Update\+Queue\+\_\+}}
 \item 
 string \mbox{\hyperlink{classfirebase_handler_ada9d752ba9fa5633662cd1d10a2a096d}{user\+Data\+Uploaded\+\_\+}}
@@ -143,13 +151,34 @@ List$<$ string $>$ \mbox{\hyperlink{classfirebase_handler_ab765de99224181490bac7
 List$<$ string $>$ \mbox{\hyperlink{classfirebase_handler_a3f90b30b7131095e3995d37ac9eeeef7}{new\+Friend\+Data\+Download\+Queue\+\_\+}}
 \item 
 bool \mbox{\hyperlink{classfirebase_handler_a60ebe38d3bc1ee2d3197eafabd58fc83}{downloading\+Any\+Of\+The\+Users\+Permissions\+Lists\+\_\+}}
-\begin{DoxyCompactList}\small\item\em true if it is trying to download any of the user permissions lists right now. false in other case. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em true if it is trying to download any of the user permissions lists right now. false in other case. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classfirebase_handler_a40e6e1bf5891e799f61bb53d3b15604f}{has\+To\+Upload\+Social\+Preferences\+\_\+}}
+\begin{DoxyCompactList}\small\item\em true if there is changes on the social preferences that should be uploaded. \end{DoxyCompactList}\item 
+List$<$ Dictionary$<$ string, string $>$ $>$ \mbox{\hyperlink{classfirebase_handler_aeabf954f8e99deeedbff21ad73701eaa}{other\+User\+Scores\+To\+Upload\+\_\+}}
+\item 
+bool \mbox{\hyperlink{classfirebase_handler_ab166f32d64bdd68341f1558d7a4a5a1f}{uploading\+Notifications\+\_\+}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 This class follows the Singleton patron, so it only has one instance at the same time. The instance could be found on the firebase\+Handler\+Instance\+\_\+ public static property. This class handles all the firebase releated methods like validating user, creating new users, downloading and uploading all the data from the database. 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfirebase_handler_af9604dc2667655b5cc8485136e1a2eb1}\label{classfirebase_handler_af9604dc2667655b5cc8485136e1a2eb1}} 
+\index{firebaseHandler@{firebaseHandler}!addOtherUserScoreToUpload@{addOtherUserScoreToUpload}}
+\index{addOtherUserScoreToUpload@{addOtherUserScoreToUpload}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{addOtherUserScoreToUpload()}{addOtherUserScoreToUpload()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+add\+Other\+User\+Score\+To\+Upload (\begin{DoxyParamCaption}\item[{Dictionary$<$ string, string $>$}]{uid\+And\+Score }\end{DoxyParamCaption})}
+
+
+
+This method adds the given dictionary to the other\+User\+Scores\+To\+Upload\+\_\+ list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Dictionary$<$string,string$>$} & with the information of the score and the user id that need to be uploaded. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classfirebase_handler_a297e1c6be17087c8721385c645f747a8}\label{classfirebase_handler_a297e1c6be17087c8721385c645f747a8}} 
 \index{firebaseHandler@{firebaseHandler}!AnonymousUser@{AnonymousUser}}
 \index{AnonymousUser@{AnonymousUser}!firebaseHandler@{firebaseHandler}}
@@ -580,7 +609,24 @@ The Update method is called every frame. On this method this class constantly ch
 \begin{DoxyItemize}
 \item If it has to resolve the firebase dependencies, on that case try to solve them first.
 \item If the firebase dependencies has already been resolved, check if it has some information waiting for being uploaded or downloaded try if there is internet connection. 
-\end{DoxyItemize}\mbox{\Hypertarget{classfirebase_handler_a5dce85004e8ee815fe14f564b75d7c91}\label{classfirebase_handler_a5dce85004e8ee815fe14f564b75d7c91}} 
+\end{DoxyItemize}\mbox{\Hypertarget{classfirebase_handler_a69977b96acf330e38ff6174b2072b5c9}\label{classfirebase_handler_a69977b96acf330e38ff6174b2072b5c9}} 
+\index{firebaseHandler@{firebaseHandler}!updateUserAddedAFriend@{updateUserAddedAFriend}}
+\index{updateUserAddedAFriend@{updateUserAddedAFriend}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{updateUserAddedAFriend()}{updateUserAddedAFriend()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+update\+User\+Added\+AFriend (\begin{DoxyParamCaption}\item[{string}]{friend\+Uid,  }\item[{string}]{accepted\+Friends\+Invitations\+List\+In\+JSON }\end{DoxyParamCaption})}
+
+
+
+This method tries to upload the accepted friendships invitations list of the given user. If it complete it succesfully, it removes the friend\+Uid of the list of the user that need to be notified with the has\+Been\+Notified method. It also sets the uploading\+Notifications\+\_\+ property as true but when the try of updating finish, in any way, it sets the uploading\+Notifications\+\_\+ property as false. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & user id of the friend that has been acepted \\
+\hline
+{\em string} & with the conversion of the accepted friendships invitations in JSON format. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classfirebase_handler_a5dce85004e8ee815fe14f564b75d7c91}\label{classfirebase_handler_a5dce85004e8ee815fe14f564b75d7c91}} 
 \index{firebaseHandler@{firebaseHandler}!updateUserDeleteAFriend@{updateUserDeleteAFriend}}
 \index{updateUserDeleteAFriend@{updateUserDeleteAFriend}!firebaseHandler@{firebaseHandler}}
 \doxysubsubsection{\texorpdfstring{updateUserDeleteAFriend()}{updateUserDeleteAFriend()}}
@@ -612,6 +658,16 @@ this method upload the challengue list of the given user.
 {\em \mbox{\hyperlink{class_friend_data}{Friend\+Data}}} & object that contains all the information releated to the user that own the challenges we want to upload. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classfirebase_handler_aced0ec9e6ab899d5f667de635aea9b26}\label{classfirebase_handler_aced0ec9e6ab899d5f667de635aea9b26}} 
+\index{firebaseHandler@{firebaseHandler}!uploadOtherUserScores@{uploadOtherUserScores}}
+\index{uploadOtherUserScores@{uploadOtherUserScores}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{uploadOtherUserScores()}{uploadOtherUserScores()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+upload\+Other\+User\+Scores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method tries to upload the information of the first element of other\+User\+Scores\+To\+Upload\+\_\+ list, it removes the first element just before of trying to upload it. If it fails on the uploading, it adds again the dictionary with the information to the other\+User\+Scores\+To\+Upload\+\_\+ list. The information it uploads is the the earned\+Score\+\_\+ to the user id. 
+
 \mbox{\Hypertarget{classfirebase_handler_a7d888fb6a6e77481385b3808f1052411}\label{classfirebase_handler_a7d888fb6a6e77481385b3808f1052411}} 
 \index{firebaseHandler@{firebaseHandler}!uploadPlacesQueue@{uploadPlacesQueue}}
 \index{uploadPlacesQueue@{uploadPlacesQueue}!firebaseHandler@{firebaseHandler}}
@@ -621,6 +677,16 @@ this method upload the challengue list of the given user.
 
 
 this method tries to upload all the information that is on the places\+To\+Update\+Queue\+\_\+ property. If it success, it erase the place from the list, but if its fails the write\+Place\+Data will add again the place to the queue. 
+
+\mbox{\Hypertarget{classfirebase_handler_a61e7f123a1af4e702a8bcd558e3e0ba1}\label{classfirebase_handler_a61e7f123a1af4e702a8bcd558e3e0ba1}} 
+\index{firebaseHandler@{firebaseHandler}!uploadSocialPreferences@{uploadSocialPreferences}}
+\index{uploadSocialPreferences@{uploadSocialPreferences}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{uploadSocialPreferences()}{uploadSocialPreferences()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+upload\+Social\+Preferences (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+this method should be called either when there is changes on the current user\textquotesingle{}s social preferences or the last changes couldnt been uploaded on the past. It checks if there is any change on the three permision and upload to the firebase database the changes on the preferences. It checks if the three lists are uploaded, if one or more of them fails on the uploading, it puts the has\+To\+Upload\+Social\+Preferences\+\_\+ property to true, so this method will be called again when the internet connection is ready. 
 
 \mbox{\Hypertarget{classfirebase_handler_a3ca6a1aeb10049398462dec0bf5286e7}\label{classfirebase_handler_a3ca6a1aeb10049398462dec0bf5286e7}} 
 \index{firebaseHandler@{firebaseHandler}!userDataIsReady@{userDataIsReady}}
@@ -762,13 +828,29 @@ This public static attribute store the unique instance of this class. \mbox{\Hyp
 \doxysubsubsection{\texorpdfstring{friendDataDownloadQueue\_}{friendDataDownloadQueue\_}}
 {\footnotesize\ttfamily List$<$string$>$ firebase\+Handler.\+friend\+Data\+Download\+Queue\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
 
-It stores a list of the users ID that this class needs to download some information, because they are friends of the current user. As soon as the information is started to download, the uid is removed from the list. \mbox{\Hypertarget{classfirebase_handler_a3f90b30b7131095e3995d37ac9eeeef7}\label{classfirebase_handler_a3f90b30b7131095e3995d37ac9eeeef7}} 
+It stores a list of the users ID that this class needs to download some information, because they are friends of the current user. As soon as the information is started to download, the uid is removed from the list. \mbox{\Hypertarget{classfirebase_handler_a40e6e1bf5891e799f61bb53d3b15604f}\label{classfirebase_handler_a40e6e1bf5891e799f61bb53d3b15604f}} 
+\index{firebaseHandler@{firebaseHandler}!hasToUploadSocialPreferences\_@{hasToUploadSocialPreferences\_}}
+\index{hasToUploadSocialPreferences\_@{hasToUploadSocialPreferences\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{hasToUploadSocialPreferences\_}{hasToUploadSocialPreferences\_}}
+{\footnotesize\ttfamily bool firebase\+Handler.\+has\+To\+Upload\+Social\+Preferences\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if there is changes on the social preferences that should be uploaded. 
+
+\mbox{\Hypertarget{classfirebase_handler_a3f90b30b7131095e3995d37ac9eeeef7}\label{classfirebase_handler_a3f90b30b7131095e3995d37ac9eeeef7}} 
 \index{firebaseHandler@{firebaseHandler}!newFriendDataDownloadQueue\_@{newFriendDataDownloadQueue\_}}
 \index{newFriendDataDownloadQueue\_@{newFriendDataDownloadQueue\_}!firebaseHandler@{firebaseHandler}}
 \doxysubsubsection{\texorpdfstring{newFriendDataDownloadQueue\_}{newFriendDataDownloadQueue\_}}
 {\footnotesize\ttfamily List$<$string$>$ firebase\+Handler.\+new\+Friend\+Data\+Download\+Queue\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
 
-It stores a list of the users ID that this class needs to download some information because they sended a new friend invitation. As soon as the information is started to download, the uid is removed from the list. \mbox{\Hypertarget{classfirebase_handler_a1d02787e8de56031acebf457484c9752}\label{classfirebase_handler_a1d02787e8de56031acebf457484c9752}} 
+It stores a list of the users ID that this class needs to download some information because they sended a new friend invitation. As soon as the information is started to download, the uid is removed from the list. \mbox{\Hypertarget{classfirebase_handler_aeabf954f8e99deeedbff21ad73701eaa}\label{classfirebase_handler_aeabf954f8e99deeedbff21ad73701eaa}} 
+\index{firebaseHandler@{firebaseHandler}!otherUserScoresToUpload\_@{otherUserScoresToUpload\_}}
+\index{otherUserScoresToUpload\_@{otherUserScoresToUpload\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{otherUserScoresToUpload\_}{otherUserScoresToUpload\_}}
+{\footnotesize\ttfamily List$<$Dictionary$<$string,string$>$ $>$ firebase\+Handler.\+other\+User\+Scores\+To\+Upload\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfirebase_handler_a1d02787e8de56031acebf457484c9752}\label{classfirebase_handler_a1d02787e8de56031acebf457484c9752}} 
 \index{firebaseHandler@{firebaseHandler}!placesReady\_@{placesReady\_}}
 \index{placesReady\_@{placesReady\_}!firebaseHandler@{firebaseHandler}}
 \doxysubsubsection{\texorpdfstring{placesReady\_}{placesReady\_}}
@@ -784,9 +866,15 @@ This atribute stores the list of places that have been visited but the internet 
 \index{firebaseHandler@{firebaseHandler}!requestHandler\_@{requestHandler\_}}
 \index{requestHandler\_@{requestHandler\_}!firebaseHandler@{firebaseHandler}}
 \doxysubsubsection{\texorpdfstring{requestHandler\_}{requestHandler\_}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classrequest_handler}{request\+Handler}} firebase\+Handler.\+request\+Handler\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrequest_handler}{request\+Handler}} firebase\+Handler.\+request\+Handler\+\_\+}
 
-This atribute stores an instance of the \mbox{\hyperlink{classrequest_handler}{request\+Handler}} class, that class converts the information of all\+Places\+\_\+ on instances of the class \mbox{\hyperlink{class_place}{Place}}. Check that class documentation for more info. \mbox{\Hypertarget{classfirebase_handler_a19f92443e4e88477defb22d67236d746}\label{classfirebase_handler_a19f92443e4e88477defb22d67236d746}} 
+This atribute stores an instance of the \mbox{\hyperlink{classrequest_handler}{request\+Handler}} class, that class converts the information of all\+Places\+\_\+ on instances of the class \mbox{\hyperlink{class_place}{Place}}. Check that class documentation for more info. \mbox{\Hypertarget{classfirebase_handler_ab166f32d64bdd68341f1558d7a4a5a1f}\label{classfirebase_handler_ab166f32d64bdd68341f1558d7a4a5a1f}} 
+\index{firebaseHandler@{firebaseHandler}!uploadingNotifications\_@{uploadingNotifications\_}}
+\index{uploadingNotifications\_@{uploadingNotifications\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{uploadingNotifications\_}{uploadingNotifications\_}}
+{\footnotesize\ttfamily bool firebase\+Handler.\+uploading\+Notifications\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfirebase_handler_a19f92443e4e88477defb22d67236d746}\label{classfirebase_handler_a19f92443e4e88477defb22d67236d746}} 
 \index{firebaseHandler@{firebaseHandler}!userDataReady\_@{userDataReady\_}}
 \index{userDataReady\_@{userDataReady\_}!firebaseHandler@{firebaseHandler}}
 \doxysubsubsection{\texorpdfstring{userDataReady\_}{userDataReady\_}}

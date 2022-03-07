@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PantallaBuscarAmigoParaRetar.unity
     guid: 680171dad1c59de418e687b1fa5ac257
+  - enabled: 1
+    path: Assets/Scenes/PantallaRetos.unity
+    guid: 2acf7d118cea0ad48b3c011e1f49e164
   m_configObjects: {}

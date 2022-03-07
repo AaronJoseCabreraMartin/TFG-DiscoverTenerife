@@ -353,7 +353,7 @@ public class StoredPlace
       * @brief This method calls the userVisitedPlaceByName with each of the 
       * stored places that have been visited and they didnt uploaded the changes.
       */
-    public static void UpdateChanges(){//WTF el nombre deberia ser UploadChanges.
+    public static void UploadChanges(){//WTF el nombre deberia ser UploadChanges.
         StoredPlace.changesToUpdate_ = false;
         for(int index = 0; index < gameRules.getMaxPlacesStored(); index++){
             if(PlayerPrefs.HasKey(index+"place") && PlayerPrefs.GetInt(index+"newVisitsForThisPlace_") != 0){

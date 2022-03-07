@@ -1,72 +1,42 @@
 {
     "m_SelectedDeviceId": "5200c640ea72c407",
     "m_SelectedPackage": {
-        "deviceId": "5200c640ea72c407",
-        "name": "com.ULLalu0101101019.DiscoverTenerife",
-        "processId": 28435,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "5200c640ea72c407",
-            "name": "com.sec.android.app.launcher",
-            "processId": 24168,
-            "exited": false
-        },
-        {
-            "deviceId": "5200c640ea72c407",
-            "name": "com.google.android.packageinstaller",
-            "processId": 15919,
-            "exited": true
-        },
-        {
-            "deviceId": "5200c640ea72c407",
-            "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 17450,
-            "exited": true
-        },
-        {
-            "deviceId": "5200c640ea72c407",
-            "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 19497,
-            "exited": true
-        },
-        {
-            "deviceId": "5200c640ea72c407",
-            "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 21035,
-            "exited": true
-        },
-        {
-            "deviceId": "5200c640ea72c407",
-            "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 24167,
-            "exited": true
-        },
-        {
-            "deviceId": "5200c640ea72c407",
-            "name": "com.google.android.packageinstaller",
-            "processId": 24435,
-            "exited": false
-        },
-        {
-            "deviceId": "5200c640ea72c407",
-            "name": "com.ULLalu0101101019.DiscoverTenerife",
-            "processId": 25693,
-            "exited": false
-        },
-        {
-            "deviceId": "5200c640ea72c407",
             "name": "com.ULLalu0101101019.DiscoverTenerife",
             "processId": 12875,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "5200c640ea72c407",
             "name": "com.ULLalu0101101019.DiscoverTenerife",
             "processId": 28435,
-            "exited": false
+            "exited": true
+        },
+        {
+            "deviceId": "5200c640ea72c407",
+            "name": "com.ULLalu0101101019.DiscoverTenerife",
+            "processId": 30014,
+            "exited": true
+        },
+        {
+            "deviceId": "5200c640ea72c407",
+            "name": "com.ULLalu0101101019.DiscoverTenerife",
+            "processId": 10756,
+            "exited": true
+        },
+        {
+            "deviceId": "5200c640ea72c407",
+            "name": "com.ULLalu0101101019.DiscoverTenerife",
+            "processId": 8413,
+            "exited": true
         }
     ],
     "m_Tags": {

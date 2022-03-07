@@ -43,6 +43,12 @@ public class FriendData
     private List<challengeData> challenges_;
 
     /**
+      * @brief List that contains the invitations that this user sended and the other
+      * player accepted de invitation.
+      */
+    private List<string> acceptedFriendsInvitations_;
+
+    /**
       * @brief List of strings that contains the user id of the users that
       * allow receive friendships invitations from other players.
       */
@@ -65,6 +71,7 @@ public class FriendData
       */
     public static FriendData chosenFriend_;
 
+
     /**
       * @param string user id of the represented user.
       * @param string display name of the represented user.
@@ -75,10 +82,11 @@ public class FriendData
       * @brief Constructor that initialize the uid_, the displayName_, the deletedFriends_ and
       * challenges_ properties with the given parameters.
       */
-    public FriendData(string uid, string displayName, List<string> deletedFriends, List<Dictionary<string,string>> challengeData){
+    public FriendData(string uid, string displayName, List<string> deletedFriends, List<Dictionary<string,string>> challengeData, List<string> acceptedFriends){
         uid_ = uid;
         displayName_ = displayName;
         deletedFriends_ = deletedFriends;
+        acceptedFriendsInvitations_ = acceptedFriends;
         challenges_ = new List<challengeData>();
         foreach(Dictionary<string,string> challengeInfo in challengeData ){
           challenges_.Add(new challengeData(challengeInfo));
@@ -174,5 +182,34 @@ public class FriendData
         }
         conversion += "]";
         return conversion;
-   }
+    }
+  
+    /**
+      * @param string with the user id of the user that has accepted the friendship invitation
+      * that this user has sended.
+      * @brief This method adds the given user id to the list of friendships invitations accepted if
+      * the given user id isnt on the acceptedFriendsInvitations_ property list.
+      */
+    public void addANewAcceptedFriend(string uid){
+      if(acceptedFriendsInvitations_.Find(element => element == uid) == null){
+        acceptedFriendsInvitations_.Add(uid);
+      }
+    }
+
+    /**
+      * @return string with the conversion of acceptedFriendsInvitations_ list property in JSON format.
+      * @brief This method returns a string that contains the conversion of the
+      * acceptedFriendsInvitations_ list property in JSON format.
+      */
+    public string getStringConversionOfNewAcceptedFriends(){
+      string conversion = "[";
+      for(int index = 0; index < acceptedFriendsInvitations_.Count; index++){
+        conversion +="\"" + acceptedFriendsInvitations_[index] + "\"";
+        if(index + 1 != acceptedFriendsInvitations_.Count){
+          conversion += ",";
+        }
+      }
+      conversion += "]";
+      return conversion;
+    }
 }

@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toastMessageObject_: {fileID: 2436366540662581837}
-  numberOfNotUpdatedVisits_: {fileID: 8127466314887679400}
+  numberOfNotUploadedVisits_: {fileID: 8127466314887679400}
 --- !u!114 &3561156506144077445
 MonoBehaviour:
   m_ObjectHideFlags: 0

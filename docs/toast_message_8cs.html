@@ -75,7 +75,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoast_message.html">toastMessage</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class that controls the colored messages that are shown to the user giving him information but they hide after a few seconds.  <a href="classtoast_message.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class that controls the colored messages that are shown to the user giving him information but they hide after a few seconds. It has a system of queues because if you start several pararell coroutines at the same time of showing the toast message only the last one will be shown, but I solved this problem using the queue system. Each message will wait until its the first one of the queue and there inst any other message showing itself at that moment to show the first one.  <a href="classtoast_message.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

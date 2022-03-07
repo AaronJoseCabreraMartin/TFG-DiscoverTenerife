@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['panel_5f_0',['panel_',['../class_search_bar.html#af445d69448e35e0327863e3b2ab8dabe',1,'SearchBar.panel_()'],['../class_friend.html#a5b2c8f663edab9994ee6bf3d6e1806a9',1,'Friend.panel_()'],['../classnew_friend_invitation.html#a76a02048a83cbff8c5462370135be8e6',1,'newFriendInvitation.panel_()'],['../class_searched_player.html#abad3c240013cd825a685b3b3b8dd9cba',1,'SearchedPlayer.panel_()']]],
-  ['panelfilled_5f_1',['panelFilled_',['../classnew_friend_invitation_panel.html#a93e5bfce5ae3bbd786ad4bc3cbd62df6',1,'newFriendInvitationPanel.panelFilled_()'],['../classfriends_panel.html#abe935644847281a2045a5b0c6b8b1a70',1,'friendsPanel.panelFilled_()'],['../class_story_panel.html#a7abea7d222ede6f225ef542264747f13',1,'StoryPanel.panelFilled_()'],['../class_search_a_friend_to_challenge_panel.html#aa2e19597e9b3b3b23a4ca9b493c192ce',1,'SearchAFriendToChallengePanel.panelFilled_()']]],
-  ['password_2',['password',['../classemail_login_controller.html#afaf6fbf0033dc9bf68aff4de423746e9',1,'emailLoginController.password()'],['../classregister_screen_controller.html#a4824dec2ad413c79811558975c5bb51d',1,'registerScreenController.password()']]],
+  ['panel_5f_0',['panel_',['../class_search_bar.html#af445d69448e35e0327863e3b2ab8dabe',1,'SearchBar.panel_()'],['../classchallenge_prefab_controller.html#a37a91c759741bec8cd13c2c2b9a3d011',1,'challengePrefabController.panel_()'],['../class_friend.html#a5b2c8f663edab9994ee6bf3d6e1806a9',1,'Friend.panel_()'],['../classnew_friend_invitation.html#a76a02048a83cbff8c5462370135be8e6',1,'newFriendInvitation.panel_()'],['../class_searched_player.html#abad3c240013cd825a685b3b3b8dd9cba',1,'SearchedPlayer.panel_()']]],
+  ['panelfilled_5f_1',['panelFilled_',['../class_search_a_friend_to_challenge_panel.html#aa2e19597e9b3b3b23a4ca9b493c192ce',1,'SearchAFriendToChallengePanel.panelFilled_()'],['../classchallenges_panel_controller.html#a6d060cd4f6cb44c0218145d0a4e096e9',1,'challengesPanelController.panelFilled_()'],['../classnew_friend_invitation_panel.html#a93e5bfce5ae3bbd786ad4bc3cbd62df6',1,'newFriendInvitationPanel.panelFilled_()'],['../classfriends_panel.html#abe935644847281a2045a5b0c6b8b1a70',1,'friendsPanel.panelFilled_()'],['../class_story_panel.html#a7abea7d222ede6f225ef542264747f13',1,'StoryPanel.panelFilled_()']]],
+  ['password_2',['password',['../classregister_screen_controller.html#a4824dec2ad413c79811558975c5bb51d',1,'registerScreenController.password()'],['../classemail_login_controller.html#afaf6fbf0033dc9bf68aff4de423746e9',1,'emailLoginController.password()']]],
   ['pastleuidontheclipboard_3',['PastleUIDOnTheClipBoard',['../class_u_i_dbutton.html#a26b2fb350d82ba77091c3fff6e5ac821',1,'UIDbutton']]],
   ['percentage_5f_4',['percentage_',['../classmap_part_handler.html#ab8728a186572aa75fc1aaef09fa0ec84',1,'mapPartHandler']]],
   ['permissions_5',['permissions',['../classgps_controller.html#acb8e7522f020231a38f0fb06d42dbebd',1,'gpsController']]],
@@ -15,10 +15,14 @@ var searchData=
   ['placeimagecontroller_12',['PlaceImageController',['../class_place_image_controller.html',1,'']]],
   ['placeimagecontroller_2ecs_13',['PlaceImageController.cs',['../_place_image_controller_8cs.html',1,'']]],
   ['placeloaded_5f_14',['placeLoaded_',['../class_place_handler.html#a5b0d2cee90ab3982037906f7b58c8314',1,'PlaceHandler']]],
-  ['placeonstory_5f_15',['placeOnStory_',['../class_story_panel.html#af49d8a246feefe854555c5bb8c74ffa3',1,'StoryPanel']]],
-  ['placeonstoryprefab_5f_16',['placeOnStoryPrefab_',['../class_story_panel.html#a7b5a85f4db82eae2012ee3e2ed28b0a6',1,'StoryPanel']]],
-  ['placesareready_17',['placesAreReady',['../classfirebase_handler.html#a62e983ac87dcac624548cf24868db9c8',1,'firebaseHandler']]],
-  ['placesready_5f_18',['placesReady_',['../classfirebase_handler.html#a1d02787e8de56031acebf457484c9752',1,'firebaseHandler']]],
-  ['placestoupdatequeue_5f_19',['placesToUpdateQueue_',['../classfirebase_handler.html#a90dc41c05914c176572d603666605de5',1,'firebaseHandler']]],
-  ['placetype_5f_20',['placeType_',['../classchallenge_data.html#aff02ea52e04f204698770010f8cc1751',1,'challengeData']]]
+  ['placename_5f_15',['placeName_',['../classchallenge_prefab_controller.html#a1c1deec6cb154d7c528014ea91a89bf4',1,'challengePrefabController']]],
+  ['placenamedefaulttext_5f_16',['placeNameDefaultText_',['../classchallenge_prefab_controller.html#a04299956b766558655195009915c2eb6',1,'challengePrefabController']]],
+  ['placeonstory_5f_17',['placeOnStory_',['../class_story_panel.html#af49d8a246feefe854555c5bb8c74ffa3',1,'StoryPanel']]],
+  ['placeonstoryprefab_5f_18',['placeOnStoryPrefab_',['../class_story_panel.html#a7b5a85f4db82eae2012ee3e2ed28b0a6',1,'StoryPanel']]],
+  ['placesareready_19',['placesAreReady',['../classfirebase_handler.html#a62e983ac87dcac624548cf24868db9c8',1,'firebaseHandler']]],
+  ['placesready_5f_20',['placesReady_',['../classfirebase_handler.html#a1d02787e8de56031acebf457484c9752',1,'firebaseHandler']]],
+  ['placestoupdatequeue_5f_21',['placesToUpdateQueue_',['../classfirebase_handler.html#a90dc41c05914c176572d603666605de5',1,'firebaseHandler']]],
+  ['placetype_5f_22',['placeType_',['../classchallenge_data.html#aff02ea52e04f204698770010f8cc1751',1,'challengeData']]],
+  ['placezone_5f_23',['placeZone_',['../classchallenge_prefab_controller.html#ab9892b2ea168e679a7fa7bfbdd2d80bc',1,'challengePrefabController']]],
+  ['placezonedefaulttext_5f_24',['placeZoneDefaultText_',['../classchallenge_prefab_controller.html#a942959201a72abdf9c29a3d2c47ca4ac',1,'challengePrefabController']]]
 ];

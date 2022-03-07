@@ -76,9 +76,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8cfe12eacc656497cb3c0a13afd2fa81"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a8cfe12eacc656497cb3c0a13afd2fa81">UserData</a> (Firebase.Auth.FirebaseUser newFireBaseUserData, List&lt; Dictionary&lt; string, string &gt; &gt; oldVisitedPlaces=null, Dictionary&lt; string, string &gt; baseCordsData=null, List&lt; string &gt; friendList=null, List&lt; string &gt; friendInvitationsList=null, List&lt; string &gt; friendInvitationsAcceptedList=null, List&lt; string &gt; deletedFriendsList=null, List&lt; Dictionary&lt; string, string &gt; &gt; challengesData=null)</td></tr>
-<tr class="memdesc:a8cfe12eacc656497cb3c0a13afd2fa81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. It initialices all the properties taking aware if they have been given with a real value or they are null.  <a href="class_user_data.html#a8cfe12eacc656497cb3c0a13afd2fa81">More...</a><br /></td></tr>
-<tr class="separator:a8cfe12eacc656497cb3c0a13afd2fa81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2dd062f86fdc42932e93675656ef12c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#ad2dd062f86fdc42932e93675656ef12c">UserData</a> (Firebase.Auth.FirebaseUser newFireBaseUserData, List&lt; Dictionary&lt; string, string &gt; &gt; oldVisitedPlaces=null, Dictionary&lt; string, string &gt; baseCordsData=null, List&lt; string &gt; friendList=null, List&lt; string &gt; friendInvitationsList=null, List&lt; string &gt; friendInvitationsAcceptedList=null, List&lt; string &gt; deletedFriendsList=null, List&lt; Dictionary&lt; string, string &gt; &gt; challengesData=null, string userScore=null, string earnedScore=null)</td></tr>
+<tr class="memdesc:ad2dd062f86fdc42932e93675656ef12c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. It initialices all the properties taking aware if they have been given with a real value or they are null.  <a href="class_user_data.html#ad2dd062f86fdc42932e93675656ef12c">More...</a><br /></td></tr>
+<tr class="separator:ad2dd062f86fdc42932e93675656ef12c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad45dbf0d28037fad834fc1efe0c66efe"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#ad45dbf0d28037fad834fc1efe0c66efe">ToJson</a> ()</td></tr>
 <tr class="memdesc:ad45dbf0d28037fad834fc1efe0c66efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method converts all the properties of the current object in a string that follows the JSON format.  <a href="class_user_data.html#ad45dbf0d28037fad834fc1efe0c66efe">More...</a><br /></td></tr>
 <tr class="separator:ad45dbf0d28037fad834fc1efe0c66efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,7 +106,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab694c531b0fde9d5d04ae6601ce9a2c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">it returns the sum of all visits to places that are on the given zone. Zones of the map are defined on <a class="el" href="classmap_rules_handler.html" title="This class stores the geographic zone releated values, like which are the zones of the map.">mapRulesHandler</a> class.  <a href="class_user_data.html#ab694c531b0fde9d5d04ae6601ce9a2c6">More...</a><br /></td></tr>
 <tr class="separator:ab694c531b0fde9d5d04ae6601ce9a2c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bdd7ffeb110ec5fdbf2bbba1bebd757"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a4bdd7ffeb110ec5fdbf2bbba1bebd757">newVisitAt</a> (string type, int id, long visitTime)</td></tr>
-<tr class="memdesc:a4bdd7ffeb110ec5fdbf2bbba1bebd757"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method register a visit of the current user to the place that has the given type and id. It registers the visit at the given timestamp. If the user havent visit a place with the given type and id this method print an message on the console.  <a href="class_user_data.html#a4bdd7ffeb110ec5fdbf2bbba1bebd757">More...</a><br /></td></tr>
+<tr class="memdesc:a4bdd7ffeb110ec5fdbf2bbba1bebd757"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method register a visit of the current user to the place that has the given type and id. It registers the visit at the given timestamp. If the user havent visit a place with the given type and id this method adds a new <a class="el" href="class_visited_place.html" title="Class that stores the information of a visited place.">VisitedPlace</a> object to the visitedPlaces_ array. It also adds to the user a bonus of score. The obtained score depends on: if its the first time that the user visit that place and the proportion of visits that place has compared to the most visited place. It is calculated using getScoreForVisitingAPlace method of <a class="el" href="classgame_rules.html" title="This class store as static properties the parameters that affect the game rules. For example it store...">gameRules</a> class. It also checks if one of the challenges was visit that place, if that is the case it use the calculateChallengeScore method of <a class="el" href="classgame_rules.html" title="This class store as static properties the parameters that affect the game rules. For example it store...">gameRules</a> class.  <a href="class_user_data.html#a4bdd7ffeb110ec5fdbf2bbba1bebd757">More...</a><br /></td></tr>
 <tr class="separator:a4bdd7ffeb110ec5fdbf2bbba1bebd757"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a676a5af153f07ccb1ee625924776d991"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a676a5af153f07ccb1ee625924776d991">setBase</a> (double latitude, double longitude)</td></tr>
 <tr class="memdesc:a676a5af153f07ccb1ee625924776d991"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method should be called once per user. It stablished the user base on the given coords and set the baseEstablished_ attribute to true.  <a href="class_user_data.html#a676a5af153f07ccb1ee625924776d991">More...</a><br /></td></tr>
@@ -175,6 +175,35 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae0d987deec76a4a895f568a4a0e60d54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#ae0d987deec76a4a895f568a4a0e60d54">isAFriendByDisplayName</a> (string displayName)</td></tr>
 <tr class="memdesc:ae0d987deec76a4a895f568a4a0e60d54"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method checks if on the current user's friend list exists any user with the given display name.  <a href="class_user_data.html#ae0d987deec76a4a895f568a4a0e60d54">More...</a><br /></td></tr>
 <tr class="separator:ae0d987deec76a4a895f568a4a0e60d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ce9bd30af5ae81ca02da50854f4d0f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_friend_data.html">FriendData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a9ce9bd30af5ae81ca02da50854f4d0f8">getFriendDataByUID</a> (string uid)</td></tr>
+<tr class="memdesc:a9ce9bd30af5ae81ca02da50854f4d0f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the <a class="el" href="class_friend_data.html" title="Class that stores the information of one of the current user&#39;s friend.">FriendData</a> object that contains the information of the current user's friend that has the given id.  <a href="class_user_data.html#a9ce9bd30af5ae81ca02da50854f4d0f8">More...</a><br /></td></tr>
+<tr class="separator:a9ce9bd30af5ae81ca02da50854f4d0f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57170a71d47e180b71f9b6cd613f567a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a57170a71d47e180b71f9b6cd613f567a">destroyChallengeByChallengerId</a> (string uid)</td></tr>
+<tr class="memdesc:a57170a71d47e180b71f9b6cd613f567a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method deletes the challenge that has been sended by the user that has the given user id.  <a href="class_user_data.html#a57170a71d47e180b71f9b6cd613f567a">More...</a><br /></td></tr>
+<tr class="separator:a57170a71d47e180b71f9b6cd613f567a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a03d853842085f67769ddf551f9cd63"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a0a03d853842085f67769ddf551f9cd63">getQuantityOfChallenges</a> ()</td></tr>
+<tr class="memdesc:a0a03d853842085f67769ddf551f9cd63"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the cuantity of active challenges that the current user has.  <a href="class_user_data.html#a0a03d853842085f67769ddf551f9cd63">More...</a><br /></td></tr>
+<tr class="separator:a0a03d853842085f67769ddf551f9cd63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe54103c3f8887de4cd12c47031f3557"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classchallenge_data.html">challengeData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#afe54103c3f8887de4cd12c47031f3557">getChallenge</a> (int index)</td></tr>
+<tr class="memdesc:afe54103c3f8887de4cd12c47031f3557"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the <a class="el" href="classchallenge_data.html" title="Class that stores the information of one challenge.">challengeData</a> object that is on the given index-th position.  <a href="class_user_data.html#afe54103c3f8887de4cd12c47031f3557">More...</a><br /></td></tr>
+<tr class="separator:afe54103c3f8887de4cd12c47031f3557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0b1cab6abc9debec303e477487366d2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#ac0b1cab6abc9debec303e477487366d2">lastChallengeScore</a> ()</td></tr>
+<tr class="memdesc:ac0b1cab6abc9debec303e477487366d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the lastChallengeScore_ property.  <a href="class_user_data.html#ac0b1cab6abc9debec303e477487366d2">More...</a><br /></td></tr>
+<tr class="separator:ac0b1cab6abc9debec303e477487366d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a895e1eab64ef80590c17b2199a1f0a0b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a895e1eab64ef80590c17b2199a1f0a0b">lastVisitScore</a> ()</td></tr>
+<tr class="memdesc:a895e1eab64ef80590c17b2199a1f0a0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the lastVisitScore_ property.  <a href="class_user_data.html#a895e1eab64ef80590c17b2199a1f0a0b">More...</a><br /></td></tr>
+<tr class="separator:a895e1eab64ef80590c17b2199a1f0a0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ebab2bac74207d7cf2417e33464b53a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a7ebab2bac74207d7cf2417e33464b53a">hasToBeNotified</a> (string uid)</td></tr>
+<tr class="memdesc:a7ebab2bac74207d7cf2417e33464b53a"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if the user with the given user id is on the acceptedFriendsToNotify_ list, false in another case.  <a href="class_user_data.html#a7ebab2bac74207d7cf2417e33464b53a">More...</a><br /></td></tr>
+<tr class="separator:a7ebab2bac74207d7cf2417e33464b53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57b3771ac0898c00d3c6227bb975688b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a57b3771ac0898c00d3c6227bb975688b">nextFriendToBeNotified</a> ()</td></tr>
+<tr class="separator:a57b3771ac0898c00d3c6227bb975688b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ca54f1a48b7d639c499bf36feadadf1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a5ca54f1a48b7d639c499bf36feadadf1">hasBeenNotified</a> (string uid)</td></tr>
+<tr class="memdesc:a5ca54f1a48b7d639c499bf36feadadf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method removes the given user id of the acceptedFriendsToNotify_ list.  <a href="class_user_data.html#a5ca54f1a48b7d639c499bf36feadadf1">More...</a><br /></td></tr>
+<tr class="separator:a5ca54f1a48b7d639c499bf36feadadf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a262959b7ab5dfb03a55a4713e0aaa718"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a262959b7ab5dfb03a55a4713e0aaa718">anyUserHasToBeNotified</a> ()</td></tr>
+<tr class="memdesc:a262959b7ab5dfb03a55a4713e0aaa718"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns true if the acceptedFriendsToNotify_ isnt empty, false in any other case.  <a href="class_user_data.html#a262959b7ab5dfb03a55a4713e0aaa718">More...</a><br /></td></tr>
+<tr class="separator:a262959b7ab5dfb03a55a4713e0aaa718"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -212,13 +241,26 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:ac1bdf8b29343efeae375d0f448827103"><td class="mdescLeft">&#160;</td><td class="mdescRight">list that stores all the necessary information of the users those that the current user has a new friendship invitation.  <a href="class_user_data.html#ac1bdf8b29343efeae375d0f448827103">More...</a><br /></td></tr>
 <tr class="separator:ac1bdf8b29343efeae375d0f448827103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8167d9172038670f5b26c27219f9829d"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classchallenge_data.html">challengeData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a8167d9172038670f5b26c27219f9829d">challenges_</a></td></tr>
+<tr class="memdesc:a8167d9172038670f5b26c27219f9829d"><td class="mdescLeft">&#160;</td><td class="mdescRight">List that stores all the data of the challenges that this user has.  <a href="class_user_data.html#a8167d9172038670f5b26c27219f9829d">More...</a><br /></td></tr>
 <tr class="separator:a8167d9172038670f5b26c27219f9829d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fc36e4437631282b36bcf04448553ec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a2fc36e4437631282b36bcf04448553ec">score_</a></td></tr>
+<tr class="memdesc:a2fc36e4437631282b36bcf04448553ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Int that stores the score of the current user.  <a href="class_user_data.html#a2fc36e4437631282b36bcf04448553ec">More...</a><br /></td></tr>
+<tr class="separator:a2fc36e4437631282b36bcf04448553ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7ab80a5ecfbb887100ae06905089ce3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#ae7ab80a5ecfbb887100ae06905089ce3">lastVisitScore_</a></td></tr>
+<tr class="memdesc:ae7ab80a5ecfbb887100ae06905089ce3"><td class="mdescLeft">&#160;</td><td class="mdescRight">int that stores the score obtained by the last visit done.  <a href="class_user_data.html#ae7ab80a5ecfbb887100ae06905089ce3">More...</a><br /></td></tr>
+<tr class="separator:ae7ab80a5ecfbb887100ae06905089ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af267bdd9c351012ecbb39e0012f9e293"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#af267bdd9c351012ecbb39e0012f9e293">lastChallengeScore_</a></td></tr>
+<tr class="memdesc:af267bdd9c351012ecbb39e0012f9e293"><td class="mdescLeft">&#160;</td><td class="mdescRight">int that stores the score obtained by the last challenge done.  <a href="class_user_data.html#af267bdd9c351012ecbb39e0012f9e293">More...</a><br /></td></tr>
+<tr class="separator:af267bdd9c351012ecbb39e0012f9e293"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ef812c1633749eda3b3b47b5bec52c5"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a3ef812c1633749eda3b3b47b5bec52c5">acceptedFriendsToNotify_</a></td></tr>
+<tr class="memdesc:a3ef812c1633749eda3b3b47b5bec52c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;string&gt; that stores the user ids that have to been notified that this user accepted the friendship invitation.  <a href="class_user_data.html#a3ef812c1633749eda3b3b47b5bec52c5">More...</a><br /></td></tr>
+<tr class="separator:a3ef812c1633749eda3b3b47b5bec52c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class that stores the current user data. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8cfe12eacc656497cb3c0a13afd2fa81" name="a8cfe12eacc656497cb3c0a13afd2fa81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cfe12eacc656497cb3c0a13afd2fa81">&#9670;&nbsp;</a></span>UserData()</h2>
+<a id="ad2dd062f86fdc42932e93675656ef12c" name="ad2dd062f86fdc42932e93675656ef12c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2dd062f86fdc42932e93675656ef12c">&#9670;&nbsp;</a></span>UserData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -269,7 +311,19 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">List&lt; Dictionary&lt; string, string &gt; &gt;&#160;</td>
-          <td class="paramname"><em>challengesData</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>challengesData</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>userScore</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>earnedScore</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -288,7 +342,10 @@ Private Attributes</h2></td></tr>
     <tr><td class="paramname">List&lt;string&gt;</td><td>(Optional) List of user ids of the current user's friends. </td></tr>
     <tr><td class="paramname">List&lt;string&gt;</td><td>(Optional) List of user ids of the current user's new friendship invitations. </td></tr>
     <tr><td class="paramname">List&lt;string&gt;</td><td>(Optional) List of user ids of the users that has accepted current user's friendships invitations. </td></tr>
-    <tr><td class="paramname">List&lt;string&gt;</td><td>(Optional) List of user ids of the users that has deleted current user's friendship.<ul>
+    <tr><td class="paramname">List&lt;string&gt;</td><td>(Optional) List of user ids of the users that has deleted current user's friendship. </td></tr>
+    <tr><td class="paramname">List&lt;Dictionary&lt;string,string&gt;&gt;</td><td>(Optional) List of the current user's challenges. </td></tr>
+    <tr><td class="paramname">string</td><td>(Optional) the user's current score </td></tr>
+    <tr><td class="paramname">string</td><td>(Optional) the user's score that has earned by the completion of challenges that the user has sended.<ul>
 <li>If the baseCordsData parameter isnt null, it sets baseEstablished_ attribute to true, it sets it as false in other case.</li>
 <li>If the friendInvitationsAcceptedList parameter isnt null, it adds each element of the list to the friendList_ attribute.</li>
 <li>If the deletedFriendsList parameter isnt null, it deletes each element of that list from the friendList_ attribute. </li>
@@ -372,6 +429,26 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a262959b7ab5dfb03a55a4713e0aaa718" name="a262959b7ab5dfb03a55a4713e0aaa718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a262959b7ab5dfb03a55a4713e0aaa718">&#9670;&nbsp;</a></span>anyUserHasToBeNotified()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UserData.anyUserHasToBeNotified </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method returns true if the acceptedFriendsToNotify_ isnt empty, false in any other case. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool true if the acceptedFriendsToNotify_ list isnt empty, false in any other case. </dd></dl>
 
 </div>
 </div>
@@ -620,6 +697,32 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a57170a71d47e180b71f9b6cd613f567a" name="a57170a71d47e180b71f9b6cd613f567a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57170a71d47e180b71f9b6cd613f567a">&#9670;&nbsp;</a></span>destroyChallengeByChallengerId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UserData.destroyChallengeByChallengerId </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>uid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method deletes the challenge that has been sended by the user that has the given user id. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>that contains the challenger's user id of the challenge that will be removed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ae655ff4534131930444a227ab7b0fefd" name="ae655ff4534131930444a227ab7b0fefd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae655ff4534131930444a227ab7b0fefd">&#9670;&nbsp;</a></span>friendDataIsComplete()</h2>
 
@@ -678,6 +781,33 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="afe54103c3f8887de4cd12c47031f3557" name="afe54103c3f8887de4cd12c47031f3557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe54103c3f8887de4cd12c47031f3557">&#9670;&nbsp;</a></span>getChallenge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classchallenge_data.html">challengeData</a> UserData.getChallenge </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method returns the <a class="el" href="classchallenge_data.html" title="Class that stores the information of one challenge.">challengeData</a> object that is on the given index-th position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>the position of the challenge that will be returned </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classchallenge_data.html" title="Class that stores the information of one challenge.">challengeData</a> that is on the index-th position </dd></dl>
+
+</div>
+</div>
 <a id="ac868d516b12139865ce5161aa19836f8" name="ac868d516b12139865ce5161aa19836f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac868d516b12139865ce5161aa19836f8">&#9670;&nbsp;</a></span>getFriend()</h2>
 
@@ -729,6 +859,33 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_friend_data.html" title="Class that stores the information of one of the current user&#39;s friend.">FriendData</a> of the friend that is on the index-th position of the current user friendDataList_. </dd></dl>
+
+</div>
+</div>
+<a id="a9ce9bd30af5ae81ca02da50854f4d0f8" name="a9ce9bd30af5ae81ca02da50854f4d0f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ce9bd30af5ae81ca02da50854f4d0f8">&#9670;&nbsp;</a></span>getFriendDataByUID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_friend_data.html">FriendData</a> UserData.getFriendDataByUID </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>uid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method returns the <a class="el" href="class_friend_data.html" title="Class that stores the information of one of the current user&#39;s friend.">FriendData</a> object that contains the information of the current user's friend that has the given id. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>user id that we want to get the information. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_friend_data.html" title="Class that stores the information of one of the current user&#39;s friend.">FriendData</a> object that contains the information of the current user's friend that has the given id. </dd></dl>
 
 </div>
 </div>
@@ -813,6 +970,26 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a0a03d853842085f67769ddf551f9cd63" name="a0a03d853842085f67769ddf551f9cd63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a03d853842085f67769ddf551f9cd63">&#9670;&nbsp;</a></span>getQuantityOfChallenges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UserData.getQuantityOfChallenges </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method returns the cuantity of active challenges that the current user has. </p>
+<dl class="section return"><dt>Returns</dt><dd>int with the quantity of challenges. </dd></dl>
+
+</div>
+</div>
 <a id="a9f5c6cfd83db6f136bcd9c6c124d8eb9" name="a9f5c6cfd83db6f136bcd9c6c124d8eb9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f5c6cfd83db6f136bcd9c6c124d8eb9">&#9670;&nbsp;</a></span>getStoryPlaceData()</h2>
 
@@ -887,6 +1064,59 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a5ca54f1a48b7d639c499bf36feadadf1" name="a5ca54f1a48b7d639c499bf36feadadf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ca54f1a48b7d639c499bf36feadadf1">&#9670;&nbsp;</a></span>hasBeenNotified()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UserData.hasBeenNotified </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>uid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method removes the given user id of the acceptedFriendsToNotify_ list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>with the user id that was notified. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7ebab2bac74207d7cf2417e33464b53a" name="a7ebab2bac74207d7cf2417e33464b53a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ebab2bac74207d7cf2417e33464b53a">&#9670;&nbsp;</a></span>hasToBeNotified()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UserData.hasToBeNotified </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>uid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>true if the user with the given user id is on the acceptedFriendsToNotify_ list, false in another case. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>with the user id that will be check if it has to be notified. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool true if the use with the given user id has to be notified of this user has accepted the friendship invitation. </dd></dl>
+
+</div>
+</div>
 <a id="ab76064b9acb9eec0765fbc81e1680cda" name="ab76064b9acb9eec0765fbc81e1680cda"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab76064b9acb9eec0765fbc81e1680cda">&#9670;&nbsp;</a></span>hasVisitPlace()</h2>
 
@@ -949,6 +1179,46 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the current user has a friend with the given display name. </dd></dl>
+
+</div>
+</div>
+<a id="ac0b1cab6abc9debec303e477487366d2" name="ac0b1cab6abc9debec303e477487366d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0b1cab6abc9debec303e477487366d2">&#9670;&nbsp;</a></span>lastChallengeScore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UserData.lastChallengeScore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getter of the lastChallengeScore_ property. </p>
+<dl class="section return"><dt>Returns</dt><dd>int with the score that this user has earned with the last challenge completed. </dd></dl>
+
+</div>
+</div>
+<a id="a895e1eab64ef80590c17b2199a1f0a0b" name="a895e1eab64ef80590c17b2199a1f0a0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a895e1eab64ef80590c17b2199a1f0a0b">&#9670;&nbsp;</a></span>lastVisitScore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UserData.lastVisitScore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getter of the lastVisitScore_ property. </p>
+<dl class="section return"><dt>Returns</dt><dd>int with the score that this user has earned with the last visited. </dd></dl>
 
 </div>
 </div>
@@ -1062,7 +1332,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This method register a visit of the current user to the place that has the given type and id. It registers the visit at the given timestamp. If the user havent visit a place with the given type and id this method print an message on the console. </p>
+<p>This method register a visit of the current user to the place that has the given type and id. It registers the visit at the given timestamp. If the user havent visit a place with the given type and id this method adds a new <a class="el" href="class_visited_place.html" title="Class that stores the information of a visited place.">VisitedPlace</a> object to the visitedPlaces_ array. It also adds to the user a bonus of score. The obtained score depends on: if its the first time that the user visit that place and the proportion of visits that place has compared to the most visited place. It is calculated using getScoreForVisitingAPlace method of <a class="el" href="classgame_rules.html" title="This class store as static properties the parameters that affect the game rules. For example it store...">gameRules</a> class. It also checks if one of the challenges was visit that place, if that is the case it use the calculateChallengeScore method of <a class="el" href="classgame_rules.html" title="This class store as static properties the parameters that affect the game rules. For example it store...">gameRules</a> class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">string</td><td>type of the site that the current user has visit. </td></tr>
@@ -1071,6 +1341,24 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a57b3771ac0898c00d3c6227bb975688b" name="a57b3771ac0898c00d3c6227bb975688b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57b3771ac0898c00d3c6227bb975688b">&#9670;&nbsp;</a></span>nextFriendToBeNotified()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string UserData.nextFriendToBeNotified </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>string with the user id of the user that needs to be notified next. @bried This method returns the first element of the acceptedFriendsToNotify_ list. If you call this method without checking if the list is empty with the anyUserHasToBeNotified method, it will raise an exception. </dd></dl>
 
 </div>
 </div>
@@ -1132,6 +1420,30 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3ef812c1633749eda3b3b47b5bec52c5" name="a3ef812c1633749eda3b3b47b5bec52c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ef812c1633749eda3b3b47b5bec52c5">&#9670;&nbsp;</a></span>acceptedFriendsToNotify_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; UserData.acceptedFriendsToNotify_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List&lt;string&gt; that stores the user ids that have to been notified that this user accepted the friendship invitation. </p>
+
+</div>
+</div>
 <a id="a59e0e8c5528474b99d3c9b81c2f2fe0e" name="a59e0e8c5528474b99d3c9b81c2f2fe0e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a59e0e8c5528474b99d3c9b81c2f2fe0e">&#9670;&nbsp;</a></span>baseEstablished_</h2>
 
@@ -1223,6 +1535,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>List that stores all the data of the challenges that this user has. </p>
 
 </div>
 </div>
@@ -1338,6 +1652,54 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="af267bdd9c351012ecbb39e0012f9e293" name="af267bdd9c351012ecbb39e0012f9e293"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af267bdd9c351012ecbb39e0012f9e293">&#9670;&nbsp;</a></span>lastChallengeScore_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UserData.lastChallengeScore_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>int that stores the score obtained by the last challenge done. </p>
+
+</div>
+</div>
+<a id="ae7ab80a5ecfbb887100ae06905089ce3" name="ae7ab80a5ecfbb887100ae06905089ce3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7ab80a5ecfbb887100ae06905089ce3">&#9670;&nbsp;</a></span>lastVisitScore_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UserData.lastVisitScore_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>int that stores the score obtained by the last visit done. </p>
+
+</div>
+</div>
 <a id="ac1bdf8b29343efeae375d0f448827103" name="ac1bdf8b29343efeae375d0f448827103"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac1bdf8b29343efeae375d0f448827103">&#9670;&nbsp;</a></span>newFriendDataList_</h2>
 
@@ -1359,6 +1721,30 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>list that stores all the necessary information of the users those that the current user has a new friendship invitation. </p>
+
+</div>
+</div>
+<a id="a2fc36e4437631282b36bcf04448553ec" name="a2fc36e4437631282b36bcf04448553ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fc36e4437631282b36bcf04448553ec">&#9670;&nbsp;</a></span>score_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UserData.score_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Int that stores the score of the current user. </p>
 
 </div>
 </div>

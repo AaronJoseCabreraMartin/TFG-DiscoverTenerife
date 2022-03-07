@@ -8,7 +8,7 @@ Class that stores the current user data.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_user_data_a8cfe12eacc656497cb3c0a13afd2fa81}{User\+Data}} (Firebase.\+Auth.\+Firebase\+User new\+Fire\+Base\+User\+Data, List$<$ Dictionary$<$ string, string $>$ $>$ old\+Visited\+Places=null, Dictionary$<$ string, string $>$ base\+Cords\+Data=null, List$<$ string $>$ friend\+List=null, List$<$ string $>$ friend\+Invitations\+List=null, List$<$ string $>$ friend\+Invitations\+Accepted\+List=null, List$<$ string $>$ deleted\+Friends\+List=null, List$<$ Dictionary$<$ string, string $>$ $>$ challenges\+Data=null)
+\mbox{\hyperlink{class_user_data_ad2dd062f86fdc42932e93675656ef12c}{User\+Data}} (Firebase.\+Auth.\+Firebase\+User new\+Fire\+Base\+User\+Data, List$<$ Dictionary$<$ string, string $>$ $>$ old\+Visited\+Places=null, Dictionary$<$ string, string $>$ base\+Cords\+Data=null, List$<$ string $>$ friend\+List=null, List$<$ string $>$ friend\+Invitations\+List=null, List$<$ string $>$ friend\+Invitations\+Accepted\+List=null, List$<$ string $>$ deleted\+Friends\+List=null, List$<$ Dictionary$<$ string, string $>$ $>$ challenges\+Data=null, string user\+Score=null, string earned\+Score=null)
 \begin{DoxyCompactList}\small\item\em Constructor. It initialices all the properties taking aware if they have been given with a real value or they are null. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_user_data_ad45dbf0d28037fad834fc1efe0c66efe}{To\+Json}} ()
 \begin{DoxyCompactList}\small\item\em This method converts all the properties of the current object in a string that follows the JSON format. \end{DoxyCompactList}\item 
@@ -29,7 +29,7 @@ string \mbox{\hyperlink{class_user_data_acdc1317134f609f751f9b0e1ff3c9553}{most\
 int \mbox{\hyperlink{class_user_data_ab694c531b0fde9d5d04ae6601ce9a2c6}{count\+Visited\+Places\+Of\+Zone}} (string zone)
 \begin{DoxyCompactList}\small\item\em it returns the sum of all visits to places that are on the given zone. Zones of the map are defined on \mbox{\hyperlink{classmap_rules_handler}{map\+Rules\+Handler}} class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_user_data_a4bdd7ffeb110ec5fdbf2bbba1bebd757}{new\+Visit\+At}} (string type, int id, long visit\+Time)
-\begin{DoxyCompactList}\small\item\em This method register a visit of the current user to the place that has the given type and id. It registers the visit at the given timestamp. If the user havent visit a place with the given type and id this method print an message on the console. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This method register a visit of the current user to the place that has the given type and id. It registers the visit at the given timestamp. If the user havent visit a place with the given type and id this method adds a new \mbox{\hyperlink{class_visited_place}{Visited\+Place}} object to the visited\+Places\+\_\+ array. It also adds to the user a bonus of score. The obtained score depends on\+: if its the first time that the user visit that place and the proportion of visits that place has compared to the most visited place. It is calculated using get\+Score\+For\+Visiting\+APlace method of \mbox{\hyperlink{classgame_rules}{game\+Rules}} class. It also checks if one of the challenges was visit that place, if that is the case it use the calculate\+Challenge\+Score method of \mbox{\hyperlink{classgame_rules}{game\+Rules}} class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_user_data_a676a5af153f07ccb1ee625924776d991}{set\+Base}} (double latitude, double longitude)
 \begin{DoxyCompactList}\small\item\em this method should be called once per user. It stablished the user base on the given coords and set the base\+Established\+\_\+ attribute to true. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_user_data_a64f6944c9c66f5c5b5d0d12c98fa8ce7}{get\+Base\+Longitude}} ()
@@ -79,7 +79,27 @@ void \mbox{\hyperlink{class_user_data_a50db7e291859fb2528611546994abacb}{delete\
 string \mbox{\hyperlink{class_user_data_acdcd246281e9e23e1a0a87f84f172191}{get\+Uid}} ()
 \begin{DoxyCompactList}\small\item\em getter of the user id. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_user_data_ae0d987deec76a4a895f568a4a0e60d54}{is\+AFriend\+By\+Display\+Name}} (string display\+Name)
-\begin{DoxyCompactList}\small\item\em This method checks if on the current user\textquotesingle{}s friend list exists any user with the given display name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This method checks if on the current user\textquotesingle{}s friend list exists any user with the given display name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_friend_data}{Friend\+Data}} \mbox{\hyperlink{class_user_data_a9ce9bd30af5ae81ca02da50854f4d0f8}{get\+Friend\+Data\+By\+UID}} (string uid)
+\begin{DoxyCompactList}\small\item\em This method returns the \mbox{\hyperlink{class_friend_data}{Friend\+Data}} object that contains the information of the current user\textquotesingle{}s friend that has the given id. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_data_a57170a71d47e180b71f9b6cd613f567a}{destroy\+Challenge\+By\+Challenger\+Id}} (string uid)
+\begin{DoxyCompactList}\small\item\em This method deletes the challenge that has been sended by the user that has the given user id. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_user_data_a0a03d853842085f67769ddf551f9cd63}{get\+Quantity\+Of\+Challenges}} ()
+\begin{DoxyCompactList}\small\item\em This method returns the cuantity of active challenges that the current user has. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classchallenge_data}{challenge\+Data}} \mbox{\hyperlink{class_user_data_afe54103c3f8887de4cd12c47031f3557}{get\+Challenge}} (int index)
+\begin{DoxyCompactList}\small\item\em This method returns the \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} object that is on the given index-\/th position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_user_data_ac0b1cab6abc9debec303e477487366d2}{last\+Challenge\+Score}} ()
+\begin{DoxyCompactList}\small\item\em getter of the last\+Challenge\+Score\+\_\+ property. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_user_data_a895e1eab64ef80590c17b2199a1f0a0b}{last\+Visit\+Score}} ()
+\begin{DoxyCompactList}\small\item\em getter of the last\+Visit\+Score\+\_\+ property. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_user_data_a7ebab2bac74207d7cf2417e33464b53a}{has\+To\+Be\+Notified}} (string uid)
+\begin{DoxyCompactList}\small\item\em true if the user with the given user id is on the accepted\+Friends\+To\+Notify\+\_\+ list, false in another case. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_user_data_a57b3771ac0898c00d3c6227bb975688b}{next\+Friend\+To\+Be\+Notified}} ()
+\item 
+void \mbox{\hyperlink{class_user_data_a5ca54f1a48b7d639c499bf36feadadf1}{has\+Been\+Notified}} (string uid)
+\begin{DoxyCompactList}\small\item\em This method removes the given user id of the accepted\+Friends\+To\+Notify\+\_\+ list. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_user_data_a262959b7ab5dfb03a55a4713e0aaa718}{any\+User\+Has\+To\+Be\+Notified}} ()
+\begin{DoxyCompactList}\small\item\em This method returns true if the accepted\+Friends\+To\+Notify\+\_\+ isnt empty, false in any other case. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -107,18 +127,26 @@ List$<$ string $>$ \mbox{\hyperlink{class_user_data_a8371972f612f1720b29ea21b99e
 List$<$ \mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}} $>$ \mbox{\hyperlink{class_user_data_ac1bdf8b29343efeae375d0f448827103}{new\+Friend\+Data\+List\+\_\+}}
 \begin{DoxyCompactList}\small\item\em list that stores all the necessary information of the users those that the current user has a new friendship invitation. \end{DoxyCompactList}\item 
 List$<$ \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} $>$ \mbox{\hyperlink{class_user_data_a8167d9172038670f5b26c27219f9829d}{challenges\+\_\+}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em List that stores all the data of the challenges that this user has. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_user_data_a2fc36e4437631282b36bcf04448553ec}{score\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Int that stores the score of the current user. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_user_data_ae7ab80a5ecfbb887100ae06905089ce3}{last\+Visit\+Score\+\_\+}}
+\begin{DoxyCompactList}\small\item\em int that stores the score obtained by the last visit done. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_user_data_af267bdd9c351012ecbb39e0012f9e293}{last\+Challenge\+Score\+\_\+}}
+\begin{DoxyCompactList}\small\item\em int that stores the score obtained by the last challenge done. \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{class_user_data_a3ef812c1633749eda3b3b47b5bec52c5}{accepted\+Friends\+To\+Notify\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List$<$string$>$ that stores the user ids that have to been notified that this user accepted the friendship invitation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class that stores the current user data. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_user_data_a8cfe12eacc656497cb3c0a13afd2fa81}\label{class_user_data_a8cfe12eacc656497cb3c0a13afd2fa81}} 
+\mbox{\Hypertarget{class_user_data_ad2dd062f86fdc42932e93675656ef12c}\label{class_user_data_ad2dd062f86fdc42932e93675656ef12c}} 
 \index{UserData@{UserData}!UserData@{UserData}}
 \index{UserData@{UserData}!UserData@{UserData}}
 \doxysubsubsection{\texorpdfstring{UserData()}{UserData()}}
-{\footnotesize\ttfamily User\+Data.\+User\+Data (\begin{DoxyParamCaption}\item[{Firebase.\+Auth.\+Firebase\+User}]{new\+Fire\+Base\+User\+Data,  }\item[{List$<$ Dictionary$<$ string, string $>$ $>$}]{old\+Visited\+Places = {\ttfamily null},  }\item[{Dictionary$<$ string, string $>$}]{base\+Cords\+Data = {\ttfamily null},  }\item[{List$<$ string $>$}]{friend\+List = {\ttfamily null},  }\item[{List$<$ string $>$}]{friend\+Invitations\+List = {\ttfamily null},  }\item[{List$<$ string $>$}]{friend\+Invitations\+Accepted\+List = {\ttfamily null},  }\item[{List$<$ string $>$}]{deleted\+Friends\+List = {\ttfamily null},  }\item[{List$<$ Dictionary$<$ string, string $>$ $>$}]{challenges\+Data = {\ttfamily null} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily User\+Data.\+User\+Data (\begin{DoxyParamCaption}\item[{Firebase.\+Auth.\+Firebase\+User}]{new\+Fire\+Base\+User\+Data,  }\item[{List$<$ Dictionary$<$ string, string $>$ $>$}]{old\+Visited\+Places = {\ttfamily null},  }\item[{Dictionary$<$ string, string $>$}]{base\+Cords\+Data = {\ttfamily null},  }\item[{List$<$ string $>$}]{friend\+List = {\ttfamily null},  }\item[{List$<$ string $>$}]{friend\+Invitations\+List = {\ttfamily null},  }\item[{List$<$ string $>$}]{friend\+Invitations\+Accepted\+List = {\ttfamily null},  }\item[{List$<$ string $>$}]{deleted\+Friends\+List = {\ttfamily null},  }\item[{List$<$ Dictionary$<$ string, string $>$ $>$}]{challenges\+Data = {\ttfamily null},  }\item[{string}]{user\+Score = {\ttfamily null},  }\item[{string}]{earned\+Score = {\ttfamily null} }\end{DoxyParamCaption})}
 
 
 
@@ -138,7 +166,13 @@ Constructor. It initialices all the properties taking aware if they have been gi
 \hline
 {\em List$<$string$>$} & (Optional) List of user ids of the users that has accepted current user\textquotesingle{}s friendships invitations. \\
 \hline
-{\em List$<$string$>$} & (Optional) List of user ids of the users that has deleted current user\textquotesingle{}s friendship.
+{\em List$<$string$>$} & (Optional) List of user ids of the users that has deleted current user\textquotesingle{}s friendship. \\
+\hline
+{\em List$<$\+Dictionary$<$string,string$>$$>$} & (Optional) List of the current user\textquotesingle{}s challenges. \\
+\hline
+{\em string} & (Optional) the user\textquotesingle{}s current score \\
+\hline
+{\em string} & (Optional) the user\textquotesingle{}s score that has earned by the completion of challenges that the user has sended.
 \begin{DoxyItemize}
 \item If the base\+Cords\+Data parameter isnt null, it sets base\+Established\+\_\+ attribute to true, it sets it as false in other case.
 \item If the friend\+Invitations\+Accepted\+List parameter isnt null, it adds each element of the list to the friend\+List\+\_\+ attribute.
@@ -186,6 +220,19 @@ This method add the given user id to the friend list and removes the friendship 
 {\em \mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}}} & the data that you want to add to the new\+Friend\+Data\+List\+\_\+ attribute. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{class_user_data_a262959b7ab5dfb03a55a4713e0aaa718}\label{class_user_data_a262959b7ab5dfb03a55a4713e0aaa718}} 
+\index{UserData@{UserData}!anyUserHasToBeNotified@{anyUserHasToBeNotified}}
+\index{anyUserHasToBeNotified@{anyUserHasToBeNotified}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{anyUserHasToBeNotified()}{anyUserHasToBeNotified()}}
+{\footnotesize\ttfamily bool User\+Data.\+any\+User\+Has\+To\+Be\+Notified (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method returns true if the accepted\+Friends\+To\+Notify\+\_\+ isnt empty, false in any other case. 
+
+\begin{DoxyReturn}{Returns}
+bool true if the accepted\+Friends\+To\+Notify\+\_\+ list isnt empty, false in any other case. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_user_data_a4e2b506585d85be1aaff812167abc496}\label{class_user_data_a4e2b506585d85be1aaff812167abc496}} 
 \index{UserData@{UserData}!baseEstablished@{baseEstablished}}
 \index{baseEstablished@{baseEstablished}!UserData@{UserData}}
@@ -326,7 +373,22 @@ This method remove either the given user id of the friend list and the correspon
 
 this method removes the frienship invitation of the user that has the given user id. 
 
-@string user id to delete the friendship invitation. \mbox{\Hypertarget{class_user_data_ae655ff4534131930444a227ab7b0fefd}\label{class_user_data_ae655ff4534131930444a227ab7b0fefd}} 
+@string user id to delete the friendship invitation. \mbox{\Hypertarget{class_user_data_a57170a71d47e180b71f9b6cd613f567a}\label{class_user_data_a57170a71d47e180b71f9b6cd613f567a}} 
+\index{UserData@{UserData}!destroyChallengeByChallengerId@{destroyChallengeByChallengerId}}
+\index{destroyChallengeByChallengerId@{destroyChallengeByChallengerId}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{destroyChallengeByChallengerId()}{destroyChallengeByChallengerId()}}
+{\footnotesize\ttfamily void User\+Data.\+destroy\+Challenge\+By\+Challenger\+Id (\begin{DoxyParamCaption}\item[{string}]{uid }\end{DoxyParamCaption})}
+
+
+
+This method deletes the challenge that has been sended by the user that has the given user id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & that contains the challenger\textquotesingle{}s user id of the challenge that will be removed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_data_ae655ff4534131930444a227ab7b0fefd}\label{class_user_data_ae655ff4534131930444a227ab7b0fefd}} 
 \index{UserData@{UserData}!friendDataIsComplete@{friendDataIsComplete}}
 \index{friendDataIsComplete@{friendDataIsComplete}!UserData@{UserData}}
 \doxysubsubsection{\texorpdfstring{friendDataIsComplete()}{friendDataIsComplete()}}
@@ -360,6 +422,24 @@ Getter of the base\+Longitude\+\_\+ attribute.
 
 \begin{DoxyReturn}{Returns}
 double the base\+Longitude\+\_\+ attribute. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_data_afe54103c3f8887de4cd12c47031f3557}\label{class_user_data_afe54103c3f8887de4cd12c47031f3557}} 
+\index{UserData@{UserData}!getChallenge@{getChallenge}}
+\index{getChallenge@{getChallenge}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{getChallenge()}{getChallenge()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} User\+Data.\+get\+Challenge (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+This method returns the \mbox{\hyperlink{classchallenge_data}{challenge\+Data}} object that is on the given index-\/th position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & the position of the challenge that will be returned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classchallenge_data}{challenge\+Data}} that is on the index-\/th position 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_user_data_ac868d516b12139865ce5161aa19836f8}\label{class_user_data_ac868d516b12139865ce5161aa19836f8}} 
 \index{UserData@{UserData}!getFriend@{getFriend}}
@@ -396,6 +476,24 @@ Returns the friend\+Data of the friend that is on the index-\/th position. If th
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_friend_data}{Friend\+Data}} of the friend that is on the index-\/th position of the current user friend\+Data\+List\+\_\+. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_data_a9ce9bd30af5ae81ca02da50854f4d0f8}\label{class_user_data_a9ce9bd30af5ae81ca02da50854f4d0f8}} 
+\index{UserData@{UserData}!getFriendDataByUID@{getFriendDataByUID}}
+\index{getFriendDataByUID@{getFriendDataByUID}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{getFriendDataByUID()}{getFriendDataByUID()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_friend_data}{Friend\+Data}} User\+Data.\+get\+Friend\+Data\+By\+UID (\begin{DoxyParamCaption}\item[{string}]{uid }\end{DoxyParamCaption})}
+
+
+
+This method returns the \mbox{\hyperlink{class_friend_data}{Friend\+Data}} object that contains the information of the current user\textquotesingle{}s friend that has the given id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & user id that we want to get the information. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_friend_data}{Friend\+Data}} object that contains the information of the current user\textquotesingle{}s friend that has the given id. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_user_data_a10258a8608a660113b9d80c642458aac}\label{class_user_data_a10258a8608a660113b9d80c642458aac}} 
 \index{UserData@{UserData}!getFriendInvitation@{getFriendInvitation}}
@@ -451,6 +549,19 @@ It returns the user id of the index-\/th friendship invitation data of the frien
 \begin{DoxyReturn}{Returns}
 string the user id of the friendship invitation data that is on the index-\/th position of the friend\+Data\+List\+\_\+ attribute. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_user_data_a0a03d853842085f67769ddf551f9cd63}\label{class_user_data_a0a03d853842085f67769ddf551f9cd63}} 
+\index{UserData@{UserData}!getQuantityOfChallenges@{getQuantityOfChallenges}}
+\index{getQuantityOfChallenges@{getQuantityOfChallenges}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{getQuantityOfChallenges()}{getQuantityOfChallenges()}}
+{\footnotesize\ttfamily int User\+Data.\+get\+Quantity\+Of\+Challenges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method returns the cuantity of active challenges that the current user has. 
+
+\begin{DoxyReturn}{Returns}
+int with the quantity of challenges. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_user_data_a9f5c6cfd83db6f136bcd9c6c124d8eb9}\label{class_user_data_a9f5c6cfd83db6f136bcd9c6c124d8eb9}} 
 \index{UserData@{UserData}!getStoryPlaceData@{getStoryPlaceData}}
 \index{getStoryPlaceData@{getStoryPlaceData}!UserData@{UserData}}
@@ -500,6 +611,39 @@ getter of the user id.
 \begin{DoxyReturn}{Returns}
 string with the user id of the current user. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_user_data_a5ca54f1a48b7d639c499bf36feadadf1}\label{class_user_data_a5ca54f1a48b7d639c499bf36feadadf1}} 
+\index{UserData@{UserData}!hasBeenNotified@{hasBeenNotified}}
+\index{hasBeenNotified@{hasBeenNotified}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{hasBeenNotified()}{hasBeenNotified()}}
+{\footnotesize\ttfamily void User\+Data.\+has\+Been\+Notified (\begin{DoxyParamCaption}\item[{string}]{uid }\end{DoxyParamCaption})}
+
+
+
+This method removes the given user id of the accepted\+Friends\+To\+Notify\+\_\+ list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & with the user id that was notified. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_data_a7ebab2bac74207d7cf2417e33464b53a}\label{class_user_data_a7ebab2bac74207d7cf2417e33464b53a}} 
+\index{UserData@{UserData}!hasToBeNotified@{hasToBeNotified}}
+\index{hasToBeNotified@{hasToBeNotified}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{hasToBeNotified()}{hasToBeNotified()}}
+{\footnotesize\ttfamily bool User\+Data.\+has\+To\+Be\+Notified (\begin{DoxyParamCaption}\item[{string}]{uid }\end{DoxyParamCaption})}
+
+
+
+true if the user with the given user id is on the accepted\+Friends\+To\+Notify\+\_\+ list, false in another case. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & with the user id that will be check if it has to be notified. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if the use with the given user id has to be notified of this user has accepted the friendship invitation. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_user_data_ab76064b9acb9eec0765fbc81e1680cda}\label{class_user_data_ab76064b9acb9eec0765fbc81e1680cda}} 
 \index{UserData@{UserData}!hasVisitPlace@{hasVisitPlace}}
 \index{hasVisitPlace@{hasVisitPlace}!UserData@{UserData}}
@@ -537,6 +681,32 @@ This method checks if on the current user\textquotesingle{}s friend list exists 
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 true if the current user has a friend with the given display name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_data_ac0b1cab6abc9debec303e477487366d2}\label{class_user_data_ac0b1cab6abc9debec303e477487366d2}} 
+\index{UserData@{UserData}!lastChallengeScore@{lastChallengeScore}}
+\index{lastChallengeScore@{lastChallengeScore}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{lastChallengeScore()}{lastChallengeScore()}}
+{\footnotesize\ttfamily int User\+Data.\+last\+Challenge\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the last\+Challenge\+Score\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+int with the score that this user has earned with the last challenge completed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_data_a895e1eab64ef80590c17b2199a1f0a0b}\label{class_user_data_a895e1eab64ef80590c17b2199a1f0a0b}} 
+\index{UserData@{UserData}!lastVisitScore@{lastVisitScore}}
+\index{lastVisitScore@{lastVisitScore}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{lastVisitScore()}{lastVisitScore()}}
+{\footnotesize\ttfamily int User\+Data.\+last\+Visit\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the last\+Visit\+Score\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+int with the score that this user has earned with the last visited. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_user_data_aadd0256d160f93e53f69d93079a6c48b}\label{class_user_data_aadd0256d160f93e53f69d93079a6c48b}} 
 \index{UserData@{UserData}!mostVisitedPlace@{mostVisitedPlace}}
@@ -594,7 +764,7 @@ bool True if all frienship invitation data is downloaded, false in other case.
 
 
 
-This method register a visit of the current user to the place that has the given type and id. It registers the visit at the given timestamp. If the user havent visit a place with the given type and id this method print an message on the console. 
+This method register a visit of the current user to the place that has the given type and id. It registers the visit at the given timestamp. If the user havent visit a place with the given type and id this method adds a new \mbox{\hyperlink{class_visited_place}{Visited\+Place}} object to the visited\+Places\+\_\+ array. It also adds to the user a bonus of score. The obtained score depends on\+: if its the first time that the user visit that place and the proportion of visits that place has compared to the most visited place. It is calculated using get\+Score\+For\+Visiting\+APlace method of \mbox{\hyperlink{classgame_rules}{game\+Rules}} class. It also checks if one of the challenges was visit that place, if that is the case it use the calculate\+Challenge\+Score method of \mbox{\hyperlink{classgame_rules}{game\+Rules}} class. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -605,6 +775,15 @@ This method register a visit of the current user to the place that has the given
 {\em long} & timestamp of the visit. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{class_user_data_a57b3771ac0898c00d3c6227bb975688b}\label{class_user_data_a57b3771ac0898c00d3c6227bb975688b}} 
+\index{UserData@{UserData}!nextFriendToBeNotified@{nextFriendToBeNotified}}
+\index{nextFriendToBeNotified@{nextFriendToBeNotified}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{nextFriendToBeNotified()}{nextFriendToBeNotified()}}
+{\footnotesize\ttfamily string User\+Data.\+next\+Friend\+To\+Be\+Notified (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+string with the user id of the user that needs to be notified next. @bried This method returns the first element of the accepted\+Friends\+To\+Notify\+\_\+ list. If you call this method without checking if the list is empty with the any\+User\+Has\+To\+Be\+Notified method, it will raise an exception. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_user_data_a676a5af153f07ccb1ee625924776d991}\label{class_user_data_a676a5af153f07ccb1ee625924776d991}} 
 \index{UserData@{UserData}!setBase@{setBase}}
 \index{setBase@{setBase}!UserData@{UserData}}
@@ -638,6 +817,16 @@ string that contains the JSON formated conversion of the current object.
 
 
 \doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_user_data_a3ef812c1633749eda3b3b47b5bec52c5}\label{class_user_data_a3ef812c1633749eda3b3b47b5bec52c5}} 
+\index{UserData@{UserData}!acceptedFriendsToNotify\_@{acceptedFriendsToNotify\_}}
+\index{acceptedFriendsToNotify\_@{acceptedFriendsToNotify\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{acceptedFriendsToNotify\_}{acceptedFriendsToNotify\_}}
+{\footnotesize\ttfamily List$<$string$>$ User\+Data.\+accepted\+Friends\+To\+Notify\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List$<$string$>$ that stores the user ids that have to been notified that this user accepted the friendship invitation. 
+
 \mbox{\Hypertarget{class_user_data_a59e0e8c5528474b99d3c9b81c2f2fe0e}\label{class_user_data_a59e0e8c5528474b99d3c9b81c2f2fe0e}} 
 \index{UserData@{UserData}!baseEstablished\_@{baseEstablished\_}}
 \index{baseEstablished\_@{baseEstablished\_}!UserData@{UserData}}
@@ -673,6 +862,10 @@ double that contains the longitude of the base of the current user.
 \index{challenges\_@{challenges\_}!UserData@{UserData}}
 \doxysubsubsection{\texorpdfstring{challenges\_}{challenges\_}}
 {\footnotesize\ttfamily List$<$\mbox{\hyperlink{classchallenge_data}{challenge\+Data}}$>$ User\+Data.\+challenges\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List that stores all the data of the challenges that this user has. 
 
 \mbox{\Hypertarget{class_user_data_a88df6bf4aee17f5d47ac73d6e8b26e7d}\label{class_user_data_a88df6bf4aee17f5d47ac73d6e8b26e7d}} 
 \index{UserData@{UserData}!displayName\_@{displayName\_}}
@@ -724,6 +917,26 @@ list that contains strings with the user ids of all the user that has sended a f
 
 list of strings that contains all the user ids of the friends of the current user. 
 
+\mbox{\Hypertarget{class_user_data_af267bdd9c351012ecbb39e0012f9e293}\label{class_user_data_af267bdd9c351012ecbb39e0012f9e293}} 
+\index{UserData@{UserData}!lastChallengeScore\_@{lastChallengeScore\_}}
+\index{lastChallengeScore\_@{lastChallengeScore\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{lastChallengeScore\_}{lastChallengeScore\_}}
+{\footnotesize\ttfamily int User\+Data.\+last\+Challenge\+Score\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+int that stores the score obtained by the last challenge done. 
+
+\mbox{\Hypertarget{class_user_data_ae7ab80a5ecfbb887100ae06905089ce3}\label{class_user_data_ae7ab80a5ecfbb887100ae06905089ce3}} 
+\index{UserData@{UserData}!lastVisitScore\_@{lastVisitScore\_}}
+\index{lastVisitScore\_@{lastVisitScore\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{lastVisitScore\_}{lastVisitScore\_}}
+{\footnotesize\ttfamily int User\+Data.\+last\+Visit\+Score\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+int that stores the score obtained by the last visit done. 
+
 \mbox{\Hypertarget{class_user_data_ac1bdf8b29343efeae375d0f448827103}\label{class_user_data_ac1bdf8b29343efeae375d0f448827103}} 
 \index{UserData@{UserData}!newFriendDataList\_@{newFriendDataList\_}}
 \index{newFriendDataList\_@{newFriendDataList\_}!UserData@{UserData}}
@@ -733,6 +946,16 @@ list of strings that contains all the user ids of the friends of the current use
 
 
 list that stores all the necessary information of the users those that the current user has a new friendship invitation. 
+
+\mbox{\Hypertarget{class_user_data_a2fc36e4437631282b36bcf04448553ec}\label{class_user_data_a2fc36e4437631282b36bcf04448553ec}} 
+\index{UserData@{UserData}!score\_@{score\_}}
+\index{score\_@{score\_}!UserData@{UserData}}
+\doxysubsubsection{\texorpdfstring{score\_}{score\_}}
+{\footnotesize\ttfamily int User\+Data.\+score\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Int that stores the score of the current user. 
 
 \mbox{\Hypertarget{class_user_data_ad18cfa73e4fb27cd88a3a87b776601ee}\label{class_user_data_ad18cfa73e4fb27cd88a3a87b776601ee}} 
 \index{UserData@{UserData}!visitedPlaces\_@{visitedPlaces\_}}
