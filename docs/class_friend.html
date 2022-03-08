@@ -89,7 +89,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:afe44da06bb48ca3e1fa38c90392aa78a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter of the panel_ property.  <a href="class_friend.html#afe44da06bb48ca3e1fa38c90392aa78a">More...</a><br /></td></tr>
 <tr class="separator:afe44da06bb48ca3e1fa38c90392aa78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad301703cad6844195d68e27a68454f2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#ad301703cad6844195d68e27a68454f2b">chanllegeFriend</a> ()</td></tr>
-<tr class="memdesc:ad301703cad6844195d68e27a68454f2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="class_friend.html#ad301703cad6844195d68e27a68454f2b">More...</a><br /></td></tr>
+<tr class="memdesc:ad301703cad6844195d68e27a68454f2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method first, it checks if there is internet connection. If there isnt, it shows a <a class="el" href="classtoast_message.html" title="class that controls the colored messages that are shown to the user giving him information but they h...">toastMessage</a> with an error. If there is internet connection but the represented friend already has a challenge of the current user, it shows a toastmessage with the error. And if there is internet connection and the represented user doesnt have a challenge of the current user it sets the chosenFriend_ static property to a reference to the friendData_ attribute and then calls the changeScene method of <a class="el" href="class_change_scene.html" title="This class follows the singleton pattern, the unique instance of the class can be found on an object ...">ChangeScene</a> and send the user to the choosing place for the challenge that will be sended screen.  <a href="class_friend.html#ad301703cad6844195d68e27a68454f2b">More...</a><br /></td></tr>
 <tr class="separator:ad301703cad6844195d68e27a68454f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8f257a6e72ff1026f11defc068c01ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#ad8f257a6e72ff1026f11defc068c01ca">deleteFriend</a> ()</td></tr>
 <tr class="memdesc:ad8f257a6e72ff1026f11defc068c01ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method deletes the friendship relationship if there is internet connection. Before deleting the friendship relationship it notify the user to make him aware of what he is doing.  <a href="class_friend.html#ad8f257a6e72ff1026f11defc068c01ca">More...</a><br /></td></tr>
@@ -110,7 +110,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a646bbbf9ea25b0c3902f4620b87d45d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#a646bbbf9ea25b0c3902f4620b87d45d5">destroyAndAdvice</a> ()</td></tr>
-<tr class="memdesc:a646bbbf9ea25b0c3902f4620b87d45d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method destroy this GameObject and notify the <a class="el" href="classfriends_panel.html" title="Class that controls the panel that shows the friends of the current user.">friendsPanel</a> object at it is attached to make it adjust his height.  <a href="class_friend.html#a646bbbf9ea25b0c3902f4620b87d45d5">More...</a><br /></td></tr>
+<tr class="memdesc:a646bbbf9ea25b0c3902f4620b87d45d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method destroy this GameObject and notify the <a class="el" href="classfriends_panel.html" title="Class that controls the panel that shows the friends of the current user. It inherites from adaptable...">friendsPanel</a> object at it is attached to make it adjust his height.  <a href="class_friend.html#a646bbbf9ea25b0c3902f4620b87d45d5">More...</a><br /></td></tr>
 <tr class="separator:a646bbbf9ea25b0c3902f4620b87d45d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac943e32987b52c57e5b9a50cc1efc487"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#ac943e32987b52c57e5b9a50cc1efc487">destroyAfterSeconds</a> (int seconds)</td></tr>
 <tr class="memdesc:ac943e32987b52c57e5b9a50cc1efc487"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method wait for the given number of seconds and then it calls the destroyAndAdvice method.  <a href="class_friend.html#ac943e32987b52c57e5b9a50cc1efc487">More...</a><br /></td></tr>
@@ -152,7 +152,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>TODO. </p>
+<p>This method first, it checks if there is internet connection. If there isnt, it shows a <a class="el" href="classtoast_message.html" title="class that controls the colored messages that are shown to the user giving him information but they h...">toastMessage</a> with an error. If there is internet connection but the represented friend already has a challenge of the current user, it shows a toastmessage with the error. And if there is internet connection and the represented user doesnt have a challenge of the current user it sets the chosenFriend_ static property to a reference to the friendData_ attribute and then calls the changeScene method of <a class="el" href="class_change_scene.html" title="This class follows the singleton pattern, the unique instance of the class can be found on an object ...">ChangeScene</a> and send the user to the choosing place for the challenge that will be sended screen. </p>
 
 </div>
 </div>
@@ -251,7 +251,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This method destroy this GameObject and notify the <a class="el" href="classfriends_panel.html" title="Class that controls the panel that shows the friends of the current user.">friendsPanel</a> object at it is attached to make it adjust his height. </p>
+<p>This method destroy this GameObject and notify the <a class="el" href="classfriends_panel.html" title="Class that controls the panel that shows the friends of the current user. It inherites from adaptable...">friendsPanel</a> object at it is attached to make it adjust his height. </p>
 
 </div>
 </div>

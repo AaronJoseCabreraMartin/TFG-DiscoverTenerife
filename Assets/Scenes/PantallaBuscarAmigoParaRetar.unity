@@ -412,8 +412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa70dcf817a72c4a9c839e090e8d149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  challengeableFriendPrefab_: {fileID: 4002116304806240828, guid: 0b0e6b36ccc82cf4c8d3333373e28470, type: 3}
-  noChallengeableFriendsImage_: {fileID: 1890904643}
+  prefab_: {fileID: 4002116304806240828, guid: 0b0e6b36ccc82cf4c8d3333373e28470, type: 3}
+  noItemsImage_: {fileID: 1890904643}
 --- !u!1 &947075596
 GameObject:
   m_ObjectHideFlags: 0

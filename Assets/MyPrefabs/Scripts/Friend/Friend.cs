@@ -60,18 +60,24 @@ public class Friend : MonoBehaviour
     }
 
     /**
-      * @brief TODO
+      * @brief This method first, it checks if there is internet connection. If there isnt, it shows a 
+      * toastMessage with an error. If there is internet connection but the represented friend already
+      * has a challenge of the current user, it shows a toastmessage with the error. And if there is
+      * internet connection and the represented user doesnt have a challenge of the current user
+      * it sets the chosenFriend_ static property to a reference to the friendData_ attribute and
+      * then calls the changeScene method of ChangeScene and send the user to the choosing place
+      * for the challenge that will be sended screen. 
       */
     public void chanllegeFriend(){
-        if(firebaseHandler.firebaseHandlerInstance_.internetConnection()){
-            //mostrar buscador de lugares
-            //una vez seleccionado:
-            // toast amigo retado!
-            toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You have chanllege your friend successfully", new Color32(76,175,80,255), 5);
-            // desactivar interactibilidad del boton hasta que el reto caduque (1 semana)
+        if(!firebaseHandler.firebaseHandlerInstance_.internetConnection()){
+          toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You don't have internet connection, try it again later.", new Color32(255,0,0,255), 5);
+        }else if(friendData_.hasAChallengeOfThisUser(firebaseHandler.firebaseHandlerInstance_.currentUser_.getUid())){
+          toastMessageObject_.GetComponent<toastMessage>().makeAnimation("This user already has a challenge of you, try it again later.", new Color32(255,0,0,255), 5);
         }else{
-            toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You don't have internet connection, try it again later.", new Color32(255,0,0,255), 5);
+          FriendData.chosenFriend_ = friendData_; //seleccionar este amigo
+          ChangeScene.changeScene("PantallaBuscarLugarParaRetar");// mostrar buscador de lugares
         }
+        
     }
 
     /**
@@ -111,9 +117,9 @@ public class Friend : MonoBehaviour
     private void destroyAndAdvice(){
         if(panel_!= null){
             if(panel_.GetComponent<friendsPanel>() != null){
-              panel_.GetComponent<friendsPanel>().friendDeleted(this.gameObject);
+              panel_.GetComponent<friendsPanel>().elementDeleted(this.gameObject);
             }else if(panel_.GetComponent<SearchAFriendToChallengePanel>() != null){
-              panel_.GetComponent<SearchAFriendToChallengePanel>().deleteAChallengeableFriend(this.gameObject);
+              panel_.GetComponent<SearchAFriendToChallengePanel>().elementDeleted(this.gameObject);
             }
         }
         Destroy(this.gameObject);

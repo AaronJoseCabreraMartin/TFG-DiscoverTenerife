@@ -63,66 +63,66 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classfriends_panel-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">friendsPanel Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Class that controls the panel that shows the friends of the current user.  
+<p>Class that controls the panel that shows the friends of the current user. It inherites from <a class="el" href="classadaptable_size_panel.html">adaptableSizePanel</a> abstract class.  
  <a href="classfriends_panel.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for friendsPanel:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classfriends_panel.png" alt=""/>
- </div></div>
+  <img src="classfriends_panel.png" usemap="#friendsPanel_map" alt=""/>
+  <map id="friendsPanel_map" name="friendsPanel_map">
+<area href="classadaptable_size_panel.html" alt="adaptableSizePanel" shape="rect" coords="0,56,123,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a6f547bba3c4fb51e2ce891d1ff4307a9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfriends_panel.html#a6f547bba3c4fb51e2ce891d1ff4307a9">getInvitationsCount</a> ()</td></tr>
-<tr class="memdesc:a6f547bba3c4fb51e2ce891d1ff4307a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of the friends_.Count property.  <a href="classfriends_panel.html#a6f547bba3c4fb51e2ce891d1ff4307a9">More...</a><br /></td></tr>
-<tr class="separator:a6f547bba3c4fb51e2ce891d1ff4307a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7746e818e78f0e565d614db9ece2bc74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfriends_panel.html#a7746e818e78f0e565d614db9ece2bc74">friendDeleted</a> (GameObject friendDeleted)</td></tr>
-<tr class="memdesc:a7746e818e78f0e565d614db9ece2bc74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the given GameObject of the friends_ property.  <a href="classfriends_panel.html#a7746e818e78f0e565d614db9ece2bc74">More...</a><br /></td></tr>
-<tr class="separator:a7746e818e78f0e565d614db9ece2bc74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a57b329a6fd7d49f5efeb5ef9812b4753"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfriends_panel.html#a57b329a6fd7d49f5efeb5ef9812b4753">fillPanel</a> ()</td></tr>
+<tr class="separator:a57b329a6fd7d49f5efeb5ef9812b4753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classadaptable_size_panel"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classadaptable_size_panel')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classadaptable_size_panel.html">adaptableSizePanel</a></td></tr>
+<tr class="memitem:a1c155711dcff0ad2a9260dbc99f4862e inherit pro_methods_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a1c155711dcff0ad2a9260dbc99f4862e">fillPanel</a> ()</td></tr>
+<tr class="memdesc:a1c155711dcff0ad2a9260dbc99f4862e inherit pro_methods_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called to instanciate the panel and add the prefabs as panels elements. It is an abstract method so, every class that inherit from this class must have its own fillPanel method.  <a href="classadaptable_size_panel.html#a1c155711dcff0ad2a9260dbc99f4862e">More...</a><br /></td></tr>
+<tr class="separator:a1c155711dcff0ad2a9260dbc99f4862e inherit pro_methods_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa80be6a18d988cf85c83ecb5cfd86cac inherit pro_methods_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#aa80be6a18d988cf85c83ecb5cfd86cac">adjustPanelSize</a> ()</td></tr>
+<tr class="separator:aa80be6a18d988cf85c83ecb5cfd86cac inherit pro_methods_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a655b8ce8d58430dd00a0795dd6d574d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfriends_panel.html#a655b8ce8d58430dd00a0795dd6d574d3">Awake</a> ()</td></tr>
-<tr class="separator:a655b8ce8d58430dd00a0795dd6d574d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f6ae42be983e16d9f7f09366cfbbbbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfriends_panel.html#a4f6ae42be983e16d9f7f09366cfbbbbb">Update</a> ()</td></tr>
-<tr class="separator:a4f6ae42be983e16d9f7f09366cfbbbbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac70c36a74b18dc8cf91d13812188c3b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfriends_panel.html#ac70c36a74b18dc8cf91d13812188c3b1">fillPanel</a> ()</td></tr>
-<tr class="separator:ac70c36a74b18dc8cf91d13812188c3b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac851522def15bf6dd72b594c34dd9253"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfriends_panel.html#ac851522def15bf6dd72b594c34dd9253">adjustPanelSize</a> ()</td></tr>
-<tr class="separator:ac851522def15bf6dd72b594c34dd9253"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:ae8e182a5df21481669c8ac746fec22be"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfriends_panel.html#ae8e182a5df21481669c8ac746fec22be">friendPrefab_</a></td></tr>
-<tr class="memdesc:ae8e182a5df21481669c8ac746fec22be"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the prefab that shows the friends information.  <a href="classfriends_panel.html#ae8e182a5df21481669c8ac746fec22be">More...</a><br /></td></tr>
-<tr class="separator:ae8e182a5df21481669c8ac746fec22be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab36be3d906a04c171e5bad67f6ef9ed1"><td class="memItemLeft" align="right" valign="top">List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfriends_panel.html#ab36be3d906a04c171e5bad67f6ef9ed1">friends_</a></td></tr>
-<tr class="memdesc:ab36be3d906a04c171e5bad67f6ef9ed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;GameObject&gt; that contains all the prefabs that the panel is showing.  <a href="classfriends_panel.html#ab36be3d906a04c171e5bad67f6ef9ed1">More...</a><br /></td></tr>
-<tr class="separator:ab36be3d906a04c171e5bad67f6ef9ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe935644847281a2045a5b0c6b8b1a70"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfriends_panel.html#abe935644847281a2045a5b0c6b8b1a70">panelFilled_</a></td></tr>
-<tr class="memdesc:abe935644847281a2045a5b0c6b8b1a70"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if the panel is already filled, false in other case.  <a href="classfriends_panel.html#abe935644847281a2045a5b0c6b8b1a70">More...</a><br /></td></tr>
-<tr class="separator:abe935644847281a2045a5b0c6b8b1a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c95308020ee5ff3cfcb248ff0372507"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfriends_panel.html#a4c95308020ee5ff3cfcb248ff0372507">lastCount_</a></td></tr>
-<tr class="memdesc:a4c95308020ee5ff3cfcb248ff0372507"><td class="mdescLeft">&#160;</td><td class="mdescRight">count of the elements that the panel is showing the last time it adapted its height.  <a href="classfriends_panel.html#a4c95308020ee5ff3cfcb248ff0372507">More...</a><br /></td></tr>
-<tr class="separator:a4c95308020ee5ff3cfcb248ff0372507"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace4f7c2fd97a3b195a1f72a57820280b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfriends_panel.html#ace4f7c2fd97a3b195a1f72a57820280b">initialHeight_</a></td></tr>
-<tr class="memdesc:ace4f7c2fd97a3b195a1f72a57820280b"><td class="mdescLeft">&#160;</td><td class="mdescRight">initial height of the panel.  <a href="classfriends_panel.html#ace4f7c2fd97a3b195a1f72a57820280b">More...</a><br /></td></tr>
-<tr class="separator:ace4f7c2fd97a3b195a1f72a57820280b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_methods_classadaptable_size_panel"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classadaptable_size_panel')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classadaptable_size_panel.html">adaptableSizePanel</a></td></tr>
+<tr class="memitem:a4824f830a8dcc65d3466d7cc53ba3234 inherit pub_methods_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a4824f830a8dcc65d3466d7cc53ba3234">elementDeleted</a> (GameObject elementDeleted)</td></tr>
+<tr class="memdesc:a4824f830a8dcc65d3466d7cc53ba3234 inherit pub_methods_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">tries to remove the given gameobject of the items property. If the gameobject isnt on the list, it will raise an index out of range exception.  <a href="classadaptable_size_panel.html#a4824f830a8dcc65d3466d7cc53ba3234">More...</a><br /></td></tr>
+<tr class="separator:a4824f830a8dcc65d3466d7cc53ba3234 inherit pub_methods_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classadaptable_size_panel"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classadaptable_size_panel')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classadaptable_size_panel.html">adaptableSizePanel</a></td></tr>
+<tr class="memitem:a043c4f0bda3f9616d9b8c1cf5b188098 inherit pro_attribs_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a043c4f0bda3f9616d9b8c1cf5b188098">prefab_</a></td></tr>
+<tr class="memdesc:a043c4f0bda3f9616d9b8c1cf5b188098 inherit pro_attribs_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the prefab that represent an element of the panel.  <a href="classadaptable_size_panel.html#a043c4f0bda3f9616d9b8c1cf5b188098">More...</a><br /></td></tr>
+<tr class="separator:a043c4f0bda3f9616d9b8c1cf5b188098 inherit pro_attribs_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bf2b94fb6416fc498255c7454fe45e2 inherit pro_attribs_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a0bf2b94fb6416fc498255c7454fe45e2">noItemsImage_</a></td></tr>
+<tr class="memdesc:a0bf2b94fb6416fc498255c7454fe45e2 inherit pro_attribs_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the image that will be shown when the panel is empty.  <a href="classadaptable_size_panel.html#a0bf2b94fb6416fc498255c7454fe45e2">More...</a><br /></td></tr>
+<tr class="separator:a0bf2b94fb6416fc498255c7454fe45e2 inherit pro_attribs_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74eeca844bcda70cff447e2ddaee656f inherit pro_attribs_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a74eeca844bcda70cff447e2ddaee656f">panelFilled_</a></td></tr>
+<tr class="memdesc:a74eeca844bcda70cff447e2ddaee656f inherit pro_attribs_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">if its true means that the panel was already filled, false in otherwhise.  <a href="classadaptable_size_panel.html#a74eeca844bcda70cff447e2ddaee656f">More...</a><br /></td></tr>
+<tr class="separator:a74eeca844bcda70cff447e2ddaee656f inherit pro_attribs_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a857f0f46a650ec213f0f8aa05573e00c inherit pro_attribs_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a857f0f46a650ec213f0f8aa05573e00c">items_</a></td></tr>
+<tr class="memdesc:a857f0f46a650ec213f0f8aa05573e00c inherit pro_attribs_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of the prefabs that are instanciated.  <a href="classadaptable_size_panel.html#a857f0f46a650ec213f0f8aa05573e00c">More...</a><br /></td></tr>
+<tr class="separator:a857f0f46a650ec213f0f8aa05573e00c inherit pro_attribs_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00e15c66296676953bb9f467dc74e942 inherit pro_attribs_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a00e15c66296676953bb9f467dc74e942">lastCount_</a></td></tr>
+<tr class="memdesc:a00e15c66296676953bb9f467dc74e942 inherit pro_attribs_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">it stores the last quantity of items which the panel has adapted its height.  <a href="classadaptable_size_panel.html#a00e15c66296676953bb9f467dc74e942">More...</a><br /></td></tr>
+<tr class="separator:a00e15c66296676953bb9f467dc74e942 inherit pro_attribs_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05b8b1f365c5eb80b5d2ea364442dc97 inherit pro_attribs_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a05b8b1f365c5eb80b5d2ea364442dc97">initialHeight_</a></td></tr>
+<tr class="memdesc:a05b8b1f365c5eb80b5d2ea364442dc97 inherit pro_attribs_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">initial height of the panel.  <a href="classadaptable_size_panel.html#a05b8b1f365c5eb80b5d2ea364442dc97">More...</a><br /></td></tr>
+<tr class="separator:a05b8b1f365c5eb80b5d2ea364442dc97 inherit pro_attribs_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Class that controls the panel that shows the friends of the current user. </p>
+<div class="textblock"><p >Class that controls the panel that shows the friends of the current user. It inherites from <a class="el" href="classadaptable_size_panel.html">adaptableSizePanel</a> abstract class. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac851522def15bf6dd72b594c34dd9253" name="ac851522def15bf6dd72b594c34dd9253"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac851522def15bf6dd72b594c34dd9253">&#9670;&nbsp;</a></span>adjustPanelSize()</h2>
+<a id="a57b329a6fd7d49f5efeb5ef9812b4753" name="a57b329a6fd7d49f5efeb5ef9812b4753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57b329a6fd7d49f5efeb5ef9812b4753">&#9670;&nbsp;</a></span>fillPanel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,7 +131,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void friendsPanel.adjustPanelSize </td>
+          <td class="memname">override void friendsPanel.fillPanel </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -139,256 +139,13 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >This method should be called when a new element is added to the panel. It makes the panel grow in height to keep the aspect when the number of elements changes. It uptade the lastCount_ property value. </p>
+<p >This method instantiate a new prefab_ for each friend of the current user and it stores it on the friends_ list. It also change the value of the property panelFilled_ to true. </p>
 
-</div>
-</div>
-<a id="a655b8ce8d58430dd00a0795dd6d574d3" name="a655b8ce8d58430dd00a0795dd6d574d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a655b8ce8d58430dd00a0795dd6d574d3">&#9670;&nbsp;</a></span>Awake()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void friendsPanel.Awake </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >This method is called before the first frame, it initialices the friends_, panelFilled_ and lastCount_ property. And also, if both methods userDataIsReady and friendDataIsComplete of the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class returned true, it calls the fillPanel method. </p>
-
-</div>
-</div>
-<a id="ac70c36a74b18dc8cf91d13812188c3b1" name="ac70c36a74b18dc8cf91d13812188c3b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac70c36a74b18dc8cf91d13812188c3b1">&#9670;&nbsp;</a></span>fillPanel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void friendsPanel.fillPanel </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >This method instantiate a new friendPrefab_ for each friend of the current user and it stores it on the friends_ list. It also change the value of the property panelFilled_ to true. </p>
-
-</div>
-</div>
-<a id="a7746e818e78f0e565d614db9ece2bc74" name="a7746e818e78f0e565d614db9ece2bc74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7746e818e78f0e565d614db9ece2bc74">&#9670;&nbsp;</a></span>friendDeleted()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void friendsPanel.friendDeleted </td>
-          <td>(</td>
-          <td class="paramtype">GameObject&#160;</td>
-          <td class="paramname"><em>friendDeleted</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Remove the given GameObject of the friends_ property. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">GameObject</td><td>that contains the friend prefab that the current user has deleted the friendship. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a6f547bba3c4fb51e2ce891d1ff4307a9" name="a6f547bba3c4fb51e2ce891d1ff4307a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f547bba3c4fb51e2ce891d1ff4307a9">&#9670;&nbsp;</a></span>getInvitationsCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int friendsPanel.getInvitationsCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Getter of the friends_.Count property. </p>
-<dl class="section return"><dt>Returns</dt><dd>int the friends_.Count value. </dd></dl>
-
-</div>
-</div>
-<a id="a4f6ae42be983e16d9f7f09366cfbbbbb" name="a4f6ae42be983e16d9f7f09366cfbbbbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f6ae42be983e16d9f7f09366cfbbbbb">&#9670;&nbsp;</a></span>Update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void friendsPanel.Update </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >This method is called each frame. If the panel isnt filled and both methods userDataIsReady and friendDataIsComplete of the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class returned true, it calls the fillPanel method. If the lastCount_ property inst equal to friends_.Count property it calls the adjustPanelSize. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ae8e182a5df21481669c8ac746fec22be" name="ae8e182a5df21481669c8ac746fec22be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8e182a5df21481669c8ac746fec22be">&#9670;&nbsp;</a></span>friendPrefab_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">GameObject friendsPanel.friendPrefab_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>GameObject that contains the prefab that shows the friends information. </p>
-
-</div>
-</div>
-<a id="ab36be3d906a04c171e5bad67f6ef9ed1" name="ab36be3d906a04c171e5bad67f6ef9ed1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab36be3d906a04c171e5bad67f6ef9ed1">&#9670;&nbsp;</a></span>friends_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">List&lt;GameObject&gt; friendsPanel.friends_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>List&lt;GameObject&gt; that contains all the prefabs that the panel is showing. </p>
-
-</div>
-</div>
-<a id="ace4f7c2fd97a3b195a1f72a57820280b" name="ace4f7c2fd97a3b195a1f72a57820280b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace4f7c2fd97a3b195a1f72a57820280b">&#9670;&nbsp;</a></span>initialHeight_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float friendsPanel.initialHeight_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>initial height of the panel. </p>
-
-</div>
-</div>
-<a id="a4c95308020ee5ff3cfcb248ff0372507" name="a4c95308020ee5ff3cfcb248ff0372507"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c95308020ee5ff3cfcb248ff0372507">&#9670;&nbsp;</a></span>lastCount_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int friendsPanel.lastCount_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>count of the elements that the panel is showing the last time it adapted its height. </p>
-
-</div>
-</div>
-<a id="abe935644847281a2045a5b0c6b8b1a70" name="abe935644847281a2045a5b0c6b8b1a70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe935644847281a2045a5b0c6b8b1a70">&#9670;&nbsp;</a></span>panelFilled_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool friendsPanel.panelFilled_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>true if the panel is already filled, false in other case. </p>
+<p>Implements <a class="el" href="classadaptable_size_panel.html#a1c155711dcff0ad2a9260dbc99f4862e">adaptableSizePanel</a>.</p>
 
 </div>
 </div>

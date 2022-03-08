@@ -2,7 +2,7 @@ var searchData=
 [
   ['lastchallengescore_0',['lastChallengeScore',['../class_user_data.html#ac0b1cab6abc9debec303e477487366d2',1,'UserData']]],
   ['lastchallengescore_5f_1',['lastChallengeScore_',['../class_user_data.html#af267bdd9c351012ecbb39e0012f9e293',1,'UserData']]],
-  ['lastcount_5f_2',['lastCount_',['../classchallenges_panel_controller.html#a862c002cbac2d1419d51e42c12439fae',1,'challengesPanelController.lastCount_()'],['../classnew_friend_invitation_panel.html#ae11a9e8070d56b829a0ea9417fd0869b',1,'newFriendInvitationPanel.lastCount_()'],['../classfriends_panel.html#a4c95308020ee5ff3cfcb248ff0372507',1,'friendsPanel.lastCount_()'],['../class_search_a_friend_to_challenge_panel.html#aa350afc8e26a0f28cadf8bcbb63e3a43',1,'SearchAFriendToChallengePanel.lastCount_()']]],
+  ['lastcount_5f_2',['lastCount_',['../classadaptable_size_panel.html#a00e15c66296676953bb9f467dc74e942',1,'adaptableSizePanel']]],
   ['lastoptionclicked_5f_3',['lastOptionClicked_',['../classoptions_controller.html#ac29da7d555a81106d1a2c2918c4d5cdd',1,'optionsController']]],
   ['lastscene_5f_4',['lastScene_',['../classoptions_controller.html#a995392b0e2ad45dcd26ef8e76fca19cd',1,'optionsController']]],
   ['lastvisitscore_5',['lastVisitScore',['../class_user_data.html#a895e1eab64ef80590c17b2199a1f0a0b',1,'UserData']]],

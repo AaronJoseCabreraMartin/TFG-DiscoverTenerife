@@ -63,70 +63,69 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="class_search_a_friend_to_challenge_panel-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">SearchAFriendToChallengePanel Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This class handles the panel that shows the current user's friends that allow be challenged.  
+<p>This class handles the panel that shows the current user's friends that allow be challenged. <br  />
+ It inherites from <a class="el" href="classadaptable_size_panel.html">adaptableSizePanel</a> abstract class.  
  <a href="class_search_a_friend_to_challenge_panel.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for SearchAFriendToChallengePanel:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_search_a_friend_to_challenge_panel.png" alt=""/>
- </div></div>
+  <img src="class_search_a_friend_to_challenge_panel.png" usemap="#SearchAFriendToChallengePanel_map" alt=""/>
+  <map id="SearchAFriendToChallengePanel_map" name="SearchAFriendToChallengePanel_map">
+<area href="classadaptable_size_panel.html" alt="adaptableSizePanel" shape="rect" coords="0,56,202,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ae7c9fb88c67dbf9dccabe62237a8154a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_friend_to_challenge_panel.html#ae7c9fb88c67dbf9dccabe62237a8154a">deleteAChallengeableFriend</a> (GameObject toDelete)</td></tr>
-<tr class="memdesc:ae7c9fb88c67dbf9dccabe62237a8154a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method removes the given GameObject of the challengeableFriend_ property list. If the given GameObject isnt on the list this method doesnt do nothing.  <a href="class_search_a_friend_to_challenge_panel.html#ae7c9fb88c67dbf9dccabe62237a8154a">More...</a><br /></td></tr>
-<tr class="separator:ae7c9fb88c67dbf9dccabe62237a8154a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a3039f8fb95cbecf2ef1db25f84e6e673"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_friend_to_challenge_panel.html#a3039f8fb95cbecf2ef1db25f84e6e673">fillPanel</a> ()</td></tr>
+<tr class="memdesc:a3039f8fb95cbecf2ef1db25f84e6e673"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called to instanciate the panel. It creates a prefab for each challengeable friend that the current user has. It changes the panelFilled_ property to true.  <a href="class_search_a_friend_to_challenge_panel.html#a3039f8fb95cbecf2ef1db25f84e6e673">More...</a><br /></td></tr>
+<tr class="separator:a3039f8fb95cbecf2ef1db25f84e6e673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classadaptable_size_panel"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classadaptable_size_panel')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classadaptable_size_panel.html">adaptableSizePanel</a></td></tr>
+<tr class="memitem:a1c155711dcff0ad2a9260dbc99f4862e inherit pro_methods_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a1c155711dcff0ad2a9260dbc99f4862e">fillPanel</a> ()</td></tr>
+<tr class="memdesc:a1c155711dcff0ad2a9260dbc99f4862e inherit pro_methods_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called to instanciate the panel and add the prefabs as panels elements. It is an abstract method so, every class that inherit from this class must have its own fillPanel method.  <a href="classadaptable_size_panel.html#a1c155711dcff0ad2a9260dbc99f4862e">More...</a><br /></td></tr>
+<tr class="separator:a1c155711dcff0ad2a9260dbc99f4862e inherit pro_methods_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa80be6a18d988cf85c83ecb5cfd86cac inherit pro_methods_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#aa80be6a18d988cf85c83ecb5cfd86cac">adjustPanelSize</a> ()</td></tr>
+<tr class="separator:aa80be6a18d988cf85c83ecb5cfd86cac inherit pro_methods_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:ac6ea44031c01628254c40ab0dd043f9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_friend_to_challenge_panel.html#ac6ea44031c01628254c40ab0dd043f9d">Awake</a> ()</td></tr>
-<tr class="memdesc:ac6ea44031c01628254c40ab0dd043f9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called before the first frame, it instanciate the challengeableFriend_, panelFilled_ and lastCount_ properties. And if the userDataIsReady method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class returns true it calls the fillPanel method.  <a href="class_search_a_friend_to_challenge_panel.html#ac6ea44031c01628254c40ab0dd043f9d">More...</a><br /></td></tr>
-<tr class="separator:ac6ea44031c01628254c40ab0dd043f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a448a00db0aa743b2a1d04f2ec08ba99c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_friend_to_challenge_panel.html#a448a00db0aa743b2a1d04f2ec08ba99c">Update</a> ()</td></tr>
-<tr class="memdesc:a448a00db0aa743b2a1d04f2ec08ba99c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called once per frame, it checks if the panel has al ready filled and if the userDataIsReady method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class returns true it calls the fillPanel method. It also check if the lastCount_ property isnt equal to the current challengeableFriend_ count.  <a href="class_search_a_friend_to_challenge_panel.html#a448a00db0aa743b2a1d04f2ec08ba99c">More...</a><br /></td></tr>
-<tr class="separator:a448a00db0aa743b2a1d04f2ec08ba99c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bf68d347f0fc4b038a750881ce76013"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_friend_to_challenge_panel.html#a2bf68d347f0fc4b038a750881ce76013">fillPanel</a> ()</td></tr>
-<tr class="memdesc:a2bf68d347f0fc4b038a750881ce76013"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called to instanciate the panel. It creates a prefab for each challengeable friend that the current user has. It changes the panelFilled_ property to true.  <a href="class_search_a_friend_to_challenge_panel.html#a2bf68d347f0fc4b038a750881ce76013">More...</a><br /></td></tr>
-<tr class="separator:a2bf68d347f0fc4b038a750881ce76013"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14e9c9775115c57688c0dba45f735b4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_friend_to_challenge_panel.html#a14e9c9775115c57688c0dba45f735b4a">adjustPanelSize</a> ()</td></tr>
-<tr class="memdesc:a14e9c9775115c57688c0dba45f735b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method should be called each time that the panel adds or quits an element. This method adjust the height of the panel to keep the apparence when the number of elements changes.  <a href="class_search_a_friend_to_challenge_panel.html#a14e9c9775115c57688c0dba45f735b4a">More...</a><br /></td></tr>
-<tr class="separator:a14e9c9775115c57688c0dba45f735b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:ae63de687c36df615a4055d34d1c14d6b"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_friend_to_challenge_panel.html#ae63de687c36df615a4055d34d1c14d6b">challengeableFriendPrefab_</a></td></tr>
-<tr class="memdesc:ae63de687c36df615a4055d34d1c14d6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the prefab that represent a friend that can be challenged.  <a href="class_search_a_friend_to_challenge_panel.html#ae63de687c36df615a4055d34d1c14d6b">More...</a><br /></td></tr>
-<tr class="separator:ae63de687c36df615a4055d34d1c14d6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77bf29e661d52d4981f574e68c24f684"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_friend_to_challenge_panel.html#a77bf29e661d52d4981f574e68c24f684">noChallengeableFriendsImage_</a></td></tr>
-<tr class="memdesc:a77bf29e661d52d4981f574e68c24f684"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the image that will be shown if the current user doesnt have any challengeable friend.  <a href="class_search_a_friend_to_challenge_panel.html#a77bf29e661d52d4981f574e68c24f684">More...</a><br /></td></tr>
-<tr class="separator:a77bf29e661d52d4981f574e68c24f684"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e7a3f868b92fc8fbe49c11c5cd6d121"><td class="memItemLeft" align="right" valign="top">List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_friend_to_challenge_panel.html#a9e7a3f868b92fc8fbe49c11c5cd6d121">challengeableFriend_</a></td></tr>
-<tr class="memdesc:a9e7a3f868b92fc8fbe49c11c5cd6d121"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of the challengeable friend prefab that are instanciated.  <a href="class_search_a_friend_to_challenge_panel.html#a9e7a3f868b92fc8fbe49c11c5cd6d121">More...</a><br /></td></tr>
-<tr class="separator:a9e7a3f868b92fc8fbe49c11c5cd6d121"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2e19597e9b3b3b23a4ca9b493c192ce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_friend_to_challenge_panel.html#aa2e19597e9b3b3b23a4ca9b493c192ce">panelFilled_</a></td></tr>
-<tr class="memdesc:aa2e19597e9b3b3b23a4ca9b493c192ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">if its true means that the panel was already filled, false in otherwhise.  <a href="class_search_a_friend_to_challenge_panel.html#aa2e19597e9b3b3b23a4ca9b493c192ce">More...</a><br /></td></tr>
-<tr class="separator:aa2e19597e9b3b3b23a4ca9b493c192ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa350afc8e26a0f28cadf8bcbb63e3a43"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_friend_to_challenge_panel.html#aa350afc8e26a0f28cadf8bcbb63e3a43">lastCount_</a></td></tr>
-<tr class="memdesc:aa350afc8e26a0f28cadf8bcbb63e3a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">it stores the last quantity of elements which the panel has adapted its height.  <a href="class_search_a_friend_to_challenge_panel.html#aa350afc8e26a0f28cadf8bcbb63e3a43">More...</a><br /></td></tr>
-<tr class="separator:aa350afc8e26a0f28cadf8bcbb63e3a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35608eae65ec4eac58dff25270ff933c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_search_a_friend_to_challenge_panel.html#a35608eae65ec4eac58dff25270ff933c">initialHeight_</a></td></tr>
-<tr class="memdesc:a35608eae65ec4eac58dff25270ff933c"><td class="mdescLeft">&#160;</td><td class="mdescRight">initial height of the panel.  <a href="class_search_a_friend_to_challenge_panel.html#a35608eae65ec4eac58dff25270ff933c">More...</a><br /></td></tr>
-<tr class="separator:a35608eae65ec4eac58dff25270ff933c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_methods_classadaptable_size_panel"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classadaptable_size_panel')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classadaptable_size_panel.html">adaptableSizePanel</a></td></tr>
+<tr class="memitem:a4824f830a8dcc65d3466d7cc53ba3234 inherit pub_methods_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a4824f830a8dcc65d3466d7cc53ba3234">elementDeleted</a> (GameObject elementDeleted)</td></tr>
+<tr class="memdesc:a4824f830a8dcc65d3466d7cc53ba3234 inherit pub_methods_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">tries to remove the given gameobject of the items property. If the gameobject isnt on the list, it will raise an index out of range exception.  <a href="classadaptable_size_panel.html#a4824f830a8dcc65d3466d7cc53ba3234">More...</a><br /></td></tr>
+<tr class="separator:a4824f830a8dcc65d3466d7cc53ba3234 inherit pub_methods_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classadaptable_size_panel"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classadaptable_size_panel')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classadaptable_size_panel.html">adaptableSizePanel</a></td></tr>
+<tr class="memitem:a043c4f0bda3f9616d9b8c1cf5b188098 inherit pro_attribs_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a043c4f0bda3f9616d9b8c1cf5b188098">prefab_</a></td></tr>
+<tr class="memdesc:a043c4f0bda3f9616d9b8c1cf5b188098 inherit pro_attribs_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the prefab that represent an element of the panel.  <a href="classadaptable_size_panel.html#a043c4f0bda3f9616d9b8c1cf5b188098">More...</a><br /></td></tr>
+<tr class="separator:a043c4f0bda3f9616d9b8c1cf5b188098 inherit pro_attribs_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bf2b94fb6416fc498255c7454fe45e2 inherit pro_attribs_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a0bf2b94fb6416fc498255c7454fe45e2">noItemsImage_</a></td></tr>
+<tr class="memdesc:a0bf2b94fb6416fc498255c7454fe45e2 inherit pro_attribs_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the image that will be shown when the panel is empty.  <a href="classadaptable_size_panel.html#a0bf2b94fb6416fc498255c7454fe45e2">More...</a><br /></td></tr>
+<tr class="separator:a0bf2b94fb6416fc498255c7454fe45e2 inherit pro_attribs_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74eeca844bcda70cff447e2ddaee656f inherit pro_attribs_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a74eeca844bcda70cff447e2ddaee656f">panelFilled_</a></td></tr>
+<tr class="memdesc:a74eeca844bcda70cff447e2ddaee656f inherit pro_attribs_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">if its true means that the panel was already filled, false in otherwhise.  <a href="classadaptable_size_panel.html#a74eeca844bcda70cff447e2ddaee656f">More...</a><br /></td></tr>
+<tr class="separator:a74eeca844bcda70cff447e2ddaee656f inherit pro_attribs_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a857f0f46a650ec213f0f8aa05573e00c inherit pro_attribs_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a857f0f46a650ec213f0f8aa05573e00c">items_</a></td></tr>
+<tr class="memdesc:a857f0f46a650ec213f0f8aa05573e00c inherit pro_attribs_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of the prefabs that are instanciated.  <a href="classadaptable_size_panel.html#a857f0f46a650ec213f0f8aa05573e00c">More...</a><br /></td></tr>
+<tr class="separator:a857f0f46a650ec213f0f8aa05573e00c inherit pro_attribs_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00e15c66296676953bb9f467dc74e942 inherit pro_attribs_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a00e15c66296676953bb9f467dc74e942">lastCount_</a></td></tr>
+<tr class="memdesc:a00e15c66296676953bb9f467dc74e942 inherit pro_attribs_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">it stores the last quantity of items which the panel has adapted its height.  <a href="classadaptable_size_panel.html#a00e15c66296676953bb9f467dc74e942">More...</a><br /></td></tr>
+<tr class="separator:a00e15c66296676953bb9f467dc74e942 inherit pro_attribs_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05b8b1f365c5eb80b5d2ea364442dc97 inherit pro_attribs_classadaptable_size_panel"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a05b8b1f365c5eb80b5d2ea364442dc97">initialHeight_</a></td></tr>
+<tr class="memdesc:a05b8b1f365c5eb80b5d2ea364442dc97 inherit pro_attribs_classadaptable_size_panel"><td class="mdescLeft">&#160;</td><td class="mdescRight">initial height of the panel.  <a href="classadaptable_size_panel.html#a05b8b1f365c5eb80b5d2ea364442dc97">More...</a><br /></td></tr>
+<tr class="separator:a05b8b1f365c5eb80b5d2ea364442dc97 inherit pro_attribs_classadaptable_size_panel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >This class handles the panel that shows the current user's friends that allow be challenged. </p>
+<div class="textblock"><p >This class handles the panel that shows the current user's friends that allow be challenged. <br  />
+ It inherites from <a class="el" href="classadaptable_size_panel.html">adaptableSizePanel</a> abstract class. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a14e9c9775115c57688c0dba45f735b4a" name="a14e9c9775115c57688c0dba45f735b4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14e9c9775115c57688c0dba45f735b4a">&#9670;&nbsp;</a></span>adjustPanelSize()</h2>
+<a id="a3039f8fb95cbecf2ef1db25f84e6e673" name="a3039f8fb95cbecf2ef1db25f84e6e673"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3039f8fb95cbecf2ef1db25f84e6e673">&#9670;&nbsp;</a></span>fillPanel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -135,7 +134,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void SearchAFriendToChallengePanel.adjustPanelSize </td>
+          <td class="memname">override void SearchAFriendToChallengePanel.fillPanel </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -143,264 +142,14 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This method should be called each time that the panel adds or quits an element. This method adjust the height of the panel to keep the apparence when the number of elements changes. </p>
-
-</div>
-</div>
-<a id="ac6ea44031c01628254c40ab0dd043f9d" name="ac6ea44031c01628254c40ab0dd043f9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6ea44031c01628254c40ab0dd043f9d">&#9670;&nbsp;</a></span>Awake()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SearchAFriendToChallengePanel.Awake </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This method is called before the first frame, it instanciate the challengeableFriend_, panelFilled_ and lastCount_ properties. And if the userDataIsReady method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class returns true it calls the fillPanel method. </p>
-
-</div>
-</div>
-<a id="ae7c9fb88c67dbf9dccabe62237a8154a" name="ae7c9fb88c67dbf9dccabe62237a8154a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7c9fb88c67dbf9dccabe62237a8154a">&#9670;&nbsp;</a></span>deleteAChallengeableFriend()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SearchAFriendToChallengePanel.deleteAChallengeableFriend </td>
-          <td>(</td>
-          <td class="paramtype">GameObject&#160;</td>
-          <td class="paramname"><em>toDelete</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This method removes the given GameObject of the challengeableFriend_ property list. If the given GameObject isnt on the list this method doesnt do nothing. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">GameObject</td><td>that is attatched to this panel. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a2bf68d347f0fc4b038a750881ce76013" name="a2bf68d347f0fc4b038a750881ce76013"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bf68d347f0fc4b038a750881ce76013">&#9670;&nbsp;</a></span>fillPanel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SearchAFriendToChallengePanel.fillPanel </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>This method is called to instanciate the panel. It creates a prefab for each challengeable friend that the current user has. It changes the panelFilled_ property to true. </p>
 
-</div>
-</div>
-<a id="a448a00db0aa743b2a1d04f2ec08ba99c" name="a448a00db0aa743b2a1d04f2ec08ba99c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a448a00db0aa743b2a1d04f2ec08ba99c">&#9670;&nbsp;</a></span>Update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SearchAFriendToChallengePanel.Update </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This method is called once per frame, it checks if the panel has al ready filled and if the userDataIsReady method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class returns true it calls the fillPanel method. It also check if the lastCount_ property isnt equal to the current challengeableFriend_ count. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9e7a3f868b92fc8fbe49c11c5cd6d121" name="a9e7a3f868b92fc8fbe49c11c5cd6d121"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e7a3f868b92fc8fbe49c11c5cd6d121">&#9670;&nbsp;</a></span>challengeableFriend_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">List&lt;GameObject&gt; SearchAFriendToChallengePanel.challengeableFriend_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>List of the challengeable friend prefab that are instanciated. </p>
-
-</div>
-</div>
-<a id="ae63de687c36df615a4055d34d1c14d6b" name="ae63de687c36df615a4055d34d1c14d6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae63de687c36df615a4055d34d1c14d6b">&#9670;&nbsp;</a></span>challengeableFriendPrefab_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">GameObject SearchAFriendToChallengePanel.challengeableFriendPrefab_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>GameObject that contains the prefab that represent a friend that can be challenged. </p>
-
-</div>
-</div>
-<a id="a35608eae65ec4eac58dff25270ff933c" name="a35608eae65ec4eac58dff25270ff933c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35608eae65ec4eac58dff25270ff933c">&#9670;&nbsp;</a></span>initialHeight_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float SearchAFriendToChallengePanel.initialHeight_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>initial height of the panel. </p>
-
-</div>
-</div>
-<a id="aa350afc8e26a0f28cadf8bcbb63e3a43" name="aa350afc8e26a0f28cadf8bcbb63e3a43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa350afc8e26a0f28cadf8bcbb63e3a43">&#9670;&nbsp;</a></span>lastCount_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int SearchAFriendToChallengePanel.lastCount_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>it stores the last quantity of elements which the panel has adapted its height. </p>
-
-</div>
-</div>
-<a id="a77bf29e661d52d4981f574e68c24f684" name="a77bf29e661d52d4981f574e68c24f684"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77bf29e661d52d4981f574e68c24f684">&#9670;&nbsp;</a></span>noChallengeableFriendsImage_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">GameObject SearchAFriendToChallengePanel.noChallengeableFriendsImage_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>GameObject that contains the image that will be shown if the current user doesnt have any challengeable friend. </p>
-
-</div>
-</div>
-<a id="aa2e19597e9b3b3b23a4ca9b493c192ce" name="aa2e19597e9b3b3b23a4ca9b493c192ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2e19597e9b3b3b23a4ca9b493c192ce">&#9670;&nbsp;</a></span>panelFilled_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool SearchAFriendToChallengePanel.panelFilled_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>if its true means that the panel was already filled, false in otherwhise. </p>
+<p>Implements <a class="el" href="classadaptable_size_panel.html#a1c155711dcff0ad2a9260dbc99f4862e">adaptableSizePanel</a>.</p>
 
 </div>
 </div>

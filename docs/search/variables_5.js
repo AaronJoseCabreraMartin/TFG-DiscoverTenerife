@@ -11,8 +11,5 @@ var searchData=
   ['frienddatadownloadqueue_5f_8',['friendDataDownloadQueue_',['../classfirebase_handler.html#ab765de99224181490bac7003babb04b1',1,'firebaseHandler']]],
   ['frienddatalist_5f_9',['friendDataList_',['../class_user_data.html#a516229bceaf4f7436349b2c8879dd4a4',1,'UserData']]],
   ['friendinvitationslist_5f_10',['friendInvitationsList_',['../class_user_data.html#a8371972f612f1720b29ea21b99e8f1b9',1,'UserData']]],
-  ['friendlist_5f_11',['friendList_',['../class_user_data.html#a357a4b4527f067d0e8661ea0d85161e1',1,'UserData']]],
-  ['friendprefab_5f_12',['friendPrefab_',['../classfriends_panel.html#ae8e182a5df21481669c8ac746fec22be',1,'friendsPanel']]],
-  ['friends_5f_13',['friends_',['../classfriends_panel.html#ab36be3d906a04c171e5bad67f6ef9ed1',1,'friendsPanel']]],
-  ['friendspanel_5f_14',['friendsPanel_',['../classno_friends_message.html#a677b4fab3a6e00a3b542a05e9d8a54e5',1,'noFriendsMessage']]]
+  ['friendlist_5f_11',['friendList_',['../class_user_data.html#a357a4b4527f067d0e8661ea0d85161e1',1,'UserData']]]
 ];

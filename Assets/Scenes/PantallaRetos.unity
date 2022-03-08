@@ -446,8 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09070f2d3d210c47828a40d28a1925e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  challengePrefab_: {fileID: 6063543420975677647, guid: b3b86203ad40a0a43934826a50a787c7, type: 3}
-  noChallengesImage_: {fileID: 1539798130}
+  prefab_: {fileID: 6063543420975677647, guid: b3b86203ad40a0a43934826a50a787c7, type: 3}
+  noItemsImage_: {fileID: 1539798130}
 --- !u!1001 &588710129
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,9 +1,9 @@
 var searchData=
 [
   ['filled_5f_0',['filled_',['../classchallenge_prefab_controller.html#a7f2698662d6f79d45e8610be46e8edf2',1,'challengePrefabController']]],
-  ['fillfields_1',['fillFields',['../classchallenge_prefab_controller.html#a1610194a352932eabc98ac0fa71475d8',1,'challengePrefabController']]],
-  ['fillfields_2',['FillFields',['../class_place_image_controller.html#acb5910ba0ecc0bf4bee92450f0e79608',1,'PlaceImageController.FillFields()'],['../class_stored_place_image_controller.html#a8eef6968e97c5d79c35279dd93d33fea',1,'StoredPlaceImageController.FillFields()']]],
-  ['fillpanel_3',['fillPanel',['../classfriends_panel.html#ac70c36a74b18dc8cf91d13812188c3b1',1,'friendsPanel.fillPanel()'],['../classchallenges_panel_controller.html#ad8a369ff924479bcdaa51fee4ae9596f',1,'challengesPanelController.fillPanel()'],['../classnew_friend_invitation_panel.html#ac1c700fde63fc28c95b537738514828e',1,'newFriendInvitationPanel.fillPanel()'],['../class_search_a_friend_to_challenge_panel.html#a2bf68d347f0fc4b038a750881ce76013',1,'SearchAFriendToChallengePanel.fillPanel()'],['../class_story_panel.html#ab50f356003f4514b61640cdfc8e42f0d',1,'StoryPanel.fillPanel()']]],
+  ['fillfields_1',['FillFields',['../class_place_image_controller.html#acb5910ba0ecc0bf4bee92450f0e79608',1,'PlaceImageController.FillFields()'],['../class_stored_place_image_controller.html#a8eef6968e97c5d79c35279dd93d33fea',1,'StoredPlaceImageController.FillFields()']]],
+  ['fillfields_2',['fillFields',['../classchallenge_prefab_controller.html#a1610194a352932eabc98ac0fa71475d8',1,'challengePrefabController']]],
+  ['fillpanel_3',['fillPanel',['../classchoose_a_place_to_send_as_a_challenge_panel.html#ad66f759a897054f027ad4b31845d3515',1,'chooseAPlaceToSendAsAChallengePanel.fillPanel()'],['../class_search_a_friend_to_challenge_panel.html#a3039f8fb95cbecf2ef1db25f84e6e673',1,'SearchAFriendToChallengePanel.fillPanel()'],['../class_story_panel.html#ab50f356003f4514b61640cdfc8e42f0d',1,'StoryPanel.fillPanel()'],['../classfriends_panel.html#a57b329a6fd7d49f5efeb5ef9812b4753',1,'friendsPanel.fillPanel()'],['../classadaptable_size_panel.html#a1c155711dcff0ad2a9260dbc99f4862e',1,'adaptableSizePanel.fillPanel()'],['../classnew_friend_invitation_panel.html#a156e024ae7c5ecd68f986eb861747241',1,'newFriendInvitationPanel.fillPanel()'],['../classchallenges_panel_controller.html#ad5f8607eb64fcc4544f7968aca66b9f3',1,'challengesPanelController.fillPanel()']]],
   ['fillscore_4',['fillScore',['../class_score_of_the_whole_island_controller.html#a642d1e87e8eff425b60e5c76f98f104a',1,'ScoreOfTheWholeIslandController']]],
   ['findplacebyname_5',['findPlaceByName',['../classfirebase_handler.html#adeb8dfca0be45c50bbc3890cc8c05048',1,'firebaseHandler']]],
   ['firebaseapp_6',['firebaseApp',['../classfirebase_handler.html#a3d365ef2be6c733d643c49a4ac6c9c6f',1,'firebaseHandler']]],
@@ -27,12 +27,8 @@ var searchData=
   ['frienddatadownloadqueue_5f_24',['friendDataDownloadQueue_',['../classfirebase_handler.html#ab765de99224181490bac7003babb04b1',1,'firebaseHandler']]],
   ['frienddataiscomplete_25',['friendDataIsComplete',['../class_user_data.html#ae655ff4534131930444a227ab7b0fefd',1,'UserData']]],
   ['frienddatalist_5f_26',['friendDataList_',['../class_user_data.html#a516229bceaf4f7436349b2c8879dd4a4',1,'UserData']]],
-  ['frienddeleted_27',['friendDeleted',['../classfriends_panel.html#a7746e818e78f0e565d614db9ece2bc74',1,'friendsPanel']]],
-  ['friendinvitationslist_5f_28',['friendInvitationsList_',['../class_user_data.html#a8371972f612f1720b29ea21b99e8f1b9',1,'UserData']]],
-  ['friendlist_5f_29',['friendList_',['../class_user_data.html#a357a4b4527f067d0e8661ea0d85161e1',1,'UserData']]],
-  ['friendprefab_5f_30',['friendPrefab_',['../classfriends_panel.html#ae8e182a5df21481669c8ac746fec22be',1,'friendsPanel']]],
-  ['friends_5f_31',['friends_',['../classfriends_panel.html#ab36be3d906a04c171e5bad67f6ef9ed1',1,'friendsPanel']]],
-  ['friendspanel_32',['friendsPanel',['../classfriends_panel.html',1,'']]],
-  ['friendspanel_2ecs_33',['friendsPanel.cs',['../friends_panel_8cs.html',1,'']]],
-  ['friendspanel_5f_34',['friendsPanel_',['../classno_friends_message.html#a677b4fab3a6e00a3b542a05e9d8a54e5',1,'noFriendsMessage']]]
+  ['friendinvitationslist_5f_27',['friendInvitationsList_',['../class_user_data.html#a8371972f612f1720b29ea21b99e8f1b9',1,'UserData']]],
+  ['friendlist_5f_28',['friendList_',['../class_user_data.html#a357a4b4527f067d0e8661ea0d85161e1',1,'UserData']]],
+  ['friendspanel_29',['friendsPanel',['../classfriends_panel.html',1,'']]],
+  ['friendspanel_2ecs_30',['friendsPanel.cs',['../friends_panel_8cs.html',1,'']]]
 ];

@@ -4,110 +4,22 @@ using UnityEngine;
 
 /**
   * @brief Class that controls the panel that shows the new friendships invitations.
+  * It inherites from adaptableSizePanel abstract class.
   */
-public class newFriendInvitationPanel : MonoBehaviour
+public class newFriendInvitationPanel : adaptableSizePanel
 {
-    /**
-      * @brief GameObject that contains the prefab that represent a friendship invitation. 
-      */
-    [SerializeField] private GameObject invitationPrefab_;
-
-    /**
-      * @brief List of the invitations prefab that are instanciated.
-      */
-    private List<GameObject> invitations_;
-
-    /**
-      * @brief if its true means that the panel was already filled, false in otherwhise.
-      */
-    private bool panelFilled_;
-
-    /**
-      * @brief it stores the last quantity of invitations which the panel has adapted its height.
-      */
-    private int lastCount_;
-
-    /**
-      * @brief initial height of the panel.
-      */
-    private float initialHeight_;
-    
-    /**
-      * This method is called before the first frame, it instanciate the invitations_, panelFilled_
-      * and lastCount_ properties. And if the userDataIsReady method of firebaseHandler class returns true
-      * it calls the fillPanel method.
-      */
-    void Awake()
-    {
-        invitations_ = new List<GameObject>();
-        panelFilled_ = false;
-        initialHeight_ = (float)gameObject.transform.GetComponent<RectTransform>().rect.height;
-        lastCount_ = 0;
-        if(firebaseHandler.firebaseHandlerInstance_.userDataIsReady()){
-            fillPanel();
-        } 
-    }
-
-    /**
-      * This method is called once per frame, it checks if the panel has al ready filled and if
-      * the userDataIsReady method of firebaseHandler class returns true it calls the fillPanel method.
-      * It also check if the lastCount_ property isnt equal to the current invitations_ count.
-      */
-    void Update()
-    {
-        if(!panelFilled_ && firebaseHandler.firebaseHandlerInstance_.userDataIsReady()){
-            fillPanel();
-        }
-        if(lastCount_ != invitations_.Count){
-            adjustPanelSize();
-        }
-    }
-
     /**
       * This method is called to instanciate the panel. It creates a prefab for each new friendship invitation
       * that the current user has. It changes the panelFilled_ property to true.
       */
-    private void fillPanel(){
-        for(int i = 0; i < firebaseHandler.firebaseHandlerInstance_.currentUser_.countOfNewFriendData(); i++){
-            GameObject newInvitationObject = Instantiate(invitationPrefab_, new Vector3(0, 0, 0), Quaternion.identity);
-            newInvitationObject.GetComponent<newFriendInvitation>().setData(firebaseHandler.firebaseHandlerInstance_.currentUser_.getNewFriendData(i));
-            newInvitationObject.transform.SetParent(this.transform);
-            newInvitationObject.GetComponent<newFriendInvitation>().setPanel(this.gameObject);
-            invitations_.Add(newInvitationObject);
-        }
-        panelFilled_ = true;
-    }
-
-    /**
-      * This method should be called each time that the panel adds or quits an element. This method
-      * adjust the height of the panel to keep the apparence when the number of elements changes.
-      */
-    private void adjustPanelSize(){
-        float baseHeight = (float)(gameObject.transform.GetChild(0).Find("Background").GetComponent<RectTransform>().rect.height * 1.25);
-        if(invitations_.Count > 4){
-            float newHeight = GetComponent<RectTransform>().rect.height;
-            newHeight += lastCount_ < invitations_.Count ? baseHeight*(invitations_.Count-4) : -baseHeight*(lastCount_-invitations_.Count);
-            GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);
-        }else{
-            GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, initialHeight_);
-        }
-        lastCount_ = invitations_.Count;
-    }
-
-    /**
-      * @return int the number of new friendships invitations.
-      * @brief getter of the invitations_.Count property.
-      */
-    public int getInvitationsCount(){
-        return invitations_.Count;
-    }
-
-    /**
-      * @param GameObject that contains the prefab element that has been deleted.
-      * @brief tries to remove the given gameobject of the invitations_ property. If the 
-      * gameobject isnt on the list, it will raise an index out of range exception.
-      */
-    public void invitationDeleted(GameObject invitationDeleted){
-        invitations_.RemoveAt(invitations_.FindIndex(element => element == invitationDeleted));
+    protected override void fillPanel(){
+      for(int i = 0; i < firebaseHandler.firebaseHandlerInstance_.currentUser_.countOfNewFriendData(); i++){
+        GameObject newInvitationObject = Instantiate(prefab_, new Vector3(0, 0, 0), Quaternion.identity);
+        newInvitationObject.GetComponent<newFriendInvitation>().setData(firebaseHandler.firebaseHandlerInstance_.currentUser_.getNewFriendData(i));
+        newInvitationObject.transform.SetParent(this.transform);
+        newInvitationObject.GetComponent<newFriendInvitation>().setPanel(this.gameObject);
+        items_.Add(newInvitationObject);
+      }
+      panelFilled_ = true;
     }
 }

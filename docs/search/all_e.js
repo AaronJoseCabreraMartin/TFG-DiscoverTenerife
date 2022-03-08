@@ -10,9 +10,10 @@ var searchData=
   ['registerasvisitedstoredplacebutton_2ecs_7',['RegisterAsVisitedStoredPlaceButton.cs',['../_register_as_visited_stored_place_button_8cs.html',1,'']]],
   ['registerscreencontroller_8',['registerScreenController',['../classregister_screen_controller.html',1,'']]],
   ['registerscreencontroller_2ecs_9',['registerScreenController.cs',['../register_screen_controller_8cs.html',1,'']]],
-  ['requesthandler_10',['requestHandler',['../classrequest_handler.html',1,'requestHandler'],['../classrequest_handler.html#aa666513cc05d0e733d7db4a6597664ae',1,'requestHandler.requestHandler()']]],
-  ['requesthandler_2ecs_11',['requestHandler.cs',['../request_handler_8cs.html',1,'']]],
-  ['requesthandler_5f_12',['requestHandler_',['../classfirebase_handler.html#aa72469a53537caef3bc8d7751cfead9b',1,'firebaseHandler']]],
-  ['resultofthesending_13',['resultOfTheSending',['../class_searched_player.html#ad0a743a0d3ef21d78651259a6a3e05fa',1,'SearchedPlayer']]],
-  ['resultsofthesearch_14',['resultsOfTheSearch',['../class_search_bar.html#a2589aaf0675597d84f4b2af0a004d333',1,'SearchBar']]]
+  ['representedplace_5f_10',['representedPlace_',['../classstored_place_to_send.html#a129e45bd075c9d83a00ae10055fcde46',1,'storedPlaceToSend']]],
+  ['requesthandler_11',['requestHandler',['../classrequest_handler.html',1,'requestHandler'],['../classrequest_handler.html#aa666513cc05d0e733d7db4a6597664ae',1,'requestHandler.requestHandler()']]],
+  ['requesthandler_2ecs_12',['requestHandler.cs',['../request_handler_8cs.html',1,'']]],
+  ['requesthandler_5f_13',['requestHandler_',['../classfirebase_handler.html#aa72469a53537caef3bc8d7751cfead9b',1,'firebaseHandler']]],
+  ['resultofthesending_14',['resultOfTheSending',['../class_searched_player.html#ad0a743a0d3ef21d78651259a6a3e05fa',1,'SearchedPlayer']]],
+  ['resultsofthesearch_15',['resultsOfTheSearch',['../class_search_bar.html#a2589aaf0675597d84f4b2af0a004d333',1,'SearchBar']]]
 ];

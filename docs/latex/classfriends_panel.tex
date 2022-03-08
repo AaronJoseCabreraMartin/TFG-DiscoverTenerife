@@ -2,156 +2,36 @@
 \label{classfriends_panel}\index{friendsPanel@{friendsPanel}}
 
 
-Class that controls the panel that shows the friends of the current user.  
+Class that controls the panel that shows the friends of the current user. It inherites from \mbox{\hyperlink{classadaptable_size_panel}{adaptable\+Size\+Panel}} abstract class.  
 
 
 Inheritance diagram for friends\+Panel\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classfriends_panel}
+\includegraphics[height=3.000000cm]{classfriends_panel}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
+\doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{classfriends_panel_a6f547bba3c4fb51e2ce891d1ff4307a9}{get\+Invitations\+Count}} ()
-\begin{DoxyCompactList}\small\item\em Getter of the friends\+\_\+.\+Count property. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classfriends_panel_a7746e818e78f0e565d614db9ece2bc74}{friend\+Deleted}} (Game\+Object friend\+Deleted)
-\begin{DoxyCompactList}\small\item\em Remove the given Game\+Object of the friends\+\_\+ property. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \mbox{\hyperlink{classfriends_panel_a655b8ce8d58430dd00a0795dd6d574d3}{Awake}} ()
-\item 
-void \mbox{\hyperlink{classfriends_panel_a4f6ae42be983e16d9f7f09366cfbbbbb}{Update}} ()
-\item 
-void \mbox{\hyperlink{classfriends_panel_ac70c36a74b18dc8cf91d13812188c3b1}{fill\+Panel}} ()
-\item 
-void \mbox{\hyperlink{classfriends_panel_ac851522def15bf6dd72b594c34dd9253}{adjust\+Panel\+Size}} ()
+override void \mbox{\hyperlink{classfriends_panel_a57b329a6fd7d49f5efeb5ef9812b4753}{fill\+Panel}} ()
 \end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-Game\+Object \mbox{\hyperlink{classfriends_panel_ae8e182a5df21481669c8ac746fec22be}{friend\+Prefab\+\_\+}}
-\begin{DoxyCompactList}\small\item\em Game\+Object that contains the prefab that shows the friends information. \end{DoxyCompactList}\item 
-List$<$ Game\+Object $>$ \mbox{\hyperlink{classfriends_panel_ab36be3d906a04c171e5bad67f6ef9ed1}{friends\+\_\+}}
-\begin{DoxyCompactList}\small\item\em List$<$\+Game\+Object$>$ that contains all the prefabs that the panel is showing. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classfriends_panel_abe935644847281a2045a5b0c6b8b1a70}{panel\+Filled\+\_\+}}
-\begin{DoxyCompactList}\small\item\em true if the panel is already filled, false in other case. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classfriends_panel_a4c95308020ee5ff3cfcb248ff0372507}{last\+Count\+\_\+}}
-\begin{DoxyCompactList}\small\item\em count of the elements that the panel is showing the last time it adapted its height. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classfriends_panel_ace4f7c2fd97a3b195a1f72a57820280b}{initial\+Height\+\_\+}}
-\begin{DoxyCompactList}\small\item\em initial height of the panel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
-Class that controls the panel that shows the friends of the current user. 
+Class that controls the panel that shows the friends of the current user. It inherites from \mbox{\hyperlink{classadaptable_size_panel}{adaptable\+Size\+Panel}} abstract class. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classfriends_panel_ac851522def15bf6dd72b594c34dd9253}\label{classfriends_panel_ac851522def15bf6dd72b594c34dd9253}} 
-\index{friendsPanel@{friendsPanel}!adjustPanelSize@{adjustPanelSize}}
-\index{adjustPanelSize@{adjustPanelSize}!friendsPanel@{friendsPanel}}
-\doxysubsubsection{\texorpdfstring{adjustPanelSize()}{adjustPanelSize()}}
-{\footnotesize\ttfamily void friends\+Panel.\+adjust\+Panel\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-This method should be called when a new element is added to the panel. It makes the panel grow in height to keep the aspect when the number of elements changes. It uptade the last\+Count\+\_\+ property value. \mbox{\Hypertarget{classfriends_panel_a655b8ce8d58430dd00a0795dd6d574d3}\label{classfriends_panel_a655b8ce8d58430dd00a0795dd6d574d3}} 
-\index{friendsPanel@{friendsPanel}!Awake@{Awake}}
-\index{Awake@{Awake}!friendsPanel@{friendsPanel}}
-\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
-{\footnotesize\ttfamily void friends\+Panel.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-This method is called before the first frame, it initialices the friends\+\_\+, panel\+Filled\+\_\+ and last\+Count\+\_\+ property. And also, if both methods user\+Data\+Is\+Ready and friend\+Data\+Is\+Complete of the \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class returned true, it calls the fill\+Panel method. \mbox{\Hypertarget{classfriends_panel_ac70c36a74b18dc8cf91d13812188c3b1}\label{classfriends_panel_ac70c36a74b18dc8cf91d13812188c3b1}} 
+\mbox{\Hypertarget{classfriends_panel_a57b329a6fd7d49f5efeb5ef9812b4753}\label{classfriends_panel_a57b329a6fd7d49f5efeb5ef9812b4753}} 
 \index{friendsPanel@{friendsPanel}!fillPanel@{fillPanel}}
 \index{fillPanel@{fillPanel}!friendsPanel@{friendsPanel}}
 \doxysubsubsection{\texorpdfstring{fillPanel()}{fillPanel()}}
-{\footnotesize\ttfamily void friends\+Panel.\+fill\+Panel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily override void friends\+Panel.\+fill\+Panel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
-This method instantiate a new friend\+Prefab\+\_\+ for each friend of the current user and it stores it on the friends\+\_\+ list. It also change the value of the property panel\+Filled\+\_\+ to true. \mbox{\Hypertarget{classfriends_panel_a7746e818e78f0e565d614db9ece2bc74}\label{classfriends_panel_a7746e818e78f0e565d614db9ece2bc74}} 
-\index{friendsPanel@{friendsPanel}!friendDeleted@{friendDeleted}}
-\index{friendDeleted@{friendDeleted}!friendsPanel@{friendsPanel}}
-\doxysubsubsection{\texorpdfstring{friendDeleted()}{friendDeleted()}}
-{\footnotesize\ttfamily void friends\+Panel.\+friend\+Deleted (\begin{DoxyParamCaption}\item[{Game\+Object}]{friend\+Deleted }\end{DoxyParamCaption})}
+This method instantiate a new prefab\+\_\+ for each friend of the current user and it stores it on the friends\+\_\+ list. It also change the value of the property panel\+Filled\+\_\+ to true. 
 
-
-
-Remove the given Game\+Object of the friends\+\_\+ property. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em Game\+Object} & that contains the friend prefab that the current user has deleted the friendship. \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classfriends_panel_a6f547bba3c4fb51e2ce891d1ff4307a9}\label{classfriends_panel_a6f547bba3c4fb51e2ce891d1ff4307a9}} 
-\index{friendsPanel@{friendsPanel}!getInvitationsCount@{getInvitationsCount}}
-\index{getInvitationsCount@{getInvitationsCount}!friendsPanel@{friendsPanel}}
-\doxysubsubsection{\texorpdfstring{getInvitationsCount()}{getInvitationsCount()}}
-{\footnotesize\ttfamily int friends\+Panel.\+get\+Invitations\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Getter of the friends\+\_\+.\+Count property. 
-
-\begin{DoxyReturn}{Returns}
-int the friends\+\_\+.\+Count value. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classfriends_panel_a4f6ae42be983e16d9f7f09366cfbbbbb}\label{classfriends_panel_a4f6ae42be983e16d9f7f09366cfbbbbb}} 
-\index{friendsPanel@{friendsPanel}!Update@{Update}}
-\index{Update@{Update}!friendsPanel@{friendsPanel}}
-\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
-{\footnotesize\ttfamily void friends\+Panel.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-This method is called each frame. If the panel isnt filled and both methods user\+Data\+Is\+Ready and friend\+Data\+Is\+Complete of the \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class returned true, it calls the fill\+Panel method. If the last\+Count\+\_\+ property inst equal to friends\+\_\+.\+Count property it calls the adjust\+Panel\+Size. 
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classfriends_panel_ae8e182a5df21481669c8ac746fec22be}\label{classfriends_panel_ae8e182a5df21481669c8ac746fec22be}} 
-\index{friendsPanel@{friendsPanel}!friendPrefab\_@{friendPrefab\_}}
-\index{friendPrefab\_@{friendPrefab\_}!friendsPanel@{friendsPanel}}
-\doxysubsubsection{\texorpdfstring{friendPrefab\_}{friendPrefab\_}}
-{\footnotesize\ttfamily Game\+Object friends\+Panel.\+friend\+Prefab\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Game\+Object that contains the prefab that shows the friends information. 
-
-\mbox{\Hypertarget{classfriends_panel_ab36be3d906a04c171e5bad67f6ef9ed1}\label{classfriends_panel_ab36be3d906a04c171e5bad67f6ef9ed1}} 
-\index{friendsPanel@{friendsPanel}!friends\_@{friends\_}}
-\index{friends\_@{friends\_}!friendsPanel@{friendsPanel}}
-\doxysubsubsection{\texorpdfstring{friends\_}{friends\_}}
-{\footnotesize\ttfamily List$<$Game\+Object$>$ friends\+Panel.\+friends\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-List$<$\+Game\+Object$>$ that contains all the prefabs that the panel is showing. 
-
-\mbox{\Hypertarget{classfriends_panel_ace4f7c2fd97a3b195a1f72a57820280b}\label{classfriends_panel_ace4f7c2fd97a3b195a1f72a57820280b}} 
-\index{friendsPanel@{friendsPanel}!initialHeight\_@{initialHeight\_}}
-\index{initialHeight\_@{initialHeight\_}!friendsPanel@{friendsPanel}}
-\doxysubsubsection{\texorpdfstring{initialHeight\_}{initialHeight\_}}
-{\footnotesize\ttfamily float friends\+Panel.\+initial\+Height\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-initial height of the panel. 
-
-\mbox{\Hypertarget{classfriends_panel_a4c95308020ee5ff3cfcb248ff0372507}\label{classfriends_panel_a4c95308020ee5ff3cfcb248ff0372507}} 
-\index{friendsPanel@{friendsPanel}!lastCount\_@{lastCount\_}}
-\index{lastCount\_@{lastCount\_}!friendsPanel@{friendsPanel}}
-\doxysubsubsection{\texorpdfstring{lastCount\_}{lastCount\_}}
-{\footnotesize\ttfamily int friends\+Panel.\+last\+Count\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-count of the elements that the panel is showing the last time it adapted its height. 
-
-\mbox{\Hypertarget{classfriends_panel_abe935644847281a2045a5b0c6b8b1a70}\label{classfriends_panel_abe935644847281a2045a5b0c6b8b1a70}} 
-\index{friendsPanel@{friendsPanel}!panelFilled\_@{panelFilled\_}}
-\index{panelFilled\_@{panelFilled\_}!friendsPanel@{friendsPanel}}
-\doxysubsubsection{\texorpdfstring{panelFilled\_}{panelFilled\_}}
-{\footnotesize\ttfamily bool friends\+Panel.\+panel\+Filled\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-true if the panel is already filled, false in other case. 
+Implements \mbox{\hyperlink{classadaptable_size_panel_a1c155711dcff0ad2a9260dbc99f4862e}{adaptable\+Size\+Panel}}.
 
 
 

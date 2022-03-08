@@ -151,13 +151,13 @@ public class challengePrefabController : MonoBehaviour
       * @brief This method delete this challenge and disattached it from the panel that is
       * attached. The first time its called it makes a toastMessage warning the user that
       * it will remove this challenge, if the user confirms the removing touching again
-      * on the button, this method destroy this game object and calls challengeDeleted method
+      * on the button, this method destroy this game object and calls elementDeleted method
       * of challengesPanelController, destroyChallengeByChallengerId of UserData and 
       * writeUserData from firebaseHandler.
       */
     public void deleteThisChallenge(){
         if(userWasWarned_){
-            panel_.GetComponent<challengesPanelController>().challengeDeleted(this.gameObject);
+            panel_.GetComponent<challengesPanelController>().elementDeleted(this.gameObject);
             firebaseHandler.firebaseHandlerInstance_.currentUser_.destroyChallengeByChallengerId(challenge_.getChallengerId());
             firebaseHandler.firebaseHandlerInstance_.writeUserData();
             Destroy(this);

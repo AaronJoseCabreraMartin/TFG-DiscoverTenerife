@@ -98,12 +98,12 @@ public class newFriendInvitation : MonoBehaviour
 
     /**
       * @brief This method destroy this GameObject and it also calls the
-      * invitationDeleted method of the newFriendInvitationPanel class.
+      * elementDeleted method of the newFriendInvitationPanel class.
       */
     private void destroyAndAdvice(){
-        panel_.GetComponent<newFriendInvitationPanel>().invitationDeleted(this.gameObject);
-        Destroy(this.gameObject);
-        Destroy(this);
+      panel_.GetComponent<newFriendInvitationPanel>().elementDeleted(this.gameObject);
+      Destroy(this.gameObject);
+      Destroy(this);
     }
 
     /**

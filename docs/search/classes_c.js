@@ -13,6 +13,7 @@ var searchData=
   ['storedplacehandler_10',['storedPlaceHandler',['../classstored_place_handler.html',1,'']]],
   ['storedplaceimagecontroller_11',['StoredPlaceImageController',['../class_stored_place_image_controller.html',1,'']]],
   ['storedplacescontroller_12',['StoredPlacesController',['../class_stored_places_controller.html',1,'']]],
-  ['storypanel_13',['StoryPanel',['../class_story_panel.html',1,'']]],
-  ['storyplace_14',['StoryPlace',['../class_story_place.html',1,'']]]
+  ['storedplacetosend_13',['storedPlaceToSend',['../classstored_place_to_send.html',1,'']]],
+  ['storypanel_14',['StoryPanel',['../class_story_panel.html',1,'']]],
+  ['storyplace_15',['StoryPlace',['../class_story_place.html',1,'']]]
 ];

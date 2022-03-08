@@ -1288,7 +1288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ef36d8ce9accc41afaf97c8c556a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invitationPrefab_: {fileID: 4806561712726206768, guid: d36b9f615546cb147b49cd2c889005d6, type: 3}
+  prefab_: {fileID: 4806561712726206768, guid: d36b9f615546cb147b49cd2c889005d6, type: 3}
+  noItemsImage_: {fileID: 1934607077}
 --- !u!1001 &2403540190635274462
 PrefabInstance:
   m_ObjectHideFlags: 0

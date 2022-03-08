@@ -2,156 +2,36 @@
 \label{classnew_friend_invitation_panel}\index{newFriendInvitationPanel@{newFriendInvitationPanel}}
 
 
-Class that controls the panel that shows the new friendships invitations.  
+Class that controls the panel that shows the new friendships invitations. It inherites from \mbox{\hyperlink{classadaptable_size_panel}{adaptable\+Size\+Panel}} abstract class.  
 
 
 Inheritance diagram for new\+Friend\+Invitation\+Panel\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classnew_friend_invitation_panel}
+\includegraphics[height=3.000000cm]{classnew_friend_invitation_panel}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
+\doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{classnew_friend_invitation_panel_a5713f9e7c8b92f3fb8c88bdd93e231f8}{get\+Invitations\+Count}} ()
-\begin{DoxyCompactList}\small\item\em getter of the invitations\+\_\+.\+Count property. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnew_friend_invitation_panel_af22c2497e96571fe893e2938d04f0e94}{invitation\+Deleted}} (Game\+Object invitation\+Deleted)
-\begin{DoxyCompactList}\small\item\em tries to remove the given gameobject of the invitations\+\_\+ property. If the gameobject isnt on the list, it will raise an index out of range exception. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \mbox{\hyperlink{classnew_friend_invitation_panel_a7083d535898e2535d95be9c7d88b5432}{Awake}} ()
-\item 
-void \mbox{\hyperlink{classnew_friend_invitation_panel_af6622e7608704a0cdd122bcbcee321be}{Update}} ()
-\item 
-void \mbox{\hyperlink{classnew_friend_invitation_panel_ac1c700fde63fc28c95b537738514828e}{fill\+Panel}} ()
-\item 
-void \mbox{\hyperlink{classnew_friend_invitation_panel_a768c73bbe2c3649cf3faa809ce7b9be0}{adjust\+Panel\+Size}} ()
+override void \mbox{\hyperlink{classnew_friend_invitation_panel_a156e024ae7c5ecd68f986eb861747241}{fill\+Panel}} ()
 \end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-Game\+Object \mbox{\hyperlink{classnew_friend_invitation_panel_a1e8c039683225317eb676b3c89b050d7}{invitation\+Prefab\+\_\+}}
-\begin{DoxyCompactList}\small\item\em Game\+Object that contains the prefab that represent a friendship invitation. \end{DoxyCompactList}\item 
-List$<$ Game\+Object $>$ \mbox{\hyperlink{classnew_friend_invitation_panel_a37556bdfbe5bea0e9368cf7d0437bb90}{invitations\+\_\+}}
-\begin{DoxyCompactList}\small\item\em List of the invitations prefab that are instanciated. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classnew_friend_invitation_panel_a93e5bfce5ae3bbd786ad4bc3cbd62df6}{panel\+Filled\+\_\+}}
-\begin{DoxyCompactList}\small\item\em if its true means that the panel was already filled, false in otherwhise. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classnew_friend_invitation_panel_ae11a9e8070d56b829a0ea9417fd0869b}{last\+Count\+\_\+}}
-\begin{DoxyCompactList}\small\item\em it stores the last quantity of invitations which the panel has adapted its height. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classnew_friend_invitation_panel_aec02d1dc3a15bde9e726a46ca8e58b79}{initial\+Height\+\_\+}}
-\begin{DoxyCompactList}\small\item\em initial height of the panel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
-Class that controls the panel that shows the new friendships invitations. 
+Class that controls the panel that shows the new friendships invitations. It inherites from \mbox{\hyperlink{classadaptable_size_panel}{adaptable\+Size\+Panel}} abstract class. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classnew_friend_invitation_panel_a768c73bbe2c3649cf3faa809ce7b9be0}\label{classnew_friend_invitation_panel_a768c73bbe2c3649cf3faa809ce7b9be0}} 
-\index{newFriendInvitationPanel@{newFriendInvitationPanel}!adjustPanelSize@{adjustPanelSize}}
-\index{adjustPanelSize@{adjustPanelSize}!newFriendInvitationPanel@{newFriendInvitationPanel}}
-\doxysubsubsection{\texorpdfstring{adjustPanelSize()}{adjustPanelSize()}}
-{\footnotesize\ttfamily void new\+Friend\+Invitation\+Panel.\+adjust\+Panel\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-This method should be called each time that the panel adds or quits an element. This method adjust the height of the panel to keep the apparence when the number of elements changes. \mbox{\Hypertarget{classnew_friend_invitation_panel_a7083d535898e2535d95be9c7d88b5432}\label{classnew_friend_invitation_panel_a7083d535898e2535d95be9c7d88b5432}} 
-\index{newFriendInvitationPanel@{newFriendInvitationPanel}!Awake@{Awake}}
-\index{Awake@{Awake}!newFriendInvitationPanel@{newFriendInvitationPanel}}
-\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
-{\footnotesize\ttfamily void new\+Friend\+Invitation\+Panel.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-This method is called before the first frame, it instanciate the invitations\+\_\+, panel\+Filled\+\_\+ and last\+Count\+\_\+ properties. And if the user\+Data\+Is\+Ready method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class returns true it calls the fill\+Panel method. \mbox{\Hypertarget{classnew_friend_invitation_panel_ac1c700fde63fc28c95b537738514828e}\label{classnew_friend_invitation_panel_ac1c700fde63fc28c95b537738514828e}} 
+\mbox{\Hypertarget{classnew_friend_invitation_panel_a156e024ae7c5ecd68f986eb861747241}\label{classnew_friend_invitation_panel_a156e024ae7c5ecd68f986eb861747241}} 
 \index{newFriendInvitationPanel@{newFriendInvitationPanel}!fillPanel@{fillPanel}}
 \index{fillPanel@{fillPanel}!newFriendInvitationPanel@{newFriendInvitationPanel}}
 \doxysubsubsection{\texorpdfstring{fillPanel()}{fillPanel()}}
-{\footnotesize\ttfamily void new\+Friend\+Invitation\+Panel.\+fill\+Panel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily override void new\+Friend\+Invitation\+Panel.\+fill\+Panel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
-This method is called to instanciate the panel. It creates a prefab for each new friendship invitation that the current user has. It changes the panel\+Filled\+\_\+ property to true. \mbox{\Hypertarget{classnew_friend_invitation_panel_a5713f9e7c8b92f3fb8c88bdd93e231f8}\label{classnew_friend_invitation_panel_a5713f9e7c8b92f3fb8c88bdd93e231f8}} 
-\index{newFriendInvitationPanel@{newFriendInvitationPanel}!getInvitationsCount@{getInvitationsCount}}
-\index{getInvitationsCount@{getInvitationsCount}!newFriendInvitationPanel@{newFriendInvitationPanel}}
-\doxysubsubsection{\texorpdfstring{getInvitationsCount()}{getInvitationsCount()}}
-{\footnotesize\ttfamily int new\+Friend\+Invitation\+Panel.\+get\+Invitations\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+This method is called to instanciate the panel. It creates a prefab for each new friendship invitation that the current user has. It changes the panel\+Filled\+\_\+ property to true. 
 
-
-
-getter of the invitations\+\_\+.\+Count property. 
-
-\begin{DoxyReturn}{Returns}
-int the number of new friendships invitations. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classnew_friend_invitation_panel_af22c2497e96571fe893e2938d04f0e94}\label{classnew_friend_invitation_panel_af22c2497e96571fe893e2938d04f0e94}} 
-\index{newFriendInvitationPanel@{newFriendInvitationPanel}!invitationDeleted@{invitationDeleted}}
-\index{invitationDeleted@{invitationDeleted}!newFriendInvitationPanel@{newFriendInvitationPanel}}
-\doxysubsubsection{\texorpdfstring{invitationDeleted()}{invitationDeleted()}}
-{\footnotesize\ttfamily void new\+Friend\+Invitation\+Panel.\+invitation\+Deleted (\begin{DoxyParamCaption}\item[{Game\+Object}]{invitation\+Deleted }\end{DoxyParamCaption})}
-
-
-
-tries to remove the given gameobject of the invitations\+\_\+ property. If the gameobject isnt on the list, it will raise an index out of range exception. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em Game\+Object} & that contains the prefab element that has been deleted. \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classnew_friend_invitation_panel_af6622e7608704a0cdd122bcbcee321be}\label{classnew_friend_invitation_panel_af6622e7608704a0cdd122bcbcee321be}} 
-\index{newFriendInvitationPanel@{newFriendInvitationPanel}!Update@{Update}}
-\index{Update@{Update}!newFriendInvitationPanel@{newFriendInvitationPanel}}
-\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
-{\footnotesize\ttfamily void new\+Friend\+Invitation\+Panel.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-This method is called once per frame, it checks if the panel has al ready filled and if the user\+Data\+Is\+Ready method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class returns true it calls the fill\+Panel method. It also check if the last\+Count\+\_\+ property isnt equal to the current invitations\+\_\+ count. 
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classnew_friend_invitation_panel_aec02d1dc3a15bde9e726a46ca8e58b79}\label{classnew_friend_invitation_panel_aec02d1dc3a15bde9e726a46ca8e58b79}} 
-\index{newFriendInvitationPanel@{newFriendInvitationPanel}!initialHeight\_@{initialHeight\_}}
-\index{initialHeight\_@{initialHeight\_}!newFriendInvitationPanel@{newFriendInvitationPanel}}
-\doxysubsubsection{\texorpdfstring{initialHeight\_}{initialHeight\_}}
-{\footnotesize\ttfamily float new\+Friend\+Invitation\+Panel.\+initial\+Height\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-initial height of the panel. 
-
-\mbox{\Hypertarget{classnew_friend_invitation_panel_a1e8c039683225317eb676b3c89b050d7}\label{classnew_friend_invitation_panel_a1e8c039683225317eb676b3c89b050d7}} 
-\index{newFriendInvitationPanel@{newFriendInvitationPanel}!invitationPrefab\_@{invitationPrefab\_}}
-\index{invitationPrefab\_@{invitationPrefab\_}!newFriendInvitationPanel@{newFriendInvitationPanel}}
-\doxysubsubsection{\texorpdfstring{invitationPrefab\_}{invitationPrefab\_}}
-{\footnotesize\ttfamily Game\+Object new\+Friend\+Invitation\+Panel.\+invitation\+Prefab\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Game\+Object that contains the prefab that represent a friendship invitation. 
-
-\mbox{\Hypertarget{classnew_friend_invitation_panel_a37556bdfbe5bea0e9368cf7d0437bb90}\label{classnew_friend_invitation_panel_a37556bdfbe5bea0e9368cf7d0437bb90}} 
-\index{newFriendInvitationPanel@{newFriendInvitationPanel}!invitations\_@{invitations\_}}
-\index{invitations\_@{invitations\_}!newFriendInvitationPanel@{newFriendInvitationPanel}}
-\doxysubsubsection{\texorpdfstring{invitations\_}{invitations\_}}
-{\footnotesize\ttfamily List$<$Game\+Object$>$ new\+Friend\+Invitation\+Panel.\+invitations\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-List of the invitations prefab that are instanciated. 
-
-\mbox{\Hypertarget{classnew_friend_invitation_panel_ae11a9e8070d56b829a0ea9417fd0869b}\label{classnew_friend_invitation_panel_ae11a9e8070d56b829a0ea9417fd0869b}} 
-\index{newFriendInvitationPanel@{newFriendInvitationPanel}!lastCount\_@{lastCount\_}}
-\index{lastCount\_@{lastCount\_}!newFriendInvitationPanel@{newFriendInvitationPanel}}
-\doxysubsubsection{\texorpdfstring{lastCount\_}{lastCount\_}}
-{\footnotesize\ttfamily int new\+Friend\+Invitation\+Panel.\+last\+Count\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-it stores the last quantity of invitations which the panel has adapted its height. 
-
-\mbox{\Hypertarget{classnew_friend_invitation_panel_a93e5bfce5ae3bbd786ad4bc3cbd62df6}\label{classnew_friend_invitation_panel_a93e5bfce5ae3bbd786ad4bc3cbd62df6}} 
-\index{newFriendInvitationPanel@{newFriendInvitationPanel}!panelFilled\_@{panelFilled\_}}
-\index{panelFilled\_@{panelFilled\_}!newFriendInvitationPanel@{newFriendInvitationPanel}}
-\doxysubsubsection{\texorpdfstring{panelFilled\_}{panelFilled\_}}
-{\footnotesize\ttfamily bool new\+Friend\+Invitation\+Panel.\+panel\+Filled\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-if its true means that the panel was already filled, false in otherwhise. 
+Implements \mbox{\hyperlink{classadaptable_size_panel_a1c155711dcff0ad2a9260dbc99f4862e}{adaptable\+Size\+Panel}}.
 
 
 

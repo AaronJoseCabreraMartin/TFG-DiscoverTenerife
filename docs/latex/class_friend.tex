@@ -19,7 +19,7 @@ void \mbox{\hyperlink{class_friend_a6e228805f2886d8dbe7e4ade0ce3668a}{set\+Data}
 void \mbox{\hyperlink{class_friend_afe44da06bb48ca3e1fa38c90392aa78a}{set\+Panel}} (Game\+Object panel)
 \begin{DoxyCompactList}\small\item\em Setter of the panel\+\_\+ property. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_friend_ad301703cad6844195d68e27a68454f2b}{chanllege\+Friend}} ()
-\begin{DoxyCompactList}\small\item\em TODO. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This method first, it checks if there is internet connection. If there isnt, it shows a \mbox{\hyperlink{classtoast_message}{toast\+Message}} with an error. If there is internet connection but the represented friend already has a challenge of the current user, it shows a toastmessage with the error. And if there is internet connection and the represented user doesnt have a challenge of the current user it sets the chosen\+Friend\+\_\+ static property to a reference to the friend\+Data\+\_\+ attribute and then calls the change\+Scene method of \mbox{\hyperlink{class_change_scene}{Change\+Scene}} and send the user to the choosing place for the challenge that will be sended screen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_friend_ad8f257a6e72ff1026f11defc068c01ca}{delete\+Friend}} ()
 \begin{DoxyCompactList}\small\item\em this method deletes the friendship relationship if there is internet connection. Before deleting the friendship relationship it notify the user to make him aware of what he is doing. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_friend_a8da65b46ba38c12762ea68308abe8975}{get\+Name}} ()
@@ -64,7 +64,7 @@ class that controls the panel element that represent one of the current user fri
 
 
 
-TODO. 
+This method first, it checks if there is internet connection. If there isnt, it shows a \mbox{\hyperlink{classtoast_message}{toast\+Message}} with an error. If there is internet connection but the represented friend already has a challenge of the current user, it shows a toastmessage with the error. And if there is internet connection and the represented user doesnt have a challenge of the current user it sets the chosen\+Friend\+\_\+ static property to a reference to the friend\+Data\+\_\+ attribute and then calls the change\+Scene method of \mbox{\hyperlink{class_change_scene}{Change\+Scene}} and send the user to the choosing place for the challenge that will be sended screen. 
 
 \mbox{\Hypertarget{class_friend_abfe11adc15a0deeadd45d0f3e948fa5a}\label{class_friend_abfe11adc15a0deeadd45d0f3e948fa5a}} 
 \index{Friend@{Friend}!chooseThisFriendAndUpload@{chooseThisFriendAndUpload}}

@@ -2,169 +2,42 @@
 \label{class_search_a_friend_to_challenge_panel}\index{SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}}
 
 
-This class handles the panel that shows the current user\textquotesingle{}s friends that allow be challenged.  
+This class handles the panel that shows the current user\textquotesingle{}s friends that allow be challenged. ~\newline
+ It inherites from \mbox{\hyperlink{classadaptable_size_panel}{adaptable\+Size\+Panel}} abstract class.  
 
 
 Inheritance diagram for Search\+AFriend\+To\+Challenge\+Panel\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_search_a_friend_to_challenge_panel}
+\includegraphics[height=3.000000cm]{class_search_a_friend_to_challenge_panel}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
+\doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_search_a_friend_to_challenge_panel_ae7c9fb88c67dbf9dccabe62237a8154a}{delete\+AChallengeable\+Friend}} (Game\+Object to\+Delete)
-\begin{DoxyCompactList}\small\item\em This method removes the given Game\+Object of the challengeable\+Friend\+\_\+ property list. If the given Game\+Object isnt on the list this method doesnt do nothing. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \mbox{\hyperlink{class_search_a_friend_to_challenge_panel_ac6ea44031c01628254c40ab0dd043f9d}{Awake}} ()
-\begin{DoxyCompactList}\small\item\em This method is called before the first frame, it instanciate the challengeable\+Friend\+\_\+, panel\+Filled\+\_\+ and last\+Count\+\_\+ properties. And if the user\+Data\+Is\+Ready method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class returns true it calls the fill\+Panel method. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_search_a_friend_to_challenge_panel_a448a00db0aa743b2a1d04f2ec08ba99c}{Update}} ()
-\begin{DoxyCompactList}\small\item\em This method is called once per frame, it checks if the panel has al ready filled and if the user\+Data\+Is\+Ready method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class returns true it calls the fill\+Panel method. It also check if the last\+Count\+\_\+ property isnt equal to the current challengeable\+Friend\+\_\+ count. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_search_a_friend_to_challenge_panel_a2bf68d347f0fc4b038a750881ce76013}{fill\+Panel}} ()
-\begin{DoxyCompactList}\small\item\em This method is called to instanciate the panel. It creates a prefab for each challengeable friend that the current user has. It changes the panel\+Filled\+\_\+ property to true. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_search_a_friend_to_challenge_panel_a14e9c9775115c57688c0dba45f735b4a}{adjust\+Panel\+Size}} ()
-\begin{DoxyCompactList}\small\item\em This method should be called each time that the panel adds or quits an element. This method adjust the height of the panel to keep the apparence when the number of elements changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-Game\+Object \mbox{\hyperlink{class_search_a_friend_to_challenge_panel_ae63de687c36df615a4055d34d1c14d6b}{challengeable\+Friend\+Prefab\+\_\+}}
-\begin{DoxyCompactList}\small\item\em Game\+Object that contains the prefab that represent a friend that can be challenged. \end{DoxyCompactList}\item 
-Game\+Object \mbox{\hyperlink{class_search_a_friend_to_challenge_panel_a77bf29e661d52d4981f574e68c24f684}{no\+Challengeable\+Friends\+Image\+\_\+}}
-\begin{DoxyCompactList}\small\item\em Game\+Object that contains the image that will be shown if the current user doesnt have any challengeable friend. \end{DoxyCompactList}\item 
-List$<$ Game\+Object $>$ \mbox{\hyperlink{class_search_a_friend_to_challenge_panel_a9e7a3f868b92fc8fbe49c11c5cd6d121}{challengeable\+Friend\+\_\+}}
-\begin{DoxyCompactList}\small\item\em List of the challengeable friend prefab that are instanciated. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_search_a_friend_to_challenge_panel_aa2e19597e9b3b3b23a4ca9b493c192ce}{panel\+Filled\+\_\+}}
-\begin{DoxyCompactList}\small\item\em if its true means that the panel was already filled, false in otherwhise. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_search_a_friend_to_challenge_panel_aa350afc8e26a0f28cadf8bcbb63e3a43}{last\+Count\+\_\+}}
-\begin{DoxyCompactList}\small\item\em it stores the last quantity of elements which the panel has adapted its height. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{class_search_a_friend_to_challenge_panel_a35608eae65ec4eac58dff25270ff933c}{initial\+Height\+\_\+}}
-\begin{DoxyCompactList}\small\item\em initial height of the panel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+override void \mbox{\hyperlink{class_search_a_friend_to_challenge_panel_a3039f8fb95cbecf2ef1db25f84e6e673}{fill\+Panel}} ()
+\begin{DoxyCompactList}\small\item\em This method is called to instanciate the panel. It creates a prefab for each challengeable friend that the current user has. It changes the panel\+Filled\+\_\+ property to true. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
-This class handles the panel that shows the current user\textquotesingle{}s friends that allow be challenged. 
+This class handles the panel that shows the current user\textquotesingle{}s friends that allow be challenged. ~\newline
+ It inherites from \mbox{\hyperlink{classadaptable_size_panel}{adaptable\+Size\+Panel}} abstract class. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_search_a_friend_to_challenge_panel_a14e9c9775115c57688c0dba45f735b4a}\label{class_search_a_friend_to_challenge_panel_a14e9c9775115c57688c0dba45f735b4a}} 
-\index{SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}!adjustPanelSize@{adjustPanelSize}}
-\index{adjustPanelSize@{adjustPanelSize}!SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}}
-\doxysubsubsection{\texorpdfstring{adjustPanelSize()}{adjustPanelSize()}}
-{\footnotesize\ttfamily void Search\+AFriend\+To\+Challenge\+Panel.\+adjust\+Panel\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-This method should be called each time that the panel adds or quits an element. This method adjust the height of the panel to keep the apparence when the number of elements changes. 
-
-\mbox{\Hypertarget{class_search_a_friend_to_challenge_panel_ac6ea44031c01628254c40ab0dd043f9d}\label{class_search_a_friend_to_challenge_panel_ac6ea44031c01628254c40ab0dd043f9d}} 
-\index{SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}!Awake@{Awake}}
-\index{Awake@{Awake}!SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}}
-\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
-{\footnotesize\ttfamily void Search\+AFriend\+To\+Challenge\+Panel.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-This method is called before the first frame, it instanciate the challengeable\+Friend\+\_\+, panel\+Filled\+\_\+ and last\+Count\+\_\+ properties. And if the user\+Data\+Is\+Ready method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class returns true it calls the fill\+Panel method. 
-
-\mbox{\Hypertarget{class_search_a_friend_to_challenge_panel_ae7c9fb88c67dbf9dccabe62237a8154a}\label{class_search_a_friend_to_challenge_panel_ae7c9fb88c67dbf9dccabe62237a8154a}} 
-\index{SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}!deleteAChallengeableFriend@{deleteAChallengeableFriend}}
-\index{deleteAChallengeableFriend@{deleteAChallengeableFriend}!SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}}
-\doxysubsubsection{\texorpdfstring{deleteAChallengeableFriend()}{deleteAChallengeableFriend()}}
-{\footnotesize\ttfamily void Search\+AFriend\+To\+Challenge\+Panel.\+delete\+AChallengeable\+Friend (\begin{DoxyParamCaption}\item[{Game\+Object}]{to\+Delete }\end{DoxyParamCaption})}
-
-
-
-This method removes the given Game\+Object of the challengeable\+Friend\+\_\+ property list. If the given Game\+Object isnt on the list this method doesnt do nothing. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em Game\+Object} & that is attatched to this panel. \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_search_a_friend_to_challenge_panel_a2bf68d347f0fc4b038a750881ce76013}\label{class_search_a_friend_to_challenge_panel_a2bf68d347f0fc4b038a750881ce76013}} 
+\mbox{\Hypertarget{class_search_a_friend_to_challenge_panel_a3039f8fb95cbecf2ef1db25f84e6e673}\label{class_search_a_friend_to_challenge_panel_a3039f8fb95cbecf2ef1db25f84e6e673}} 
 \index{SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}!fillPanel@{fillPanel}}
 \index{fillPanel@{fillPanel}!SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}}
 \doxysubsubsection{\texorpdfstring{fillPanel()}{fillPanel()}}
-{\footnotesize\ttfamily void Search\+AFriend\+To\+Challenge\+Panel.\+fill\+Panel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily override void Search\+AFriend\+To\+Challenge\+Panel.\+fill\+Panel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
 
 This method is called to instanciate the panel. It creates a prefab for each challengeable friend that the current user has. It changes the panel\+Filled\+\_\+ property to true. 
 
-\mbox{\Hypertarget{class_search_a_friend_to_challenge_panel_a448a00db0aa743b2a1d04f2ec08ba99c}\label{class_search_a_friend_to_challenge_panel_a448a00db0aa743b2a1d04f2ec08ba99c}} 
-\index{SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}!Update@{Update}}
-\index{Update@{Update}!SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}}
-\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
-{\footnotesize\ttfamily void Search\+AFriend\+To\+Challenge\+Panel.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
-
-This method is called once per frame, it checks if the panel has al ready filled and if the user\+Data\+Is\+Ready method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class returns true it calls the fill\+Panel method. It also check if the last\+Count\+\_\+ property isnt equal to the current challengeable\+Friend\+\_\+ count. 
-
-
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_search_a_friend_to_challenge_panel_a9e7a3f868b92fc8fbe49c11c5cd6d121}\label{class_search_a_friend_to_challenge_panel_a9e7a3f868b92fc8fbe49c11c5cd6d121}} 
-\index{SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}!challengeableFriend\_@{challengeableFriend\_}}
-\index{challengeableFriend\_@{challengeableFriend\_}!SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}}
-\doxysubsubsection{\texorpdfstring{challengeableFriend\_}{challengeableFriend\_}}
-{\footnotesize\ttfamily List$<$Game\+Object$>$ Search\+AFriend\+To\+Challenge\+Panel.\+challengeable\+Friend\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-List of the challengeable friend prefab that are instanciated. 
-
-\mbox{\Hypertarget{class_search_a_friend_to_challenge_panel_ae63de687c36df615a4055d34d1c14d6b}\label{class_search_a_friend_to_challenge_panel_ae63de687c36df615a4055d34d1c14d6b}} 
-\index{SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}!challengeableFriendPrefab\_@{challengeableFriendPrefab\_}}
-\index{challengeableFriendPrefab\_@{challengeableFriendPrefab\_}!SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}}
-\doxysubsubsection{\texorpdfstring{challengeableFriendPrefab\_}{challengeableFriendPrefab\_}}
-{\footnotesize\ttfamily Game\+Object Search\+AFriend\+To\+Challenge\+Panel.\+challengeable\+Friend\+Prefab\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Game\+Object that contains the prefab that represent a friend that can be challenged. 
-
-\mbox{\Hypertarget{class_search_a_friend_to_challenge_panel_a35608eae65ec4eac58dff25270ff933c}\label{class_search_a_friend_to_challenge_panel_a35608eae65ec4eac58dff25270ff933c}} 
-\index{SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}!initialHeight\_@{initialHeight\_}}
-\index{initialHeight\_@{initialHeight\_}!SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}}
-\doxysubsubsection{\texorpdfstring{initialHeight\_}{initialHeight\_}}
-{\footnotesize\ttfamily float Search\+AFriend\+To\+Challenge\+Panel.\+initial\+Height\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-initial height of the panel. 
-
-\mbox{\Hypertarget{class_search_a_friend_to_challenge_panel_aa350afc8e26a0f28cadf8bcbb63e3a43}\label{class_search_a_friend_to_challenge_panel_aa350afc8e26a0f28cadf8bcbb63e3a43}} 
-\index{SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}!lastCount\_@{lastCount\_}}
-\index{lastCount\_@{lastCount\_}!SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}}
-\doxysubsubsection{\texorpdfstring{lastCount\_}{lastCount\_}}
-{\footnotesize\ttfamily int Search\+AFriend\+To\+Challenge\+Panel.\+last\+Count\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-it stores the last quantity of elements which the panel has adapted its height. 
-
-\mbox{\Hypertarget{class_search_a_friend_to_challenge_panel_a77bf29e661d52d4981f574e68c24f684}\label{class_search_a_friend_to_challenge_panel_a77bf29e661d52d4981f574e68c24f684}} 
-\index{SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}!noChallengeableFriendsImage\_@{noChallengeableFriendsImage\_}}
-\index{noChallengeableFriendsImage\_@{noChallengeableFriendsImage\_}!SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}}
-\doxysubsubsection{\texorpdfstring{noChallengeableFriendsImage\_}{noChallengeableFriendsImage\_}}
-{\footnotesize\ttfamily Game\+Object Search\+AFriend\+To\+Challenge\+Panel.\+no\+Challengeable\+Friends\+Image\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Game\+Object that contains the image that will be shown if the current user doesnt have any challengeable friend. 
-
-\mbox{\Hypertarget{class_search_a_friend_to_challenge_panel_aa2e19597e9b3b3b23a4ca9b493c192ce}\label{class_search_a_friend_to_challenge_panel_aa2e19597e9b3b3b23a4ca9b493c192ce}} 
-\index{SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}!panelFilled\_@{panelFilled\_}}
-\index{panelFilled\_@{panelFilled\_}!SearchAFriendToChallengePanel@{SearchAFriendToChallengePanel}}
-\doxysubsubsection{\texorpdfstring{panelFilled\_}{panelFilled\_}}
-{\footnotesize\ttfamily bool Search\+AFriend\+To\+Challenge\+Panel.\+panel\+Filled\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-if its true means that the panel was already filled, false in otherwhise. 
+Implements \mbox{\hyperlink{classadaptable_size_panel_a1c155711dcff0ad2a9260dbc99f4862e}{adaptable\+Size\+Panel}}.
 
 
 

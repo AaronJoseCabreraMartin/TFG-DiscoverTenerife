@@ -13,6 +13,7 @@ var searchData=
   ['storedplacehandler_2ecs_10',['storedPlaceHandler.cs',['../stored_place_handler_8cs.html',1,'']]],
   ['storedplaceimagecontroller_2ecs_11',['StoredPlaceImageController.cs',['../_stored_place_image_controller_8cs.html',1,'']]],
   ['storedplacescontroller_2ecs_12',['StoredPlacesController.cs',['../_stored_places_controller_8cs.html',1,'']]],
-  ['storypanel_2ecs_13',['StoryPanel.cs',['../_story_panel_8cs.html',1,'']]],
-  ['storyplace_2ecs_14',['StoryPlace.cs',['../_story_place_8cs.html',1,'']]]
+  ['storedplacetosend_2ecs_13',['storedPlaceToSend.cs',['../stored_place_to_send_8cs.html',1,'']]],
+  ['storypanel_2ecs_14',['StoryPanel.cs',['../_story_panel_8cs.html',1,'']]],
+  ['storyplace_2ecs_15',['StoryPlace.cs',['../_story_place_8cs.html',1,'']]]
 ];
