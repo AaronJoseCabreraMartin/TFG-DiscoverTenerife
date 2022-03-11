@@ -23,7 +23,9 @@ static int \mbox{\hyperlink{classgame_rules_aa56c4517faf577404ad1b4bcf978d747}{c
 static double \mbox{\hyperlink{classgame_rules_af79e830d246293590950129e40d46af2}{get\+Score\+To\+The\+Challenger}} (double score\+Of\+Challenged)
 \begin{DoxyCompactList}\small\item\em this method returns the score that the challenger should obtain knowing how much score the challenged person earned. \end{DoxyCompactList}\item 
 static double \mbox{\hyperlink{classgame_rules_a1aade0f700ba488ec966a0b2499fb4f5}{get\+Score\+For\+Visiting\+APlace}} (int place\+Visits, int max\+Visits, bool new\+Visit=false)
-\begin{DoxyCompactList}\small\item\em This method calculates the score that the current user has to earn when he visits a place. For calculating the score it needs the visits of that place, the number of visits of the most visited place and it also needs if the user has already visit that place or not. The score will be higher if the user visits a new place than if the user visits a place that he has already visited it. The score will be proportional to the number of visits that place has compared to the most visited place. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This method calculates the score that the current user has to earn when he visits a place. For calculating the score it needs the visits of that place, the number of visits of the most visited place and it also needs if the user has already visit that place or not. The score will be higher if the user visits a new place than if the user visits a place that he has already visited it. The score will be proportional to the number of visits that place has compared to the most visited place. \end{DoxyCompactList}\item 
+static string \mbox{\hyperlink{classgame_rules_a797c5c377437a316c3d3662c8b403755}{calculate\+Range}} (int score)
+\begin{DoxyCompactList}\small\item\em This method returns the name of the range that the user should be. To calculate the user range it uses the user\textquotesingle{}s score. If the score is a negative number it will return the empty string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -40,7 +42,9 @@ static double \mbox{\hyperlink{classgame_rules_a671fb67d96770665c6f6ade3e4d2d254
 static double \mbox{\hyperlink{classgame_rules_af4ddb3ee02960e8f9ab5d3527a7d59ad}{base\+Bonus\+New\+Visit\+\_\+}} = 15.\+0d
 \begin{DoxyCompactList}\small\item\em points that the user will receive as minimum for visiting a new place. \end{DoxyCompactList}\item 
 static double \mbox{\hyperlink{classgame_rules_a389ecb3f5093fd39746d692635638421}{base\+Bonus\+Visit\+\_\+}} = 10.\+0d
-\begin{DoxyCompactList}\small\item\em points that the user will receive as minimum for visiting a place that he has already visited. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em points that the user will receive as minimum for visiting a place that he has already visited. \end{DoxyCompactList}\item 
+static Dictionary$<$ string, int $>$ \mbox{\hyperlink{classgame_rules_af907b2e9df76d32e27b646ec3494f61f}{ranges\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Dictionary that contains the names of the ranges and the minimum score that a user have to has to be considered of that range. They have to be sorted as higher ranger first. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -68,6 +72,24 @@ This method calculates the score of a completed challenge using the timestamp of
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 int score of the completed challenge. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgame_rules_a797c5c377437a316c3d3662c8b403755}\label{classgame_rules_a797c5c377437a316c3d3662c8b403755}} 
+\index{gameRules@{gameRules}!calculateRange@{calculateRange}}
+\index{calculateRange@{calculateRange}!gameRules@{gameRules}}
+\doxysubsubsection{\texorpdfstring{calculateRange()}{calculateRange()}}
+{\footnotesize\ttfamily static string game\+Rules.\+calculate\+Range (\begin{DoxyParamCaption}\item[{int}]{score }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This method returns the name of the range that the user should be. To calculate the user range it uses the user\textquotesingle{}s score. If the score is a negative number it will return the empty string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & with the user\textquotesingle{}s score. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string with the current user range name. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classgame_rules_ae35bc1635fdc6e6a58d4e84fb4363098}\label{classgame_rules_ae35bc1635fdc6e6a58d4e84fb4363098}} 
 \index{gameRules@{gameRules}!challengeHasExpired@{challengeHasExpired}}
@@ -241,6 +263,31 @@ contains the maximum number of places that you can store in the pocket for inter
 
 
 contains the time in minutes that a player has to wait to visit again a place. Its default value is 60 minutes. 
+
+\mbox{\Hypertarget{classgame_rules_af907b2e9df76d32e27b646ec3494f61f}\label{classgame_rules_af907b2e9df76d32e27b646ec3494f61f}} 
+\index{gameRules@{gameRules}!ranges\_@{ranges\_}}
+\index{ranges\_@{ranges\_}!gameRules@{gameRules}}
+\doxysubsubsection{\texorpdfstring{ranges\_}{ranges\_}}
+{\footnotesize\ttfamily Dictionary$<$string,int$>$ game\+Rules.\+ranges\+\_\+\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{keyword}{new} Dictionary<string,int>()\{}
+\DoxyCodeLine{      }
+\DoxyCodeLine{      \{\textcolor{stringliteral}{"{}Mencey"{}},      100000\},}
+\DoxyCodeLine{      \{\textcolor{stringliteral}{"{}Achimencey"{}},   10000\},}
+\DoxyCodeLine{      \{\textcolor{stringliteral}{"{}Guañameñe"{}},     3000\},}
+\DoxyCodeLine{      \{\textcolor{stringliteral}{"{}Tagorero"{}},      1500\},}
+\DoxyCodeLine{      \{\textcolor{stringliteral}{"{}Sigoñes"{}},        750\},}
+\DoxyCodeLine{      \{\textcolor{stringliteral}{"{}Cichiciquitzos"{}}, 300\},}
+\DoxyCodeLine{      \{\textcolor{stringliteral}{"{}Achicaxna"{}},      100\},}
+\DoxyCodeLine{      \{\textcolor{stringliteral}{"{}Achicaxnais"{}},      0\},}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+Dictionary that contains the names of the ranges and the minimum score that a user have to has to be considered of that range. They have to be sorted as higher ranger first. 
 
 \mbox{\Hypertarget{classgame_rules_a671fb67d96770665c6f6ade3e4d2d254}\label{classgame_rules_a671fb67d96770665c6f6ade3e4d2d254}} 
 \index{gameRules@{gameRules}!scoreToTheChallenger\_@{scoreToTheChallenger\_}}

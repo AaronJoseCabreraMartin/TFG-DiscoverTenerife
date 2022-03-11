@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['uid_5f_0',['uid_',['../classnew_friend_data.html#a73b61d15fb238be2bc409c4ccca673d2',1,'newFriendData.uid_()'],['../class_friend_data.html#afb4ec77fd883d415aa195f27252e4b92',1,'FriendData.uid_()']]],
+  ['uid_5f_0',['uid_',['../classnew_friend_data.html#a73b61d15fb238be2bc409c4ccca673d2',1,'newFriendData.uid_()'],['../class_friend_data.html#afb4ec77fd883d415aa195f27252e4b92',1,'FriendData.uid_()'],['../class_ranking_player_data.html#aec2f41c92b0099e38f51f061359db8b8',1,'RankingPlayerData.uid_()']]],
   ['uploadingnotifications_5f_1',['uploadingNotifications_',['../classfirebase_handler.html#ab166f32d64bdd68341f1558d7a4a5a1f',1,'firebaseHandler']]],
   ['user_2',['user',['../classemail_login_controller.html#ab4a150b7f76e426a1f9e433f8da0d629',1,'emailLoginController.user()'],['../classregister_screen_controller.html#a68e6b1c445c46a1af26f987de53e9a4a',1,'registerScreenController.user()']]],
   ['userdataready_5f_3',['userDataReady_',['../classfirebase_handler.html#a19f92443e4e88477defb22d67236d746',1,'firebaseHandler']]],

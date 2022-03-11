@@ -14,5 +14,7 @@ var searchData=
   ['distanceinkm_5f_11',['distanceInKM_',['../classoptions_controller.html#aa64dea8ce62a7b160a626cb1c1bdc8b8',1,'optionsController']]],
   ['distanceunitmenu_5f_12',['distanceUnitMenu_',['../classoptions_controller.html#a6e84b183d91098797ff67fcc6c5c3e6b',1,'optionsController']]],
   ['downloadinganyoftheuserspermissionslists_5f_13',['downloadingAnyOfTheUsersPermissionsLists_',['../classfirebase_handler.html#a60ebe38d3bc1ee2d3197eafabd58fc83',1,'firebaseHandler']]],
-  ['durationqueue_5f_14',['durationQueue_',['../classtoast_message.html#a3bebfbe3001bb88fedfa57483ff37307',1,'toastMessage']]]
+  ['downloadingdataimage_5f_14',['downloadingDataImage_',['../classranking_panel.html#ab5ea8621978c9d835180233a2c94d36a',1,'rankingPanel']]],
+  ['downloadingrankingdata_5f_15',['downloadingRankingData_',['../classfirebase_handler.html#af3b7e5b37ef74cb7b418965b9fab38eb',1,'firebaseHandler']]],
+  ['durationqueue_5f_16',['durationQueue_',['../classtoast_message.html#a3bebfbe3001bb88fedfa57483ff37307',1,'toastMessage']]]
 ];

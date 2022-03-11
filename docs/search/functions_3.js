@@ -14,5 +14,6 @@ var searchData=
   ['downloadfrienddata_11',['downloadFriendData',['../classfirebase_handler.html#a79f50b713883df7fc275f725486fa424',1,'firebaseHandler']]],
   ['downloadnewfriendinvitationdata_12',['downloadNewFriendInvitationData',['../classfirebase_handler.html#ada3d92f5afe301370b0696a3a7ade2be',1,'firebaseHandler']]],
   ['downloadonetypeofsite_13',['downloadOneTypeOfSite',['../classfirebase_handler.html#a8c779ceab25f62feccd95b3f19c9bc18',1,'firebaseHandler']]],
-  ['downloaduserspermissionslists_14',['downloadUsersPermissionsLists',['../classfirebase_handler.html#a9979443635c9d02f69d2ae5671ece914',1,'firebaseHandler']]]
+  ['downloadrankingplayerdata_14',['downloadRankingPlayerData',['../classfirebase_handler.html#a3a6888d8095b58d5e010943192a218e3',1,'firebaseHandler']]],
+  ['downloaduserspermissionslists_15',['downloadUsersPermissionsLists',['../classfirebase_handler.html#a9979443635c9d02f69d2ae5671ece914',1,'firebaseHandler']]]
 ];

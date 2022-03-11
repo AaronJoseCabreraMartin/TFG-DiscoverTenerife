@@ -1,7 +1,7 @@
 var searchData=
 [
   ['savetext_5f_0',['saveText_',['../classuniqueselection_desplegable_menu.html#af74aeae8c4c5a280c087ade7d3f91075',1,'uniqueselectionDesplegableMenu']]],
-  ['score_5f_1',['score_',['../class_friend_data.html#af85f53c9d066f3141ecace674f6d0bc1',1,'FriendData.score_()'],['../class_user_data.html#a2fc36e4437631282b36bcf04448553ec',1,'UserData.score_()']]],
+  ['score_5f_1',['score_',['../class_friend_data.html#af85f53c9d066f3141ecace674f6d0bc1',1,'FriendData.score_()'],['../class_user_data.html#a2fc36e4437631282b36bcf04448553ec',1,'UserData.score_()'],['../class_ranking_player_data.html#ab09baacd9cd50451468e2e1ebc4e5d4d',1,'RankingPlayerData.score_()'],['../classranking_player.html#a2c6c1b9c76384cef22609331e752c56f',1,'rankingPlayer.score_()']]],
   ['scoreloaded_5f_2',['scoreLoaded_',['../class_score_of_the_whole_island_controller.html#a1ad0fd0679f6c4508d6349dcee4608a4',1,'ScoreOfTheWholeIslandController']]],
   ['scoretothechallenger_5f_3',['scoreToTheChallenger_',['../classgame_rules.html#a671fb67d96770665c6f6ade3e4d2d254',1,'gameRules']]],
   ['searchbar_5f_4',['searchBar_',['../class_searching_state_controller.html#a4449a41e3c94255957c8e25b640691a1',1,'SearchingStateController']]],

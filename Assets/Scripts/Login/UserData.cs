@@ -432,7 +432,6 @@ public class UserData{
           //tanto si estaba caducado como si no, debes eliminar ese reto de la lista.
           challenges_.Remove(challenge);
         }
-        Debug.Log($"Current score: {score_}");
     }
 
     /**
@@ -642,7 +641,6 @@ public class UserData{
     public void deleteFriend(string uid){
         friendList_.Remove(uid);
         friendDataList_.Remove(friendDataList_.Find(friendData => friendData.getUid() == uid));
-        //Debug.Log("deleteFriend: "+ToJson());
     }
 
     /**
@@ -682,10 +680,6 @@ public class UserData{
       * the information of the current user's friend that has the given id.
       */
     public FriendData getFriendDataByUID(string uid){
-      foreach(FriendData itemOfFriendDataList in friendDataList_){
-        Debug.Log($"itemOfFriendDataList = " + itemOfFriendDataList.getUid());
-        Debug.Log(itemOfFriendDataList.getUid() == uid);
-      }
       return friendDataList_.Find(friendData => friendData.getUid() == uid);
     }
 
@@ -745,7 +739,7 @@ public class UserData{
       * false in another case.
       */
     public bool hasToBeNotified(string uid){
-      Debug.Log($" {uid} hasToBeNotified ? " + acceptedFriendsToNotify_.Exists(acceptedFriend => acceptedFriend == uid));
+      //Debug.Log($" {uid} hasToBeNotified ? " + acceptedFriendsToNotify_.Exists(acceptedFriend => acceptedFriend == uid));
       return acceptedFriendsToNotify_.Exists(acceptedFriend => acceptedFriend == uid);
     }
 
@@ -756,7 +750,7 @@ public class UserData{
       * method, it will raise an exception.
       */
     public string nextFriendToBeNotified(){
-      Debug.Log("nextFriendToBeNotified "+acceptedFriendsToNotify_[0]);
+      //Debug.Log("nextFriendToBeNotified "+acceptedFriendsToNotify_[0]);
       return acceptedFriendsToNotify_[0];
     }
 
@@ -765,7 +759,7 @@ public class UserData{
       * @brief This method removes the given user id of the acceptedFriendsToNotify_ list.
       */
     public void hasBeenNotified(string uid){
-      Debug.Log($"{uid} hasBeenNotified");
+      //Debug.Log($"{uid} hasBeenNotified");
       acceptedFriendsToNotify_.Remove(uid);
     }
 
@@ -778,5 +772,13 @@ public class UserData{
     public bool anyUserHasToBeNotified(){
       //Debug.Log($"anyUserHasToBeNotified = {acceptedFriendsToNotify_.Count != 0}" );
       return acceptedFriendsToNotify_.Count != 0;
+    }
+
+    /**
+      * @return int with the current user's score.
+      * @brief Getter of the score_ property.
+      */
+    public int getScore(){
+      return score_;
     }
 }

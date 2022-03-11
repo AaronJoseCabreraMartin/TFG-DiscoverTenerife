@@ -81,7 +81,19 @@ void \mbox{\hyperlink{classfirebase_handler_a61e7f123a1af4e702a8bcd558e3e0ba1}{u
 void \mbox{\hyperlink{classfirebase_handler_af9604dc2667655b5cc8485136e1a2eb1}{add\+Other\+User\+Score\+To\+Upload}} (Dictionary$<$ string, string $>$ uid\+And\+Score)
 \begin{DoxyCompactList}\small\item\em This method adds the given dictionary to the other\+User\+Scores\+To\+Upload\+\_\+ list. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classfirebase_handler_a69977b96acf330e38ff6174b2072b5c9}{update\+User\+Added\+AFriend}} (string friend\+Uid, string accepted\+Friends\+Invitations\+List\+In\+JSON)
-\begin{DoxyCompactList}\small\item\em This method tries to upload the accepted friendships invitations list of the given user. If it complete it succesfully, it removes the friend\+Uid of the list of the user that need to be notified with the has\+Been\+Notified method. It also sets the uploading\+Notifications\+\_\+ property as true but when the try of updating finish, in any way, it sets the uploading\+Notifications\+\_\+ property as false. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This method tries to upload the accepted friendships invitations list of the given user. If it complete it succesfully, it removes the friend\+Uid of the list of the user that need to be notified with the has\+Been\+Notified method. It also sets the uploading\+Notifications\+\_\+ property as true but when the try of updating finish, in any way, it sets the uploading\+Notifications\+\_\+ property as false. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfirebase_handler_a3a6888d8095b58d5e010943192a218e3}{download\+Ranking\+Player\+Data}} ()
+\begin{DoxyCompactList}\small\item\em This method downloads all the data what will be shown on the players ranking and store it as a \mbox{\hyperlink{class_ranking_player_data}{Ranking\+Player\+Data}} object on the ranking\+Data\+\_\+ list. It changes the downloading\+Ranking\+Data\+\_\+ attribute to reflect the current state of the download. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classfirebase_handler_a531d01b38f313306dd09a48e2475bcae}{is\+Ranking\+Data\+Complete}} ()
+\begin{DoxyCompactList}\small\item\em This method returns true if all the data of the users that appeard on the ranking is already downloaded, false in other case. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classfirebase_handler_a248a3b10ee00c5c98a6c8589338d01d0}{is\+Downloading\+Ranking\+Data\+Now}} ()
+\begin{DoxyCompactList}\small\item\em getter of the downloading\+Ranking\+Data\+\_\+ property. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_ranking_player_data}{Ranking\+Player\+Data}} \mbox{\hyperlink{classfirebase_handler_aa1c9a97f40ce70bb1682726ca1f12e51}{get\+Ranking\+Player\+Data\+By\+Id}} (string uid)
+\begin{DoxyCompactList}\small\item\em This method returns the \mbox{\hyperlink{class_ranking_player_data}{Ranking\+Player\+Data}} object with the data of the player who has the given user id. It would return null if there isnt any player with that id. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_ranking_player_data}{Ranking\+Player\+Data}} $>$ \mbox{\hyperlink{classfirebase_handler_a8b369a591be1988426624c193b6c16c7}{get\+Ranking\+Player\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Getter of the ranking\+Data\+\_\+ propery. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classfirebase_handler_a4b3f14220269dcaf6528f5fd443e511c}{sort\+Ranking\+Data\+List}} ()
+\begin{DoxyCompactList}\small\item\em This method sorts the users that appeard on the ranking. It sorts them setting on the firsts positions users with the highers scores. It also updates the top\+\_\+ property of the \mbox{\hyperlink{class_ranking_player_data}{Ranking\+Player\+Data}} objects of the lists using the set\+Top method. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -157,6 +169,12 @@ bool \mbox{\hyperlink{classfirebase_handler_a40e6e1bf5891e799f61bb53d3b15604f}{h
 List$<$ Dictionary$<$ string, string $>$ $>$ \mbox{\hyperlink{classfirebase_handler_aeabf954f8e99deeedbff21ad73701eaa}{other\+User\+Scores\+To\+Upload\+\_\+}}
 \item 
 bool \mbox{\hyperlink{classfirebase_handler_ab166f32d64bdd68341f1558d7a4a5a1f}{uploading\+Notifications\+\_\+}}
+\item 
+List$<$ \mbox{\hyperlink{class_ranking_player_data}{Ranking\+Player\+Data}} $>$ \mbox{\hyperlink{classfirebase_handler_aa2ac5da9994c203a859bd86ff37c6dc9}{ranking\+Data\+\_\+}}
+\item 
+bool \mbox{\hyperlink{classfirebase_handler_a8bc4bca60dcb641e21850cdec06d43c6}{allow\+Download\+Ranking\+Data\+\_\+}}
+\item 
+bool \mbox{\hyperlink{classfirebase_handler_af3b7e5b37ef74cb7b418965b9fab38eb}{downloading\+Ranking\+Data\+\_\+}}
 \end{DoxyCompactItemize}
 
 
@@ -369,6 +387,16 @@ This coroutine tries to download all the places of the given type. If there is n
 {\em string} & that contains the type of the sites you want to download the information. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classfirebase_handler_a3a6888d8095b58d5e010943192a218e3}\label{classfirebase_handler_a3a6888d8095b58d5e010943192a218e3}} 
+\index{firebaseHandler@{firebaseHandler}!downloadRankingPlayerData@{downloadRankingPlayerData}}
+\index{downloadRankingPlayerData@{downloadRankingPlayerData}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{downloadRankingPlayerData()}{downloadRankingPlayerData()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+download\+Ranking\+Player\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method downloads all the data what will be shown on the players ranking and store it as a \mbox{\hyperlink{class_ranking_player_data}{Ranking\+Player\+Data}} object on the ranking\+Data\+\_\+ list. It changes the downloading\+Ranking\+Data\+\_\+ attribute to reflect the current state of the download. 
+
 \mbox{\Hypertarget{classfirebase_handler_a9979443635c9d02f69d2ae5671ece914}\label{classfirebase_handler_a9979443635c9d02f69d2ae5671ece914}} 
 \index{firebaseHandler@{firebaseHandler}!downloadUsersPermissionsLists@{downloadUsersPermissionsLists}}
 \index{downloadUsersPermissionsLists@{downloadUsersPermissionsLists}!firebaseHandler@{firebaseHandler}}
@@ -423,6 +451,37 @@ This method search on the property all\+Places\+\_\+ if there is a place with th
 \begin{DoxyReturn}{Returns}
 Dictionary$<$string, string$>$ dictionary of strings that contains a string version of all the information of the searched place. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classfirebase_handler_a8b369a591be1988426624c193b6c16c7}\label{classfirebase_handler_a8b369a591be1988426624c193b6c16c7}} 
+\index{firebaseHandler@{firebaseHandler}!getRankingPlayerData@{getRankingPlayerData}}
+\index{getRankingPlayerData@{getRankingPlayerData}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{getRankingPlayerData()}{getRankingPlayerData()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{class_ranking_player_data}{Ranking\+Player\+Data}} $>$ firebase\+Handler.\+get\+Ranking\+Player\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter of the ranking\+Data\+\_\+ propery. 
+
+\begin{DoxyReturn}{Returns}
+List$<$\+Ranking\+Player\+Data$>$ the whole ranking\+Data\+\_\+ property. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classfirebase_handler_aa1c9a97f40ce70bb1682726ca1f12e51}\label{classfirebase_handler_aa1c9a97f40ce70bb1682726ca1f12e51}} 
+\index{firebaseHandler@{firebaseHandler}!getRankingPlayerDataById@{getRankingPlayerDataById}}
+\index{getRankingPlayerDataById@{getRankingPlayerDataById}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{getRankingPlayerDataById()}{getRankingPlayerDataById()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_ranking_player_data}{Ranking\+Player\+Data}} firebase\+Handler.\+get\+Ranking\+Player\+Data\+By\+Id (\begin{DoxyParamCaption}\item[{string}]{uid }\end{DoxyParamCaption})}
+
+
+
+This method returns the \mbox{\hyperlink{class_ranking_player_data}{Ranking\+Player\+Data}} object with the data of the player who has the given user id. It would return null if there isnt any player with that id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the user id of the user that you want to obtain the ranking data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_ranking_player_data}{Ranking\+Player\+Data}} object with the data of the player who has the given user id. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classfirebase_handler_a2952f67548a2cc3077f9a463b2346c0e}\label{classfirebase_handler_a2952f67548a2cc3077f9a463b2346c0e}} 
 \index{firebaseHandler@{firebaseHandler}!hasUserVisitPlaceByName@{hasUserVisitPlaceByName}}
 \index{hasUserVisitPlaceByName@{hasUserVisitPlaceByName}!firebaseHandler@{firebaseHandler}}
@@ -447,7 +506,33 @@ bool true if user has visit a place with that name, false in other case.
 \doxysubsubsection{\texorpdfstring{internetConnection()}{internetConnection()}}
 {\footnotesize\ttfamily bool firebase\+Handler.\+internet\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-This method returns true only if there is internet connection, otherwise it will return false. \mbox{\Hypertarget{classfirebase_handler_a8e4a4c939d9a69525849e67ea2c5440d}\label{classfirebase_handler_a8e4a4c939d9a69525849e67ea2c5440d}} 
+This method returns true only if there is internet connection, otherwise it will return false. \mbox{\Hypertarget{classfirebase_handler_a248a3b10ee00c5c98a6c8589338d01d0}\label{classfirebase_handler_a248a3b10ee00c5c98a6c8589338d01d0}} 
+\index{firebaseHandler@{firebaseHandler}!isDownloadingRankingDataNow@{isDownloadingRankingDataNow}}
+\index{isDownloadingRankingDataNow@{isDownloadingRankingDataNow}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{isDownloadingRankingDataNow()}{isDownloadingRankingDataNow()}}
+{\footnotesize\ttfamily bool firebase\+Handler.\+is\+Downloading\+Ranking\+Data\+Now (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the downloading\+Ranking\+Data\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+bool with the value of downloading\+Ranking\+Data\+\_\+ property. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classfirebase_handler_a531d01b38f313306dd09a48e2475bcae}\label{classfirebase_handler_a531d01b38f313306dd09a48e2475bcae}} 
+\index{firebaseHandler@{firebaseHandler}!isRankingDataComplete@{isRankingDataComplete}}
+\index{isRankingDataComplete@{isRankingDataComplete}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{isRankingDataComplete()}{isRankingDataComplete()}}
+{\footnotesize\ttfamily bool firebase\+Handler.\+is\+Ranking\+Data\+Complete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method returns true if all the data of the users that appeard on the ranking is already downloaded, false in other case. 
+
+\begin{DoxyReturn}{Returns}
+bool true if all the data of the users that appeard on the ranking is already downloaded, false in other case. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classfirebase_handler_a8e4a4c939d9a69525849e67ea2c5440d}\label{classfirebase_handler_a8e4a4c939d9a69525849e67ea2c5440d}} 
 \index{firebaseHandler@{firebaseHandler}!LoginUser@{LoginUser}}
 \index{LoginUser@{LoginUser}!firebaseHandler@{firebaseHandler}}
 \doxysubsubsection{\texorpdfstring{LoginUser()}{LoginUser()}}
@@ -574,6 +659,16 @@ This method will be called when the google signin button is pressed, it start th
 
 
 this method calls the sort\+Places method of the \mbox{\hyperlink{classrequest_handler}{request\+Handler}} class. Check that class documentation to get more information. 
+
+\mbox{\Hypertarget{classfirebase_handler_a4b3f14220269dcaf6528f5fd443e511c}\label{classfirebase_handler_a4b3f14220269dcaf6528f5fd443e511c}} 
+\index{firebaseHandler@{firebaseHandler}!sortRankingDataList@{sortRankingDataList}}
+\index{sortRankingDataList@{sortRankingDataList}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{sortRankingDataList()}{sortRankingDataList()}}
+{\footnotesize\ttfamily void firebase\+Handler.\+sort\+Ranking\+Data\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method sorts the users that appeard on the ranking. It sorts them setting on the firsts positions users with the highers scores. It also updates the top\+\_\+ property of the \mbox{\hyperlink{class_ranking_player_data}{Ranking\+Player\+Data}} objects of the lists using the set\+Top method. 
 
 \mbox{\Hypertarget{classfirebase_handler_ab5dc9ae5a71e0b308a311bb39d11d36c}\label{classfirebase_handler_ab5dc9ae5a71e0b308a311bb39d11d36c}} 
 \index{firebaseHandler@{firebaseHandler}!totalOfPlaces@{totalOfPlaces}}
@@ -765,6 +860,12 @@ This method uploads the data from the place that matches the given type and id. 
 This method uploads to the database all the current user releated information. It also upload the changes on the user social preferences. 
 
 \doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classfirebase_handler_a8bc4bca60dcb641e21850cdec06d43c6}\label{classfirebase_handler_a8bc4bca60dcb641e21850cdec06d43c6}} 
+\index{firebaseHandler@{firebaseHandler}!allowDownloadRankingData\_@{allowDownloadRankingData\_}}
+\index{allowDownloadRankingData\_@{allowDownloadRankingData\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{allowDownloadRankingData\_}{allowDownloadRankingData\_}}
+{\footnotesize\ttfamily bool firebase\+Handler.\+allow\+Download\+Ranking\+Data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
 \mbox{\Hypertarget{classfirebase_handler_a6879d06e68b41954015ccc83838f8eba}\label{classfirebase_handler_a6879d06e68b41954015ccc83838f8eba}} 
 \index{firebaseHandler@{firebaseHandler}!allPlaces\_@{allPlaces\_}}
 \index{allPlaces\_@{allPlaces\_}!firebaseHandler@{firebaseHandler}}
@@ -797,6 +898,12 @@ A instance of the class \mbox{\hyperlink{class_user_data}{User\+Data}}, it store
 
 
 true if it is trying to download any of the user permissions lists right now. false in other case. 
+
+\mbox{\Hypertarget{classfirebase_handler_af3b7e5b37ef74cb7b418965b9fab38eb}\label{classfirebase_handler_af3b7e5b37ef74cb7b418965b9fab38eb}} 
+\index{firebaseHandler@{firebaseHandler}!downloadingRankingData\_@{downloadingRankingData\_}}
+\index{downloadingRankingData\_@{downloadingRankingData\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{downloadingRankingData\_}{downloadingRankingData\_}}
+{\footnotesize\ttfamily bool firebase\+Handler.\+downloading\+Ranking\+Data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{classfirebase_handler_a3d365ef2be6c733d643c49a4ac6c9c6f}\label{classfirebase_handler_a3d365ef2be6c733d643c49a4ac6c9c6f}} 
 \index{firebaseHandler@{firebaseHandler}!firebaseApp@{firebaseApp}}
@@ -862,7 +969,13 @@ This flag determinate if the information of the interesting points are already d
 \doxysubsubsection{\texorpdfstring{placesToUpdateQueue\_}{placesToUpdateQueue\_}}
 {\footnotesize\ttfamily List$<$Dictionary$<$string, string$>$ $>$ firebase\+Handler.\+places\+To\+Update\+Queue\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
 
-This atribute stores the list of places that have been visited but the internet conection have failed when this class tried to upload it. This class will try to upload that information since it gets internet connection again. \mbox{\Hypertarget{classfirebase_handler_aa72469a53537caef3bc8d7751cfead9b}\label{classfirebase_handler_aa72469a53537caef3bc8d7751cfead9b}} 
+This atribute stores the list of places that have been visited but the internet conection have failed when this class tried to upload it. This class will try to upload that information since it gets internet connection again. \mbox{\Hypertarget{classfirebase_handler_aa2ac5da9994c203a859bd86ff37c6dc9}\label{classfirebase_handler_aa2ac5da9994c203a859bd86ff37c6dc9}} 
+\index{firebaseHandler@{firebaseHandler}!rankingData\_@{rankingData\_}}
+\index{rankingData\_@{rankingData\_}!firebaseHandler@{firebaseHandler}}
+\doxysubsubsection{\texorpdfstring{rankingData\_}{rankingData\_}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_ranking_player_data}{Ranking\+Player\+Data}}$>$ firebase\+Handler.\+ranking\+Data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classfirebase_handler_aa72469a53537caef3bc8d7751cfead9b}\label{classfirebase_handler_aa72469a53537caef3bc8d7751cfead9b}} 
 \index{firebaseHandler@{firebaseHandler}!requestHandler\_@{requestHandler\_}}
 \index{requestHandler\_@{requestHandler\_}!firebaseHandler@{firebaseHandler}}
 \doxysubsubsection{\texorpdfstring{requestHandler\_}{requestHandler\_}}

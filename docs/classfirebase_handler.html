@@ -173,6 +173,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a69977b96acf330e38ff6174b2072b5c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a69977b96acf330e38ff6174b2072b5c9">updateUserAddedAFriend</a> (string friendUid, string acceptedFriendsInvitationsListInJSON)</td></tr>
 <tr class="memdesc:a69977b96acf330e38ff6174b2072b5c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method tries to upload the accepted friendships invitations list of the given user. If it complete it succesfully, it removes the friendUid of the list of the user that need to be notified with the hasBeenNotified method. It also sets the uploadingNotifications_ property as true but when the try of updating finish, in any way, it sets the uploadingNotifications_ property as false.  <a href="classfirebase_handler.html#a69977b96acf330e38ff6174b2072b5c9">More...</a><br /></td></tr>
 <tr class="separator:a69977b96acf330e38ff6174b2072b5c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a6888d8095b58d5e010943192a218e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a3a6888d8095b58d5e010943192a218e3">downloadRankingPlayerData</a> ()</td></tr>
+<tr class="memdesc:a3a6888d8095b58d5e010943192a218e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method downloads all the data what will be shown on the players ranking and store it as a <a class="el" href="class_ranking_player_data.html" title="Class that stores the information of each player that is shown on the ranking.">RankingPlayerData</a> object on the rankingData_ list. It changes the downloadingRankingData_ attribute to reflect the current state of the download.  <a href="classfirebase_handler.html#a3a6888d8095b58d5e010943192a218e3">More...</a><br /></td></tr>
+<tr class="separator:a3a6888d8095b58d5e010943192a218e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a531d01b38f313306dd09a48e2475bcae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a531d01b38f313306dd09a48e2475bcae">isRankingDataComplete</a> ()</td></tr>
+<tr class="memdesc:a531d01b38f313306dd09a48e2475bcae"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns true if all the data of the users that appeard on the ranking is already downloaded, false in other case.  <a href="classfirebase_handler.html#a531d01b38f313306dd09a48e2475bcae">More...</a><br /></td></tr>
+<tr class="separator:a531d01b38f313306dd09a48e2475bcae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a248a3b10ee00c5c98a6c8589338d01d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a248a3b10ee00c5c98a6c8589338d01d0">isDownloadingRankingDataNow</a> ()</td></tr>
+<tr class="memdesc:a248a3b10ee00c5c98a6c8589338d01d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the downloadingRankingData_ property.  <a href="classfirebase_handler.html#a248a3b10ee00c5c98a6c8589338d01d0">More...</a><br /></td></tr>
+<tr class="separator:a248a3b10ee00c5c98a6c8589338d01d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1c9a97f40ce70bb1682726ca1f12e51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ranking_player_data.html">RankingPlayerData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aa1c9a97f40ce70bb1682726ca1f12e51">getRankingPlayerDataById</a> (string uid)</td></tr>
+<tr class="memdesc:aa1c9a97f40ce70bb1682726ca1f12e51"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the <a class="el" href="class_ranking_player_data.html" title="Class that stores the information of each player that is shown on the ranking.">RankingPlayerData</a> object with the data of the player who has the given user id. It would return null if there isnt any player with that id.  <a href="classfirebase_handler.html#aa1c9a97f40ce70bb1682726ca1f12e51">More...</a><br /></td></tr>
+<tr class="separator:aa1c9a97f40ce70bb1682726ca1f12e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b369a591be1988426624c193b6c16c7"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_ranking_player_data.html">RankingPlayerData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a8b369a591be1988426624c193b6c16c7">getRankingPlayerData</a> ()</td></tr>
+<tr class="memdesc:a8b369a591be1988426624c193b6c16c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of the rankingData_ propery.  <a href="classfirebase_handler.html#a8b369a591be1988426624c193b6c16c7">More...</a><br /></td></tr>
+<tr class="separator:a8b369a591be1988426624c193b6c16c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b3f14220269dcaf6528f5fd443e511c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a4b3f14220269dcaf6528f5fd443e511c">sortRankingDataList</a> ()</td></tr>
+<tr class="memdesc:a4b3f14220269dcaf6528f5fd443e511c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method sorts the users that appeard on the ranking. It sorts them setting on the firsts positions users with the highers scores. It also updates the top_ property of the <a class="el" href="class_ranking_player_data.html" title="Class that stores the information of each player that is shown on the ranking.">RankingPlayerData</a> objects of the lists using the setTop method.  <a href="classfirebase_handler.html#a4b3f14220269dcaf6528f5fd443e511c">More...</a><br /></td></tr>
+<tr class="separator:a4b3f14220269dcaf6528f5fd443e511c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -262,6 +280,12 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aeabf954f8e99deeedbff21ad73701eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab166f32d64bdd68341f1558d7a4a5a1f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ab166f32d64bdd68341f1558d7a4a5a1f">uploadingNotifications_</a></td></tr>
 <tr class="separator:ab166f32d64bdd68341f1558d7a4a5a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ac5da9994c203a859bd86ff37c6dc9"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_ranking_player_data.html">RankingPlayerData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aa2ac5da9994c203a859bd86ff37c6dc9">rankingData_</a></td></tr>
+<tr class="separator:aa2ac5da9994c203a859bd86ff37c6dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bc4bca60dcb641e21850cdec06d43c6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a8bc4bca60dcb641e21850cdec06d43c6">allowDownloadRankingData_</a></td></tr>
+<tr class="separator:a8bc4bca60dcb641e21850cdec06d43c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3b7e5b37ef74cb7b418965b9fab38eb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#af3b7e5b37ef74cb7b418965b9fab38eb">downloadingRankingData_</a></td></tr>
+<tr class="separator:af3b7e5b37ef74cb7b418965b9fab38eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class follows the Singleton patron, so it only has one instance at the same time. The instance could be found on the firebaseHandlerInstance_ public static property. This class handles all the firebase releated methods like validating user, creating new users, downloading and uploading all the data from the database. </p>
@@ -709,6 +733,25 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a3a6888d8095b58d5e010943192a218e3" name="a3a6888d8095b58d5e010943192a218e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a6888d8095b58d5e010943192a218e3">&#9670;&nbsp;</a></span>downloadRankingPlayerData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.downloadRankingPlayerData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method downloads all the data what will be shown on the players ranking and store it as a <a class="el" href="class_ranking_player_data.html" title="Class that stores the information of each player that is shown on the ranking.">RankingPlayerData</a> object on the rankingData_ list. It changes the downloadingRankingData_ attribute to reflect the current state of the download. </p>
+
+</div>
+</div>
 <a id="a9979443635c9d02f69d2ae5671ece914" name="a9979443635c9d02f69d2ae5671ece914"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9979443635c9d02f69d2ae5671ece914">&#9670;&nbsp;</a></span>downloadUsersPermissionsLists()</h2>
 
@@ -819,6 +862,53 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a8b369a591be1988426624c193b6c16c7" name="a8b369a591be1988426624c193b6c16c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b369a591be1988426624c193b6c16c7">&#9670;&nbsp;</a></span>getRankingPlayerData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt; <a class="el" href="class_ranking_player_data.html">RankingPlayerData</a> &gt; firebaseHandler.getRankingPlayerData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter of the rankingData_ propery. </p>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;RankingPlayerData&gt; the whole rankingData_ property. </dd></dl>
+
+</div>
+</div>
+<a id="aa1c9a97f40ce70bb1682726ca1f12e51" name="aa1c9a97f40ce70bb1682726ca1f12e51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1c9a97f40ce70bb1682726ca1f12e51">&#9670;&nbsp;</a></span>getRankingPlayerDataById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_ranking_player_data.html">RankingPlayerData</a> firebaseHandler.getRankingPlayerDataById </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>uid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method returns the <a class="el" href="class_ranking_player_data.html" title="Class that stores the information of each player that is shown on the ranking.">RankingPlayerData</a> object with the data of the player who has the given user id. It would return null if there isnt any player with that id. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>the user id of the user that you want to obtain the ranking data. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_ranking_player_data.html" title="Class that stores the information of each player that is shown on the ranking.">RankingPlayerData</a> object with the data of the player who has the given user id. </dd></dl>
+
+</div>
+</div>
 <a id="a2952f67548a2cc3077f9a463b2346c0e" name="a2952f67548a2cc3077f9a463b2346c0e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2952f67548a2cc3077f9a463b2346c0e">&#9670;&nbsp;</a></span>hasUserVisitPlaceByName()</h2>
 
@@ -861,6 +951,46 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >This method returns true only if there is internet connection, otherwise it will return false. </p>
+
+</div>
+</div>
+<a id="a248a3b10ee00c5c98a6c8589338d01d0" name="a248a3b10ee00c5c98a6c8589338d01d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a248a3b10ee00c5c98a6c8589338d01d0">&#9670;&nbsp;</a></span>isDownloadingRankingDataNow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool firebaseHandler.isDownloadingRankingDataNow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getter of the downloadingRankingData_ property. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool with the value of downloadingRankingData_ property. </dd></dl>
+
+</div>
+</div>
+<a id="a531d01b38f313306dd09a48e2475bcae" name="a531d01b38f313306dd09a48e2475bcae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a531d01b38f313306dd09a48e2475bcae">&#9670;&nbsp;</a></span>isRankingDataComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool firebaseHandler.isRankingDataComplete </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method returns true if all the data of the users that appeard on the ranking is already downloaded, false in other case. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool true if all the data of the users that appeard on the ranking is already downloaded, false in other case. </dd></dl>
 
 </div>
 </div>
@@ -1172,6 +1302,25 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>this method calls the sortPlaces method of the <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> class. Check that class documentation to get more information. </p>
+
+</div>
+</div>
+<a id="a4b3f14220269dcaf6528f5fd443e511c" name="a4b3f14220269dcaf6528f5fd443e511c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b3f14220269dcaf6528f5fd443e511c">&#9670;&nbsp;</a></span>sortRankingDataList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.sortRankingDataList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method sorts the users that appeard on the ranking. It sorts them setting on the firsts positions users with the highers scores. It also updates the top_ property of the <a class="el" href="class_ranking_player_data.html" title="Class that stores the information of each player that is shown on the ranking.">RankingPlayerData</a> objects of the lists using the setTop method. </p>
 
 </div>
 </div>
@@ -1610,6 +1759,28 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a8bc4bca60dcb641e21850cdec06d43c6" name="a8bc4bca60dcb641e21850cdec06d43c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bc4bca60dcb641e21850cdec06d43c6">&#9670;&nbsp;</a></span>allowDownloadRankingData_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool firebaseHandler.allowDownloadRankingData_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6879d06e68b41954015ccc83838f8eba" name="a6879d06e68b41954015ccc83838f8eba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6879d06e68b41954015ccc83838f8eba">&#9670;&nbsp;</a></span>allPlaces_</h2>
 
@@ -1696,6 +1867,28 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>true if it is trying to download any of the user permissions lists right now. false in other case. </p>
+
+</div>
+</div>
+<a id="af3b7e5b37ef74cb7b418965b9fab38eb" name="af3b7e5b37ef74cb7b418965b9fab38eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3b7e5b37ef74cb7b418965b9fab38eb">&#9670;&nbsp;</a></span>downloadingRankingData_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool firebaseHandler.downloadingRankingData_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1925,6 +2118,28 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p >This atribute stores the list of places that have been visited but the internet conection have failed when this class tried to upload it. This class will try to upload that information since it gets internet connection again. </p>
+
+</div>
+</div>
+<a id="aa2ac5da9994c203a859bd86ff37c6dc9" name="aa2ac5da9994c203a859bd86ff37c6dc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2ac5da9994c203a859bd86ff37c6dc9">&#9670;&nbsp;</a></span>rankingData_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_ranking_player_data.html">RankingPlayerData</a>&gt; firebaseHandler.rankingData_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

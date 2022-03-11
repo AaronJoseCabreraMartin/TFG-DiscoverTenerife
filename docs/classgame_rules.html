@@ -99,6 +99,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1aade0f700ba488ec966a0b2499fb4f5"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a1aade0f700ba488ec966a0b2499fb4f5">getScoreForVisitingAPlace</a> (int placeVisits, int maxVisits, bool newVisit=false)</td></tr>
 <tr class="memdesc:a1aade0f700ba488ec966a0b2499fb4f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method calculates the score that the current user has to earn when he visits a place. For calculating the score it needs the visits of that place, the number of visits of the most visited place and it also needs if the user has already visit that place or not. The score will be higher if the user visits a new place than if the user visits a place that he has already visited it. The score will be proportional to the number of visits that place has compared to the most visited place.  <a href="classgame_rules.html#a1aade0f700ba488ec966a0b2499fb4f5">More...</a><br /></td></tr>
 <tr class="separator:a1aade0f700ba488ec966a0b2499fb4f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a797c5c377437a316c3d3662c8b403755"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a797c5c377437a316c3d3662c8b403755">calculateRange</a> (int score)</td></tr>
+<tr class="memdesc:a797c5c377437a316c3d3662c8b403755"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the name of the range that the user should be. To calculate the user range it uses the user's score. If the score is a negative number it will return the empty string.  <a href="classgame_rules.html#a797c5c377437a316c3d3662c8b403755">More...</a><br /></td></tr>
+<tr class="separator:a797c5c377437a316c3d3662c8b403755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -123,6 +126,9 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:a389ecb3f5093fd39746d692635638421"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a389ecb3f5093fd39746d692635638421">baseBonusVisit_</a> = 10.0d</td></tr>
 <tr class="memdesc:a389ecb3f5093fd39746d692635638421"><td class="mdescLeft">&#160;</td><td class="mdescRight">points that the user will receive as minimum for visiting a place that he has already visited.  <a href="classgame_rules.html#a389ecb3f5093fd39746d692635638421">More...</a><br /></td></tr>
 <tr class="separator:a389ecb3f5093fd39746d692635638421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af907b2e9df76d32e27b646ec3494f61f"><td class="memItemLeft" align="right" valign="top">static Dictionary&lt; string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#af907b2e9df76d32e27b646ec3494f61f">ranges_</a></td></tr>
+<tr class="memdesc:af907b2e9df76d32e27b646ec3494f61f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dictionary that contains the names of the ranges and the minimum score that a user have to has to be considered of that range. They have to be sorted as higher ranger first.  <a href="classgame_rules.html#af907b2e9df76d32e27b646ec3494f61f">More...</a><br /></td></tr>
+<tr class="separator:af907b2e9df76d32e27b646ec3494f61f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class store as static properties the parameters that affect the game rules. For example it stores the maximum distance to a point to be considered as a valid visit. </p>
@@ -177,6 +183,41 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int score of the completed challenge. </dd></dl>
+
+</div>
+</div>
+<a id="a797c5c377437a316c3d3662c8b403755" name="a797c5c377437a316c3d3662c8b403755"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a797c5c377437a316c3d3662c8b403755">&#9670;&nbsp;</a></span>calculateRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static string gameRules.calculateRange </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>score</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method returns the name of the range that the user should be. To calculate the user range it uses the user's score. If the score is a negative number it will return the empty string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>with the user's score. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string with the current user range name. </dd></dl>
 
 </div>
 </div>
@@ -557,6 +598,41 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>contains the time in minutes that a player has to wait to visit again a place. Its default value is 60 minutes. </p>
+
+</div>
+</div>
+<a id="af907b2e9df76d32e27b646ec3494f61f" name="af907b2e9df76d32e27b646ec3494f61f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af907b2e9df76d32e27b646ec3494f61f">&#9670;&nbsp;</a></span>ranges_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dictionary&lt;string,int&gt; gameRules.ranges_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> Dictionary&lt;string,int&gt;(){</div>
+<div class="line">      </div>
+<div class="line">      {<span class="stringliteral">&quot;Mencey&quot;</span>,      100000},</div>
+<div class="line">      {<span class="stringliteral">&quot;Achimencey&quot;</span>,   10000},</div>
+<div class="line">      {<span class="stringliteral">&quot;Guañameñe&quot;</span>,     3000},</div>
+<div class="line">      {<span class="stringliteral">&quot;Tagorero&quot;</span>,      1500},</div>
+<div class="line">      {<span class="stringliteral">&quot;Sigoñes&quot;</span>,        750},</div>
+<div class="line">      {<span class="stringliteral">&quot;Cichiciquitzos&quot;</span>, 300},</div>
+<div class="line">      {<span class="stringliteral">&quot;Achicaxna&quot;</span>,      100},</div>
+<div class="line">      {<span class="stringliteral">&quot;Achicaxnais&quot;</span>,      0},</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p>Dictionary that contains the names of the ranges and the minimum score that a user have to has to be considered of that range. They have to be sorted as higher ranger first. </p>
 
 </div>
 </div>

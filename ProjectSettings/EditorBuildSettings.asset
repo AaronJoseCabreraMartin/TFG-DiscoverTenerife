@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PantallaBuscarLugarParaRetar.unity
     guid: 8873819f0baa14f43969e8bdc5646a1b
+  - enabled: 1
+    path: Assets/Scenes/PantallaRanking.unity
+    guid: 7f98d9e358b407048b16ec33f658e8d8
   m_configObjects: {}

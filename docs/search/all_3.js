@@ -26,8 +26,11 @@ var searchData=
   ['downloadallplaces_23',['downloadAllPlaces',['../classfirebase_handler.html#af32e8f72e94a98e2a3e7eb86e801b1c8',1,'firebaseHandler']]],
   ['downloadfrienddata_24',['downloadFriendData',['../classfirebase_handler.html#a79f50b713883df7fc275f725486fa424',1,'firebaseHandler']]],
   ['downloadinganyoftheuserspermissionslists_5f_25',['downloadingAnyOfTheUsersPermissionsLists_',['../classfirebase_handler.html#a60ebe38d3bc1ee2d3197eafabd58fc83',1,'firebaseHandler']]],
-  ['downloadnewfriendinvitationdata_26',['downloadNewFriendInvitationData',['../classfirebase_handler.html#ada3d92f5afe301370b0696a3a7ade2be',1,'firebaseHandler']]],
-  ['downloadonetypeofsite_27',['downloadOneTypeOfSite',['../classfirebase_handler.html#a8c779ceab25f62feccd95b3f19c9bc18',1,'firebaseHandler']]],
-  ['downloaduserspermissionslists_28',['downloadUsersPermissionsLists',['../classfirebase_handler.html#a9979443635c9d02f69d2ae5671ece914',1,'firebaseHandler']]],
-  ['durationqueue_5f_29',['durationQueue_',['../classtoast_message.html#a3bebfbe3001bb88fedfa57483ff37307',1,'toastMessage']]]
+  ['downloadingdataimage_5f_26',['downloadingDataImage_',['../classranking_panel.html#ab5ea8621978c9d835180233a2c94d36a',1,'rankingPanel']]],
+  ['downloadingrankingdata_5f_27',['downloadingRankingData_',['../classfirebase_handler.html#af3b7e5b37ef74cb7b418965b9fab38eb',1,'firebaseHandler']]],
+  ['downloadnewfriendinvitationdata_28',['downloadNewFriendInvitationData',['../classfirebase_handler.html#ada3d92f5afe301370b0696a3a7ade2be',1,'firebaseHandler']]],
+  ['downloadonetypeofsite_29',['downloadOneTypeOfSite',['../classfirebase_handler.html#a8c779ceab25f62feccd95b3f19c9bc18',1,'firebaseHandler']]],
+  ['downloadrankingplayerdata_30',['downloadRankingPlayerData',['../classfirebase_handler.html#a3a6888d8095b58d5e010943192a218e3',1,'firebaseHandler']]],
+  ['downloaduserspermissionslists_31',['downloadUsersPermissionsLists',['../classfirebase_handler.html#a9979443635c9d02f69d2ae5671ece914',1,'firebaseHandler']]],
+  ['durationqueue_5f_32',['durationQueue_',['../classtoast_message.html#a3bebfbe3001bb88fedfa57483ff37307',1,'toastMessage']]]
 ];

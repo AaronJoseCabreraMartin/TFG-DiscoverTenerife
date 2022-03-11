@@ -141,6 +141,11 @@ public class firebaseHandler : MonoBehaviour
 
     private bool uploadingNotifications_;
 
+    private List<RankingPlayerData> rankingData_;
+
+    private bool allowDownloadRankingData_;
+    private bool downloadingRankingData_;
+
     /**
      * The awake method is called before the first frame, it checks if other 
      * firebaseHandler was instanciated before, if that is the case, it destroy this object.
@@ -163,6 +168,9 @@ public class firebaseHandler : MonoBehaviour
         friendDataDownloadQueue_ = new List<string>();
         newFriendDataDownloadQueue_ = new List<string>();
         otherUserScoresToUpload_ = new List<Dictionary<string,string>>();
+        rankingData_ = new List<RankingPlayerData>();
+        allowDownloadRankingData_ = false;
+        downloadingRankingData_ = false;
     }
 
     /**
@@ -220,10 +228,15 @@ public class firebaseHandler : MonoBehaviour
 
             if(readyForUploadChanges && currentUser_.friendDataIsComplete() && currentUser_.anyUserHasToBeNotified() && !uploadingNotifications_){
                 string userThatHaveToBeNotified = currentUser_.nextFriendToBeNotified();
-                Debug.Log($"userThatHaveToBeNotified = {userThatHaveToBeNotified}");
-                Debug.Log($"getStringConversionOfNewAcceptedFriends = " + currentUser_.getFriendDataByUID(userThatHaveToBeNotified).getStringConversionOfNewAcceptedFriends() );
+                //Debug.Log($"userThatHaveToBeNotified = {userThatHaveToBeNotified}");
+                //Debug.Log($"getStringConversionOfNewAcceptedFriends = " + currentUser_.getFriendDataByUID(userThatHaveToBeNotified).getStringConversionOfNewAcceptedFriends() );
                 updateUserAddedAFriend(userThatHaveToBeNotified, 
                                         currentUser_.getFriendDataByUID(userThatHaveToBeNotified).getStringConversionOfNewAcceptedFriends());
+            }
+
+            if( allowDownloadRankingData_ && internetConnection() && firebaseDependenciesResolved && 
+                    FriendData.usersThatAllowAppearedOnRanking_ != null && !downloadingRankingData_ && !isRankingDataComplete()){
+                downloadRankingPlayerData();
             }
         }
     }
@@ -1258,6 +1271,13 @@ public class firebaseHandler : MonoBehaviour
             }
             requestHandler_.useStartIndex();
         }
+
+        if(scene.name == "PantallaRanking"){
+            allowDownloadRankingData_ = true;
+        }else{
+            allowDownloadRankingData_ = false;
+            rankingData_.Clear();
+        }
     }
 
     /**
@@ -1499,5 +1519,119 @@ public class firebaseHandler : MonoBehaviour
             }
             uploadingNotifications_ = false;
         },TaskScheduler.FromCurrentSynchronizationContext());;
+    }
+
+    /**
+      * @brief This method downloads all the data what will be shown on the players ranking
+      * and store it as a RankingPlayerData object on the rankingData_ list. It changes the
+      * downloadingRankingData_ attribute to reflect the current state of the download.
+      */
+    public void downloadRankingPlayerData(){
+        //Solo necesito descargarme el nombre y el score, con el score puedo calcular el top y el rango.
+        downloadingRankingData_ = true;
+        foreach(string userId in FriendData.usersThatAllowAppearedOnRanking_){
+            FirebaseDatabase.DefaultInstance.GetReference($"users/{userId}/displayName_").GetValueAsync().ContinueWith(displayNameTask => {    
+                if (displayNameTask.IsFaulted || displayNameTask.IsCanceled) {
+                    downloadingRankingData_ = false;
+                    rankingData_.Clear();
+                    Debug.Log($"Fallo al descargar la informacion de ranking de {userId} :"+displayNameTask.Exception);
+                }else if(displayNameTask.IsCompleted){
+                    DataSnapshot snapshotDisplayName = displayNameTask.Result;
+                    if(snapshotDisplayName.GetRawJsonValue() != null){
+                        string displayName = JsonConvert.DeserializeObject<string>(snapshotDisplayName.GetRawJsonValue());
+                        
+                        FirebaseDatabase.DefaultInstance.GetReference($"users/{userId}/score_").GetValueAsync().ContinueWith(scoreTask => {    
+                            if (scoreTask.IsFaulted || scoreTask.IsCanceled) {
+                                downloadingRankingData_ = false;
+                                rankingData_.Clear();
+                                Debug.Log($"Fallo al descargar la informacion de ranking de {userId} :"+scoreTask.Exception);
+                            }else if(scoreTask.IsCompleted){
+                                DataSnapshot snapshotScore = scoreTask.Result;
+                                int score;
+                                if(snapshotScore.GetRawJsonValue() != null){
+                                    score = Int32.Parse(JsonConvert.DeserializeObject<string>(snapshotScore.GetRawJsonValue()));
+
+                                }else{
+                                    score = 0;
+                                    Debug.Log($"users/{userId}/score_ es null");
+                                }
+                                rankingData_.Add(new RankingPlayerData(displayName, score, userId));
+
+                                if(isRankingDataComplete()){
+                                    downloadingRankingData_ = false;
+                                }
+                            }
+                        },TaskScheduler.FromCurrentSynchronizationContext());
+                    
+                    }else{
+                        Debug.Log($"users/{userId}/displayName_ es null");
+                    }
+                }
+            },TaskScheduler.FromCurrentSynchronizationContext());
+        }
+    }
+
+    /**
+      * @return bool true if all the data of the users that appeard on the ranking
+      * is already downloaded, false in other case.
+      * @brief This method returns true if all the data of the users that appeard on
+      * the ranking is already downloaded, false in other case.
+      */
+    public bool isRankingDataComplete(){
+        //si usersThatAllowAppearedOnRanking_ es null, false
+        //si no es null, mira si mide lo mismo que la lista de usuarios que permiten aparecer en el ranking
+        return FriendData.usersThatAllowAppearedOnRanking_ != null && rankingData_.Count == FriendData.usersThatAllowAppearedOnRanking_.Count;
+    }
+
+    /**
+      * @return bool with the value of downloadingRankingData_ property.
+      * @brief getter of the downloadingRankingData_ property.
+      */
+    public bool isDownloadingRankingDataNow(){
+        return downloadingRankingData_;
+    }
+
+    /**
+      * @param string the user id of the user that you want to obtain the 
+      * ranking data.
+      * @return RankingPlayerData object with the data of the player who has
+      * the given user id. 
+      * @brief This method returns the RankingPlayerData object with the data of the
+      * player who has the given user id. It would return null if there isnt any player
+      * with that id.
+      */
+    public RankingPlayerData getRankingPlayerDataById(string uid){
+        return rankingData_.Find(rankingPlayerData => rankingPlayerData.getUid() == uid);
+    }
+
+    /**
+      * @return List<RankingPlayerData> the whole rankingData_ property.
+      * @brief Getter of the rankingData_ propery.
+      */
+    public List<RankingPlayerData> getRankingPlayerData(){
+        return rankingData_;
+    }
+
+    /**
+      * @brief This method sorts the users that appeard on the ranking. It sorts
+      * them setting on the firsts positions users with the highers scores.
+      * It also updates the top_ property of the RankingPlayerData objects of the
+      * lists using the setTop method.
+      */
+    public void sortRankingDataList(){
+        rankingData_.Sort(delegate(RankingPlayerData a, RankingPlayerData b){
+            if(a.getScore() == b.getScore()){
+                return 0;
+            }else if(a.getScore() > b.getScore()){
+                //queremos ordenarlo al reves, el de mayor score primero
+                return -1;
+            }
+            //debe ser <
+            return 1;
+        });
+        for(int index = 0; index < rankingData_.Count; index++){
+            //el 0 es el 1
+            rankingData_[index].setTop(index+1);
+        }
     }
 }

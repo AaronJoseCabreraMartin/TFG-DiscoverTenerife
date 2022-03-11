@@ -12,10 +12,12 @@ var searchData=
   ['inprogress_9',['inProgress',['../classanonymous_button_handler.html#aafc1b40f09451433046b05c701fe03eb',1,'anonymousButtonHandler.inProgress()'],['../classemail_login_controller.html#a1788e6a2b4f7262f91002f7e4e9c36d6',1,'emailLoginController.inProgress()'],['../classgoogle_login_controller.html#a462c01579c1bc45da100ea1812a145f6',1,'googleLoginController.inProgress()'],['../classregister_screen_controller.html#a1d282311f55a3559100ee05900effc16',1,'registerScreenController.inProgress()']]],
   ['internetconnection_10',['internetConnection',['../classfirebase_handler.html#aa8a10ab6460cf11bc6d23126c44b200f',1,'firebaseHandler']]],
   ['isafriendbydisplayname_11',['isAFriendByDisplayName',['../class_user_data.html#ae0d987deec76a4a895f568a4a0e60d54',1,'UserData']]],
-  ['isemail_12',['isEmail',['../classemail_login_controller.html#a5d3572bf2f6794027e6599369d7e3a80',1,'emailLoginController.isEmail()'],['../classregister_screen_controller.html#a9220dbc8f4920ca59578ce42c036b447',1,'registerScreenController.isEmail()']]],
-  ['isitpermissiontime_13',['isItPermissionTime',['../classgps_controller.html#a0b573b691d0a6c507c9335e83dfcee06',1,'gpsController']]],
-  ['ismyturn_14',['isMyTurn',['../class_place_handler.html#ac47e4d72518657d03560102f2647e6b5',1,'PlaceHandler']]],
-  ['isplacestoredbyname_15',['isPlaceStoredByName',['../class_stored_place.html#a9d3d3e49b4f1fa0918fdb899c74c15fd',1,'StoredPlace']]],
-  ['isready_16',['isReady',['../class_place.html#a610ebba52df9201c73ac2e3ffcdb1ec8',1,'Place']]],
-  ['items_5f_17',['items_',['../classadaptable_size_panel.html#a857f0f46a650ec213f0f8aa05573e00c',1,'adaptableSizePanel']]]
+  ['isdownloadingrankingdatanow_12',['isDownloadingRankingDataNow',['../classfirebase_handler.html#a248a3b10ee00c5c98a6c8589338d01d0',1,'firebaseHandler']]],
+  ['isemail_13',['isEmail',['../classemail_login_controller.html#a5d3572bf2f6794027e6599369d7e3a80',1,'emailLoginController.isEmail()'],['../classregister_screen_controller.html#a9220dbc8f4920ca59578ce42c036b447',1,'registerScreenController.isEmail()']]],
+  ['isitpermissiontime_14',['isItPermissionTime',['../classgps_controller.html#a0b573b691d0a6c507c9335e83dfcee06',1,'gpsController']]],
+  ['ismyturn_15',['isMyTurn',['../class_place_handler.html#ac47e4d72518657d03560102f2647e6b5',1,'PlaceHandler']]],
+  ['isplacestoredbyname_16',['isPlaceStoredByName',['../class_stored_place.html#a9d3d3e49b4f1fa0918fdb899c74c15fd',1,'StoredPlace']]],
+  ['isrankingdatacomplete_17',['isRankingDataComplete',['../classfirebase_handler.html#a531d01b38f313306dd09a48e2475bcae',1,'firebaseHandler']]],
+  ['isready_18',['isReady',['../class_place.html#a610ebba52df9201c73ac2e3ffcdb1ec8',1,'Place']]],
+  ['items_5f_19',['items_',['../classadaptable_size_panel.html#a857f0f46a650ec213f0f8aa05573e00c',1,'adaptableSizePanel']]]
 ];

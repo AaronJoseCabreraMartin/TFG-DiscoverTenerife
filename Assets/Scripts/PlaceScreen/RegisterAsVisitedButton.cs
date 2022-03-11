@@ -31,6 +31,9 @@ public class RegisterAsVisitedButton : MonoBehaviour
       * - If the user is not close enough it shows a toast message with the error, telling the user 
       * that he has to be more more close to mark it as visited.
       * 
+      * It also checks if the user has level up his range, if that is the case it will show a
+      * toast message showing his new range.
+      *
       * How many time the user has to wait between visiting the same place twice is defined on
       * the gameRules class, as well as how close the user has to be to register a place as visited.
       */
@@ -41,6 +44,7 @@ public class RegisterAsVisitedButton : MonoBehaviour
         }else{
             if(gpsController.gpsControllerInstance_.CalculateDistanceToUser(PlaceHandler.chosenPlace_.getLatitude(), PlaceHandler.chosenPlace_.getLongitude()) < gameRules.getMaxDistance()){
                 if(firebaseHandler.firebaseHandlerInstance_.cooldownVisitingPlaceByNameFinished(PlaceHandler.chosenPlace_.getName())){
+                    string initialRange = gameRules.calculateRange(firebaseHandler.firebaseHandlerInstance_.currentUser_.getScore());
                     firebaseHandler.firebaseHandlerInstance_.userVisitedPlaceByName(PlaceHandler.chosenPlace_.getName());
 
                     toastMessageInstance.makeAnimation("You register this place as visited successfully!", new Color32(76,175,80,255), 2);
@@ -53,6 +57,10 @@ public class RegisterAsVisitedButton : MonoBehaviour
                       toastMessageInstance.makeAnimation(
                             "You also have completed a challenge! You have earned " + challengeScore.ToString() + " extra points!", 
                             new Color32(76,175,80,255), 3);
+                    }
+                    string postRange = gameRules.calculateRange(firebaseHandler.firebaseHandlerInstance_.currentUser_.getScore());
+                    if(initialRange != postRange){
+                      toastMessageInstance.makeAnimation( "You have reached the " + postRange + " range!", new Color32(76,175,80,255), 3);
                     }
                     visitedPanelObject_.GetComponent<VisitedPanelController>().CheckNewState();
                 }else{

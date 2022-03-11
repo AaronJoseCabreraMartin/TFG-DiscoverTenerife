@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+  * @brief abstract class that represent an adaptable vertical size panel. It
+  * provides methods for control the height of the panel depending of the number
+  * of prefabs that it has attached. Classes that inherit from this class must
+  * have a fillPanel method.
+  */
 public abstract class adaptableSizePanel : MonoBehaviour
 {
     /**

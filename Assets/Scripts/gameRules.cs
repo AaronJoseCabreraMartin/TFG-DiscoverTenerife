@@ -108,6 +108,8 @@ public class gameRules{
       Debug.Log($"startTimestamp = {startTimestamp} completationTimestamp = {completationTimestamp} distanceToUserBase = {distanceToUserBase} timeScore = {timeScore}");
       Debug.Log($"total de puntuación por completar el reto: {timeScore*distanceToUserBase}");
       //timeScore is always between 1 and 2
+      //el maximo de puntuacion será estrictamente dependiente de la distancia a la base...
+      //como minimo la score es igual a la distancia de la base y como maximo sera el doble de esa distancia.
       return (int)(timeScore*distanceToUserBase);
     }
 
@@ -155,8 +157,47 @@ public class gameRules{
     static public double getScoreForVisitingAPlace(int placeVisits, int maxVisits, bool newVisit = false){
       double scoreBonus = 2.0d - ((double)placeVisits)/((double)(maxVisits)+1.0d);
       //scoreBonus esta entre (1, 2] y será más alto cuantas menos visitas haya recibido el lugar comparándolo con el que más visitas ha recibido.
-      Debug.Log($"placeVisits = {placeVisits} maxVisits = {maxVisits} newVisit = {newVisit}");
-      Debug.Log($"scoreBonus = {scoreBonus} formula = "+scoreBonus * (newVisit ? gameRules.baseBonusNewVisit_ : gameRules.baseBonusVisit_));
+      //la score recibida esta entre 10 y 20 si es un sitio ya visitado y entre 15 y 30 si es un sitio nuevo
+      //Debug.Log($"placeVisits = {placeVisits} maxVisits = {maxVisits} newVisit = {newVisit}");
+      //Debug.Log($"scoreBonus = {scoreBonus} formula = "+scoreBonus * (newVisit ? gameRules.baseBonusNewVisit_ : gameRules.baseBonusVisit_));
       return scoreBonus * (newVisit ? gameRules.baseBonusNewVisit_ : gameRules.baseBonusVisit_);
+    }
+
+    /**
+      * @brief Dictionary that contains the names of the ranges and the minimum
+      * score that a user have to has to be considered of that range. They have
+      * to be sorted as higher ranger first.
+      */
+    static private Dictionary<string,int> ranges_ = new Dictionary<string,int>(){
+      //Cuanto mas alto el rango mayor diferencia de puntos.
+      {"Mencey",      100000},//100k
+      {"Achimencey",   10000},//10k
+      {"Guañameñe",     3000},//3k
+      {"Tagorero",      1500},//1.5k
+      {"Sigoñes",        750},//0.75k
+      {"Cichiciquitzos", 300},//0.3k
+      {"Achicaxna",      100},//0.1k
+      {"Achicaxnais",      0},//0
+    };
+
+    /**
+      * @param int with the user's score.
+      * @return string with the current user range name.
+      * @brief This method returns the name of the range that the user should
+      * be. To calculate the user range it uses the user's score. If the score
+      * is a negative number it will return the empty string.
+      */
+    static public string calculateRange(int score){
+      //Como estan ordenados de mayor a menor desde que encuentres uno que la puntuacion dada es menor que 
+      //la del rango, ese es el rango del usuario.
+      foreach(var rangeName in gameRules.ranges_.Keys){
+        //Debug.Log("range = "+rangeName+$" -> score to be on the range = {gameRules.ranges_[rangeName]}");
+        if(score >= gameRules.ranges_[rangeName]){
+          Debug.Log($"score = {score} -> range = "+rangeName);
+          return rangeName;
+        }
+      }
+      Debug.Log($"Invalid score: {score}");
+      return "";
     }
 }
