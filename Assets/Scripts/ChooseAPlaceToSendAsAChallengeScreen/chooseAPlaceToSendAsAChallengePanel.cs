@@ -10,7 +10,7 @@ using UnityEngine;
 public class chooseAPlaceToSendAsAChallengePanel : adaptableSizePanel
 {
   /**
-    * This method is called to instanciate the panel. It creates a prefab for each place that
+    * @brief This method is called to instanciate the panel. It creates a prefab for each place that
     * that the current user has stored. It changes the panelFilled_ property to true.
     */
   protected override void fillPanel(){
@@ -24,5 +24,15 @@ public class chooseAPlaceToSendAsAChallengePanel : adaptableSizePanel
       }
     }
     panelFilled_ = true;
+  }
+
+  /**
+    * @brief This method overrides the elementDeleted method of adaptableSizePanel. It basically calls
+    * to the elementDeleted method of adaptableSizePanel and then calls the changeScene to cameback to
+    * the Friend List Screen.
+    */
+  public override void elementDeleted(GameObject elementDeleted){
+    base.elementDeleted(elementDeleted);
+    ChangeScene.changeScene("PantallaListaAmigos");
   }
 }

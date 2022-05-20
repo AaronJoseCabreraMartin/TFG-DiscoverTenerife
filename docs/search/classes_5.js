@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['informationpostercontroller_0',['informationPosterController',['../classinformation_poster_controller.html',1,'']]]
+  ['iconhandler_0',['IconHandler',['../class_icon_handler.html',1,'']]],
+  ['informationpostercontroller_1',['informationPosterController',['../classinformation_poster_controller.html',1,'']]]
 ];

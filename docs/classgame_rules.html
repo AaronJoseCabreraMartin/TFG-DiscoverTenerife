@@ -102,6 +102,11 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a797c5c377437a316c3d3662c8b403755"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a797c5c377437a316c3d3662c8b403755">calculateRange</a> (int score)</td></tr>
 <tr class="memdesc:a797c5c377437a316c3d3662c8b403755"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the name of the range that the user should be. To calculate the user range it uses the user's score. If the score is a negative number it will return the empty string.  <a href="classgame_rules.html#a797c5c377437a316c3d3662c8b403755">More...</a><br /></td></tr>
 <tr class="separator:a797c5c377437a316c3d3662c8b403755"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a00fbf88ddaa5007d789b28729d638f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a0a00fbf88ddaa5007d789b28729d638f">getIndexOfRange</a> (string range)</td></tr>
+<tr class="memdesc:a0a00fbf88ddaa5007d789b28729d638f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns the correspondent index of the given range name, if the given string isnt any defined range, it will return -1.  <a href="classgame_rules.html#a0a00fbf88ddaa5007d789b28729d638f">More...</a><br /></td></tr>
+<tr class="separator:a0a00fbf88ddaa5007d789b28729d638f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b66d770321d1d3d0cd95bb2278d56e7"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_rules.html#a9b66d770321d1d3d0cd95bb2278d56e7">getAnonymousName</a> ()</td></tr>
+<tr class="separator:a9b66d770321d1d3d0cd95bb2278d56e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -256,6 +261,32 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a9b66d770321d1d3d0cd95bb2278d56e7" name="a9b66d770321d1d3d0cd95bb2278d56e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b66d770321d1d3d0cd95bb2278d56e7">&#9670;&nbsp;</a></span>getAnonymousName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static string gameRules.getAnonymousName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>string with the name defined for anonymous users </dd></dl>
+
+</div>
+</div>
 <a id="aeb0c711cb90fdf7f62f66df7589fec42" name="aeb0c711cb90fdf7f62f66df7589fec42"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeb0c711cb90fdf7f62f66df7589fec42">&#9670;&nbsp;</a></span>getExpiryTimeForChallenges()</h2>
 
@@ -281,6 +312,41 @@ Static Private Attributes</h2></td></tr>
 
 <p>getter of the expiryTimeForChallenges_ static property. </p>
 <dl class="section return"><dt>Returns</dt><dd>the time that challenges stay active until they expire. </dd></dl>
+
+</div>
+</div>
+<a id="a0a00fbf88ddaa5007d789b28729d638f" name="a0a00fbf88ddaa5007d789b28729d638f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a00fbf88ddaa5007d789b28729d638f">&#9670;&nbsp;</a></span>getIndexOfRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int gameRules.getIndexOfRange </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>range</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method returns the correspondent index of the given range name, if the given string isnt any defined range, it will return -1. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>searched range name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int with the index of the correspondent range </dd></dl>
 
 </div>
 </div>
@@ -622,7 +688,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> Dictionary&lt;string,int&gt;(){</div>
 <div class="line">      </div>
-<div class="line">      {<span class="stringliteral">&quot;Mencey&quot;</span>,      100000},</div>
+<div class="line">      {<span class="stringliteral">&quot;Mencey&quot;</span>,       50000},</div>
 <div class="line">      {<span class="stringliteral">&quot;Achimencey&quot;</span>,   10000},</div>
 <div class="line">      {<span class="stringliteral">&quot;Guañameñe&quot;</span>,     3000},</div>
 <div class="line">      {<span class="stringliteral">&quot;Tagorero&quot;</span>,      1500},</div>

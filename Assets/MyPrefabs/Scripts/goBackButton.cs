@@ -29,4 +29,14 @@ public class goBackButton : MonoBehaviour{
     public void changeSceneWithAnimation(){
         GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation(NombrePantalla_);
     }
+
+    /**
+      * @brief This method is called onces per frame, it checks if the user is pressing the escape button on an android
+      * device, if that is the case, it calls the OnClick method.
+      */
+    void Update(){
+      if (Application.platform == RuntimePlatform.Android && Input.GetKey(KeyCode.Escape)){
+        OnClick();
+      }
+    }
 }

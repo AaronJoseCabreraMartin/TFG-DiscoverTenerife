@@ -13,13 +13,15 @@ public class friendsPanel : adaptableSizePanel
     * it on the friends_ list. It also change the value of the property panelFilled_ to true. 
     */
   protected override void fillPanel(){
-    for(int i = 0; i < firebaseHandler.firebaseHandlerInstance_.currentUser_.countOfFriendData(); i++){
-      GameObject friendObject = Instantiate(prefab_, new Vector3(0, 0, 0), Quaternion.identity);
-      friendObject.GetComponent<Friend>().setData(firebaseHandler.firebaseHandlerInstance_.currentUser_.getFriendData(i));
-      friendObject.transform.SetParent(this.transform);
-      friendObject.GetComponent<Friend>().setPanel(this.gameObject);
-      items_.Add(friendObject);
+    if(firebaseHandler.firebaseHandlerInstance_.currentUser_.friendDataIsComplete()){
+      for(int i = 0; i < firebaseHandler.firebaseHandlerInstance_.currentUser_.countOfFriendData(); i++){
+        GameObject friendObject = Instantiate(prefab_, new Vector3(0, 0, 0), Quaternion.identity);
+        friendObject.GetComponent<Friend>().setData(firebaseHandler.firebaseHandlerInstance_.currentUser_.getFriendData(i));
+        friendObject.transform.SetParent(this.transform);
+        friendObject.GetComponent<Friend>().setPanel(this.gameObject);
+        items_.Add(friendObject);
+      }
+      panelFilled_ = true;
     }
-    panelFilled_ = true;
   }
 }

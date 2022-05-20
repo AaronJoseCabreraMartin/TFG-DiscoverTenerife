@@ -52,7 +52,7 @@ public class UserData{
       * @brief list that contains strings with the user ids of all the user that has sended a friendship
       * invitation to the current user and the current user hasnt accepted or denied.
       */
-    private List<string> friendInvitationsList_;//almacena el UID de los usuarios que te han enviado una peticion de amistad
+    private List<string> friendsInvitationsList_;//almacena el UID de los usuarios que te han enviado una peticion de amistad
 
     /**
       * @brief list that stores all the necessary information of the users those that the current 
@@ -87,6 +87,62 @@ public class UserData{
     private List<string> acceptedFriendsToNotify_;
 
     /**
+      * @brief List<Dictionary<string,string>> that stores all the user range story.
+      * It has an element for each time the user has reached a new range. Each element
+      * stores the range that is reached and the date of the achievement.
+      * The rangeStory_ expects dictionaries with at least range_ and date_ entries.
+      */
+    private List<Dictionary<string,string>> rangeStory_;
+
+    /**
+      * @brief List<string> that stores all the friends invitations that the user accepts or
+      * denies in order to prevent the database incongruences.
+      */
+    public List<string> friendsInvitationsDeletedList_;//aceptadas y eliminadas, las dos
+
+    /**
+      * @brief List<string> that stores all the friends that the user deletes in order
+      * to prevent the database incongruences.
+      */
+    public List<string> deletedFriends_;//aquellos amigos que ya he eliminado porque ellos me han borrado
+
+    /**
+      * @brief List<challengeData> that stores all the challenges that the user completes or
+      * removes in order to prevent the database incongruences.
+      */
+    public List<challengeData> deletedChallenges_;//aquellos retos que he descartado o que he completado
+
+    /**
+      * @brief List<string> that stores all the friends invitations that the other user has accepted.
+      */
+    public List<string> acceptedFriends_;//las peticiones de amistad que ya se han añadido ¿¿¿WTF porque hace falta esto???
+
+    /**
+      * @brief int that stores the score that this user had before adding the score that is on the
+      * database version. This has to be done on this way because other users can add score to this user
+      * so the database version could be different of the local score version
+      */
+    public int earnedScoreBeforeAdding_;//la puntuacion que tenias antes de sumartela
+
+    /**
+      * @brief static List<string> that store the names of the properties that are considered
+      * safe to write on the database because they only can be modified by the user that own them
+      */
+    public static List<string> safeProperties_ = new List<string>() {"baseCords_", "displayName_", "score_", "visitedPlaces_", "friends_",
+    //propiedades que no pueden sobreescribir cambios online porque solo las puede cambiar este jugador, entonces lo que subas es lo correcto
+                                                                     "rangeStory_"};
+
+    /**
+      * @brief static List<string> that store the names of the properties that are considered
+      * unsafe to write on the database because they could be modified by the user that own them
+      * and other users.
+      */
+    public static List<string> unsafeProperties_ = new List<string>() {"friendsInvitations_", "deletedFriends_", "challenges_", "earnedScore_", 
+    //propiedades que hay que tener cuidado porque otros jugadores pueden haber cambiado la version online y hay que fusionar los cambios 
+    //locales con los de la bbdd
+                                                                       "acceptedFriendsInvitations_"};
+
+    /**
       * @param Firebase.Auth.FirebaseUser firebase user data
       * @param List<Dictionary<string,string>> (Optional) Information of the sites that the user has already visited
       * @param Dictionary<string,string> (Optional) Information of the geographical coords of the user's base.
@@ -97,24 +153,26 @@ public class UserData{
       * @param List<Dictionary<string,string>> (Optional) List of the current user's challenges.
       * @param string (Optional) the user's current score 
       * @param string (Optional) the user's score that has earned by the completion of challenges that the user has sended.
+      * @param List<Dictionary<string,string>> (Optional) the user's story of range achievements.
       * @brief Constructor. It initialices all the properties taking aware if they have been given with a real 
       * value or they are null. 
       * - If the baseCordsData parameter isnt null, it sets baseEstablished_ attribute to true, it
       * sets it as false in other case.
-      * - If the friendInvitationsAcceptedList parameter isnt null, it adds each element of the list to the
+      * - If the friendsInvitationsAcceptedList parameter isnt null, it adds each element of the list to the
       * friendList_ attribute.
       * - If the deletedFriendsList parameter isnt null, it deletes each element of that list from the friendList_
       * attribute.
       */
     public UserData(Firebase.Auth.FirebaseUser newFireBaseUserData, List<Dictionary<string,string>> oldVisitedPlaces = null, 
                     Dictionary<string,string> baseCordsData = null, List<string> friendList = null, 
-                    List<string> friendInvitationsList = null, List<string> friendInvitationsAcceptedList = null,
+                    List<string> friendsInvitationsList = null, List<string> friendsInvitationsAcceptedList = null,
                     List<string> deletedFriendsList = null, List<Dictionary<string,string>> challengesData = null, 
-                    string userScore = null, string earnedScore = null ){
+                    string userScore = null, string earnedScore = null, List<Dictionary<string,string>> rangeStory = null){
 
         firebaseUserData_ = newFireBaseUserData;
         score_ = userScore == null ? 0 : Int32.Parse(userScore);
         score_ += earnedScore == null ? 0 : Int32.Parse(earnedScore);
+        earnedScoreBeforeAdding_ = earnedScore == null ? 0 : Int32.Parse(earnedScore);
 
         visitedPlaces_ = new List<VisitedPlace>();
         if(oldVisitedPlaces != null){
@@ -139,18 +197,20 @@ public class UserData{
         }
 
         friendList_ = friendList == null ? new List<string>() : friendList;
+        Debug.Log(getJSONof("friends_"));
         friendDataList_ = new List<FriendData>();
 
-        friendInvitationsList_ = friendInvitationsList == null ? new List<string>() : friendInvitationsList;
+        friendsInvitationsList_ = friendsInvitationsList == null ? new List<string>() : friendsInvitationsList;
         newFriendDataList_ = new List<newFriendData>();
 
         
-        if(friendInvitationsAcceptedList != null){
+        if(friendsInvitationsAcceptedList != null){
             //si se ha aceptado alguna petición de amistad, aniadelo a la lista de amigos
-            foreach(string uid in friendInvitationsAcceptedList){
+            foreach(string uid in friendsInvitationsAcceptedList){
                 friendList_.Add(uid);
             }
         }
+        acceptedFriends_ = friendsInvitationsAcceptedList != null ? friendsInvitationsAcceptedList : new List<string>();
         acceptedFriendsToNotify_ = new List<string>();
         
         challenges_ = new List<challengeData>();
@@ -176,15 +236,20 @@ public class UserData{
         lastChallengeScore_ = 0;
         lastVisitScore_ = 0;
 
-        /*
-        for(int index = 0; index < 30; index++){
-            friendInvitationsList_.Add(index.ToString());
+        rangeStory_ = rangeStory == null ? new List<Dictionary<string,string>>() : rangeStory;
+
+        //Si la lista esta vacia hay que añadirle al menos la fecha de creación
+        if(rangeStory_.Count == 0){
+          Dictionary<string,string> firstRangeStoryElement = new Dictionary<string,string>();
+          //firstRangeStoryElement["date_"] = DateTime.Now.Ticks.ToString();
+          firstRangeStoryElement["date_"] = DateTime.Now.ToString();
+          firstRangeStoryElement["range_"] = gameRules.calculateRange(0);
+          addRangeElementOnRangeStory(firstRangeStoryElement);
         }
-        */
-        /*for(int index = 0; index < 30; index++){
-            friendList_.Add(index.ToString());
-        }*/
         
+        friendsInvitationsDeletedList_ = new List<string>();
+        deletedFriends_ = deletedFriendsList == null ? new List<string>() : deletedFriendsList;
+        deletedChallenges_ = new List<challengeData>();
     }
 
     /**
@@ -196,52 +261,33 @@ public class UserData{
         string conversion = "{";
         conversion += $"\"displayName_\" : \"{displayName_}\",";
         conversion += $"\"score_\" : \"{score_}\",";
+
         if(baseEstablished_){
-            conversion += "\"baseCords_\" :{";
-            conversion += $"\"baseLatitude_\" : \"{baseLatitude_}\",";
-            conversion += $"\"baseLongitude_\" : \"{baseLongitude_}\"";
-            conversion += "},";
+          conversion += "\"baseCords_\" :" + getJSONof("baseCords_") + ",";
         }
+
         if(friendList_.Count != 0){
-            conversion += "\"friends_\" :[";
-            for(int i = 0; i < friendList_.Count; i++){
-                conversion +=  "\"" + friendList_[i] + "\"";
-                if(i+1 != friendList_.Count){
-                   conversion += ",";
-                }
-            }
-            conversion += "],";
+          conversion += "\"friends_\" : " + getJSONof("friends_") + ",";
         }
-        if(friendInvitationsList_.Count != 0){
-            conversion += "\"friendsInvitations_\" :[";
-            for(int i = 0; i < friendInvitationsList_.Count; i++){
-                conversion += "\"" + friendInvitationsList_[i] + "\"";
-                if(i+1 != friendInvitationsList_.Count){
-                   conversion += ",";
-                }
-            }
-            conversion += "],";
+
+        if(friendsInvitationsList_.Count != 0){
+          conversion += "\"friendsInvitations_\" : " + getJSONof("friendsInvitations_") + ",";
         }
         
         if(challenges_.Count != 0){
-          conversion += "\"challenges_\" : [";
-          for(int i = 0; i < challenges_.Count; i++){
-              conversion += challenges_[i].ToJson();
-              if(i+1 < challenges_.Count){
-                  conversion += ",";
-              }
-          }
-          conversion += "],";
+          conversion += "\"challenges_\" : " + getJSONof("challenges_") + ",";
         }
 
-        conversion += "\"visitedPlaces_\" : [";
-        for(int i = 0; i < visitedPlaces_.Count; i++){
-            conversion += visitedPlaces_[i].ToJson();
-            if(i+1 < visitedPlaces_.Count){
-                conversion += ",";
-            }
+        if(rangeStory_.Count != 0){
+          conversion += "\"rangeStory_\": "+ getJSONof("rangeStory_") + ",";
         }
-        conversion += "] }";
+
+        if(visitedPlaces_.Count != 0){
+          conversion += "\"visitedPlaces_\" :";
+          conversion += getJSONof("visitedPlaces_");
+        }
+        
+        conversion += "}";
         return conversion;
     }
 
@@ -401,6 +447,9 @@ public class UserData{
         VisitedPlace place = visitedPlaces_.Find(visitedPlace => visitedPlace.type_ == type && visitedPlace.id_ == id);
         int visitsOfPlace = firebaseHandler.firebaseHandlerInstance_.requestHandler_.getPlaceByTypeAndId(type, id.ToString()).getTimesItHasBeenVisited();
         int visitsOfMostVisitedPlace = firebaseHandler.firebaseHandlerInstance_.requestHandler_.visitsOfMostVisitedPlace();
+        
+        string rangeBeforeVisit = gameRules.calculateRange(score_);
+        
         lastVisitScore_ = (int)gameRules.getScoreForVisitingAPlace(visitsOfPlace, visitsOfMostVisitedPlace, place==null);
         score_ += lastVisitScore_;
         lastChallengeScore_ = 0;
@@ -431,6 +480,16 @@ public class UserData{
           }
           //tanto si estaba caducado como si no, debes eliminar ese reto de la lista.
           challenges_.Remove(challenge);
+          deletedChallenges_.Add(challenge);
+        }
+
+        if(gameRules.calculateRange(score_) != rangeBeforeVisit){
+          Dictionary<string,string> toAdd = new Dictionary<string,string>();
+          toAdd["range_"] = gameRules.calculateRange(score_);
+          //toAdd["date_"] = DateTime.Now.Ticks.ToString();
+          //por algun motivo el firebase cambia los ticks a la fecha real, pero como esto no lo voy a volver a usar da igual
+          toAdd["date_"] = DateTime.Now.ToString();
+          rangeStory_.Add(toAdd);
         }
     }
 
@@ -491,8 +550,8 @@ public class UserData{
       * @return int how many new friendship invitations the current user has.
       * @brief It returns an int with how many new friendship invitations the current user has.
       */
-    public int countOfFriendInvitations(){
-        return friendInvitationsList_.Count;
+    public int countOffriendsInvitations(){
+        return friendsInvitationsList_.Count;
     }
 
     /**
@@ -503,7 +562,7 @@ public class UserData{
       * is negative it will raise an exception.
       */
     public string getFriendInvitation(int index){
-        return friendInvitationsList_[index];
+        return friendsInvitationsList_[index];
     }
 
     /**
@@ -513,7 +572,8 @@ public class UserData{
       */
     public void deleteInvitationByName(string name){
         //WTF no deberia llamarse deleteInvitationByUID ???
-        friendInvitationsList_.Remove(name);
+        friendsInvitationsList_.Remove(name);
+        friendsInvitationsDeletedList_.Add(name);
     }
 
     /**
@@ -559,6 +619,7 @@ public class UserData{
       */
     public void addFriendData(FriendData friendData){
         friendDataList_.Add(friendData);
+        Debug.Log($"UserData addFriendData! friendDataList_.Count = {friendDataList_.Count}");
     }
 
     /**
@@ -569,21 +630,21 @@ public class UserData{
     }
 
     /**
-      * @return Count of the size of the friendInvitationsList_ attribute.
+      * @return Count of the size of the friendsInvitationsList_ attribute.
       */
     public int countOfNewFriends(){
-        return friendInvitationsList_.Count;
+        return friendsInvitationsList_.Count;
     }
 
     /**
       * @param int the position of the invitation that you want to get.
       * @return string the user id of the invitation that is on the index-th position
-      * of the friendInvitationsList_ attribute.
-      * @brief It returns the user id of the index-th invitation of the friendInvitationsList_ 
+      * of the friendsInvitationsList_ attribute.
+      * @brief It returns the user id of the index-th invitation of the friendsInvitationsList_ 
       * attribute. If the index is bigger than the list's size or its negative it will raise an exception.
       */
     public string getNewFriend(int index){
-        return friendInvitationsList_[index];
+        return friendsInvitationsList_[index];
     }
 
     /**
@@ -615,7 +676,7 @@ public class UserData{
       * @return bool True if all frienship invitation data is downloaded, false in other case. 
       */
     public bool newFriendDataIsComplete(){
-        return friendInvitationsList_.Count == newFriendDataList_.Count;
+        return friendsInvitationsList_.Count == newFriendDataList_.Count;
     }
 
     /**
@@ -627,9 +688,10 @@ public class UserData{
       */
     public void acceptFriend(string uid){
         friendList_.Add(uid);
-        friendInvitationsList_.Remove(uid);
+        friendsInvitationsList_.Remove(uid);
         newFriendDataList_.Remove(newFriendDataList_.Find(newFriendData => newFriendData.getUid() == uid));
         acceptedFriendsToNotify_.Add(uid);
+        friendsInvitationsDeletedList_.Add(uid);
     }
 
     /**
@@ -693,6 +755,7 @@ public class UserData{
       challengeData challenge = challenges_.Find(challenge => challenge.getChallengerId() == uid);
       if(challenge != null){
         challenges_.Remove(challenge);
+        deletedChallenges_.Add(challenge);
       }
     }
 
@@ -739,7 +802,6 @@ public class UserData{
       * false in another case.
       */
     public bool hasToBeNotified(string uid){
-      //Debug.Log($" {uid} hasToBeNotified ? " + acceptedFriendsToNotify_.Exists(acceptedFriend => acceptedFriend == uid));
       return acceptedFriendsToNotify_.Exists(acceptedFriend => acceptedFriend == uid);
     }
 
@@ -750,7 +812,6 @@ public class UserData{
       * method, it will raise an exception.
       */
     public string nextFriendToBeNotified(){
-      //Debug.Log("nextFriendToBeNotified "+acceptedFriendsToNotify_[0]);
       return acceptedFriendsToNotify_[0];
     }
 
@@ -759,7 +820,6 @@ public class UserData{
       * @brief This method removes the given user id of the acceptedFriendsToNotify_ list.
       */
     public void hasBeenNotified(string uid){
-      //Debug.Log($"{uid} hasBeenNotified");
       acceptedFriendsToNotify_.Remove(uid);
     }
 
@@ -770,7 +830,6 @@ public class UserData{
       * any other case.
       */
     public bool anyUserHasToBeNotified(){
-      //Debug.Log($"anyUserHasToBeNotified = {acceptedFriendsToNotify_.Count != 0}" );
       return acceptedFriendsToNotify_.Count != 0;
     }
 
@@ -780,5 +839,148 @@ public class UserData{
       */
     public int getScore(){
       return score_;
+    }
+
+    /**
+      * @return string with the current user's display name
+      * @brief Getter of the displayName_ property.
+      */
+    public string getDisplayName(){
+      return displayName_;
+    }
+
+    /**
+      * @return int with the quantity of elements of the current user's range story
+      * @brief Getter of the rangeStory_.Count property.
+      */
+    public int getRangeStoryCount(){
+      return rangeStory_.Count;
+    }
+
+    /**
+      * @param int with the index of the element that you want to obtain
+      * @return Dictionary<string,string> with the information of the element that
+      * is on the given position of the rangeStory_
+      * @brief Getter of the elements rangeStory_ property.
+      */
+    public Dictionary<string,string> getRangeStory(int index){
+      return rangeStory_[index];
+    }
+
+    /**
+      * @param Dictionary<string,string> that contains the information of the
+      * rangeStory that you want to add.
+      * @brief This method adds the given dictionary to the rangeStory_ property.
+      * The rangeStory_ expects dictionaries with at least range_ and date_ entries.
+      */
+    public void addRangeElementOnRangeStory(Dictionary<string,string> toAdd){
+      //podria comprobar que no esta en la lista para no meter repetidas
+      rangeStory_.Add(toAdd);
+    }
+
+    /**
+      * @param string with the name of the property that you want to obtain
+      * the json conversion of.
+      * @return string with the json conversion of the given property
+      * @brief this method returns the json conversion of the property of this user
+      * that has the given name
+      */
+    public string getJSONof(string property){
+      string conversion = "";
+      if(property == "friends_"){
+        conversion += "[";
+        for(int i = 0; i < friendList_.Count; i++){
+            conversion +=  "\"" + friendList_[i] + "\"";
+            if(i+1 != friendList_.Count){
+                conversion += ",";
+            }
+        }
+        conversion += "]";
+
+      }else if(property == "friendsInvitations_"){
+        conversion += "[";
+        for(int i = 0; i < friendsInvitationsList_.Count; i++){
+            conversion += "\"" + friendsInvitationsList_[i] + "\"";
+            if(i+1 != friendsInvitationsList_.Count){
+                conversion += ",";
+            }
+        }
+        conversion += "]";
+      
+      }else if(property == "acceptedFriendsInvitations_"){
+        conversion += "[";
+        for(int i = 0; i < acceptedFriends_.Count; i++){
+            conversion += "\"" + acceptedFriends_[i] + "\"";
+            if(i+1 != acceptedFriends_.Count){
+                conversion += ",";
+            }
+        }
+        conversion += "]";
+
+      }else if(property == "challenges_"){
+        conversion += "[";
+        for(int i = 0; i < challenges_.Count; i++){
+            conversion += challenges_[i].ToJson();
+            if(i+1 < challenges_.Count){
+                conversion += ",";
+            }
+        }
+        conversion += "]";
+
+      }else if(property == "visitedPlaces_"){
+        conversion += "[";
+        for(int i = 0; i < visitedPlaces_.Count; i++){
+          conversion += visitedPlaces_[i].ToJson();
+          if(i+1 < visitedPlaces_.Count){
+            conversion += ",";
+          }
+        }
+        conversion += "]";
+
+      }else if(property == "rangeStory_"){
+        conversion += "[";
+        for(int i = 0; i < rangeStory_.Count; i++){
+          conversion += "{ \"range_\": \"" + rangeStory_[i]["range_"] + "\",";
+          conversion += "\"date_\": \"" + rangeStory_[i]["date_"] + "\" }";
+          if(i+1 < rangeStory_.Count){
+            conversion += ",";
+          }
+        }
+        conversion += "]";
+
+      }else if(property == "deletedFriends_"){
+        conversion += "[";
+        for(int i = 0; i < deletedFriends_.Count; i++){
+          conversion += "\"" + deletedFriends_[i] + "\"";
+          if(i+1 < deletedFriends_.Count){
+            conversion += ",";
+          }
+        }
+        conversion += "]";
+
+      }else if(property == "baseCords_"){
+        conversion += "{" + $"\"baseLatitude_\" : \"{baseLatitude_}\",";
+        conversion += $"\"baseLongitude_\" : \"{baseLongitude_}\"" + "}";
+
+      }else if(property == "displayName_"){
+        conversion += $"\"{displayName_}\"";
+
+      }else if(property == "score_"){
+        conversion += $"\"{score_}\"";
+
+      }else if(property == "earnedScore_"){
+        conversion += $"\"0\"";//siempre la earned score se suma nada mas iniciar sesion
+
+      }else{
+        Debug.Log("Property desconocida en getJSONof de UserData: " + property);
+      }
+      return conversion;
+    }
+
+    /**
+      * @return bool true if the current user is an anonymous user, false in other case
+      */
+    public bool IsAnonymous(){
+      return firebaseUserData_.IsAnonymous;
     }
 }

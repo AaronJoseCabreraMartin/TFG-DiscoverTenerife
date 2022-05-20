@@ -42,6 +42,13 @@ public class storedPlaceToSend : MonoBehaviour
     private StoredPlace representedPlace_;
 
     /**
+      * @brief boolean that controls if the user can select a place to send a challenge
+      * to not allow the user send several challenges to the same user meanwhile the 
+      * destruction animation is being played.
+      */
+    public static bool userCanSelect_ = true;
+    
+    /**
       * @param GameObject that contains the panel that this object is attached.
       * @brief Setter of the panel_ property.
       */
@@ -69,16 +76,17 @@ public class storedPlaceToSend : MonoBehaviour
       * a toastMessage and then start the destroyAfterSeconds coroutine.
       */
     public void chooseThisPlaceAndUpload(){
-        if(firebaseHandler.firebaseHandlerInstance_.internetConnection()){
-            Debug.Log(FriendData.chosenFriend_);
-            Debug.Log(FriendData.chosenFriend_.getDisplayName());
-            Dictionary<string,string> placeKeys = firebaseHandler.firebaseHandlerInstance_.findPlaceByName(representedPlace_.getName());
-            FriendData.chosenFriend_.createNewChallenge(placeKeys["id"], placeKeys["type"],firebaseHandler.firebaseHandlerInstance_.currentUser_.getUid());
-            firebaseHandler.firebaseHandlerInstance_.uploadFriendChallengesOf(FriendData.chosenFriend_);
-            toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You have chanllege " + FriendData.chosenFriend_.getDisplayName() + " successfully", new Color32(76,175,80,255), 5);
-            StartCoroutine(destroyAfterSeconds(5));
-        }else{
-            toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You don't have internet connection, try it again later.", new Color32(255,0,0,255), 5);
+        if(storedPlaceToSend.userCanSelect_){
+          if(firebaseHandler.firebaseHandlerInstance_.internetConnection()){
+              storedPlaceToSend.userCanSelect_ = false;
+              Dictionary<string,string> placeKeys = firebaseHandler.firebaseHandlerInstance_.findPlaceByName(representedPlace_.getName());
+              FriendData.chosenFriend_.createNewChallenge(placeKeys["id"], placeKeys["type"],firebaseHandler.firebaseHandlerInstance_.currentUser_.getUid());
+              firebaseHandler.firebaseHandlerInstance_.uploadFriendChallengesOf(FriendData.chosenFriend_);
+              toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You have chanllege " + FriendData.chosenFriend_.getDisplayName() + " successfully", new Color32(76,175,80,255), 5);
+              StartCoroutine(destroyAfterSeconds(5));
+          }else{
+              toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You don't have internet connection, try it again later.", new Color32(255,0,0,255), 5);
+          }
         }
     }
 
@@ -99,10 +107,10 @@ public class storedPlaceToSend : MonoBehaviour
       */
     private void destroyAndAdvice(){
         if(panel_!= null){
-          //panel_.GetComponent<chooseAPlaceToSendAsAChallengePanel>().placeDeleted(this.gameObject);
           panel_.GetComponent<chooseAPlaceToSendAsAChallengePanel>().elementDeleted(this.gameObject);
         }
         Destroy(this.gameObject);
         Destroy(this);
+        storedPlaceToSend.userCanSelect_ = true;
     }
 }

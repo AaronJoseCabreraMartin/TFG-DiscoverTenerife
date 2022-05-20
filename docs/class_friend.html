@@ -83,7 +83,7 @@ Inheritance diagram for Friend:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6e228805f2886d8dbe7e4ade0ce3668a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#a6e228805f2886d8dbe7e4ade0ce3668a">setData</a> (<a class="el" href="class_friend_data.html">FriendData</a> friendData)</td></tr>
-<tr class="memdesc:a6e228805f2886d8dbe7e4ade0ce3668a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor of the class. It sets the userWasNotified_ as false, it sets the shown text as the display name of the user.  <a href="class_friend.html#a6e228805f2886d8dbe7e4ade0ce3668a">More...</a><br /></td></tr>
+<tr class="memdesc:a6e228805f2886d8dbe7e4ade0ce3668a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor of the class. It sets the userWasNotified_ as false, it sets the shown text as the display name of the user and the correspondent range icon.  <a href="class_friend.html#a6e228805f2886d8dbe7e4ade0ce3668a">More...</a><br /></td></tr>
 <tr class="separator:a6e228805f2886d8dbe7e4ade0ce3668a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe44da06bb48ca3e1fa38c90392aa78a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#afe44da06bb48ca3e1fa38c90392aa78a">setPanel</a> (GameObject panel)</td></tr>
 <tr class="memdesc:afe44da06bb48ca3e1fa38c90392aa78a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter of the panel_ property.  <a href="class_friend.html#afe44da06bb48ca3e1fa38c90392aa78a">More...</a><br /></td></tr>
@@ -104,7 +104,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab8c05ea62a621c598a374b0ce6f2d0f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of the friendData_ property.  <a href="class_friend.html#ab8c05ea62a621c598a374b0ce6f2d0f5">More...</a><br /></td></tr>
 <tr class="separator:ab8c05ea62a621c598a374b0ce6f2d0f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfe11adc15a0deeadd45d0f3e948fa5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#abfe11adc15a0deeadd45d0f3e948fa5a">chooseThisFriendAndUpload</a> ()</td></tr>
-<tr class="memdesc:abfe11adc15a0deeadd45d0f3e948fa5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method if there is internet connection, selects the represented friend to be challenged, creates a new challenge on the selected friend, calls the uploadFriendChallengesOf method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class, advise the user with a toastmessage and then, destroy this GameObject. If there is no internet connection it simply shows a toastmessage telling the user that it needs internet connection to challenge his friend successfully.  <a href="class_friend.html#abfe11adc15a0deeadd45d0f3e948fa5a">More...</a><br /></td></tr>
+<tr class="memdesc:abfe11adc15a0deeadd45d0f3e948fa5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method if there is internet connection, selects the represented friend to be challenged, creates a new challenge on the selected friend, calls the uploadFriendChallengesOf method of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> class, advise the user with a toastmessage and then, destroy this GameObject. If there is no internet connection it simply shows a toastmessage telling the user that it needs internet connection to challenge his friend successfully.  <a href="class_friend.html#abfe11adc15a0deeadd45d0f3e948fa5a">More...</a><br /></td></tr>
 <tr class="separator:abfe11adc15a0deeadd45d0f3e948fa5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -133,6 +133,12 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a2c4242175c053a345baabd1033ffd1f5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#a2c4242175c053a345baabd1033ffd1f5">userWasNotified_</a></td></tr>
 <tr class="memdesc:a2c4242175c053a345baabd1033ffd1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the user was notified about he is erasing a friend, false if you have to notify the user before deleting this friend.  <a href="class_friend.html#a2c4242175c053a345baabd1033ffd1f5">More...</a><br /></td></tr>
 <tr class="separator:a2c4242175c053a345baabd1033ffd1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab987da662f75193635ad4479bf03c10f"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#ab987da662f75193635ad4479bf03c10f">rangeImage_</a></td></tr>
+<tr class="memdesc:ab987da662f75193635ad4479bf03c10f"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the image of the represented player's range.  <a href="class_friend.html#ab987da662f75193635ad4479bf03c10f">More...</a><br /></td></tr>
+<tr class="separator:ab987da662f75193635ad4479bf03c10f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a0d213d1418a1aeb44ddbc7284173fa"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_friend.html#a6a0d213d1418a1aeb44ddbc7284173fa">range_</a></td></tr>
+<tr class="memdesc:a6a0d213d1418a1aeb44ddbc7284173fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the text where the range name of the current player will be shown.  <a href="class_friend.html#a6a0d213d1418a1aeb44ddbc7284173fa">More...</a><br /></td></tr>
+<tr class="separator:a6a0d213d1418a1aeb44ddbc7284173fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >class that controls the panel element that represent one of the current user friends. </p>
@@ -171,7 +177,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This method if there is internet connection, selects the represented friend to be challenged, creates a new challenge on the selected friend, calls the uploadFriendChallengesOf method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class, advise the user with a toastmessage and then, destroy this GameObject. If there is no internet connection it simply shows a toastmessage telling the user that it needs internet connection to challenge his friend successfully. </p>
+<p>This method if there is internet connection, selects the represented friend to be challenged, creates a new challenge on the selected friend, calls the uploadFriendChallengesOf method of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> class, advise the user with a toastmessage and then, destroy this GameObject. If there is no internet connection it simply shows a toastmessage telling the user that it needs internet connection to challenge his friend successfully. </p>
 
 </div>
 </div>
@@ -331,7 +337,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The constructor of the class. It sets the userWasNotified_ as false, it sets the shown text as the display name of the user. </p>
+<p>The constructor of the class. It sets the userWasNotified_ as false, it sets the shown text as the display name of the user and the correspondent range icon. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">the</td><td><a class="el" href="class_friend_data.html" title="Class that stores the information of one of the current user&#39;s friend.">FriendData</a> object that contains all the information of the represented user. </td></tr>
@@ -437,6 +443,54 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>GameObject that references the panel that this GameObject is attached. </p>
+
+</div>
+</div>
+<a id="a6a0d213d1418a1aeb44ddbc7284173fa" name="a6a0d213d1418a1aeb44ddbc7284173fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a0d213d1418a1aeb44ddbc7284173fa">&#9670;&nbsp;</a></span>range_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject Friend.range_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that contains the text where the range name of the current player will be shown. </p>
+
+</div>
+</div>
+<a id="ab987da662f75193635ad4479bf03c10f" name="ab987da662f75193635ad4479bf03c10f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab987da662f75193635ad4479bf03c10f">&#9670;&nbsp;</a></span>rangeImage_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject Friend.rangeImage_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject that contains the image of the represented player's range. </p>
 
 </div>
 </div>

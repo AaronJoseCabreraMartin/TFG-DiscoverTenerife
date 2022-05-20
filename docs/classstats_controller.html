@@ -82,10 +82,10 @@ Inheritance diagram for statsController:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a73e4c184512df7d2734783421f3b5219"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstats_controller.html#a73e4c184512df7d2734783421f3b5219">Awake</a> ()</td></tr>
-<tr class="memdesc:a73e4c184512df7d2734783421f3b5219"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called before the first frame, it instantiate the firebaseHandlerObject_ property and checks if both placesAreReady and userDataIsReady method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> return true it calls loadData method, in other case it sets the dataLoaded_ property to false.  <a href="classstats_controller.html#a73e4c184512df7d2734783421f3b5219">More...</a><br /></td></tr>
+<tr class="memdesc:a73e4c184512df7d2734783421f3b5219"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called before the first frame, it instantiate the firebaseHandlerObject_ property and checks if both placesAreReady and userDataIsReady method of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> return true it calls loadData method, in other case it sets the dataLoaded_ property to false.  <a href="classstats_controller.html#a73e4c184512df7d2734783421f3b5219">More...</a><br /></td></tr>
 <tr class="separator:a73e4c184512df7d2734783421f3b5219"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86b3d5fe7baabcb6256d485337306867"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstats_controller.html#a86b3d5fe7baabcb6256d485337306867">Update</a> ()</td></tr>
-<tr class="memdesc:a86b3d5fe7baabcb6256d485337306867"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called once on each frame. If the data isnt loaded and both placesAreReady and userDataIsReady methods of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class returns true it calls the loadData method.  <a href="classstats_controller.html#a86b3d5fe7baabcb6256d485337306867">More...</a><br /></td></tr>
+<tr class="memdesc:a86b3d5fe7baabcb6256d485337306867"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called once on each frame. If the data isnt loaded and both placesAreReady and userDataIsReady methods of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> class returns true it calls the loadData method.  <a href="classstats_controller.html#a86b3d5fe7baabcb6256d485337306867">More...</a><br /></td></tr>
 <tr class="separator:a86b3d5fe7baabcb6256d485337306867"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adff83ff992d2afed04bc196eb9cdbafc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstats_controller.html#adff83ff992d2afed04bc196eb9cdbafc">loadData</a> ()</td></tr>
 <tr class="memdesc:adff83ff992d2afed04bc196eb9cdbafc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the data of all the panels that shows the current user's stats using the getters of <a class="el" href="class_user_data.html" title="Class that stores the current user data.">UserData</a> class. It also changes the dataLoaded_ to true.  <a href="classstats_controller.html#adff83ff992d2afed04bc196eb9cdbafc">More...</a><br /></td></tr>
@@ -97,7 +97,7 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a54f98adc20a21752ee200ade3b209018"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array with all the GameObjects that shows the different stats of the current user.  <a href="classstats_controller.html#a54f98adc20a21752ee200ade3b209018">More...</a><br /></td></tr>
 <tr class="separator:a54f98adc20a21752ee200ade3b209018"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8260652d90240570ab7e488322ec8886"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfirebase_handler.html">firebaseHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstats_controller.html#a8260652d90240570ab7e488322ec8886">firebaseHandlerObject_</a></td></tr>
-<tr class="memdesc:a8260652d90240570ab7e488322ec8886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> object.  <a href="classstats_controller.html#a8260652d90240570ab7e488322ec8886">More...</a><br /></td></tr>
+<tr class="memdesc:a8260652d90240570ab7e488322ec8886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> object.  <a href="classstats_controller.html#a8260652d90240570ab7e488322ec8886">More...</a><br /></td></tr>
 <tr class="separator:a8260652d90240570ab7e488322ec8886"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d85fd31c418aa474a251446e9d07ed2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstats_controller.html#a2d85fd31c418aa474a251446e9d07ed2">dataLoaded_</a></td></tr>
 <tr class="memdesc:a2d85fd31c418aa474a251446e9d07ed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the current user's scores is already loaded, false in other case.  <a href="classstats_controller.html#a2d85fd31c418aa474a251446e9d07ed2">More...</a><br /></td></tr>
@@ -129,7 +129,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This method is called before the first frame, it instantiate the firebaseHandlerObject_ property and checks if both placesAreReady and userDataIsReady method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> return true it calls loadData method, in other case it sets the dataLoaded_ property to false. </p>
+<p>This method is called before the first frame, it instantiate the firebaseHandlerObject_ property and checks if both placesAreReady and userDataIsReady method of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> return true it calls loadData method, in other case it sets the dataLoaded_ property to false. </p>
 
 </div>
 </div>
@@ -183,7 +183,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This method is called once on each frame. If the data isnt loaded and both placesAreReady and userDataIsReady methods of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class returns true it calls the loadData method. </p>
+<p>This method is called once on each frame. If the data isnt loaded and both placesAreReady and userDataIsReady methods of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> class returns true it calls the loadData method. </p>
 
 </div>
 </div>
@@ -232,7 +232,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reference to the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> object. </p>
+<p>Reference to the <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> object. </p>
 
 </div>
 </div>

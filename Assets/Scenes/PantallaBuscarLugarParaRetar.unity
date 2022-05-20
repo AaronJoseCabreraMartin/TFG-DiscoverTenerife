@@ -1120,7 +1120,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You don't have any friend that allow be challenged.
+  m_Text: You don't have any stored place to challenge your friend.
 --- !u!222 &1597357367
 CanvasRenderer:
   m_ObjectHideFlags: 0

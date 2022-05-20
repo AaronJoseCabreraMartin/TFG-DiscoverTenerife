@@ -9,7 +9,7 @@ var searchData=
   ['destroychallengebychallengerid_6',['destroyChallengeByChallengerId',['../class_user_data.html#a57170a71d47e180b71f9b6cd613f567a',1,'UserData']]],
   ['distanceinkm_7',['distanceInKM',['../classoptions_controller.html#ae9a9da3b00c9a88c6b7908c4f7f99a24',1,'optionsController']]],
   ['downloadallfrienddata_8',['downloadAllFriendData',['../classfirebase_handler.html#aa1fe00bd055164441b36e92a30407ef1',1,'firebaseHandler']]],
-  ['downloadallnewfriendinvitationsdata_9',['downloadAllNewFriendInvitationsData',['../classfirebase_handler.html#a3a17458f3343ca655fcf543a571944da',1,'firebaseHandler']]],
+  ['downloadallnewfriendsinvitationsdata_9',['downloadAllNewfriendsInvitationsData',['../classfirebase_handler.html#a3ff338e5b0a89ce635acd683c8d4236c',1,'firebaseHandler']]],
   ['downloadallplaces_10',['downloadAllPlaces',['../classfirebase_handler.html#af32e8f72e94a98e2a3e7eb86e801b1c8',1,'firebaseHandler']]],
   ['downloadfrienddata_11',['downloadFriendData',['../classfirebase_handler.html#a79f50b713883df7fc275f725486fa424',1,'firebaseHandler']]],
   ['downloadnewfriendinvitationdata_12',['downloadNewFriendInvitationData',['../classfirebase_handler.html#ada3d92f5afe301370b0696a3a7ade2be',1,'firebaseHandler']]],

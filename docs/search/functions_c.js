@@ -10,5 +10,7 @@ var searchData=
   ['onendwriting_7',['OnEndWriting',['../class_search_bar.html#a4fc81eb58deaea5c23dbddfe4c173e3b',1,'SearchBar']]],
   ['onsceneloaded_8',['OnSceneLoaded',['../classfirebase_handler.html#a46fb1d4715589815b6c57b8442edb79e',1,'firebaseHandler']]],
   ['onuserscroll_9',['OnUserScroll',['../classscroll_rect_controller.html#aa40995ee9993315558a2be2a0ab1665e',1,'scrollRectController']]],
-  ['onwriting_10',['OnWriting',['../class_search_bar.html#a25247902f80c5a6c9df84bb564c03214',1,'SearchBar']]]
+  ['onwriting_10',['OnWriting',['../class_search_bar.html#a25247902f80c5a6c9df84bb564c03214',1,'SearchBar']]],
+  ['openurlfromchosenplace_11',['OpenURLFromChosenPlace',['../class_google_maps_button.html#a4ac7d6231c167798179c4cd970d05578',1,'GoogleMapsButton']]],
+  ['openurlfromchosenstoredplace_12',['OpenURLFromChosenStoredPlace',['../class_google_maps_button.html#aba94a5618eb0da2b42cd2eb6026dfdb5',1,'GoogleMapsButton']]]
 ];

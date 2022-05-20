@@ -49,6 +49,7 @@ public class gpsController : MonoBehaviour
       */
     private double altitude_;
 
+    #if DEBUG
     /*
     Para testear estoy estableciendo las coordenadas en ciertos lugares, la idea es que en la version final, si gpsIsRunning está a false
     NO se haga el askForAPlace, porque puede pasar que en lugar de las coordenadas reales se usen las coordenadas por defecto y se muestren
@@ -74,16 +75,35 @@ public class gpsController : MonoBehaviour
     //private double defaultLatitude_ = 28.5097;
     //private double defaultLongitude_ = -16.18439;
     
-    // a metros de sendero Monte del agua (Oeste)
-    //private double defaultLatitude_ = 28.328925;
-    //private double defaultLongitude_ = -16.808909;
-    
     // a metros de Piscina natural de guimar (Este)
-    private double defaultLatitude_ = 28.2600654;
-    private double defaultLongitude_ = -16.3924713;
+    //private double defaultLatitude_ = 28.2600654;
+    //private double defaultLongitude_ = -16.3924713;
+    
+    // a metros de sendero Monte del agua (Oeste)
+    private double defaultLatitude_ = 28.328925;
+    private double defaultLongitude_ = -16.808909;
 
+    #else
+
+    /**
+      * @brief double that stores the default value for the latitude part of
+      * the user coordenades
+      */
+    private double defaultLatitude_ = 0;
+
+    /**
+      * @brief double that stores the default value for the longitude part of
+      * the user coordenades
+      */
+    private double defaultLongitude_ = 0;
+
+    #endif
+
+    /**
+      * @brief double that stores the default value for the altitude part of
+      * the user coordenades
+      */
     private double defaultAltitude_ = 255;
-
 
     /**
       * This method is called before the first frame. If there is another gpsController, it
@@ -101,7 +121,7 @@ public class gpsController : MonoBehaviour
         isItPermissionTime = false;
         permissions = new Stack<string>();
     
-        Debug.Log("Las coordenadas por defecto deben empezar en 0, 0, 0 por defecto");
+        //Debug.Log("Las coordenadas por defecto deben empezar en 0, 0, 0 por defecto");
        
         CreatePermissionList();
         Input.location.Start();
@@ -186,7 +206,8 @@ public class gpsController : MonoBehaviour
                 //si la base no ha sido establecida desde que tengas permisos, establecela
             if(firebaseHandler.firebaseHandlerInstance_.currentUser_ != null && !firebaseHandler.firebaseHandlerInstance_.currentUser_.baseEstablished()){
                 firebaseHandler.firebaseHandlerInstance_.currentUser_.setBase(latitude_,longitude_);
-                firebaseHandler.firebaseHandlerInstance_.writeUserData();
+                //firebaseHandler.firebaseHandlerInstance_.writeUserData();
+                firebaseHandler.firebaseHandlerInstance_.writeAllUserProperties();
             }
         }else{
             gpsIsRunning_ = false;
@@ -196,9 +217,9 @@ public class gpsController : MonoBehaviour
             altitude_ = defaultAltitude_;
         }
         
-        
+        #if DEBUG
         //For debugging propources
-        /*float velocity = 0.0001f;
+        float velocity = 0.0001f;
         if (Input.GetKey("up")){
             defaultLatitude_ += velocity;
             Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
@@ -214,7 +235,8 @@ public class gpsController : MonoBehaviour
         if (Input.GetKey("left")){
             defaultLongitude_ -= velocity;
             Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
-        }*/
+        }
+        #endif
     }
 
     /**
@@ -257,14 +279,11 @@ public class gpsController : MonoBehaviour
         longitudeA = sexagecimalToRadian(longitudeA);
         latitudeB = sexagecimalToRadian(latitudeB);
         longitudeB = sexagecimalToRadian(longitudeB);
-        //Debug.Log($"latitudeA = {latitudeA} longitudeA = {longitudeA}");
-        //Debug.Log($"latitudeB = {latitudeB} longitudeB = {longitudeB}");
         
-        double earthRadious = 6377.830272;
-        double distanceCalculatedOnKm = earthRadious*Math.Acos((Math.Sin(latitudeA) * Math.Sin(latitudeB)) + Math.Cos(latitudeA) * Math.Cos(latitudeB) * Math.Cos(longitudeB - longitudeA));
+        double distanceCalculatedOnKm = mapRulesHandler.earthRadious*Math.Acos((Math.Sin(latitudeA) * Math.Sin(latitudeB)) + Math.Cos(latitudeA) * Math.Cos(latitudeB) * Math.Cos(longitudeB - longitudeA));
         optionsController options = optionsController.optionsControllerInstance_;
-        //Debug.Log($"{distanceCalculatedOnKm}kms {distanceCalculatedOnKm * 0.621371}milles");
-        return options.distanceInKM() ? distanceCalculatedOnKm : distanceCalculatedOnKm * 0.621371;
+        return options.distanceInKM() ? 
+          distanceCalculatedOnKm : distanceCalculatedOnKm * mapRulesHandler.fromKMtoMilles;
     }
 
     /**
@@ -289,49 +308,12 @@ public class gpsController : MonoBehaviour
     }
 
     /**
-      * @param double latitude of the point
-      * @param double longitude of the point
-      * @return string it returns the zone of the given point. If it doesnt
-      * fit on any of the defined zones, it returns "Can't Find Zone of given point"
-      */
-    public string getZoneOf(double latitude, double longitude){
-        //WTF este metodo deberia estar en maprulesHandler!!!!
-        if(latitude <= 28.60634 && latitude >= 28.40631 &&
-            longitude <= -16.11673 && longitude >= -16.93788){
-            return "North";
-        }
-            
-        if(latitude < 28.40631 && latitude >= 28.147504 &&
-            longitude <= -16.67719 && longitude > -16.93788 ){
-            return "West";
-        }
-
-        if(latitude < 28.40631 && latitude > 28.147504 &&
-            longitude <= -16.53193 && longitude > -16.67719 ){
-            return "Center";
-        }
-
-        if(latitude < 28.40631 && latitude > 28.147504 &&
-            longitude < -16.11673 && longitude > -16.53193 ){
-            return "East";
-        }
-
-        if(latitude < 28.147504 && latitude >= 27.99321 &&
-            longitude < -16.11673 && longitude > -16.93788 ){
-            return "South";
-        }
-
-        Debug.Log($"{latitude}, {longitude} no esta en ninguno");
-        return $"Can't Find Zone of: {latitude}, {longitude}";
-    }
-
-    /**
       * @return string current zone of the current user.
       * @brief it calls the getZoneOf method with the user coordenades and returns what
       * that method returns.
       */
     public string getcurrentZoneOfUser(){
-        return getZoneOf(latitude_, longitude_);
+        return mapRulesHandler.getZoneOf(latitude_, longitude_);
     }
 
     /**

@@ -581,7 +581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8199186223180022646, guid: 37d3fc4bb44533345828c4859736168d, type: 3}
       propertyPath: m_Name
-      value: AddANewFriend
+      value: SearchANewFriend
       objectReference: {fileID: 0}
     - target: {fileID: 8199186223180022647, guid: 37d3fc4bb44533345828c4859736168d, type: 3}
       propertyPath: m_Pivot.x
@@ -669,7 +669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8199186223904641436, guid: 37d3fc4bb44533345828c4859736168d, type: 3}
       propertyPath: m_Text
-      value: Add a new friend
+      value: Search a new friend
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37d3fc4bb44533345828c4859736168d, type: 3}
@@ -1211,7 +1211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8957717166114663987, guid: f3e8c7791f96ad64fa4825b63886168b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: changeSceneWithAnimation
+      value: OnClick
       objectReference: {fileID: 0}
     - target: {fileID: 8957717166114663987, guid: f3e8c7791f96ad64fa4825b63886168b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1567,7 +1567,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8199186223180022645, guid: 37d3fc4bb44533345828c4859736168d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: 
+      value: PantallaRango
       objectReference: {fileID: 0}
     - target: {fileID: 8199186223180022646, guid: 37d3fc4bb44533345828c4859736168d, type: 3}
       propertyPath: m_Name
@@ -1659,7 +1659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8199186223904641436, guid: 37d3fc4bb44533345828c4859736168d, type: 3}
       propertyPath: m_Text
-      value: My scores
+      value: My range and score
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37d3fc4bb44533345828c4859736168d, type: 3}

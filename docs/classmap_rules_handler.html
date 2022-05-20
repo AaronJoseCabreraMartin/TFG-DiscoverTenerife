@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classmap_rules_handler-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">mapRulesHandler Class Reference</div></div>
@@ -81,6 +82,17 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a18a51173f287b1ec60290eb99e0fcc3b"><td class="memItemLeft" align="right" valign="top">static List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap_rules_handler.html#a18a51173f287b1ec60290eb99e0fcc3b">getTypesOfSites</a> ()</td></tr>
 <tr class="memdesc:a18a51173f287b1ec60290eb99e0fcc3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the typeOfSites_ static property.  <a href="classmap_rules_handler.html#a18a51173f287b1ec60290eb99e0fcc3b">More...</a><br /></td></tr>
 <tr class="separator:a18a51173f287b1ec60290eb99e0fcc3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a945128b81e12e6a822921e789109dc43"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap_rules_handler.html#a945128b81e12e6a822921e789109dc43">getZoneOf</a> (double latitude, double longitude)</td></tr>
+<tr class="separator:a945128b81e12e6a822921e789109dc43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a1151bb51cecfc8a5f782293f1b78422d"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap_rules_handler.html#a1151bb51cecfc8a5f782293f1b78422d">earthRadious</a> = 6377.830272</td></tr>
+<tr class="memdesc:a1151bb51cecfc8a5f782293f1b78422d"><td class="mdescLeft">&#160;</td><td class="mdescRight">double stores the earth radious  <a href="classmap_rules_handler.html#a1151bb51cecfc8a5f782293f1b78422d">More...</a><br /></td></tr>
+<tr class="separator:a1151bb51cecfc8a5f782293f1b78422d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae34b546e9a3cdef3554253b186eb4484"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap_rules_handler.html#ae34b546e9a3cdef3554253b186eb4484">fromKMtoMilles</a> = 0.621371</td></tr>
+<tr class="memdesc:ae34b546e9a3cdef3554253b186eb4484"><td class="mdescLeft">&#160;</td><td class="mdescRight">double stores the conversion of kms to milles  <a href="classmap_rules_handler.html#ae34b546e9a3cdef3554253b186eb4484">More...</a><br /></td></tr>
+<tr class="separator:ae34b546e9a3cdef3554253b186eb4484"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -151,7 +163,99 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a945128b81e12e6a822921e789109dc43" name="a945128b81e12e6a822921e789109dc43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a945128b81e12e6a822921e789109dc43">&#9670;&nbsp;</a></span>getZoneOf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static string mapRulesHandler.getZoneOf </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>latitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>longitude</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double</td><td>latitude of the point </td></tr>
+    <tr><td class="paramname">double</td><td>longitude of the point </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string it returns the zone of the given point. If it doesnt fit on any of the defined zones, it returns "Can't Find Zone of given point" </dd></dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1151bb51cecfc8a5f782293f1b78422d" name="a1151bb51cecfc8a5f782293f1b78422d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1151bb51cecfc8a5f782293f1b78422d">&#9670;&nbsp;</a></span>earthRadious</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double mapRulesHandler.earthRadious = 6377.830272</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>double stores the earth radious </p>
+
+</div>
+</div>
+<a id="ae34b546e9a3cdef3554253b186eb4484" name="ae34b546e9a3cdef3554253b186eb4484"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae34b546e9a3cdef3554253b186eb4484">&#9670;&nbsp;</a></span>fromKMtoMilles</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double mapRulesHandler.fromKMtoMilles = 0.621371</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>double stores the conversion of kms to milles </p>
+
+</div>
+</div>
 <a id="a47742398c54993b393e966bfbfac2a1b" name="a47742398c54993b393e966bfbfac2a1b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a47742398c54993b393e966bfbfac2a1b">&#9670;&nbsp;</a></span>typesOfSites_</h2>
 

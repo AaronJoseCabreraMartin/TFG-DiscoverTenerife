@@ -80,20 +80,21 @@ Inheritance diagram for adaptableSizePanel:</div>
  <div class="center">
   <img src="classadaptable_size_panel.png" usemap="#adaptableSizePanel_map" alt=""/>
   <map id="adaptableSizePanel_map" name="adaptableSizePanel_map">
-<area href="class_search_a_friend_to_challenge_panel.html" title="This class handles the panel that shows the current user&#39;s friends that allow be challenged...." alt="SearchAFriendToChallengePanel" shape="rect" coords="0,112,250,136"/>
-<area href="classchallenges_panel_controller.html" title="Class that controls the panel that shows all the challenges that the current user has,..." alt="challengesPanelController" shape="rect" coords="260,112,510,136"/>
-<area href="classchoose_a_place_to_send_as_a_challenge_panel.html" title="This class controls the panel that shows the stored places of the current user when he is choosing th..." alt="chooseAPlaceToSendAsAChallengePanel" shape="rect" coords="520,112,770,136"/>
-<area href="classfriends_panel.html" title="Class that controls the panel that shows the friends of the current user. It inherites from adaptable..." alt="friendsPanel" shape="rect" coords="780,112,1030,136"/>
-<area href="classnew_friend_invitation_panel.html" title="Class that controls the panel that shows the new friendships invitations. It inherites from adaptable..." alt="newFriendInvitationPanel" shape="rect" coords="1040,112,1290,136"/>
-<area href="classranking_panel.html" title="Class that controls the panel that shows all the players that allow appeard on the ranking,..." alt="rankingPanel" shape="rect" coords="1300,112,1550,136"/>
+<area href="class_range_story_panel.html" title="This class controls the story of the ranges of the current user. This panel shows all the times the c..." alt="RangeStoryPanel" shape="rect" coords="0,112,250,136"/>
+<area href="class_search_a_friend_to_challenge_panel.html" title="This class handles the panel that shows the current user&#39;s friends that allow be challenged...." alt="SearchAFriendToChallengePanel" shape="rect" coords="260,112,510,136"/>
+<area href="classchallenges_panel_controller.html" title="Class that controls the panel that shows all the challenges that the current user has,..." alt="challengesPanelController" shape="rect" coords="520,112,770,136"/>
+<area href="classchoose_a_place_to_send_as_a_challenge_panel.html" title="This class controls the panel that shows the stored places of the current user when he is choosing th..." alt="chooseAPlaceToSendAsAChallengePanel" shape="rect" coords="780,112,1030,136"/>
+<area href="classfriends_panel.html" title="Class that controls the panel that shows the friends of the current user. It inherites from adaptable..." alt="friendsPanel" shape="rect" coords="1040,112,1290,136"/>
+<area href="classnew_friend_invitation_panel.html" title="Class that controls the panel that shows the new friendships invitations. It inherites from adaptable..." alt="newFriendInvitationPanel" shape="rect" coords="1300,112,1550,136"/>
+<area href="classranking_panel.html" title="Class that controls the panel that shows all the players that allow appeard on the ranking,..." alt="rankingPanel" shape="rect" coords="1560,112,1810,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4824f830a8dcc65d3466d7cc53ba3234"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#a4824f830a8dcc65d3466d7cc53ba3234">elementDeleted</a> (GameObject elementDeleted)</td></tr>
-<tr class="memdesc:a4824f830a8dcc65d3466d7cc53ba3234"><td class="mdescLeft">&#160;</td><td class="mdescRight">tries to remove the given gameobject of the items property. If the gameobject isnt on the list, it will raise an index out of range exception.  <a href="classadaptable_size_panel.html#a4824f830a8dcc65d3466d7cc53ba3234">More...</a><br /></td></tr>
-<tr class="separator:a4824f830a8dcc65d3466d7cc53ba3234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa394366422739ffb507b1b8a983ae34c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classadaptable_size_panel.html#aa394366422739ffb507b1b8a983ae34c">elementDeleted</a> (GameObject elementDeleted)</td></tr>
+<tr class="memdesc:aa394366422739ffb507b1b8a983ae34c"><td class="mdescLeft">&#160;</td><td class="mdescRight">tries to remove the given gameobject of the items property. If the gameobject isnt on the list, it will raise an index out of range exception.  <a href="classadaptable_size_panel.html#aa394366422739ffb507b1b8a983ae34c">More...</a><br /></td></tr>
+<tr class="separator:aa394366422739ffb507b1b8a983ae34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -182,24 +183,32 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >This method is called before the first frame, it instanciate the items, panelFilled_ and lastCount_ properties. And if the userDataIsReady method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class returns true it calls the fillPanel method. </p>
+<p >This method is called before the first frame, it instanciate the items, panelFilled_ and lastCount_ properties. And if the userDataIsReady method of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> class returns true it calls the fillPanel method. </p>
 
 </div>
 </div>
-<a id="a4824f830a8dcc65d3466d7cc53ba3234" name="a4824f830a8dcc65d3466d7cc53ba3234"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4824f830a8dcc65d3466d7cc53ba3234">&#9670;&nbsp;</a></span>elementDeleted()</h2>
+<a id="aa394366422739ffb507b1b8a983ae34c" name="aa394366422739ffb507b1b8a983ae34c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa394366422739ffb507b1b8a983ae34c">&#9670;&nbsp;</a></span>elementDeleted()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void adaptableSizePanel.elementDeleted </td>
+          <td class="memname">virtual void adaptableSizePanel.elementDeleted </td>
           <td>(</td>
           <td class="paramtype">GameObject&#160;</td>
           <td class="paramname"><em>elementDeleted</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>tries to remove the given gameobject of the items property. If the gameobject isnt on the list, it will raise an index out of range exception. </p>
@@ -209,6 +218,8 @@ Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Reimplemented in <a class="el" href="classchoose_a_place_to_send_as_a_challenge_panel.html#ae3254643ec8574a5f56013956abf7d9b">chooseAPlaceToSendAsAChallengePanel</a>.</p>
 
 </div>
 </div>
@@ -237,7 +248,7 @@ Private Member Functions</h2></td></tr>
 
 <p>This method is called to instanciate the panel and add the prefabs as panels elements. It is an abstract method so, every class that inherit from this class must have its own fillPanel method. </p>
 
-<p>Implemented in <a class="el" href="classchallenges_panel_controller.html#ad5f8607eb64fcc4544f7968aca66b9f3">challengesPanelController</a>, <a class="el" href="classchoose_a_place_to_send_as_a_challenge_panel.html#ad66f759a897054f027ad4b31845d3515">chooseAPlaceToSendAsAChallengePanel</a>, <a class="el" href="classnew_friend_invitation_panel.html#a156e024ae7c5ecd68f986eb861747241">newFriendInvitationPanel</a>, <a class="el" href="classfriends_panel.html#a57b329a6fd7d49f5efeb5ef9812b4753">friendsPanel</a>, <a class="el" href="classranking_panel.html#a44186914f6a8bad96e9e10795ebaef06">rankingPanel</a>, and <a class="el" href="class_search_a_friend_to_challenge_panel.html#a3039f8fb95cbecf2ef1db25f84e6e673">SearchAFriendToChallengePanel</a>.</p>
+<p>Implemented in <a class="el" href="classchallenges_panel_controller.html#ad5f8607eb64fcc4544f7968aca66b9f3">challengesPanelController</a>, <a class="el" href="classchoose_a_place_to_send_as_a_challenge_panel.html#ad66f759a897054f027ad4b31845d3515">chooseAPlaceToSendAsAChallengePanel</a>, <a class="el" href="classnew_friend_invitation_panel.html#a156e024ae7c5ecd68f986eb861747241">newFriendInvitationPanel</a>, <a class="el" href="classfriends_panel.html#a57b329a6fd7d49f5efeb5ef9812b4753">friendsPanel</a>, <a class="el" href="class_range_story_panel.html#afd0d4aed268f7b43b8b6a8e05e2ea5ef">RangeStoryPanel</a>, <a class="el" href="classranking_panel.html#a44186914f6a8bad96e9e10795ebaef06">rankingPanel</a>, and <a class="el" href="class_search_a_friend_to_challenge_panel.html#a3039f8fb95cbecf2ef1db25f84e6e673">SearchAFriendToChallengePanel</a>.</p>
 
 </div>
 </div>
@@ -263,7 +274,7 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >This method is called once per frame, it checks if the panel has al ready filled and if the userDataIsReady method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class returns true it calls the fillPanel method. If the lastCount_ property isnt equal to the current items count it calls the adjustPanelSize method. It also shows the noPlacesImage_ gameObject if the items list is empty. </p>
+<p >This method is called once per frame, it checks if the panel has al ready filled and if the userDataIsReady method of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> class returns true it calls the fillPanel method. If the lastCount_ property isnt equal to the current items count it calls the adjustPanelSize method. It also shows the noPlacesImage_ gameObject if the items list is empty. </p>
 
 </div>
 </div>

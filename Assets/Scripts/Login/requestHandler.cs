@@ -21,14 +21,14 @@ public class requestHandler
     // algun lugar tiene un tipo que no esta en la lista arrojar un error.
 
     /**
-      * Stores all the places splited by types.
+      * @brief Stores all the places splited by types.
       * - First index: Type.
       * - Second index: Place ID.
       */
     private List<List<Place>> listOfPlaces_;
 
     /**
-      * Stores the sorted index of the places when the type is defined.
+      * @brief Stores the sorted index of the places when the type is defined.
       */
     private List<Dictionary<string,int>> sortedPlaceIndex_;
     // los diccionarios estan ordenados dentro de la lista

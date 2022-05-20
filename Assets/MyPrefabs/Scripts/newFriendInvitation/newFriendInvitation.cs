@@ -65,7 +65,8 @@ public class newFriendInvitation : MonoBehaviour
             firebaseHandler.firebaseHandlerInstance_.currentUser_.acceptFriend(newFriendData_.getUid());
             // avisar a firebase para que suba los cambios
             firebaseHandler.firebaseHandlerInstance_.downloadFriendData(newFriendData_.getUid());
-            firebaseHandler.firebaseHandlerInstance_.writeUserData();
+            //firebaseHandler.firebaseHandlerInstance_.writeUserData();
+            firebaseHandler.firebaseHandlerInstance_.writeAllUserProperties();
             //toast de amigo aceptado!
             toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You have accepted "+newFriendData_.getDisplayName()+" as your friend successfully", new Color32(76,175,80,255), 5);
             destroyAndAdvice();
@@ -87,7 +88,9 @@ public class newFriendInvitation : MonoBehaviour
             // avisar a user data para que actualice sus listas
             firebaseHandler.firebaseHandlerInstance_.currentUser_.deleteInvitationByName(newFriendData_.getUid());
             // avisar a firebase para que suba los cambios 
-            firebaseHandler.firebaseHandlerInstance_.writeUserData();
+            //firebaseHandler.firebaseHandlerInstance_.writeUserData();
+            firebaseHandler.firebaseHandlerInstance_.writeAllUserProperties();
+            
             //toast de amigo rechazado!
             toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You have rejected the "+newFriendData_.getDisplayName()+"'s invitation to be your friend", new Color32(255,145,15,255), 5);
             destroyAndAdvice();

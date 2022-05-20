@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classstored_place_to_send-members.html">List of all members</a>  </div>
@@ -89,8 +90,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a08e79f2c06863cddbdb986db0ac08b51"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method sets the representedPlace_ property as the given <a class="el" href="class_stored_place.html" title="Class that stores the data of one of the stored places.">StoredPlace</a> it also sets the text of the name_, zone_ and type_ gameObjects.  <a href="classstored_place_to_send.html#a08e79f2c06863cddbdb986db0ac08b51">More...</a><br /></td></tr>
 <tr class="separator:a08e79f2c06863cddbdb986db0ac08b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a70066cce87c2c9d459666df7c67fd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstored_place_to_send.html#a6a70066cce87c2c9d459666df7c67fd8">chooseThisPlaceAndUpload</a> ()</td></tr>
-<tr class="memdesc:a6a70066cce87c2c9d459666df7c67fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method checks if there is internet connection, if there inst, it shows an error on the toastMessageObject_ gameobject. If there is, it creates a new challenge with the current user as challenger, the represented stored place as place to visit on the challenge and it also calls the uploadFriendChallengesOf method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class. Then, it shows a <a class="el" href="classtoast_message.html" title="class that controls the colored messages that are shown to the user giving him information but they h...">toastMessage</a> and then start the destroyAfterSeconds coroutine.  <a href="classstored_place_to_send.html#a6a70066cce87c2c9d459666df7c67fd8">More...</a><br /></td></tr>
+<tr class="memdesc:a6a70066cce87c2c9d459666df7c67fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method checks if there is internet connection, if there inst, it shows an error on the toastMessageObject_ gameobject. If there is, it creates a new challenge with the current user as challenger, the represented stored place as place to visit on the challenge and it also calls the uploadFriendChallengesOf method of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> class. Then, it shows a <a class="el" href="classtoast_message.html" title="class that controls the colored messages that are shown to the user giving him information but they h...">toastMessage</a> and then start the destroyAfterSeconds coroutine.  <a href="classstored_place_to_send.html#a6a70066cce87c2c9d459666df7c67fd8">More...</a><br /></td></tr>
 <tr class="separator:a6a70066cce87c2c9d459666df7c67fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:aed1a65a63e7ed93524cd6a4371eddb07"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstored_place_to_send.html#aed1a65a63e7ed93524cd6a4371eddb07">userCanSelect_</a> = true</td></tr>
+<tr class="memdesc:aed1a65a63e7ed93524cd6a4371eddb07"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean that controls if the user can select a place to send a challenge to not allow the user send several challenges to the same user meanwhile the destruction animation is being played.  <a href="classstored_place_to_send.html#aed1a65a63e7ed93524cd6a4371eddb07">More...</a><br /></td></tr>
+<tr class="separator:aed1a65a63e7ed93524cd6a4371eddb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -140,7 +147,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This method checks if there is internet connection, if there inst, it shows an error on the toastMessageObject_ gameobject. If there is, it creates a new challenge with the current user as challenger, the represented stored place as place to visit on the challenge and it also calls the uploadFriendChallengesOf method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class. Then, it shows a <a class="el" href="classtoast_message.html" title="class that controls the colored messages that are shown to the user giving him information but they h...">toastMessage</a> and then start the destroyAfterSeconds coroutine. </p>
+<p>This method checks if there is internet connection, if there inst, it shows an error on the toastMessageObject_ gameobject. If there is, it creates a new challenge with the current user as challenger, the represented stored place as place to visit on the challenge and it also calls the uploadFriendChallengesOf method of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> class. Then, it shows a <a class="el" href="classtoast_message.html" title="class that controls the colored messages that are shown to the user giving him information but they h...">toastMessage</a> and then start the destroyAfterSeconds coroutine. </p>
 
 </div>
 </div>
@@ -375,6 +382,30 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>GameObject that contains the text where the type of the place will be shown. </p>
+
+</div>
+</div>
+<a id="aed1a65a63e7ed93524cd6a4371eddb07" name="aed1a65a63e7ed93524cd6a4371eddb07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed1a65a63e7ed93524cd6a4371eddb07">&#9670;&nbsp;</a></span>userCanSelect_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool storedPlaceToSend.userCanSelect_ = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>boolean that controls if the user can select a place to send a challenge to not allow the user send several challenges to the same user meanwhile the destruction animation is being played. </p>
 
 </div>
 </div>

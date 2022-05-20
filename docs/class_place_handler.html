@@ -126,7 +126,7 @@ Private Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a88a93d2cc509dea6a9b744f655d25d36"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classfirebase_handler.html">firebaseHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_place_handler.html#a88a93d2cc509dea6a9b744f655d25d36">serverHandler_</a></td></tr>
-<tr class="memdesc:a88a93d2cc509dea6a9b744f655d25d36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> object.  <a href="class_place_handler.html#a88a93d2cc509dea6a9b744f655d25d36">More...</a><br /></td></tr>
+<tr class="memdesc:a88a93d2cc509dea6a9b744f655d25d36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> object.  <a href="class_place_handler.html#a88a93d2cc509dea6a9b744f655d25d36">More...</a><br /></td></tr>
 <tr class="separator:a88a93d2cc509dea6a9b744f655d25d36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9f34a27fc2f463ffd3b8e5d60a3c623"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_place_handler.html#ae9f34a27fc2f463ffd3b8e5d60a3c623">turn_</a> = 0</td></tr>
 <tr class="memdesc:ae9f34a27fc2f463ffd3b8e5d60a3c623"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the index of the place that has to download the image at this moment.  <a href="class_place_handler.html#ae9f34a27fc2f463ffd3b8e5d60a3c623">More...</a><br /></td></tr>
@@ -287,7 +287,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>This method is called once per frame. </p>
 <ul>
-<li>It checks if the serverHandler_ static property is null, it that is the case it tries to get the firebaseHandlerInstance_ static propert of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a>.</li>
+<li>It checks if the serverHandler_ static property is null, it that is the case it tries to get the firebaseHandlerInstance_ static propert of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a>.</li>
 <li>If the serverHandler static property isnt null, and the place didnt load al ready, if its the turn of the current place, it starts the download and add 1 to the turn. And if the place has been selected but they are ready, it calls the loadPlace method. </li>
 </ul>
 
@@ -386,7 +386,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reference to the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> object. </p>
+<p>Reference to the <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> object. </p>
 
 </div>
 </div>

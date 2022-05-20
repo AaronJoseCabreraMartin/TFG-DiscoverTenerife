@@ -13,12 +13,6 @@ public class SearchedFriendsPanel : MonoBehaviour
     [SerializeField] private GameObject searchedFriendPrefab_;
 
     /**
-      * @brief GameObject the toast message object that will alert the user with the 
-      * errors if they happen.
-      */
-    [SerializeField] private GameObject toastMessage_;
-
-    /**
       * @brief List<GameObject> List of the generated prefabs that represent the
       * users that were found by the search.
       */
@@ -45,10 +39,12 @@ public class SearchedFriendsPanel : MonoBehaviour
       */
     public void addSearchedFriendToPanel(Dictionary<string,string> searchedFriendData){
         
-        Debug.Log($"addSearchedFriendToPanel -> {searchedFriendData}");
+        string toShow = "addSearchedFriendToPanel con:";
         foreach(var key in searchedFriendData.Keys){
-            Debug.Log($"{key} -> "+searchedFriendData[key]);
+            toShow += $" {key} -> "+searchedFriendData[key];
         }
+        Debug.Log(toShow);
+
         GameObject newSearchedFriend = Instantiate(searchedFriendPrefab_, new Vector3(0, 0, 0), Quaternion.identity);
         newSearchedFriend.GetComponent<SearchedPlayer>().setSearchedPlayerData(searchedFriendData);
         newSearchedFriend.GetComponent<SearchedPlayer>().SetPanel(this);
@@ -73,7 +69,7 @@ public class SearchedFriendsPanel : MonoBehaviour
     }
 
     /**
-      * @return int The count of the searched fiends.
+      * @return int The count of the searched friends.
       */
     public int getSearchedFriendsCount(){
         return searchedFriends_.Count;
@@ -90,16 +86,5 @@ public class SearchedFriendsPanel : MonoBehaviour
         }
         searchedFriends_.Clear();
         adjustPanelSize();
-    }
-
-    /**
-      * @param string menssage to show on the displayed toast.
-      * @param Color32 the color of the displayed toast
-      * @param int the duration in seconds of the animation of the displayed toast.
-      * @brief this method calls the makeAnimation method of the toastMessage class with the same
-      * arguments that its called.
-      */
-    public void makeToast(string message, Color32 color, int duration){
-        toastMessage_.GetComponent<toastMessage>().makeAnimation(message,color,duration);
     }
 }

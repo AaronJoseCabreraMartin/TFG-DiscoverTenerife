@@ -1,8 +1,8 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 /*
 Esta clase almacenará la información relativa las reglas del juego como por ejemplo:
     distancia máxima a un punto de interés como para contarse como visitado
@@ -15,7 +15,6 @@ Esta clase almacenará la información relativa las reglas del juego como por ej
   * For example it stores the maximum distance to a point to be considered as a valid visit.
   */
 public class gameRules{
-
     /**
       * @brief double this static property stores the maximum distance between the player and an
       * interesting point to be considerer as a visit. It is represented on kilometers, its default
@@ -104,7 +103,8 @@ public class gameRules{
       */
     static public int calculateChallengeScore(long startTimestamp, long completationTimestamp, double distanceToUserBase){
       // tiene que ser 2 - [0,1] por que así cuanto menos tiempo haya usado, más cerca de 0 da la división y entonces, más cerca de 2 está
-      double timeScore = 2.0 - ((double)(completationTimestamp-startTimestamp))/((double)(gameRules.expiryTimeForChallenges_-startTimestamp));
+      //double timeScore = 2.0 - ((double)(completationTimestamp-startTimestamp))/((double)(gameRules.expiryTimeForChallenges_-startTimestamp));
+      double timeScore = 1.0 + ((double)(gameRules.expiryTimeForChallenges_-completationTimestamp))/((double)(gameRules.expiryTimeForChallenges_-startTimestamp));
       Debug.Log($"startTimestamp = {startTimestamp} completationTimestamp = {completationTimestamp} distanceToUserBase = {distanceToUserBase} timeScore = {timeScore}");
       Debug.Log($"total de puntuación por completar el reto: {timeScore*distanceToUserBase}");
       //timeScore is always between 1 and 2
@@ -155,7 +155,7 @@ public class gameRules{
       * the most visited place.
       */
     static public double getScoreForVisitingAPlace(int placeVisits, int maxVisits, bool newVisit = false){
-      double scoreBonus = 2.0d - ((double)placeVisits)/((double)(maxVisits)+1.0d);
+      double scoreBonus = 2.0d - ((double)placeVisits+1.0d)/((double)(maxVisits)+1.0d);
       //scoreBonus esta entre (1, 2] y será más alto cuantas menos visitas haya recibido el lugar comparándolo con el que más visitas ha recibido.
       //la score recibida esta entre 10 y 20 si es un sitio ya visitado y entre 15 y 30 si es un sitio nuevo
       //Debug.Log($"placeVisits = {placeVisits} maxVisits = {maxVisits} newVisit = {newVisit}");
@@ -170,7 +170,7 @@ public class gameRules{
       */
     static private Dictionary<string,int> ranges_ = new Dictionary<string,int>(){
       //Cuanto mas alto el rango mayor diferencia de puntos.
-      {"Mencey",      100000},//100k
+      {"Mencey",       50000},//50k
       {"Achimencey",   10000},//10k
       {"Guañameñe",     3000},//3k
       {"Tagorero",      1500},//1.5k
@@ -199,5 +199,23 @@ public class gameRules{
       }
       Debug.Log($"Invalid score: {score}");
       return "";
+    }
+
+    /**
+      * @param string searched range name
+      * @return int with the index of the correspondent range
+      * @brief This method returns the correspondent index of the given
+      * range name, if the given string isnt any defined range, it will
+      * return -1
+      */
+    static public int getIndexOfRange(string range){
+      return Array.IndexOf(gameRules.ranges_.Keys.ToArray(),range);
+    }
+
+    /**
+      * @return string with the name defined for anonymous users
+      */
+    static public string getAnonymousName(){
+      return "Anonymous";
     }
 }

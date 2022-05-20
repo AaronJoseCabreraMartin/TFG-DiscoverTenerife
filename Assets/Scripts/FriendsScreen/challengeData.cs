@@ -33,6 +33,12 @@ public class challengeData
     private string challengerId_;
 
     /**
+      * @brief This property stores the value of the rest the other properties as 
+      * strings
+      */
+    private Dictionary<string,string> dictionaryVersion_;
+
+    /**
       * @param Dictionary<string,string> that contains the string version
       * of the callenge's data.
       * @brief The constructor of the class, it initialices all the properties.
@@ -44,6 +50,7 @@ public class challengeData
         placeType_ = stringInformation["placeType_"];
         startTimestamp_ = Int64.Parse(stringInformation["startTimestamp_"]);
         challengerId_ = stringInformation["challengerId_"];
+        dictionaryVersion_ = stringInformation;
     }
 
     /**
@@ -95,5 +102,12 @@ public class challengeData
         conversion += $"\"challengerId_\":\"{challengerId_}\"";
         conversion += "}";
         return conversion;
+    }
+
+    /**
+      * @brief Getter of the dictionaryVersion property.
+      */
+    public Dictionary<string,string> toDictionaryVersion(){
+      return dictionaryVersion_;
     }
 }

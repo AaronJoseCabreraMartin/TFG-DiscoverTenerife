@@ -98,8 +98,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4078376934b6f6255559b9b6cb3993ab"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a4078376934b6f6255559b9b6cb3993ab">CalculateDistanceToUser</a> (double latitudeA, double longitudeA)</td></tr>
 <tr class="memdesc:a4078376934b6f6255559b9b6cb3993ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">it calls the CalculateDistance method with the given coordenades and the user current coordenades.  <a href="classgps_controller.html#a4078376934b6f6255559b9b6cb3993ab">More...</a><br /></td></tr>
 <tr class="separator:a4078376934b6f6255559b9b6cb3993ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a770a260bb592a149da6860cc60759fb0"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a770a260bb592a149da6860cc60759fb0">getZoneOf</a> (double latitude, double longitude)</td></tr>
-<tr class="separator:a770a260bb592a149da6860cc60759fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97c28380b3abb7e0c7010cdcf44eaf61"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a97c28380b3abb7e0c7010cdcf44eaf61">getcurrentZoneOfUser</a> ()</td></tr>
 <tr class="memdesc:a97c28380b3abb7e0c7010cdcf44eaf61"><td class="mdescLeft">&#160;</td><td class="mdescRight">it calls the getZoneOf method with the user coordenades and returns what that method returns.  <a href="classgps_controller.html#a97c28380b3abb7e0c7010cdcf44eaf61">More...</a><br /></td></tr>
 <tr class="separator:a97c28380b3abb7e0c7010cdcf44eaf61"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,11 +148,14 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ad5c1ea3970d3840e9029b95e67534cdb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#ad5c1ea3970d3840e9029b95e67534cdb">altitude_</a></td></tr>
 <tr class="memdesc:ad5c1ea3970d3840e9029b95e67534cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">double that stores the altitude number of the current user current gps location.  <a href="classgps_controller.html#ad5c1ea3970d3840e9029b95e67534cdb">More...</a><br /></td></tr>
 <tr class="separator:ad5c1ea3970d3840e9029b95e67534cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67be4cf579a0d7f9b8cbbd0828596c44"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a67be4cf579a0d7f9b8cbbd0828596c44">defaultLatitude_</a> = 28.2600654</td></tr>
+<tr class="memitem:a67be4cf579a0d7f9b8cbbd0828596c44"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a67be4cf579a0d7f9b8cbbd0828596c44">defaultLatitude_</a> = 0</td></tr>
+<tr class="memdesc:a67be4cf579a0d7f9b8cbbd0828596c44"><td class="mdescLeft">&#160;</td><td class="mdescRight">double that stores the default value for the latitude part of the user coordenades  <a href="classgps_controller.html#a67be4cf579a0d7f9b8cbbd0828596c44">More...</a><br /></td></tr>
 <tr class="separator:a67be4cf579a0d7f9b8cbbd0828596c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46c6167224d5d049842f907b8848ef99"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a46c6167224d5d049842f907b8848ef99">defaultLongitude_</a> = -16.3924713</td></tr>
+<tr class="memitem:a46c6167224d5d049842f907b8848ef99"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#a46c6167224d5d049842f907b8848ef99">defaultLongitude_</a> = 0</td></tr>
+<tr class="memdesc:a46c6167224d5d049842f907b8848ef99"><td class="mdescLeft">&#160;</td><td class="mdescRight">double that stores the default value for the longitude part of the user coordenades  <a href="classgps_controller.html#a46c6167224d5d049842f907b8848ef99">More...</a><br /></td></tr>
 <tr class="separator:a46c6167224d5d049842f907b8848ef99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfd1c5446e7a85f779b2d587867345a7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgps_controller.html#acfd1c5446e7a85f779b2d587867345a7">defaultAltitude_</a> = 255</td></tr>
+<tr class="memdesc:acfd1c5446e7a85f779b2d587867345a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">double that stores the default value for the altitude part of the user coordenades  <a href="classgps_controller.html#acfd1c5446e7a85f779b2d587867345a7">More...</a><br /></td></tr>
 <tr class="separator:acfd1c5446e7a85f779b2d587867345a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -408,42 +409,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a770a260bb592a149da6860cc60759fb0" name="a770a260bb592a149da6860cc60759fb0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a770a260bb592a149da6860cc60759fb0">&#9670;&nbsp;</a></span>getZoneOf()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">string gpsController.getZoneOf </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>latitude</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>longitude</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">double</td><td>latitude of the point </td></tr>
-    <tr><td class="paramname">double</td><td>longitude of the point </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>string it returns the zone of the given point. If it doesnt fit on any of the defined zones, it returns "Can't Find Zone of given point" </dd></dl>
-
-</div>
-</div>
 <a id="ad6b1614e9335c4d4b3b1f4b6dad21a84" name="ad6b1614e9335c4d4b3b1f4b6dad21a84"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad6b1614e9335c4d4b3b1f4b6dad21a84">&#9670;&nbsp;</a></span>gpsIsRunning()</h2>
 
@@ -556,7 +521,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p >This method is called on each frame.</p><ul>
-<li>If the user has given both CoarseLocation and FineLocation permissions, the gps service is active on the user's device and LocationService is running, it sets the gpsIsRunning_ property to true, gets the latitude, the longitude and the altitude of the user then it checks if the current user hasnt stablished its base, if that is the case it set the user base as the current latitude and longitude and call the writeUserData method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a>.</li>
+<li>If the user has given both CoarseLocation and FineLocation permissions, the gps service is active on the user's device and LocationService is running, it sets the gpsIsRunning_ property to true, gets the latitude, the longitude and the altitude of the user then it checks if the current user hasnt stablished its base, if that is the case it set the user base as the current latitude and longitude and call the writeUserData method of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a>.</li>
 <li>If that is not the case, it sets the gpsIsRunning_ as false and it sets the latitude_, longitude_ and altitude_ as the default ones. </li>
 </ul>
 
@@ -607,6 +572,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>double that stores the default value for the altitude part of the user coordenades </p>
+
 </div>
 </div>
 <a id="a67be4cf579a0d7f9b8cbbd0828596c44" name="a67be4cf579a0d7f9b8cbbd0828596c44"></a>
@@ -619,7 +586,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double gpsController.defaultLatitude_ = 28.2600654</td>
+          <td class="memname">double gpsController.defaultLatitude_ = 0</td>
         </tr>
       </table>
   </td>
@@ -628,6 +595,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>double that stores the default value for the latitude part of the user coordenades </p>
 
 </div>
 </div>
@@ -641,7 +610,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double gpsController.defaultLongitude_ = -16.3924713</td>
+          <td class="memname">double gpsController.defaultLongitude_ = 0</td>
         </tr>
       </table>
   </td>
@@ -650,6 +619,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>double that stores the default value for the longitude part of the user coordenades </p>
 
 </div>
 </div>

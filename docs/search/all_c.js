@@ -12,10 +12,13 @@ var searchData=
   ['onsceneloaded_9',['OnSceneLoaded',['../classfirebase_handler.html#a46fb1d4715589815b6c57b8442edb79e',1,'firebaseHandler']]],
   ['onuserscroll_10',['OnUserScroll',['../classscroll_rect_controller.html#aa40995ee9993315558a2be2a0ab1665e',1,'scrollRectController']]],
   ['onwriting_11',['OnWriting',['../class_search_bar.html#a25247902f80c5a6c9df84bb564c03214',1,'SearchBar']]],
-  ['optioncontroller_5f_12',['optionController_',['../classmultiselection_desplegable_menu.html#a2d2e9c0462c20ed73e6f8333cf6d4a17',1,'multiselectionDesplegableMenu']]],
-  ['optionscontroller_13',['optionsController',['../classoptions_controller.html',1,'']]],
-  ['optionscontroller_2ecs_14',['optionsController.cs',['../options_controller_8cs.html',1,'']]],
-  ['optionscontrollerinstance_5f_15',['optionsControllerInstance_',['../classoptions_controller.html#a12043b70a6fcf40dc84a46ad488f4365',1,'optionsController']]],
-  ['optionscopied_5f_16',['optionsCopied_',['../classoptions_controller.html#a6b0656e801d4309fa9269401684c6210',1,'optionsController']]],
-  ['otheruserscorestoupload_5f_17',['otherUserScoresToUpload_',['../classfirebase_handler.html#aeabf954f8e99deeedbff21ad73701eaa',1,'firebaseHandler']]]
+  ['openurlfromchosenplace_12',['OpenURLFromChosenPlace',['../class_google_maps_button.html#a4ac7d6231c167798179c4cd970d05578',1,'GoogleMapsButton']]],
+  ['openurlfromchosenstoredplace_13',['OpenURLFromChosenStoredPlace',['../class_google_maps_button.html#aba94a5618eb0da2b42cd2eb6026dfdb5',1,'GoogleMapsButton']]],
+  ['optioncontroller_5f_14',['optionController_',['../classmultiselection_desplegable_menu.html#a2d2e9c0462c20ed73e6f8333cf6d4a17',1,'multiselectionDesplegableMenu']]],
+  ['optionscontroller_15',['optionsController',['../classoptions_controller.html',1,'']]],
+  ['optionscontroller_2ecs_16',['optionsController.cs',['../options_controller_8cs.html',1,'']]],
+  ['optionscontrollerinstance_5f_17',['optionsControllerInstance_',['../classoptions_controller.html#a12043b70a6fcf40dc84a46ad488f4365',1,'optionsController']]],
+  ['optionscopied_5f_18',['optionsCopied_',['../classoptions_controller.html#a6b0656e801d4309fa9269401684c6210',1,'optionsController']]],
+  ['otheruserscorestoupload_5f_19',['otherUserScoresToUpload_',['../classfirebase_handler.html#aeabf954f8e99deeedbff21ad73701eaa',1,'firebaseHandler']]],
+  ['otheruserspropertiestoupload_5f_20',['otherUsersPropertiesToUpload_',['../classfirebase_handler.html#aa6dd9db971ee209e81c2a889cb8e05a1',1,'firebaseHandler']]]
 ];

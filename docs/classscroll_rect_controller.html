@@ -82,7 +82,7 @@ Inheritance diagram for scrollRectController:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa40995ee9993315558a2be2a0ab1665e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscroll_rect_controller.html#aa40995ee9993315558a2be2a0ab1665e">OnUserScroll</a> (Vector2 value)</td></tr>
-<tr class="memdesc:aa40995ee9993315558a2be2a0ab1665e"><td class="mdescLeft">&#160;</td><td class="mdescRight">it checks if the user has passed the maximum limit, if that is the case it change the text to tell the user that if he release, it will load new places. If the user has passed the maximum limit and then release it calls both the askForNewPlaces method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class and the changeSceneWithAnimation method of <a class="el" href="class_change_scene.html" title="This class follows the singleton pattern, the unique instance of the class can be found on an object ...">ChangeScene</a> class to reload the scene  <a href="classscroll_rect_controller.html#aa40995ee9993315558a2be2a0ab1665e">More...</a><br /></td></tr>
+<tr class="memdesc:aa40995ee9993315558a2be2a0ab1665e"><td class="mdescLeft">&#160;</td><td class="mdescRight">it checks if the user has passed the maximum limit, if that is the case it change the text to tell the user that if he release, it will load new places. If the user has passed the maximum limit and then release it calls both the askForNewPlaces method of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> class and the changeSceneWithAnimation method of <a class="el" href="class_change_scene.html" title="This class follows the singleton pattern, the unique instance of the class can be found on an object ...">ChangeScene</a> class to reload the scene  <a href="classscroll_rect_controller.html#aa40995ee9993315558a2be2a0ab1665e">More...</a><br /></td></tr>
 <tr class="separator:aa40995ee9993315558a2be2a0ab1665e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -102,9 +102,17 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a9a7be70721dcaca1dcf8554e53310256"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscroll_rect_controller.html#a9a7be70721dcaca1dcf8554e53310256">minLimit_</a> = 1.00001</td></tr>
 <tr class="memdesc:a9a7be70721dcaca1dcf8554e53310256"><td class="mdescLeft">&#160;</td><td class="mdescRight">double that contains the point where the user, after sliding down enough, will fire the loading more places process.  <a href="classscroll_rect_controller.html#a9a7be70721dcaca1dcf8554e53310256">More...</a><br /></td></tr>
 <tr class="separator:a9a7be70721dcaca1dcf8554e53310256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42dd9fa8e2499c58adfbd5971ffeeb90"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscroll_rect_controller.html#a42dd9fa8e2499c58adfbd5971ffeeb90">maxNegativeLimit_</a> = -0.005</td></tr>
+<tr class="memdesc:a42dd9fa8e2499c58adfbd5971ffeeb90"><td class="mdescLeft">&#160;</td><td class="mdescRight">double that contains the point where if the user slide up more, will activate the loading more places process.  <a href="classscroll_rect_controller.html#a42dd9fa8e2499c58adfbd5971ffeeb90">More...</a><br /></td></tr>
+<tr class="separator:a42dd9fa8e2499c58adfbd5971ffeeb90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad66f954b1f8ce6b6cefce66ed6579cfc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscroll_rect_controller.html#ad66f954b1f8ce6b6cefce66ed6579cfc">minNegativeLimit_</a> = -0.00000001</td></tr>
+<tr class="memdesc:ad66f954b1f8ce6b6cefce66ed6579cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">double that contains the point where the user, after sliding up enough, will fire the loading more places process.  <a href="classscroll_rect_controller.html#ad66f954b1f8ce6b6cefce66ed6579cfc">More...</a><br /></td></tr>
+<tr class="separator:ad66f954b1f8ce6b6cefce66ed6579cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ee38f02bd4f4852130f12e192fbe0d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscroll_rect_controller.html#a4ee38f02bd4f4852130f12e192fbe0d0">alreadyAskedForNewPlaces_</a> = false</td></tr>
 <tr class="memdesc:a4ee38f02bd4f4852130f12e192fbe0d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if the user has passed the point where the loading more places process start.  <a href="classscroll_rect_controller.html#a4ee38f02bd4f4852130f12e192fbe0d0">More...</a><br /></td></tr>
 <tr class="separator:a4ee38f02bd4f4852130f12e192fbe0d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25e5d1871e2723d0e93dbb04da5a42c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscroll_rect_controller.html#a25e5d1871e2723d0e93dbb04da5a42c5">alreadyAskedForNewPlacesDown_</a> = false</td></tr>
+<tr class="separator:a25e5d1871e2723d0e93dbb04da5a42c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class controls when the user wants to load more places. It also controls the helping text that show the user intructions. </p>
@@ -125,7 +133,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>it checks if the user has passed the maximum limit, if that is the case it change the text to tell the user that if he release, it will load new places. If the user has passed the maximum limit and then release it calls both the askForNewPlaces method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class and the changeSceneWithAnimation method of <a class="el" href="class_change_scene.html" title="This class follows the singleton pattern, the unique instance of the class can be found on an object ...">ChangeScene</a> class to reload the scene </p>
+<p>it checks if the user has passed the maximum limit, if that is the case it change the text to tell the user that if he release, it will load new places. If the user has passed the maximum limit and then release it calls both the askForNewPlaces method of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> class and the changeSceneWithAnimation method of <a class="el" href="class_change_scene.html" title="This class follows the singleton pattern, the unique instance of the class can be found on an object ...">ChangeScene</a> class to reload the scene </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Vector2</td><td>with both directions of the scrolling, both vertical and horizontal. </td></tr>
@@ -157,6 +165,28 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>true if the user has passed the point where the loading more places process start. </p>
+
+</div>
+</div>
+<a id="a25e5d1871e2723d0e93dbb04da5a42c5" name="a25e5d1871e2723d0e93dbb04da5a42c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25e5d1871e2723d0e93dbb04da5a42c5">&#9670;&nbsp;</a></span>alreadyAskedForNewPlacesDown_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool scrollRectController.alreadyAskedForNewPlacesDown_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -208,6 +238,30 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a42dd9fa8e2499c58adfbd5971ffeeb90" name="a42dd9fa8e2499c58adfbd5971ffeeb90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42dd9fa8e2499c58adfbd5971ffeeb90">&#9670;&nbsp;</a></span>maxNegativeLimit_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double scrollRectController.maxNegativeLimit_ = -0.005</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>double that contains the point where if the user slide up more, will activate the loading more places process. </p>
+
+</div>
+</div>
 <a id="a9a7be70721dcaca1dcf8554e53310256" name="a9a7be70721dcaca1dcf8554e53310256"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a7be70721dcaca1dcf8554e53310256">&#9670;&nbsp;</a></span>minLimit_</h2>
 
@@ -229,6 +283,30 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>double that contains the point where the user, after sliding down enough, will fire the loading more places process. </p>
+
+</div>
+</div>
+<a id="ad66f954b1f8ce6b6cefce66ed6579cfc" name="ad66f954b1f8ce6b6cefce66ed6579cfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad66f954b1f8ce6b6cefce66ed6579cfc">&#9670;&nbsp;</a></span>minNegativeLimit_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double scrollRectController.minNegativeLimit_ = -0.00000001</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>double that contains the point where the user, after sliding up enough, will fire the loading more places process. </p>
 
 </div>
 </div>

@@ -48,5 +48,51 @@ public class mapRulesHandler
     public static List<string> getTypesOfSites(){
         return mapRulesHandler.typesOfSites_;
     }
+
+    /**
+      * @brief double stores the earth radious
+      */
+    public static double earthRadious = 6377.830272;
     
+    /**
+      * @brief double stores the conversion of kms to milles
+      */
+    public static double fromKMtoMilles = 0.621371;
+
+    /**
+      * @param double latitude of the point
+      * @param double longitude of the point
+      * @return string it returns the zone of the given point. If it doesnt
+      * fit on any of the defined zones, it returns "Can't Find Zone of given point"
+      */
+    public static string getZoneOf(double latitude, double longitude){
+        //WTF este metodo deberia estar en maprulesHandler!!!!
+        if(latitude <= 28.60634 && latitude >= 28.40631 &&
+            longitude <= -16.11673 && longitude >= -16.93788){
+            return "North";
+        }
+            
+        if(latitude < 28.40631 && latitude >= 28.147504 &&
+            longitude <= -16.67719 && longitude > -16.93788 ){
+            return "West";
+        }
+
+        if(latitude < 28.40631 && latitude > 28.147504 &&
+            longitude <= -16.53193 && longitude > -16.67719 ){
+            return "Center";
+        }
+
+        if(latitude < 28.40631 && latitude > 28.147504 &&
+            longitude < -16.11673 && longitude > -16.53193 ){
+            return "East";
+        }
+
+        if(latitude < 28.147504 && latitude >= 27.99321 &&
+            longitude < -16.11673 && longitude > -16.93788 ){
+            return "South";
+        }
+
+        Debug.Log($"{latitude}, {longitude} no esta en ninguno");
+        return $"Can't Find Zone of: {latitude}, {longitude}";
+    }
 }

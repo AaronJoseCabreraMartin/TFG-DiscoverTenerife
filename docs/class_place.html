@@ -107,6 +107,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a98694eb75048b02938e155e2dc457c79"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_place.html#a98694eb75048b02938e155e2dc457c79">getTimesItHasBeenVisited</a> ()</td></tr>
 <tr class="memdesc:a98694eb75048b02938e155e2dc457c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the timesItHasBeenVisited_ attribute  <a href="class_place.html#a98694eb75048b02938e155e2dc457c79">More...</a><br /></td></tr>
 <tr class="separator:a98694eb75048b02938e155e2dc457c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9518b744218a8d2a7b81fc123ff642d7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_place.html#a9518b744218a8d2a7b81fc123ff642d7">getNewVisits</a> ()</td></tr>
+<tr class="memdesc:a9518b744218a8d2a7b81fc123ff642d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the newVisits_ property  <a href="class_place.html#a9518b744218a8d2a7b81fc123ff642d7">More...</a><br /></td></tr>
+<tr class="separator:a9518b744218a8d2a7b81fc123ff642d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a192a615637a749413d4c10de577b5fef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_place.html#a192a615637a749413d4c10de577b5fef">resetNewVisits</a> ()</td></tr>
+<tr class="memdesc:a192a615637a749413d4c10de577b5fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method sets the newVisits_ property to 0  <a href="class_place.html#a192a615637a749413d4c10de577b5fef">More...</a><br /></td></tr>
+<tr class="separator:a192a615637a749413d4c10de577b5fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46e5e2a3284526f409e7511a18827201"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_place.html#a46e5e2a3284526f409e7511a18827201">startDownload</a> ()</td></tr>
 <tr class="memdesc:a46e5e2a3284526f409e7511a18827201"><td class="mdescLeft">&#160;</td><td class="mdescRight">if the image_ property is null, this start the donwload method of the WebClient_ property and initialize the image_ porperty to the real image.  <a href="class_place.html#a46e5e2a3284526f409e7511a18827201">More...</a><br /></td></tr>
 <tr class="separator:a46e5e2a3284526f409e7511a18827201"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,6 +152,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a936cb0b0e0cbcd37f08a245f02690eb5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_place.html#a936cb0b0e0cbcd37f08a245f02690eb5">ready_</a> = false</td></tr>
 <tr class="memdesc:a936cb0b0e0cbcd37f08a245f02690eb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">bool that control if this place is ready to use.  <a href="class_place.html#a936cb0b0e0cbcd37f08a245f02690eb5">More...</a><br /></td></tr>
 <tr class="separator:a936cb0b0e0cbcd37f08a245f02690eb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adce82409646af1f3b496ec08d6c5ad8f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_place.html#adce82409646af1f3b496ec08d6c5ad8f">newVisits_</a> = 0</td></tr>
+<tr class="memdesc:adce82409646af1f3b496ec08d6c5ad8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">int that store the number of visits that wasnt uploaded already  <a href="class_place.html#adce82409646af1f3b496ec08d6c5ad8f">More...</a><br /></td></tr>
+<tr class="separator:adce82409646af1f3b496ec08d6c5ad8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >class that stores all the information of a place. It also has to download the image of the place. </p>
@@ -275,6 +284,26 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a9518b744218a8d2a7b81fc123ff642d7" name="a9518b744218a8d2a7b81fc123ff642d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9518b744218a8d2a7b81fc123ff642d7">&#9670;&nbsp;</a></span>getNewVisits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Place.getNewVisits </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getter of the newVisits_ property </p>
+<dl class="section return"><dt>Returns</dt><dd>int with the newVisits_ property value </dd></dl>
+
+</div>
+</div>
 <a id="a98694eb75048b02938e155e2dc457c79" name="a98694eb75048b02938e155e2dc457c79"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a98694eb75048b02938e155e2dc457c79">&#9670;&nbsp;</a></span>getTimesItHasBeenVisited()</h2>
 
@@ -351,6 +380,25 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>add one to the timesItHasBeenVisited_ property. </p>
+
+</div>
+</div>
+<a id="a192a615637a749413d4c10de577b5fef" name="a192a615637a749413d4c10de577b5fef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a192a615637a749413d4c10de577b5fef">&#9670;&nbsp;</a></span>resetNewVisits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Place.resetNewVisits </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>this method sets the newVisits_ property to 0 </p>
 
 </div>
 </div>
@@ -533,6 +581,30 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>name of the represented place. </p>
+
+</div>
+</div>
+<a id="adce82409646af1f3b496ec08d6c5ad8f" name="adce82409646af1f3b496ec08d6c5ad8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adce82409646af1f3b496ec08d6c5ad8f">&#9670;&nbsp;</a></span>newVisits_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Place.newVisits_ = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>int that store the number of visits that wasnt uploaded already </p>
 
 </div>
 </div>

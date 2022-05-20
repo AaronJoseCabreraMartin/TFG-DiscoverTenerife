@@ -47,10 +47,8 @@ public class rankingPlayer : MonoBehaviour {
         score_.GetComponent<Text>().text = "Score: " + dataToShow.getScore()+ " ";
         top_.GetComponent<Text>().text = "Top: " + dataToShow.getTop()+ " ";
         range_.GetComponent<Text>().text = "Range: \n" + dataToShow.getRange() + " ";
-        /*
-            ¿Las imagenes de los rangos deberian estar guardadas en su propia clase ? 
-            Algo tipo gamerules, en plan gameIcons o rankingIcons
-        */
-        //rangeImage_.GetComponent<Image>();
+        if(IconHandler.iconHandlerInstance_ != null){
+          rangeImage_.GetComponent<Image>().sprite = IconHandler.iconHandlerInstance_.getSpriteOfRange(dataToShow.getRange());
+        }
     }
 }

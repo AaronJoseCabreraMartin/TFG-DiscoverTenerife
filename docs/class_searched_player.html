@@ -86,10 +86,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae7bfff3f22ea1b53789cc718283f1446"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method sets the searchedPlayerData_ property to the value of the given dictionary. It expects a dictionary with the entries: name, uid, rank (on future). It also sets the text component of the text_ game object as the name entry of the given dictionary.  <a href="class_searched_player.html#ae7bfff3f22ea1b53789cc718283f1446">More...</a><br /></td></tr>
 <tr class="separator:ae7bfff3f22ea1b53789cc718283f1446"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e155f87343e6ba1a62c7c6a023cdcf1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_player.html#a7e155f87343e6ba1a62c7c6a023cdcf1">sendInvitation</a> ()</td></tr>
-<tr class="memdesc:a7e155f87343e6ba1a62c7c6a023cdcf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">if the onProcess_ property is true, this method dont do nothing. This is a way to control that there isnt several parallel calls to the send invitation process. If onProcess_ property is false but there isnt internet connection, it make a toast animation showing an error message because you have to have internet connection to complete the send invitation process. And if you have internet connection and the onProcess_ property is false, it sets the onProcess_ property to true and then call the sendFriendshipInvitation method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class.  <a href="class_searched_player.html#a7e155f87343e6ba1a62c7c6a023cdcf1">More...</a><br /></td></tr>
+<tr class="memdesc:a7e155f87343e6ba1a62c7c6a023cdcf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">if the onProcess_ property is true, this method dont do nothing. This is a way to control that there isnt several parallel calls to the send invitation process. If onProcess_ property is false but there isnt internet connection, it make a toast animation showing an error message because you have to have internet connection to complete the send invitation process. And if you have internet connection and the onProcess_ property is false, it sets the onProcess_ property to true and then call the sendFriendshipInvitation method of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> class.  <a href="class_searched_player.html#a7e155f87343e6ba1a62c7c6a023cdcf1">More...</a><br /></td></tr>
 <tr class="separator:a7e155f87343e6ba1a62c7c6a023cdcf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0a743a0d3ef21d78651259a6a3e05fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_player.html#ad0a743a0d3ef21d78651259a6a3e05fa">resultOfTheSending</a> (string result)</td></tr>
-<tr class="memdesc:ad0a743a0d3ef21d78651259a6a3e05fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method should be called by the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> instance when it finish the sendFriendshipInvitation method. This method shows a toast showing to the user the result of the sending invitation process, if it makes it right it also calls the clearSearchedFriendsPanel method of the <a class="el" href="class_searched_friends_panel.html" title="Class that controls the panel that shows the result of player search.">SearchedFriendsPanel</a> class. The defined states for the result are failed, repeated and sended. If the given string has a different state, it will show an error on the console.  <a href="class_searched_player.html#ad0a743a0d3ef21d78651259a6a3e05fa">More...</a><br /></td></tr>
+<tr class="memdesc:ad0a743a0d3ef21d78651259a6a3e05fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method should be called by the <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> instance when it finish the sendFriendshipInvitation method. This method shows a toast showing to the user the result of the sending invitation process, if it makes it right it also calls the clearSearchedFriendsPanel method of the <a class="el" href="class_searched_friends_panel.html" title="Class that controls the panel that shows the result of player search.">SearchedFriendsPanel</a> class. The defined states for the result are failed, repeated and sended. If the given string has a different state, it will show an error on the console.  <a href="class_searched_player.html#ad0a743a0d3ef21d78651259a6a3e05fa">More...</a><br /></td></tr>
 <tr class="separator:ad0a743a0d3ef21d78651259a6a3e05fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6448ba8b1c597f6a74ba140680c53932"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_player.html#a6448ba8b1c597f6a74ba140680c53932">SetPanel</a> (<a class="el" href="class_searched_friends_panel.html">SearchedFriendsPanel</a> panel)</td></tr>
 <tr class="memdesc:a6448ba8b1c597f6a74ba140680c53932"><td class="mdescLeft">&#160;</td><td class="mdescRight">setter of the panel_ property.  <a href="class_searched_player.html#a6448ba8b1c597f6a74ba140680c53932">More...</a><br /></td></tr>
@@ -106,6 +106,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a26f2dc9a92737a2951696691aa9498ae"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_player.html#a26f2dc9a92737a2951696691aa9498ae">text_</a></td></tr>
 <tr class="memdesc:a26f2dc9a92737a2951696691aa9498ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject that contains the text that shows the display name of the user.  <a href="class_searched_player.html#a26f2dc9a92737a2951696691aa9498ae">More...</a><br /></td></tr>
 <tr class="separator:a26f2dc9a92737a2951696691aa9498ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e3fb9ebaaac1adfbb80158c8de35b3"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_player.html#a26e3fb9ebaaac1adfbb80158c8de35b3">toastMessage_</a></td></tr>
+<tr class="memdesc:a26e3fb9ebaaac1adfbb80158c8de35b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject the toast message object that will alert the user with the errors if they happen.  <a href="class_searched_player.html#a26e3fb9ebaaac1adfbb80158c8de35b3">More...</a><br /></td></tr>
+<tr class="separator:a26e3fb9ebaaac1adfbb80158c8de35b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abad3c240013cd825a685b3b3b8dd9cba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_searched_friends_panel.html">SearchedFriendsPanel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_player.html#abad3c240013cd825a685b3b3b8dd9cba">panel_</a></td></tr>
 <tr class="memdesc:abad3c240013cd825a685b3b3b8dd9cba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the panel that this object is being showed.  <a href="class_searched_player.html#abad3c240013cd825a685b3b3b8dd9cba">More...</a><br /></td></tr>
 <tr class="separator:abad3c240013cd825a685b3b3b8dd9cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,7 +165,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This method should be called by the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> instance when it finish the sendFriendshipInvitation method. This method shows a toast showing to the user the result of the sending invitation process, if it makes it right it also calls the clearSearchedFriendsPanel method of the <a class="el" href="class_searched_friends_panel.html" title="Class that controls the panel that shows the result of player search.">SearchedFriendsPanel</a> class. The defined states for the result are failed, repeated and sended. If the given string has a different state, it will show an error on the console. </p>
+<p>This method should be called by the <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> instance when it finish the sendFriendshipInvitation method. This method shows a toast showing to the user the result of the sending invitation process, if it makes it right it also calls the clearSearchedFriendsPanel method of the <a class="el" href="class_searched_friends_panel.html" title="Class that controls the panel that shows the result of player search.">SearchedFriendsPanel</a> class. The defined states for the result are failed, repeated and sended. If the given string has a different state, it will show an error on the console. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">string</td><td>with the result, the string should be one of the defined states. </td></tr>
@@ -187,7 +190,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>if the onProcess_ property is true, this method dont do nothing. This is a way to control that there isnt several parallel calls to the send invitation process. If onProcess_ property is false but there isnt internet connection, it make a toast animation showing an error message because you have to have internet connection to complete the send invitation process. And if you have internet connection and the onProcess_ property is false, it sets the onProcess_ property to true and then call the sendFriendshipInvitation method of <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> class. </p>
+<p>if the onProcess_ property is true, this method dont do nothing. This is a way to control that there isnt several parallel calls to the send invitation process. If onProcess_ property is false but there isnt internet connection, it make a toast animation showing an error message because you have to have internet connection to complete the send invitation process. And if you have internet connection and the onProcess_ property is false, it sets the onProcess_ property to true and then call the sendFriendshipInvitation method of <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> class. </p>
 
 </div>
 </div>
@@ -337,6 +340,30 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>GameObject that contains the text that shows the display name of the user. </p>
+
+</div>
+</div>
+<a id="a26e3fb9ebaaac1adfbb80158c8de35b3" name="a26e3fb9ebaaac1adfbb80158c8de35b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26e3fb9ebaaac1adfbb80158c8de35b3">&#9670;&nbsp;</a></span>toastMessage_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameObject SearchedPlayer.toastMessage_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GameObject the toast message object that will alert the user with the errors if they happen. </p>
 
 </div>
 </div>

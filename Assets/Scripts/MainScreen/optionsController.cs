@@ -129,10 +129,21 @@ public class optionsController : MonoBehaviour
         List<string> socialOptions = new List<string> { "addMe", "challengeMe", "ranking" };
         foreach(string option in socialOptions){
             if(PlayerPrefs.HasKey(option)){
+              //si el usuario es anonimo no debe poder tener acceso a ninguna caracteristica social
+              if( firebaseHandler.firebaseHandlerInstance_.userDataIsReady() && firebaseHandler.firebaseHandlerInstance_.currentUser_.getDisplayName() == gameRules.getAnonymousName()){
+                socialOptions_[option] = false;
+              }else{
                 socialOptions_[option] = PlayerPrefs.GetInt(option) == 1;//1 activado
+              }
             }else{
+              //si el usuario es anonimo no debe poder tener acceso a ninguna caracteristica social
+              if( firebaseHandler.firebaseHandlerInstance_.userDataIsReady() && firebaseHandler.firebaseHandlerInstance_.currentUser_.getDisplayName() == gameRules.getAnonymousName()){
+                socialOptions_[option] = false;
+                PlayerPrefs.SetInt(option,0);
+              }else{
                 socialOptions_[option] = true;
                 PlayerPrefs.SetInt(option,1);
+              }
             }
         }
 
@@ -335,9 +346,16 @@ public class optionsController : MonoBehaviour
                     changes[option] = socialOptionsMenu_.checkToggleByText(option);
                     //toShow += $" {option} -> {socialOptionsMenu_.checkToggleByText(option)} \n";
                 }
-                socialOptions_["addMe"] = changes["Other users can send me friendship invitations"];
-                socialOptions_["challengeMe"] = changes["Friends can challenge me"];
-                socialOptions_["ranking"] = changes["Other users can see me on the ranking"];
+                if(firebaseHandler.firebaseHandlerInstance_.userDataIsReady() && firebaseHandler.firebaseHandlerInstance_.currentUser_.getDisplayName() == gameRules.getAnonymousName()){
+                  //si es anonimo por mucho que lo intente no deberia poder hacer nada
+                  socialOptions_["addMe"] = false;
+                  socialOptions_["challengeMe"] = false;
+                  socialOptions_["ranking"] = false;
+                }else{
+                  socialOptions_["addMe"] = changes["Other users can send me friendship invitations"];
+                  socialOptions_["challengeMe"] = changes["Friends can challenge me"];
+                  socialOptions_["ranking"] = changes["Other users can see me on the ranking"];
+                }
                 firebaseHandler.firebaseHandlerInstance_.uploadSocialPreferences();
                 
             }
@@ -368,8 +386,13 @@ public class optionsController : MonoBehaviour
 
         List<string> socialOptions = new List<string> { "addMe", "challengeMe", "ranking"};
         foreach(string option in socialOptions){
+          if(firebaseHandler.firebaseHandlerInstance_.userDataIsReady() && firebaseHandler.firebaseHandlerInstance_.currentUser_.getDisplayName() == gameRules.getAnonymousName()){
+            //si es anonimo todas las opciones sociales deben estar apagadas
+            PlayerPrefs.SetInt(option,0);
+          }else{
             PlayerPrefs.SetInt(option, socialOptions_[option] ? 1 : 0 );
             //toShow += $"{option} = {(socialOptions_[option] ? 1 : 0)}";
+          }
         }
 
         PlayerPrefs.SetInt("distanceInKM_", distanceInKM_ ? 1 : 0);

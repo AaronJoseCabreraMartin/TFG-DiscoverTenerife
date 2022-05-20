@@ -90,9 +90,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a04adc15cea9c228cdae5af8b5a66053b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#a04adc15cea9c228cdae5af8b5a66053b">clearSearchedFriendsPanel</a> ()</td></tr>
 <tr class="memdesc:a04adc15cea9c228cdae5af8b5a66053b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method destroy each of the elements of the panel and calls the adjustPanelSize method.  <a href="class_searched_friends_panel.html#a04adc15cea9c228cdae5af8b5a66053b">More...</a><br /></td></tr>
 <tr class="separator:a04adc15cea9c228cdae5af8b5a66053b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa929018b26c5d03d4f22e98431a32f35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#aa929018b26c5d03d4f22e98431a32f35">makeToast</a> (string message, Color32 color, int duration)</td></tr>
-<tr class="memdesc:aa929018b26c5d03d4f22e98431a32f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method calls the makeAnimation method of the <a class="el" href="classtoast_message.html" title="class that controls the colored messages that are shown to the user giving him information but they h...">toastMessage</a> class with the same arguments that its called.  <a href="class_searched_friends_panel.html#aa929018b26c5d03d4f22e98431a32f35">More...</a><br /></td></tr>
-<tr class="separator:aa929018b26c5d03d4f22e98431a32f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -108,9 +105,6 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a71e3ca9216a864776934a49b3a3f0c63"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#a71e3ca9216a864776934a49b3a3f0c63">searchedFriendPrefab_</a></td></tr>
 <tr class="memdesc:a71e3ca9216a864776934a49b3a3f0c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject the prefab that shows the information of the searched user.  <a href="class_searched_friends_panel.html#a71e3ca9216a864776934a49b3a3f0c63">More...</a><br /></td></tr>
 <tr class="separator:a71e3ca9216a864776934a49b3a3f0c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac74959ddf816bcbe7496a1b8b0966442"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#ac74959ddf816bcbe7496a1b8b0966442">toastMessage_</a></td></tr>
-<tr class="memdesc:ac74959ddf816bcbe7496a1b8b0966442"><td class="mdescLeft">&#160;</td><td class="mdescRight">GameObject the toast message object that will alert the user with the errors if they happen.  <a href="class_searched_friends_panel.html#ac74959ddf816bcbe7496a1b8b0966442">More...</a><br /></td></tr>
-<tr class="separator:ac74959ddf816bcbe7496a1b8b0966442"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cdb9bbabadd94015d248bb0405438e1"><td class="memItemLeft" align="right" valign="top">List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_searched_friends_panel.html#a5cdb9bbabadd94015d248bb0405438e1">searchedFriends_</a></td></tr>
 <tr class="memdesc:a5cdb9bbabadd94015d248bb0405438e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;GameObject&gt; List of the generated prefabs that represent the users that were found by the search.  <a href="class_searched_friends_panel.html#a5cdb9bbabadd94015d248bb0405438e1">More...</a><br /></td></tr>
 <tr class="separator:a5cdb9bbabadd94015d248bb0405438e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -234,51 +228,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>int The count of the searched fiends. </dd></dl>
-
-</div>
-</div>
-<a id="aa929018b26c5d03d4f22e98431a32f35" name="aa929018b26c5d03d4f22e98431a32f35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa929018b26c5d03d4f22e98431a32f35">&#9670;&nbsp;</a></span>makeToast()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SearchedFriendsPanel.makeToast </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color32&#160;</td>
-          <td class="paramname"><em>color</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>duration</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>this method calls the makeAnimation method of the <a class="el" href="classtoast_message.html" title="class that controls the colored messages that are shown to the user giving him information but they h...">toastMessage</a> class with the same arguments that its called. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">string</td><td>menssage to show on the displayed toast. </td></tr>
-    <tr><td class="paramname">Color32</td><td>the color of the displayed toast </td></tr>
-    <tr><td class="paramname">int</td><td>the duration in seconds of the animation of the displayed toast. </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>int The count of the searched friends. </dd></dl>
 
 </div>
 </div>
@@ -352,30 +302,6 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>List&lt;GameObject&gt; List of the generated prefabs that represent the users that were found by the search. </p>
-
-</div>
-</div>
-<a id="ac74959ddf816bcbe7496a1b8b0966442" name="ac74959ddf816bcbe7496a1b8b0966442"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac74959ddf816bcbe7496a1b8b0966442">&#9670;&nbsp;</a></span>toastMessage_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">GameObject SearchedFriendsPanel.toastMessage_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>GameObject the toast message object that will alert the user with the errors if they happen. </p>
 
 </div>
 </div>

@@ -39,10 +39,24 @@ public class scrollRectController : MonoBehaviour
     [SerializeField] private double minLimit_ = 1.00001;
 
     /**
+      * @brief double that contains the point where if the user slide up more, will
+      * activate the loading more places process.
+      */
+    [SerializeField] private double maxNegativeLimit_ = -0.005;
+
+    /**
+      * @brief double that contains the point where the user, after sliding up enough,
+      * will fire the loading more places process.
+      */
+    [SerializeField] private double minNegativeLimit_ = -0.00000001;
+
+    /**
       * @brief true if the user has passed the point where the loading more places
       * process start.
       */
     private bool alreadyAskedForNewPlaces_ = false;
+
+    private bool alreadyAskedForNewPlacesDown_ = false;
 
     /**
       * @param Vector2 with both directions of the scrolling, both vertical and horizontal.
@@ -53,6 +67,7 @@ public class scrollRectController : MonoBehaviour
       * changeSceneWithAnimation method of ChangeScene class to reload the scene
       */
     public void OnUserScroll(Vector2 value){
+        //sliding down
         if(value[1] > maxLimit_ && !alreadyAskedForNewPlaces_){
             alreadyAskedForNewPlaces_ = true;
         }else if(value[1] < minLimit_ && alreadyAskedForNewPlaces_){
@@ -60,6 +75,17 @@ public class scrollRectController : MonoBehaviour
             alreadyAskedForNewPlaces_ = false;
             GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation("PantallaPrincipal");
         }
+
+        /*Debug.Log($"value[1] = {value[1]}, maxNegativeLimit_ = {maxNegativeLimit_}, minNegativeLimit_ = {minNegativeLimit_}, alreadyAskedForNewPlaces_ = {alreadyAskedForNewPlaces_}");
+        //sliding up
+        if(value[1] > maxNegativeLimit_ && !alreadyAskedForNewPlaces_){
+            alreadyAskedForNewPlacesDown_ = true;
+        }else if(value[1] < minNegativeLimit_ && alreadyAskedForNewPlacesDown_){
+            firebaseHandler.firebaseHandlerInstance_.askForNewPlaces();
+            alreadyAskedForNewPlacesDown_ = false;
+            GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation("PantallaPrincipal");
+        }*/
+
         //si ya pase del maximo, pon stopSlidingText_, si no, pon el continueSlidingText_
         text_.GetComponent<Text>().text = (alreadyAskedForNewPlaces_ ? stopSlidingText_ : continueSlidingText_);
     }

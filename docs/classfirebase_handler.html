@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>This class follows the Singleton patron, so it only has one instance at the same time. The instance could be found on the firebaseHandlerInstance_ public static property. This class handles all the firebase releated methods like validating user, creating new users, downloading and uploading all the data from the database.  
+<p>the part of the class <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> that controls the downloading operations  
  <a href="classfirebase_handler.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for firebaseHandler:</div>
@@ -84,29 +84,21 @@ Inheritance diagram for firebaseHandler:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a79f50b713883df7fc275f725486fa424"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a79f50b713883df7fc275f725486fa424">downloadFriendData</a> (string uid)</td></tr>
+<tr class="memdesc:a79f50b713883df7fc275f725486fa424"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method tries to download the necesary information of the given user id. If it fails on the process it adds the user id to the friendDataDownloadQueue_ list. If it success it calls the addFriendData method of <a class="el" href="class_user_data.html" title="Class that stores the current user data.">UserData</a> class creating a new <a class="el" href="class_friend_data.html" title="Class that stores the information of one of the current user&#39;s friend.">FriendData</a> object.  <a href="classfirebase_handler.html#a79f50b713883df7fc275f725486fa424">More...</a><br /></td></tr>
+<tr class="separator:a79f50b713883df7fc275f725486fa424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ebc57ce4f3015ebf732f3fa209048e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a0ebc57ce4f3015ebf732f3fa209048e4">readUserData</a> ()</td></tr>
+<tr class="memdesc:a0ebc57ce4f3015ebf732f3fa209048e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method download all the information that is releated to the user from the firebase database.  <a href="classfirebase_handler.html#a0ebc57ce4f3015ebf732f3fa209048e4">More...</a><br /></td></tr>
+<tr class="separator:a0ebc57ce4f3015ebf732f3fa209048e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a6888d8095b58d5e010943192a218e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a3a6888d8095b58d5e010943192a218e3">downloadRankingPlayerData</a> ()</td></tr>
+<tr class="memdesc:a3a6888d8095b58d5e010943192a218e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method downloads all the data what will be shown on the players ranking and store it as a <a class="el" href="class_ranking_player_data.html" title="Class that stores the information of each player that is shown on the ranking.">RankingPlayerData</a> object on the rankingData_ list. It changes the downloadingRankingData_ attribute to reflect the current state of the download.  <a href="classfirebase_handler.html#a3a6888d8095b58d5e010943192a218e3">More...</a><br /></td></tr>
+<tr class="separator:a3a6888d8095b58d5e010943192a218e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8a10ab6460cf11bc6d23126c44b200f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aa8a10ab6460cf11bc6d23126c44b200f">internetConnection</a> ()</td></tr>
 <tr class="separator:aa8a10ab6460cf11bc6d23126c44b200f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4043c29298ebba38031194de7e079249"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a4043c29298ebba38031194de7e079249">FirebaseDependenciesAreResolved</a> ()</td></tr>
 <tr class="separator:a4043c29298ebba38031194de7e079249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04299ca84568415273316686a94bb3ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a04299ca84568415273316686a94bb3ae">CreateNewUser</a> (string email, string password)</td></tr>
 <tr class="separator:a04299ca84568415273316686a94bb3ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e4a4c939d9a69525849e67ea2c5440d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a8e4a4c939d9a69525849e67ea2c5440d">LoginUser</a> (string email, string password)</td></tr>
-<tr class="separator:a8e4a4c939d9a69525849e67ea2c5440d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a297e1c6be17087c8721385c645f747a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a297e1c6be17087c8721385c645f747a8">AnonymousUser</a> ()</td></tr>
-<tr class="separator:a297e1c6be17087c8721385c645f747a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fe29f48976a13c0b7e6058ef291739f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a4fe29f48976a13c0b7e6058ef291739f">SignInWithGoogle</a> ()</td></tr>
-<tr class="separator:a4fe29f48976a13c0b7e6058ef291739f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01a2d71ae9cac39dd471025595431a3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a01a2d71ae9cac39dd471025595431a3e">LogOut</a> ()</td></tr>
-<tr class="separator:a01a2d71ae9cac39dd471025595431a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f8c6e716d1526e02e1d37e73fa586ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a6f8c6e716d1526e02e1d37e73fa586ca">writeNewPlaceOnDataBase</a> (<a class="el" href="class_place.html">Place</a> place, string type, int placeID)</td></tr>
-<tr class="separator:a6f8c6e716d1526e02e1d37e73fa586ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba11f61e5325c292f87ab9cf860d4a47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aba11f61e5325c292f87ab9cf860d4a47">writeUserData</a> ()</td></tr>
-<tr class="separator:aba11f61e5325c292f87ab9cf860d4a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ebc57ce4f3015ebf732f3fa209048e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a0ebc57ce4f3015ebf732f3fa209048e4">readUserData</a> ()</td></tr>
-<tr class="separator:a0ebc57ce4f3015ebf732f3fa209048e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3246face54b37d05f1706fd2c679fb4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a3246face54b37d05f1706fd2c679fb4c">writePlaceData</a> (string type, string id)</td></tr>
-<tr class="memdesc:a3246face54b37d05f1706fd2c679fb4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method uploads the data from the place that matches the given type and id. If the upload fails it adds the information of the place to placesToUploadQueue_.  <a href="classfirebase_handler.html#a3246face54b37d05f1706fd2c679fb4c">More...</a><br /></td></tr>
-<tr class="separator:a3246face54b37d05f1706fd2c679fb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28b9cfa56bcc6eb589c0c3cac163d2a1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a28b9cfa56bcc6eb589c0c3cac163d2a1">cooldownVisitingPlaceFinished</a> (string type, int id)</td></tr>
 <tr class="memdesc:a28b9cfa56bcc6eb589c0c3cac163d2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns true if the place with the given type and id is ready for a new visit. The cooldown time is defined on the class <a class="el" href="classgame_rules.html" title="This class store as static properties the parameters that affect the game rules. For example it store...">gameRules</a>, check that class for more information.  <a href="classfirebase_handler.html#a28b9cfa56bcc6eb589c0c3cac163d2a1">More...</a><br /></td></tr>
 <tr class="separator:a28b9cfa56bcc6eb589c0c3cac163d2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +131,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:adeb8dfca0be45c50bbc3890cc8c05048"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method returns a dictionary that contains the id and the type of the place that has the given name. If there isn't any place with that name, it will return a dictionary that contains two entries id with the string "-1" and type with the string "noType". If there is more than one place with the given name, only the first one will be returned.  <a href="classfirebase_handler.html#adeb8dfca0be45c50bbc3890cc8c05048">More...</a><br /></td></tr>
 <tr class="separator:adeb8dfca0be45c50bbc3890cc8c05048"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5dc9ae5a71e0b308a311bb39d11d36c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ab5dc9ae5a71e0b308a311bb39d11d36c">totalOfPlaces</a> ()</td></tr>
+<tr class="memdesc:ab5dc9ae5a71e0b308a311bb39d11d36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter of the quantity of places  <a href="classfirebase_handler.html#ab5dc9ae5a71e0b308a311bb39d11d36c">More...</a><br /></td></tr>
 <tr class="separator:ab5dc9ae5a71e0b308a311bb39d11d36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2e1f3074b62519af5eb018eb8aaa7c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ab2e1f3074b62519af5eb018eb8aaa7c8">totalOfPlacesOfZone</a> (string zone)</td></tr>
 <tr class="memdesc:ab2e1f3074b62519af5eb018eb8aaa7c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method counts all the places that have the given zone name on their zone_ property. If there is no places on the given zone, it will show a message on the console and return a 0. The valid zones are determinated on the <a class="el" href="classmap_rules_handler.html" title="This class stores the geographic zone releated values, like which are the zones of the map.">mapRulesHandler</a> class, check its documentation for more information.  <a href="classfirebase_handler.html#ab2e1f3074b62519af5eb018eb8aaa7c8">More...</a><br /></td></tr>
@@ -146,12 +139,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a79d494234917b59874830d3d758a71ff"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a79d494234917b59874830d3d758a71ff">getPlaceData</a> (string type, string id)</td></tr>
 <tr class="memdesc:a79d494234917b59874830d3d758a71ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method search on the property allPlaces_ if there is a place with the given type and id. If there isn't any place that match both the given id and the given type, it will return null.  <a href="classfirebase_handler.html#a79d494234917b59874830d3d758a71ff">More...</a><br /></td></tr>
 <tr class="separator:a79d494234917b59874830d3d758a71ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79f50b713883df7fc275f725486fa424"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a79f50b713883df7fc275f725486fa424">downloadFriendData</a> (string uid)</td></tr>
-<tr class="memdesc:a79f50b713883df7fc275f725486fa424"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method tries to download the necesary information of the given user id. If it fails on the process it adds the user id to the friendDataDownloadQueue_ list. If it success it calls the addFriendData method of <a class="el" href="class_user_data.html" title="Class that stores the current user data.">UserData</a> class creating a new <a class="el" href="class_friend_data.html" title="Class that stores the information of one of the current user&#39;s friend.">FriendData</a> object.  <a href="classfirebase_handler.html#a79f50b713883df7fc275f725486fa424">More...</a><br /></td></tr>
-<tr class="separator:a79f50b713883df7fc275f725486fa424"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5dce85004e8ee815fe14f564b75d7c91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a5dce85004e8ee815fe14f564b75d7c91">updateUserDeleteAFriend</a> (string noFriendUid, string deletedFriendsListInJSON)</td></tr>
-<tr class="memdesc:a5dce85004e8ee815fe14f564b75d7c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method must be called when there is internet connection, otherwise it wont to nothing. This method upload the deletedFriends property of the user that has the given id.  <a href="classfirebase_handler.html#a5dce85004e8ee815fe14f564b75d7c91">More...</a><br /></td></tr>
-<tr class="separator:a5dce85004e8ee815fe14f564b75d7c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3c1ddbba64c73b7ec1a927c945bda60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aa3c1ddbba64c73b7ec1a927c945bda60">SearchOtherUserByName</a> (string toSearch, string type, <a class="el" href="class_search_bar.html">SearchBar</a> toAdvise=null)</td></tr>
 <tr class="memdesc:aa3c1ddbba64c73b7ec1a927c945bda60"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method tries to find other user on the list of users that allow be found by other users on the different types of searchs. If a <a class="el" href="class_search_bar.html" title="This class controls the search bar of the screen that allow the user find other users to send them a ...">SearchBar</a> object is given it will call the resultsOfTheSearch method of that class with a dictionary version of the found user.  <a href="classfirebase_handler.html#aa3c1ddbba64c73b7ec1a927c945bda60">More...</a><br /></td></tr>
 <tr class="separator:aa3c1ddbba64c73b7ec1a927c945bda60"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,21 +148,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3a753ceb400dcd4339b2b7d609f09102"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a3a753ceb400dcd4339b2b7d609f09102">askForNewPlaces</a> ()</td></tr>
 <tr class="memdesc:a3a753ceb400dcd4339b2b7d609f09102"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method calls the updateStartIndex method of the <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> class to make the <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> choose new places.  <a href="classfirebase_handler.html#a3a753ceb400dcd4339b2b7d609f09102">More...</a><br /></td></tr>
 <tr class="separator:a3a753ceb400dcd4339b2b7d609f09102"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89ce698937f9f0b6c9e1da9cee773e64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a89ce698937f9f0b6c9e1da9cee773e64">uploadFriendChallengesOf</a> (<a class="el" href="class_friend_data.html">FriendData</a> friendDataToUpload)</td></tr>
-<tr class="memdesc:a89ce698937f9f0b6c9e1da9cee773e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method upload the challengue list of the given user.  <a href="classfirebase_handler.html#a89ce698937f9f0b6c9e1da9cee773e64">More...</a><br /></td></tr>
-<tr class="separator:a89ce698937f9f0b6c9e1da9cee773e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61e7f123a1af4e702a8bcd558e3e0ba1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a61e7f123a1af4e702a8bcd558e3e0ba1">uploadSocialPreferences</a> ()</td></tr>
-<tr class="memdesc:a61e7f123a1af4e702a8bcd558e3e0ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method should be called either when there is changes on the current user's social preferences or the last changes couldnt been uploaded on the past. It checks if there is any change on the three permision and upload to the firebase database the changes on the preferences. It checks if the three lists are uploaded, if one or more of them fails on the uploading, it puts the hasToUploadSocialPreferences_ property to true, so this method will be called again when the internet connection is ready.  <a href="classfirebase_handler.html#a61e7f123a1af4e702a8bcd558e3e0ba1">More...</a><br /></td></tr>
-<tr class="separator:a61e7f123a1af4e702a8bcd558e3e0ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9604dc2667655b5cc8485136e1a2eb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#af9604dc2667655b5cc8485136e1a2eb1">addOtherUserScoreToUpload</a> (Dictionary&lt; string, string &gt; uidAndScore)</td></tr>
 <tr class="memdesc:af9604dc2667655b5cc8485136e1a2eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method adds the given dictionary to the otherUserScoresToUpload_ list.  <a href="classfirebase_handler.html#af9604dc2667655b5cc8485136e1a2eb1">More...</a><br /></td></tr>
 <tr class="separator:af9604dc2667655b5cc8485136e1a2eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69977b96acf330e38ff6174b2072b5c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a69977b96acf330e38ff6174b2072b5c9">updateUserAddedAFriend</a> (string friendUid, string acceptedFriendsInvitationsListInJSON)</td></tr>
-<tr class="memdesc:a69977b96acf330e38ff6174b2072b5c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method tries to upload the accepted friendships invitations list of the given user. If it complete it succesfully, it removes the friendUid of the list of the user that need to be notified with the hasBeenNotified method. It also sets the uploadingNotifications_ property as true but when the try of updating finish, in any way, it sets the uploadingNotifications_ property as false.  <a href="classfirebase_handler.html#a69977b96acf330e38ff6174b2072b5c9">More...</a><br /></td></tr>
-<tr class="separator:a69977b96acf330e38ff6174b2072b5c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a6888d8095b58d5e010943192a218e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a3a6888d8095b58d5e010943192a218e3">downloadRankingPlayerData</a> ()</td></tr>
-<tr class="memdesc:a3a6888d8095b58d5e010943192a218e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method downloads all the data what will be shown on the players ranking and store it as a <a class="el" href="class_ranking_player_data.html" title="Class that stores the information of each player that is shown on the ranking.">RankingPlayerData</a> object on the rankingData_ list. It changes the downloadingRankingData_ attribute to reflect the current state of the download.  <a href="classfirebase_handler.html#a3a6888d8095b58d5e010943192a218e3">More...</a><br /></td></tr>
-<tr class="separator:a3a6888d8095b58d5e010943192a218e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a531d01b38f313306dd09a48e2475bcae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a531d01b38f313306dd09a48e2475bcae">isRankingDataComplete</a> ()</td></tr>
 <tr class="memdesc:a531d01b38f313306dd09a48e2475bcae"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method returns true if all the data of the users that appeard on the ranking is already downloaded, false in other case.  <a href="classfirebase_handler.html#a531d01b38f313306dd09a48e2475bcae">More...</a><br /></td></tr>
 <tr class="separator:a531d01b38f313306dd09a48e2475bcae"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -191,6 +166,50 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4b3f14220269dcaf6528f5fd443e511c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a4b3f14220269dcaf6528f5fd443e511c">sortRankingDataList</a> ()</td></tr>
 <tr class="memdesc:a4b3f14220269dcaf6528f5fd443e511c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method sorts the users that appeard on the ranking. It sorts them setting on the firsts positions users with the highers scores. It also updates the top_ property of the <a class="el" href="class_ranking_player_data.html" title="Class that stores the information of each player that is shown on the ranking.">RankingPlayerData</a> objects of the lists using the setTop method.  <a href="classfirebase_handler.html#a4b3f14220269dcaf6528f5fd443e511c">More...</a><br /></td></tr>
 <tr class="separator:a4b3f14220269dcaf6528f5fd443e511c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e4a4c939d9a69525849e67ea2c5440d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a8e4a4c939d9a69525849e67ea2c5440d">LoginUser</a> (string email, string password)</td></tr>
+<tr class="separator:a8e4a4c939d9a69525849e67ea2c5440d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a297e1c6be17087c8721385c645f747a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a297e1c6be17087c8721385c645f747a8">AnonymousUser</a> ()</td></tr>
+<tr class="separator:a297e1c6be17087c8721385c645f747a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fe29f48976a13c0b7e6058ef291739f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a4fe29f48976a13c0b7e6058ef291739f">SignInWithGoogle</a> ()</td></tr>
+<tr class="memdesc:a4fe29f48976a13c0b7e6058ef291739f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method will be called when the google signin button is pressed, it start the google authentication process calling the method OnAuthenticationFinished when it finish.  <a href="classfirebase_handler.html#a4fe29f48976a13c0b7e6058ef291739f">More...</a><br /></td></tr>
+<tr class="separator:a4fe29f48976a13c0b7e6058ef291739f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01a2d71ae9cac39dd471025595431a3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a01a2d71ae9cac39dd471025595431a3e">LogOut</a> ()</td></tr>
+<tr class="separator:a01a2d71ae9cac39dd471025595431a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f8c6e716d1526e02e1d37e73fa586ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a6f8c6e716d1526e02e1d37e73fa586ca">writeNewPlaceOnDataBase</a> (<a class="el" href="class_place.html">Place</a> place, string type, int placeID)</td></tr>
+<tr class="separator:a6f8c6e716d1526e02e1d37e73fa586ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3246face54b37d05f1706fd2c679fb4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a3246face54b37d05f1706fd2c679fb4c">writePlaceData</a> (string type, string id)</td></tr>
+<tr class="memdesc:a3246face54b37d05f1706fd2c679fb4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method uploads the data from the place that matches the given type and id. If the upload fails it adds the information of the place to placesToUploadQueue_.  <a href="classfirebase_handler.html#a3246face54b37d05f1706fd2c679fb4c">More...</a><br /></td></tr>
+<tr class="separator:a3246face54b37d05f1706fd2c679fb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dce85004e8ee815fe14f564b75d7c91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a5dce85004e8ee815fe14f564b75d7c91">updateUserDeleteAFriend</a> (string noFriendUid, string deletedFriendsListInJSON)</td></tr>
+<tr class="memdesc:a5dce85004e8ee815fe14f564b75d7c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method must be called when there is internet connection, otherwise it wont to nothing. This method upload the deletedFriends property of the user that has the given id.  <a href="classfirebase_handler.html#a5dce85004e8ee815fe14f564b75d7c91">More...</a><br /></td></tr>
+<tr class="separator:a5dce85004e8ee815fe14f564b75d7c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89ce698937f9f0b6c9e1da9cee773e64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a89ce698937f9f0b6c9e1da9cee773e64">uploadFriendChallengesOf</a> (<a class="el" href="class_friend_data.html">FriendData</a> friendDataToUpload)</td></tr>
+<tr class="memdesc:a89ce698937f9f0b6c9e1da9cee773e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method upload the challengue list of the given user.  <a href="classfirebase_handler.html#a89ce698937f9f0b6c9e1da9cee773e64">More...</a><br /></td></tr>
+<tr class="separator:a89ce698937f9f0b6c9e1da9cee773e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61e7f123a1af4e702a8bcd558e3e0ba1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a61e7f123a1af4e702a8bcd558e3e0ba1">uploadSocialPreferences</a> ()</td></tr>
+<tr class="memdesc:a61e7f123a1af4e702a8bcd558e3e0ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method should be called either when there is changes on the current user's social preferences or the last changes couldnt been uploaded on the past. It checks if there is any change on the three permision and upload to the firebase database the changes on the preferences. It checks if the three lists are uploaded, if one or more of them fails on the uploading, it puts the hasToUploadSocialPreferences_ property to true, so this method will be called again when the internet connection is ready.  <a href="classfirebase_handler.html#a61e7f123a1af4e702a8bcd558e3e0ba1">More...</a><br /></td></tr>
+<tr class="separator:a61e7f123a1af4e702a8bcd558e3e0ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69977b96acf330e38ff6174b2072b5c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a69977b96acf330e38ff6174b2072b5c9">updateUserAddedAFriend</a> (string friendUid, string acceptedFriendsInvitationsListInJSON)</td></tr>
+<tr class="memdesc:a69977b96acf330e38ff6174b2072b5c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method tries to upload the accepted friendships invitations list of the given user. If it complete it succesfully, it removes the friendUid of the list of the user that need to be notified with the hasBeenNotified method. It also sets the uploadingNotifications_ property as true but when the try of updating finish, in any way, it sets the uploadingNotifications_ property as false.  <a href="classfirebase_handler.html#a69977b96acf330e38ff6174b2072b5c9">More...</a><br /></td></tr>
+<tr class="separator:a69977b96acf330e38ff6174b2072b5c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3282774d481bbf7871eab675f8706592"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a3282774d481bbf7871eab675f8706592">writeAllFriendProperties</a> ()</td></tr>
+<tr class="memdesc:a3282774d481bbf7871eab675f8706592"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method calls the writeFriendProperty with each element of the otherUsersPropertiesToUpload_ list and it removes the each of those elements taking care of that each of those elements could enter again on the list. That could happen if the upload goes wrong.  <a href="classfirebase_handler.html#a3282774d481bbf7871eab675f8706592">More...</a><br /></td></tr>
+<tr class="separator:a3282774d481bbf7871eab675f8706592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae53412beeb59b8cf5920eeeeb936de2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aae53412beeb59b8cf5920eeeeb936de2">writeFriendProperty</a> (string userId, string property, string json)</td></tr>
+<tr class="memdesc:aae53412beeb59b8cf5920eeeeb936de2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method downloads the current information of the given property of the given friend and then calls the correct method for taking care of differences between the cloud information and the local information.  <a href="classfirebase_handler.html#aae53412beeb59b8cf5920eeeeb936de2">More...</a><br /></td></tr>
+<tr class="separator:aae53412beeb59b8cf5920eeeeb936de2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe3f364df05144365eaf4335a06da121"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#abe3f364df05144365eaf4335a06da121">writeAllUserProperties</a> ()</td></tr>
+<tr class="memdesc:abe3f364df05144365eaf4335a06da121"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method calls writeSafeProperties with each safe property and writeUnsafeProperty with each unsafe property of the current user. It uses the getJSONof method of <a class="el" href="class_user_data.html" title="Class that stores the current user data.">UserData</a> class.  <a href="classfirebase_handler.html#abe3f364df05144365eaf4335a06da121">More...</a><br /></td></tr>
+<tr class="separator:abe3f364df05144365eaf4335a06da121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0860f249048107fbcab6d857102eb57e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a0860f249048107fbcab6d857102eb57e">writeQueuedUserProperties</a> ()</td></tr>
+<tr class="memdesc:a0860f249048107fbcab6d857102eb57e"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method calls the writeSafeProperties or writeUnsafeProperty depending of the type of each element that is stored in currentUserPropertiesToUpload_ list. It removes the elements wich it calls those methods taking care of the fact that those properties could enter again on the currentUserPropertiesToUpload_ list if they fail on the upload.  <a href="classfirebase_handler.html#a0860f249048107fbcab6d857102eb57e">More...</a><br /></td></tr>
+<tr class="separator:a0860f249048107fbcab6d857102eb57e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99a9aff19faf863e2095b7cc6c5e089c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a99a9aff19faf863e2095b7cc6c5e089c">writeSafeProperties</a> (string property, string json)</td></tr>
+<tr class="memdesc:a99a9aff19faf863e2095b7cc6c5e089c"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method writes on the given property on the database the given json value. It doesnt take care of the version that is on the database. It simply overwrite it. If something goes wrong during the upload, it adds the property to currentUserPropertiesToUpload_ again.  <a href="classfirebase_handler.html#a99a9aff19faf863e2095b7cc6c5e089c">More...</a><br /></td></tr>
+<tr class="separator:a99a9aff19faf863e2095b7cc6c5e089c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50b30427b1b82d94f229d89a2dc52b3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a50b30427b1b82d94f229d89a2dc52b3f">writeUnsafeProperty</a> (string property, string json)</td></tr>
+<tr class="memdesc:a50b30427b1b82d94f229d89a2dc52b3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method writes on the given property on the database the given json value. It takes care of the information that is currently on the database and tries to avoid incongruencies of the database. If something goes wrong during the uploading it adds again the property to the currentUserPropertiesToUpload_ list.  <a href="classfirebase_handler.html#a50b30427b1b82d94f229d89a2dc52b3f">More...</a><br /></td></tr>
+<tr class="separator:a50b30427b1b82d94f229d89a2dc52b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -206,49 +225,59 @@ Static Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a107cf24e6ef564dd295c275b22cb76c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a107cf24e6ef564dd295c275b22cb76c2">Awake</a> ()</td></tr>
-<tr class="separator:a107cf24e6ef564dd295c275b22cb76c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacb6809cc1063e6d99a168da7ad4e221"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aacb6809cc1063e6d99a168da7ad4e221">Update</a> ()</td></tr>
-<tr class="separator:aacb6809cc1063e6d99a168da7ad4e221"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab36305f69c563c92c18a9788e78d91df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ab36305f69c563c92c18a9788e78d91df">CheckDependenciesFirebase</a> (Task&lt; DependencyStatus &gt; task)</td></tr>
-<tr class="separator:ab36305f69c563c92c18a9788e78d91df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1fe00bd055164441b36e92a30407ef1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aa1fe00bd055164441b36e92a30407ef1">downloadAllFriendData</a> ()</td></tr>
+<tr class="memdesc:aa1fe00bd055164441b36e92a30407ef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method calls the downloadFriendData method with each user id that is on the friendDataDownloadQueue_.  <a href="classfirebase_handler.html#aa1fe00bd055164441b36e92a30407ef1">More...</a><br /></td></tr>
+<tr class="separator:aa1fe00bd055164441b36e92a30407ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ff338e5b0a89ce635acd683c8d4236c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a3ff338e5b0a89ce635acd683c8d4236c">downloadAllNewfriendsInvitationsData</a> ()</td></tr>
+<tr class="memdesc:a3ff338e5b0a89ce635acd683c8d4236c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method calls downloadNewFriendInvitationData method with each of the user ids that are on the new friends invitations list of the current user.  <a href="classfirebase_handler.html#a3ff338e5b0a89ce635acd683c8d4236c">More...</a><br /></td></tr>
+<tr class="separator:a3ff338e5b0a89ce635acd683c8d4236c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada3d92f5afe301370b0696a3a7ade2be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ada3d92f5afe301370b0696a3a7ade2be">downloadNewFriendInvitationData</a> (string uid)</td></tr>
+<tr class="memdesc:ada3d92f5afe301370b0696a3a7ade2be"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method tries to download the display name and the list of newFriendsInvitations of the user that matches the given user id. If its fails it adds the user id to the newFriendDataDownloadQueue_ list and if its success, its calls the addNewFriendData method of <a class="el" href="class_user_data.html" title="Class that stores the current user data.">UserData</a>.  <a href="classfirebase_handler.html#ada3d92f5afe301370b0696a3a7ade2be">More...</a><br /></td></tr>
+<tr class="separator:ada3d92f5afe301370b0696a3a7ade2be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af32e8f72e94a98e2a3e7eb86e801b1c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#af32e8f72e94a98e2a3e7eb86e801b1c8">downloadAllPlaces</a> ()</td></tr>
 <tr class="memdesc:af32e8f72e94a98e2a3e7eb86e801b1c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method start as many coroutines as types of places are defined on <a class="el" href="classmap_rules_handler.html" title="This class stores the geographic zone releated values, like which are the zones of the map.">mapRulesHandler</a>. Each coroutine will download the information of that type of place. If you want more information check the <a class="el" href="classmap_rules_handler.html" title="This class stores the geographic zone releated values, like which are the zones of the map.">mapRulesHandler</a> documentation and the downloadOneTypeOfSite method of this class.  <a href="classfirebase_handler.html#af32e8f72e94a98e2a3e7eb86e801b1c8">More...</a><br /></td></tr>
 <tr class="separator:af32e8f72e94a98e2a3e7eb86e801b1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c779ceab25f62feccd95b3f19c9bc18"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a8c779ceab25f62feccd95b3f19c9bc18">downloadOneTypeOfSite</a> (string typeSite)</td></tr>
 <tr class="memdesc:a8c779ceab25f62feccd95b3f19c9bc18"><td class="mdescLeft">&#160;</td><td class="mdescRight">This coroutine tries to download all the places of the given type. If there is no internet connection it waits until there is avaible again. When all the places of all types has already downloaded it sets ON the placesReady_ flag.  <a href="classfirebase_handler.html#a8c779ceab25f62feccd95b3f19c9bc18">More...</a><br /></td></tr>
 <tr class="separator:a8c779ceab25f62feccd95b3f19c9bc18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9979443635c9d02f69d2ae5671ece914"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a9979443635c9d02f69d2ae5671ece914">downloadUsersPermissionsLists</a> ()</td></tr>
+<tr class="memdesc:a9979443635c9d02f69d2ae5671ece914"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method download the lists of the user social permissions. They are usersThatAllowFriendshipInvitations, usersThatAllowBeChallenged and usersThatAllowAppearedOnRanking. The downloadingAnyOfTheUsersPermissionsLists_ is set as a true. The social permissions are downloaded in a parallel way for searching more efficiency if some of them failed the downloadingAnyOfTheUsersPermissionsLists_ property will be set as false again.  <a href="classfirebase_handler.html#a9979443635c9d02f69d2ae5671ece914">More...</a><br /></td></tr>
+<tr class="separator:a9979443635c9d02f69d2ae5671ece914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a107cf24e6ef564dd295c275b22cb76c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a107cf24e6ef564dd295c275b22cb76c2">Awake</a> ()</td></tr>
+<tr class="separator:a107cf24e6ef564dd295c275b22cb76c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacb6809cc1063e6d99a168da7ad4e221"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aacb6809cc1063e6d99a168da7ad4e221">Update</a> ()</td></tr>
+<tr class="separator:aacb6809cc1063e6d99a168da7ad4e221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab36305f69c563c92c18a9788e78d91df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ab36305f69c563c92c18a9788e78d91df">CheckDependenciesFirebase</a> (Task&lt; DependencyStatus &gt; task)</td></tr>
+<tr class="separator:ab36305f69c563c92c18a9788e78d91df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4e76c6c544cc8100150e10ca1530d78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aa4e76c6c544cc8100150e10ca1530d78">OnApplicationQuit</a> ()</td></tr>
 <tr class="memdesc:aa4e76c6c544cc8100150e10ca1530d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called when the application is closed, it saves all the offline information and stop the firebase online services.  <a href="classfirebase_handler.html#aa4e76c6c544cc8100150e10ca1530d78">More...</a><br /></td></tr>
 <tr class="separator:aa4e76c6c544cc8100150e10ca1530d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d888fb6a6e77481385b3808f1052411"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a7d888fb6a6e77481385b3808f1052411">uploadPlacesQueue</a> ()</td></tr>
-<tr class="memdesc:a7d888fb6a6e77481385b3808f1052411"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method tries to upload all the information that is on the placesToUpdateQueue_ property. If it success, it erase the place from the list, but if its fails the writePlaceData will add again the place to the queue.  <a href="classfirebase_handler.html#a7d888fb6a6e77481385b3808f1052411">More...</a><br /></td></tr>
-<tr class="separator:a7d888fb6a6e77481385b3808f1052411"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1fe00bd055164441b36e92a30407ef1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aa1fe00bd055164441b36e92a30407ef1">downloadAllFriendData</a> ()</td></tr>
-<tr class="memdesc:aa1fe00bd055164441b36e92a30407ef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method calls the downloadFriendData method with each user id that is on the friendDataDownloadQueue_.  <a href="classfirebase_handler.html#aa1fe00bd055164441b36e92a30407ef1">More...</a><br /></td></tr>
-<tr class="separator:aa1fe00bd055164441b36e92a30407ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a17458f3343ca655fcf543a571944da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a3a17458f3343ca655fcf543a571944da">downloadAllNewFriendInvitationsData</a> ()</td></tr>
-<tr class="memdesc:a3a17458f3343ca655fcf543a571944da"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method calls downloadNewFriendInvitationData method with each of the user ids that are on the new friends invitations list of the current user.  <a href="classfirebase_handler.html#a3a17458f3343ca655fcf543a571944da">More...</a><br /></td></tr>
-<tr class="separator:a3a17458f3343ca655fcf543a571944da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada3d92f5afe301370b0696a3a7ade2be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ada3d92f5afe301370b0696a3a7ade2be">downloadNewFriendInvitationData</a> (string uid)</td></tr>
-<tr class="memdesc:ada3d92f5afe301370b0696a3a7ade2be"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method tries to download the display name and the list of newFriendsInvitations of the user that matches the given user id. If its fails it adds the user id to the newFriendDataDownloadQueue_ list and if its success, its calls the addNewFriendData method of <a class="el" href="class_user_data.html" title="Class that stores the current user data.">UserData</a>.  <a href="classfirebase_handler.html#ada3d92f5afe301370b0696a3a7ade2be">More...</a><br /></td></tr>
-<tr class="separator:ada3d92f5afe301370b0696a3a7ade2be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abffc3260d05bb5082b7a683ae80274f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#abffc3260d05bb5082b7a683ae80274f7">OnDestroy</a> ()</td></tr>
-<tr class="memdesc:abffc3260d05bb5082b7a683ae80274f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called when the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> object is destroyed.  <a href="classfirebase_handler.html#abffc3260d05bb5082b7a683ae80274f7">More...</a><br /></td></tr>
+<tr class="memdesc:abffc3260d05bb5082b7a683ae80274f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called when the <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> object is destroyed.  <a href="classfirebase_handler.html#abffc3260d05bb5082b7a683ae80274f7">More...</a><br /></td></tr>
 <tr class="separator:abffc3260d05bb5082b7a683ae80274f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46fb1d4715589815b6c57b8442edb79e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a46fb1d4715589815b6c57b8442edb79e">OnSceneLoaded</a> (Scene scene, LoadSceneMode mode)</td></tr>
 <tr class="memdesc:a46fb1d4715589815b6c57b8442edb79e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method is called each time a scene is loaded, if placesReady_ variable is true, it calls the useStartIndex method of the <a class="el" href="classrequest_handler.html" title="class that controls the request of places information.">requestHandler</a> object, to allow keeping with same places.  <a href="classfirebase_handler.html#a46fb1d4715589815b6c57b8442edb79e">More...</a><br /></td></tr>
 <tr class="separator:a46fb1d4715589815b6c57b8442edb79e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9979443635c9d02f69d2ae5671ece914"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a9979443635c9d02f69d2ae5671ece914">downloadUsersPermissionsLists</a> ()</td></tr>
-<tr class="memdesc:a9979443635c9d02f69d2ae5671ece914"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method download the lists of the user social permissions. They are usersThatAllowFriendshipInvitations, usersThatAllowBeChallenged and usersThatAllowAppearedOnRanking. The downloadingAnyOfTheUsersPermissionsLists_ is set as a true. The social permissions are downloaded in a parallel way for searching more efficiency if some of them failed the downloadingAnyOfTheUsersPermissionsLists_ property will be set as false again.  <a href="classfirebase_handler.html#a9979443635c9d02f69d2ae5671ece914">More...</a><br /></td></tr>
-<tr class="separator:a9979443635c9d02f69d2ae5671ece914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d888fb6a6e77481385b3808f1052411"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a7d888fb6a6e77481385b3808f1052411">uploadPlacesQueue</a> ()</td></tr>
+<tr class="memdesc:a7d888fb6a6e77481385b3808f1052411"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method tries to upload all the information that is on the placesToUpdateQueue_ property. If it success, it erase the place from the list, but if its fails the writePlaceData will add again the place to the queue.  <a href="classfirebase_handler.html#a7d888fb6a6e77481385b3808f1052411">More...</a><br /></td></tr>
+<tr class="separator:a7d888fb6a6e77481385b3808f1052411"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aced0ec9e6ab899d5f667de635aea9b26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aced0ec9e6ab899d5f667de635aea9b26">uploadOtherUserScores</a> ()</td></tr>
 <tr class="memdesc:aced0ec9e6ab899d5f667de635aea9b26"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method tries to upload the information of the first element of otherUserScoresToUpload_ list, it removes the first element just before of trying to upload it. If it fails on the uploading, it adds again the dictionary with the information to the otherUserScoresToUpload_ list. The information it uploads is the the earnedScore_ to the user id.  <a href="classfirebase_handler.html#aced0ec9e6ab899d5f667de635aea9b26">More...</a><br /></td></tr>
 <tr class="separator:aced0ec9e6ab899d5f667de635aea9b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14b2fc265a705c5c988cb2e5ea6d4020"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a14b2fc265a705c5c988cb2e5ea6d4020">writeFriendChallenges</a> (string userId, string jsonLocal, string jsonCloud)</td></tr>
+<tr class="memdesc:a14b2fc265a705c5c988cb2e5ea6d4020"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method compares the challenge list of the given user to upload correctly the information taking care of the differences between the local version and the cloud version. If something goes wrong it adds again the challenge property to the otherUsersPropertiesToUpload_ list.  <a href="classfirebase_handler.html#a14b2fc265a705c5c988cb2e5ea6d4020">More...</a><br /></td></tr>
+<tr class="separator:a14b2fc265a705c5c988cb2e5ea6d4020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c90fdc7b6d26ed0ac33f9f8728cc8f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a9c90fdc7b6d26ed0ac33f9f8728cc8f4">writeFriendDeletedFriends</a> (string userId, string jsonLocal, string jsonCloud)</td></tr>
+<tr class="memdesc:a9c90fdc7b6d26ed0ac33f9f8728cc8f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method compares the deletedFriend list of the given user to upload correctly the information taking care of the differences between the local version and the cloud version. If something goes wrong it adds again the deletedFriend property to the otherUsersPropertiesToUpload_ list.  <a href="classfirebase_handler.html#a9c90fdc7b6d26ed0ac33f9f8728cc8f4">More...</a><br /></td></tr>
+<tr class="separator:a9c90fdc7b6d26ed0ac33f9f8728cc8f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d71ad0d4a2b3ecc279cf8546cf5865e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a5d71ad0d4a2b3ecc279cf8546cf5865e">writeFriendAcceptedFriendsInvitations</a> (string userId, string jsonLocal, string jsonCloud)</td></tr>
+<tr class="memdesc:a5d71ad0d4a2b3ecc279cf8546cf5865e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method compares the friendInvitations list of the given user to upload correctly the information taking care of the differences between the local version and the cloud version. If something goes wrong it adds again the friendInvitations property to the otherUsersPropertiesToUpload_ list.  <a href="classfirebase_handler.html#a5d71ad0d4a2b3ecc279cf8546cf5865e">More...</a><br /></td></tr>
+<tr class="separator:a5d71ad0d4a2b3ecc279cf8546cf5865e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a3d365ef2be6c733d643c49a4ac6c9c6f"><td class="memItemLeft" align="right" valign="top">FirebaseApp&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a3d365ef2be6c733d643c49a4ac6c9c6f">firebaseApp</a> = null</td></tr>
+<tr class="memdesc:a3d365ef2be6c733d643c49a4ac6c9c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the FirebaseApp object.  <a href="classfirebase_handler.html#a3d365ef2be6c733d643c49a4ac6c9c6f">More...</a><br /></td></tr>
 <tr class="separator:a3d365ef2be6c733d643c49a4ac6c9c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab52221e41f82a8ab77f0d903146b4c0d"><td class="memItemLeft" align="right" valign="top">GoogleSignInConfiguration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ab52221e41f82a8ab77f0d903146b4c0d">configuration</a></td></tr>
 <tr class="separator:ab52221e41f82a8ab77f0d903146b4c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -264,8 +293,6 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a6879d06e68b41954015ccc83838f8eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90dc41c05914c176572d603666605de5"><td class="memItemLeft" align="right" valign="top">List&lt; Dictionary&lt; string, string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a90dc41c05914c176572d603666605de5">placesToUpdateQueue_</a></td></tr>
 <tr class="separator:a90dc41c05914c176572d603666605de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada9d752ba9fa5633662cd1d10a2a096d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ada9d752ba9fa5633662cd1d10a2a096d">userDataUploaded_</a></td></tr>
-<tr class="separator:ada9d752ba9fa5633662cd1d10a2a096d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab765de99224181490bac7003babb04b1"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ab765de99224181490bac7003babb04b1">friendDataDownloadQueue_</a></td></tr>
 <tr class="separator:ab765de99224181490bac7003babb04b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f90b30b7131095e3995d37ac9eeeef7"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a3f90b30b7131095e3995d37ac9eeeef7">newFriendDataDownloadQueue_</a></td></tr>
@@ -277,18 +304,30 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a40e6e1bf5891e799f61bb53d3b15604f"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if there is changes on the social preferences that should be uploaded.  <a href="classfirebase_handler.html#a40e6e1bf5891e799f61bb53d3b15604f">More...</a><br /></td></tr>
 <tr class="separator:a40e6e1bf5891e799f61bb53d3b15604f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeabf954f8e99deeedbff21ad73701eaa"><td class="memItemLeft" align="right" valign="top">List&lt; Dictionary&lt; string, string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aeabf954f8e99deeedbff21ad73701eaa">otherUserScoresToUpload_</a></td></tr>
+<tr class="memdesc:aeabf954f8e99deeedbff21ad73701eaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of dictionary strings with the user id and the score of that user that needs to be uploaded.  <a href="classfirebase_handler.html#aeabf954f8e99deeedbff21ad73701eaa">More...</a><br /></td></tr>
 <tr class="separator:aeabf954f8e99deeedbff21ad73701eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab166f32d64bdd68341f1558d7a4a5a1f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#ab166f32d64bdd68341f1558d7a4a5a1f">uploadingNotifications_</a></td></tr>
+<tr class="memdesc:ab166f32d64bdd68341f1558d7a4a5a1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean that is used as a flag that indicates if the uploading of the acceptedFriendsInvitations property of a friend is uploading right now.  <a href="classfirebase_handler.html#ab166f32d64bdd68341f1558d7a4a5a1f">More...</a><br /></td></tr>
 <tr class="separator:ab166f32d64bdd68341f1558d7a4a5a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2ac5da9994c203a859bd86ff37c6dc9"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_ranking_player_data.html">RankingPlayerData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aa2ac5da9994c203a859bd86ff37c6dc9">rankingData_</a></td></tr>
+<tr class="memdesc:aa2ac5da9994c203a859bd86ff37c6dc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">List with all the data that is showed on the ranking screen. It has a <a class="el" href="class_ranking_player_data.html" title="Class that stores the information of each player that is shown on the ranking.">RankingPlayerData</a> object for each player that appear on the ranking.  <a href="classfirebase_handler.html#aa2ac5da9994c203a859bd86ff37c6dc9">More...</a><br /></td></tr>
 <tr class="separator:aa2ac5da9994c203a859bd86ff37c6dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bc4bca60dcb641e21850cdec06d43c6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a8bc4bca60dcb641e21850cdec06d43c6">allowDownloadRankingData_</a></td></tr>
+<tr class="memdesc:a8bc4bca60dcb641e21850cdec06d43c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean that is used as a flag that indicates if its time to download all the ranking data.  <a href="classfirebase_handler.html#a8bc4bca60dcb641e21850cdec06d43c6">More...</a><br /></td></tr>
 <tr class="separator:a8bc4bca60dcb641e21850cdec06d43c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3b7e5b37ef74cb7b418965b9fab38eb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#af3b7e5b37ef74cb7b418965b9fab38eb">downloadingRankingData_</a></td></tr>
+<tr class="memdesc:af3b7e5b37ef74cb7b418965b9fab38eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean that is used as a flag that indicates if the ranking data is downloaded right now.  <a href="classfirebase_handler.html#af3b7e5b37ef74cb7b418965b9fab38eb">More...</a><br /></td></tr>
 <tr class="separator:af3b7e5b37ef74cb7b418965b9fab38eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6dd9db971ee209e81c2a889cb8e05a1"><td class="memItemLeft" align="right" valign="top">List&lt; Dictionary&lt; string, string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#aa6dd9db971ee209e81c2a889cb8e05a1">otherUsersPropertiesToUpload_</a></td></tr>
+<tr class="separator:aa6dd9db971ee209e81c2a889cb8e05a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23848cd463f273562c3300f7994b0637"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfirebase_handler.html#a23848cd463f273562c3300f7994b0637">currentUserPropertiesToUpload_</a></td></tr>
+<tr class="separator:a23848cd463f273562c3300f7994b0637"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >This class follows the Singleton patron, so it only has one instance at the same time. The instance could be found on the firebaseHandlerInstance_ public static property. This class handles all the firebase releated methods like validating user, creating new users, downloading and uploading all the data from the database. </p>
+<div class="textblock"><p >the part of the class <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> that controls the downloading operations </p>
+<p >the part of the class <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> that controls the uploading operations</p>
+<p >the part of the class <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> that controls the login user, create user, and logout operations</p>
+<p >This class follows the Singleton patron, so it only has one instance at the same time. The instance could be found on the firebaseHandlerInstance_ public static property. This class handles all the firebase releated methods like validating user, creating new users, downloading and uploading all the data from the database. This class is a partial class it has another 3 files: <a class="el" href="download_handler_8cs.html">downloadHandler.cs</a>, <a class="el" href="upload_handler_8cs.html">uploadHandler.cs</a> and <a class="el" href="login_handler_8cs.html">loginHandler.cs</a>. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af9604dc2667655b5cc8485136e1a2eb1" name="af9604dc2667655b5cc8485136e1a2eb1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9604dc2667655b5cc8485136e1a2eb1">&#9670;&nbsp;</a></span>addOtherUserScoreToUpload()</h2>
@@ -395,7 +434,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >The awake method is called before the first frame, it checks if other <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> was instanciated before, if that is the case, it destroy this object. </p>
+<p >The awake method is called before the first frame, it checks if other <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> was instanciated before, if that is the case, it destroy this object. </p>
 
 </div>
 </div>
@@ -585,8 +624,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a3a17458f3343ca655fcf543a571944da" name="a3a17458f3343ca655fcf543a571944da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a17458f3343ca655fcf543a571944da">&#9670;&nbsp;</a></span>downloadAllNewFriendInvitationsData()</h2>
+<a id="a3ff338e5b0a89ce635acd683c8d4236c" name="a3ff338e5b0a89ce635acd683c8d4236c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ff338e5b0a89ce635acd683c8d4236c">&#9670;&nbsp;</a></span>downloadAllNewfriendsInvitationsData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -595,7 +634,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void firebaseHandler.downloadAllNewFriendInvitationsData </td>
+          <td class="memname">void firebaseHandler.downloadAllNewfriendsInvitationsData </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1097,7 +1136,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This method is called when the <a class="el" href="classfirebase_handler.html" title="This class follows the Singleton patron, so it only has one instance at the same time....">firebaseHandler</a> object is destroyed. </p>
+<p>This method is called when the <a class="el" href="classfirebase_handler.html" title="the part of the class firebaseHandler that controls the downloading operations">firebaseHandler</a> object is destroyed. </p>
 
 </div>
 </div>
@@ -1178,7 +1217,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >This method download all the information that is releated to the user from the firebase database. </p>
+
+<p>This method download all the information that is releated to the user from the firebase database. </p>
 
 </div>
 </div>
@@ -1282,7 +1322,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >This method will be called when the google signin button is pressed, it start the google authentication process calling the method OnAuthenticationFinished when it finish. </p>
+
+<p>This method will be called when the google signin button is pressed, it start the google authentication process calling the method OnAuthenticationFinished when it finish. </p>
 
 </div>
 </div>
@@ -1338,6 +1379,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>getter of the quantity of places </p>
+<dl class="section return"><dt>Returns</dt><dd>int with the total of places of types </dd></dl>
 
 </div>
 </div>
@@ -1669,6 +1713,244 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a3282774d481bbf7871eab675f8706592" name="a3282774d481bbf7871eab675f8706592"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3282774d481bbf7871eab675f8706592">&#9670;&nbsp;</a></span>writeAllFriendProperties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.writeAllFriendProperties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method calls the writeFriendProperty with each element of the otherUsersPropertiesToUpload_ list and it removes the each of those elements taking care of that each of those elements could enter again on the list. That could happen if the upload goes wrong. </p>
+
+</div>
+</div>
+<a id="abe3f364df05144365eaf4335a06da121" name="abe3f364df05144365eaf4335a06da121"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe3f364df05144365eaf4335a06da121">&#9670;&nbsp;</a></span>writeAllUserProperties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.writeAllUserProperties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method calls writeSafeProperties with each safe property and writeUnsafeProperty with each unsafe property of the current user. It uses the getJSONof method of <a class="el" href="class_user_data.html" title="Class that stores the current user data.">UserData</a> class. </p>
+
+</div>
+</div>
+<a id="a5d71ad0d4a2b3ecc279cf8546cf5865e" name="a5d71ad0d4a2b3ecc279cf8546cf5865e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d71ad0d4a2b3ecc279cf8546cf5865e">&#9670;&nbsp;</a></span>writeFriendAcceptedFriendsInvitations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.writeFriendAcceptedFriendsInvitations </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>jsonLocal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>jsonCloud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method compares the friendInvitations list of the given user to upload correctly the information taking care of the differences between the local version and the cloud version. If something goes wrong it adds again the friendInvitations property to the otherUsersPropertiesToUpload_ list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>with the user id of the friend that will be uploaded </td></tr>
+    <tr><td class="paramname">string</td><td>with the json conversion of the friendInvitations list of that friend with the local information </td></tr>
+    <tr><td class="paramname">string</td><td>with the json conversion of the friendInvitations list of that friend with the cloud information </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a14b2fc265a705c5c988cb2e5ea6d4020" name="a14b2fc265a705c5c988cb2e5ea6d4020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14b2fc265a705c5c988cb2e5ea6d4020">&#9670;&nbsp;</a></span>writeFriendChallenges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.writeFriendChallenges </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>jsonLocal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>jsonCloud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method compares the challenge list of the given user to upload correctly the information taking care of the differences between the local version and the cloud version. If something goes wrong it adds again the challenge property to the otherUsersPropertiesToUpload_ list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>with the user id of the friend that will be uploaded </td></tr>
+    <tr><td class="paramname">string</td><td>with the json conversion of the challenges of that friend with the local information </td></tr>
+    <tr><td class="paramname">string</td><td>with the json conversion of the challenges of that friend with the cloud information </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9c90fdc7b6d26ed0ac33f9f8728cc8f4" name="a9c90fdc7b6d26ed0ac33f9f8728cc8f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c90fdc7b6d26ed0ac33f9f8728cc8f4">&#9670;&nbsp;</a></span>writeFriendDeletedFriends()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.writeFriendDeletedFriends </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>jsonLocal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>jsonCloud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method compares the deletedFriend list of the given user to upload correctly the information taking care of the differences between the local version and the cloud version. If something goes wrong it adds again the deletedFriend property to the otherUsersPropertiesToUpload_ list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>with the user id of the friend that will be uploaded </td></tr>
+    <tr><td class="paramname">string</td><td>with the json conversion of the deletedFriend list of that friend with the local information </td></tr>
+    <tr><td class="paramname">string</td><td>with the json conversion of the deletedFriend list of that friend with the cloud information </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aae53412beeb59b8cf5920eeeeb936de2" name="aae53412beeb59b8cf5920eeeeb936de2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae53412beeb59b8cf5920eeeeb936de2">&#9670;&nbsp;</a></span>writeFriendProperty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.writeFriendProperty </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>userId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>property</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>json</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method downloads the current information of the given property of the given friend and then calls the correct method for taking care of differences between the cloud information and the local information. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>with the user id of the friend that will be uploaded </td></tr>
+    <tr><td class="paramname">string</td><td>with the name of the property that needs to be uploaded </td></tr>
+    <tr><td class="paramname">string</td><td>with the json conversion of the property that needs to be uploaded </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a6f8c6e716d1526e02e1d37e73fa586ca" name="a6f8c6e716d1526e02e1d37e73fa586ca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f8c6e716d1526e02e1d37e73fa586ca">&#9670;&nbsp;</a></span>writeNewPlaceOnDataBase()</h2>
 
@@ -1740,21 +2022,96 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aba11f61e5325c292f87ab9cf860d4a47" name="aba11f61e5325c292f87ab9cf860d4a47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba11f61e5325c292f87ab9cf860d4a47">&#9670;&nbsp;</a></span>writeUserData()</h2>
+<a id="a0860f249048107fbcab6d857102eb57e" name="a0860f249048107fbcab6d857102eb57e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0860f249048107fbcab6d857102eb57e">&#9670;&nbsp;</a></span>writeQueuedUserProperties()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void firebaseHandler.writeUserData </td>
+          <td class="memname">void firebaseHandler.writeQueuedUserProperties </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >This method uploads to the database all the current user releated information. It also upload the changes on the user social preferences. </p>
+
+<p>this method calls the writeSafeProperties or writeUnsafeProperty depending of the type of each element that is stored in currentUserPropertiesToUpload_ list. It removes the elements wich it calls those methods taking care of the fact that those properties could enter again on the currentUserPropertiesToUpload_ list if they fail on the upload. </p>
+
+</div>
+</div>
+<a id="a99a9aff19faf863e2095b7cc6c5e089c" name="a99a9aff19faf863e2095b7cc6c5e089c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99a9aff19faf863e2095b7cc6c5e089c">&#9670;&nbsp;</a></span>writeSafeProperties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.writeSafeProperties </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>property</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>json</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>this method writes on the given property on the database the given json value. It doesnt take care of the version that is on the database. It simply overwrite it. If something goes wrong during the upload, it adds the property to currentUserPropertiesToUpload_ again. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>that contains the name of the property </td></tr>
+    <tr><td class="paramname">string</td><td>that contains the json conversion of that property </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a50b30427b1b82d94f229d89a2dc52b3f" name="a50b30427b1b82d94f229d89a2dc52b3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50b30427b1b82d94f229d89a2dc52b3f">&#9670;&nbsp;</a></span>writeUnsafeProperty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void firebaseHandler.writeUnsafeProperty </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>property</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>json</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>this method writes on the given property on the database the given json value. It takes care of the information that is currently on the database and tries to avoid incongruencies of the database. If something goes wrong during the uploading it adds again the property to the currentUserPropertiesToUpload_ list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>that contains the name of the property </td></tr>
+    <tr><td class="paramname">string</td><td>that contains the json conversion of that property </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1778,6 +2135,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Boolean that is used as a flag that indicates if its time to download all the ranking data. </p>
 
 </div>
 </div>
@@ -1846,6 +2205,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a23848cd463f273562c3300f7994b0637" name="a23848cd463f273562c3300f7994b0637"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23848cd463f273562c3300f7994b0637">&#9670;&nbsp;</a></span>currentUserPropertiesToUpload_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; firebaseHandler.currentUserPropertiesToUpload_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a60ebe38d3bc1ee2d3197eafabd58fc83" name="a60ebe38d3bc1ee2d3197eafabd58fc83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60ebe38d3bc1ee2d3197eafabd58fc83">&#9670;&nbsp;</a></span>downloadingAnyOfTheUsersPermissionsLists_</h2>
 
@@ -1890,6 +2271,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Boolean that is used as a flag that indicates if the ranking data is downloaded right now. </p>
+
 </div>
 </div>
 <a id="a3d365ef2be6c733d643c49a4ac6c9c6f" name="a3d365ef2be6c733d643c49a4ac6c9c6f"></a>
@@ -1911,6 +2294,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reference to the FirebaseApp object. </p>
 
 </div>
 </div>
@@ -2073,6 +2458,30 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>List of dictionary strings with the user id and the score of that user that needs to be uploaded. </p>
+
+</div>
+</div>
+<a id="aa6dd9db971ee209e81c2a889cb8e05a1" name="aa6dd9db971ee209e81c2a889cb8e05a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6dd9db971ee209e81c2a889cb8e05a1">&#9670;&nbsp;</a></span>otherUsersPropertiesToUpload_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;Dictionary&lt;string,string&gt; &gt; firebaseHandler.otherUsersPropertiesToUpload_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <a id="a1d02787e8de56031acebf457484c9752" name="a1d02787e8de56031acebf457484c9752"></a>
@@ -2141,6 +2550,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>List with all the data that is showed on the ranking screen. It has a <a class="el" href="class_ranking_player_data.html" title="Class that stores the information of each player that is shown on the ranking.">RankingPlayerData</a> object for each player that appear on the ranking. </p>
+
 </div>
 </div>
 <a id="aa72469a53537caef3bc8d7751cfead9b" name="aa72469a53537caef3bc8d7751cfead9b"></a>
@@ -2178,6 +2589,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Boolean that is used as a flag that indicates if the uploading of the acceptedFriendsInvitations property of a friend is uploading right now. </p>
+
 </div>
 </div>
 <a id="a19f92443e4e88477defb22d67236d746" name="a19f92443e4e88477defb22d67236d746"></a>
@@ -2203,35 +2616,11 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ada9d752ba9fa5633662cd1d10a2a096d" name="ada9d752ba9fa5633662cd1d10a2a096d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada9d752ba9fa5633662cd1d10a2a096d">&#9670;&nbsp;</a></span>userDataUploaded_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string firebaseHandler.userDataUploaded_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >It stores if the user data could be uptaded when it suffered any change. The possible values it can have are:</p><ul>
-<li>"false" : this state means that there is some changes on the user data that should be uploaded as soon as the internet connection is avaible.</li>
-<li>"true" : this state means that there isnt any change on the user data that should be uploaded.</li>
-<li>"inProgress" : this state means that the user data is uploading right now, this state prevent this class to make several calls to the uploading information method. </li>
-</ul>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>Scripts/Login/<a class="el" href="download_handler_8cs.html">downloadHandler.cs</a></li>
 <li>Scripts/Login/<a class="el" href="firebase_handler_8cs.html">firebaseHandler.cs</a></li>
+<li>Scripts/Login/<a class="el" href="login_handler_8cs.html">loginHandler.cs</a></li>
+<li>Scripts/Login/<a class="el" href="upload_handler_8cs.html">uploadHandler.cs</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

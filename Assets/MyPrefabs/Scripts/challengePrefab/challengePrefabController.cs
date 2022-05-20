@@ -159,7 +159,8 @@ public class challengePrefabController : MonoBehaviour
         if(userWasWarned_){
             panel_.GetComponent<challengesPanelController>().elementDeleted(this.gameObject);
             firebaseHandler.firebaseHandlerInstance_.currentUser_.destroyChallengeByChallengerId(challenge_.getChallengerId());
-            firebaseHandler.firebaseHandlerInstance_.writeUserData();
+            //firebaseHandler.firebaseHandlerInstance_.writeUserData();
+            firebaseHandler.firebaseHandlerInstance_.writeAllUserProperties();
             Destroy(this);
             Destroy(this.gameObject);
         }else{

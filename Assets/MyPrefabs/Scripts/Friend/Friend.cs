@@ -40,15 +40,32 @@ public class Friend : MonoBehaviour
     private bool userWasNotified_;
 
     /**
+      * @brief GameObject that contains the image of the represented player's
+      * range.
+      */
+    [SerializeField] private GameObject rangeImage_;
+    
+    /**
+      * @brief GameObject that contains the text where the range name of the current
+      * player will be shown.
+      */
+    [SerializeField] private GameObject range_;
+
+    /**
       * @param the FriendData object that contains all the information
       * of the represented user.
       * @brief The constructor of the class. It sets the userWasNotified_ as false,
-      * it sets the shown text as the display name of the user.
+      * it sets the shown text as the display name of the user and the correspondent range icon.
       */
     public void setData(FriendData friendData){
         userWasNotified_ = false;
         friendData_ = friendData;
         displayName_.GetComponent<Text>().text = friendData_.getDisplayName();
+        range_.GetComponent<Text>().text = gameRules.calculateRange(friendData_.getScore());
+        if(IconHandler.iconHandlerInstance_ != null){
+          rangeImage_.GetComponent<Image>().sprite = IconHandler.iconHandlerInstance_.getSpriteOfRange(
+                                                                gameRules.calculateRange(friendData_.getScore()));
+        }
     }
     
     /**
@@ -77,7 +94,6 @@ public class Friend : MonoBehaviour
           FriendData.chosenFriend_ = friendData_; //seleccionar este amigo
           ChangeScene.changeScene("PantallaBuscarLugarParaRetar");// mostrar buscador de lugares
         }
-        
     }
 
     /**
@@ -87,26 +103,28 @@ public class Friend : MonoBehaviour
       */
     public void deleteFriend(){
         if(firebaseHandler.firebaseHandlerInstance_.internetConnection()){
-            if(userWasNotified_){
-                //eliminar amigo
-                // avisar a user data para que actualice sus listas
-                firebaseHandler.firebaseHandlerInstance_.currentUser_.deleteFriend(friendData_.getUid());
-                friendData_.addDeletedFriend(firebaseHandler.firebaseHandlerInstance_.auth.CurrentUser.UserId);
-                // avisar a firebase para que suba los cambios
-                firebaseHandler.firebaseHandlerInstance_.updateUserDeleteAFriend(friendData_.getUid(),friendData_.getStringConversionOfDeletedFriends());
-                firebaseHandler.firebaseHandlerInstance_.currentUser_.destroyChallengeByChallengerId(friendData_.getUid());
-                firebaseHandler.firebaseHandlerInstance_.writeUserData();
-                //toast de amigo eliminado!
-                toastMessageObject_.GetComponent<toastMessage>().makeAnimation(friendData_.getDisplayName() + " is no longer a friend", new Color32(255,0,0,255), 5);
-                //destruye este objeto y actualiza el tamaño del panel
-                StartCoroutine(destroyAfterSeconds(5));
-            }else{
-                toastMessageObject_.GetComponent<toastMessage>().makeAnimation("Are you sure that you want to delete "+friendData_.getDisplayName() + " as a friend?", new Color32(255,145,15,255), 5);
-                userWasNotified_ = true;
-            }
-        }else{
-            toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You don't have internet connection, try it again later.", new Color32(255,0,0,255), 5);
-        }
+          if(userWasNotified_){
+            //eliminar amigo
+            // avisar a user data para que actualice sus listas
+            firebaseHandler.firebaseHandlerInstance_.currentUser_.deleteFriend(friendData_.getUid());
+            friendData_.addDeletedFriend(firebaseHandler.firebaseHandlerInstance_.auth.CurrentUser.UserId);
+            // avisar a firebase para que suba los cambios
+            firebaseHandler.firebaseHandlerInstance_.updateUserDeleteAFriend(friendData_.getUid(),friendData_.getStringConversionOfDeletedFriends());
+            firebaseHandler.firebaseHandlerInstance_.currentUser_.destroyChallengeByChallengerId(friendData_.getUid());
+            //firebaseHandler.firebaseHandlerInstance_.writeUserData();
+            firebaseHandler.firebaseHandlerInstance_.writeAllUserProperties();
+            
+            //toast de amigo eliminado!
+            toastMessageObject_.GetComponent<toastMessage>().makeAnimation(friendData_.getDisplayName() + " is no longer a friend", new Color32(255,0,0,255), 5);
+            //destruye este objeto y actualiza el tamaño del panel
+            StartCoroutine(destroyAfterSeconds(5));
+          }else{
+            toastMessageObject_.GetComponent<toastMessage>().makeAnimation("Are you sure that you want to delete "+friendData_.getDisplayName() + " as a friend?", new Color32(255,145,15,255), 5);
+            userWasNotified_ = true;
+          }
+      }else{
+        toastMessageObject_.GetComponent<toastMessage>().makeAnimation("You don't have internet connection, try it again later.", new Color32(255,0,0,255), 5);
+      }
     }
 
     /**

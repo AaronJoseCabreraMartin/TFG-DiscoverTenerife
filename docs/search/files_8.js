@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['newfrienddata_2ecs_0',['newFriendData.cs',['../new_friend_data_8cs.html',1,'']]],
-  ['newfriendinvitation_2ecs_1',['newFriendInvitation.cs',['../new_friend_invitation_8cs.html',1,'']]],
-  ['newfriendinvitationpanel_2ecs_2',['newFriendInvitationPanel.cs',['../new_friend_invitation_panel_8cs.html',1,'']]],
-  ['nostorymessage_2ecs_3',['noStoryMessage.cs',['../no_story_message_8cs.html',1,'']]],
-  ['notificationcontroller_2ecs_4',['notificationController.cs',['../notification_controller_8cs.html',1,'']]]
+  ['mapparthandler_2ecs_0',['mapPartHandler.cs',['../map_part_handler_8cs.html',1,'']]],
+  ['mapruleshandler_2ecs_1',['mapRulesHandler.cs',['../map_rules_handler_8cs.html',1,'']]],
+  ['multiselectiondesplegablemenu_2ecs_2',['multiselectionDesplegableMenu.cs',['../multiselection_desplegable_menu_8cs.html',1,'']]]
 ];

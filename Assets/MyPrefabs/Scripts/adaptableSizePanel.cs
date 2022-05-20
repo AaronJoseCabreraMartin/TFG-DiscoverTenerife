@@ -99,7 +99,7 @@ public abstract class adaptableSizePanel : MonoBehaviour
       * @brief tries to remove the given gameobject of the items property. If the 
       * gameobject isnt on the list, it will raise an index out of range exception.
       */
-    public void elementDeleted(GameObject elementDeleted){
+    public virtual void elementDeleted(GameObject elementDeleted){
         items_.RemoveAt(items_.FindIndex(element => element == elementDeleted));
     }
 }

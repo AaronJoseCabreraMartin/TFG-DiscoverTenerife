@@ -25,6 +25,18 @@ public class PlaceImageController : MonoBehaviour
       * user and the chosen place.
       */
     [SerializeField] private GameObject distance_;
+
+    /**
+      * @brief GameObject with the uninteractuable slider bar that represent how much visited
+      * is the represented place
+      */    
+    [SerializeField] private GameObject sliderPercentajeOfVisits_;
+
+    /**
+      * @brief Image that is on the sliderPercentajeOfVisits_ gameObject, it changes its color
+      * proporcionally from green to red with the percentaje of visits of the represented place
+      */
+    [SerializeField] private Image FillPercentajeOfVisits_;
     
     /**
       * @brief Bolean value that sais if the place information was already loaded.
@@ -65,6 +77,15 @@ public class PlaceImageController : MonoBehaviour
       optionsController options = optionsController.optionsControllerInstance_;
       distance_.GetComponent<Text>().text = Math.Round(CalculateDistance(),2).ToString() + (options.distanceInKM() ? " kms" : " milles");
       gameObject.GetComponent<Image>().sprite = PlaceHandler.chosenPlace_.getImage();
+
+      //Le sumo 1 a ambos para que no pueda dar n/0
+      float visitsOfPlace = (float)(PlaceHandler.chosenPlace_.getTimesItHasBeenVisited()+1);
+      float visitsOfMostVisitedPlace = (float)(firebaseHandler.firebaseHandlerInstance_.requestHandler_.visitsOfMostVisitedPlace()+1);
+      float percentaje = visitsOfPlace/visitsOfMostVisitedPlace;
+      sliderPercentajeOfVisits_.GetComponent<Slider>().value = percentaje;
+
+      FillPercentajeOfVisits_.color = new Color32((byte)(percentaje*255f), (byte)((1-percentaje)*255f), (byte)0,(byte)255);
+
       loaded_ = true;
     }
 

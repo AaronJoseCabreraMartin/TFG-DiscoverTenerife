@@ -55,9 +55,16 @@ public class Place
     private bool ready_ = false;
 
     /**
+      * @brief int that store the number of visits that wasnt uploaded already
+      */
+    private int newVisits_ = 0;
+
+    /**
       * @brief web client that download the image.
       */
     static public WebClient webClient_ = null;
+
+
     //private WebClient webClient_ = null;
 
     /**
@@ -139,6 +146,7 @@ public class Place
       */
     public void oneMoreVisit(){
         timesItHasBeenVisited_++;
+        newVisits_++;
     }
 
     /**
@@ -165,6 +173,21 @@ public class Place
       */
     public int getTimesItHasBeenVisited(){
         return timesItHasBeenVisited_;
+    }
+
+    /**
+      * @return int with the newVisits_ property value
+      * @brief getter of the newVisits_ property 
+      */
+    public int getNewVisits(){
+      return newVisits_;
+    }
+
+    /**
+      * @brief this method sets the newVisits_ property to 0
+      */
+    public void resetNewVisits(){
+      newVisits_ = 0;
     }
 
     /**

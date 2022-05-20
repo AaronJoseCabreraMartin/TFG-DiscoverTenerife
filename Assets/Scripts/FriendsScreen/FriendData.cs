@@ -82,15 +82,18 @@ public class FriendData
       * @brief Constructor that initialize the uid_, the displayName_, the deletedFriends_ and
       * challenges_ properties with the given parameters.
       */
-    public FriendData(string uid, string displayName, List<string> deletedFriends, List<Dictionary<string,string>> challengeData, List<string> acceptedFriends){
+    public FriendData(string uid, string displayName, List<string> deletedFriends, List<Dictionary<string,string>> challengeData, 
+                      List<string> acceptedFriends, int score){
         uid_ = uid;
         displayName_ = displayName;
         deletedFriends_ = deletedFriends;
         acceptedFriendsInvitations_ = acceptedFriends;
         challenges_ = new List<challengeData>();
+        score_ = score;
         foreach(Dictionary<string,string> challengeInfo in challengeData ){
           challenges_.Add(new challengeData(challengeInfo));
         }
+
     }
 
     /**
@@ -107,6 +110,14 @@ public class FriendData
       */
     public string getDisplayName(){
         return displayName_;
+    }
+
+    /**
+      * @return int with the friend's score
+      * @brief getter of the score_ property
+      */
+    public int getScore(){
+      return score_;
     }
 
     /**
@@ -211,5 +222,35 @@ public class FriendData
       }
       conversion += "]";
       return conversion;
+    }
+    
+    /**
+      * @param string with the name of the property that you want to obtain the json conversion
+      * @return string witht the json conversion of the value of the given propertie
+      * @brief This method calls the correspondent method of getStringConversionOf*
+      * Si se le da un nombre erroneo retornara un string vacio
+      */
+    public string getJSONof(string property){
+      if(property == "challenges_"){
+        return getStringConversionOfChallenges();
+      }if(property == "deletedFriends_"){
+        return getStringConversionOfDeletedFriends();
+      }if(property == "acceptedFriends_"){
+        return getStringConversionOfNewAcceptedFriends();
+      }else{
+        Debug.Log("Propiedad desconocida en getJSONof de friendData: " + property);
+        return "";
+      }
+    }
+
+    /**
+      * @param string with the user id
+      * @return challengeData with the information of the searched challenge
+      * @brief This method returns the challenge information of the challenge that
+      * has as a challenger the user with the given uid. If there isnt any challenge
+      * with that user id it returns null.
+      */
+    public challengeData getChallengeOfUser(string uid){
+      return challenges_.Find(challenge => challenge.getChallengerId() == uid);
     }
 }

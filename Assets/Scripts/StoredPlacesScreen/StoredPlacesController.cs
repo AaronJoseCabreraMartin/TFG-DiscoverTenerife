@@ -15,7 +15,9 @@ public class StoredPlacesController : MonoBehaviour
       */
     public static StoredPlace choosenStoredPlace_;
 
-    //eeeeeeeeh WTF para que quiero estoo? 
+    /**
+      * @brief StoredPlacesController static reference to the object that is selected?????
+      */
     public static StoredPlacesController StoredPlacesControllerObject_;
 
     /**
@@ -26,12 +28,12 @@ public class StoredPlacesController : MonoBehaviour
     /**
       * @brief List of all the StoredPlaces that are shown by the panel. 
       */
-    private List<StoredPlace> storedPlaces_;
+    [SerializeField] private List<StoredPlace> storedPlaces_;
 
     /**
       * @brief The text that will be shown when one of the spaces for store a place is free.
       */
-    private string defaultText_ = "You have this empty field to store a place for visit it when you don't have internet conection.";
+    [SerializeField] private string defaultText_ = "You have this empty field to store a place for visit it when you don't have internet conection.";
 
     /**
       * @brief This method is called before the first frame. It sets the information
@@ -48,6 +50,7 @@ public class StoredPlacesController : MonoBehaviour
                 storedPlaces_.Add(StoredPlace.loadStoredPlace(index));
                 storedPlaceObject.Find("EnterButton/Text").GetComponent<Text>().text = storedPlaces_[index].getName();
                 storedPlaceObject.Find("StoredVisits/Number").GetComponent<Text>().text = storedPlaces_[index].newVisitsForThisPlace().ToString();
+
                 //storedPlaceObject.Find("EnterButton/Text").transform.position = new Vector3(0.0f,-265.0f,0.0f);
             }else{
                 storedPlaces_.Add(null);
@@ -93,6 +96,6 @@ public class StoredPlacesController : MonoBehaviour
       * makes the StoredPlacesControllerObject_ static property null again.
       */
     void OnDestroy(){
-        StoredPlacesController.StoredPlacesControllerObject_ = null;//WTF
+        StoredPlacesController.StoredPlacesControllerObject_ = null;
     }
 }

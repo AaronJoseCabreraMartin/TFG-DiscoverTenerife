@@ -52,9 +52,11 @@ public class SearchBar : MonoBehaviour
       */
     public void OnEndWriting(string searchedName){
         panel_.GetComponent<SearchedFriendsPanel>().clearSearchedFriendsPanel();
-        //si no hay internet o es tu propio uid o ya es un amigo ni lo intenta buscar
+        //si no hay internet, es tu propio uid, este usuario es anonimo, buscas a un usuario anonimo o ya es un amigo ni lo intenta buscar
         if( !firebaseHandler.firebaseHandlerInstance_.internetConnection() || 
             text_.GetComponent<Text>().text == firebaseHandler.firebaseHandlerInstance_.auth.CurrentUser.DisplayName ||
+            firebaseHandler.firebaseHandlerInstance_.currentUser_.getDisplayName() == gameRules.getAnonymousName() ||
+            text_.GetComponent<Text>().text == gameRules.getAnonymousName() ||
             firebaseHandler.firebaseHandlerInstance_.currentUser_.isAFriendByDisplayName(text_.GetComponent<Text>().text) ){
                 state_ = "notFound";
         }else if(firebaseHandler.firebaseHandlerInstance_.internetConnection() && text_.GetComponent<Text>().text.Length != 0){
@@ -65,7 +67,7 @@ public class SearchBar : MonoBehaviour
     }
 
     /**
-      * @param Dictionary<string,string> dictionary that contains the result of the search 
+      * @param List<Dictionary<string,string>> dictionary that contains the result of the search 
       * @brief this method checks the result of the search and set the correct state
       * if the result finished successfully, it calls the addSearchedFriendToPanel method 
       * of the SearchedFriendsPanel class. 
@@ -77,7 +79,10 @@ public class SearchBar : MonoBehaviour
         if(result.ContainsKey("uid") && result.ContainsKey("name")){
             state_ = "found";
             //avisar al panel para que cree el prefab
-            Debug.Log($"ENCONTRADO: uid " + result["uid"] + " name "+ result["name"] );
+            string toShow = "resultsOfTheSearch with ";
+            toShow += "uid = " + result["uid"];
+            toShow += "name = " + result["name"];
+            Debug.Log(toShow);
             panel_.GetComponent<SearchedFriendsPanel>().addSearchedFriendToPanel(result);
         }else{
             state_ = "notFound";

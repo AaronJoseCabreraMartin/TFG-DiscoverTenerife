@@ -16,9 +16,10 @@ var searchData=
   ['loaded_5f_13',['loaded_',['../class_place_image_controller.html#af470b1a7a42ae138a2cd0cc19ff4bddd',1,'PlaceImageController.loaded_()'],['../class_visited_panel_controller.html#a6548278e3b9a5ea83d41e63d5d8016ae',1,'VisitedPanelController.loaded_()'],['../class_stored_place_image_controller.html#ac4d0b8acdeaf55df1b28de50404e4d28',1,'StoredPlaceImageController.loaded_()']]],
   ['loadplace_14',['loadPlace',['../class_place_handler.html#a661d2968f4e8213acd946eee522d72c1',1,'PlaceHandler']]],
   ['loadstoredplace_15',['loadStoredPlace',['../class_stored_place.html#a5877e7b7b5b6811ad7ef52a36f0dcc6a',1,'StoredPlace']]],
-  ['loginuser_16',['LoginUser',['../classfirebase_handler.html#a8e4a4c939d9a69525849e67ea2c5440d',1,'firebaseHandler']]],
-  ['logout_17',['LogOut',['../classfirebase_handler.html#a01a2d71ae9cac39dd471025595431a3e',1,'firebaseHandler.LogOut()'],['../class_log_out_button_handler.html#ae95ff74bdb664954cfa88c99bb318892',1,'LogOutButtonHandler.LogOut()']]],
-  ['logoutbuttonhandler_18',['LogOutButtonHandler',['../class_log_out_button_handler.html',1,'']]],
-  ['logoutbuttonhandler_2ecs_19',['LogOutButtonHandler.cs',['../_log_out_button_handler_8cs.html',1,'']]],
-  ['longitude_5f_20',['longitude_',['../classgps_controller.html#a391d12d4b793478aefb89afa16a08bba',1,'gpsController.longitude_()'],['../class_place.html#aec0e45e45252e10c9579de31ca28262d',1,'Place.longitude_()'],['../class_stored_place.html#a9b7dc806e3d47a12ab83668d2856341e',1,'StoredPlace.longitude_()']]]
+  ['loginhandler_2ecs_16',['loginHandler.cs',['../login_handler_8cs.html',1,'']]],
+  ['loginuser_17',['LoginUser',['../classfirebase_handler.html#a8e4a4c939d9a69525849e67ea2c5440d',1,'firebaseHandler']]],
+  ['logout_18',['LogOut',['../classfirebase_handler.html#a01a2d71ae9cac39dd471025595431a3e',1,'firebaseHandler.LogOut()'],['../class_log_out_button_handler.html#ae95ff74bdb664954cfa88c99bb318892',1,'LogOutButtonHandler.LogOut()']]],
+  ['logoutbuttonhandler_19',['LogOutButtonHandler',['../class_log_out_button_handler.html',1,'']]],
+  ['logoutbuttonhandler_2ecs_20',['LogOutButtonHandler.cs',['../_log_out_button_handler_8cs.html',1,'']]],
+  ['longitude_5f_21',['longitude_',['../classgps_controller.html#a391d12d4b793478aefb89afa16a08bba',1,'gpsController.longitude_()'],['../class_place.html#aec0e45e45252e10c9579de31ca28262d',1,'Place.longitude_()'],['../class_stored_place.html#a9b7dc806e3d47a12ab83668d2856341e',1,'StoredPlace.longitude_()']]]
 ];

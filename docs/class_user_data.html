@@ -65,6 +65,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_user_data-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">UserData Class Reference</div></div>
@@ -76,9 +77,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad2dd062f86fdc42932e93675656ef12c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#ad2dd062f86fdc42932e93675656ef12c">UserData</a> (Firebase.Auth.FirebaseUser newFireBaseUserData, List&lt; Dictionary&lt; string, string &gt; &gt; oldVisitedPlaces=null, Dictionary&lt; string, string &gt; baseCordsData=null, List&lt; string &gt; friendList=null, List&lt; string &gt; friendInvitationsList=null, List&lt; string &gt; friendInvitationsAcceptedList=null, List&lt; string &gt; deletedFriendsList=null, List&lt; Dictionary&lt; string, string &gt; &gt; challengesData=null, string userScore=null, string earnedScore=null)</td></tr>
-<tr class="memdesc:ad2dd062f86fdc42932e93675656ef12c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. It initialices all the properties taking aware if they have been given with a real value or they are null.  <a href="class_user_data.html#ad2dd062f86fdc42932e93675656ef12c">More...</a><br /></td></tr>
-<tr class="separator:ad2dd062f86fdc42932e93675656ef12c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7c69dc9a99bff63ab9c48b15bdb819d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#ac7c69dc9a99bff63ab9c48b15bdb819d">UserData</a> (Firebase.Auth.FirebaseUser newFireBaseUserData, List&lt; Dictionary&lt; string, string &gt; &gt; oldVisitedPlaces=null, Dictionary&lt; string, string &gt; baseCordsData=null, List&lt; string &gt; friendList=null, List&lt; string &gt; friendsInvitationsList=null, List&lt; string &gt; friendsInvitationsAcceptedList=null, List&lt; string &gt; deletedFriendsList=null, List&lt; Dictionary&lt; string, string &gt; &gt; challengesData=null, string userScore=null, string earnedScore=null, List&lt; Dictionary&lt; string, string &gt; &gt; rangeStory=null)</td></tr>
+<tr class="memdesc:ac7c69dc9a99bff63ab9c48b15bdb819d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. It initialices all the properties taking aware if they have been given with a real value or they are null.  <a href="class_user_data.html#ac7c69dc9a99bff63ab9c48b15bdb819d">More...</a><br /></td></tr>
+<tr class="separator:ac7c69dc9a99bff63ab9c48b15bdb819d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad45dbf0d28037fad834fc1efe0c66efe"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#ad45dbf0d28037fad834fc1efe0c66efe">ToJson</a> ()</td></tr>
 <tr class="memdesc:ad45dbf0d28037fad834fc1efe0c66efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method converts all the properties of the current object in a string that follows the JSON format.  <a href="class_user_data.html#ad45dbf0d28037fad834fc1efe0c66efe">More...</a><br /></td></tr>
 <tr class="separator:ad45dbf0d28037fad834fc1efe0c66efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,9 +124,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7a6d8ba914f345dcc79721e1bcdcfecd"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a7a6d8ba914f345dcc79721e1bcdcfecd">getTimestampByName</a> (string name)</td></tr>
 <tr class="memdesc:a7a6d8ba914f345dcc79721e1bcdcfecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">It returns the timestamp of the last visit to the place that has the given name, if the user hadn't visited a place with that name it returns 0.  <a href="class_user_data.html#a7a6d8ba914f345dcc79721e1bcdcfecd">More...</a><br /></td></tr>
 <tr class="separator:a7a6d8ba914f345dcc79721e1bcdcfecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45992ae9c37667a166fbea1bf2cc8410"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a45992ae9c37667a166fbea1bf2cc8410">countOfFriendInvitations</a> ()</td></tr>
-<tr class="memdesc:a45992ae9c37667a166fbea1bf2cc8410"><td class="mdescLeft">&#160;</td><td class="mdescRight">It returns an int with how many new friendship invitations the current user has.  <a href="class_user_data.html#a45992ae9c37667a166fbea1bf2cc8410">More...</a><br /></td></tr>
-<tr class="separator:a45992ae9c37667a166fbea1bf2cc8410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4013371c5ce2807aafd5e95e1073f61"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#af4013371c5ce2807aafd5e95e1073f61">countOffriendsInvitations</a> ()</td></tr>
+<tr class="memdesc:af4013371c5ce2807aafd5e95e1073f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">It returns an int with how many new friendship invitations the current user has.  <a href="class_user_data.html#af4013371c5ce2807aafd5e95e1073f61">More...</a><br /></td></tr>
+<tr class="separator:af4013371c5ce2807aafd5e95e1073f61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10258a8608a660113b9d80c642458aac"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a10258a8608a660113b9d80c642458aac">getFriendInvitation</a> (int index)</td></tr>
 <tr class="memdesc:a10258a8608a660113b9d80c642458aac"><td class="mdescLeft">&#160;</td><td class="mdescRight">It returns the user id of the friendship invitation that is on the given position on the list of all friendship invitations. If the index is bigger than the list or the index is negative it will raise an exception.  <a href="class_user_data.html#a10258a8608a660113b9d80c642458aac">More...</a><br /></td></tr>
 <tr class="separator:a10258a8608a660113b9d80c642458aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,7 +150,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2f54af31cce5a9537094e7bf3817d6da"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a2f54af31cce5a9537094e7bf3817d6da">countOfNewFriends</a> ()</td></tr>
 <tr class="separator:a2f54af31cce5a9537094e7bf3817d6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c56f936d0e63295ccdd9809e5276e51"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a1c56f936d0e63295ccdd9809e5276e51">getNewFriend</a> (int index)</td></tr>
-<tr class="memdesc:a1c56f936d0e63295ccdd9809e5276e51"><td class="mdescLeft">&#160;</td><td class="mdescRight">It returns the user id of the index-th invitation of the friendInvitationsList_ attribute. If the index is bigger than the list's size or its negative it will raise an exception.  <a href="class_user_data.html#a1c56f936d0e63295ccdd9809e5276e51">More...</a><br /></td></tr>
+<tr class="memdesc:a1c56f936d0e63295ccdd9809e5276e51"><td class="mdescLeft">&#160;</td><td class="mdescRight">It returns the user id of the index-th invitation of the friendsInvitationsList_ attribute. If the index is bigger than the list's size or its negative it will raise an exception.  <a href="class_user_data.html#a1c56f936d0e63295ccdd9809e5276e51">More...</a><br /></td></tr>
 <tr class="separator:a1c56f936d0e63295ccdd9809e5276e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b6e17cfa434c5bcab3666875ec253c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a3b6e17cfa434c5bcab3666875ec253c7">countOfNewFriendData</a> ()</td></tr>
 <tr class="separator:a3b6e17cfa434c5bcab3666875ec253c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,6 +208,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af362e2dbb1de92ee6120ae36153bedab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#af362e2dbb1de92ee6120ae36153bedab">getScore</a> ()</td></tr>
 <tr class="memdesc:af362e2dbb1de92ee6120ae36153bedab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of the score_ property.  <a href="class_user_data.html#af362e2dbb1de92ee6120ae36153bedab">More...</a><br /></td></tr>
 <tr class="separator:af362e2dbb1de92ee6120ae36153bedab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18cd385ba78ad2063617790478785ee7"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a18cd385ba78ad2063617790478785ee7">getDisplayName</a> ()</td></tr>
+<tr class="memdesc:a18cd385ba78ad2063617790478785ee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of the displayName_ property.  <a href="class_user_data.html#a18cd385ba78ad2063617790478785ee7">More...</a><br /></td></tr>
+<tr class="separator:a18cd385ba78ad2063617790478785ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2917662c540e04a1ec62d22d8d670147"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a2917662c540e04a1ec62d22d8d670147">getRangeStoryCount</a> ()</td></tr>
+<tr class="memdesc:a2917662c540e04a1ec62d22d8d670147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of the rangeStory_.Count property.  <a href="class_user_data.html#a2917662c540e04a1ec62d22d8d670147">More...</a><br /></td></tr>
+<tr class="separator:a2917662c540e04a1ec62d22d8d670147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f72e343f53557d9f830cc1e2a147b1f"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a6f72e343f53557d9f830cc1e2a147b1f">getRangeStory</a> (int index)</td></tr>
+<tr class="memdesc:a6f72e343f53557d9f830cc1e2a147b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of the elements rangeStory_ property.  <a href="class_user_data.html#a6f72e343f53557d9f830cc1e2a147b1f">More...</a><br /></td></tr>
+<tr class="separator:a6f72e343f53557d9f830cc1e2a147b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5402d3296e65828af59933a0bb7e4bb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a5402d3296e65828af59933a0bb7e4bb1">addRangeElementOnRangeStory</a> (Dictionary&lt; string, string &gt; toAdd)</td></tr>
+<tr class="memdesc:a5402d3296e65828af59933a0bb7e4bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method adds the given dictionary to the rangeStory_ property. The rangeStory_ expects dictionaries with at least range_ and date_ entries.  <a href="class_user_data.html#a5402d3296e65828af59933a0bb7e4bb1">More...</a><br /></td></tr>
+<tr class="separator:a5402d3296e65828af59933a0bb7e4bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2943732156aaf0a438b812b91014c27"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#ac2943732156aaf0a438b812b91014c27">getJSONof</a> (string property)</td></tr>
+<tr class="memdesc:ac2943732156aaf0a438b812b91014c27"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method returns the json conversion of the property of this user that has the given name  <a href="class_user_data.html#ac2943732156aaf0a438b812b91014c27">More...</a><br /></td></tr>
+<tr class="separator:ac2943732156aaf0a438b812b91014c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2df9f0c7fcad75ecf89c29d278c343d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a2df9f0c7fcad75ecf89c29d278c343d7">IsAnonymous</a> ()</td></tr>
+<tr class="separator:a2df9f0c7fcad75ecf89c29d278c343d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -216,6 +234,30 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ad18cfa73e4fb27cd88a3a87b776601ee"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_visited_place.html">VisitedPlace</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#ad18cfa73e4fb27cd88a3a87b776601ee">visitedPlaces_</a></td></tr>
 <tr class="memdesc:ad18cfa73e4fb27cd88a3a87b776601ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of the places that the current user has visited.  <a href="class_user_data.html#ad18cfa73e4fb27cd88a3a87b776601ee">More...</a><br /></td></tr>
 <tr class="separator:ad18cfa73e4fb27cd88a3a87b776601ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadeeeb65aefb91aef9e1f4645444028f"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#aadeeeb65aefb91aef9e1f4645444028f">friendsInvitationsDeletedList_</a></td></tr>
+<tr class="memdesc:aadeeeb65aefb91aef9e1f4645444028f"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;string&gt; that stores all the friends invitations that the user accepts or denies in order to prevent the database incongruences.  <a href="class_user_data.html#aadeeeb65aefb91aef9e1f4645444028f">More...</a><br /></td></tr>
+<tr class="separator:aadeeeb65aefb91aef9e1f4645444028f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77bcbf3799fff630a98f7fa16c3596a9"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a77bcbf3799fff630a98f7fa16c3596a9">deletedFriends_</a></td></tr>
+<tr class="memdesc:a77bcbf3799fff630a98f7fa16c3596a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;string&gt; that stores all the friends that the user deletes in order to prevent the database incongruences.  <a href="class_user_data.html#a77bcbf3799fff630a98f7fa16c3596a9">More...</a><br /></td></tr>
+<tr class="separator:a77bcbf3799fff630a98f7fa16c3596a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ce638ef244297618c5d2d8b770ad82d"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classchallenge_data.html">challengeData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a0ce638ef244297618c5d2d8b770ad82d">deletedChallenges_</a></td></tr>
+<tr class="memdesc:a0ce638ef244297618c5d2d8b770ad82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;challengeData&gt; that stores all the challenges that the user completes or removes in order to prevent the database incongruences.  <a href="class_user_data.html#a0ce638ef244297618c5d2d8b770ad82d">More...</a><br /></td></tr>
+<tr class="separator:a0ce638ef244297618c5d2d8b770ad82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a173e754ec7020a0da61481deabbde76c"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a173e754ec7020a0da61481deabbde76c">acceptedFriends_</a></td></tr>
+<tr class="memdesc:a173e754ec7020a0da61481deabbde76c"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;string&gt; that stores all the friends invitations that the other user has accepted.  <a href="class_user_data.html#a173e754ec7020a0da61481deabbde76c">More...</a><br /></td></tr>
+<tr class="separator:a173e754ec7020a0da61481deabbde76c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7f28a8ef7321e3db38d60e7b56aa501"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#aa7f28a8ef7321e3db38d60e7b56aa501">earnedScoreBeforeAdding_</a></td></tr>
+<tr class="memdesc:aa7f28a8ef7321e3db38d60e7b56aa501"><td class="mdescLeft">&#160;</td><td class="mdescRight">int that stores the score that this user had before adding the score that is on the database version. This has to be done on this way because other users can add score to this user so the database version could be different of the local score version  <a href="class_user_data.html#aa7f28a8ef7321e3db38d60e7b56aa501">More...</a><br /></td></tr>
+<tr class="separator:aa7f28a8ef7321e3db38d60e7b56aa501"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a74ec250383b7e71c2c162f68fe37e654"><td class="memItemLeft" align="right" valign="top">static List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a74ec250383b7e71c2c162f68fe37e654">safeProperties_</a></td></tr>
+<tr class="memdesc:a74ec250383b7e71c2c162f68fe37e654"><td class="mdescLeft">&#160;</td><td class="mdescRight">static List&lt;string&gt; that store the names of the properties that are considered safe to write on the database because they only can be modified by the user that own them  <a href="class_user_data.html#a74ec250383b7e71c2c162f68fe37e654">More...</a><br /></td></tr>
+<tr class="separator:a74ec250383b7e71c2c162f68fe37e654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82e373308ae32c85ed4f7397c9efb005"><td class="memItemLeft" align="right" valign="top">static List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a82e373308ae32c85ed4f7397c9efb005">unsafeProperties_</a></td></tr>
+<tr class="memdesc:a82e373308ae32c85ed4f7397c9efb005"><td class="mdescLeft">&#160;</td><td class="mdescRight">static List&lt;string&gt; that store the names of the properties that are considered unsafe to write on the database because they could be modified by the user that own them and other users.  <a href="class_user_data.html#a82e373308ae32c85ed4f7397c9efb005">More...</a><br /></td></tr>
+<tr class="separator:a82e373308ae32c85ed4f7397c9efb005"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -237,9 +279,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a516229bceaf4f7436349b2c8879dd4a4"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_friend_data.html">FriendData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a516229bceaf4f7436349b2c8879dd4a4">friendDataList_</a></td></tr>
 <tr class="memdesc:a516229bceaf4f7436349b2c8879dd4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">list that contains all the data of the friends of the current user.  <a href="class_user_data.html#a516229bceaf4f7436349b2c8879dd4a4">More...</a><br /></td></tr>
 <tr class="separator:a516229bceaf4f7436349b2c8879dd4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8371972f612f1720b29ea21b99e8f1b9"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a8371972f612f1720b29ea21b99e8f1b9">friendInvitationsList_</a></td></tr>
-<tr class="memdesc:a8371972f612f1720b29ea21b99e8f1b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">list that contains strings with the user ids of all the user that has sended a friendship invitation to the current user and the current user hasnt accepted or denied.  <a href="class_user_data.html#a8371972f612f1720b29ea21b99e8f1b9">More...</a><br /></td></tr>
-<tr class="separator:a8371972f612f1720b29ea21b99e8f1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2a92128fa3e37e74c89f4714f937c5d"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#aa2a92128fa3e37e74c89f4714f937c5d">friendsInvitationsList_</a></td></tr>
+<tr class="memdesc:aa2a92128fa3e37e74c89f4714f937c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">list that contains strings with the user ids of all the user that has sended a friendship invitation to the current user and the current user hasnt accepted or denied.  <a href="class_user_data.html#aa2a92128fa3e37e74c89f4714f937c5d">More...</a><br /></td></tr>
+<tr class="separator:aa2a92128fa3e37e74c89f4714f937c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1bdf8b29343efeae375d0f448827103"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classnew_friend_data.html">newFriendData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#ac1bdf8b29343efeae375d0f448827103">newFriendDataList_</a></td></tr>
 <tr class="memdesc:ac1bdf8b29343efeae375d0f448827103"><td class="mdescLeft">&#160;</td><td class="mdescRight">list that stores all the necessary information of the users those that the current user has a new friendship invitation.  <a href="class_user_data.html#ac1bdf8b29343efeae375d0f448827103">More...</a><br /></td></tr>
 <tr class="separator:ac1bdf8b29343efeae375d0f448827103"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -258,12 +300,15 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a3ef812c1633749eda3b3b47b5bec52c5"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a3ef812c1633749eda3b3b47b5bec52c5">acceptedFriendsToNotify_</a></td></tr>
 <tr class="memdesc:a3ef812c1633749eda3b3b47b5bec52c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;string&gt; that stores the user ids that have to been notified that this user accepted the friendship invitation.  <a href="class_user_data.html#a3ef812c1633749eda3b3b47b5bec52c5">More...</a><br /></td></tr>
 <tr class="separator:a3ef812c1633749eda3b3b47b5bec52c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98cc32e203269b047a05a351638b7604"><td class="memItemLeft" align="right" valign="top">List&lt; Dictionary&lt; string, string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_data.html#a98cc32e203269b047a05a351638b7604">rangeStory_</a></td></tr>
+<tr class="memdesc:a98cc32e203269b047a05a351638b7604"><td class="mdescLeft">&#160;</td><td class="mdescRight">List&lt;Dictionary&lt;string,string&gt;&gt; that stores all the user range story. It has an element for each time the user has reached a new range. Each element stores the range that is reached and the date of the achievement. The rangeStory_ expects dictionaries with at least range_ and date_ entries.  <a href="class_user_data.html#a98cc32e203269b047a05a351638b7604">More...</a><br /></td></tr>
+<tr class="separator:a98cc32e203269b047a05a351638b7604"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class that stores the current user data. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad2dd062f86fdc42932e93675656ef12c" name="ad2dd062f86fdc42932e93675656ef12c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2dd062f86fdc42932e93675656ef12c">&#9670;&nbsp;</a></span>UserData()</h2>
+<a id="ac7c69dc9a99bff63ab9c48b15bdb819d" name="ac7c69dc9a99bff63ab9c48b15bdb819d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7c69dc9a99bff63ab9c48b15bdb819d">&#9670;&nbsp;</a></span>UserData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -296,13 +341,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">List&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>friendInvitationsList</em> = <code>null</code>, </td>
+          <td class="paramname"><em>friendsInvitationsList</em> = <code>null</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">List&lt; string &gt;&#160;</td>
-          <td class="paramname"><em>friendInvitationsAcceptedList</em> = <code>null</code>, </td>
+          <td class="paramname"><em>friendsInvitationsAcceptedList</em> = <code>null</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -326,7 +371,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>earnedScore</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>earnedScore</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List&lt; Dictionary&lt; string, string &gt; &gt;&#160;</td>
+          <td class="paramname"><em>rangeStory</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -348,9 +399,10 @@ Private Attributes</h2></td></tr>
     <tr><td class="paramname">List&lt;string&gt;</td><td>(Optional) List of user ids of the users that has deleted current user's friendship. </td></tr>
     <tr><td class="paramname">List&lt;Dictionary&lt;string,string&gt;&gt;</td><td>(Optional) List of the current user's challenges. </td></tr>
     <tr><td class="paramname">string</td><td>(Optional) the user's current score </td></tr>
-    <tr><td class="paramname">string</td><td>(Optional) the user's score that has earned by the completion of challenges that the user has sended.<ul>
+    <tr><td class="paramname">string</td><td>(Optional) the user's score that has earned by the completion of challenges that the user has sended. </td></tr>
+    <tr><td class="paramname">List&lt;Dictionary&lt;string,string&gt;&gt;</td><td>(Optional) the user's story of range achievements.<ul>
 <li>If the baseCordsData parameter isnt null, it sets baseEstablished_ attribute to true, it sets it as false in other case.</li>
-<li>If the friendInvitationsAcceptedList parameter isnt null, it adds each element of the list to the friendList_ attribute.</li>
+<li>If the friendsInvitationsAcceptedList parameter isnt null, it adds each element of the list to the friendList_ attribute.</li>
 <li>If the deletedFriendsList parameter isnt null, it deletes each element of that list from the friendList_ attribute. </li>
 </ul>
 </td></tr>
@@ -435,6 +487,32 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a5402d3296e65828af59933a0bb7e4bb1" name="a5402d3296e65828af59933a0bb7e4bb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5402d3296e65828af59933a0bb7e4bb1">&#9670;&nbsp;</a></span>addRangeElementOnRangeStory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UserData.addRangeElementOnRangeStory </td>
+          <td>(</td>
+          <td class="paramtype">Dictionary&lt; string, string &gt;&#160;</td>
+          <td class="paramname"><em>toAdd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method adds the given dictionary to the rangeStory_ property. The rangeStory_ expects dictionaries with at least range_ and date_ entries. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Dictionary&lt;string,string&gt;</td><td>that contains the information of the rangeStory that you want to add. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a262959b7ab5dfb03a55a4713e0aaa718" name="a262959b7ab5dfb03a55a4713e0aaa718"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a262959b7ab5dfb03a55a4713e0aaa718">&#9670;&nbsp;</a></span>anyUserHasToBeNotified()</h2>
 
@@ -513,26 +591,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a45992ae9c37667a166fbea1bf2cc8410" name="a45992ae9c37667a166fbea1bf2cc8410"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45992ae9c37667a166fbea1bf2cc8410">&#9670;&nbsp;</a></span>countOfFriendInvitations()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int UserData.countOfFriendInvitations </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>It returns an int with how many new friendship invitations the current user has. </p>
-<dl class="section return"><dt>Returns</dt><dd>int how many new friendship invitations the current user has. </dd></dl>
-
-</div>
-</div>
 <a id="a36723c3181031503157431ea17c7b3b7" name="a36723c3181031503157431ea17c7b3b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a36723c3181031503157431ea17c7b3b7">&#9670;&nbsp;</a></span>countOfFriends()</h2>
 
@@ -548,6 +606,26 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>int how many friends has the current user. </dd></dl>
+
+</div>
+</div>
+<a id="af4013371c5ce2807aafd5e95e1073f61" name="af4013371c5ce2807aafd5e95e1073f61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4013371c5ce2807aafd5e95e1073f61">&#9670;&nbsp;</a></span>countOffriendsInvitations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UserData.countOffriendsInvitations </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>It returns an int with how many new friendship invitations the current user has. </p>
+<dl class="section return"><dt>Returns</dt><dd>int how many new friendship invitations the current user has. </dd></dl>
 
 </div>
 </div>
@@ -583,7 +661,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Count of the size of the friendInvitationsList_ attribute. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Count of the size of the friendsInvitationsList_ attribute. </dd></dl>
 
 </div>
 </div>
@@ -811,6 +889,26 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a18cd385ba78ad2063617790478785ee7" name="a18cd385ba78ad2063617790478785ee7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18cd385ba78ad2063617790478785ee7">&#9670;&nbsp;</a></span>getDisplayName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string UserData.getDisplayName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter of the displayName_ property. </p>
+<dl class="section return"><dt>Returns</dt><dd>string with the current user's display name </dd></dl>
+
+</div>
+</div>
 <a id="ac868d516b12139865ce5161aa19836f8" name="ac868d516b12139865ce5161aa19836f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac868d516b12139865ce5161aa19836f8">&#9670;&nbsp;</a></span>getFriend()</h2>
 
@@ -919,6 +1017,33 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ac2943732156aaf0a438b812b91014c27" name="ac2943732156aaf0a438b812b91014c27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2943732156aaf0a438b812b91014c27">&#9670;&nbsp;</a></span>getJSONof()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string UserData.getJSONof </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>property</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>this method returns the json conversion of the property of this user that has the given name </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>with the name of the property that you want to obtain the json conversion of. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string with the json conversion of the given property </dd></dl>
+
+</div>
+</div>
 <a id="a1c56f936d0e63295ccdd9809e5276e51" name="a1c56f936d0e63295ccdd9809e5276e51"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c56f936d0e63295ccdd9809e5276e51">&#9670;&nbsp;</a></span>getNewFriend()</h2>
 
@@ -935,14 +1060,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>It returns the user id of the index-th invitation of the friendInvitationsList_ attribute. If the index is bigger than the list's size or its negative it will raise an exception. </p>
+<p>It returns the user id of the index-th invitation of the friendsInvitationsList_ attribute. If the index is bigger than the list's size or its negative it will raise an exception. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">int</td><td>the position of the invitation that you want to get. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>string the user id of the invitation that is on the index-th position of the friendInvitationsList_ attribute. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>string the user id of the invitation that is on the index-th position of the friendsInvitationsList_ attribute. </dd></dl>
 
 </div>
 </div>
@@ -990,6 +1115,53 @@ Private Attributes</h2></td></tr>
 
 <p>This method returns the cuantity of active challenges that the current user has. </p>
 <dl class="section return"><dt>Returns</dt><dd>int with the quantity of challenges. </dd></dl>
+
+</div>
+</div>
+<a id="a6f72e343f53557d9f830cc1e2a147b1f" name="a6f72e343f53557d9f830cc1e2a147b1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f72e343f53557d9f830cc1e2a147b1f">&#9670;&nbsp;</a></span>getRangeStory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dictionary&lt; string, string &gt; UserData.getRangeStory </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter of the elements rangeStory_ property. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>with the index of the element that you want to obtain </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Dictionary&lt;string,string&gt; with the information of the element that is on the given position of the rangeStory_ </dd></dl>
+
+</div>
+</div>
+<a id="a2917662c540e04a1ec62d22d8d670147" name="a2917662c540e04a1ec62d22d8d670147"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2917662c540e04a1ec62d22d8d670147">&#9670;&nbsp;</a></span>getRangeStoryCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UserData.getRangeStoryCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter of the rangeStory_.Count property. </p>
+<dl class="section return"><dt>Returns</dt><dd>int with the quantity of elements of the current user's range story </dd></dl>
 
 </div>
 </div>
@@ -1202,6 +1374,24 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the current user has a friend with the given display name. </dd></dl>
+
+</div>
+</div>
+<a id="a2df9f0c7fcad75ecf89c29d278c343d7" name="a2df9f0c7fcad75ecf89c29d278c343d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2df9f0c7fcad75ecf89c29d278c343d7">&#9670;&nbsp;</a></span>IsAnonymous()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UserData.IsAnonymous </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>bool true if the current user is an anonymous user, false in other case </dd></dl>
 
 </div>
 </div>
@@ -1443,6 +1633,22 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a173e754ec7020a0da61481deabbde76c" name="a173e754ec7020a0da61481deabbde76c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a173e754ec7020a0da61481deabbde76c">&#9670;&nbsp;</a></span>acceptedFriends_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; UserData.acceptedFriends_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>List&lt;string&gt; that stores all the friends invitations that the other user has accepted. </p>
+
+</div>
+</div>
 <a id="a3ef812c1633749eda3b3b47b5bec52c5" name="a3ef812c1633749eda3b3b47b5bec52c5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3ef812c1633749eda3b3b47b5bec52c5">&#9670;&nbsp;</a></span>acceptedFriendsToNotify_</h2>
 
@@ -1563,6 +1769,38 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a0ce638ef244297618c5d2d8b770ad82d" name="a0ce638ef244297618c5d2d8b770ad82d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ce638ef244297618c5d2d8b770ad82d">&#9670;&nbsp;</a></span>deletedChallenges_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="classchallenge_data.html">challengeData</a>&gt; UserData.deletedChallenges_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>List&lt;challengeData&gt; that stores all the challenges that the user completes or removes in order to prevent the database incongruences. </p>
+
+</div>
+</div>
+<a id="a77bcbf3799fff630a98f7fa16c3596a9" name="a77bcbf3799fff630a98f7fa16c3596a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77bcbf3799fff630a98f7fa16c3596a9">&#9670;&nbsp;</a></span>deletedFriends_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; UserData.deletedFriends_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>List&lt;string&gt; that stores all the friends that the user deletes in order to prevent the database incongruences. </p>
+
+</div>
+</div>
 <a id="a88df6bf4aee17f5d47ac73d6e8b26e7d" name="a88df6bf4aee17f5d47ac73d6e8b26e7d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a88df6bf4aee17f5d47ac73d6e8b26e7d">&#9670;&nbsp;</a></span>displayName_</h2>
 
@@ -1584,6 +1822,22 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>String that contains the display name of the current user. </p>
+
+</div>
+</div>
+<a id="aa7f28a8ef7321e3db38d60e7b56aa501" name="aa7f28a8ef7321e3db38d60e7b56aa501"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7f28a8ef7321e3db38d60e7b56aa501">&#9670;&nbsp;</a></span>earnedScoreBeforeAdding_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UserData.earnedScoreBeforeAdding_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>int that stores the score that this user had before adding the score that is on the database version. This has to be done on this way because other users can add score to this user so the database version could be different of the local score version </p>
 
 </div>
 </div>
@@ -1627,30 +1881,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8371972f612f1720b29ea21b99e8f1b9" name="a8371972f612f1720b29ea21b99e8f1b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8371972f612f1720b29ea21b99e8f1b9">&#9670;&nbsp;</a></span>friendInvitationsList_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">List&lt;string&gt; UserData.friendInvitationsList_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>list that contains strings with the user ids of all the user that has sended a friendship invitation to the current user and the current user hasnt accepted or denied. </p>
-
-</div>
-</div>
 <a id="a357a4b4527f067d0e8661ea0d85161e1" name="a357a4b4527f067d0e8661ea0d85161e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a357a4b4527f067d0e8661ea0d85161e1">&#9670;&nbsp;</a></span>friendList_</h2>
 
@@ -1672,6 +1902,46 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>list of strings that contains all the user ids of the friends of the current user. </p>
+
+</div>
+</div>
+<a id="aadeeeb65aefb91aef9e1f4645444028f" name="aadeeeb65aefb91aef9e1f4645444028f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadeeeb65aefb91aef9e1f4645444028f">&#9670;&nbsp;</a></span>friendsInvitationsDeletedList_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; UserData.friendsInvitationsDeletedList_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>List&lt;string&gt; that stores all the friends invitations that the user accepts or denies in order to prevent the database incongruences. </p>
+
+</div>
+</div>
+<a id="aa2a92128fa3e37e74c89f4714f937c5d" name="aa2a92128fa3e37e74c89f4714f937c5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2a92128fa3e37e74c89f4714f937c5d">&#9670;&nbsp;</a></span>friendsInvitationsList_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; UserData.friendsInvitationsList_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>list that contains strings with the user ids of all the user that has sended a friendship invitation to the current user and the current user hasnt accepted or denied. </p>
 
 </div>
 </div>
@@ -1747,6 +2017,57 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a98cc32e203269b047a05a351638b7604" name="a98cc32e203269b047a05a351638b7604"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98cc32e203269b047a05a351638b7604">&#9670;&nbsp;</a></span>rangeStory_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;Dictionary&lt;string,string&gt; &gt; UserData.rangeStory_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List&lt;Dictionary&lt;string,string&gt;&gt; that stores all the user range story. It has an element for each time the user has reached a new range. Each element stores the range that is reached and the date of the achievement. The rangeStory_ expects dictionaries with at least range_ and date_ entries. </p>
+
+</div>
+</div>
+<a id="a74ec250383b7e71c2c162f68fe37e654" name="a74ec250383b7e71c2c162f68fe37e654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74ec250383b7e71c2c162f68fe37e654">&#9670;&nbsp;</a></span>safeProperties_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; UserData.safeProperties_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> List&lt;string&gt;() {<span class="stringliteral">&quot;baseCords_&quot;</span>, <span class="stringliteral">&quot;displayName_&quot;</span>, <span class="stringliteral">&quot;score_&quot;</span>, <span class="stringliteral">&quot;visitedPlaces_&quot;</span>, <span class="stringliteral">&quot;friends_&quot;</span>,</div>
+<div class="line">    </div>
+<div class="line">                                                                     <span class="stringliteral">&quot;rangeStory_&quot;</span>}</div>
+</div><!-- fragment -->
+<p>static List&lt;string&gt; that store the names of the properties that are considered safe to write on the database because they only can be modified by the user that own them </p>
+
+</div>
+</div>
 <a id="a2fc36e4437631282b36bcf04448553ec" name="a2fc36e4437631282b36bcf04448553ec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2fc36e4437631282b36bcf04448553ec">&#9670;&nbsp;</a></span>score_</h2>
 
@@ -1768,6 +2089,34 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Int that stores the score of the current user. </p>
+
+</div>
+</div>
+<a id="a82e373308ae32c85ed4f7397c9efb005" name="a82e373308ae32c85ed4f7397c9efb005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82e373308ae32c85ed4f7397c9efb005">&#9670;&nbsp;</a></span>unsafeProperties_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;string&gt; UserData.unsafeProperties_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> List&lt;string&gt;() {<span class="stringliteral">&quot;friendsInvitations_&quot;</span>, <span class="stringliteral">&quot;deletedFriends_&quot;</span>, <span class="stringliteral">&quot;challenges_&quot;</span>, <span class="stringliteral">&quot;earnedScore_&quot;</span>, </div>
+<div class="line">    </div>
+<div class="line">    </div>
+<div class="line">                                                                       <span class="stringliteral">&quot;acceptedFriendsInvitations_&quot;</span>}</div>
+</div><!-- fragment -->
+<p>static List&lt;string&gt; that store the names of the properties that are considered unsafe to write on the database because they could be modified by the user that own them and other users. </p>
 
 </div>
 </div>
