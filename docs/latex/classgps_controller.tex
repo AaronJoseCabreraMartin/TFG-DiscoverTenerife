@@ -1,0 +1,355 @@
+\hypertarget{classgps_controller}{}\doxysection{gps\+Controller Class Reference}
+\label{classgps_controller}\index{gpsController@{gpsController}}
+
+
+class that handles the access to the GPS sensor of the current dispositive. This class follows the singleton pattern, so its only one instance during each excecution.  
+
+
+Inheritance diagram for gps\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgps_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classgps_controller_a1c1cb762d26b704c5d747634cbb29bb5}{get\+Latitude}} ()
+\begin{DoxyCompactList}\small\item\em getter of the latitude\+\_\+ property. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_a411c761c359ed713957d7d874ce00bab}{get\+Longitude}} ()
+\begin{DoxyCompactList}\small\item\em getter of the longitude\+\_\+ property. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_a36ddb0b2f1eb1fde157615d32756e969}{get\+Altitude}} ()
+\begin{DoxyCompactList}\small\item\em getter of the altitude\+\_\+ property. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_ac98d1ca0beb2b406af4ed84b397bc253}{Calculate\+Distance}} (double latitudeA, double longitudeA, double latitudeB, double longitudeB)
+\begin{DoxyCompactList}\small\item\em this method returns the distance between the two geographical points given on the choosen distance. It expects that the given parameters are on Hexadecimal notation, it converts them on sexagecimal using the sexagecimal\+To\+Radian method. It checks the distance\+In\+KM method of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} class to choose on which unit it has to return the distance. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_a4078376934b6f6255559b9b6cb3993ab}{Calculate\+Distance\+To\+User}} (double latitudeA, double longitudeA)
+\begin{DoxyCompactList}\small\item\em it calls the Calculate\+Distance method with the given coordenades and the user current coordenades. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classgps_controller_a97c28380b3abb7e0c7010cdcf44eaf61}{getcurrent\+Zone\+Of\+User}} ()
+\begin{DoxyCompactList}\small\item\em it calls the get\+Zone\+Of method with the user coordenades and returns what that method returns. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classgps_controller_ad6b1614e9335c4d4b3b1f4b6dad21a84}{gps\+Is\+Running}} ()
+\begin{DoxyCompactList}\small\item\em getter of the gps\+Is\+Running\+\_\+ property. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classgps_controller}{gps\+Controller}} \mbox{\hyperlink{classgps_controller_a53b578acaf5c6327bc62f01ebf8ef3c7}{gps\+Controller\+Instance\+\_\+}}
+\begin{DoxyCompactList}\small\item\em reference to the \mbox{\hyperlink{classgps_controller}{gps\+Controller}} instance \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classgps_controller_aa47772ed8cc064412134b8fee42f153e}{Awake}} ()
+\item 
+void \mbox{\hyperlink{classgps_controller_acbe7c33af28d76776da75e45e6e5683b}{Create\+Permission\+List}} ()
+\item 
+void \mbox{\hyperlink{classgps_controller_ad311df10d73a0ea1291c1f550b89517e}{Ask\+For\+Permissions}} ()
+\item 
+void \mbox{\hyperlink{classgps_controller_a2a4407d75bb672d74e7ced20b2c7383e}{On\+Application\+Focus}} (bool focus)
+\begin{DoxyCompactList}\small\item\em this method is called each time the application either focus in or focus out. If the application is focusing in and the is\+It\+Permission\+Time property is true it calls the Ask\+For\+Permissions method. If the application is focusing in it starts the Input.\+Location process. If the application is focusing out it stops the Input.\+Location process. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgps_controller_abe6e69acf0f941d8aa82c2fcf243a646}{Update}} ()
+\item 
+double \mbox{\hyperlink{classgps_controller_a55b91336db8dda84e8545e550f4c449f}{sexagecimal\+To\+Radian}} (double sexagecimal)
+\begin{DoxyCompactList}\small\item\em this method converts the given sexagecimal number to his radian number equivalent. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classgps_controller_a0b573b691d0a6c507c9335e83dfcee06}{is\+It\+Permission\+Time}}
+\begin{DoxyCompactList}\small\item\em true if its time to ask permission, false in other case \end{DoxyCompactList}\item 
+Stack$<$ string $>$ \mbox{\hyperlink{classgps_controller_acb8e7522f020231a38f0fb06d42dbebd}{permissions}}
+\begin{DoxyCompactList}\small\item\em Stack$<$string$>$ that contains all the permissions we have to ask. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classgps_controller_ac53d2cc8f014c4862bc101ea0c94d554}{gps\+Is\+Running\+\_\+}}
+\begin{DoxyCompactList}\small\item\em true if the gps is avaible, false in other case. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_a391d12d4b793478aefb89afa16a08bba}{longitude\+\_\+}}
+\begin{DoxyCompactList}\small\item\em double that stores the longitude number of the current user current gps location. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_ad680d95aad469a49813d54e20caa1895}{latitude\+\_\+}}
+\begin{DoxyCompactList}\small\item\em double that stores the latitude number of the current user current gps location. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_ad5c1ea3970d3840e9029b95e67534cdb}{altitude\+\_\+}}
+\begin{DoxyCompactList}\small\item\em double that stores the altitude number of the current user current gps location. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_a67be4cf579a0d7f9b8cbbd0828596c44}{default\+Latitude\+\_\+}} = 0
+\begin{DoxyCompactList}\small\item\em double that stores the default value for the latitude part of the user coordenades \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_a46c6167224d5d049842f907b8848ef99}{default\+Longitude\+\_\+}} = 0
+\begin{DoxyCompactList}\small\item\em double that stores the default value for the longitude part of the user coordenades \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classgps_controller_acfd1c5446e7a85f779b2d587867345a7}{default\+Altitude\+\_\+}} = 255
+\begin{DoxyCompactList}\small\item\em double that stores the default value for the altitude part of the user coordenades \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class that handles the access to the GPS sensor of the current dispositive. This class follows the singleton pattern, so its only one instance during each excecution. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgps_controller_ad311df10d73a0ea1291c1f550b89517e}\label{classgps_controller_ad311df10d73a0ea1291c1f550b89517e}} 
+\index{gpsController@{gpsController}!AskForPermissions@{AskForPermissions}}
+\index{AskForPermissions@{AskForPermissions}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{AskForPermissions()}{AskForPermissions()}}
+{\footnotesize\ttfamily void gps\+Controller.\+Ask\+For\+Permissions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method if the permissions stack property is empty, it calls the Create\+Permission\+List first. In other case, ask for each permission that is on the permissions property. When it finish, it sets the is\+It\+Permission\+Time to false. \mbox{\Hypertarget{classgps_controller_aa47772ed8cc064412134b8fee42f153e}\label{classgps_controller_aa47772ed8cc064412134b8fee42f153e}} 
+\index{gpsController@{gpsController}!Awake@{Awake}}
+\index{Awake@{Awake}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void gps\+Controller.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method is called before the first frame. If there is another \mbox{\hyperlink{classgps_controller}{gps\+Controller}}, it destroy this instance and return nothing. Other case, it set the gps\+Controller\+Instance\+\_\+ static property as a reference of this game\+Object. It also instantiate the rest of the properties, calls the Create\+Permission\+List method and start the gps location process. \mbox{\Hypertarget{classgps_controller_ac98d1ca0beb2b406af4ed84b397bc253}\label{classgps_controller_ac98d1ca0beb2b406af4ed84b397bc253}} 
+\index{gpsController@{gpsController}!CalculateDistance@{CalculateDistance}}
+\index{CalculateDistance@{CalculateDistance}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{CalculateDistance()}{CalculateDistance()}}
+{\footnotesize\ttfamily double gps\+Controller.\+Calculate\+Distance (\begin{DoxyParamCaption}\item[{double}]{latitudeA,  }\item[{double}]{longitudeA,  }\item[{double}]{latitudeB,  }\item[{double}]{longitudeB }\end{DoxyParamCaption})}
+
+
+
+this method returns the distance between the two geographical points given on the choosen distance. It expects that the given parameters are on Hexadecimal notation, it converts them on sexagecimal using the sexagecimal\+To\+Radian method. It checks the distance\+In\+KM method of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} class to choose on which unit it has to return the distance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & that contains the latitude of the first point. \\
+\hline
+{\em double} & that contains the longitude of the first point. \\
+\hline
+{\em double} & that contains the latitude of the second point. \\
+\hline
+{\em double} & that contains the longitude of the second point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double the distance on the choosen unit. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_a4078376934b6f6255559b9b6cb3993ab}\label{classgps_controller_a4078376934b6f6255559b9b6cb3993ab}} 
+\index{gpsController@{gpsController}!CalculateDistanceToUser@{CalculateDistanceToUser}}
+\index{CalculateDistanceToUser@{CalculateDistanceToUser}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{CalculateDistanceToUser()}{CalculateDistanceToUser()}}
+{\footnotesize\ttfamily double gps\+Controller.\+Calculate\+Distance\+To\+User (\begin{DoxyParamCaption}\item[{double}]{latitudeA,  }\item[{double}]{longitudeA }\end{DoxyParamCaption})}
+
+
+
+it calls the Calculate\+Distance method with the given coordenades and the user current coordenades. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & that contains the latitude of the point. \\
+\hline
+{\em double} & that contains the longitude of the point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double that contains the distance between the user and the given point on the choosen unit. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_acbe7c33af28d76776da75e45e6e5683b}\label{classgps_controller_acbe7c33af28d76776da75e45e6e5683b}} 
+\index{gpsController@{gpsController}!CreatePermissionList@{CreatePermissionList}}
+\index{CreatePermissionList@{CreatePermissionList}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{CreatePermissionList()}{CreatePermissionList()}}
+{\footnotesize\ttfamily void gps\+Controller.\+Create\+Permission\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method set the is\+It\+Permission\+Time attribute as true, add both the Coarse\+Location and the Fine\+Location permissions to the permissions property, and then, call the Ask\+For\+Permissions method of \mbox{\hyperlink{classgps_controller}{gps\+Controller}}. \mbox{\Hypertarget{classgps_controller_a36ddb0b2f1eb1fde157615d32756e969}\label{classgps_controller_a36ddb0b2f1eb1fde157615d32756e969}} 
+\index{gpsController@{gpsController}!getAltitude@{getAltitude}}
+\index{getAltitude@{getAltitude}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{getAltitude()}{getAltitude()}}
+{\footnotesize\ttfamily double gps\+Controller.\+get\+Altitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the altitude\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+the altitude\+\_\+ property value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_a97c28380b3abb7e0c7010cdcf44eaf61}\label{classgps_controller_a97c28380b3abb7e0c7010cdcf44eaf61}} 
+\index{gpsController@{gpsController}!getcurrentZoneOfUser@{getcurrentZoneOfUser}}
+\index{getcurrentZoneOfUser@{getcurrentZoneOfUser}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{getcurrentZoneOfUser()}{getcurrentZoneOfUser()}}
+{\footnotesize\ttfamily string gps\+Controller.\+getcurrent\+Zone\+Of\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+it calls the get\+Zone\+Of method with the user coordenades and returns what that method returns. 
+
+\begin{DoxyReturn}{Returns}
+string current zone of the current user. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_a1c1cb762d26b704c5d747634cbb29bb5}\label{classgps_controller_a1c1cb762d26b704c5d747634cbb29bb5}} 
+\index{gpsController@{gpsController}!getLatitude@{getLatitude}}
+\index{getLatitude@{getLatitude}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{getLatitude()}{getLatitude()}}
+{\footnotesize\ttfamily double gps\+Controller.\+get\+Latitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the latitude\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+the latitude\+\_\+ property value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_a411c761c359ed713957d7d874ce00bab}\label{classgps_controller_a411c761c359ed713957d7d874ce00bab}} 
+\index{gpsController@{gpsController}!getLongitude@{getLongitude}}
+\index{getLongitude@{getLongitude}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{getLongitude()}{getLongitude()}}
+{\footnotesize\ttfamily double gps\+Controller.\+get\+Longitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the longitude\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+the longitude\+\_\+ property value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_ad6b1614e9335c4d4b3b1f4b6dad21a84}\label{classgps_controller_ad6b1614e9335c4d4b3b1f4b6dad21a84}} 
+\index{gpsController@{gpsController}!gpsIsRunning@{gpsIsRunning}}
+\index{gpsIsRunning@{gpsIsRunning}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{gpsIsRunning()}{gpsIsRunning()}}
+{\footnotesize\ttfamily bool gps\+Controller.\+gps\+Is\+Running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the gps\+Is\+Running\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+true if the gps is running, false in other case. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_a2a4407d75bb672d74e7ced20b2c7383e}\label{classgps_controller_a2a4407d75bb672d74e7ced20b2c7383e}} 
+\index{gpsController@{gpsController}!OnApplicationFocus@{OnApplicationFocus}}
+\index{OnApplicationFocus@{OnApplicationFocus}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{OnApplicationFocus()}{OnApplicationFocus()}}
+{\footnotesize\ttfamily void gps\+Controller.\+On\+Application\+Focus (\begin{DoxyParamCaption}\item[{bool}]{focus }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this method is called each time the application either focus in or focus out. If the application is focusing in and the is\+It\+Permission\+Time property is true it calls the Ask\+For\+Permissions method. If the application is focusing in it starts the Input.\+Location process. If the application is focusing out it stops the Input.\+Location process. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & true if the application is focusing in, false if the application is focusing out. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgps_controller_a55b91336db8dda84e8545e550f4c449f}\label{classgps_controller_a55b91336db8dda84e8545e550f4c449f}} 
+\index{gpsController@{gpsController}!sexagecimalToRadian@{sexagecimalToRadian}}
+\index{sexagecimalToRadian@{sexagecimalToRadian}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{sexagecimalToRadian()}{sexagecimalToRadian()}}
+{\footnotesize\ttfamily double gps\+Controller.\+sexagecimal\+To\+Radian (\begin{DoxyParamCaption}\item[{double}]{sexagecimal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this method converts the given sexagecimal number to his radian number equivalent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & sexagecimal number to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double radian conversion of the given number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgps_controller_abe6e69acf0f941d8aa82c2fcf243a646}\label{classgps_controller_abe6e69acf0f941d8aa82c2fcf243a646}} 
+\index{gpsController@{gpsController}!Update@{Update}}
+\index{Update@{Update}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void gps\+Controller.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method is called on each frame.
+\begin{DoxyItemize}
+\item If the user has given both Coarse\+Location and Fine\+Location permissions, the gps service is active on the user\textquotesingle{}s device and Location\+Service is running, it sets the gps\+Is\+Running\+\_\+ property to true, gets the latitude, the longitude and the altitude of the user then it checks if the current user hasnt stablished its base, if that is the case it set the user base as the current latitude and longitude and call the write\+User\+Data method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}}.
+\item If that is not the case, it sets the gps\+Is\+Running\+\_\+ as false and it sets the latitude\+\_\+, longitude\+\_\+ and altitude\+\_\+ as the default ones. 
+\end{DoxyItemize}
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classgps_controller_ad5c1ea3970d3840e9029b95e67534cdb}\label{classgps_controller_ad5c1ea3970d3840e9029b95e67534cdb}} 
+\index{gpsController@{gpsController}!altitude\_@{altitude\_}}
+\index{altitude\_@{altitude\_}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{altitude\_}{altitude\_}}
+{\footnotesize\ttfamily double gps\+Controller.\+altitude\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+double that stores the altitude number of the current user current gps location. 
+
+\mbox{\Hypertarget{classgps_controller_acfd1c5446e7a85f779b2d587867345a7}\label{classgps_controller_acfd1c5446e7a85f779b2d587867345a7}} 
+\index{gpsController@{gpsController}!defaultAltitude\_@{defaultAltitude\_}}
+\index{defaultAltitude\_@{defaultAltitude\_}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{defaultAltitude\_}{defaultAltitude\_}}
+{\footnotesize\ttfamily double gps\+Controller.\+default\+Altitude\+\_\+ = 255\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+double that stores the default value for the altitude part of the user coordenades 
+
+\mbox{\Hypertarget{classgps_controller_a67be4cf579a0d7f9b8cbbd0828596c44}\label{classgps_controller_a67be4cf579a0d7f9b8cbbd0828596c44}} 
+\index{gpsController@{gpsController}!defaultLatitude\_@{defaultLatitude\_}}
+\index{defaultLatitude\_@{defaultLatitude\_}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{defaultLatitude\_}{defaultLatitude\_}}
+{\footnotesize\ttfamily double gps\+Controller.\+default\+Latitude\+\_\+ = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+double that stores the default value for the latitude part of the user coordenades 
+
+\mbox{\Hypertarget{classgps_controller_a46c6167224d5d049842f907b8848ef99}\label{classgps_controller_a46c6167224d5d049842f907b8848ef99}} 
+\index{gpsController@{gpsController}!defaultLongitude\_@{defaultLongitude\_}}
+\index{defaultLongitude\_@{defaultLongitude\_}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{defaultLongitude\_}{defaultLongitude\_}}
+{\footnotesize\ttfamily double gps\+Controller.\+default\+Longitude\+\_\+ = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+double that stores the default value for the longitude part of the user coordenades 
+
+\mbox{\Hypertarget{classgps_controller_a53b578acaf5c6327bc62f01ebf8ef3c7}\label{classgps_controller_a53b578acaf5c6327bc62f01ebf8ef3c7}} 
+\index{gpsController@{gpsController}!gpsControllerInstance\_@{gpsControllerInstance\_}}
+\index{gpsControllerInstance\_@{gpsControllerInstance\_}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{gpsControllerInstance\_}{gpsControllerInstance\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgps_controller}{gps\+Controller}} gps\+Controller.\+gps\+Controller\+Instance\+\_\+\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+reference to the \mbox{\hyperlink{classgps_controller}{gps\+Controller}} instance 
+
+\mbox{\Hypertarget{classgps_controller_ac53d2cc8f014c4862bc101ea0c94d554}\label{classgps_controller_ac53d2cc8f014c4862bc101ea0c94d554}} 
+\index{gpsController@{gpsController}!gpsIsRunning\_@{gpsIsRunning\_}}
+\index{gpsIsRunning\_@{gpsIsRunning\_}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{gpsIsRunning\_}{gpsIsRunning\_}}
+{\footnotesize\ttfamily bool gps\+Controller.\+gps\+Is\+Running\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if the gps is avaible, false in other case. 
+
+\mbox{\Hypertarget{classgps_controller_a0b573b691d0a6c507c9335e83dfcee06}\label{classgps_controller_a0b573b691d0a6c507c9335e83dfcee06}} 
+\index{gpsController@{gpsController}!isItPermissionTime@{isItPermissionTime}}
+\index{isItPermissionTime@{isItPermissionTime}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{isItPermissionTime}{isItPermissionTime}}
+{\footnotesize\ttfamily bool gps\+Controller.\+is\+It\+Permission\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if its time to ask permission, false in other case 
+
+\mbox{\Hypertarget{classgps_controller_ad680d95aad469a49813d54e20caa1895}\label{classgps_controller_ad680d95aad469a49813d54e20caa1895}} 
+\index{gpsController@{gpsController}!latitude\_@{latitude\_}}
+\index{latitude\_@{latitude\_}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{latitude\_}{latitude\_}}
+{\footnotesize\ttfamily double gps\+Controller.\+latitude\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+double that stores the latitude number of the current user current gps location. 
+
+\mbox{\Hypertarget{classgps_controller_a391d12d4b793478aefb89afa16a08bba}\label{classgps_controller_a391d12d4b793478aefb89afa16a08bba}} 
+\index{gpsController@{gpsController}!longitude\_@{longitude\_}}
+\index{longitude\_@{longitude\_}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{longitude\_}{longitude\_}}
+{\footnotesize\ttfamily double gps\+Controller.\+longitude\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+double that stores the longitude number of the current user current gps location. 
+
+\mbox{\Hypertarget{classgps_controller_acb8e7522f020231a38f0fb06d42dbebd}\label{classgps_controller_acb8e7522f020231a38f0fb06d42dbebd}} 
+\index{gpsController@{gpsController}!permissions@{permissions}}
+\index{permissions@{permissions}!gpsController@{gpsController}}
+\doxysubsubsection{\texorpdfstring{permissions}{permissions}}
+{\footnotesize\ttfamily Stack$<$string$>$ gps\+Controller.\+permissions\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stack$<$string$>$ that contains all the permissions we have to ask. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/\+Main\+Screen/\mbox{\hyperlink{gps_controller_8cs}{gps\+Controller.\+cs}}\end{DoxyCompactItemize}

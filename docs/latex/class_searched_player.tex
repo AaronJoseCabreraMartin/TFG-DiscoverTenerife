@@ -1,0 +1,171 @@
+\hypertarget{class_searched_player}{}\doxysection{Searched\+Player Class Reference}
+\label{class_searched_player}\index{SearchedPlayer@{SearchedPlayer}}
+
+
+Class that controls the panel that shows the information of a searched player.  
+
+
+Inheritance diagram for Searched\+Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_searched_player}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_searched_player_ae7bfff3f22ea1b53789cc718283f1446}{set\+Searched\+Player\+Data}} (Dictionary$<$ string, string $>$ searched\+Player\+Data)
+\begin{DoxyCompactList}\small\item\em This method sets the searched\+Player\+Data\+\_\+ property to the value of the given dictionary. It expects a dictionary with the entries\+: name, uid, rank (on future). It also sets the text component of the text\+\_\+ game object as the name entry of the given dictionary. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_searched_player_a7e155f87343e6ba1a62c7c6a023cdcf1}{send\+Invitation}} ()
+\begin{DoxyCompactList}\small\item\em if the on\+Process\+\_\+ property is true, this method dont do nothing. This is a way to control that there isnt several parallel calls to the send invitation process. If on\+Process\+\_\+ property is false but there isnt internet connection, it make a toast animation showing an error message because you have to have internet connection to complete the send invitation process. And if you have internet connection and the on\+Process\+\_\+ property is false, it sets the on\+Process\+\_\+ property to true and then call the send\+Friendship\+Invitation method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_searched_player_ad0a743a0d3ef21d78651259a6a3e05fa}{result\+Of\+The\+Sending}} (string result)
+\begin{DoxyCompactList}\small\item\em This method should be called by the \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} instance when it finish the send\+Friendship\+Invitation method. This method shows a toast showing to the user the result of the sending invitation process, if it makes it right it also calls the clear\+Searched\+Friends\+Panel method of the \mbox{\hyperlink{class_searched_friends_panel}{Searched\+Friends\+Panel}} class. The defined states for the result are failed, repeated and sended. If the given string has a different state, it will show an error on the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_searched_player_a6448ba8b1c597f6a74ba140680c53932}{Set\+Panel}} (\mbox{\hyperlink{class_searched_friends_panel}{Searched\+Friends\+Panel}} panel)
+\begin{DoxyCompactList}\small\item\em setter of the panel\+\_\+ property. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_searched_player_aa42c80f4ed7c0405e23f4c61e08feb59}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em This method is called before the first frame. It sets the on\+Process\+\_\+ property to false. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_searched_player_a26f2dc9a92737a2951696691aa9498ae}{text\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the text that shows the display name of the user. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_searched_player_a26e3fb9ebaaac1adfbb80158c8de35b3}{toast\+Message\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object the toast message object that will alert the user with the errors if they happen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_searched_friends_panel}{Searched\+Friends\+Panel}} \mbox{\hyperlink{class_searched_player_abad3c240013cd825a685b3b3b8dd9cba}{panel\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Reference to the panel that this object is being showed. \end{DoxyCompactList}\item 
+Dictionary$<$ string, string $>$ \mbox{\hyperlink{class_searched_player_a3b05e561002f04e4c441ff35f5a7feac}{searched\+Player\+Data\+\_\+}}
+\begin{DoxyCompactList}\small\item\em String conversion of the data of the searched player. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_searched_player_ac0401d1a602fb7ace59cfb3624b47c3f}{on\+Process\+\_\+}}
+\begin{DoxyCompactList}\small\item\em true if the process of sending an invitation is currently working. False in other case. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that controls the panel that shows the information of a searched player. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_searched_player_aa42c80f4ed7c0405e23f4c61e08feb59}\label{class_searched_player_aa42c80f4ed7c0405e23f4c61e08feb59}} 
+\index{SearchedPlayer@{SearchedPlayer}!Awake@{Awake}}
+\index{Awake@{Awake}!SearchedPlayer@{SearchedPlayer}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Searched\+Player.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called before the first frame. It sets the on\+Process\+\_\+ property to false. 
+
+\mbox{\Hypertarget{class_searched_player_ad0a743a0d3ef21d78651259a6a3e05fa}\label{class_searched_player_ad0a743a0d3ef21d78651259a6a3e05fa}} 
+\index{SearchedPlayer@{SearchedPlayer}!resultOfTheSending@{resultOfTheSending}}
+\index{resultOfTheSending@{resultOfTheSending}!SearchedPlayer@{SearchedPlayer}}
+\doxysubsubsection{\texorpdfstring{resultOfTheSending()}{resultOfTheSending()}}
+{\footnotesize\ttfamily void Searched\+Player.\+result\+Of\+The\+Sending (\begin{DoxyParamCaption}\item[{string}]{result }\end{DoxyParamCaption})}
+
+
+
+This method should be called by the \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} instance when it finish the send\+Friendship\+Invitation method. This method shows a toast showing to the user the result of the sending invitation process, if it makes it right it also calls the clear\+Searched\+Friends\+Panel method of the \mbox{\hyperlink{class_searched_friends_panel}{Searched\+Friends\+Panel}} class. The defined states for the result are failed, repeated and sended. If the given string has a different state, it will show an error on the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & with the result, the string should be one of the defined states. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_searched_player_a7e155f87343e6ba1a62c7c6a023cdcf1}\label{class_searched_player_a7e155f87343e6ba1a62c7c6a023cdcf1}} 
+\index{SearchedPlayer@{SearchedPlayer}!sendInvitation@{sendInvitation}}
+\index{sendInvitation@{sendInvitation}!SearchedPlayer@{SearchedPlayer}}
+\doxysubsubsection{\texorpdfstring{sendInvitation()}{sendInvitation()}}
+{\footnotesize\ttfamily void Searched\+Player.\+send\+Invitation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+if the on\+Process\+\_\+ property is true, this method dont do nothing. This is a way to control that there isnt several parallel calls to the send invitation process. If on\+Process\+\_\+ property is false but there isnt internet connection, it make a toast animation showing an error message because you have to have internet connection to complete the send invitation process. And if you have internet connection and the on\+Process\+\_\+ property is false, it sets the on\+Process\+\_\+ property to true and then call the send\+Friendship\+Invitation method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class. 
+
+\mbox{\Hypertarget{class_searched_player_a6448ba8b1c597f6a74ba140680c53932}\label{class_searched_player_a6448ba8b1c597f6a74ba140680c53932}} 
+\index{SearchedPlayer@{SearchedPlayer}!SetPanel@{SetPanel}}
+\index{SetPanel@{SetPanel}!SearchedPlayer@{SearchedPlayer}}
+\doxysubsubsection{\texorpdfstring{SetPanel()}{SetPanel()}}
+{\footnotesize\ttfamily void Searched\+Player.\+Set\+Panel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_searched_friends_panel}{Searched\+Friends\+Panel}}}]{panel }\end{DoxyParamCaption})}
+
+
+
+setter of the panel\+\_\+ property. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reference} & to a \mbox{\hyperlink{class_searched_friends_panel}{Searched\+Friends\+Panel}} to copy it on the panel\+\_\+ property. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_searched_player_ae7bfff3f22ea1b53789cc718283f1446}\label{class_searched_player_ae7bfff3f22ea1b53789cc718283f1446}} 
+\index{SearchedPlayer@{SearchedPlayer}!setSearchedPlayerData@{setSearchedPlayerData}}
+\index{setSearchedPlayerData@{setSearchedPlayerData}!SearchedPlayer@{SearchedPlayer}}
+\doxysubsubsection{\texorpdfstring{setSearchedPlayerData()}{setSearchedPlayerData()}}
+{\footnotesize\ttfamily void Searched\+Player.\+set\+Searched\+Player\+Data (\begin{DoxyParamCaption}\item[{Dictionary$<$ string, string $>$}]{searched\+Player\+Data }\end{DoxyParamCaption})}
+
+
+
+This method sets the searched\+Player\+Data\+\_\+ property to the value of the given dictionary. It expects a dictionary with the entries\+: name, uid, rank (on future). It also sets the text component of the text\+\_\+ game object as the name entry of the given dictionary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Dictionary$<$string,string$>$} & string conversion of the data of the searched player. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_searched_player_ac0401d1a602fb7ace59cfb3624b47c3f}\label{class_searched_player_ac0401d1a602fb7ace59cfb3624b47c3f}} 
+\index{SearchedPlayer@{SearchedPlayer}!onProcess\_@{onProcess\_}}
+\index{onProcess\_@{onProcess\_}!SearchedPlayer@{SearchedPlayer}}
+\doxysubsubsection{\texorpdfstring{onProcess\_}{onProcess\_}}
+{\footnotesize\ttfamily bool Searched\+Player.\+on\+Process\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if the process of sending an invitation is currently working. False in other case. 
+
+\mbox{\Hypertarget{class_searched_player_abad3c240013cd825a685b3b3b8dd9cba}\label{class_searched_player_abad3c240013cd825a685b3b3b8dd9cba}} 
+\index{SearchedPlayer@{SearchedPlayer}!panel\_@{panel\_}}
+\index{panel\_@{panel\_}!SearchedPlayer@{SearchedPlayer}}
+\doxysubsubsection{\texorpdfstring{panel\_}{panel\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_searched_friends_panel}{Searched\+Friends\+Panel}} Searched\+Player.\+panel\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the panel that this object is being showed. 
+
+\mbox{\Hypertarget{class_searched_player_a3b05e561002f04e4c441ff35f5a7feac}\label{class_searched_player_a3b05e561002f04e4c441ff35f5a7feac}} 
+\index{SearchedPlayer@{SearchedPlayer}!searchedPlayerData\_@{searchedPlayerData\_}}
+\index{searchedPlayerData\_@{searchedPlayerData\_}!SearchedPlayer@{SearchedPlayer}}
+\doxysubsubsection{\texorpdfstring{searchedPlayerData\_}{searchedPlayerData\_}}
+{\footnotesize\ttfamily Dictionary$<$string,string$>$ Searched\+Player.\+searched\+Player\+Data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+String conversion of the data of the searched player. 
+
+\mbox{\Hypertarget{class_searched_player_a26f2dc9a92737a2951696691aa9498ae}\label{class_searched_player_a26f2dc9a92737a2951696691aa9498ae}} 
+\index{SearchedPlayer@{SearchedPlayer}!text\_@{text\_}}
+\index{text\_@{text\_}!SearchedPlayer@{SearchedPlayer}}
+\doxysubsubsection{\texorpdfstring{text\_}{text\_}}
+{\footnotesize\ttfamily Game\+Object Searched\+Player.\+text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the text that shows the display name of the user. 
+
+\mbox{\Hypertarget{class_searched_player_a26e3fb9ebaaac1adfbb80158c8de35b3}\label{class_searched_player_a26e3fb9ebaaac1adfbb80158c8de35b3}} 
+\index{SearchedPlayer@{SearchedPlayer}!toastMessage\_@{toastMessage\_}}
+\index{toastMessage\_@{toastMessage\_}!SearchedPlayer@{SearchedPlayer}}
+\doxysubsubsection{\texorpdfstring{toastMessage\_}{toastMessage\_}}
+{\footnotesize\ttfamily Game\+Object Searched\+Player.\+toast\+Message\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object the toast message object that will alert the user with the errors if they happen. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Prefabs/\+Scripts/\mbox{\hyperlink{_searched_player_8cs}{Searched\+Player.\+cs}}\end{DoxyCompactItemize}

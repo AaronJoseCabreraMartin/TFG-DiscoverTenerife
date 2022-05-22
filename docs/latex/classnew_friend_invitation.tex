@@ -1,0 +1,171 @@
+\hypertarget{classnew_friend_invitation}{}\doxysection{new\+Friend\+Invitation Class Reference}
+\label{classnew_friend_invitation}\index{newFriendInvitation@{newFriendInvitation}}
+
+
+Class that the panel element that shows a new friendship invitation.  
+
+
+Inheritance diagram for new\+Friend\+Invitation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classnew_friend_invitation}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classnew_friend_invitation_a3b3b6237e24e9ef212d073babeacfb98}{set\+Data}} (\mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}} friend\+Data)
+\begin{DoxyCompactList}\small\item\em The constructor of the class. It stores the given \mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}} object, it sets the shown text as the display name of the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnew_friend_invitation_a77a99332a916604ca19539f20739283d}{set\+Panel}} (Game\+Object panel)
+\begin{DoxyCompactList}\small\item\em Setter of the panel\+\_\+ property. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnew_friend_invitation_a617ece0c5d5b502b70096db505d912ae}{accept\+Friend}} ()
+\begin{DoxyCompactList}\small\item\em This method should be called when the current user accepts the friendship invitation of the current user. If there is internet connection it calls the accept\+Friend method of \mbox{\hyperlink{class_user_data}{User\+Data}} class and it calls both download\+Friend\+Data and write\+User\+Data \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class. If there is no internet connection it just shows an error message on a \mbox{\hyperlink{classtoast_message}{toast\+Message}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnew_friend_invitation_a3a2ac2275e34a83ae573dbfb28eede77}{refuse\+Friend}} ()
+\begin{DoxyCompactList}\small\item\em This method should be called when the current user denies the friendship invitation of the current user. If there is internet connection it calls the delete\+Invitation\+By\+Name method of \mbox{\hyperlink{class_user_data}{User\+Data}} class and it calls write\+User\+Data of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class. If there is no internet connection it just shows an error message on a \mbox{\hyperlink{classtoast_message}{toast\+Message}}. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classnew_friend_invitation_a57c1075156764879a2cb0a5e36f721ad}{get\+Uid}} ()
+\begin{DoxyCompactList}\small\item\em Getter of the user id property. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classnew_friend_invitation_a1f64efd9fc0a69b1c4dc4c7ad44dc89e}{destroy\+And\+Advice}} ()
+\begin{DoxyCompactList}\small\item\em This method destroy this Game\+Object and it also calls the element\+Deleted method of the \mbox{\hyperlink{classnew_friend_invitation_panel}{new\+Friend\+Invitation\+Panel}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classnew_friend_invitation_adc69b50320da1c804cab3849b10517c9}{toast\+Message\+Object\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that references the \mbox{\hyperlink{classtoast_message}{toast\+Message}} object that will shown the information to the user. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classnew_friend_invitation_aed541ada585b03c1fab44787e0e7f139}{display\+Name\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that has the text where the display\+Name will be shown. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classnew_friend_invitation_a76a02048a83cbff8c5462370135be8e6}{panel\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that references the panel that this Game\+Object is attached. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}} \mbox{\hyperlink{classnew_friend_invitation_aa99283041be3b1c9988155b3de304d15}{new\+Friend\+Data\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Reference to a \mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}} object that contains all the information of the shown friendship invitation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that the panel element that shows a new friendship invitation. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnew_friend_invitation_a617ece0c5d5b502b70096db505d912ae}\label{classnew_friend_invitation_a617ece0c5d5b502b70096db505d912ae}} 
+\index{newFriendInvitation@{newFriendInvitation}!acceptFriend@{acceptFriend}}
+\index{acceptFriend@{acceptFriend}!newFriendInvitation@{newFriendInvitation}}
+\doxysubsubsection{\texorpdfstring{acceptFriend()}{acceptFriend()}}
+{\footnotesize\ttfamily void new\+Friend\+Invitation.\+accept\+Friend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method should be called when the current user accepts the friendship invitation of the current user. If there is internet connection it calls the accept\+Friend method of \mbox{\hyperlink{class_user_data}{User\+Data}} class and it calls both download\+Friend\+Data and write\+User\+Data \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class. If there is no internet connection it just shows an error message on a \mbox{\hyperlink{classtoast_message}{toast\+Message}}. 
+
+\mbox{\Hypertarget{classnew_friend_invitation_a1f64efd9fc0a69b1c4dc4c7ad44dc89e}\label{classnew_friend_invitation_a1f64efd9fc0a69b1c4dc4c7ad44dc89e}} 
+\index{newFriendInvitation@{newFriendInvitation}!destroyAndAdvice@{destroyAndAdvice}}
+\index{destroyAndAdvice@{destroyAndAdvice}!newFriendInvitation@{newFriendInvitation}}
+\doxysubsubsection{\texorpdfstring{destroyAndAdvice()}{destroyAndAdvice()}}
+{\footnotesize\ttfamily void new\+Friend\+Invitation.\+destroy\+And\+Advice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method destroy this Game\+Object and it also calls the element\+Deleted method of the \mbox{\hyperlink{classnew_friend_invitation_panel}{new\+Friend\+Invitation\+Panel}} class. 
+
+\mbox{\Hypertarget{classnew_friend_invitation_a57c1075156764879a2cb0a5e36f721ad}\label{classnew_friend_invitation_a57c1075156764879a2cb0a5e36f721ad}} 
+\index{newFriendInvitation@{newFriendInvitation}!getUid@{getUid}}
+\index{getUid@{getUid}!newFriendInvitation@{newFriendInvitation}}
+\doxysubsubsection{\texorpdfstring{getUid()}{getUid()}}
+{\footnotesize\ttfamily string new\+Friend\+Invitation.\+get\+Uid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter of the user id property. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & that contains the user ID of the represented user. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnew_friend_invitation_a3a2ac2275e34a83ae573dbfb28eede77}\label{classnew_friend_invitation_a3a2ac2275e34a83ae573dbfb28eede77}} 
+\index{newFriendInvitation@{newFriendInvitation}!refuseFriend@{refuseFriend}}
+\index{refuseFriend@{refuseFriend}!newFriendInvitation@{newFriendInvitation}}
+\doxysubsubsection{\texorpdfstring{refuseFriend()}{refuseFriend()}}
+{\footnotesize\ttfamily void new\+Friend\+Invitation.\+refuse\+Friend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method should be called when the current user denies the friendship invitation of the current user. If there is internet connection it calls the delete\+Invitation\+By\+Name method of \mbox{\hyperlink{class_user_data}{User\+Data}} class and it calls write\+User\+Data of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class. If there is no internet connection it just shows an error message on a \mbox{\hyperlink{classtoast_message}{toast\+Message}}. 
+
+\mbox{\Hypertarget{classnew_friend_invitation_a3b3b6237e24e9ef212d073babeacfb98}\label{classnew_friend_invitation_a3b3b6237e24e9ef212d073babeacfb98}} 
+\index{newFriendInvitation@{newFriendInvitation}!setData@{setData}}
+\index{setData@{setData}!newFriendInvitation@{newFriendInvitation}}
+\doxysubsubsection{\texorpdfstring{setData()}{setData()}}
+{\footnotesize\ttfamily void new\+Friend\+Invitation.\+set\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}}}]{friend\+Data }\end{DoxyParamCaption})}
+
+
+
+The constructor of the class. It stores the given \mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}} object, it sets the shown text as the display name of the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the} & \mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}} object that contains all the information of the represented frienship invitation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnew_friend_invitation_a77a99332a916604ca19539f20739283d}\label{classnew_friend_invitation_a77a99332a916604ca19539f20739283d}} 
+\index{newFriendInvitation@{newFriendInvitation}!setPanel@{setPanel}}
+\index{setPanel@{setPanel}!newFriendInvitation@{newFriendInvitation}}
+\doxysubsubsection{\texorpdfstring{setPanel()}{setPanel()}}
+{\footnotesize\ttfamily void new\+Friend\+Invitation.\+set\+Panel (\begin{DoxyParamCaption}\item[{Game\+Object}]{panel }\end{DoxyParamCaption})}
+
+
+
+Setter of the panel\+\_\+ property. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Game\+Object} & that contains the panel that this object is attached. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnew_friend_invitation_aed541ada585b03c1fab44787e0e7f139}\label{classnew_friend_invitation_aed541ada585b03c1fab44787e0e7f139}} 
+\index{newFriendInvitation@{newFriendInvitation}!displayName\_@{displayName\_}}
+\index{displayName\_@{displayName\_}!newFriendInvitation@{newFriendInvitation}}
+\doxysubsubsection{\texorpdfstring{displayName\_}{displayName\_}}
+{\footnotesize\ttfamily Game\+Object new\+Friend\+Invitation.\+display\+Name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that has the text where the display\+Name will be shown. 
+
+\mbox{\Hypertarget{classnew_friend_invitation_aa99283041be3b1c9988155b3de304d15}\label{classnew_friend_invitation_aa99283041be3b1c9988155b3de304d15}} 
+\index{newFriendInvitation@{newFriendInvitation}!newFriendData\_@{newFriendData\_}}
+\index{newFriendData\_@{newFriendData\_}!newFriendInvitation@{newFriendInvitation}}
+\doxysubsubsection{\texorpdfstring{newFriendData\_}{newFriendData\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}} new\+Friend\+Invitation.\+new\+Friend\+Data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to a \mbox{\hyperlink{classnew_friend_data}{new\+Friend\+Data}} object that contains all the information of the shown friendship invitation. 
+
+\mbox{\Hypertarget{classnew_friend_invitation_a76a02048a83cbff8c5462370135be8e6}\label{classnew_friend_invitation_a76a02048a83cbff8c5462370135be8e6}} 
+\index{newFriendInvitation@{newFriendInvitation}!panel\_@{panel\_}}
+\index{panel\_@{panel\_}!newFriendInvitation@{newFriendInvitation}}
+\doxysubsubsection{\texorpdfstring{panel\_}{panel\_}}
+{\footnotesize\ttfamily Game\+Object new\+Friend\+Invitation.\+panel\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that references the panel that this Game\+Object is attached. 
+
+\mbox{\Hypertarget{classnew_friend_invitation_adc69b50320da1c804cab3849b10517c9}\label{classnew_friend_invitation_adc69b50320da1c804cab3849b10517c9}} 
+\index{newFriendInvitation@{newFriendInvitation}!toastMessageObject\_@{toastMessageObject\_}}
+\index{toastMessageObject\_@{toastMessageObject\_}!newFriendInvitation@{newFriendInvitation}}
+\doxysubsubsection{\texorpdfstring{toastMessageObject\_}{toastMessageObject\_}}
+{\footnotesize\ttfamily Game\+Object new\+Friend\+Invitation.\+toast\+Message\+Object\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that references the \mbox{\hyperlink{classtoast_message}{toast\+Message}} object that will shown the information to the user. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Prefabs/\+Scripts/new\+Friend\+Invitation/\mbox{\hyperlink{new_friend_invitation_8cs}{new\+Friend\+Invitation.\+cs}}\end{DoxyCompactItemize}

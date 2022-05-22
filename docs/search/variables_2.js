@@ -12,8 +12,9 @@ var searchData=
   ['colorsqueue_5f_9',['colorsQueue_',['../classtoast_message.html#a1831b88545c37e10ba2ddeb64e64c7f0',1,'toastMessage']]],
   ['configuration_10',['configuration',['../classfirebase_handler.html#ab52221e41f82a8ab77f0d903146b4c0d',1,'firebaseHandler']]],
   ['confirmpassword_11',['confirmPassword',['../classregister_screen_controller.html#a1a3f2277cf76940d1acda25a5a1bc678',1,'registerScreenController']]],
-  ['continueslidingtext_5f_12',['continueSlidingText_',['../classscroll_rect_controller.html#acadb8ab434427081f145431316c33b99',1,'scrollRectController']]],
-  ['currentindex_5f_13',['currentIndex_',['../classrequest_handler.html#a48c05191962fb5e745e38ebb78ffda89',1,'requestHandler']]],
-  ['currentuser_5f_14',['currentUser_',['../classfirebase_handler.html#a8bf24db68a008a90c667f918c5dc5d1f',1,'firebaseHandler']]],
-  ['currentuserpropertiestoupload_5f_15',['currentUserPropertiesToUpload_',['../classfirebase_handler.html#a23848cd463f273562c3300f7994b0637',1,'firebaseHandler']]]
+  ['continueslidingforloadtext_5f_12',['continueSlidingForLoadText_',['../classscroll_rect_controller.html#a523505243abb523b001f9124855f453d',1,'scrollRectController']]],
+  ['continueslidingforresorttext_5f_13',['continueSlidingForResortText_',['../classscroll_rect_controller.html#ad7e10c76006fb907d296ab32c7b3329b',1,'scrollRectController']]],
+  ['currentindex_5f_14',['currentIndex_',['../classrequest_handler.html#a48c05191962fb5e745e38ebb78ffda89',1,'requestHandler']]],
+  ['currentuser_5f_15',['currentUser_',['../classfirebase_handler.html#a8bf24db68a008a90c667f918c5dc5d1f',1,'firebaseHandler']]],
+  ['currentuserpropertiestoupload_5f_16',['currentUserPropertiesToUpload_',['../classfirebase_handler.html#a23848cd463f273562c3300f7994b0637',1,'firebaseHandler']]]
 ];

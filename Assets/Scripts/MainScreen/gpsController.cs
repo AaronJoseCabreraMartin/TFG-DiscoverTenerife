@@ -37,12 +37,12 @@ public class gpsController : MonoBehaviour
     /**
       * @brief double that stores the longitude number of the current user current gps location.
       */
-    private double longitude_;
+    [SerializeField] private double longitude_;
 
     /**
       * @brief double that stores the latitude number of the current user current gps location.
       */
-    private double latitude_;
+    [SerializeField] private double latitude_;
 
     /**
       * @brief double that stores the altitude number of the current user current gps location.
@@ -83,6 +83,9 @@ public class gpsController : MonoBehaviour
     private double defaultLatitude_ = 28.328925;
     private double defaultLongitude_ = -16.808909;
 
+    [SerializeField] private float velocity_ = 0.0001f;
+
+
     #else
 
     /**
@@ -121,8 +124,6 @@ public class gpsController : MonoBehaviour
         isItPermissionTime = false;
         permissions = new Stack<string>();
     
-        //Debug.Log("Las coordenadas por defecto deben empezar en 0, 0, 0 por defecto");
-       
         CreatePermissionList();
         Input.location.Start();
         gpsIsRunning_ = false;
@@ -202,7 +203,6 @@ public class gpsController : MonoBehaviour
                 latitude_ = Input.location.lastData.latitude;
                 longitude_ = Input.location.lastData.longitude;
                 altitude_ = Input.location.lastData.altitude;
-                //Debug.Log($"latitude_={latitude_},longitude_={longitude_}");
                 //si la base no ha sido establecida desde que tengas permisos, establecela
             if(firebaseHandler.firebaseHandlerInstance_.currentUser_ != null && !firebaseHandler.firebaseHandlerInstance_.currentUser_.baseEstablished()){
                 firebaseHandler.firebaseHandlerInstance_.currentUser_.setBase(latitude_,longitude_);
@@ -211,7 +211,6 @@ public class gpsController : MonoBehaviour
             }
         }else{
             gpsIsRunning_ = false;
-            //Debug.Log("GPS NO ACTIVADO!!!");
             latitude_ = defaultLatitude_;
             longitude_ = defaultLongitude_;
             altitude_ = defaultAltitude_;
@@ -219,21 +218,20 @@ public class gpsController : MonoBehaviour
         
         #if DEBUG
         //For debugging propources
-        float velocity = 0.0001f;
         if (Input.GetKey("up")){
-            defaultLatitude_ += velocity;
+            defaultLatitude_ += velocity_;
             Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
         }
         if (Input.GetKey("down")){
-            defaultLatitude_ -= velocity;
+            defaultLatitude_ -= velocity_;
             Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
         }
         if (Input.GetKey("right")){
-            defaultLongitude_ += velocity;
+            defaultLongitude_ += velocity_;
             Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
         }
         if (Input.GetKey("left")){
-            defaultLongitude_ -= velocity;
+            defaultLongitude_ -= velocity_;
             Debug.Log($"latitude_ = {latitude_}, longitude_ = {longitude_}");
         }
         #endif

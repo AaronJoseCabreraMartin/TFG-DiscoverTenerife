@@ -1,0 +1,117 @@
+\hypertarget{classmap_part_handler}{}\doxysection{map\+Part\+Handler Class Reference}
+\label{classmap_part_handler}\index{mapPartHandler@{mapPartHandler}}
+
+
+Class that control one of the parts of the map that shown the proportion of places visited by the current user.  
+
+
+Inheritance diagram for map\+Part\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmap_part_handler}
+\end{center}
+\end{figure}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmap_part_handler_a553fd0d8d942ea18a5955dc81c0070ee}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em This method is called before the first frame. It initialice the firebase\+Handler\+Object\+\_\+ property and if both places\+Are\+Ready and user\+Data\+Is\+Ready return true, it calls load\+Data method, it sets the data\+Loaded\+\_\+ to false in other case. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmap_part_handler_a9fc78d8b6608ddee6ca4f209fcc01b55}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method is called each frame. If data\+Loaded\+\_\+ is false and both places\+Are\+Ready and user\+Data\+Is\+Ready return true, it calls load\+Data method,. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmap_part_handler_a3cd257cd1bee24e834ea148c5aa80b55}{load\+Data}} ()
+\begin{DoxyCompactList}\small\item\em This method calculate the proportion of visited places of the determined zone. Then it changes the text that is shown on the part of the map and the proportion of the background image that is filled. It also puts the data\+Loaded\+\_\+ property as true. {\bfseries{IMPORTANT NOTE\+: THE ZONE IS DETERMINED BY THE NAME OF THE GAMEOBJECT THAT THIS SCRIPT IS ATTACHED.}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classmap_part_handler_ab8728a186572aa75fc1aaef09fa0ec84}{percentage\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that has the text that shows he percentage of how many place of that zone the current user has visited already. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classmap_part_handler_af70ca45361f7320b7bcea52d8ede5a6f}{image\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that has the image that shows visually the proportion of places visited. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} \mbox{\hyperlink{classmap_part_handler_ad5764c64d774f7a8864778a870e83af6}{firebase\+Handler\+Object\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Reference to the \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} instance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmap_part_handler_aaf8ab3f3aee5c209df06ee99159dc20e}{data\+Loaded\+\_\+}}
+\begin{DoxyCompactList}\small\item\em True if the data was already loaded, false in other case. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that control one of the parts of the map that shown the proportion of places visited by the current user. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmap_part_handler_a553fd0d8d942ea18a5955dc81c0070ee}\label{classmap_part_handler_a553fd0d8d942ea18a5955dc81c0070ee}} 
+\index{mapPartHandler@{mapPartHandler}!Awake@{Awake}}
+\index{Awake@{Awake}!mapPartHandler@{mapPartHandler}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void map\+Part\+Handler.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called before the first frame. It initialice the firebase\+Handler\+Object\+\_\+ property and if both places\+Are\+Ready and user\+Data\+Is\+Ready return true, it calls load\+Data method, it sets the data\+Loaded\+\_\+ to false in other case. 
+
+\mbox{\Hypertarget{classmap_part_handler_a3cd257cd1bee24e834ea148c5aa80b55}\label{classmap_part_handler_a3cd257cd1bee24e834ea148c5aa80b55}} 
+\index{mapPartHandler@{mapPartHandler}!loadData@{loadData}}
+\index{loadData@{loadData}!mapPartHandler@{mapPartHandler}}
+\doxysubsubsection{\texorpdfstring{loadData()}{loadData()}}
+{\footnotesize\ttfamily void map\+Part\+Handler.\+load\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method calculate the proportion of visited places of the determined zone. Then it changes the text that is shown on the part of the map and the proportion of the background image that is filled. It also puts the data\+Loaded\+\_\+ property as true. {\bfseries{IMPORTANT NOTE\+: THE ZONE IS DETERMINED BY THE NAME OF THE GAMEOBJECT THAT THIS SCRIPT IS ATTACHED.}} 
+
+\mbox{\Hypertarget{classmap_part_handler_a9fc78d8b6608ddee6ca4f209fcc01b55}\label{classmap_part_handler_a9fc78d8b6608ddee6ca4f209fcc01b55}} 
+\index{mapPartHandler@{mapPartHandler}!Update@{Update}}
+\index{Update@{Update}!mapPartHandler@{mapPartHandler}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void map\+Part\+Handler.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called each frame. If data\+Loaded\+\_\+ is false and both places\+Are\+Ready and user\+Data\+Is\+Ready return true, it calls load\+Data method,. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmap_part_handler_aaf8ab3f3aee5c209df06ee99159dc20e}\label{classmap_part_handler_aaf8ab3f3aee5c209df06ee99159dc20e}} 
+\index{mapPartHandler@{mapPartHandler}!dataLoaded\_@{dataLoaded\_}}
+\index{dataLoaded\_@{dataLoaded\_}!mapPartHandler@{mapPartHandler}}
+\doxysubsubsection{\texorpdfstring{dataLoaded\_}{dataLoaded\_}}
+{\footnotesize\ttfamily bool map\+Part\+Handler.\+data\+Loaded\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+True if the data was already loaded, false in other case. 
+
+\mbox{\Hypertarget{classmap_part_handler_ad5764c64d774f7a8864778a870e83af6}\label{classmap_part_handler_ad5764c64d774f7a8864778a870e83af6}} 
+\index{mapPartHandler@{mapPartHandler}!firebaseHandlerObject\_@{firebaseHandlerObject\_}}
+\index{firebaseHandlerObject\_@{firebaseHandlerObject\_}!mapPartHandler@{mapPartHandler}}
+\doxysubsubsection{\texorpdfstring{firebaseHandlerObject\_}{firebaseHandlerObject\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} map\+Part\+Handler.\+firebase\+Handler\+Object\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} instance. 
+
+\mbox{\Hypertarget{classmap_part_handler_af70ca45361f7320b7bcea52d8ede5a6f}\label{classmap_part_handler_af70ca45361f7320b7bcea52d8ede5a6f}} 
+\index{mapPartHandler@{mapPartHandler}!image\_@{image\_}}
+\index{image\_@{image\_}!mapPartHandler@{mapPartHandler}}
+\doxysubsubsection{\texorpdfstring{image\_}{image\_}}
+{\footnotesize\ttfamily Game\+Object map\+Part\+Handler.\+image\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that has the image that shows visually the proportion of places visited. 
+
+\mbox{\Hypertarget{classmap_part_handler_ab8728a186572aa75fc1aaef09fa0ec84}\label{classmap_part_handler_ab8728a186572aa75fc1aaef09fa0ec84}} 
+\index{mapPartHandler@{mapPartHandler}!percentage\_@{percentage\_}}
+\index{percentage\_@{percentage\_}!mapPartHandler@{mapPartHandler}}
+\doxysubsubsection{\texorpdfstring{percentage\_}{percentage\_}}
+{\footnotesize\ttfamily Game\+Object map\+Part\+Handler.\+percentage\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that has the text that shows he percentage of how many place of that zone the current user has visited already. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Prefabs/\+Scripts/\mbox{\hyperlink{map_part_handler_8cs}{map\+Part\+Handler.\+cs}}\end{DoxyCompactItemize}

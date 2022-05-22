@@ -1,0 +1,198 @@
+\hypertarget{classstored_place_to_send}{}\doxysection{stored\+Place\+To\+Send Class Reference}
+\label{classstored_place_to_send}\index{storedPlaceToSend@{storedPlaceToSend}}
+
+
+Class that controls the prefab that represent a stored place on the choosing place for make a challenge screen.  
+
+
+Inheritance diagram for stored\+Place\+To\+Send\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classstored_place_to_send}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classstored_place_to_send_afdb8fadd98964c1d2350f43fa1bab223}{set\+Panel}} (Game\+Object panel)
+\begin{DoxyCompactList}\small\item\em Setter of the panel\+\_\+ property. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classstored_place_to_send_a08e79f2c06863cddbdb986db0ac08b51}{set\+Data}} (\mbox{\hyperlink{class_stored_place}{Stored\+Place}} place\+Information)
+\begin{DoxyCompactList}\small\item\em This method sets the represented\+Place\+\_\+ property as the given \mbox{\hyperlink{class_stored_place}{Stored\+Place}} it also sets the text of the name\+\_\+, zone\+\_\+ and type\+\_\+ game\+Objects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classstored_place_to_send_a6a70066cce87c2c9d459666df7c67fd8}{choose\+This\+Place\+And\+Upload}} ()
+\begin{DoxyCompactList}\small\item\em This method checks if there is internet connection, if there inst, it shows an error on the toast\+Message\+Object\+\_\+ gameobject. If there is, it creates a new challenge with the current user as challenger, the represented stored place as place to visit on the challenge and it also calls the upload\+Friend\+Challenges\+Of method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class. Then, it shows a \mbox{\hyperlink{classtoast_message}{toast\+Message}} and then start the destroy\+After\+Seconds coroutine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classstored_place_to_send_aed1a65a63e7ed93524cd6a4371eddb07}{user\+Can\+Select\+\_\+}} = true
+\begin{DoxyCompactList}\small\item\em boolean that controls if the user can select a place to send a challenge to not allow the user send several challenges to the same user meanwhile the destruction animation is being played. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IEnumerator \mbox{\hyperlink{classstored_place_to_send_a52d48eab44b8a6c9593ce9e7ff38a09a}{destroy\+After\+Seconds}} (int seconds)
+\begin{DoxyCompactList}\small\item\em This method wait for the given number of seconds and then it calls the destroy\+And\+Advice method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classstored_place_to_send_ad2ae903953ee25124196e739117e87cd}{destroy\+And\+Advice}} ()
+\begin{DoxyCompactList}\small\item\em This method destroy this Game\+Object and notify the \mbox{\hyperlink{classfriends_panel}{friends\+Panel}} object at it is attached to make it adjust his height. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classstored_place_to_send_a48dd69d29cda9290daf228edef8a3e91}{name\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the text where the name of the place will be shown. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classstored_place_to_send_ac90c9bfd9ed0032e032d94670643f9ce}{zone\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the text where the zone of the place will be shown. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classstored_place_to_send_a3e6e91b6695711f2d5c1cfa357d0228b}{type\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the text where the type of the place will be shown. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classstored_place_to_send_a87ddc276b01b4f1d4705ae2b360808fa}{toast\+Message\+Object\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the \mbox{\hyperlink{classtoast_message}{toast\+Message}} where the errors and the warings to the user will be shown. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classstored_place_to_send_ae6f3ea5ed509fdb3d6c51503371affae}{panel\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that references the panel that this Game\+Object is attached. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_stored_place}{Stored\+Place}} \mbox{\hyperlink{classstored_place_to_send_a129e45bd075c9d83a00ae10055fcde46}{represented\+Place\+\_\+}}
+\begin{DoxyCompactList}\small\item\em A reference to the stored place that is represented with this prefab. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that controls the prefab that represent a stored place on the choosing place for make a challenge screen. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstored_place_to_send_a6a70066cce87c2c9d459666df7c67fd8}\label{classstored_place_to_send_a6a70066cce87c2c9d459666df7c67fd8}} 
+\index{storedPlaceToSend@{storedPlaceToSend}!chooseThisPlaceAndUpload@{chooseThisPlaceAndUpload}}
+\index{chooseThisPlaceAndUpload@{chooseThisPlaceAndUpload}!storedPlaceToSend@{storedPlaceToSend}}
+\doxysubsubsection{\texorpdfstring{chooseThisPlaceAndUpload()}{chooseThisPlaceAndUpload()}}
+{\footnotesize\ttfamily void stored\+Place\+To\+Send.\+choose\+This\+Place\+And\+Upload (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method checks if there is internet connection, if there inst, it shows an error on the toast\+Message\+Object\+\_\+ gameobject. If there is, it creates a new challenge with the current user as challenger, the represented stored place as place to visit on the challenge and it also calls the upload\+Friend\+Challenges\+Of method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class. Then, it shows a \mbox{\hyperlink{classtoast_message}{toast\+Message}} and then start the destroy\+After\+Seconds coroutine. 
+
+\mbox{\Hypertarget{classstored_place_to_send_a52d48eab44b8a6c9593ce9e7ff38a09a}\label{classstored_place_to_send_a52d48eab44b8a6c9593ce9e7ff38a09a}} 
+\index{storedPlaceToSend@{storedPlaceToSend}!destroyAfterSeconds@{destroyAfterSeconds}}
+\index{destroyAfterSeconds@{destroyAfterSeconds}!storedPlaceToSend@{storedPlaceToSend}}
+\doxysubsubsection{\texorpdfstring{destroyAfterSeconds()}{destroyAfterSeconds()}}
+{\footnotesize\ttfamily IEnumerator stored\+Place\+To\+Send.\+destroy\+After\+Seconds (\begin{DoxyParamCaption}\item[{int}]{seconds }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method wait for the given number of seconds and then it calls the destroy\+And\+Advice method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & number of seconds that it has to wait. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstored_place_to_send_ad2ae903953ee25124196e739117e87cd}\label{classstored_place_to_send_ad2ae903953ee25124196e739117e87cd}} 
+\index{storedPlaceToSend@{storedPlaceToSend}!destroyAndAdvice@{destroyAndAdvice}}
+\index{destroyAndAdvice@{destroyAndAdvice}!storedPlaceToSend@{storedPlaceToSend}}
+\doxysubsubsection{\texorpdfstring{destroyAndAdvice()}{destroyAndAdvice()}}
+{\footnotesize\ttfamily void stored\+Place\+To\+Send.\+destroy\+And\+Advice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method destroy this Game\+Object and notify the \mbox{\hyperlink{classfriends_panel}{friends\+Panel}} object at it is attached to make it adjust his height. 
+
+\mbox{\Hypertarget{classstored_place_to_send_a08e79f2c06863cddbdb986db0ac08b51}\label{classstored_place_to_send_a08e79f2c06863cddbdb986db0ac08b51}} 
+\index{storedPlaceToSend@{storedPlaceToSend}!setData@{setData}}
+\index{setData@{setData}!storedPlaceToSend@{storedPlaceToSend}}
+\doxysubsubsection{\texorpdfstring{setData()}{setData()}}
+{\footnotesize\ttfamily void stored\+Place\+To\+Send.\+set\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_stored_place}{Stored\+Place}}}]{place\+Information }\end{DoxyParamCaption})}
+
+
+
+This method sets the represented\+Place\+\_\+ property as the given \mbox{\hyperlink{class_stored_place}{Stored\+Place}} it also sets the text of the name\+\_\+, zone\+\_\+ and type\+\_\+ game\+Objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_stored_place}{Stored\+Place}}} & with the information of the place that is represented. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstored_place_to_send_afdb8fadd98964c1d2350f43fa1bab223}\label{classstored_place_to_send_afdb8fadd98964c1d2350f43fa1bab223}} 
+\index{storedPlaceToSend@{storedPlaceToSend}!setPanel@{setPanel}}
+\index{setPanel@{setPanel}!storedPlaceToSend@{storedPlaceToSend}}
+\doxysubsubsection{\texorpdfstring{setPanel()}{setPanel()}}
+{\footnotesize\ttfamily void stored\+Place\+To\+Send.\+set\+Panel (\begin{DoxyParamCaption}\item[{Game\+Object}]{panel }\end{DoxyParamCaption})}
+
+
+
+Setter of the panel\+\_\+ property. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Game\+Object} & that contains the panel that this object is attached. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classstored_place_to_send_a48dd69d29cda9290daf228edef8a3e91}\label{classstored_place_to_send_a48dd69d29cda9290daf228edef8a3e91}} 
+\index{storedPlaceToSend@{storedPlaceToSend}!name\_@{name\_}}
+\index{name\_@{name\_}!storedPlaceToSend@{storedPlaceToSend}}
+\doxysubsubsection{\texorpdfstring{name\_}{name\_}}
+{\footnotesize\ttfamily Game\+Object stored\+Place\+To\+Send.\+name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the text where the name of the place will be shown. 
+
+\mbox{\Hypertarget{classstored_place_to_send_ae6f3ea5ed509fdb3d6c51503371affae}\label{classstored_place_to_send_ae6f3ea5ed509fdb3d6c51503371affae}} 
+\index{storedPlaceToSend@{storedPlaceToSend}!panel\_@{panel\_}}
+\index{panel\_@{panel\_}!storedPlaceToSend@{storedPlaceToSend}}
+\doxysubsubsection{\texorpdfstring{panel\_}{panel\_}}
+{\footnotesize\ttfamily Game\+Object stored\+Place\+To\+Send.\+panel\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that references the panel that this Game\+Object is attached. 
+
+\mbox{\Hypertarget{classstored_place_to_send_a129e45bd075c9d83a00ae10055fcde46}\label{classstored_place_to_send_a129e45bd075c9d83a00ae10055fcde46}} 
+\index{storedPlaceToSend@{storedPlaceToSend}!representedPlace\_@{representedPlace\_}}
+\index{representedPlace\_@{representedPlace\_}!storedPlaceToSend@{storedPlaceToSend}}
+\doxysubsubsection{\texorpdfstring{representedPlace\_}{representedPlace\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stored_place}{Stored\+Place}} stored\+Place\+To\+Send.\+represented\+Place\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A reference to the stored place that is represented with this prefab. 
+
+\mbox{\Hypertarget{classstored_place_to_send_a87ddc276b01b4f1d4705ae2b360808fa}\label{classstored_place_to_send_a87ddc276b01b4f1d4705ae2b360808fa}} 
+\index{storedPlaceToSend@{storedPlaceToSend}!toastMessageObject\_@{toastMessageObject\_}}
+\index{toastMessageObject\_@{toastMessageObject\_}!storedPlaceToSend@{storedPlaceToSend}}
+\doxysubsubsection{\texorpdfstring{toastMessageObject\_}{toastMessageObject\_}}
+{\footnotesize\ttfamily Game\+Object stored\+Place\+To\+Send.\+toast\+Message\+Object\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the \mbox{\hyperlink{classtoast_message}{toast\+Message}} where the errors and the warings to the user will be shown. 
+
+\mbox{\Hypertarget{classstored_place_to_send_a3e6e91b6695711f2d5c1cfa357d0228b}\label{classstored_place_to_send_a3e6e91b6695711f2d5c1cfa357d0228b}} 
+\index{storedPlaceToSend@{storedPlaceToSend}!type\_@{type\_}}
+\index{type\_@{type\_}!storedPlaceToSend@{storedPlaceToSend}}
+\doxysubsubsection{\texorpdfstring{type\_}{type\_}}
+{\footnotesize\ttfamily Game\+Object stored\+Place\+To\+Send.\+type\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the text where the type of the place will be shown. 
+
+\mbox{\Hypertarget{classstored_place_to_send_aed1a65a63e7ed93524cd6a4371eddb07}\label{classstored_place_to_send_aed1a65a63e7ed93524cd6a4371eddb07}} 
+\index{storedPlaceToSend@{storedPlaceToSend}!userCanSelect\_@{userCanSelect\_}}
+\index{userCanSelect\_@{userCanSelect\_}!storedPlaceToSend@{storedPlaceToSend}}
+\doxysubsubsection{\texorpdfstring{userCanSelect\_}{userCanSelect\_}}
+{\footnotesize\ttfamily bool stored\+Place\+To\+Send.\+user\+Can\+Select\+\_\+ = true\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+boolean that controls if the user can select a place to send a challenge to not allow the user send several challenges to the same user meanwhile the destruction animation is being played. 
+
+\mbox{\Hypertarget{classstored_place_to_send_ac90c9bfd9ed0032e032d94670643f9ce}\label{classstored_place_to_send_ac90c9bfd9ed0032e032d94670643f9ce}} 
+\index{storedPlaceToSend@{storedPlaceToSend}!zone\_@{zone\_}}
+\index{zone\_@{zone\_}!storedPlaceToSend@{storedPlaceToSend}}
+\doxysubsubsection{\texorpdfstring{zone\_}{zone\_}}
+{\footnotesize\ttfamily Game\+Object stored\+Place\+To\+Send.\+zone\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the text where the zone of the place will be shown. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Prefabs/\+Scripts/\mbox{\hyperlink{stored_place_to_send_8cs}{stored\+Place\+To\+Send.\+cs}}\end{DoxyCompactItemize}

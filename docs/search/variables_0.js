@@ -8,8 +8,8 @@ var searchData=
   ['allowdownloadrankingdata_5f_5',['allowDownloadRankingData_',['../classfirebase_handler.html#a8bc4bca60dcb641e21850cdec06d43c6',1,'firebaseHandler']]],
   ['allplaces_5f_6',['allPlaces_',['../classfirebase_handler.html#a6879d06e68b41954015ccc83838f8eba',1,'firebaseHandler']]],
   ['allrangesimages_5f_7',['allRangesImages_',['../class_icon_handler.html#aec9ed5a924490b4c564180e474f8b424',1,'IconHandler']]],
-  ['alreadyaskedfornewplaces_5f_8',['alreadyAskedForNewPlaces_',['../classscroll_rect_controller.html#a4ee38f02bd4f4852130f12e192fbe0d0',1,'scrollRectController']]],
-  ['alreadyaskedfornewplacesdown_5f_9',['alreadyAskedForNewPlacesDown_',['../classscroll_rect_controller.html#a25e5d1871e2723d0e93dbb04da5a42c5',1,'scrollRectController']]],
+  ['alreadyaskedfornewplacesdown_5f_8',['alreadyAskedForNewPlacesDown_',['../classscroll_rect_controller.html#a25e5d1871e2723d0e93dbb04da5a42c5',1,'scrollRectController']]],
+  ['alreadyaskedforresortplaces_9',['alreadyAskedForResortPlaces',['../classscroll_rect_controller.html#af78db50273d9b7fc9a2816063aa5bb3e',1,'scrollRectController']]],
   ['altitude_5f_10',['altitude_',['../classgps_controller.html#ad5c1ea3970d3840e9029b95e67534cdb',1,'gpsController']]],
   ['anychange_5f_11',['anyChange_',['../classmultiselection_desplegable_menu.html#a50ff243b29f940ffa9406df1c891363a',1,'multiselectionDesplegableMenu.anyChange_()'],['../classuniqueselection_desplegable_menu.html#a213c1b18ed347c0bbeea4292014e4b88',1,'uniqueselectionDesplegableMenu.anyChange_()']]]
 ];

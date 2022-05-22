@@ -197,7 +197,6 @@ public class UserData{
         }
 
         friendList_ = friendList == null ? new List<string>() : friendList;
-        Debug.Log(getJSONof("friends_"));
         friendDataList_ = new List<FriendData>();
 
         friendsInvitationsList_ = friendsInvitationsList == null ? new List<string>() : friendsInvitationsList;
@@ -619,7 +618,6 @@ public class UserData{
       */
     public void addFriendData(FriendData friendData){
         friendDataList_.Add(friendData);
-        Debug.Log($"UserData addFriendData! friendDataList_.Count = {friendDataList_.Count}");
     }
 
     /**

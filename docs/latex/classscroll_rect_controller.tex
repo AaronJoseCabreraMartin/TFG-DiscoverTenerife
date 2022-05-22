@@ -1,0 +1,194 @@
+\hypertarget{classscroll_rect_controller}{}\doxysection{scroll\+Rect\+Controller Class Reference}
+\label{classscroll_rect_controller}\index{scrollRectController@{scrollRectController}}
+
+
+This class controls when the user wants to load more places. It also controls the helping text that show the user intructions.  
+
+
+Inheritance diagram for scroll\+Rect\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscroll_rect_controller}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classscroll_rect_controller_aa40995ee9993315558a2be2a0ab1665e}{On\+User\+Scroll}} (Vector2 value)
+\begin{DoxyCompactList}\small\item\em it checks if the user has passed the maximum limit, if that is the case it change the text to tell the user that if he release, it will load new places. If the user has passed the maximum limit and then release it calls both the ask\+For\+New\+Places method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class and the change\+Scene\+With\+Animation method of \mbox{\hyperlink{class_change_scene}{Change\+Scene}} class to reload the scene \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classscroll_rect_controller_ab5ca7525e92e6fa46dd473854c51e501}{load\+More\+Places\+Text\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the text that will show the instructions for load more places to the user. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{classscroll_rect_controller_a539a71fd90a29e2362519e85ab24b00c}{resort\+Places\+Text\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Game\+Object that contains the text that will show the instructions for resort places to the user. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classscroll_rect_controller_a523505243abb523b001f9124855f453d}{continue\+Sliding\+For\+Load\+Text\+\_\+}} = \char`\"{}Continue sliding up to confirm that you want to load more places!\char`\"{}
+\begin{DoxyCompactList}\small\item\em string that contains the default text for saying to user that he has to continue sliding up to confirm the action of loading more places. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classscroll_rect_controller_a62c152ee4768e6027229f91d5317dbed}{stop\+Sliding\+For\+Load\+Text\+\_\+}} = \char`\"{}Release to load more places!\char`\"{}
+\begin{DoxyCompactList}\small\item\em string that contains the default text for saying to user that he has to release to load more places. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classscroll_rect_controller_ad7e10c76006fb907d296ab32c7b3329b}{continue\+Sliding\+For\+Resort\+Text\+\_\+}} = \char`\"{}Continue sliding down to confirm that you want to resort all places!\char`\"{}
+\begin{DoxyCompactList}\small\item\em string that contains the default text for saying to user that they have to continue sliding down to confirm the action of sorting all places. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classscroll_rect_controller_a1168cae354b4e94c17183ef9e256d1c0}{stop\+Sliding\+For\+Resort\+Text\+\_\+}} = \char`\"{}Release to sort again all places!\char`\"{}
+\begin{DoxyCompactList}\small\item\em string that contains the default text for saying to user that they have to release to sort again all places. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classscroll_rect_controller_ad1dcc368bff894c48922caecfaa5761f}{max\+Limit\+\_\+}} = 1.\+03
+\begin{DoxyCompactList}\small\item\em double that contains the point where if the user slide down more, will activate the loading more places process. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classscroll_rect_controller_a9a7be70721dcaca1dcf8554e53310256}{min\+Limit\+\_\+}} = 1.\+00001
+\begin{DoxyCompactList}\small\item\em double that contains the point where the user, after sliding down enough, will fire the loading more places process. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classscroll_rect_controller_a42dd9fa8e2499c58adfbd5971ffeeb90}{max\+Negative\+Limit\+\_\+}} = -\/0.\+045
+\begin{DoxyCompactList}\small\item\em double that contains the point where if the user slide up more, will activate the loading more places process. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classscroll_rect_controller_ad66f954b1f8ce6b6cefce66ed6579cfc}{min\+Negative\+Limit\+\_\+}} = -\/0.\+012
+\begin{DoxyCompactList}\small\item\em double that contains the point where the user, after sliding up enough, will fire the loading more places process. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classscroll_rect_controller_af78db50273d9b7fc9a2816063aa5bb3e}{already\+Asked\+For\+Resort\+Places}} = false
+\begin{DoxyCompactList}\small\item\em true if the user has passed the point where the resorting places process start. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classscroll_rect_controller_a25e5d1871e2723d0e93dbb04da5a42c5}{already\+Asked\+For\+New\+Places\+Down\+\_\+}} = false
+\begin{DoxyCompactList}\small\item\em true if the user has passed the point where the loading more places process start. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class controls when the user wants to load more places. It also controls the helping text that show the user intructions. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classscroll_rect_controller_aa40995ee9993315558a2be2a0ab1665e}\label{classscroll_rect_controller_aa40995ee9993315558a2be2a0ab1665e}} 
+\index{scrollRectController@{scrollRectController}!OnUserScroll@{OnUserScroll}}
+\index{OnUserScroll@{OnUserScroll}!scrollRectController@{scrollRectController}}
+\doxysubsubsection{\texorpdfstring{OnUserScroll()}{OnUserScroll()}}
+{\footnotesize\ttfamily void scroll\+Rect\+Controller.\+On\+User\+Scroll (\begin{DoxyParamCaption}\item[{Vector2}]{value }\end{DoxyParamCaption})}
+
+
+
+it checks if the user has passed the maximum limit, if that is the case it change the text to tell the user that if he release, it will load new places. If the user has passed the maximum limit and then release it calls both the ask\+For\+New\+Places method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} class and the change\+Scene\+With\+Animation method of \mbox{\hyperlink{class_change_scene}{Change\+Scene}} class to reload the scene 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vector2} & with both directions of the scrolling, both vertical and horizontal. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classscroll_rect_controller_a25e5d1871e2723d0e93dbb04da5a42c5}\label{classscroll_rect_controller_a25e5d1871e2723d0e93dbb04da5a42c5}} 
+\index{scrollRectController@{scrollRectController}!alreadyAskedForNewPlacesDown\_@{alreadyAskedForNewPlacesDown\_}}
+\index{alreadyAskedForNewPlacesDown\_@{alreadyAskedForNewPlacesDown\_}!scrollRectController@{scrollRectController}}
+\doxysubsubsection{\texorpdfstring{alreadyAskedForNewPlacesDown\_}{alreadyAskedForNewPlacesDown\_}}
+{\footnotesize\ttfamily bool scroll\+Rect\+Controller.\+already\+Asked\+For\+New\+Places\+Down\+\_\+ = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if the user has passed the point where the loading more places process start. 
+
+\mbox{\Hypertarget{classscroll_rect_controller_af78db50273d9b7fc9a2816063aa5bb3e}\label{classscroll_rect_controller_af78db50273d9b7fc9a2816063aa5bb3e}} 
+\index{scrollRectController@{scrollRectController}!alreadyAskedForResortPlaces@{alreadyAskedForResortPlaces}}
+\index{alreadyAskedForResortPlaces@{alreadyAskedForResortPlaces}!scrollRectController@{scrollRectController}}
+\doxysubsubsection{\texorpdfstring{alreadyAskedForResortPlaces}{alreadyAskedForResortPlaces}}
+{\footnotesize\ttfamily bool scroll\+Rect\+Controller.\+already\+Asked\+For\+Resort\+Places = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if the user has passed the point where the resorting places process start. 
+
+\mbox{\Hypertarget{classscroll_rect_controller_a523505243abb523b001f9124855f453d}\label{classscroll_rect_controller_a523505243abb523b001f9124855f453d}} 
+\index{scrollRectController@{scrollRectController}!continueSlidingForLoadText\_@{continueSlidingForLoadText\_}}
+\index{continueSlidingForLoadText\_@{continueSlidingForLoadText\_}!scrollRectController@{scrollRectController}}
+\doxysubsubsection{\texorpdfstring{continueSlidingForLoadText\_}{continueSlidingForLoadText\_}}
+{\footnotesize\ttfamily string scroll\+Rect\+Controller.\+continue\+Sliding\+For\+Load\+Text\+\_\+ = \char`\"{}Continue sliding up to confirm that you want to load more places!\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the default text for saying to user that he has to continue sliding up to confirm the action of loading more places. 
+
+\mbox{\Hypertarget{classscroll_rect_controller_ad7e10c76006fb907d296ab32c7b3329b}\label{classscroll_rect_controller_ad7e10c76006fb907d296ab32c7b3329b}} 
+\index{scrollRectController@{scrollRectController}!continueSlidingForResortText\_@{continueSlidingForResortText\_}}
+\index{continueSlidingForResortText\_@{continueSlidingForResortText\_}!scrollRectController@{scrollRectController}}
+\doxysubsubsection{\texorpdfstring{continueSlidingForResortText\_}{continueSlidingForResortText\_}}
+{\footnotesize\ttfamily string scroll\+Rect\+Controller.\+continue\+Sliding\+For\+Resort\+Text\+\_\+ = \char`\"{}Continue sliding down to confirm that you want to resort all places!\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the default text for saying to user that they have to continue sliding down to confirm the action of sorting all places. 
+
+\mbox{\Hypertarget{classscroll_rect_controller_ab5ca7525e92e6fa46dd473854c51e501}\label{classscroll_rect_controller_ab5ca7525e92e6fa46dd473854c51e501}} 
+\index{scrollRectController@{scrollRectController}!loadMorePlacesText\_@{loadMorePlacesText\_}}
+\index{loadMorePlacesText\_@{loadMorePlacesText\_}!scrollRectController@{scrollRectController}}
+\doxysubsubsection{\texorpdfstring{loadMorePlacesText\_}{loadMorePlacesText\_}}
+{\footnotesize\ttfamily Game\+Object scroll\+Rect\+Controller.\+load\+More\+Places\+Text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the text that will show the instructions for load more places to the user. 
+
+\mbox{\Hypertarget{classscroll_rect_controller_ad1dcc368bff894c48922caecfaa5761f}\label{classscroll_rect_controller_ad1dcc368bff894c48922caecfaa5761f}} 
+\index{scrollRectController@{scrollRectController}!maxLimit\_@{maxLimit\_}}
+\index{maxLimit\_@{maxLimit\_}!scrollRectController@{scrollRectController}}
+\doxysubsubsection{\texorpdfstring{maxLimit\_}{maxLimit\_}}
+{\footnotesize\ttfamily double scroll\+Rect\+Controller.\+max\+Limit\+\_\+ = 1.\+03\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+double that contains the point where if the user slide down more, will activate the loading more places process. 
+
+\mbox{\Hypertarget{classscroll_rect_controller_a42dd9fa8e2499c58adfbd5971ffeeb90}\label{classscroll_rect_controller_a42dd9fa8e2499c58adfbd5971ffeeb90}} 
+\index{scrollRectController@{scrollRectController}!maxNegativeLimit\_@{maxNegativeLimit\_}}
+\index{maxNegativeLimit\_@{maxNegativeLimit\_}!scrollRectController@{scrollRectController}}
+\doxysubsubsection{\texorpdfstring{maxNegativeLimit\_}{maxNegativeLimit\_}}
+{\footnotesize\ttfamily double scroll\+Rect\+Controller.\+max\+Negative\+Limit\+\_\+ = -\/0.\+045\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+double that contains the point where if the user slide up more, will activate the loading more places process. 
+
+\mbox{\Hypertarget{classscroll_rect_controller_a9a7be70721dcaca1dcf8554e53310256}\label{classscroll_rect_controller_a9a7be70721dcaca1dcf8554e53310256}} 
+\index{scrollRectController@{scrollRectController}!minLimit\_@{minLimit\_}}
+\index{minLimit\_@{minLimit\_}!scrollRectController@{scrollRectController}}
+\doxysubsubsection{\texorpdfstring{minLimit\_}{minLimit\_}}
+{\footnotesize\ttfamily double scroll\+Rect\+Controller.\+min\+Limit\+\_\+ = 1.\+00001\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+double that contains the point where the user, after sliding down enough, will fire the loading more places process. 
+
+\mbox{\Hypertarget{classscroll_rect_controller_ad66f954b1f8ce6b6cefce66ed6579cfc}\label{classscroll_rect_controller_ad66f954b1f8ce6b6cefce66ed6579cfc}} 
+\index{scrollRectController@{scrollRectController}!minNegativeLimit\_@{minNegativeLimit\_}}
+\index{minNegativeLimit\_@{minNegativeLimit\_}!scrollRectController@{scrollRectController}}
+\doxysubsubsection{\texorpdfstring{minNegativeLimit\_}{minNegativeLimit\_}}
+{\footnotesize\ttfamily double scroll\+Rect\+Controller.\+min\+Negative\+Limit\+\_\+ = -\/0.\+012\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+double that contains the point where the user, after sliding up enough, will fire the loading more places process. 
+
+\mbox{\Hypertarget{classscroll_rect_controller_a539a71fd90a29e2362519e85ab24b00c}\label{classscroll_rect_controller_a539a71fd90a29e2362519e85ab24b00c}} 
+\index{scrollRectController@{scrollRectController}!resortPlacesText\_@{resortPlacesText\_}}
+\index{resortPlacesText\_@{resortPlacesText\_}!scrollRectController@{scrollRectController}}
+\doxysubsubsection{\texorpdfstring{resortPlacesText\_}{resortPlacesText\_}}
+{\footnotesize\ttfamily Game\+Object scroll\+Rect\+Controller.\+resort\+Places\+Text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Game\+Object that contains the text that will show the instructions for resort places to the user. 
+
+\mbox{\Hypertarget{classscroll_rect_controller_a62c152ee4768e6027229f91d5317dbed}\label{classscroll_rect_controller_a62c152ee4768e6027229f91d5317dbed}} 
+\index{scrollRectController@{scrollRectController}!stopSlidingForLoadText\_@{stopSlidingForLoadText\_}}
+\index{stopSlidingForLoadText\_@{stopSlidingForLoadText\_}!scrollRectController@{scrollRectController}}
+\doxysubsubsection{\texorpdfstring{stopSlidingForLoadText\_}{stopSlidingForLoadText\_}}
+{\footnotesize\ttfamily string scroll\+Rect\+Controller.\+stop\+Sliding\+For\+Load\+Text\+\_\+ = \char`\"{}Release to load more places!\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the default text for saying to user that he has to release to load more places. 
+
+\mbox{\Hypertarget{classscroll_rect_controller_a1168cae354b4e94c17183ef9e256d1c0}\label{classscroll_rect_controller_a1168cae354b4e94c17183ef9e256d1c0}} 
+\index{scrollRectController@{scrollRectController}!stopSlidingForResortText\_@{stopSlidingForResortText\_}}
+\index{stopSlidingForResortText\_@{stopSlidingForResortText\_}!scrollRectController@{scrollRectController}}
+\doxysubsubsection{\texorpdfstring{stopSlidingForResortText\_}{stopSlidingForResortText\_}}
+{\footnotesize\ttfamily string scroll\+Rect\+Controller.\+stop\+Sliding\+For\+Resort\+Text\+\_\+ = \char`\"{}Release to sort again all places!\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the default text for saying to user that they have to release to sort again all places. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/\+Main\+Screen/\mbox{\hyperlink{scroll_rect_controller_8cs}{scroll\+Rect\+Controller.\+cs}}\end{DoxyCompactItemize}

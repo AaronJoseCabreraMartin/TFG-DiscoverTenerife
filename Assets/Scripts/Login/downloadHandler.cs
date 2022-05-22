@@ -40,7 +40,7 @@ public partial class firebaseHandler{
         FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/displayName_").GetValueAsync().ContinueWith(displayNameTask => {
             if (displayNameTask.IsFaulted) {
                 // Handle the error...
-                Debug.Log("Error: "+displayNameTask.Exception);
+                Debug.LogError("Error: "+displayNameTask.Exception);
                 friendDataDownloadQueue_.Add(uid);
             } else if (displayNameTask.IsCompleted) {
                 DataSnapshot snapshotDisplayName = displayNameTask.Result;
@@ -53,7 +53,7 @@ public partial class firebaseHandler{
                 FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/deletedFriends_").GetValueAsync().ContinueWith(deletedFriendsTask => {
                     if (deletedFriendsTask.IsFaulted) {
                         // Handle the error...
-                        Debug.Log("Error: "+deletedFriendsTask.Exception);
+                        Debug.LogError("Error: "+deletedFriendsTask.Exception);
                         friendDataDownloadQueue_.Add(uid);
                     } else if (deletedFriendsTask.IsCompleted) {
                         DataSnapshot deletedFriendsSnapshot = deletedFriendsTask.Result;
@@ -66,7 +66,7 @@ public partial class firebaseHandler{
                         FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/challenges_").GetValueAsync().ContinueWith(challengesTask => {
                             if (challengesTask.IsFaulted) {
                                 // Handle the error...
-                                Debug.Log("Error: "+challengesTask.Exception);
+                                Debug.LogError("Error: "+challengesTask.Exception);
                                 friendDataDownloadQueue_.Add(uid);
                             } else if (challengesTask.IsCompleted) {
                                 DataSnapshot challengesSnapshot = challengesTask.Result;
@@ -79,7 +79,7 @@ public partial class firebaseHandler{
                                 FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/acceptedFriendsInvitations_").GetValueAsync().ContinueWith(acceptedNewFriendsTask => {
                                     if (acceptedNewFriendsTask.IsFaulted) {
                                         // Handle the error...
-                                        Debug.Log("Error: "+acceptedNewFriendsTask.Exception);
+                                        Debug.LogError("Error: "+acceptedNewFriendsTask.Exception);
                                         friendDataDownloadQueue_.Add(uid);
                                     } else if (acceptedNewFriendsTask.IsCompleted) {
                                         DataSnapshot acceptedNewFriendsSnapshot = acceptedNewFriendsTask.Result;
@@ -96,7 +96,7 @@ public partial class firebaseHandler{
                                         FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/score_").GetValueAsync().ContinueWith(scoreTask => {
                                             if (scoreTask.IsFaulted) {
                                                 // Handle the error...
-                                                Debug.Log("Error: "+scoreTask.Exception);
+                                                Debug.LogError("Error: "+scoreTask.Exception);
                                                 friendDataDownloadQueue_.Add(uid);
                                             } else if (scoreTask.IsCompleted) {
                                                 DataSnapshot scoreSnapshot = scoreTask.Result;
@@ -143,7 +143,7 @@ public partial class firebaseHandler{
         FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/displayName_").GetValueAsync().ContinueWith(displayNameTask => {
             if (displayNameTask.IsFaulted) {
                 // Handle the error...
-                Debug.Log("Error: "+displayNameTask.Exception);
+                Debug.LogError("Error: "+displayNameTask.Exception);
                 newFriendDataDownloadQueue_.Add(uid);
             } else if (displayNameTask.IsCompleted) {
                 DataSnapshot snapshotDisplayName = displayNameTask.Result;
@@ -156,7 +156,7 @@ public partial class firebaseHandler{
                 FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/acceptedFriendsInvitations_").GetValueAsync().ContinueWith(acceptedNewFriendsTask => {
                     if (acceptedNewFriendsTask.IsFaulted) {
                         // Handle the error...
-                        Debug.Log("Error: "+acceptedNewFriendsTask.Exception);
+                        Debug.LogError("Error: "+acceptedNewFriendsTask.Exception);
                         newFriendDataDownloadQueue_.Add(uid);
                     } else if (acceptedNewFriendsTask.IsCompleted) {
                         DataSnapshot newFriendsSnapshot = acceptedNewFriendsTask.Result;
@@ -181,7 +181,7 @@ public partial class firebaseHandler{
         FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/visitedPlaces_").GetValueAsync().ContinueWith(taskPlaces => {
             if (taskPlaces.IsFaulted) {
                 // Handle the error...
-                Debug.Log("Error: "+taskPlaces.Exception);
+                Debug.LogError("Error: "+taskPlaces.Exception);
             } else if (taskPlaces.IsCompleted) {
                 DataSnapshot snapshotVisitedPlaces = taskPlaces.Result;
                 // por que si el usuario solo se registra y no visita ningun sitio en ese momento, 
@@ -200,7 +200,7 @@ public partial class firebaseHandler{
                 FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/baseCords_").GetValueAsync().ContinueWith(taskBaseCords => {
                     if (taskBaseCords.IsFaulted) {
                         // Handle the error...
-                        Debug.Log("Error: "+taskBaseCords.Exception);
+                        Debug.LogError("Error: "+taskBaseCords.Exception);
                     } else if (taskBaseCords.IsCompleted) {
                         DataSnapshot snapshotBaseCords = taskBaseCords.Result;
                         //Debug.Log($"snapshotBaseCords = {snapshotBaseCords.GetRawJsonValue()}");
@@ -214,11 +214,10 @@ public partial class firebaseHandler{
                         FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/friends_").GetValueAsync().ContinueWith(taskFriends => {
                             if (taskFriends.IsFaulted) {
                                 // Handle the error...
-                                Debug.Log("Error: "+taskFriends.Exception);
+                                Debug.LogError("Error: "+taskFriends.Exception);
                             } else if (taskFriends.IsCompleted) {
                                 DataSnapshot snapshotFriends = taskFriends.Result;
                                 List<string> friendsList;
-                                Debug.Log($"snapshotFriends = {snapshotFriends.GetRawJsonValue()}"); 
                                 if(snapshotFriends.GetRawJsonValue() == null){
                                     friendsList = null;
                                 }else{
@@ -231,7 +230,7 @@ public partial class firebaseHandler{
                                 FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/friendsInvitations_").GetValueAsync().ContinueWith(taskFriendsInvitations => {
                                      if (taskFriendsInvitations.IsFaulted) {
                                         // Handle the error...
-                                        Debug.Log("Error: "+taskFriendsInvitations.Exception);
+                                        Debug.LogError("Error: "+taskFriendsInvitations.Exception);
                                     } else if (taskFriendsInvitations.IsCompleted) {
                                         DataSnapshot snapshotFriendsInvitations = taskFriendsInvitations.Result;
                                         List<string> friendsInvitationsList;
@@ -248,7 +247,7 @@ public partial class firebaseHandler{
                                         FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/acceptedFriendsInvitations_").GetValueAsync().ContinueWith(taskacceptedFriendsInvitations => {
                                             if (taskacceptedFriendsInvitations.IsFaulted) {
                                                 // Handle the error...
-                                                Debug.Log("Error: "+taskacceptedFriendsInvitations.Exception);
+                                                Debug.LogError("Error: "+taskacceptedFriendsInvitations.Exception);
                                             } else if (taskacceptedFriendsInvitations.IsCompleted) {
                                                 DataSnapshot snapshotacceptedFriendsInvitations = taskacceptedFriendsInvitations.Result;
                                                 List<string> acceptedFriendsInvitationsList;
@@ -267,7 +266,7 @@ public partial class firebaseHandler{
                                                 FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/deletedFriends_").GetValueAsync().ContinueWith(taskDeletedFriends => {
                                                     if (taskDeletedFriends.IsFaulted) {
                                                         // Handle the error...
-                                                        Debug.Log("Error: "+taskDeletedFriends.Exception);
+                                                        Debug.LogError("Error: "+taskDeletedFriends.Exception);
                                                     } else if (taskDeletedFriends.IsCompleted) {
                                                         DataSnapshot snapshotDeletedFriends = taskDeletedFriends.Result;
                                                         List<string> deletedFriendsList;
@@ -281,7 +280,7 @@ public partial class firebaseHandler{
                                                         FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/challenges_").GetValueAsync().ContinueWith(taskChallenges => {
                                                             if (taskChallenges.IsFaulted) {
                                                                 // Handle the error...
-                                                                Debug.Log("Error: "+taskChallenges.Exception);
+                                                                Debug.LogError("Error: "+taskChallenges.Exception);
                                                             } else if (taskChallenges.IsCompleted) {
                                                                 DataSnapshot snapshotChallenges = taskChallenges.Result;
                                                                 List<Dictionary<string,string>> challengesList;
@@ -296,7 +295,7 @@ public partial class firebaseHandler{
                                                                 FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/score_").GetValueAsync().ContinueWith(taskScore => {
                                                                     if (taskScore.IsFaulted) {
                                                                         // Handle the error...
-                                                                        Debug.Log("Error: "+taskScore.Exception);
+                                                                        Debug.LogError("Error: "+taskScore.Exception);
                                                                     } else if (taskScore.IsCompleted) {
                                                                         DataSnapshot snapshotScore = taskScore.Result;
                                                                         string userScore;
@@ -311,7 +310,7 @@ public partial class firebaseHandler{
                                                                         FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/earnedScore_").GetValueAsync().ContinueWith(taskEarnedScore => {
                                                                             if (taskEarnedScore.IsFaulted) {
                                                                                 // Handle the error...
-                                                                                Debug.Log("Error: "+taskEarnedScore.Exception);
+                                                                                Debug.LogError("Error: "+taskEarnedScore.Exception);
                                                                             } else if (taskEarnedScore.IsCompleted) {
                                                                                 DataSnapshot snapshotEarnedScore = taskEarnedScore.Result;
                                                                                 string userEarnedScore;
@@ -325,7 +324,7 @@ public partial class firebaseHandler{
                                                                                 FirebaseDatabase.DefaultInstance.GetReference($"users/{auth.CurrentUser.UserId}/rangeStory_").GetValueAsync().ContinueWith(taskRangeStory => {
                                                                                     if (taskRangeStory.IsFaulted) {
                                                                                         // Handle the error...
-                                                                                        Debug.Log("Error: "+taskRangeStory.Exception);
+                                                                                        Debug.LogError("Error: "+taskRangeStory.Exception);
                                                                                     } else if (taskRangeStory.IsCompleted) {
                                                                                         DataSnapshot snapshotRangeStory = taskRangeStory.Result;
                                                                                         List<Dictionary<string,string>> userRangeStory;
@@ -397,7 +396,7 @@ public partial class firebaseHandler{
         FirebaseDatabase.DefaultInstance.GetReference($"places/{typeSite}/").GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted) {
                 // Handle the error...
-                Debug.Log("Error: "+task.Exception);
+                Debug.LogError("Error: "+task.Exception);
             } else if (task.IsCompleted) {
                 DataSnapshot snapshot = task.Result;
                 //           id                 data
@@ -434,7 +433,6 @@ public partial class firebaseHandler{
                 }else if(searchTask.IsCompleted){
                     DataSnapshot snapshotSearch = searchTask.Result;
                     if(snapshotSearch.GetRawJsonValue() != null){
-                        Debug.Log($"usersThatAllowFriendshipInvitations_ = {snapshotSearch.GetRawJsonValue()}");
                         FriendData.usersThatAllowFriendshipInvitations_ = JsonConvert.DeserializeObject<List<string>>(snapshotSearch.GetRawJsonValue());
                     }
                 }
@@ -454,7 +452,6 @@ public partial class firebaseHandler{
                 }else if(searchTask.IsCompleted){
                     DataSnapshot snapshotSearch = searchTask.Result;
                     if(snapshotSearch.GetRawJsonValue() != null){
-                        Debug.Log($"usersThatAllowBeChallenged_ = {snapshotSearch.GetRawJsonValue()}");
                         FriendData.usersThatAllowBeChallenged_ = JsonConvert.DeserializeObject<List<string>>(snapshotSearch.GetRawJsonValue());
                     }
                 }
@@ -474,7 +471,6 @@ public partial class firebaseHandler{
                 }else if(searchTask.IsCompleted){
                     DataSnapshot snapshotSearch = searchTask.Result;
                     if(snapshotSearch.GetRawJsonValue() != null){
-                        Debug.Log($"usersThatAllowAppearedOnRanking_ = {snapshotSearch.GetRawJsonValue()}");
                         FriendData.usersThatAllowAppearedOnRanking_ = JsonConvert.DeserializeObject<List<string>>(snapshotSearch.GetRawJsonValue());
                     }
                 }

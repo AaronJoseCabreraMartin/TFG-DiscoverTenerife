@@ -1,0 +1,284 @@
+\hypertarget{classmultiselection_desplegable_menu}{}\doxysection{multiselection\+Desplegable\+Menu Class Reference}
+\label{classmultiselection_desplegable_menu}\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+
+
+This method controlls a multiselection desplegable menu.  
+
+
+Inheritance diagram for multiselection\+Desplegable\+Menu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmultiselection_desplegable_menu}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmultiselection_desplegable_menu_a828f3798be24472ff09b013d56c87d17}{On\+Click}} ()
+\begin{DoxyCompactList}\small\item\em This method should be called when the user clicks the menu\textquotesingle{}s button. First it checks if the last\+Option\+Clicked\+\_\+ static property of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} is null it sets that property as this Game\+Object, if that property is this Game\+Object, it sets that property to null, in other case this method dont do nothing. When the last\+Option\+Clicked\+\_\+ static property of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} is null or it is this Game\+Object it changes the button\textquotesingle{}s text to the default text or the saving text. It also changes the show\+Toggles\+\_\+ property to the opposite value, the any\+Change to true and then calls the save\+Options method of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmultiselection_desplegable_menu_ab5d525284a5ac22b46ecdc2319443155}{show\+All\+Toggles}} (bool show)
+\begin{DoxyCompactList}\small\item\em This method hide all the menu\textquotesingle{}s toggles if you give as a parameter a false, if you give a true it shows all of them. It puts the any\+Change\+\_\+ property as false. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmultiselection_desplegable_menu_aeccf37dd8814ee740af2f278373e047b}{check\+Toggle}} (int index)
+\begin{DoxyCompactList}\small\item\em This method returns if the toggle that is on the index-\/th position is selected or not. If the index is bigger than the toggles\+\_\+ array or negative it will raise an exception. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmultiselection_desplegable_menu_a31f4c0cf8e68cb14681c76ac1fee6257}{set\+State\+Toggle}} (int index, bool state)
+\begin{DoxyCompactList}\small\item\em This method select or deselect depending on the boolean that you pass as parameter the index-\/th toggle. It also puts the any\+Change\+\_\+ property to true. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classmultiselection_desplegable_menu_a0f55dbb2bf82ec001615228a7ca9b22d}{size}} ()
+\begin{DoxyCompactList}\small\item\em Getter of the toggle\textquotesingle{}s array length. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmultiselection_desplegable_menu_a361376b57c8505fa8faa12bb160006da}{any\+Change}} ()
+\begin{DoxyCompactList}\small\item\em Getter of the any\+Change property. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmultiselection_desplegable_menu_ade250f66c44f2bbee0d84ffddc3a2e3f}{check\+Toggle\+By\+Text}} (string name)
+\begin{DoxyCompactList}\small\item\em This method returns the state of the toggle that has the given text, if there isnt any toggle with the given text it returns false. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmultiselection_desplegable_menu_a1eabec1807bf122a8624e55f9fcfaadb}{set\+Toggle\+State\+By\+Text}} (string name, bool state)
+\begin{DoxyCompactList}\small\item\em This method sets the given state on the toggle that has the given text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classmultiselection_desplegable_menu_a08394c8b17ee258f775cb86ad40158fe}{show\+Toggles\+\_\+}}
+\begin{DoxyCompactList}\small\item\em True if it has to show the toggles, false if it has to hide the toggles. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmultiselection_desplegable_menu_a339ecf3ed4c1b9e4cff14f4b5379e382}{default\+Toggle\+Value\+\_\+}} = true
+\begin{DoxyCompactList}\small\item\em True if all the toggles have to been selected by default, false in other case. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmultiselection_desplegable_menu_a1ea3d2762276952948aef3904ebdedb9}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method is called on the first frame. It search all the toggles that are childs of this gameobject, then it applies the default value to all of them. It also changes the text of the menu\textquotesingle{}s button to the default text and intialize the any\+Change\+\_\+ property to true and the option\+Controller\+\_\+ property to a reference of the \mbox{\hyperlink{classoptions_controller}{options\+Controller}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmultiselection_desplegable_menu_aec3eb75c400d2bd70be4f0ce65d5cc55}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method is called on each frame. It checks if any\+Change\+\_\+ property is true, it calls the show\+All\+Toggles method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classmultiselection_desplegable_menu_a50ff243b29f940ffa9406df1c891363a}{any\+Change\+\_\+}}
+\begin{DoxyCompactList}\small\item\em True if there is any change on any of the toggles, false in other case. \end{DoxyCompactList}\item 
+Toggle\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classmultiselection_desplegable_menu_a595041b250dd5765bd677da9738c6ba3}{toggles\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Array with a reference to all the toggles that this menu has. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classmultiselection_desplegable_menu_a1d9a3e0373bfa4615b88ba78da6d6ce7}{default\+Text\+\_\+}}
+\begin{DoxyCompactList}\small\item\em String that contains the text that the button of the menu shows as default text. \end{DoxyCompactList}\item 
+Text \mbox{\hyperlink{classmultiselection_desplegable_menu_ac3a3da073561821d904fdfd9cf7205aa}{text\+Field\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Text that is showed on the menu\textquotesingle{}s button. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoptions_controller}{options\+Controller}} \mbox{\hyperlink{classmultiselection_desplegable_menu_a2d2e9c0462c20ed73e6f8333cf6d4a17}{option\+Controller\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Reference to the \mbox{\hyperlink{classoptions_controller}{options\+Controller}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This method controlls a multiselection desplegable menu. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_a361376b57c8505fa8faa12bb160006da}\label{classmultiselection_desplegable_menu_a361376b57c8505fa8faa12bb160006da}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!anyChange@{anyChange}}
+\index{anyChange@{anyChange}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{anyChange()}{anyChange()}}
+{\footnotesize\ttfamily bool multiselection\+Desplegable\+Menu.\+any\+Change (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter of the any\+Change property. 
+
+\begin{DoxyReturn}{Returns}
+bool any\+Change\+\_\+\textquotesingle{}s property value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_aeccf37dd8814ee740af2f278373e047b}\label{classmultiselection_desplegable_menu_aeccf37dd8814ee740af2f278373e047b}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!checkToggle@{checkToggle}}
+\index{checkToggle@{checkToggle}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{checkToggle()}{checkToggle()}}
+{\footnotesize\ttfamily bool multiselection\+Desplegable\+Menu.\+check\+Toggle (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+This method returns if the toggle that is on the index-\/th position is selected or not. If the index is bigger than the toggles\+\_\+ array or negative it will raise an exception. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & position of the toggle that you want to check his value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if that toggle is selected, false in other case. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_ade250f66c44f2bbee0d84ffddc3a2e3f}\label{classmultiselection_desplegable_menu_ade250f66c44f2bbee0d84ffddc3a2e3f}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!checkToggleByText@{checkToggleByText}}
+\index{checkToggleByText@{checkToggleByText}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{checkToggleByText()}{checkToggleByText()}}
+{\footnotesize\ttfamily bool multiselection\+Desplegable\+Menu.\+check\+Toggle\+By\+Text (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+
+This method returns the state of the toggle that has the given text, if there isnt any toggle with the given text it returns false. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & that contains the text of the toggle that you want to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool with the value of the toggle that has the given text. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_a828f3798be24472ff09b013d56c87d17}\label{classmultiselection_desplegable_menu_a828f3798be24472ff09b013d56c87d17}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!OnClick@{OnClick}}
+\index{OnClick@{OnClick}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{OnClick()}{OnClick()}}
+{\footnotesize\ttfamily void multiselection\+Desplegable\+Menu.\+On\+Click (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method should be called when the user clicks the menu\textquotesingle{}s button. First it checks if the last\+Option\+Clicked\+\_\+ static property of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} is null it sets that property as this Game\+Object, if that property is this Game\+Object, it sets that property to null, in other case this method dont do nothing. When the last\+Option\+Clicked\+\_\+ static property of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} is null or it is this Game\+Object it changes the button\textquotesingle{}s text to the default text or the saving text. It also changes the show\+Toggles\+\_\+ property to the opposite value, the any\+Change to true and then calls the save\+Options method of \mbox{\hyperlink{classoptions_controller}{options\+Controller}} class. 
+
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_a31f4c0cf8e68cb14681c76ac1fee6257}\label{classmultiselection_desplegable_menu_a31f4c0cf8e68cb14681c76ac1fee6257}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!setStateToggle@{setStateToggle}}
+\index{setStateToggle@{setStateToggle}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{setStateToggle()}{setStateToggle()}}
+{\footnotesize\ttfamily void multiselection\+Desplegable\+Menu.\+set\+State\+Toggle (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{bool}]{state }\end{DoxyParamCaption})}
+
+
+
+This method select or deselect depending on the boolean that you pass as parameter the index-\/th toggle. It also puts the any\+Change\+\_\+ property to true. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & postition of the toggle that will change its value. \\
+\hline
+{\em bool} & state that you want to put to that toggle. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_a1eabec1807bf122a8624e55f9fcfaadb}\label{classmultiselection_desplegable_menu_a1eabec1807bf122a8624e55f9fcfaadb}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!setToggleStateByText@{setToggleStateByText}}
+\index{setToggleStateByText@{setToggleStateByText}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{setToggleStateByText()}{setToggleStateByText()}}
+{\footnotesize\ttfamily void multiselection\+Desplegable\+Menu.\+set\+Toggle\+State\+By\+Text (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{bool}]{state }\end{DoxyParamCaption})}
+
+
+
+This method sets the given state on the toggle that has the given text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & that contains the text of the toggle that you want to check. \\
+\hline
+{\em bool} & state that you want to set on the toggle that has that text. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_ab5d525284a5ac22b46ecdc2319443155}\label{classmultiselection_desplegable_menu_ab5d525284a5ac22b46ecdc2319443155}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!showAllToggles@{showAllToggles}}
+\index{showAllToggles@{showAllToggles}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{showAllToggles()}{showAllToggles()}}
+{\footnotesize\ttfamily void multiselection\+Desplegable\+Menu.\+show\+All\+Toggles (\begin{DoxyParamCaption}\item[{bool}]{show }\end{DoxyParamCaption})}
+
+
+
+This method hide all the menu\textquotesingle{}s toggles if you give as a parameter a false, if you give a true it shows all of them. It puts the any\+Change\+\_\+ property as false. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & true if you want to show all the toggles, false if you want to hide them. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_a0f55dbb2bf82ec001615228a7ca9b22d}\label{classmultiselection_desplegable_menu_a0f55dbb2bf82ec001615228a7ca9b22d}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!size@{size}}
+\index{size@{size}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily int multiselection\+Desplegable\+Menu.\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter of the toggle\textquotesingle{}s array length. 
+
+\begin{DoxyReturn}{Returns}
+int Size of the toggles array. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_a1ea3d2762276952948aef3904ebdedb9}\label{classmultiselection_desplegable_menu_a1ea3d2762276952948aef3904ebdedb9}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!Start@{Start}}
+\index{Start@{Start}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void multiselection\+Desplegable\+Menu.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called on the first frame. It search all the toggles that are childs of this gameobject, then it applies the default value to all of them. It also changes the text of the menu\textquotesingle{}s button to the default text and intialize the any\+Change\+\_\+ property to true and the option\+Controller\+\_\+ property to a reference of the \mbox{\hyperlink{classoptions_controller}{options\+Controller}}. 
+
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_aec3eb75c400d2bd70be4f0ce65d5cc55}\label{classmultiselection_desplegable_menu_aec3eb75c400d2bd70be4f0ce65d5cc55}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!Update@{Update}}
+\index{Update@{Update}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void multiselection\+Desplegable\+Menu.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called on each frame. It checks if any\+Change\+\_\+ property is true, it calls the show\+All\+Toggles method. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_a50ff243b29f940ffa9406df1c891363a}\label{classmultiselection_desplegable_menu_a50ff243b29f940ffa9406df1c891363a}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!anyChange\_@{anyChange\_}}
+\index{anyChange\_@{anyChange\_}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{anyChange\_}{anyChange\_}}
+{\footnotesize\ttfamily bool multiselection\+Desplegable\+Menu.\+any\+Change\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+True if there is any change on any of the toggles, false in other case. 
+
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_a1d9a3e0373bfa4615b88ba78da6d6ce7}\label{classmultiselection_desplegable_menu_a1d9a3e0373bfa4615b88ba78da6d6ce7}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!defaultText\_@{defaultText\_}}
+\index{defaultText\_@{defaultText\_}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{defaultText\_}{defaultText\_}}
+{\footnotesize\ttfamily string multiselection\+Desplegable\+Menu.\+default\+Text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+String that contains the text that the button of the menu shows as default text. 
+
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_a339ecf3ed4c1b9e4cff14f4b5379e382}\label{classmultiselection_desplegable_menu_a339ecf3ed4c1b9e4cff14f4b5379e382}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!defaultToggleValue\_@{defaultToggleValue\_}}
+\index{defaultToggleValue\_@{defaultToggleValue\_}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{defaultToggleValue\_}{defaultToggleValue\_}}
+{\footnotesize\ttfamily bool multiselection\+Desplegable\+Menu.\+default\+Toggle\+Value\+\_\+ = true}
+
+
+
+True if all the toggles have to been selected by default, false in other case. 
+
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_a2d2e9c0462c20ed73e6f8333cf6d4a17}\label{classmultiselection_desplegable_menu_a2d2e9c0462c20ed73e6f8333cf6d4a17}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!optionController\_@{optionController\_}}
+\index{optionController\_@{optionController\_}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{optionController\_}{optionController\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classoptions_controller}{options\+Controller}} multiselection\+Desplegable\+Menu.\+option\+Controller\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reference to the \mbox{\hyperlink{classoptions_controller}{options\+Controller}} instance. 
+
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_a08394c8b17ee258f775cb86ad40158fe}\label{classmultiselection_desplegable_menu_a08394c8b17ee258f775cb86ad40158fe}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!showToggles\_@{showToggles\_}}
+\index{showToggles\_@{showToggles\_}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{showToggles\_}{showToggles\_}}
+{\footnotesize\ttfamily bool multiselection\+Desplegable\+Menu.\+show\+Toggles\+\_\+}
+
+
+
+True if it has to show the toggles, false if it has to hide the toggles. 
+
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_ac3a3da073561821d904fdfd9cf7205aa}\label{classmultiselection_desplegable_menu_ac3a3da073561821d904fdfd9cf7205aa}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!textField\_@{textField\_}}
+\index{textField\_@{textField\_}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{textField\_}{textField\_}}
+{\footnotesize\ttfamily Text multiselection\+Desplegable\+Menu.\+text\+Field\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Text that is showed on the menu\textquotesingle{}s button. 
+
+\mbox{\Hypertarget{classmultiselection_desplegable_menu_a595041b250dd5765bd677da9738c6ba3}\label{classmultiselection_desplegable_menu_a595041b250dd5765bd677da9738c6ba3}} 
+\index{multiselectionDesplegableMenu@{multiselectionDesplegableMenu}!toggles\_@{toggles\_}}
+\index{toggles\_@{toggles\_}!multiselectionDesplegableMenu@{multiselectionDesplegableMenu}}
+\doxysubsubsection{\texorpdfstring{toggles\_}{toggles\_}}
+{\footnotesize\ttfamily Toggle \mbox{[}$\,$\mbox{]} multiselection\+Desplegable\+Menu.\+toggles\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Array with a reference to all the toggles that this menu has. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+Prefabs/\+Scripts/\mbox{\hyperlink{multiselection_desplegable_menu_8cs}{multiselection\+Desplegable\+Menu.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,207 @@
+\hypertarget{class_ranking_player_data}{}\doxysection{Ranking\+Player\+Data Class Reference}
+\label{class_ranking_player_data}\index{RankingPlayerData@{RankingPlayerData}}
+
+
+Class that stores the information of each player that is shown on the ranking.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ranking_player_data_adb653e53e7a82b84e70474ef483cc0dd}{Ranking\+Player\+Data}} (string name, int score, string uid, string range=\char`\"{}\char`\"{}, int top=0)
+\begin{DoxyCompactList}\small\item\em The constructor of the class it sets each property as the correspondent given value. If the range param is the empty string this method calls the static method calculate\+Range of the \mbox{\hyperlink{classgame_rules}{game\+Rules}} class to set the correspondant range to the range\+\_\+ property. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_ranking_player_data_ab49d24b03751567c87d23e1bed1acdf3}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Getter of the name\+\_\+ property. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_ranking_player_data_a94cbe25b98a4e6648f7931bcab252acb}{get\+Uid}} ()
+\begin{DoxyCompactList}\small\item\em Getter of the uid\+\_\+ property. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_ranking_player_data_aa77bbecf1b3696edd7611939d5d3df06}{get\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Getter of the score\+\_\+ property. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_ranking_player_data_af7838214a9f7d432a405a058163d6ffd}{get\+Top}} ()
+\begin{DoxyCompactList}\small\item\em Getter of the top\+\_\+ property. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ranking_player_data_a4921fd0b36ae1a0f0bfd12397ff03c91}{set\+Top}} (int top)
+\begin{DoxyCompactList}\small\item\em Setter of the top\+\_\+ property. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_ranking_player_data_aa5da5df7be1f5e7c772f100301200809}{get\+Range}} ()
+\begin{DoxyCompactList}\small\item\em Getter of the range\+\_\+ property. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_ranking_player_data_a873aef94d024ca22ca45c45adacfdcfe}{name\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that contains the display name of the represented user. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_ranking_player_data_aec2f41c92b0099e38f51f061359db8b8}{uid\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that contains the user id of the represented user. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_ranking_player_data_ab09baacd9cd50451468e2e1ebc4e5d4d}{score\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that contains the score of the represented user. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_ranking_player_data_af5f66652932df3320df9f539c0f6dfd9}{top\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that contains the position of the represented user on the ranking. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_ranking_player_data_a8a061de120a8095d234fb143ca903ddd}{range\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that contains the range name of the represented user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that stores the information of each player that is shown on the ranking. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ranking_player_data_adb653e53e7a82b84e70474ef483cc0dd}\label{class_ranking_player_data_adb653e53e7a82b84e70474ef483cc0dd}} 
+\index{RankingPlayerData@{RankingPlayerData}!RankingPlayerData@{RankingPlayerData}}
+\index{RankingPlayerData@{RankingPlayerData}!RankingPlayerData@{RankingPlayerData}}
+\doxysubsubsection{\texorpdfstring{RankingPlayerData()}{RankingPlayerData()}}
+{\footnotesize\ttfamily Ranking\+Player\+Data.\+Ranking\+Player\+Data (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{int}]{score,  }\item[{string}]{uid,  }\item[{string}]{range = {\ttfamily \char`\"{}\char`\"{}},  }\item[{int}]{top = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+The constructor of the class it sets each property as the correspondent given value. If the range param is the empty string this method calls the static method calculate\+Range of the \mbox{\hyperlink{classgame_rules}{game\+Rules}} class to set the correspondant range to the range\+\_\+ property. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & with the represented user\textquotesingle{}s display name. \\
+\hline
+{\em int} & with the represented user\textquotesingle{}s score. \\
+\hline
+{\em string} & with the represented user\textquotesingle{}s id. \\
+\hline
+{\em string} & (optional) with the represented user\textquotesingle{}s range. \\
+\hline
+{\em int} & (optional) with the represented user\textquotesingle{}s position on the player ranking. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ranking_player_data_ab49d24b03751567c87d23e1bed1acdf3}\label{class_ranking_player_data_ab49d24b03751567c87d23e1bed1acdf3}} 
+\index{RankingPlayerData@{RankingPlayerData}!getName@{getName}}
+\index{getName@{getName}!RankingPlayerData@{RankingPlayerData}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily string Ranking\+Player\+Data.\+get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter of the name\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+string with the represented player name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ranking_player_data_aa5da5df7be1f5e7c772f100301200809}\label{class_ranking_player_data_aa5da5df7be1f5e7c772f100301200809}} 
+\index{RankingPlayerData@{RankingPlayerData}!getRange@{getRange}}
+\index{getRange@{getRange}!RankingPlayerData@{RankingPlayerData}}
+\doxysubsubsection{\texorpdfstring{getRange()}{getRange()}}
+{\footnotesize\ttfamily string Ranking\+Player\+Data.\+get\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter of the range\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+string with the represented player range. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ranking_player_data_aa77bbecf1b3696edd7611939d5d3df06}\label{class_ranking_player_data_aa77bbecf1b3696edd7611939d5d3df06}} 
+\index{RankingPlayerData@{RankingPlayerData}!getScore@{getScore}}
+\index{getScore@{getScore}!RankingPlayerData@{RankingPlayerData}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily int Ranking\+Player\+Data.\+get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter of the score\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+int with the represented player score. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ranking_player_data_af7838214a9f7d432a405a058163d6ffd}\label{class_ranking_player_data_af7838214a9f7d432a405a058163d6ffd}} 
+\index{RankingPlayerData@{RankingPlayerData}!getTop@{getTop}}
+\index{getTop@{getTop}!RankingPlayerData@{RankingPlayerData}}
+\doxysubsubsection{\texorpdfstring{getTop()}{getTop()}}
+{\footnotesize\ttfamily int Ranking\+Player\+Data.\+get\+Top (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter of the top\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+int with the represented player ranking position. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ranking_player_data_a94cbe25b98a4e6648f7931bcab252acb}\label{class_ranking_player_data_a94cbe25b98a4e6648f7931bcab252acb}} 
+\index{RankingPlayerData@{RankingPlayerData}!getUid@{getUid}}
+\index{getUid@{getUid}!RankingPlayerData@{RankingPlayerData}}
+\doxysubsubsection{\texorpdfstring{getUid()}{getUid()}}
+{\footnotesize\ttfamily string Ranking\+Player\+Data.\+get\+Uid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter of the uid\+\_\+ property. 
+
+\begin{DoxyReturn}{Returns}
+string with the represented player id. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ranking_player_data_a4921fd0b36ae1a0f0bfd12397ff03c91}\label{class_ranking_player_data_a4921fd0b36ae1a0f0bfd12397ff03c91}} 
+\index{RankingPlayerData@{RankingPlayerData}!setTop@{setTop}}
+\index{setTop@{setTop}!RankingPlayerData@{RankingPlayerData}}
+\doxysubsubsection{\texorpdfstring{setTop()}{setTop()}}
+{\footnotesize\ttfamily void Ranking\+Player\+Data.\+set\+Top (\begin{DoxyParamCaption}\item[{int}]{top }\end{DoxyParamCaption})}
+
+
+
+Setter of the top\+\_\+ property. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & with the new ranking position of the represented player. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_ranking_player_data_a873aef94d024ca22ca45c45adacfdcfe}\label{class_ranking_player_data_a873aef94d024ca22ca45c45adacfdcfe}} 
+\index{RankingPlayerData@{RankingPlayerData}!name\_@{name\_}}
+\index{name\_@{name\_}!RankingPlayerData@{RankingPlayerData}}
+\doxysubsubsection{\texorpdfstring{name\_}{name\_}}
+{\footnotesize\ttfamily string Ranking\+Player\+Data.\+name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the display name of the represented user. 
+
+\mbox{\Hypertarget{class_ranking_player_data_a8a061de120a8095d234fb143ca903ddd}\label{class_ranking_player_data_a8a061de120a8095d234fb143ca903ddd}} 
+\index{RankingPlayerData@{RankingPlayerData}!range\_@{range\_}}
+\index{range\_@{range\_}!RankingPlayerData@{RankingPlayerData}}
+\doxysubsubsection{\texorpdfstring{range\_}{range\_}}
+{\footnotesize\ttfamily string Ranking\+Player\+Data.\+range\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the range name of the represented user. 
+
+\mbox{\Hypertarget{class_ranking_player_data_ab09baacd9cd50451468e2e1ebc4e5d4d}\label{class_ranking_player_data_ab09baacd9cd50451468e2e1ebc4e5d4d}} 
+\index{RankingPlayerData@{RankingPlayerData}!score\_@{score\_}}
+\index{score\_@{score\_}!RankingPlayerData@{RankingPlayerData}}
+\doxysubsubsection{\texorpdfstring{score\_}{score\_}}
+{\footnotesize\ttfamily int Ranking\+Player\+Data.\+score\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the score of the represented user. 
+
+\mbox{\Hypertarget{class_ranking_player_data_af5f66652932df3320df9f539c0f6dfd9}\label{class_ranking_player_data_af5f66652932df3320df9f539c0f6dfd9}} 
+\index{RankingPlayerData@{RankingPlayerData}!top\_@{top\_}}
+\index{top\_@{top\_}!RankingPlayerData@{RankingPlayerData}}
+\doxysubsubsection{\texorpdfstring{top\_}{top\_}}
+{\footnotesize\ttfamily int Ranking\+Player\+Data.\+top\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the position of the represented user on the ranking. 
+
+\mbox{\Hypertarget{class_ranking_player_data_aec2f41c92b0099e38f51f061359db8b8}\label{class_ranking_player_data_aec2f41c92b0099e38f51f061359db8b8}} 
+\index{RankingPlayerData@{RankingPlayerData}!uid\_@{uid\_}}
+\index{uid\_@{uid\_}!RankingPlayerData@{RankingPlayerData}}
+\doxysubsubsection{\texorpdfstring{uid\_}{uid\_}}
+{\footnotesize\ttfamily string Ranking\+Player\+Data.\+uid\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string that contains the user id of the represented user. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/\+Ranking\+Screen/\mbox{\hyperlink{_ranking_player_data_8cs}{Ranking\+Player\+Data.\+cs}}\end{DoxyCompactItemize}

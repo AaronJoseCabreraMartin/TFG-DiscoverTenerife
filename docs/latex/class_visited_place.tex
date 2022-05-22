@@ -1,0 +1,135 @@
+\hypertarget{class_visited_place}{}\doxysection{Visited\+Place Class Reference}
+\label{class_visited_place}\index{VisitedPlace@{VisitedPlace}}
+
+
+Class that stores the information of a visited place.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_visited_place_a427174391cc5b410a7179a9ebc0cd46b}{Visited\+Place}} (string type, int id, int times\+Visited, long last\+Visit\+Timestamp)
+\begin{DoxyCompactList}\small\item\em Constructor that simply set the given params as attributes of this object. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_visited_place_ab195a53daf6a470bc0147f6d5fc3cd85}{To\+Json}} ()
+\begin{DoxyCompactList}\small\item\em Converts this object in a string JSON formatted. ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_visited_place_a8e8c92ce546aa2b9216939a60c72acb2}{new\+Visit\+At}} (long time\+Of\+The\+Visit)
+\begin{DoxyCompactList}\small\item\em this method register a new visit for the represented place. It adds one new visit and change the last\+Visit\+Timestamp\+\_\+ to the given timestamp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_visited_place_a50210304db8e9aabc24a610184a9f5d9}{type\+\_\+}}
+\begin{DoxyCompactList}\small\item\em string that contains the type of the represented place. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_visited_place_a5aec268275c389d45f3b817ca51ffaed}{id\+\_\+}}
+\begin{DoxyCompactList}\small\item\em int that contains the id of the represented place. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_visited_place_a8943d402fb5d7796a9cc91786adaf164}{times\+Visited\+\_\+}}
+\begin{DoxyCompactList}\small\item\em int that contains the times that the current user has visited the represented place. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{class_visited_place_afb6659cd9ac966c92af843db8bd032fd}{last\+Visit\+Timestamp\+\_\+}}
+\begin{DoxyCompactList}\small\item\em long that contains the timestamp that the current user last visit to the represented place. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that stores the information of a visited place. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_visited_place_a427174391cc5b410a7179a9ebc0cd46b}\label{class_visited_place_a427174391cc5b410a7179a9ebc0cd46b}} 
+\index{VisitedPlace@{VisitedPlace}!VisitedPlace@{VisitedPlace}}
+\index{VisitedPlace@{VisitedPlace}!VisitedPlace@{VisitedPlace}}
+\doxysubsubsection{\texorpdfstring{VisitedPlace()}{VisitedPlace()}}
+{\footnotesize\ttfamily Visited\+Place.\+Visited\+Place (\begin{DoxyParamCaption}\item[{string}]{type,  }\item[{int}]{id,  }\item[{int}]{times\+Visited,  }\item[{long}]{last\+Visit\+Timestamp }\end{DoxyParamCaption})}
+
+
+
+Constructor that simply set the given params as attributes of this object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & type of the represented place. \\
+\hline
+{\em int} & id of the represented place. \\
+\hline
+{\em int} & times that the current user has visited the represented place. \\
+\hline
+{\em long} & timestamp of the last visit of the current user to the represented place. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_visited_place_a8e8c92ce546aa2b9216939a60c72acb2}\label{class_visited_place_a8e8c92ce546aa2b9216939a60c72acb2}} 
+\index{VisitedPlace@{VisitedPlace}!newVisitAt@{newVisitAt}}
+\index{newVisitAt@{newVisitAt}!VisitedPlace@{VisitedPlace}}
+\doxysubsubsection{\texorpdfstring{newVisitAt()}{newVisitAt()}}
+{\footnotesize\ttfamily void Visited\+Place.\+new\+Visit\+At (\begin{DoxyParamCaption}\item[{long}]{time\+Of\+The\+Visit }\end{DoxyParamCaption})}
+
+
+
+this method register a new visit for the represented place. It adds one new visit and change the last\+Visit\+Timestamp\+\_\+ to the given timestamp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em long} & timestamp of the visit \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_visited_place_ab195a53daf6a470bc0147f6d5fc3cd85}\label{class_visited_place_ab195a53daf6a470bc0147f6d5fc3cd85}} 
+\index{VisitedPlace@{VisitedPlace}!ToJson@{ToJson}}
+\index{ToJson@{ToJson}!VisitedPlace@{VisitedPlace}}
+\doxysubsubsection{\texorpdfstring{ToJson()}{ToJson()}}
+{\footnotesize\ttfamily string Visited\+Place.\+To\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Converts this object in a string JSON formatted. ~\newline
+ 
+
+\begin{DoxyReturn}{Returns}
+string that contains a JSON conversion of the current object. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_visited_place_a5aec268275c389d45f3b817ca51ffaed}\label{class_visited_place_a5aec268275c389d45f3b817ca51ffaed}} 
+\index{VisitedPlace@{VisitedPlace}!id\_@{id\_}}
+\index{id\_@{id\_}!VisitedPlace@{VisitedPlace}}
+\doxysubsubsection{\texorpdfstring{id\_}{id\_}}
+{\footnotesize\ttfamily int Visited\+Place.\+id\+\_\+}
+
+
+
+int that contains the id of the represented place. 
+
+\mbox{\Hypertarget{class_visited_place_afb6659cd9ac966c92af843db8bd032fd}\label{class_visited_place_afb6659cd9ac966c92af843db8bd032fd}} 
+\index{VisitedPlace@{VisitedPlace}!lastVisitTimestamp\_@{lastVisitTimestamp\_}}
+\index{lastVisitTimestamp\_@{lastVisitTimestamp\_}!VisitedPlace@{VisitedPlace}}
+\doxysubsubsection{\texorpdfstring{lastVisitTimestamp\_}{lastVisitTimestamp\_}}
+{\footnotesize\ttfamily long Visited\+Place.\+last\+Visit\+Timestamp\+\_\+}
+
+
+
+long that contains the timestamp that the current user last visit to the represented place. 
+
+\mbox{\Hypertarget{class_visited_place_a8943d402fb5d7796a9cc91786adaf164}\label{class_visited_place_a8943d402fb5d7796a9cc91786adaf164}} 
+\index{VisitedPlace@{VisitedPlace}!timesVisited\_@{timesVisited\_}}
+\index{timesVisited\_@{timesVisited\_}!VisitedPlace@{VisitedPlace}}
+\doxysubsubsection{\texorpdfstring{timesVisited\_}{timesVisited\_}}
+{\footnotesize\ttfamily int Visited\+Place.\+times\+Visited\+\_\+}
+
+
+
+int that contains the times that the current user has visited the represented place. 
+
+\mbox{\Hypertarget{class_visited_place_a50210304db8e9aabc24a610184a9f5d9}\label{class_visited_place_a50210304db8e9aabc24a610184a9f5d9}} 
+\index{VisitedPlace@{VisitedPlace}!type\_@{type\_}}
+\index{type\_@{type\_}!VisitedPlace@{VisitedPlace}}
+\doxysubsubsection{\texorpdfstring{type\_}{type\_}}
+{\footnotesize\ttfamily string Visited\+Place.\+type\+\_\+}
+
+
+
+string that contains the type of the represented place. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/\+Login/\mbox{\hyperlink{_visited_place_8cs}{Visited\+Place.\+cs}}\end{DoxyCompactItemize}

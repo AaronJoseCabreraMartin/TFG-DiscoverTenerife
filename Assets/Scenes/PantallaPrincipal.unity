@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5994978505105387654, guid: 04702f556fc2f7146830468f4680f859, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5994978505105387654, guid: 04702f556fc2f7146830468f4680f859, type: 3}
       propertyPath: m_AnchorMax.x
@@ -270,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2099174123423218069, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2099174123423218069, guid: ddaa26dc51f6db44fb273577d4f0e905, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1353,7 +1353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28.256, y: 484.67313}
+  m_AnchoredPosition: {x: -28.255, y: -623.69}
   m_SizeDelta: {x: 743.49, y: 174.8296}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &471010621
@@ -1624,6 +1624,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 471010620}
+  - {fileID: 669120567}
   - {fileID: 550311207}
   - {fileID: 1826378358}
   - {fileID: 875431168}
@@ -1674,7 +1675,7 @@ RectTransform:
   m_Children:
   - {fileID: 1952341460}
   m_Father: {fileID: 518149143}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1735,12 +1736,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27531ceca8b4d774eb40f69114d07e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_: {fileID: 471010619}
-  continueSlidingText_: Continue sliding down to confirm that you want to load more
-    places!
-  stopSlidingText_: Release to load more places!
+  loadMorePlacesText_: {fileID: 471010619}
+  resortPlacesText_: {fileID: 669120566}
+  continueSlidingForLoadText_: Continue sliding up to confirm that you want to load
+    more places!
+  stopSlidingForLoadText_: Release to load more places!
+  continueSlidingForResortText_: Continue sliding down to confirm that you want to
+    resort all places!
+  stopSlidingForResortText_: Release to sort again all places!
   maxLimit_: 1.027
   minLimit_: 1.00001
+  maxNegativeLimit_: -0.045
+  minNegativeLimit_: -0.012
 --- !u!222 &550311210
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1936,7 +1943,7 @@ RectTransform:
   - {fileID: 158276487}
   - {fileID: 230875477}
   m_Father: {fileID: 518149143}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2056,6 +2063,85 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_: {fileID: 230875476}
+--- !u!1 &669120566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 669120567}
+  - component: {fileID: 669120569}
+  - component: {fileID: 669120568}
+  m_Layer: 5
+  m_Name: ReOrderPlacesText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &669120567
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669120566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 518149143}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -28.256, y: 484.67313}
+  m_SizeDelta: {x: 743.49, y: 174.8296}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &669120568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669120566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Continue sliding down to sort again the places with your new ubication!
+--- !u!222 &669120569
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669120566}
+  m_CullTransparentMesh: 1
 --- !u!1 &722811023
 GameObject:
   m_ObjectHideFlags: 0
@@ -2255,7 +2341,7 @@ RectTransform:
   - {fileID: 984534889}
   - {fileID: 1756778365}
   m_Father: {fileID: 518149143}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2398,7 +2484,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 518149143}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3249,7 +3335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2801245488819927751, guid: 628b1d18699150549b488df69ce9ecdd, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2801245488819927751, guid: 628b1d18699150549b488df69ce9ecdd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3926,7 +4012,7 @@ Transform:
   - {fileID: 427014234}
   - {fileID: 1080291080}
   m_Father: {fileID: 518149143}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1683728666
 MonoBehaviour:
@@ -4062,7 +4148,7 @@ RectTransform:
   m_Children:
   - {fileID: 1164334883}
   m_Father: {fileID: 518149143}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -4216,8 +4302,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -19.544922, y: -4135}
-  m_SizeDelta: {x: -39.09, y: 8270}
+  m_AnchoredPosition: {x: -19.545, y: -4135}
+  m_SizeDelta: {x: -39.0901, y: 8270.001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1952341461
 MonoBehaviour:

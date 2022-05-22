@@ -29,9 +29,10 @@ var searchData=
   ['startindex_5f_26',['startIndex_',['../classrequest_handler.html#a96e38775c9047fac293dac39d3ae6cad',1,'requestHandler']]],
   ['starttimestamp_5f_27',['startTimestamp_',['../classchallenge_data.html#a70c39eb03d8d57fde9a232f29d686662',1,'challengeData']]],
   ['state_5f_28',['state_',['../class_search_bar.html#a3f0ae7fd16540604b20117a18a40ab71',1,'SearchBar']]],
-  ['stopslidingtext_5f_29',['stopSlidingText_',['../classscroll_rect_controller.html#a35782631fce21b36736a0fddc92748e2',1,'scrollRectController']]],
-  ['storedplaces_5f_30',['storedPlaces_',['../class_stored_places_controller.html#aa3229315905bf92eedf6a34e7393af0c',1,'StoredPlacesController']]],
-  ['storedplacescontrollerobject_5f_31',['StoredPlacesControllerObject_',['../class_stored_places_controller.html#a0b012d9adfe797840313a6c6aeba38db',1,'StoredPlacesController']]],
-  ['storedplacespanel_5f_32',['storedPlacesPanel_',['../class_stored_places_controller.html#a959ba1e99fbe2fb3195b3c1f1ae6e8ee',1,'StoredPlacesController']]],
-  ['storypanel_5f_33',['storyPanel_',['../classno_story_message.html#ad775e2ea160069fcf7c38b76af139e04',1,'noStoryMessage']]]
+  ['stopslidingforloadtext_5f_29',['stopSlidingForLoadText_',['../classscroll_rect_controller.html#a62c152ee4768e6027229f91d5317dbed',1,'scrollRectController']]],
+  ['stopslidingforresorttext_5f_30',['stopSlidingForResortText_',['../classscroll_rect_controller.html#a1168cae354b4e94c17183ef9e256d1c0',1,'scrollRectController']]],
+  ['storedplaces_5f_31',['storedPlaces_',['../class_stored_places_controller.html#aa3229315905bf92eedf6a34e7393af0c',1,'StoredPlacesController']]],
+  ['storedplacescontrollerobject_5f_32',['StoredPlacesControllerObject_',['../class_stored_places_controller.html#a0b012d9adfe797840313a6c6aeba38db',1,'StoredPlacesController']]],
+  ['storedplacespanel_5f_33',['storedPlacesPanel_',['../class_stored_places_controller.html#a959ba1e99fbe2fb3195b3c1f1ae6e8ee',1,'StoredPlacesController']]],
+  ['storypanel_5f_34',['storyPanel_',['../classno_story_message.html#ad775e2ea160069fcf7c38b76af139e04',1,'noStoryMessage']]]
 ];

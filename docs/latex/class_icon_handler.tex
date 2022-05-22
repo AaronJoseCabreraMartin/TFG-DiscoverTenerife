@@ -1,0 +1,104 @@
+\hypertarget{class_icon_handler}{}\doxysection{Icon\+Handler Class Reference}
+\label{class_icon_handler}\index{IconHandler@{IconHandler}}
+
+
+Stores all the icons that could change during a game session. For example the range icons. This class follows the singleton pattern so you could only have one instance of this class at the same time.  
+
+
+Inheritance diagram for Icon\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_icon_handler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Sprite \mbox{\hyperlink{class_icon_handler_ae810a4640336d63c16815cc5e57cc4ca}{get\+Sprite\+Of\+Range}} (string range\+Name)
+\begin{DoxyCompactList}\small\item\em This method returns the sprite associated with the given range, if the range name is invalid or there isnt any sprite for that range, it will return the no\+Range\+Icon\+Found sprite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_icon_handler}{Icon\+Handler}} \mbox{\hyperlink{class_icon_handler_a17f6797b4bd334194dcc38894f2be57b}{icon\+Handler\+Instance\+\_\+}} = null
+\begin{DoxyCompactList}\small\item\em Reference to the unique instance of this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_icon_handler_a73164f174120d3365cee9b433438138a}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em this method is called before the first frame, it checks if exits another \mbox{\hyperlink{class_icon_handler}{Icon\+Handler}} instance, on that case destroy this gameobject. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ Sprite $>$ \mbox{\hyperlink{class_icon_handler_aec9ed5a924490b4c564180e474f8b424}{all\+Ranges\+Images\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List that stores all the images of the icons asociated with each range. \end{DoxyCompactList}\item 
+Sprite \mbox{\hyperlink{class_icon_handler_af889ff6d548c004e4275503c582918e4}{no\+Range\+Icon\+Found\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Sprite with the icon that represent that a range icon wasnt found. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Stores all the icons that could change during a game session. For example the range icons. This class follows the singleton pattern so you could only have one instance of this class at the same time. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_icon_handler_a73164f174120d3365cee9b433438138a}\label{class_icon_handler_a73164f174120d3365cee9b433438138a}} 
+\index{IconHandler@{IconHandler}!Awake@{Awake}}
+\index{Awake@{Awake}!IconHandler@{IconHandler}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Icon\+Handler.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this method is called before the first frame, it checks if exits another \mbox{\hyperlink{class_icon_handler}{Icon\+Handler}} instance, on that case destroy this gameobject. 
+
+\mbox{\Hypertarget{class_icon_handler_ae810a4640336d63c16815cc5e57cc4ca}\label{class_icon_handler_ae810a4640336d63c16815cc5e57cc4ca}} 
+\index{IconHandler@{IconHandler}!getSpriteOfRange@{getSpriteOfRange}}
+\index{getSpriteOfRange@{getSpriteOfRange}!IconHandler@{IconHandler}}
+\doxysubsubsection{\texorpdfstring{getSpriteOfRange()}{getSpriteOfRange()}}
+{\footnotesize\ttfamily Sprite Icon\+Handler.\+get\+Sprite\+Of\+Range (\begin{DoxyParamCaption}\item[{string}]{range\+Name }\end{DoxyParamCaption})}
+
+
+
+This method returns the sprite associated with the given range, if the range name is invalid or there isnt any sprite for that range, it will return the no\+Range\+Icon\+Found sprite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & with the name of the range that you want to obtain the icon of. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_icon_handler_aec9ed5a924490b4c564180e474f8b424}\label{class_icon_handler_aec9ed5a924490b4c564180e474f8b424}} 
+\index{IconHandler@{IconHandler}!allRangesImages\_@{allRangesImages\_}}
+\index{allRangesImages\_@{allRangesImages\_}!IconHandler@{IconHandler}}
+\doxysubsubsection{\texorpdfstring{allRangesImages\_}{allRangesImages\_}}
+{\footnotesize\ttfamily List$<$Sprite$>$ Icon\+Handler.\+all\+Ranges\+Images\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List that stores all the images of the icons asociated with each range. 
+
+\mbox{\Hypertarget{class_icon_handler_a17f6797b4bd334194dcc38894f2be57b}\label{class_icon_handler_a17f6797b4bd334194dcc38894f2be57b}} 
+\index{IconHandler@{IconHandler}!iconHandlerInstance\_@{iconHandlerInstance\_}}
+\index{iconHandlerInstance\_@{iconHandlerInstance\_}!IconHandler@{IconHandler}}
+\doxysubsubsection{\texorpdfstring{iconHandlerInstance\_}{iconHandlerInstance\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_icon_handler}{Icon\+Handler}} Icon\+Handler.\+icon\+Handler\+Instance\+\_\+ = null\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Reference to the unique instance of this class. 
+
+\mbox{\Hypertarget{class_icon_handler_af889ff6d548c004e4275503c582918e4}\label{class_icon_handler_af889ff6d548c004e4275503c582918e4}} 
+\index{IconHandler@{IconHandler}!noRangeIconFound\_@{noRangeIconFound\_}}
+\index{noRangeIconFound\_@{noRangeIconFound\_}!IconHandler@{IconHandler}}
+\doxysubsubsection{\texorpdfstring{noRangeIconFound\_}{noRangeIconFound\_}}
+{\footnotesize\ttfamily Sprite Icon\+Handler.\+no\+Range\+Icon\+Found\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sprite with the icon that represent that a range icon wasnt found. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/\mbox{\hyperlink{_icon_handler_8cs}{Icon\+Handler.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,161 @@
+\hypertarget{class_search_bar}{}\doxysection{Search\+Bar Class Reference}
+\label{class_search_bar}\index{SearchBar@{SearchBar}}
+
+
+This class controls the search bar of the screen that allow the user find other users to send them a new friendship invitation.  
+
+
+Inheritance diagram for Search\+Bar\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_search_bar}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_search_bar_a25247902f80c5a6c9df84bb564c03214}{On\+Writing}} (string what\+Is\+Writing)
+\begin{DoxyCompactList}\small\item\em This method is called when the user is writing on the search bar input box, it sets the state\+\_\+ property to \char`\"{}waiting\char`\"{} value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_search_bar_a4fc81eb58deaea5c23dbddfe4c173e3b}{On\+End\+Writing}} (string searched\+Name)
+\begin{DoxyCompactList}\small\item\em This method is called when the user finish to write on the search bar input box, if there is no internet connection or the searched user is the current user or the searched user is currently a friend it sets the state\+\_\+ property to not\+Found. If there is internet connection and the user wrote something on the search bar it calls the Search\+Other\+User\+By\+Name method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_search_bar_a2589aaf0675597d84f4b2af0a004d333}{results\+Of\+The\+Search}} (Dictionary$<$ string, string $>$ result)
+\begin{DoxyCompactList}\small\item\em this method checks the result of the search and set the correct state if the result finished successfully, it calls the add\+Searched\+Friend\+To\+Panel method of the \mbox{\hyperlink{class_searched_friends_panel}{Searched\+Friends\+Panel}} class. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_search_bar_a10c186d32b981cd7b96db1ee8454c7f3}{get\+State}} ()
+\begin{DoxyCompactList}\small\item\em getter of the current state of the search. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_search_bar_abda687052d305384b7196f1edf8e44c4}{get\+Words\+To\+Search}} ()
+\begin{DoxyCompactList}\small\item\em Getter of the string that the user wrote on the search bar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_search_bar_a6719136ca96cfe03ae59f40bc40dfdd2}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em This method is called before the first frame, it sets the state\+\_\+ property to \char`\"{}waiting\char`\"{} value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_search_bar_a4392dac61c8edccfdb0d4a8908f43e87}{text\+\_\+}}
+\begin{DoxyCompactList}\small\item\em This should be a reference to the text of the input panel. \end{DoxyCompactList}\item 
+Game\+Object \mbox{\hyperlink{class_search_bar_af445d69448e35e0327863e3b2ab8dabe}{panel\+\_\+}}
+\begin{DoxyCompactList}\small\item\em This should be a reference to the panel that shows the results of the search. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_search_bar_a3f0ae7fd16540604b20117a18a40ab71}{state\+\_\+}}
+\begin{DoxyCompactList}\small\item\em This property controls the state of the search. It could be\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class controls the search bar of the screen that allow the user find other users to send them a new friendship invitation. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_search_bar_a6719136ca96cfe03ae59f40bc40dfdd2}\label{class_search_bar_a6719136ca96cfe03ae59f40bc40dfdd2}} 
+\index{SearchBar@{SearchBar}!Awake@{Awake}}
+\index{Awake@{Awake}!SearchBar@{SearchBar}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Search\+Bar.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called before the first frame, it sets the state\+\_\+ property to \char`\"{}waiting\char`\"{} value. 
+
+\mbox{\Hypertarget{class_search_bar_a10c186d32b981cd7b96db1ee8454c7f3}\label{class_search_bar_a10c186d32b981cd7b96db1ee8454c7f3}} 
+\index{SearchBar@{SearchBar}!getState@{getState}}
+\index{getState@{getState}!SearchBar@{SearchBar}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily string Search\+Bar.\+get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter of the current state of the search. 
+
+\begin{DoxyReturn}{Returns}
+string with the current state of the search. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_search_bar_abda687052d305384b7196f1edf8e44c4}\label{class_search_bar_abda687052d305384b7196f1edf8e44c4}} 
+\index{SearchBar@{SearchBar}!getWordsToSearch@{getWordsToSearch}}
+\index{getWordsToSearch@{getWordsToSearch}!SearchBar@{SearchBar}}
+\doxysubsubsection{\texorpdfstring{getWordsToSearch()}{getWordsToSearch()}}
+{\footnotesize\ttfamily string Search\+Bar.\+get\+Words\+To\+Search (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter of the string that the user wrote on the search bar. 
+
+\begin{DoxyReturn}{Returns}
+string with what the user wrote on the search bar. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_search_bar_a4fc81eb58deaea5c23dbddfe4c173e3b}\label{class_search_bar_a4fc81eb58deaea5c23dbddfe4c173e3b}} 
+\index{SearchBar@{SearchBar}!OnEndWriting@{OnEndWriting}}
+\index{OnEndWriting@{OnEndWriting}!SearchBar@{SearchBar}}
+\doxysubsubsection{\texorpdfstring{OnEndWriting()}{OnEndWriting()}}
+{\footnotesize\ttfamily void Search\+Bar.\+On\+End\+Writing (\begin{DoxyParamCaption}\item[{string}]{searched\+Name }\end{DoxyParamCaption})}
+
+
+
+This method is called when the user finish to write on the search bar input box, if there is no internet connection or the searched user is the current user or the searched user is currently a friend it sets the state\+\_\+ property to not\+Found. If there is internet connection and the user wrote something on the search bar it calls the Search\+Other\+User\+By\+Name method of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}}. 
+
+\mbox{\Hypertarget{class_search_bar_a25247902f80c5a6c9df84bb564c03214}\label{class_search_bar_a25247902f80c5a6c9df84bb564c03214}} 
+\index{SearchBar@{SearchBar}!OnWriting@{OnWriting}}
+\index{OnWriting@{OnWriting}!SearchBar@{SearchBar}}
+\doxysubsubsection{\texorpdfstring{OnWriting()}{OnWriting()}}
+{\footnotesize\ttfamily void Search\+Bar.\+On\+Writing (\begin{DoxyParamCaption}\item[{string}]{what\+Is\+Writing }\end{DoxyParamCaption})}
+
+
+
+This method is called when the user is writing on the search bar input box, it sets the state\+\_\+ property to \char`\"{}waiting\char`\"{} value. 
+
+\mbox{\Hypertarget{class_search_bar_a2589aaf0675597d84f4b2af0a004d333}\label{class_search_bar_a2589aaf0675597d84f4b2af0a004d333}} 
+\index{SearchBar@{SearchBar}!resultsOfTheSearch@{resultsOfTheSearch}}
+\index{resultsOfTheSearch@{resultsOfTheSearch}!SearchBar@{SearchBar}}
+\doxysubsubsection{\texorpdfstring{resultsOfTheSearch()}{resultsOfTheSearch()}}
+{\footnotesize\ttfamily void Search\+Bar.\+results\+Of\+The\+Search (\begin{DoxyParamCaption}\item[{Dictionary$<$ string, string $>$}]{result }\end{DoxyParamCaption})}
+
+
+
+this method checks the result of the search and set the correct state if the result finished successfully, it calls the add\+Searched\+Friend\+To\+Panel method of the \mbox{\hyperlink{class_searched_friends_panel}{Searched\+Friends\+Panel}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em List$<$\+Dictionary$<$string,string$>$$>$} & dictionary that contains the result of the search \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_search_bar_af445d69448e35e0327863e3b2ab8dabe}\label{class_search_bar_af445d69448e35e0327863e3b2ab8dabe}} 
+\index{SearchBar@{SearchBar}!panel\_@{panel\_}}
+\index{panel\_@{panel\_}!SearchBar@{SearchBar}}
+\doxysubsubsection{\texorpdfstring{panel\_}{panel\_}}
+{\footnotesize\ttfamily Game\+Object Search\+Bar.\+panel\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This should be a reference to the panel that shows the results of the search. 
+
+\mbox{\Hypertarget{class_search_bar_a3f0ae7fd16540604b20117a18a40ab71}\label{class_search_bar_a3f0ae7fd16540604b20117a18a40ab71}} 
+\index{SearchBar@{SearchBar}!state\_@{state\_}}
+\index{state\_@{state\_}!SearchBar@{SearchBar}}
+\doxysubsubsection{\texorpdfstring{state\_}{state\_}}
+{\footnotesize\ttfamily string Search\+Bar.\+state\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This property controls the state of the search. It could be\+: 
+
+
+\begin{DoxyItemize}
+\item waiting\+: That means that the search not even started.
+\item searching\+: That means that it is searching right now.
+\item not\+Found\+: That means that the search didnt found any results.
+\item found\+: That means that the search found some results. 
+\end{DoxyItemize}\mbox{\Hypertarget{class_search_bar_a4392dac61c8edccfdb0d4a8908f43e87}\label{class_search_bar_a4392dac61c8edccfdb0d4a8908f43e87}} 
+\index{SearchBar@{SearchBar}!text\_@{text\_}}
+\index{text\_@{text\_}!SearchBar@{SearchBar}}
+\doxysubsubsection{\texorpdfstring{text\_}{text\_}}
+{\footnotesize\ttfamily Game\+Object Search\+Bar.\+text\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This should be a reference to the text of the input panel. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/\+Find\+Friend\+Screen/\mbox{\hyperlink{_search_bar_8cs}{Search\+Bar.\+cs}}\end{DoxyCompactItemize}

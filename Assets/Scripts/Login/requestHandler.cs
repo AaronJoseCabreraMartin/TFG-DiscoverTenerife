@@ -117,7 +117,6 @@ public class requestHandler
             //si hubo un cambio en las opciones, pon el startIndex_ en el principio
             startIndex_ = 0;
             currentIndex_ = 0;
-            Debug.Log("Cambio en las opciones!");
         }
 
         Place toReturn = listOfPlaces_[sortedPlaceIndex_[currentIndex_]["type"]][sortedPlaceIndex_[currentIndex_]["id"]];

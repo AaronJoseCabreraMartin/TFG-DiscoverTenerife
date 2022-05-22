@@ -30,6 +30,7 @@ var searchData=
   ['requesthandler_2ecs_27',['requestHandler.cs',['../request_handler_8cs.html',1,'']]],
   ['requesthandler_5f_28',['requestHandler_',['../classfirebase_handler.html#aa72469a53537caef3bc8d7751cfead9b',1,'firebaseHandler']]],
   ['resetnewvisits_29',['resetNewVisits',['../class_place.html#a192a615637a749413d4c10de577b5fef',1,'Place']]],
-  ['resultofthesending_30',['resultOfTheSending',['../class_searched_player.html#ad0a743a0d3ef21d78651259a6a3e05fa',1,'SearchedPlayer']]],
-  ['resultsofthesearch_31',['resultsOfTheSearch',['../class_search_bar.html#a2589aaf0675597d84f4b2af0a004d333',1,'SearchBar']]]
+  ['resortplacestext_5f_30',['resortPlacesText_',['../classscroll_rect_controller.html#a539a71fd90a29e2362519e85ab24b00c',1,'scrollRectController']]],
+  ['resultofthesending_31',['resultOfTheSending',['../class_searched_player.html#ad0a743a0d3ef21d78651259a6a3e05fa',1,'SearchedPlayer']]],
+  ['resultsofthesearch_32',['resultsOfTheSearch',['../class_search_bar.html#a2589aaf0675597d84f4b2af0a004d333',1,'SearchBar']]]
 ];

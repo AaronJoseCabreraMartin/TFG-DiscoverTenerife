@@ -241,8 +241,6 @@ public partial class firebaseHandler : MonoBehaviour
 
             if(readyForUploadChanges && currentUser_.friendDataIsComplete() && currentUser_.anyUserHasToBeNotified() && !uploadingNotifications_){
                 string userThatHaveToBeNotified = currentUser_.nextFriendToBeNotified();
-                //Debug.Log($"userThatHaveToBeNotified = {userThatHaveToBeNotified}");
-                //Debug.Log($"getStringConversionOfNewAcceptedFriends = " + currentUser_.getFriendDataByUID(userThatHaveToBeNotified).getStringConversionOfNewAcceptedFriends() );
                 updateUserAddedAFriend(userThatHaveToBeNotified, 
                                         currentUser_.getFriendDataByUID(userThatHaveToBeNotified).getStringConversionOfNewAcceptedFriends());
             }
@@ -286,7 +284,7 @@ public partial class firebaseHandler : MonoBehaviour
             database = FirebaseDatabase.DefaultInstance.RootReference;
             firebaseDependenciesResolved = true;
             firebaseDependenciesRunning = false;
-            Debug.Log("Firebase Connected!!!");
+            //Debug.Log("Firebase Connected!!!");
             //ya habia una sesion iniciada antes!
             if(auth != null){
                 Debug.Log("YA HABIA UNA SESION INICIADA!! "+ (auth.CurrentUser.IsAnonymous ? "Anonymous" : auth.CurrentUser.DisplayName));
@@ -346,9 +344,7 @@ public partial class firebaseHandler : MonoBehaviour
                     Debug.LogError("UpdateUserProfileAsync encountered an error: " + task.Exception);
                     return;
                 }
-                Debug.Log("User profile updated successfully.");
                 
-                Debug.Log($"Firebase user created successfully: {newUser.DisplayName} ({ newUser.UserId})");
                 currentUser_ = new UserData(auth.CurrentUser);
                 
                 //writeUserData();
@@ -610,7 +606,6 @@ public partial class firebaseHandler : MonoBehaviour
                     if(displayNameTask.IsCompleted){
                         DataSnapshot snapshotDisplayName = displayNameTask.Result;
                         string displayNameConverted = JsonConvert.DeserializeObject<string>(snapshotDisplayName.GetRawJsonValue());
-                        Debug.Log($"uid = {uid}, displayNameConverted = {displayNameConverted}, toSearch = {toSearch}, index = {index}, valid = {displayNameConverted.Contains(toSearch)}");
                         //como esta dentro de un for, segun vaya encontrando los mandara a results of the search uno a uno
                         if(displayNameConverted.Contains(toSearch)){
                             encontrado = true;

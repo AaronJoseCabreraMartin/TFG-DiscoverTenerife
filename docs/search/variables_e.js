@@ -8,5 +8,6 @@ var searchData=
   ['rankingdata_5f_5',['rankingData_',['../classfirebase_handler.html#aa2ac5da9994c203a859bd86ff37c6dc9',1,'firebaseHandler']]],
   ['ready_5f_6',['ready_',['../class_place.html#a936cb0b0e0cbcd37f08a245f02690eb5',1,'Place']]],
   ['representedplace_5f_7',['representedPlace_',['../classstored_place_to_send.html#a129e45bd075c9d83a00ae10055fcde46',1,'storedPlaceToSend']]],
-  ['requesthandler_5f_8',['requestHandler_',['../classfirebase_handler.html#aa72469a53537caef3bc8d7751cfead9b',1,'firebaseHandler']]]
+  ['requesthandler_5f_8',['requestHandler_',['../classfirebase_handler.html#aa72469a53537caef3bc8d7751cfead9b',1,'firebaseHandler']]],
+  ['resortplacestext_5f_9',['resortPlacesText_',['../classscroll_rect_controller.html#a539a71fd90a29e2362519e85ab24b00c',1,'scrollRectController']]]
 ];

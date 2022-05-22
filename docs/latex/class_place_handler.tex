@@ -1,0 +1,189 @@
+\hypertarget{class_place_handler}{}\doxysection{Place\+Handler Class Reference}
+\label{class_place_handler}\index{PlaceHandler@{PlaceHandler}}
+
+
+This class handles an element of the site panel. It shows a loading gif animation when its downloading the image of the showed place.  
+
+
+Inheritance diagram for Place\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_place_handler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_place_handler_a91bcbd558167958b29e507f56e5f1166}{select\+Place}} ()
+\begin{DoxyCompactList}\small\item\em this method should be called when the user chose this place. It sets the chosen\+Place\+\_\+ static property as a reference to the place\+\_\+ property. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_place}{Place}} \mbox{\hyperlink{class_place_handler_a89a45715f04b1b97fe3ce957e338cc54}{chosen\+Place\+\_\+}} = null
+\begin{DoxyCompactList}\small\item\em stores a reference to the place chose by the user. It is a static property to allow conserve the information even when the user changes the scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_place_handler_a29004e90401dbc8c755a40a92e2e101b}{Awake}} ()
+\begin{DoxyCompactList}\small\item\em This method is called before the first frame, it initialices the static properties turn\+\_\+ as 0, and server\+Handler\+\_\+ as the firebase instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_place_handler_a229d97b6821f8cb20229d6d41c730eca}{Start}} ()
+\begin{DoxyCompactList}\small\item\em This method is called on the first frame, it initialices the place\+\_\+ property as null and the place\+Loaded\+\_\+ as false. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_place_handler_ad48d5bdc9a32b6ea893454667fb5d26c}{Update}} ()
+\begin{DoxyCompactList}\small\item\em This method is called once per frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_place_handler_a661d2968f4e8213acd946eee522d72c1}{load\+Place}} ()
+\item 
+bool \mbox{\hyperlink{class_place_handler_ac47e4d72518657d03560102f2647e6b5}{is\+My\+Turn}} ()
+\begin{DoxyCompactList}\small\item\em This method checks if its the turn of this place using this gameobject name and the turn\+\_\+ static property of \mbox{\hyperlink{class_place_handler}{Place\+Handler}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Animator \mbox{\hyperlink{class_place_handler_a1beea8bc02a534a839293f0f272ab771}{transition\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Animator that stores the loading gif. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_place}{Place}} \mbox{\hyperlink{class_place_handler_a8d1a76cac41ba2fe0b13b1c9623eba85}{place\+\_\+}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_place}{Place}} object that stores the place\textquotesingle{}s data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_place_handler_a5b0d2cee90ab3982037906f7b58c8314}{place\+Loaded\+\_\+}}
+\begin{DoxyCompactList}\small\item\em bool true if the place\+\_\+ has already downloaded the place\textquotesingle{}s photo \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} \mbox{\hyperlink{class_place_handler_a88a93d2cc509dea6a9b744f655d25d36}{server\+Handler\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Reference to the \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} object. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{class_place_handler_ae9f34a27fc2f463ffd3b8e5d60a3c623}{turn\+\_\+}} = 0
+\begin{DoxyCompactList}\small\item\em stores the index of the place that has to download the image at this moment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class handles an element of the site panel. It shows a loading gif animation when its downloading the image of the showed place. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_place_handler_a29004e90401dbc8c755a40a92e2e101b}\label{class_place_handler_a29004e90401dbc8c755a40a92e2e101b}} 
+\index{PlaceHandler@{PlaceHandler}!Awake@{Awake}}
+\index{Awake@{Awake}!PlaceHandler@{PlaceHandler}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily void Place\+Handler.\+Awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called before the first frame, it initialices the static properties turn\+\_\+ as 0, and server\+Handler\+\_\+ as the firebase instance. 
+
+\mbox{\Hypertarget{class_place_handler_ac47e4d72518657d03560102f2647e6b5}\label{class_place_handler_ac47e4d72518657d03560102f2647e6b5}} 
+\index{PlaceHandler@{PlaceHandler}!isMyTurn@{isMyTurn}}
+\index{isMyTurn@{isMyTurn}!PlaceHandler@{PlaceHandler}}
+\doxysubsubsection{\texorpdfstring{isMyTurn()}{isMyTurn()}}
+{\footnotesize\ttfamily bool Place\+Handler.\+is\+My\+Turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method checks if its the turn of this place using this gameobject name and the turn\+\_\+ static property of \mbox{\hyperlink{class_place_handler}{Place\+Handler}}. 
+
+\begin{DoxyReturn}{Returns}
+bool, true if its the turn of this place false in other case. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_place_handler_a661d2968f4e8213acd946eee522d72c1}\label{class_place_handler_a661d2968f4e8213acd946eee522d72c1}} 
+\index{PlaceHandler@{PlaceHandler}!loadPlace@{loadPlace}}
+\index{loadPlace@{loadPlace}!PlaceHandler@{PlaceHandler}}
+\doxysubsubsection{\texorpdfstring{loadPlace()}{loadPlace()}}
+{\footnotesize\ttfamily void Place\+Handler.\+load\+Place (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method should be called when the place is ready to be shown. It hides the loading gif and set the name and the image on this gameobject. It sets the place\+Loaded\+\_\+ to true. \mbox{\Hypertarget{class_place_handler_a91bcbd558167958b29e507f56e5f1166}\label{class_place_handler_a91bcbd558167958b29e507f56e5f1166}} 
+\index{PlaceHandler@{PlaceHandler}!selectPlace@{selectPlace}}
+\index{selectPlace@{selectPlace}!PlaceHandler@{PlaceHandler}}
+\doxysubsubsection{\texorpdfstring{selectPlace()}{selectPlace()}}
+{\footnotesize\ttfamily void Place\+Handler.\+select\+Place (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+this method should be called when the user chose this place. It sets the chosen\+Place\+\_\+ static property as a reference to the place\+\_\+ property. 
+
+\mbox{\Hypertarget{class_place_handler_a229d97b6821f8cb20229d6d41c730eca}\label{class_place_handler_a229d97b6821f8cb20229d6d41c730eca}} 
+\index{PlaceHandler@{PlaceHandler}!Start@{Start}}
+\index{Start@{Start}!PlaceHandler@{PlaceHandler}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Place\+Handler.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called on the first frame, it initialices the place\+\_\+ property as null and the place\+Loaded\+\_\+ as false. 
+
+\mbox{\Hypertarget{class_place_handler_ad48d5bdc9a32b6ea893454667fb5d26c}\label{class_place_handler_ad48d5bdc9a32b6ea893454667fb5d26c}} 
+\index{PlaceHandler@{PlaceHandler}!Update@{Update}}
+\index{Update@{Update}!PlaceHandler@{PlaceHandler}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Place\+Handler.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method is called once per frame. 
+
+
+\begin{DoxyItemize}
+\item It checks if the server\+Handler\+\_\+ static property is null, it that is the case it tries to get the firebase\+Handler\+Instance\+\_\+ static propert of \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}}.
+\item If the server\+Handler static property isnt null, and the place didnt load al ready, if its the turn of the current place, it starts the download and add 1 to the turn. And if the place has been selected but they are ready, it calls the load\+Place method. 
+\end{DoxyItemize}
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_place_handler_a89a45715f04b1b97fe3ce957e338cc54}\label{class_place_handler_a89a45715f04b1b97fe3ce957e338cc54}} 
+\index{PlaceHandler@{PlaceHandler}!chosenPlace\_@{chosenPlace\_}}
+\index{chosenPlace\_@{chosenPlace\_}!PlaceHandler@{PlaceHandler}}
+\doxysubsubsection{\texorpdfstring{chosenPlace\_}{chosenPlace\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_place}{Place}} Place\+Handler.\+chosen\+Place\+\_\+ = null\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+stores a reference to the place chose by the user. It is a static property to allow conserve the information even when the user changes the scene. 
+
+\mbox{\Hypertarget{class_place_handler_a8d1a76cac41ba2fe0b13b1c9623eba85}\label{class_place_handler_a8d1a76cac41ba2fe0b13b1c9623eba85}} 
+\index{PlaceHandler@{PlaceHandler}!place\_@{place\_}}
+\index{place\_@{place\_}!PlaceHandler@{PlaceHandler}}
+\doxysubsubsection{\texorpdfstring{place\_}{place\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_place}{Place}} Place\+Handler.\+place\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{class_place}{Place}} object that stores the place\textquotesingle{}s data. 
+
+\mbox{\Hypertarget{class_place_handler_a5b0d2cee90ab3982037906f7b58c8314}\label{class_place_handler_a5b0d2cee90ab3982037906f7b58c8314}} 
+\index{PlaceHandler@{PlaceHandler}!placeLoaded\_@{placeLoaded\_}}
+\index{placeLoaded\_@{placeLoaded\_}!PlaceHandler@{PlaceHandler}}
+\doxysubsubsection{\texorpdfstring{placeLoaded\_}{placeLoaded\_}}
+{\footnotesize\ttfamily bool Place\+Handler.\+place\+Loaded\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+bool true if the place\+\_\+ has already downloaded the place\textquotesingle{}s photo 
+
+\mbox{\Hypertarget{class_place_handler_a88a93d2cc509dea6a9b744f655d25d36}\label{class_place_handler_a88a93d2cc509dea6a9b744f655d25d36}} 
+\index{PlaceHandler@{PlaceHandler}!serverHandler\_@{serverHandler\_}}
+\index{serverHandler\_@{serverHandler\_}!PlaceHandler@{PlaceHandler}}
+\doxysubsubsection{\texorpdfstring{serverHandler\_}{serverHandler\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} Place\+Handler.\+server\+Handler\+\_\+\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Reference to the \mbox{\hyperlink{classfirebase_handler}{firebase\+Handler}} object. 
+
+\mbox{\Hypertarget{class_place_handler_a1beea8bc02a534a839293f0f272ab771}\label{class_place_handler_a1beea8bc02a534a839293f0f272ab771}} 
+\index{PlaceHandler@{PlaceHandler}!transition\_@{transition\_}}
+\index{transition\_@{transition\_}!PlaceHandler@{PlaceHandler}}
+\doxysubsubsection{\texorpdfstring{transition\_}{transition\_}}
+{\footnotesize\ttfamily Animator Place\+Handler.\+transition\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Animator that stores the loading gif. 
+
+\mbox{\Hypertarget{class_place_handler_ae9f34a27fc2f463ffd3b8e5d60a3c623}\label{class_place_handler_ae9f34a27fc2f463ffd3b8e5d60a3c623}} 
+\index{PlaceHandler@{PlaceHandler}!turn\_@{turn\_}}
+\index{turn\_@{turn\_}!PlaceHandler@{PlaceHandler}}
+\doxysubsubsection{\texorpdfstring{turn\_}{turn\_}}
+{\footnotesize\ttfamily int Place\+Handler.\+turn\+\_\+ = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+stores the index of the place that has to download the image at this moment. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Scripts/\+Main\+Screen/\mbox{\hyperlink{_place_handler_8cs}{Place\+Handler.\+cs}}\end{DoxyCompactItemize}

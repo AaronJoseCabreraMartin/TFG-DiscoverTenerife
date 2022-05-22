@@ -10,21 +10,41 @@ using UnityEngine.UI;
 public class scrollRectController : MonoBehaviour
 {
     /**
-      * @brief GameObject that contains the text that will show the instructions for the user.
+      * @brief GameObject that contains the text that will show the instructions for 
+      * load more places to the user.
       */
-    [SerializeField] private GameObject text_;
+    [SerializeField] private GameObject loadMorePlacesText_;
+
+    /**
+      * @brief GameObject that contains the text that will show the instructions for
+      * resort places to the user.
+      */
+    [SerializeField] private GameObject resortPlacesText_;
 
     /**
       * @brief string that contains the default text for saying to user that he has to continue
-      * sliding down to confirm the action of loading more places.
+      * sliding up to confirm the action of loading more places.
       */
-    [SerializeField] private string continueSlidingText_ = "Continue sliding down to confirm that you want to load more places!";
+    [SerializeField] private string continueSlidingForLoadText_ = "Continue sliding up to confirm that you want to load more places!";
 
     /**
       * @brief string that contains the default text for saying to user that he has to release
       * to load more places.
       */
-    [SerializeField] private string stopSlidingText_ = "Release to load more places!";
+    [SerializeField] private string stopSlidingForLoadText_ = "Release to load more places!";
+
+    /**
+      * @brief string that contains the default text for saying to user that they have to continue
+      * sliding down to confirm the action of sorting all places.
+      */
+    [SerializeField] private string continueSlidingForResortText_ = "Continue sliding down to confirm that you want to resort all places!";
+
+    /**
+      * @brief string that contains the default text for saying to user that they have to release
+      * to sort again all places.
+      */
+    [SerializeField] private string stopSlidingForResortText_ = "Release to sort again all places!";
+
 
     /**
       * @brief double that contains the point where if the user slide down more, will
@@ -42,20 +62,24 @@ public class scrollRectController : MonoBehaviour
       * @brief double that contains the point where if the user slide up more, will
       * activate the loading more places process.
       */
-    [SerializeField] private double maxNegativeLimit_ = -0.005;
-
+    [SerializeField] private double maxNegativeLimit_ = -0.045;
+    
     /**
       * @brief double that contains the point where the user, after sliding up enough,
       * will fire the loading more places process.
       */
-    [SerializeField] private double minNegativeLimit_ = -0.00000001;
+    [SerializeField] private double minNegativeLimit_ = -0.012;
+
+    /**
+      * @brief true if the user has passed the point where the resorting places
+      * process start.
+      */
+    private bool alreadyAskedForResortPlaces = false;
 
     /**
       * @brief true if the user has passed the point where the loading more places
       * process start.
       */
-    private bool alreadyAskedForNewPlaces_ = false;
-
     private bool alreadyAskedForNewPlacesDown_ = false;
 
     /**
@@ -68,25 +92,27 @@ public class scrollRectController : MonoBehaviour
       */
     public void OnUserScroll(Vector2 value){
         //sliding down
-        if(value[1] > maxLimit_ && !alreadyAskedForNewPlaces_){
-            alreadyAskedForNewPlaces_ = true;
-        }else if(value[1] < minLimit_ && alreadyAskedForNewPlaces_){
+        if(value[1] > maxLimit_ && !alreadyAskedForResortPlaces){
+            alreadyAskedForResortPlaces = true;
+        }else if(value[1] < minLimit_ && alreadyAskedForResortPlaces){
+            alreadyAskedForResortPlaces = false;
+            firebaseHandler.firebaseHandlerInstance_.requestHandler_.sortPlaces();
+            firebaseHandler.firebaseHandlerInstance_.requestHandler_.useStartIndex();
             firebaseHandler.firebaseHandlerInstance_.askForNewPlaces();
-            alreadyAskedForNewPlaces_ = false;
             GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation("PantallaPrincipal");
         }
 
-        /*Debug.Log($"value[1] = {value[1]}, maxNegativeLimit_ = {maxNegativeLimit_}, minNegativeLimit_ = {minNegativeLimit_}, alreadyAskedForNewPlaces_ = {alreadyAskedForNewPlaces_}");
-        //sliding up
-        if(value[1] > maxNegativeLimit_ && !alreadyAskedForNewPlaces_){
+        //sliding up value[1] = -0,0495233, maxNegativeLimit_ = 0,012, minNegativeLimit_ = -0,045, alreadyAskedForNewPlacesDown_ = True
+        if(value[1] < maxNegativeLimit_ && !alreadyAskedForNewPlacesDown_){
             alreadyAskedForNewPlacesDown_ = true;
-        }else if(value[1] < minNegativeLimit_ && alreadyAskedForNewPlacesDown_){
+        }else if(value[1] > minNegativeLimit_ && alreadyAskedForNewPlacesDown_){
             firebaseHandler.firebaseHandlerInstance_.askForNewPlaces();
             alreadyAskedForNewPlacesDown_ = false;
             GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation("PantallaPrincipal");
-        }*/
+        }
 
-        //si ya pase del maximo, pon stopSlidingText_, si no, pon el continueSlidingText_
-        text_.GetComponent<Text>().text = (alreadyAskedForNewPlaces_ ? stopSlidingText_ : continueSlidingText_);
+        //si ya pase del maximo, pon stopSlidingForLoadText_, si no, pon el continueSlidingForLoadText_
+        loadMorePlacesText_.GetComponent<Text>().text = (alreadyAskedForNewPlacesDown_ ? stopSlidingForLoadText_ : continueSlidingForLoadText_);
+        resortPlacesText_.GetComponent<Text>().text = (alreadyAskedForResortPlaces ? stopSlidingForResortText_ : continueSlidingForResortText_);
     }
 }

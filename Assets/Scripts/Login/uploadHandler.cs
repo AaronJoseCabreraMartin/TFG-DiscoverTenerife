@@ -41,7 +41,7 @@ public partial class firebaseHandler{
                         //si las visitas locales se suben, debo empezar a contar de 0 las visitas que tengo que subir
                         place.resetNewVisits();
                     }else{
-                        Debug.Log("writePlaceData fallo!");
+                        Debug.LogError("writePlaceData fallo!");
                         if(placesToUpdateQueue_ == null){
                             placesToUpdateQueue_ = new List<Dictionary<string, string>>();
                         }
@@ -49,7 +49,7 @@ public partial class firebaseHandler{
                     }
                 },TaskScheduler.FromCurrentSynchronizationContext());
              }else{
-                Debug.Log("writePlaceData fallo!");
+                Debug.LogError("writePlaceData fallo!");
                 if(placesToUpdateQueue_ == null){
                     placesToUpdateQueue_ = new List<Dictionary<string, string>>();
                 }
@@ -99,10 +99,7 @@ public partial class firebaseHandler{
                     //TIENE que haber internet, sino no dejo hacer nada en friends
                     database.Child($"users/{noFriendUid}/deletedFriends_").SetRawJsonValueAsync(JsonConvert.SerializeObject(cloudVersion));
                 }
-            }else{
-                Debug.Log("updateUserDeleteAFriend fallo");
             }
-
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
 
@@ -119,7 +116,6 @@ public partial class firebaseHandler{
                 List<Dictionary<string,string>> cloudVersion = propertySnapshot.GetRawJsonValue() == null ?
                                                 new List<Dictionary<string,string>>() : 
                                                 JsonConvert.DeserializeObject<List<Dictionary<string,string>>>(propertySnapshot.GetRawJsonValue());
-                Debug.Log("uploadFriendChallengesOf cloudVersion antes: "+ cloudVersion.Count);
 
                 //si no tenia un challenge de este usuario, le añado el nuevo challenge y lo subo
                 if(cloudVersion.FindIndex(challenge => challenge["challengerId_"] == currentUser_.getUid()) == -1){
@@ -127,11 +123,6 @@ public partial class firebaseHandler{
                     database.Child($"users/{friendDataToUpload.getUid()}/challenges_")
                             .SetRawJsonValueAsync(JsonConvert.SerializeObject(cloudVersion));
                 }
-
-                Debug.Log("uploadFriendChallengesOf cloudVersion despues: "+ cloudVersion.Count);
-                
-            }else{
-                Debug.Log("uploadFriendChallengesOf fallo");
             }
         },TaskScheduler.FromCurrentSynchronizationContext());
     }
@@ -252,7 +243,7 @@ public partial class firebaseHandler{
         FirebaseDatabase.DefaultInstance.GetReference($"users/{uid}/earnedScore_").GetValueAsync().ContinueWith(earnedScoreTask => {
              if (earnedScoreTask.IsFaulted) {
                 // Handle the error...
-                Debug.Log("Error: "+earnedScoreTask.Exception);
+                Debug.LogError("Error: "+earnedScoreTask.Exception);
                 Dictionary<string,string> toUpload = new Dictionary<string,string>();
                 toUpload["uid_"] = uid;
                 toUpload["score_"] = score;
@@ -338,7 +329,7 @@ public partial class firebaseHandler{
         */
         FirebaseDatabase.DefaultInstance.GetReference($"users/{userId}/{property}").GetValueAsync().ContinueWith(propertyTask => {    
             if (propertyTask.IsFaulted || propertyTask.IsCanceled) {
-                Debug.Log($"Fallo al descargar la informacion del atributo {property} del usuario {userId} : "+propertyTask.Exception);
+                Debug.LogError($"Fallo al descargar la informacion del atributo {property} del usuario {userId} : "+propertyTask.Exception);
             }else if(propertyTask.IsCompleted){
                 DataSnapshot snapshotProperty = propertyTask.Result;
                 if(property == "challenges_"){
@@ -348,11 +339,11 @@ public partial class firebaseHandler{
                 }else if(property == "acceptedFriendsInvitations_"){
                     writeFriendAcceptedFriendsInvitations(userId, json, snapshotProperty.GetRawJsonValue());
                 //}else if(property == "earnedScore_"){
-                //    Debug.Log("Para earnedScore_ tenemos el metodo uploadOtherUserScores que tiene en cuenta todo!");
+                //    Debug.LogError("Para earnedScore_ tenemos el metodo uploadOtherUserScores que tiene en cuenta todo!");
                 //}else if(property == "friendsInvitations_"){
-                //    Debug.Log("Para friendsInvitations tenemos el metodo sendFriendshipInvitation que tiene en cuenta todo!");
+                //    Debug.LogError("Para friendsInvitations tenemos el metodo sendFriendshipInvitation que tiene en cuenta todo!");
                 }else{
-                    Debug.Log("Property desconocida en writeFriendProperty de uploadHandler: " + property);
+                    Debug.LogError("Property desconocida en writeFriendProperty de uploadHandler: " + property);
                 }
             }
         },TaskScheduler.FromCurrentSynchronizationContext());
@@ -495,7 +486,6 @@ public partial class firebaseHandler{
       * currentUserPropertiesToUpload_ again.
       */
     public void writeSafeProperties(string property, string json){
-        Debug.Log($"writeSafeProperties({property}) = {json}");
         database.Child($"users/{currentUser_.getUid()}/{property}").SetRawJsonValueAsync(json).ContinueWith(taskUploadUserData =>{
             //si la subida falla y la propiedad NO esta ya en la cola, ponla de nuevo en la cola
             if(!taskUploadUserData.IsCompleted && currentUserPropertiesToUpload_.FindIndex(prop => prop == property) == -1){
@@ -512,7 +502,6 @@ public partial class firebaseHandler{
       * uploading it adds again the property to the currentUserPropertiesToUpload_ list.
       */
     public void writeUnsafeProperty(string property, string json){
-        Debug.Log($"writeUnsafeProperties({property}) = {json}");
         /*
         Propiedades que podrían dar problemas:
             "friendsInvitations_", 
@@ -598,8 +587,6 @@ public partial class firebaseHandler{
                                 currentUser_.deletedChallenges_.Clear();
                             }
                         },TaskScheduler.FromCurrentSynchronizationContext());
-                    }else{
-                        Debug.Log("Nothing to update in challenges_");
                     }
 
                 }else if(property == "acceptedFriendsInvitations_"){
@@ -649,7 +636,7 @@ public partial class firebaseHandler{
                     }
 
                 }else{
-                    Debug.Log($"property desconocida en writeUnsafeProperty: {property}");
+                    Debug.LogError($"property desconocida en writeUnsafeProperty: {property}");
                 }
             }
         },TaskScheduler.FromCurrentSynchronizationContext());
