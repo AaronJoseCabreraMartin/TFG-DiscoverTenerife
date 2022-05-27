@@ -8,7 +8,8 @@
   </nav>
   <!--ESTE SE EJECUTA CON NPM RUN SERVE
     App.vue son los elementos que tendran todas las paginas que cuelgen de nuestra
-   pagina web y routerview sera sustituido por las vistas que le digamos en el router/index.js-->
+   pagina web y routerview sera sustituido por las vistas que le digamos en el router/index.js
+   -->
   <router-view/>
 </template>
 

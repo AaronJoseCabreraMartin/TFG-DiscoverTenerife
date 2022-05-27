@@ -18,7 +18,8 @@ public class goBackButton : MonoBehaviour{
       * property string.
       */
     public void OnClick(){
-        ChangeScene.changeScene(NombrePantalla_);
+        //ChangeScene.changeScene(NombrePantalla_);
+        changeSceneWithAnimation();
     }
 
     /**
@@ -27,7 +28,7 @@ public class goBackButton : MonoBehaviour{
       * NombrePantalla_ property string.
       */
     public void changeSceneWithAnimation(){
-        GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation(NombrePantalla_);
+        GameObject.FindGameObjectsWithTag("sceneManager")[0].GetComponent<ChangeScene>().changeSceneWithAnimation(NombrePantalla_, 0.5f, "");
     }
 
     /**
@@ -36,7 +37,8 @@ public class goBackButton : MonoBehaviour{
       */
     void Update(){
       if (Application.platform == RuntimePlatform.Android && Input.GetKey(KeyCode.Escape)){
-        OnClick();
+        //OnClick();
+        changeSceneWithAnimation();
       }
     }
 }

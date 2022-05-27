@@ -211,9 +211,12 @@ public class gpsController : MonoBehaviour
             }
         }else{
             gpsIsRunning_ = false;
-            latitude_ = defaultLatitude_;
-            longitude_ = defaultLongitude_;
-            altitude_ = defaultAltitude_;
+            //Creo que es mejor que se quede en la ultima coordenada que pillo bien,
+            //si no ha pillado ninguna, se queda con la default
+            //latitude_ = defaultLatitude_;
+            //longitude_ = defaultLongitude_;
+            //altitude_ = defaultAltitude_;
+            
         }
         
         #if DEBUG

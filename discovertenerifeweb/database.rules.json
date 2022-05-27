@@ -1,0 +1,72 @@
+{
+  "rules": {
+    "places": {
+      ".read": "auth!==null",
+      "$typeOfPlace": {
+        "$index": {
+          "timesItHasBeenVisited_": {
+            ".write": "auth!==null"
+          }
+        }
+      }
+    },
+    "users": {
+      "$uid": {
+        ".write": "$uid===auth.uid",
+        ".read": "$uid===auth.uid",
+        "score_": {
+          ".read": "auth!==null",
+          ".write": "$uid===auth.uid"
+        },
+        "earnedScore_": {
+          ".read": "auth!==null",
+          ".write": "auth!==null"
+        },
+        "baseCords_": {
+          ".read": "$uid===auth.uid",
+          ".write": "$uid===auth.uid"
+        },
+        "friends_": {
+          ".read": "$uid===auth.uid",
+          ".write": "$uid===auth.uid"
+        },
+        "friendsInvitations_": {
+          ".read": "auth!==null",
+          ".write": "auth!==null"
+        },
+        "acceptedFriendsInvitations_": {
+          ".read": "auth!==null",
+          ".write": "auth!==null"
+        },
+        "deletedFriends_": {
+          ".read": "auth!==null",
+          ".write": "auth!==null"
+        },
+        "displayName_": {
+          ".read": "auth!==null",
+          ".write": "$uid===auth.uid"
+        },
+        "visitedPlaces_": {
+          ".read": "$uid===auth.uid",
+          ".write": "$uid===auth.uid"
+        },
+        "challenges_": {
+          ".read": "auth!==null",
+          ".write": "auth!==null"
+        }
+      },
+      "usersThatAllowFriendshipInvitations": {
+        ".read": "auth!==null",
+        ".write": "auth!==null"
+      },
+      "usersThatAllowBeChallenged": {
+        ".read": "auth!==null",
+        ".write": "auth!==null"
+      },
+      "usersThatAllowAppearedOnRanking": {
+        ".read": "auth!==null",
+        ".write": "auth!==null"
+      }
+    }
+  }
+}

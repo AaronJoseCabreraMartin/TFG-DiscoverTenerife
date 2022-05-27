@@ -5,14 +5,16 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "start": "vue-cli-service serve"
+    "start": "vue-cli-service serve",
+    "deploy": "npm run build && npx firebase deploy"
   },
   "dependencies": {
     "core-js": "^3.8.3",
     "firebase": "^9.8.1-20220509172230",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
-    "vuefire": "^3.0.0-alpha.2"
+    "vuefire": "^3.0.0-alpha.2",
+    "firebase-tools": "^10.7.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",

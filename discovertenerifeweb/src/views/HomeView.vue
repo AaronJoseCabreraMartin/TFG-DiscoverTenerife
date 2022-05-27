@@ -17,6 +17,10 @@
             src='https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1rSJFF9Nfca_R0dF-w-KhMR8tffNppb1G%2Fview&chs=180x180&choe=UTF-8&chld=L|2'
             alt=''></a>
       </p>
+      <p>
+        <i><b>Nota</b>: Para instalar la aplicación probablemente tendrá que activar la instalación de aplicaciones de origen desconocidos.<br/>
+        Por favor, recuerde <b>desactivar</b> esta opción tras la instalación de la app.</i> 
+      </p>
     </div>
   </div>
 </template>
