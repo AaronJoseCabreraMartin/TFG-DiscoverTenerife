@@ -20,7 +20,7 @@ public class ReporABugButton : MonoBehaviour
     /**
       * @brief string that stores the email's body.
       */
-    [SerializeField] private string body = "Please describe what happened.\nAdding a screenshot of the situation will be helpfully.\n";
+    [SerializeField] private string body = "Please describe what happened.\nAdding a screenshot of the situation will be helpful.\n";
 
     /**
       * @brief This method open the user's default mail aplication with the defined email, subject and body.

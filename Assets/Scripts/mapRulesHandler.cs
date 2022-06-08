@@ -91,8 +91,6 @@ public class mapRulesHandler
             longitude < -16.11673 && longitude > -16.93788 ){
             return "South";
         }
-
-        Debug.Log($"{latitude}, {longitude} no esta en ninguno");
         return $"Can't Find Zone of: {latitude}, {longitude}";
     }
 }

@@ -1,0 +1,70 @@
+En esta sección se explicarán las diferentes tecnologías o herramientas que se han barajado como opciones a la hora de desarrollar el proyecto. Además, se concretará con qué tecnologías o herramientas se ha llevado a cabo finalmente el desarrollo del proyecto.
+
+\section{Lenguaje de programación}
+Hoy en día, cada vez más aplicaciones de Android se desarrollan en Kotlin\footnote{\textbf{Kotlin}: es un lenguaje de programación de tipado estático que corre sobre la máquina virtual de Java y que también puede ser compilado a código fuente de JavaScript.}, con lo cual, poco a poco le está quitando terreno al anterior líder del sector Java\footnote{\textbf{Java}: Es un lenguaje de programación, la principal característica de Java es que es compilado a bytecode y luego, es ejecutado interpretándose en una máquina virtual, con lo cual, los programas Java únicamente se compilan una vez, aunque estos se ejecuten en diferentes sistemas.}\cite{kotlinPreferidoPorGoogle}. Los siguientes lenguajes más utilizados son JavaScript\footnote{\textbf{JavaScript}: es un lenguaje de programación interpretado. Se define como orientado a objetos, basado en prototipos, imperativo, débilmente tipado y dinámico. Se utiliza principalmente en navegadores web, permite mejoras en la interfaz de usuario y páginas web dinámicas.} y C\#\footnote{\textbf{C\#}: es un lenguaje de programación multiparadigma desarrollado y estandarizado por la empresa Microsoft como parte de su plataforma .NET}. A continuación se compararán los beneficios y defectos de cada uno de los lenguajes.
+
+\begin{itemize}
+
+    \item \textbf{Kotlin}: De sintaxis sencilla y moderna, se ejecuta en una máquina virtual de Java\footnote{\textbf{Máquina virtual de Java}: Es una máquina virtual ejecutable en una plataforma específica, capaz de interpretar y ejecutar instrucciones expresadas en el bytecode Java, el cual es generado por el compilador del lenguaje Java.}, con lo que permite que los programas se ejecuten en cualquier plataforma que posea esta máquina virtual.
+    \begin{itemize}
+        \item Ventajas: Multiplataforma.
+        \item Desventajas: Carezco de experiencia en Kotlin.
+    \end{itemize}
+    
+    \item \textbf{Java}: Algo más complejo que Kotlin, pero al igual que Kotlin, se ejecuta en una máquina virtual de Java.
+    \begin{itemize}
+        \item Ventajas: Multiplataforma.
+        \item Desventajas: Carezco de experiencia en Java.
+    \end{itemize}
+    
+    \item \textbf{JavaScript}: Potente lenguaje ampliamente utilizado en páginas web, puede usarse para crear apps en Android utilizando React Native\footnote{\textbf{React Native}: Es un proyecto de código abierto especializado en la creación de interfases de usuario. Esta plataforma permite desarrollar aplicaciones para los principales sistemas operativos, tanto móviles como de sobremesa, utilizando el entorno de desarrollo de React con las compatibilidades nativas del sistema.}.
+    \begin{itemize}
+        \item Ventajas: Multiplataforma, poseo experiencia en JavaScript. 
+        \item Desventajas:
+    \end{itemize}
+    
+    \item \textbf{C\#}: Permite crear aplicaciones multiplataformas, el mismo código se puede exportar para iOS, Android y Windows.
+    \begin{itemize}
+        \item Ventajas: Multiplataforma, poseo experiencia en C\#. 
+        \item Desventajas:
+    \end{itemize}
+
+\end{itemize}
+
+\section{Entorno de desarrollo}
+Para elegir el entorno de desarrollo se han comparado los siguientes frameworks:
+
+\begin{itemize}
+\item \textbf{Unity}: pese a ser un motor de desarrollo de videojuegos, presenta utilidades y herramientas que facilitan el desarrollo de una app de estas características, como pueden ser la facilidad para exportar el proyecto a diferentes plataformas.
+
+\item \textbf{Android Studio}: es el entorno de desarrollo integrado oficial para la plataforma Android. Fue creado específicamente para crear aplicaciones en Android.
+
+\item \textbf{Microsoft Visual Studio}: es compatible con múltiples lenguajes de programación, permite a los desarrolladores crear sitios y aplicaciones web, así como servicios web en cualquier entorno compatible con la plataforma .NET.
+
+\item \textbf{Visual Studio Code}: es un editor de código fuente desarrollado por Microsoft. Incluye soporte para la depuración, control integrado de Git, resaltado de sintaxis, finalización inteligente de código, fragmentos y refactorización de código.
+\end{itemize}
+
+\section{Plataforma para el backend}
+En cuanto al backend se han valorado las siguientes opciones:
+
+\begin{itemize}
+\item \textbf{Firebase}: es una plataforma para el desarrollo de aplicaciones web y aplicaciones móviles, está alojada en la nube y permite a los desarrolladores: sincronizar fácilmente datos de usuarios, usar herramientas multiplataformas, usar la infraestructura de Google, la cual, escala automáticamente, autentificación de usuarios, almacenamiento en la nube, etc. Todas estas ventajas abstraen al desarrollador de la parte compleja del desarrollo de un servidor. Es gratuito hasta cierto límite de usuarios.
+
+\item \textbf{Heroku}: es una plataforma de computación en la nube que soporta distintos lenguajes de programación. Para usarlo, habría que elegir JavaScript como lenguaje de programación porque no es compatible con C\#. 
+\end{itemize}
+
+\section{Elección final del entorno de desarrollo}
+Finalmente, para el desarrollo del grueso del proyecto, se ha decidido utilizar las siguientes herramientas:
+\begin{itemize}
+\item \textbf{Lenguaje de programación}: C\#.
+\item \textbf{Entorno de desarrollo}: Unity y Visual Studio Code.
+\item \textbf{Backend}: Firebase.
+\item \textbf{Control de versiones}: Git\footnote{\textbf{Git}: es un software de control de versiones pensando en la eficiencia, la confiabilidad y compatibilidad del mantenimiento de versiones de aplicaciones. Su propósito es llevar registro de los cambios en archivos, incluyendo coordinar el trabajo que varias personas realizan sobre archivos compartidos en un repositorio de código.} y Github\footnote{\textbf{GitHub}: es una plataforma de desarrollo colaborativo para alojar proyectos utilizando el sistema de control de versiones Git. Se utiliza principalmente para la creación de código fuente de programas de ordenador.}.
+\end{itemize}
+Principalmente, se han elegido esas herramientas porque resultan adecuadas para el desarrollo del proyecto y además he trabajado previamente en ellas.
+
+Cabe destacar que para la creación del web scraper se ha utilizado Python\footnote{\textbf{Python}: es un lenguaje de programación interpretado cuya filosofía hace hincapié en la legibilidad de su código. Es un lenguaje interpretado, dinámico, orientado a objetos y multiplataforma.} y la librería Selenium\footnote{\textbf{Selenium}: es un entorno de pruebas de software para aplicaciones basadas en la web. Permite automatizar pruebas para comprobar la interfaz de usuario de una página web.}. También se ha utilizado Python para generar un script que señala los lugares de interés repetidos para su posterior tratamiento manual y JavaScript para añadir a los puntos de interés qué zona de la isla de Tenerife pertenecen, ya que esto se hizo a posterior de tener la información de todos los puntos de interés.
+
+\section{Elección de herramientas para generar la documentación}
+La memoria del proyecto ha sido generada con \LaTeX{}\footnote{\textbf{Latex}: es un lenguaje de marcado que permite la composición de textos. Está especialmente orientado a la creación de documentos escritos que presenten una alta calidad tipográfica. Por sus características y posibilidades, es usado asiduamente en la generación de artículos y libros científicos.} utilizando la herramienta en línea \href{http://www.overleaf.com}{Overleaf}\footnote{\textbf{Overleaf}: es una aplicación web que permite, escribir, editar y publicar textos científicos escritos con \LaTeX{}}.
+Y, por otro lado, la documentación del código fuente de la aplicación ha sido generada con la herramienta gráfica de \href{https://www.doxygen.nl/index.html}{Doxygen}\footnote{\textbf{Doxygen}: es un generador de documentación para C++, C, C\# y Java, entre otros. Dado que es fácilmente adaptable, funciona en la mayoría de sistemas Unix, así como en Windows y Mac OS X.}.

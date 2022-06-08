@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7210227953220312581, guid: e28e71ed3db704f4a9dc0a153e42fc19, type: 3}
       propertyPath: defaultText_
-      value: Short Results By
+      value: Sort Results By
       objectReference: {fileID: 0}
     - target: {fileID: 7210227953220312581, guid: e28e71ed3db704f4a9dc0a153e42fc19, type: 3}
       propertyPath: defaultToggleActive_
@@ -240,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7210227953238927429, guid: e28e71ed3db704f4a9dc0a153e42fc19, type: 3}
       propertyPath: m_Text
-      value: Short Results By
+      value: Sort Results By
       objectReference: {fileID: 0}
     - target: {fileID: 7210227953238927429, guid: e28e71ed3db704f4a9dc0a153e42fc19, type: 3}
       propertyPath: m_FontData.m_BestFit
@@ -811,12 +811,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   email: alu0101101019@ull.edu.es
   subject: BugReport
-  body: 'Please describe what happened.
-
-    Adding a screenshot of the situation
-    will be helpfully.
-
-'
+  body: Please describe what happened. Adding a screenshot of the situation will
+    be helpful.
 --- !u!1 &1361043191
 GameObject:
   m_ObjectHideFlags: 0

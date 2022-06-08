@@ -144,3 +144,16 @@ Minas de San Jose; 38300, Santa Cruz de Tenerife; 28.2655679; -16.5889982; https
 Iglesia de San Agustín; C. San Agustín, 2, 38300 La Orotava, Santa Cruz de Tenerife; 28.3910246; -16.5228353; https://lh5.googleusercontent.com/p/AF1QipM2XwhTaXYNObXKpGTJf9SSaJ1qwMCfzGwWEhQc=w408-h306-k-no
 Instituto de Astrofísica de Canarias; C. Vía Láctea, s/n, 38205 San Cristóbal de La Laguna, Santa Cruz de Tenerife; 28.4746214; -16.3080916; https://lh5.googleusercontent.com/p/AF1QipNg72AmygoaTvNM5a6X4UUD1XYGrVXuHCDN_Ali=w408-h306-k-no
 Pico Viejo; 38300, Santa Cruz de Tenerife; 28.2622222; -16.6727778; https://lh5.googleusercontent.com/p/AF1QipM8P4od91oCrjseOg0Ij-ltYglR0q6rbQr4uPVo=w408-h306-k-no
+Dedos Playa de las Américas; Av. Rafael Puig Lluvina, 17, 38650 Playa de la Américas, Santa Cruz de Tenerife; 28.0599055; -16.7326467; https://lh5.googleusercontent.com/p/AF1QipNjzH48pIfSSNaxvHfb5nqyEWREwgOAfPNB7Zgx=w408-h306-k-no
+Mirador de La Ruleta; 38300 La Orotava, Santa Cruz de Tenerife; 28.2230957; -16.631272; https://lh5.googleusercontent.com/p/AF1QipP0f7S5TyOhtXL_ZarfYmXhVFNf2OrN6KnJhKzZ=w408-h306-k-no
+Dedos Playa de las Américas; Av. Rafael Puig Lluvina, 17, 38650 Playa de la Américas, Santa Cruz de Tenerife; 28.0599055; -16.7326467; https://lh5.googleusercontent.com/p/AF1QipNjzH48pIfSSNaxvHfb5nqyEWREwgOAfPNB7Zgx=w408-h306-k-no
+Mirador de La Ruleta; 38300 La Orotava, Santa Cruz de Tenerife; 28.2230957; -16.631272; https://lh5.googleusercontent.com/p/AF1QipP0f7S5TyOhtXL_ZarfYmXhVFNf2OrN6KnJhKzZ=w408-h306-k-no
+Dedos Playa de las Américas; Av. Rafael Puig Lluvina, 17, 38650 Playa de la Américas, Santa Cruz de Tenerife; 28.0599055; -16.7326467; https://lh5.googleusercontent.com/p/AF1QipNjzH48pIfSSNaxvHfb5nqyEWREwgOAfPNB7Zgx=w408-h306-k-no
+Mirador de La Ruleta; 38300 La Orotava, Santa Cruz de Tenerife; 28.2230957; -16.631272; https://lh5.googleusercontent.com/p/AF1QipP0f7S5TyOhtXL_ZarfYmXhVFNf2OrN6KnJhKzZ=w408-h306-k-no
+Dedos Playa de las Américas; Av. Rafael Puig Lluvina, 17, 38650 Playa de la Américas, Santa Cruz de Tenerife; 28.0599055; -16.7326467; https://lh5.googleusercontent.com/p/AF1QipNjzH48pIfSSNaxvHfb5nqyEWREwgOAfPNB7Zgx=w408-h306-k-no
+Mirador de La Ruleta; 38300 La Orotava, Santa Cruz de Tenerife; 28.2230957; -16.631272; https://lh5.googleusercontent.com/p/AF1QipP0f7S5TyOhtXL_ZarfYmXhVFNf2OrN6KnJhKzZ=w408-h306-k-no
+Mirador Archipenque; Carr. Gral. Puerto de Santiago, s/n, 38683 Acantilados de Los Gigantes, Santa Cruz de Tenerife; 28.2404149; -16.8370118; https://lh5.googleusercontent.com/p/AF1QipMJ3GrmAxxc_R0dYiCouw8grSGplKDzOuc1VItu=w408-h306-k-no
+Mirador de Chipeque; 38399 Sta Úrsula, Santa Cruz de Tenerife; 28.3739518; -16.4638328; https://lh5.googleusercontent.com/p/AF1QipPqaVdgJbDeDQ8P0-lunpnKKy5jVyCMTGw2PR9-=w408-h306-k-no
+Mirador De Cherfe; TF-436, 38690 Santiago del Teide, Santa Cruz de Tenerife; 28.2996791; -16.8238577; https://lh5.googleusercontent.com/p/AF1QipOxCihUi6fPqAZdQFLkGtrpKmQ79_hHYel1Bx3_=w408-h272-k-no
+Mirador Altos de Baracán; TF-436, 38489, Santa Cruz de Tenerife; 28.3279392; -16.8562879; https://lh5.googleusercontent.com/p/AF1QipPPnxcKlLO0eYP2y5F1eMcB01puEvNw093OnoPn=w408-h306-k-no
+Mirador de Fañabe; C. Baleares, 13, 38660 Costa Adeje, Santa Cruz de Tenerife; 28.0829771; -16.7204035; https://lh5.googleusercontent.com/p/AF1QipM_uGQOjfrUzhOzQfVWe6iL6K2g6w_GfXf3w8Ck=w426-h240-k-no
