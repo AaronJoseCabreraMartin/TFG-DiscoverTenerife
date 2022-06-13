@@ -105,8 +105,8 @@ public class gameRules{
       // tiene que ser 2 - [0,1] por que así cuanto menos tiempo haya usado, más cerca de 0 da la división y entonces, más cerca de 2 está
       //double timeScore = 2.0 - ((double)(completationTimestamp-startTimestamp))/((double)(gameRules.expiryTimeForChallenges_-startTimestamp));
       double timeScore = 1.0 + ((double)(gameRules.expiryTimeForChallenges_-completationTimestamp))/((double)(gameRules.expiryTimeForChallenges_-startTimestamp));
-      Debug.Log($"startTimestamp = {startTimestamp} completationTimestamp = {completationTimestamp} distanceToUserBase = {distanceToUserBase} timeScore = {timeScore}");
-      Debug.Log($"total de puntuación por completar el reto: {timeScore*distanceToUserBase}");
+      //Debug.Log($"startTimestamp = {startTimestamp} completationTimestamp = {completationTimestamp} distanceToUserBase = {distanceToUserBase} timeScore = {timeScore}");
+      //Debug.Log($"total de puntuación por completar el reto: {timeScore*distanceToUserBase}");
       //timeScore is always between 1 and 2
       //el maximo de puntuacion será estrictamente dependiente de la distancia a la base...
       //como minimo la score es igual a la distancia de la base y como maximo sera el doble de esa distancia.
@@ -193,7 +193,7 @@ public class gameRules{
       foreach(var rangeName in gameRules.ranges_.Keys){
         //Debug.Log("range = "+rangeName+$" -> score to be on the range = {gameRules.ranges_[rangeName]}");
         if(score >= gameRules.ranges_[rangeName]){
-          Debug.Log($"score = {score} -> range = "+rangeName);
+          //Debug.Log($"score = {score} -> range = "+rangeName);
           return rangeName;
         }
       }

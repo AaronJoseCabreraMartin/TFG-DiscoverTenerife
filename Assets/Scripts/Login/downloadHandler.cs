@@ -284,7 +284,7 @@ public partial class firebaseHandler{
                                                             } else if (taskChallenges.IsCompleted) {
                                                                 DataSnapshot snapshotChallenges = taskChallenges.Result;
                                                                 List<Dictionary<string,string>> challengesList;
-                                                                Debug.Log($"snapshotChallenges = {snapshotChallenges.GetRawJsonValue()}");
+                                                                //Debug.Log($"snapshotChallenges = {snapshotChallenges.GetRawJsonValue()}");
                                                                 if(snapshotChallenges.GetRawJsonValue() == null){
                                                                     challengesList = null;
                                                                 }else{

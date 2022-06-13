@@ -241,7 +241,7 @@ public class requestHandler
       * place with that index or type it will raise an exception.
       */
     public Place getPlaceByTypeAndId(string type, string id){
-      Debug.Log($"type = {type}, id = {id}");
+      //Debug.Log($"type = {type}, id = {id}");
         return listOfPlaces_[typesOfSites_.IndexOf(type)][Int32.Parse(id)];
     }
 
