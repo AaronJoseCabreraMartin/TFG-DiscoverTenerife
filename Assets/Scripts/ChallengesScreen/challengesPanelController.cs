@@ -15,6 +15,9 @@ public class challengesPanelController : adaptableSizePanel
       * that the current user has. It changes the panelFilled_ property to true.
       */
     protected override void fillPanel(){
+      
+      Debug.Log("Hay " + firebaseHandler.firebaseHandlerInstance_.currentUser_.getQuantityOfChallenges() + " retos");
+
       for(int i = 0; i < firebaseHandler.firebaseHandlerInstance_.currentUser_.getQuantityOfChallenges(); i++){
         GameObject challengeObject = Instantiate(prefab_, new Vector3(0, 0, 0), Quaternion.identity);
         challengeObject.GetComponent<challengePrefabController>().setChallengeData(firebaseHandler.firebaseHandlerInstance_.currentUser_.getChallenge(i));
